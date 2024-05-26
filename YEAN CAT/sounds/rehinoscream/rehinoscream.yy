@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"rehinoscream",
+  "audioGroupId":{
+    "name":"agDialouge",
+    "path":"audiogroups/agDialouge",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":60.120182,
+  "name":"rehinoscream",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"rehinoscream.ogg",
+  "type":1,
+  "volume":0.56,
+}

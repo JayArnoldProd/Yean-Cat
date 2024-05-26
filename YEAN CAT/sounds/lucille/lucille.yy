@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"lucille",
+  "audioGroupId":{
+    "name":"agMusic",
+    "path":"audiogroups/agMusic",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":133.64899,
+  "name":"lucille",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"lucille.ogg",
+  "type":1,
+  "volume":1.0,
+}

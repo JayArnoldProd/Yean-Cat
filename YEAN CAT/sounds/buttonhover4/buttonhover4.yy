@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"buttonhover4",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":0.639433,
+  "name":"buttonhover4",
+  "parent":{
+    "name":"UI",
+    "path":"folders/Sounds/UI.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"buttonhover4.ogg",
+  "type":0,
+  "volume":1.0,
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_set_my_permission",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_set_my_permission",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

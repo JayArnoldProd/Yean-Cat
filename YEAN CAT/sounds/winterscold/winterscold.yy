@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"winterscold",
+  "audioGroupId":{
+    "name":"agMusic",
+    "path":"audiogroups/agMusic",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":137.53365,
+  "name":"winterscold",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"winterscold.ogg",
+  "type":1,
+  "volume":1.0,
+}

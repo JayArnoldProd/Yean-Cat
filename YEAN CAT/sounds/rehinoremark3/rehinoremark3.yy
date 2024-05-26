@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"rehinoremark3",
+  "audioGroupId":{
+    "name":"agDialouge",
+    "path":"audiogroups/agDialouge",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":2.624989,
+  "name":"rehinoremark3",
+  "parent":{
+    "name":"REHINO",
+    "path":"folders/Sounds/razzi/REMARKS/RAZZI/REHINO.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"rehinoremark3.ogg",
+  "type":1,
+  "volume":0.9,
+}

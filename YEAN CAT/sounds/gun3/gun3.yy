@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"gun3",
+  "audioGroupId":{
+    "name":"agSFX",
+    "path":"audiogroups/agSFX",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":0.120181,
+  "name":"gun3",
+  "parent":{
+    "name":"weaponsounds",
+    "path":"folders/Sounds/weaponsounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"gun3.ogg",
+  "type":1,
+  "volume":0.15,
+}

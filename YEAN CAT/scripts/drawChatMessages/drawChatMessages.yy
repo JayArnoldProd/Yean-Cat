@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"drawChatMessages",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"drawChatMessages",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

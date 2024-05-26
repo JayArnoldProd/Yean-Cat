@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_show_gamepad_mapping",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_show_gamepad_mapping",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

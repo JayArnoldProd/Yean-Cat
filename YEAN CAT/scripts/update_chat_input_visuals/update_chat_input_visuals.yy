@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"update_chat_input_visuals",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"update_chat_input_visuals",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

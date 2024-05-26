@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"calculate_color_distance",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"calculate_color_distance",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

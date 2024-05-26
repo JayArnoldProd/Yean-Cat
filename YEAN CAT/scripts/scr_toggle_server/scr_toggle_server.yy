@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_toggle_server",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_toggle_server",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"ellayel",
+  "audioGroupId":{
+    "name":"agMusic",
+    "path":"audiogroups/agMusic",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":126.12982,
+  "name":"ellayel",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"ellayel.ogg",
+  "type":1,
+  "volume":1.0,
+}

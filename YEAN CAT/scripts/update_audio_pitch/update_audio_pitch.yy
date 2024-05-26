@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"update_audio_pitch",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"update_audio_pitch",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

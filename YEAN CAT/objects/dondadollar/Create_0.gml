@@ -1,0 +1,30 @@
+/// @description Insert description here
+// You can write your code in this editor
+fly=0
+grav=0
+onground=0
+frict=1
+time=0
+_vspeed=0
+_hspeed=0
+gravpull=1
+gravstr=.75
+vspeedset=0
+worldd=[]
+bullet_height_fromground=10
+image_speed=0
+frame=0
+rateset=round(4+random(4))
+rate=rateset
+anicount=0
+valuee=1
+scale=.17
+itemidd=1
+image_xscale=scale
+image_yscale=scale
+vspeedset=random(3)-1.5
+vspeed=vspeedset
+keep=0
+rand=random(999999)
+varispeed=clamp((100+random(10)-(2.5-scale)*40)/100,.1,5)
+myEmitter=audio_emitter_create()

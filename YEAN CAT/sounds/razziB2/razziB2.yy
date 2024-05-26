@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"razziB2",
+  "audioGroupId":{
+    "name":"agDialouge",
+    "path":"audiogroups/agDialouge",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":1.951927,
+  "name":"razziB2",
+  "parent":{
+    "name":"razzi",
+    "path":"folders/Sounds/razzi.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"razziB2.ogg",
+  "type":1,
+  "volume":0.47,
+}
