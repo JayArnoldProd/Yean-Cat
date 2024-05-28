@@ -37,4 +37,4 @@ def query_openai():
         response.raise_for_status()
         return jsonify(response.json())
     except requests.exceptions.RequestException as e:
-        return jsonify​⬤
+        return jsonify​
