@@ -6,7 +6,7 @@ on:
       - main
 
 jobs:
-  build:
+  test:
     runs-on: ubuntu-latest
 
     steps:
@@ -21,16 +21,25 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        pip install flask requests
+        pip install flask requests python-dotenv
 
     - name: Run tests
       run: |
-        # Add commands to run your tests
         echo "Running tests..."
+        # Add commands to run your tests
+        echo "Tests completed."
+
+    - name: Debug information
+      run: |
+        echo "Debugging information:"
+        echo "PWD: $(pwd)"
+        echo "Files in current directory:"
+        ls -la
 
     - name: Analyze code with GPT-4
       run: |
-        curl -X POST http://localhost:5000/api/query -H "Content-Type: application/json" -d '{"prompt": "Analyze the following code: <your_code_here>"}'
+        echo "Running code analysis..."
+        curl -X POST http://localhost:5000/api/query -H "Content-Type: application/json" -d '{"prompt": "Analyze the following code: def add(a, b):\n    return a + b"}'
 
     env:
       FORCE_JAVASCRIPT_ACTIONS_TO_NODE20: true
