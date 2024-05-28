@@ -18,40 +18,23 @@ def home():
 
 @app.route('/api/query', methods=['POST'])
 def query_openai():
-    prompt = request.json.get('prompt')
-    response = requests.post(
-        'https://api.openai.com/v1/chat/completions',
-        headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
-        json={
-            'model': 'gpt-3.5-turbo',
-            'messages': [{'role': 'user', 'content': prompt}],
-            'max_tokens': 150,
-            'temperature': 0.5,
-        }
-    )
-    return jsonify(response.json())
+    data = request.get_json()
+    prompt = data.get('prompt') if data else None
+    if not prompt:
+        return jsonify({"error": "Invalid input, 'prompt' field is required"}), 400
 
-@app.route('/api/update_code', methods=['POST'])
-def update_code():
-    file_path = request.json.get('file_path')
-    new_content = request.json.get('new_content')
-    commit_message = request.json.get('commit_message')
-
-    headers = {
-        'Authorization': f'token {GITHUB_TOKEN}',
-        'Accept': 'application/vnd.github.v3+json',
-    }
-    get_file_response = requests.get(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers)
-    file_sha = get_file_response.json().get('sha')
-
-    update_data = {
-        'message': commit_message,
-        'content': new_content,
-        'sha': file_sha,
-    }
-    update_response = requests.put(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers, json=update_data)
-    return jsonify(update_response.json())
-
-if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5000))
-    app.run(debug=True, host='0.0.0.0', port=port)
+    try:
+        response = requests.post(
+            'https://api.openai.com/v1/chat/completions',
+            headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
+            json={
+                'model': 'gpt-3.5-turbo',
+                'messages': [{'role': 'user', 'content': prompt}],
+                'max_tokens': 150,
+                'temperature': 0.5,
+            }
+        )
+        response.raise_for_status()
+        return jsonify(response.json())
+    except requests.exceptions.RequestException as e:
+        return jsonify​⬤
