@@ -6,15 +6,15 @@ on:
       - main
 
 jobs:
-  build:
-    runs-on: ubuntu-20.04  # Specifying a stable version
+  test:
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v3  # Updated to v3
+      uses: actions/checkout@v3
 
     - name: Set up Python
-      uses: actions/setup-python@v3  # Updated to v3
+      uses: actions/setup-python@v3
       with:
         python-version: '3.x'
 
@@ -25,8 +25,11 @@ jobs:
 
     - name: Run tests
       run: |
-        # Add commands to run your tests
+        # Add commands to run your tests, e.g., linting
         echo "Running tests..."
+        # Example: flake8 for Python linting
+        # pip install flake8
+        # flake8 .
 
     - name: Analyze code with GPT-4
       run: |
