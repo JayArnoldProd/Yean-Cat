@@ -10,10 +10,9 @@ idna==3.4
 itsdangerous==2.2.0
 Jinja2==3.1.4
 MarkupSafe==2.1.5
-numpy==1.23.3
+numpy==1.23.3+vanilla
 python-dotenv==1.0.1
 requests==2.28.1
-urllib3==1.26.13
-Werkzeug==3.0.3
 setuptools==69.2.0
 wheel==0.43.0
+Werkzeug==3.0.3
