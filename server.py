@@ -12,6 +12,10 @@ GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 GITHUB_REPO = 'JayArnoldProd/Yean-Cat'
 GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
 
+@app.route('/')
+def home():
+    return "Hello, this is the home page of Yean-Cat!"
+
 @app.route('/api/query', methods=['POST'])
 def query_openai():
     prompt = request.json.get('prompt')
