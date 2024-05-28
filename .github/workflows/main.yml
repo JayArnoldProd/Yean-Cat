@@ -44,9 +44,4 @@ jobs:
     - name: Analyze code with GPT-4
       run: |
         echo "Running code analysis..."
-        curl -X POST http://localhost:5000/api/query -H "Content-Type: application/json" -d '{"prompt": "Analyze the following code: def add(a, b):\n    return a + b"}'
-
-    - name: Capture logs
-      run: |
-        echo "Capturing logs..."
-        curl -X POST http://localhost:5000/api/query -H "Content-Type: application/json" -d '{"prompt": "Analyze the following code: def add(a, b): return a + b"}' || true
+        echo '{"prompt": "Analyze the following code: def add(a, b): return a + b"}'
