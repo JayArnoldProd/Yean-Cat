@@ -11,15 +11,15 @@ jobs:
 
     steps:
     - name: Checkout code
-      uses: actions/checkout@v4  # Updated to v4
+      uses: actions/checkout@v4
 
     - name: Set up Node.js
-      uses: actions/setup-node@v4  # Updated to v4
+      uses: actions/setup-node@v4
       with:
         node-version: '20'
 
     - name: Set up Python
-      uses: actions/setup-python@v5  # Ensure latest version
+      uses: actions/setup-python@v5
       with:
         python-version: '3.x'
 
@@ -45,3 +45,8 @@ jobs:
       run: |
         echo "Running code analysis..."
         curl -X POST http://localhost:5000/api/query -H "Content-Type: application/json" -d '{"prompt": "Analyze the following code: def add(a, b):\n    return a + b"}'
+
+    - name: Capture logs
+      run: |
+        echo "Capturing logs..."
+        curl -X POST http://localhost:5000/api/query -H "Content-Type: application/json" -d '{"prompt": "Analyze the following code: def add(a, b): return a + b"}' || true
