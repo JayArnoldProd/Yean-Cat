@@ -1,7 +1,6 @@
 from flask import Flask, request, jsonify
 import requests
 import os
-import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -70,63 +69,73 @@ def update_code():
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
+def read_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return file.read()
+    except FileNotFoundError:
+        return None
+
 @app.route('/api/generate_prompt', methods=['POST'])
 def generate_prompt():
     data = request.get_json()
     prompt_type = data.get('type')
     name = data.get('name')
-    additional_instructions = data.get('additional_instructions', '')
+    additional_instructions = data.get('additional_instructions')
+
+    if not prompt_type or not name:
+        return jsonify({"error": "Missing required fields"}), 400
 
     intro = read_file('Intro.txt')
     format_description = read_file('format_description.txt')
-    logs = []
+    
+    if not intro or not format_description:
+        return jsonify({"error": "Intro or format description files not found"}), 500
 
+    # Load the appropriate list based on the prompt type
     if prompt_type == 'bug':
-        item = find_item_in_json('bug_list.json', name)
-        if item:
-            logs = item.get('logs', [])
+        items = read_file('bug_list.json')
     elif prompt_type == 'feature':
-        item = find_item_in_json('planned_features.json', name)
-        if item:
-            logs = item.get('logs', [])
+        items = read_file('planned_features.json')
+    else:
+        return jsonify({"error": "Invalid prompt type"}), 400
+
+    if not items:
+        return jsonify({"error": f"{prompt_type}_list.json not found"}), 500
+
+    items = json.loads(items)
+    item = next((i for i in items if i['name'] == name), None)
 
     if not item:
-        return jsonify({"error": f"{prompt_type.capitalize()} named '{name}' not found"}), 404
+        return jsonify({"error": f"{prompt_type} with name {name} not found"}), 404
 
-    relevant_code = get_relevant_code(item)
-    client_logs = get_client_logs(logs)
+    # Build the prompt
+    prompt = f"{intro}\n\n{format_description}\n\nI need help with a {prompt_type}:\n\n"
+    prompt += f"Description: {item['description']}\n\n"
+    prompt += "Related objects:\n" + "\n".join(item['related_objects']) + "\n\n"
+    prompt += "Related scripts:\n" + "\n".join(item['related_scripts']) + "\n\n"
 
-    prompt = f"{intro}\n\n{format_description}\n\nI need help with {prompt_type}:\n\n{item['description']}\n\nHere is the relevant code:\n\n{relevant_code}\n\nClient logs:\n\n{client_logs}\n\n{additional_instructions}"
+    for script in item['related_scripts']:
+        script_path = f"YEAN CAT/scripts/{script}/{script}.gml"
+        script_content = read_file(script_path)
+        if script_content:
+            prompt += f"Script {script}:\n{script_content}\n\n"
+
+    for obj in item['related_objects']:
+        obj_path = f"YEAN CAT/objects/{obj}/"
+        if os.path.isdir(obj_path):
+            for filename in os.listdir(obj_path):
+                if filename.endswith('.gml'):
+                    file_content = read_file(os.path.join(obj_path, filename))
+                    if file_content:
+                        prompt += f"Object {obj} ({filename}):\n{file_content}\n\n"
+
+    prompt += "Logs:\n" + "\n".join(item['logs']) + "\n\n"
+
+    if additional_instructions:
+        prompt += f"Additional instructions:\n{additional_instructions}\n\n"
 
     return jsonify({"prompt": prompt})
-
-def read_file(file_path):
-    with open(file_path, 'r') as file:
-        return file.read()
-
-def find_item_in_json(json_file, name):
-    with open(json_file, 'r') as file:
-        items = json.load(file)
-        for item in items:
-            if item['name'].lower() == name.lower():
-                return item
-    return None
-
-def get_relevant_code(item):
-    code = ""
-    for script in item.get('related_scripts', []):
-        code += f"\n\n{script}.gml:\n" + read_file(f"YEAN CAT/scripts/{script}.gml")
-    for obj in item.get('related_objects', []):
-        for event_file in os.listdir(f"YEAN CAT/objects/{obj}"):
-            if event_file.endswith('.gml'):
-                code += f"\n\n{obj}/{event_file}:\n" + read_file(f"YEAN CAT/objects/{obj}/{event_file}")
-    return code
-
-def get_client_logs(logs):
-    log_content = ""
-    for log in logs:
-        log_content += f"\n\n{log}:\n" + read_file(f"Logs/{log}")
-    return log_content
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
