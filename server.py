@@ -12,6 +12,13 @@ GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 GITHUB_REPO = 'JayArnoldProd/Yean-Cat'
 GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
 
+def read_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return file.read()
+    except FileNotFoundError:
+        return None
+
 @app.route('/')
 def home():
     return "Hello, this is the home page of Yean-Cat!"
@@ -38,6 +45,42 @@ def query_openai():
         return jsonify(response.json())
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/api/generate_prompt', methods=['POST'])
+def generate_prompt():
+    data = request.get_json()
+    prompt_type = data.get('type')
+    prompt_name = data.get('name')
+    additional_instructions = data.get('additional_instructions', '')
+
+    intro = read_file('intro.txt')
+    format_description = read_file('format_description.txt')
+
+    if not intro or not format_description:
+        return jsonify({"error": "Intro or format description files not found"}), 400
+
+    if prompt_type == 'bug':
+        with open('bug_list.json', 'r') as f:
+            bug_list = json.load(f)
+        bug = next((bug for bug in bug_list if bug['name'] == prompt_name), None)
+        if not bug:
+            return jsonify({"error": "Bug not found"}), 400
+
+        prompt = f"{intro}\n\n{bug['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\nLogs:\n{''.join([read_file(f'Logs/{log}') for log in bug['logs']])}"
+
+    elif prompt_type == 'feature':
+        with open('planned_features.json', 'r') as f:
+            feature_list = json.load(f)
+        feature = next((feature for feature in feature_list if feature['name'] == prompt_name), None)
+        if not feature:
+            return jsonify({"error": "Feature not found"}), 400
+
+        prompt = f"{intro}\n\n{feature['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\nLogs:\n{''.join([read_file(f'Logs/{log}') for log in feature['logs']])}"
+
+    else:
+        return jsonify({"error": "Invalid prompt type"}), 400
+
+    return jsonify({"prompt": prompt})
 
 @app.route('/api/update_code', methods=['POST'])
 def update_code():
@@ -68,71 +111,6 @@ def update_code():
         return jsonify(update_response.json())
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
-
-def read_file(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            return file.read()
-    except FileNotFoundError:
-        return None
-
-@app.route('/api/generate_prompt', methods=['POST'])
-def generate_prompt():
-    data = request.get_json()
-    prompt_type = data.get('type')
-    prompt_name = data.get('name')
-    additional_instructions = data.get('additional_instructions', '')
-
-    intro = read_file('intro.txt')
-    format_description = read_file('format_description.txt')
-
-    if not intro or not format_description:
-    return jsonify({"error": "Intro or format description files not found"}), 400
-
-    # Load the appropriate list based on the prompt type
-    if prompt_type == 'bug':
-        items = read_file('bug_list.json')
-    elif prompt_type == 'feature':
-        items = read_file('planned_features.json')
-    else:
-        return jsonify({"error": "Invalid prompt type"}), 400
-
-    if not items:
-        return jsonify({"error": f"{prompt_type}_list.json not found"}), 500
-
-    items = json.loads(items)
-    item = next((i for i in items if i['name'] == name), None)
-
-    if not item:
-        return jsonify({"error": f"{prompt_type} with name {name} not found"}), 404
-
-    # Build the prompt
-    prompt = f"{intro}\n\n{format_description}\n\nI need help with a {prompt_type}:\n\n"
-    prompt += f"Description: {item['description']}\n\n"
-    prompt += "Related objects:\n" + "\n".join(item['related_objects']) + "\n\n"
-    prompt += "Related scripts:\n" + "\n".join(item['related_scripts']) + "\n\n"
-
-    for script in item['related_scripts']:
-        script_path = f"YEAN CAT/scripts/{script}/{script}.gml"
-        script_content = read_file(script_path)
-        if script_content:
-            prompt += f"Script {script}:\n{script_content}\n\n"
-
-    for obj in item['related_objects']:
-        obj_path = f"YEAN CAT/objects/{obj}/"
-        if os.path.isdir(obj_path):
-            for filename in os.listdir(obj_path):
-                if filename.endswith('.gml'):
-                    file_content = read_file(os.path.join(obj_path, filename))
-                    if file_content:
-                        prompt += f"Object {obj} ({filename}):\n{file_content}\n\n"
-
-    prompt += "Logs:\n" + "\n".join(item['logs']) + "\n\n"
-
-    if additional_instructions:
-        prompt += f"Additional instructions:\n{additional_instructions}\n\n"
-
-    return jsonify({"prompt": prompt})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
