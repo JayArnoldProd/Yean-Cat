@@ -80,17 +80,17 @@ def read_file(file_path):
 def generate_prompt():
     data = request.get_json()
     prompt_type = data.get('type')
-    name = data.get('name')
-    additional_instructions = data.get('additional_instructions')
-
-    if not prompt_type or not name:
-        return jsonify({"error": "Missing required fields"}), 400
-
-    intro = read_file('Intro.txt')
-    format_description = read_file('format_description.txt')
+    prompt_name = data.get('name')
+    additional_instructions = data.get('additional_instructions', '')
     
+    if not prompt_type or not name:
+    return jsonify({"error": "Missing required fields"}), 400
+
+    intro = read_file('intro.txt')
+    format_description = read_file('format_description.txt')
+
     if not intro or not format_description:
-        return jsonify({"error": "Intro or format description files not found"}), 500
+    return jsonify({"error": "Intro or format description files not found"}), 400
 
     # Load the appropriate list based on the prompt type
     if prompt_type == 'bug':
