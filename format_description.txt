@@ -1,0 +1,25 @@
+Command scripts should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
+
+For Example:
+/// @function scr_return_controller()
+/// @description Outputs the connected gamepad description or a message if none are connected
+function scr_return_controller() {
+    if (gamepad_is_connected(0)) {
+        var gpad_desc = gamepad_get_description(0);
+        handleDebugMessage("Connected gamepad: " + gpad_desc, true);
+    } else {
+        handleDebugMessage("No gamepad detected.", true);
+    }
+}
+
+add_command("command name (without scr_, if needs argument(s): ends with '(')", (permission level required), [["string", "real"]] (2D array defining accepted var types for each argument, boolean (whether this command needs at least 1 argument passed));
+
+Permission levels:
+0 -> Player
+1 -> Moderator
+2 -> Developer
+3 -> Owner
+
+For Example: 
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
