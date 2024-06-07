@@ -82,9 +82,6 @@ def generate_prompt():
     prompt_type = data.get('type')
     prompt_name = data.get('name')
     additional_instructions = data.get('additional_instructions', '')
-    
-    if not prompt_type or not name:
-    return jsonify({"error": "Missing required fields"}), 400
 
     intro = read_file('intro.txt')
     format_description = read_file('format_description.txt')
