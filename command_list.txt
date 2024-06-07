@@ -1,51 +1,37 @@
- @function scr_toggle_input_display()
-toggle_input_display.gml:function scr_toggle_input_display() {
-disable_heartbeat.gml:function scr_disable_heartbeat(){
-loadtrack2.gml:function scr_loadtrack2() {
-save_game.gml:function scr_save_game() {
- @function scr_return_controller()
-return_controller.gml:function scr_return_controller() {
-game_end.gml:function scr_game_end(args) {
-show_lines.gml:function scr_show_lines(lines) {
-set_my_permission.gml:function scr_set_my_permission(newPermission) {
- @function scr_list_variables()
-list_variables.gml:function scr_list_variables() {
- @function scr_show_gamepad_mapping()
-show_gamepad_mapping.gml:function scr_show_gamepad_mapping() {
-enable_heartbeat.gml:function scr_enable_heartbeat(){
-list_clients.gml:function scr_list_clients(){
- @function scr_execute_action(name)
-execute_action.gml:function scr_execute_action(actionName) {
- @function scr_chat_bubble(Text, owner)
-chat_bubble.gml:function scr_chat_bubble(argument0, argument1) {
-goto_planet.gml:function scr_goto_planet(_id) {
-toggle_server.gml:function scr_toggle_server(){
-calculate_spent.gml:function scr_calculate_spent(){
-savetrack.gml:function scr_savetrack() {
-betterdirection.gml:function scr_betterdirection(argument0){
-toggle_log_debug.gml:function scr_toggle_log_debug(){
- @function scr_save_macros()
-save_macros.gml:function scr_save_macros() {
- @function scr_add_action(name, commandName, parameters)
-add_action.gml:function scr_add_action(argument0, argument1, argument2) {
-jump_planet.gml:function scr_jump_planet(direction_) {
-toggle_debug.gml:function scr_toggle_debug(){
-load_game.gml:function scr_load_game() {
-set_variable.gml:function scr_set_variable(arg0, arg1) {
-level_up.gml:function scr_level_up(Count) {
- @function scr_slider_cluster
-slider_cluster.gml:function scr_slider_cluster(options_pick, offset_x, offset_y, slider_dir, lengthh, spacingg, menu){
- @function scr_name_color(color)
-name_color.gml:function scr_name_color(color){
- @function scr_save_actions()
-save_actions.gml:function scr_save_actions() {
- @function scr_show_variable(varName)
-show_variable.gml:function scr_show_variable(varName) {
-list_colors.gml:function scr_list_colors(){
-show_wpm.gml:function scr_show_wpm() {
-loadtrack.gml:function scr_loadtrack() {
-add_color.gml:function scr_add_color(){
- @function scr_list_commands()
-list_commands.gml:function scr_list_commands() {
- @function scr_list_actions()
-list_actions.gml:function scr_list_actions() {
+scr_add_action
+scr_add_color
+scr_betterdirection
+scr_calculate_spent
+scr_chat_bubble
+scr_disable_heartbeat
+scr_enable_heartbeat
+scr_execute_action
+scr_game_end
+scr_goto_planet
+scr_jump_planet
+scr_level_up
+scr_list_actions
+scr_list_clients
+scr_list_colors
+scr_list_commands
+scr_list_variables
+scr_load_game
+scr_loadtrack
+scr_loadtrack2
+scr_name_color
+scr_return_controller
+scr_save_actions
+scr_save_game
+scr_save_macros
+scr_savetrack
+scr_set_my_permission
+scr_set_variable
+scr_show_gamepad_mapping
+scr_show_lines
+scr_show_variable
+scr_show_wpm
+scr_slider_cluster
+scr_toggle_debug
+scr_toggle_input_display
+scr_toggle_log_debug
+scr_toggle_server
