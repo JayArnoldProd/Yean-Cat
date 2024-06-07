@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 import os
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -68,6 +69,64 @@ def update_code():
         return jsonify(update_response.json())
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
+
+@app.route('/api/generate_prompt', methods=['POST'])
+def generate_prompt():
+    data = request.get_json()
+    prompt_type = data.get('type')
+    name = data.get('name')
+    additional_instructions = data.get('additional_instructions', '')
+
+    intro = read_file('Intro.txt')
+    format_description = read_file('format_description.txt')
+    logs = []
+
+    if prompt_type == 'bug':
+        item = find_item_in_json('bug_list.json', name)
+        if item:
+            logs = item.get('logs', [])
+    elif prompt_type == 'feature':
+        item = find_item_in_json('planned_features.json', name)
+        if item:
+            logs = item.get('logs', [])
+
+    if not item:
+        return jsonify({"error": f"{prompt_type.capitalize()} named '{name}' not found"}), 404
+
+    relevant_code = get_relevant_code(item)
+    client_logs = get_client_logs(logs)
+
+    prompt = f"{intro}\n\n{format_description}\n\nI need help with {prompt_type}:\n\n{item['description']}\n\nHere is the relevant code:\n\n{relevant_code}\n\nClient logs:\n\n{client_logs}\n\n{additional_instructions}"
+
+    return jsonify({"prompt": prompt})
+
+def read_file(file_path):
+    with open(file_path, 'r') as file:
+        return file.read()
+
+def find_item_in_json(json_file, name):
+    with open(json_file, 'r') as file:
+        items = json.load(file)
+        for item in items:
+            if item['name'].lower() == name.lower():
+                return item
+    return None
+
+def get_relevant_code(item):
+    code = ""
+    for script in item.get('related_scripts', []):
+        code += f"\n\n{script}.gml:\n" + read_file(f"YEAN CAT/scripts/{script}.gml")
+    for obj in item.get('related_objects', []):
+        for event_file in os.listdir(f"YEAN CAT/objects/{obj}"):
+            if event_file.endswith('.gml'):
+                code += f"\n\n{obj}/{event_file}:\n" + read_file(f"YEAN CAT/objects/{obj}/{event_file}")
+    return code
+
+def get_client_logs(logs):
+    log_content = ""
+    for log in logs:
+        log_content += f"\n\n{log}:\n" + read_file(f"Logs/{log}")
+    return log_content
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
