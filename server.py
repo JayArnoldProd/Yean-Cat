@@ -12,6 +12,7 @@ load_dotenv()
 app = Flask(__name__)
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+ASSISTANT_API_KEY = os.getenv('ASSISTANT_API_KEY')
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 GITHUB_REPO = 'JayArnoldProd/Yean-Cat'
 GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
@@ -41,7 +42,7 @@ def query_openai(prompt, model='gpt-4', retries=3):
         try:
             response = requests.post(
                 'https://api.openai.com/v1/assistants',
-                headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
+                headers={'Authorization': f'Bearer {ASSISTANT_API_KEY}'},
                 json={
                     'model': model,
                     'messages': [{'role': 'user', 'content': prompt}],
@@ -175,7 +176,6 @@ def update_code():
             'content': new_content,
             'sha': file_sha,
         }
-        update_response = requests.put(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers, json=update_data)
         update_response.raise_for_status()
         return jsonify(update_response.json())
     except requests.exceptions.RequestException as e:
@@ -184,3 +184,4 @@ def update_code():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
+    
