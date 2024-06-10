@@ -125,7 +125,7 @@ def generate_prompt():
 
 
 ########## assistant.py.txt ##########
-from flask import Blueprint, jsonify
+from flask import Blueprint, request, jsonify
 import threading
 import requests
 import os
