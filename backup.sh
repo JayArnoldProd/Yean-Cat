@@ -10,10 +10,11 @@ copy_files() {
     mkdir -p "$(dirname "$dest")"
     if [[ $file != *.txt ]]; then
       cp "$file" "$dest.txt"
+      mv "$dest.txt" "${dest#.}.txt"  # Remove leading dot to make the file visible and add .txt extension
     else
       cp "$file" "$dest"
+      mv "$dest" "${dest#.}"  # Remove leading dot to make the file visible
     fi
-    mv "$dest" "${dest#.}"  # Remove leading dot to make the file visible
   done
 }
 
