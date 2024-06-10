@@ -11,6 +11,9 @@ mkdir -p $BACKUP_DIR
 # Function to copy files while preserving directory structure
 copy_files() {
   for file in "$@"; do
+    if [[ $file == .env || $file == .env.* ]]; then
+      continue
+    fi
     dest="$BACKUP_DIR/${file#./}"
     mkdir -p "$(dirname "$dest")"
     if [[ $file != *.txt ]]; then
@@ -30,8 +33,8 @@ unhide_directories() {
   done
 }
 
-# Find all relevant files in the root directory and subdirectories
-all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store")
+# Find all relevant files in the root directory and subdirectories, excluding .env files
+all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store" ! -name ".env")
 
 # Copy files to backup directory
 copy_files $all_files
@@ -71,20 +74,13 @@ for folder in $BACKUP_DIR/*/; do
     create_master_backup $folder
 done
 
-echo "Backup completed successfully!"
+echo "Backup and deployment completed successfully!"
 
-# Set the GitHub remote URL with the token for authentication
-git remote set-url origin https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/${GITHUB_USERNAME}/Yean-Cat.git
-
-# Add and commit changes
+# Push to GitHub
 git add .
 git commit -m "Automated backup and deployment"
-
-# Push changes to GitHub
 git push origin main
 
 # Deploy to Heroku
-git remote set-url heroku https://git.heroku.com/yean-cat-git-gpt.git
 git push heroku main
-
-echo "Backup and deployment completed successfully!"
+heroku logs --tail
