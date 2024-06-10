@@ -22,6 +22,8 @@ def read_file(file_path):
         return None
 
 def write_file(file_path, content):
+    # Ensure the directory exists
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
     with open(file_path, 'w') as file:
         file.write(content)
 
