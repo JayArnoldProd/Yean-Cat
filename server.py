@@ -1,10 +1,14 @@
 from flask import Flask
 from dotenv import load_dotenv
 import os
+import threading
 from routes.query import query_openai_route
+from routes.assistant import assistant_route
 from routes.generate_prompt import generate_prompt_route
 from routes.update_code import update_code_route
-from routes.assistant import assistant_route
+
+# Initialize the thread lock
+thread_lock = threading.Lock()
 
 # Load environment variables from a .env file
 load_dotenv()
