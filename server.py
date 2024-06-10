@@ -3,7 +3,7 @@ import requests
 import os
 import json
 from dotenv import load_dotenv
-from pinecone import Pinecone, ServerlessSpec
+import pinecone
 import threading
 import time
 import random
@@ -19,21 +19,12 @@ PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
 GITHUB_REPO = 'JayArnoldProd/Yean-Cat'
 GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
 
-# Initialize Pinecone with a valid index name
-pc = Pinecone(api_key=PINECONE_API_KEY)
-
-# Ensure index name is valid
+# Initialize Pinecone
+pinecone.init(api_key=PINECONE_API_KEY)
 index_name = 'yean-cat-git-gpt-index'
-
-if index_name not in pc.list_indexes().names():
-    pc.create_index(
-        name=index_name,
-        dimension=1536,
-        metric='euclidean',
-        spec=ServerlessSpec(cloud='aws', region='us-east-1')
-    )
-
-index = pc.Index(index_name)
+if index_name not in pinecone.list_indexes():
+    pinecone.create_index(name=index_name, dimension=1536, metric='euclidean')
+index = pinecone.Index(index_name)
 
 thread_lock = threading.Lock()
 user_threads = {}
@@ -73,13 +64,12 @@ def query_openai(prompt, model='gpt-4', retries=3):
                 raise e
     raise Exception("Max retries exceeded")
 
-def upsert_pinecone_vector(vector_id, vector_values, metadata=None):
-    vectors = [{"id": vector_id, "values": vector_values, "metadata": metadata}]
+def upsert_vectors_to_pinecone(prompt, response):
+    vectors = [
+        {"id": "prompt", "values": [float(x) for x in prompt], "metadata": {"type": "prompt"}},
+        {"id": "response", "values": [float(x) for x in response], "metadata": {"type": "response"}}
+    ]
     index.upsert(vectors=vectors)
-
-def query_pinecone_vector(vector, namespace=None, top_k=2, filter=None):
-    query_response = index.query(vector=vector, top_k=top_k, include_values=True, include_metadata=True, namespace=namespace, filter=filter)
-    return query_response
 
 @app.route('/')
 def home():
@@ -105,10 +95,8 @@ def query_openai_route():
                 if thread_id not in user_threads:
                     user_threads[thread_id] = []
                 user_threads[thread_id].append(response)
-        
-        # Upsert the response to Pinecone
-        upsert_pinecone_vector(thread_id, response["choices"][0]["message"]["content"])
-        
+        # Upsert vectors to Pinecone
+        upsert_vectors_to_pinecone(prompt, response)
         return jsonify(response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
@@ -213,35 +201,34 @@ def update_code():
 def assistant_api_route():
     data = request.get_json()
     message = data.get('message')
-    thread_id = data.get('thread_id', 'default')
-    
+    thread_id = data.get(‘thread_id’, ‘default’)
     if not message:
-        return jsonify({"error": "Invalid input, 'message' field is required"}), 400
+    return jsonify({"error": "Invalid input, 'message' field is required"}), 400
 
+with thread_lock:
+    if thread_id not in user_threads:
+        user_threads[thread_id] = []
+
+try:
+    response = requests.post(
+        'https://api.openai.com/v1/assistants',
+        headers={'Authorization': f'Bearer {ASSISTANT_API_KEY}'},
+        json={
+            'message': message,
+            'thread_id': thread_id,
+            'context': user_threads[thread_id]
+        }
+    )
+    response.raise_for_status()
+    assistant_response = response.json()
+    
     with thread_lock:
-        if thread_id not in user_threads:
-            user_threads[thread_id] = []
+        user_threads[thread_id].append({"role": "assistant", "content": assistant_response['message']})
 
-    try:
-        response = requests.post(
-            'https://api.openai.com/v1/assistants',
-            headers={'Authorization': f'Bearer {ASSISTANT_API_KEY}'},
-            json={
-                'message': message,
-                'thread_id': thread_id,
-                'context': user_threads[thread_id]
-            }
-        )
-        response.raise_for_status()
-        assistant_response = response.json()
-        
-        with thread_lock:
-            user_threads[thread_id].append({"role": "assistant", "content": assistant_response['message']})
+    return jsonify(assistant_response)
+except requests.exceptions.RequestException as e:
+    return jsonify({"error": str(e)}), 500
 
-        return jsonify(assistant_response)
-    except requests.exceptions.RequestException as e:
-        return jsonify({"error": str(e)}), 500
-
-if __name__ == '__main__':
+if name == 'main':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
