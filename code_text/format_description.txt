@@ -1,0 +1,29 @@
+If you are creating a new in-game, executable script, it should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
+
+For Example:
+/// @function scr_return_controller()
+/// @description Outputs the connected gamepad description or a message if none are connected
+function scr_return_controller() {
+    if (gamepad_is_connected(0)) {
+        var gpad_desc = gamepad_get_description(0);
+        handleDebugMessage("Connected gamepad: " + gpad_desc, true);
+    } else {
+        handleDebugMessage("No gamepad detected.", true);
+    }
+}
+
+add_command("command name (without scr_, if needs argument(s): ends with '(')", (permission level required), [["string", "real"]] (2D array defining accepted var types for each argument, boolean (whether this command needs at least 1 argument passed));
+
+Permission levels:
+0 -> Player
+1 -> Moderator
+2 -> Developer
+3 -> Owner
+
+For Example: 
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+
+*Remember this is only needed if you are adding a new command to the game, try and reuse existing scripts as much as possible and let me know if you would need to see a specific script that was not included, but could be helpful in resolving the issue! Remember that you are a 1 time chat interaction and will have no memory of this so If you cant see the solution to the bug or the method to adding the desired feature, then simply reply with what else you need to see in my code.
+
+The game features an in game console which allows players with the required permission to execute code and create new features from within the game. Typing "/" will mean that the player is typing a command. Some commands do not require a "(", for example: /toggle_server . You can create actions by typing /add_action("Name it",Command_name,[100,"example_string"]) and can create macros essentially for commands and will be able to trigger these actions in sequences and events, or possibly controlled by an AI GPT like yourself. This is how It is intended to work, but it is still needing some fixes to be able to handle saving actions for commands that take more than 1 argument, such as /chat_bubble("Text",owner). 

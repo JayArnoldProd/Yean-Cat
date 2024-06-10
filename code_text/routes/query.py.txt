@@ -1,8 +1,12 @@
 from flask import request, jsonify
+import os
+import requests
+from utils.file_operations import read_file
+from utils.pinecone_operations import upsert_vectors_to_pinecone
 from utils.openai_operations import query_openai
-from utils.pinecone_operations import init_pinecone_index, upsert_vectors_to_pinecone
 
-index = init_pinecone_index()
+thread_lock = threading.Lock()
+user_threads = {}
 
 def query_openai_route():
     data = request.get_json()
@@ -24,11 +28,7 @@ def query_openai_route():
                     user_threads[thread_id] = []
                 user_threads[thread_id].append(response)
         # Upsert vectors to Pinecone
-        vectors = [
-            {"id": "prompt", "values": [float(x) for x in prompt], "metadata": {"type": "prompt"}},
-            {"id": "response", "values": [float(x) for x in response], "metadata": {"type": "response"}}
-        ]
-        upsert_vectors_to_pinecone(index, vectors)
+        upsert_vectors_to_pinecone(prompt, response)
         return jsonify(response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
