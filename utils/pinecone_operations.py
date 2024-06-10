@@ -1,11 +1,11 @@
 import os
-import pinecone
+from pinecone import Pinecone, ServerlessSpec
 
 def init_pinecone_index(index_name):
     api_key = os.getenv("PINECONE_API_KEY")
-    pinecone.init(api_key=api_key)
-    if not pinecone.Index.exists(index_name):
-        pinecone.create_index(
+    pc = Pinecone(api_key=api_key)
+    if index_name not in pc.list_indexes():
+        pc.create_index(
             name=index_name,
             dimension=1536,
             metric="euclidean",
@@ -14,11 +14,13 @@ def init_pinecone_index(index_name):
                 region='us-east-1'
             )
         )
-    return pinecone.Index(index_name)
+    return pc.index(index_name)
 
 def upsert_vectors_to_pinecone(vectors):
     index_name = os.getenv("PINECONE_INDEX_NAME")
-    index = pinecone.Index(index_name)
+    api_key = os.getenv("PINECONE_API_KEY")
+    pc = Pinecone(api_key=api_key)
+    index = pc.index(index_name)
     
     # Assuming vectors is a list of tuples (id, vector)
     index.upsert(vectors)
