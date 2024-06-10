@@ -73,7 +73,7 @@ def query_openai_route():
 def generate_prompt():
     data = request.get_json()
     prompt_type = data.get('type')
-    prompt_name = data.get('name')
+    item_name = data.get('name')
     save_name = data.get('save_name')
     additional_instructions = data.get('additional_instructions', '')
 
@@ -90,14 +90,14 @@ def generate_prompt():
         if prompt_type == 'bug':
             with open('bug_list.json', 'r') as f:
                 bug_list = json.load(f)
-            item = next((bug for bug in bug_list if bug['name'] == prompt_name), None)
+            item = next((bug for bug in bug_list if bug['name'] == item_name), None)
             if not item:
                 return jsonify({"error": "Bug not found"}), 400
 
         elif prompt_type == 'feature':
             with open('planned_features.json', 'r') as f:
                 feature_list = json.load(f)
-            item = next((feature for feature in feature_list if feature['name'] == prompt_name), None)
+            item = next((feature for feature in feature_list if feature['name'] == item_name), None)
             if not item:
                 return jsonify({"error": "Feature not found"}), 400
 
