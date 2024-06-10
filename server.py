@@ -74,7 +74,11 @@ def generate_prompt():
     data = request.get_json()
     prompt_type = data.get('type')
     prompt_name = data.get('name')
+    save_name = data.get('save_name')
     additional_instructions = data.get('additional_instructions', '')
+
+    if not save_name:
+        return jsonify({"error": "Invalid input, 'save_name' field is required"}), 400
 
     intro = read_file('intro.txt')
     format_description = read_file('format_description.txt')
@@ -123,7 +127,7 @@ def generate_prompt():
 
     prompt += "Logs:\n" + "\n".join([read_file(f'Logs/{log}') for log in item['logs']]) + "\n\n"
 
-    prompt_file_path = f'prompts/{prompt_name}.txt'
+    prompt_file_path = f'prompts/{save_name}.txt'
     write_file(prompt_file_path, prompt)
 
     return jsonify({"message": f"Prompt saved as '{prompt_file_path}'"})
