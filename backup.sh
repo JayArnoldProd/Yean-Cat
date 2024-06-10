@@ -24,4 +24,9 @@ all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path 
 # Copy files to backup directory
 copy_files $all_files
 
+# Unhide .txt files if they were hidden originally
+find $BACKUP_DIR -name ".*.txt" | while read hidden_file; do
+  mv "$hidden_file" "$(dirname "$hidden_file")/$(basename "$hidden_file" | sed 's/^\.//')"
+done
+
 echo "Backup completed successfully!"
