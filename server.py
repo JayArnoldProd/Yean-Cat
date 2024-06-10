@@ -23,7 +23,7 @@ GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
 # Ensure index name is valid
-index_name = 'yean-cat-git-gpt-index'  # Change to a name that suits you, complying with naming rules
+index_name = 'yean-cat-git-gpt-index'
 
 if index_name not in pc.list_indexes().names():
     pc.create_index(
