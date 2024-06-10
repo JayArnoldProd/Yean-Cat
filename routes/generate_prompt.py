@@ -1,6 +1,4 @@
-from flask import Blueprint, request, jsonify
-import json
-import os
+from flask import Blueprint, jsonify
 
 generate_prompt_route = Blueprint('generate_prompt_route', __name__)
 

@@ -1,6 +1,4 @@
-from flask import Blueprint, request, jsonify
-import requests
-import os
+from flask import Blueprint, jsonify
 
 update_code_route = Blueprint('update_code_route', __name__)
 

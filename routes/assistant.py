@@ -1,7 +1,4 @@
-from flask import Blueprint, request, jsonify
-import requests
-import os
-import threading
+from flask import Blueprint, jsonify
 
 assistant_route = Blueprint('assistant_route', __name__)
 

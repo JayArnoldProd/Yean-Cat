@@ -1,8 +1,5 @@
 ########## assistant.py.txt ##########
-from flask import Blueprint, request, jsonify
-import requests
-import os
-import threading
+from flask import Blueprint, jsonify
 
 assistant_route = Blueprint('assistant_route', __name__)
 
@@ -44,9 +41,7 @@ def assistant():
 
 
 ########## generate_prompt.py.txt ##########
-from flask import Blueprint, request, jsonify
-import json
-import os
+from flask import Blueprint, jsonify
 
 generate_prompt_route = Blueprint('generate_prompt_route', __name__)
 
@@ -130,14 +125,13 @@ def generate_prompt():
 
 
 ########## query.py.txt ##########
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
 from utils.pinecone_operations import init_pinecone_index, upsert_vectors_to_pinecone
 import os
 
 query_openai_route = Blueprint('query_openai_route', __name__)
 
-# Initialize the Pinecone index with the correct function call
-index_name = os.getenv('PINECONE_INDEX_NAME')
+index_name = "yean-cat-git-gpt-index"  # Use the correct index name
 index = init_pinecone_index(index_name)
 
 @query_openai_route.route('/query', methods=['POST'])
@@ -160,12 +154,21 @@ def assistant():
     # Your endpoint logic here
     return jsonify({"message": "Assistant query successful"})
 
+# Add this route if you want to use the upsert_vectors_to_pinecone function
+@query_openai_route.route('/api/upsert_vectors', methods=['POST'])
+def upsert_vectors():
+    data = request.get_json()
+    vectors = data.get('vectors', [])  # Ensure the vectors are in the correct format
+    if vectors:
+        upsert_vectors_to_pinecone(vectors)
+        return jsonify({"message": "Vectors upserted successfully"})
+    else:
+        return jsonify({"message": "No vectors provided"}), 400
+
 
 
 ########## update_code.py.txt ##########
-from flask import Blueprint, request, jsonify
-import requests
-import os
+from flask import Blueprint, jsonify
 
 update_code_route = Blueprint('update_code_route', __name__)
 
