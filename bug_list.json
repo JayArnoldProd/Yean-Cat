@@ -1,9 +1,9 @@
 [
     {
-        "name": "Sample Bug",
-        "description": "This is a sample bug description.",
-        "related_objects": ["obj_client", "dondadollar"],
-        "related_scripts": ["scr_toggle_server", "scr_list_colors"],
-        "logs": ["SessionLog_45450.51.txt"]
+        "name": "Console Bug",
+        "description": "The main bug in my game that needs fixing is that for some reason, typing /add_action(Lvl100,level_up,[100]) works and creates a reusable action named,Lvl100. Typing /execute_action(Lvl100) will level up the player 100 times. The issuse is when I try to create an action with 2 or more arguments, something goes wrong. For example: /add_action(HelloWorld,chat_bubble,[Hello World!,yeancat]) does not work. It says that it created an action, but when I try to execute the action, it throws an error (see cliet logs). I have reason to believe the saving of the actions is where this goes wrong. (scr_add_action)",
+        "related_objects": ["obj_Client"],
+        "related_scripts": ["execute_command, "scr_add_action", "scr_execute_action", "save_actions", "load_actions","parse_arguments","parse_data_types","handleDebugMessage","handleCommandWithArgs"],
+        "logs": ["SessionLog_45453.16.txt"]
     }
 ]
