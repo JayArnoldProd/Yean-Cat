@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 import os
-import json  # Ensure json is imported
+import json
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -36,9 +36,9 @@ def query_openai():
             'https://api.openai.com/v1/chat/completions',
             headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
             json={
-                'model': 'gpt-3.5-turbo',
+                'model': 'gpt-4',
                 'messages': [{'role': 'user', 'content': prompt}],
-                'max_tokens': 150,
+                'max_tokens': 2048,
                 'temperature': 0.5,
             }
         )
@@ -101,7 +101,23 @@ def generate_prompt():
 
     prompt += "Logs:\n" + "\n".join([read_file(f'Logs/{log}') for log in item['logs']]) + "\n\n"
 
-    return jsonify({"prompt": prompt})
+    # Send prompt to GPT-4
+    try:
+        response = requests.post(
+            'https://api.openai.com/v1/chat/completions',
+            headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
+            json={
+                'model': 'gpt-4',
+                'messages': [{'role': 'user', 'content': prompt}],
+                'max_tokens': 2048,
+                'temperature': 0.5,
+            }
+        )
+        response.raise_for_status()
+        gpt_response = response.json()
+        return jsonify(gpt_response)
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": str(e)}), 500
 
 @app.route('/api/update_code', methods=['POST'])
 def update_code():
