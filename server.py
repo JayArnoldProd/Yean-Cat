@@ -3,38 +3,33 @@ import requests
 import os
 import json
 from dotenv import load_dotenv
+import pinecone
+from pinecone import Pinecone, ServerlessSpec
 import time
 import random
-from pinecone import Pinecone, ServerlessSpec
 
 load_dotenv()
 
 app = Flask(__name__)
 
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
-ASSISTANT_API_KEY = os.getenv('ASSISTANT_API_KEY')
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+ASSISTANT_API_KEY = os.getenv('ASSISTANT_API_KEY')
+PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
 GITHUB_REPO = 'JayArnoldProd/Yean-Cat'
 GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
-PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
 
 # Initialize Pinecone
-pc = Pinecone(
-    api_key=PINECONE_API_KEY
-)
+pinecone.init(api_key=PINECONE_API_KEY)
+pc = Pinecone(api_key=PINECONE_API_KEY)
 
-index_name = 'yean-cat-vectors'
-if index_name not in pc.list_indexes().names():
+if 'yean_cat_index' not in pc.list_indexes().names():
     pc.create_index(
-        name=index_name,
+        name='yean_cat_index',
         dimension=1536,
         metric='euclidean',
-        spec=ServerlessSpec(
-            cloud='aws',
-            region='us-west-2'
-        )
+        spec=ServerlessSpec(cloud='aws', region='us-east-1')
     )
-index = pc.Index(index_name)
 
 def read_file(file_path):
     try:
@@ -52,8 +47,8 @@ def query_openai(prompt, model='gpt-4', retries=3):
     for i in range(retries):
         try:
             response = requests.post(
-                'https://api.openai.com/v1/assistants',
-                headers={'Authorization': f'Bearer {ASSISTANT_API_KEY}'},
+                'https://api.openai.com/v1/chat/completions',
+                headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
                 json={
                     'model': model,
                     'messages': [{'role': 'user', 'content': prompt}],
@@ -130,13 +125,9 @@ def generate_prompt():
     except json.JSONDecodeError as e:
         return jsonify({"error": f"JSON Decode Error: {e}"}), 500
 
-    # Query relevant code snippets from Pinecone
-    result = index.query(item_name, top_k=5)
-    related_scripts = [match['metadata']['script_name'] for match in result['matches']]
-    
     prompt = f"{intro}\n\n{item['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\n"
 
-    for script in related_scripts:
+    for script in item['related_scripts']:
         script_path = f"YEAN CAT/scripts/{script}/{script}.gml"
         script_content = read_file(script_path)
         if script_content:
