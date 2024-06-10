@@ -136,7 +136,9 @@ import os
 
 query_openai_route = Blueprint('query_openai_route', __name__)
 
-index = init_pinecone_index(os.getenv('PINECONE_INDEX_NAME'))
+# Initialize the Pinecone index with the correct function call
+index_name = os.getenv('PINECONE_INDEX_NAME')
+index = init_pinecone_index(index_name)
 
 @query_openai_route.route('/query', methods=['POST'])
 def query_openai():
