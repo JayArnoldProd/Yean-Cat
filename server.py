@@ -132,7 +132,39 @@ def generate_prompt():
     prompt_file_path = f'prompts/{save_name}.txt'
     write_file(prompt_file_path, prompt)
 
-    return jsonify({"message": f"Prompt saved as '{prompt_file_path}'"})
+    # Save the prompt locally and push to GitHub
+    local_prompt_path = f'/Users/joshuaarnold/Documents/GitHub/Yean-Cat/prompts/{save_name}.txt'
+    write_file(local_prompt_path, prompt)
+
+    # Push to GitHub
+    with open(local_prompt_path, 'rb') as file:
+        file_content = file.read()
+
+    encoded_content = base64.b64encode(file_content).decode('utf-8')
+
+    commit_data = {
+        "message": f"Add prompt {save_name}",
+        "content": encoded_content,
+        "branch": "main"
+    }
+
+    headers = {
+        "Authorization": f"token {GITHUB_TOKEN}",
+        "Accept": "application/vnd.github.v3+json"
+    }
+
+    try:
+        get_file_response = requests.get(f'{GITHUB_API_URL}/contents/prompts/{save_name}.txt', headers=headers)
+        if get_file_response.status_code == 200:
+            sha = get_file_response.json()['sha']
+            commit_data['sha'] = sha
+
+        update_response = requests.put(f'{GITHUB_API_URL}/contents/prompts/{save_name}.txt', headers=headers, json=commit_data)
+        update_response.raise_for_status()
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": str(e)}), 500
+
+    return jsonify({"message": f"Prompt saved as '{prompt_file_path}' and pushed to GitHub"})
 
 @app.route('/api/update_code', methods=['POST'])
 def update_code():
