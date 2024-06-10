@@ -1,4 +1,7 @@
 from flask import Blueprint, jsonify
+import threading
+import requests
+import os
 
 assistant_route = Blueprint('assistant_route', __name__)
 
@@ -20,7 +23,7 @@ def assistant():
     try:
         response = requests.post(
             'https://api.openai.com/v1/assistants',
-            headers={'Authorization': f'Bearer {os.getenv("ASSISTANT_API_KEY")}'},
+            headers={'Authorization': f'Bearer ' + os.getenv("ASSISTANT_API_KEY")},
             json={
                 'message': message,
                 'thread_id': thread_id,
@@ -29,7 +32,7 @@ def assistant():
         )
         response.raise_for_status()
         assistant_response = response.json()
-        
+
         with thread_lock:
             user_threads[thread_id].append({"role": "assistant", "content": assistant_response['message']})
 
