@@ -13,6 +13,7 @@ copy_files() {
   for file in "$@"; do
     dest="$BACKUP_DIR/${file#./}"
     mkdir -p "$(dirname "$dest")"
+    echo "Copying $file to $dest"
     if [[ $file != *.txt ]]; then
       cp "$file" "$dest.txt"
       mv "$dest.txt" "${dest#.}.txt"  # Remove leading dot to make the file visible and add .txt extension
@@ -60,7 +61,7 @@ create_master_backup() {
     for file in $folder/*.txt; do
         if [ -f "$file" ]; then
             echo "########## $(basename $file) ##########" >> $output_file
-            cat $file >> $output_file
+            cat "$file" >> $output_file
             echo -e "\n\n" >> $output_file
         fi
     done
