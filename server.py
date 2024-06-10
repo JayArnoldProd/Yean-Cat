@@ -5,6 +5,7 @@ import json
 from dotenv import load_dotenv
 import time
 import random
+import pinecone
 
 load_dotenv()
 
@@ -14,6 +15,14 @@ OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
 GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 GITHUB_REPO = 'JayArnoldProd/Yean-Cat'
 GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
+PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
+
+# Initialize Pinecone
+pinecone.init(api_key=PINECONE_API_KEY, environment='us-west1-gcp')
+index_name = 'yean-cat-vectors'
+if index_name not in pinecone.list_indexes():
+    pinecone.create_index(index_name, dimension=1536)
+index = pinecone.Index(index_name)
 
 def read_file(file_path):
     try:
@@ -31,7 +40,7 @@ def query_openai(prompt, model='gpt-4', retries=3):
     for i in range(retries):
         try:
             response = requests.post(
-                'https://api.openai.com/v1/chat/completions',
+                'https://api.openai.com/v1/assistants',
                 headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
                 json={
                     'model': model,
@@ -109,9 +118,13 @@ def generate_prompt():
     except json.JSONDecodeError as e:
         return jsonify({"error": f"JSON Decode Error: {e}"}), 500
 
+    # Query relevant code snippets from Pinecone
+    result = index.query(item_name, top_k=5)
+    related_scripts = [match['metadata']['script_name'] for match in result['matches']]
+    
     prompt = f"{intro}\n\n{item['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\n"
 
-    for script in item['related_scripts']:
+    for script in related_scripts:
         script_path = f"YEAN CAT/scripts/{script}/{script}.gml"
         script_content = read_file(script_path)
         if script_content:
