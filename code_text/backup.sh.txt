@@ -36,6 +36,10 @@ unhide_directories() {
 # Find all relevant files in the root directory and subdirectories, excluding certain paths
 all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./code_text_backup/*" ! -path "./folder_backups/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store")
 
+# Debugging information
+echo "All files to be backed up:"
+echo "$all_files"
+
 # Copy files to backup directory
 copy_files $all_files
 
