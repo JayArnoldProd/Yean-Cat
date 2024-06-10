@@ -1,9 +1,9 @@
 from flask import Flask, request, jsonify
 import requests
 import os
-import json  # Ensure json is imported
+import json
 from dotenv import load_dotenv
-import time  # Add time for sleep
+import time
 
 load_dotenv()
 
@@ -20,6 +20,10 @@ def read_file(file_path):
             return file.read()
     except FileNotFoundError:
         return None
+
+def write_file(file_path, content):
+    with open(file_path, 'w') as file:
+        file.write(content)
 
 def query_openai(prompt, model='gpt-4'):
     try:
@@ -50,10 +54,14 @@ def home():
 @app.route('/api/query', methods=['POST'])
 def query_openai_route():
     data = request.get_json()
-    prompt = data.get('prompt') if data else None
+    prompt_name = data.get('prompt_name')
     model = data.get('model', 'gpt-4')
+    if not prompt_name:
+        return jsonify({"error": "Invalid input, 'prompt_name' field is required"}), 400
+    
+    prompt = read_file(f'prompts/{prompt_name}.txt')
     if not prompt:
-        return jsonify({"error": "Invalid input, 'prompt' field is required"}), 400
+        return jsonify({"error": f"Prompt file '{prompt_name}.txt' not found"}), 400
 
     try:
         response = query_openai(prompt, model)
@@ -115,7 +123,10 @@ def generate_prompt():
 
     prompt += "Logs:\n" + "\n".join([read_file(f'Logs/{log}') for log in item['logs']]) + "\n\n"
 
-    return jsonify({"prompt": prompt})
+    prompt_file_path = f'prompts/{prompt_name}.txt'
+    write_file(prompt_file_path, prompt)
+
+    return jsonify({"message": f"Prompt saved as '{prompt_file_path}'"})
 
 @app.route('/api/update_code', methods=['POST'])
 def update_code():
