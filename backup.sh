@@ -8,16 +8,19 @@ copy_files() {
   for file in "$@"; do
     dest="$BACKUP_DIR/${file#./}"
     mkdir -p "$(dirname "$dest")"
-    cp "$file" "$dest.txt"
+    if [[ $file != *.txt ]]; then
+      cp "$file" "$dest.txt"
+    else
+      cp "$file" "$dest"
+    fi
+    mv "$dest" "${dest#.}"  # Remove leading dot to make the file visible
   done
 }
 
-# Backup visible files
-visible_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -name "*.txt")
-copy_files $visible_files
+# Find all relevant files in the root directory and subdirectories
+all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store")
 
-# Backup hidden files
-hidden_files=$(find . -type f -name ".*" ! -path "./$BACKUP_DIR/*" ! -path "./.git/*")
-copy_files $hidden_files
+# Copy files to backup directory
+copy_files $all_files
 
 echo "Backup completed successfully!"
