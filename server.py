@@ -21,13 +21,13 @@ def read_file(file_path):
     except FileNotFoundError:
         return None
 
-def query_openai(prompt):
+def query_openai(prompt, model='gpt-4'):
     try:
         response = requests.post(
             'https://api.openai.com/v1/chat/completions',
             headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
             json={
-                'model': 'gpt-4',
+                'model': model,
                 'messages': [{'role': 'user', 'content': prompt}],
                 'max_tokens': 1000,
                 'temperature': 0.5,
@@ -39,7 +39,7 @@ def query_openai(prompt):
         if response.status_code == 429:  # Too Many Requests
             retry_after = int(response.headers.get("Retry-After", 10))  # default to 10 seconds
             time.sleep(retry_after)
-            return query_openai(prompt)  # retry
+            return query_openai(prompt, model)  # retry
         else:
             raise e
 
@@ -51,11 +51,12 @@ def home():
 def query_openai_route():
     data = request.get_json()
     prompt = data.get('prompt') if data else None
+    model = data.get('model', 'gpt-4')
     if not prompt:
         return jsonify({"error": "Invalid input, 'prompt' field is required"}), 400
 
     try:
-        response = query_openai(prompt)
+        response = query_openai(prompt, model)
         return jsonify(response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
@@ -114,11 +115,7 @@ def generate_prompt():
 
     prompt += "Logs:\n" + "\n".join([read_file(f'Logs/{log}') for log in item['logs']]) + "\n\n"
 
-    try:
-        response = query_openai(prompt)
-        return jsonify(response)
-    except requests.exceptions.RequestException as e:
-        return jsonify({"error": str(e)}), 500
+    return jsonify({"prompt": prompt})
 
 @app.route('/api/update_code', methods=['POST'])
 def update_code():
