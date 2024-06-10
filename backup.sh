@@ -26,19 +26,19 @@ copy_files() {
 # Function to unhide directories and files within them
 unhide_directories() {
   find $BACKUP_DIR -type d -name ".*" | while read hidden_dir; do
-    mv "$hidden_dir" "$(dirname "$hidden_dir")/$(basename "$hidden_dir" | sed 's/^\.//')"
+    mv "$hidden_dir" "$(dirname "$hidden_dir")/$(basename "$hidden_dir")"
   done
 }
 
 # Find all relevant files in the root directory and subdirectories
-all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store")
+all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store" ! -name "folder_backups_backup.txt")
 
 # Copy files to backup directory
 copy_files $all_files
 
 # Unhide .txt files if they were hidden originally
 find $BACKUP_DIR -name ".*.txt" | while read hidden_file; do
-  mv "$hidden_file" "$(dirname "$hidden_file")/$(basename "$hidden_file" | sed 's/^\.//')"
+  mv "$hidden_file" "$(dirname "$hidden_file")/$(basename "$hidden_file")"
 done
 
 # Unhide hidden directories
@@ -56,8 +56,8 @@ create_master_backup() {
     # Empty the output file if it already exists
     > $output_file
 
-    # Iterate over all .txt files in the folder
-    for file in $folder/*.txt; do
+    # Iterate over all .txt files in the folder and subfolders
+    find $folder -type f -name "*.txt" ! -name "folder_backups_backup.txt" | while read file; do
         if [ -f "$file" ]; then
             echo "########## $(basename $file) ##########" >> $output_file
             cat $file >> $output_file
@@ -70,5 +70,25 @@ create_master_backup() {
 for folder in $BACKUP_DIR/*/; do
     create_master_backup $folder
 done
+
+# Create a master backup file for the root of code_text (files not in a subfolder)
+create_master_backup_root() {
+    local output_file=$FOLDER_BACKUPS/folder_backups_backup.txt
+    
+    # Empty the output file if it already exists
+    > $output_file
+
+    # Iterate over all .txt files in the root of BACKUP_DIR
+    find $BACKUP_DIR -maxdepth 1 -type f -name "*.txt" ! -name "folder_backups_backup.txt" | while read file; do
+        if [ -f "$file" ]; then
+            echo "########## $(basename $file) ##########" >> $output_file
+            cat $file >> $output_file
+            echo -e "\n\n" >> $output_file
+        fi
+    done
+}
+
+# Create a master backup file for the root of code_text
+create_master_backup_root
 
 echo "Backup completed successfully!"
