@@ -1,13 +1,15 @@
-from flask import request, jsonify
-import os
+from flask import Blueprint, request, jsonify
 import requests
+import os
 import threading
 
-ASSISTANT_API_KEY = os.getenv('ASSISTANT_API_KEY')
+assistant_route = Blueprint('assistant_route', __name__)
+
 thread_lock = threading.Lock()
 user_threads = {}
 
-def assistant_route():
+@assistant_route.route('/assistant', methods=['POST'])
+def assistant():
     data = request.get_json()
     message = data.get('message')
     thread_id = data.get('thread_id', 'default')
@@ -21,7 +23,7 @@ def assistant_route():
     try:
         response = requests.post(
             'https://api.openai.com/v1/assistants',
-            headers={'Authorization': f'Bearer {ASSISTANT_API_KEY}'},
+            headers={'Authorization': f'Bearer {os.getenv("ASSISTANT_API_KEY")}'},
             json={
                 'message': message,
                 'thread_id': thread_id,

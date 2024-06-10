@@ -1,7 +1,22 @@
-from flask import request, jsonify
-from utils.file_operations import read_file, write_file
+from flask import Blueprint, request, jsonify
+import json
+import os
 
-def generate_prompt_route():
+generate_prompt_route = Blueprint('generate_prompt_route', __name__)
+
+def read_file(filepath):
+    try:
+        with open(filepath, 'r') as file:
+            return file.read()
+    except FileNotFoundError:
+        return None
+
+def write_file(filepath, content):
+    with open(filepath, 'w') as file:
+        file.write(content)
+
+@generate_prompt_route.route('/generate_prompt', methods=['POST'])
+def generate_prompt():
     data = request.get_json()
     prompt_type = data.get('type')
     item_name = data.get('name')

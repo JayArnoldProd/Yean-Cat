@@ -1,7 +1,6 @@
-from flask import Flask, request, jsonify
+from flask import Flask
 from dotenv import load_dotenv
 import os
-import threading
 from routes.query import query_openai_route
 from routes.generate_prompt import generate_prompt_route
 from routes.update_code import update_code_route
@@ -12,10 +11,10 @@ load_dotenv()
 app = Flask(__name__)
 
 app.add_url_rule('/', 'home', lambda: "Hello, this is the home page of Yean-Cat!")
-app.add_url_rule('/api/query', 'query_openai_route', query_openai_route, methods=['POST'])
-app.add_url_rule('/api/generate_prompt', 'generate_prompt_route', generate_prompt_route, methods=['POST'])
-app.add_url_rule('/api/update_code', 'update_code_route', update_code_route, methods=['POST'])
-app.add_url_rule('/api/assistant', 'assistant_route', assistant_route, methods=['POST'])
+app.register_blueprint(query_openai_route, url_prefix='/api')
+app.register_blueprint(generate_prompt_route, url_prefix='/api')
+app.register_blueprint(update_code_route, url_prefix='/api')
+app.register_blueprint(assistant_route, url_prefix='/api')
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))

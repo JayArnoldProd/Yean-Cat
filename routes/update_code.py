@@ -1,11 +1,11 @@
-from flask import request, jsonify
-import os
+from flask import Blueprint, request, jsonify
 import requests
+import os
 
-GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
-GITHUB_API_URL = f'https://api.github.com/repos/{os.getenv("GITHUB_REPO")}'
+update_code_route = Blueprint('update_code_route', __name__)
 
-def update_code_route():
+@update_code_route.route('/update_code', methods=['POST'])
+def update_code():
     data = request.get_json()
     file_path = data.get('file_path')
     new_content = data.get('new_content')
@@ -13,6 +13,9 @@ def update_code_route():
 
     if not file_path or not new_content or not commit_message:
         return jsonify({"error": "Missing required fields"}), 400
+
+    GITHUB_API_URL = os.getenv('GITHUB_API_URL')
+    GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 
     headers = {
         'Authorization': f'token {GITHUB_TOKEN}',
