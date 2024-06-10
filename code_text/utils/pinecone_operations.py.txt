@@ -1,4 +1,3 @@
-# utils/pinecone_operations.py
 import os
 from pinecone import Pinecone, ServerlessSpec
 
@@ -21,3 +20,11 @@ def init_pinecone_index():
             )
         )
     return pc.index(index_name)
+
+def upsert_vectors_to_pinecone(vectors):
+    PINECONE_INDEX_NAME = os.getenv("PINECONE_INDEX_NAME")
+    pc = Pinecone(api_key=os.getenv("PINECONE_API_KEY"))
+    index = pc.index(PINECONE_INDEX_NAME)
+    
+    # Assuming vectors is a list of tuples (id, vector)
+    index.upsert(vectors)
