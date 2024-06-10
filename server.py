@@ -60,22 +60,25 @@ def generate_prompt():
     if not intro or not format_description:
         return jsonify({"error": "Intro or format description files not found"}), 400
 
-    if prompt_type == 'bug':
-        with open('bug_list.json', 'r') as f:
-            bug_list = json.load(f)
-        item = next((bug for bug in bug_list if bug['name'] == prompt_name), None)
-        if not item:
-            return jsonify({"error": "Bug not found"}), 400
+    try:
+        if prompt_type == 'bug':
+            with open('bug_list.json', 'r') as f:
+                bug_list = json.load(f)
+            item = next((bug for bug in bug_list if bug['name'] == prompt_name), None)
+            if not item:
+                return jsonify({"error": "Bug not found"}), 400
 
-    elif prompt_type == 'feature':
-        with open('planned_features.json', 'r') as f:
-            feature_list = json.load(f)
-        item = next((feature for feature in feature_list if feature['name'] == prompt_name), None)
-        if not item:
-            return jsonify({"error": "Feature not found"}), 400
+        elif prompt_type == 'feature':
+            with open('planned_features.json', 'r') as f:
+                feature_list = json.load(f)
+            item = next((feature for feature in feature_list if feature['name'] == prompt_name), None)
+            if not item:
+                return jsonify({"error": "Feature not found"}), 400
 
-    else:
-        return jsonify({"error": "Invalid prompt type"}), 400
+        else:
+            return jsonify({"error": "Invalid prompt type"}), 400
+    except json.JSONDecodeError as e:
+        return jsonify({"error": f"JSON Decode Error: {e}"}), 500
 
     prompt = f"{intro}\n\n{item['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\n"
 
