@@ -18,6 +18,13 @@ copy_files() {
   done
 }
 
+# Function to unhide directories and files within them
+unhide_directories() {
+  find $BACKUP_DIR -type d -name ".*" | while read hidden_dir; do
+    mv "$hidden_dir" "$(dirname "$hidden_dir")/$(basename "$hidden_dir" | sed 's/^\.//')"
+  done
+}
+
 # Find all relevant files in the root directory and subdirectories
 all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store")
 
@@ -28,5 +35,8 @@ copy_files $all_files
 find $BACKUP_DIR -name ".*.txt" | while read hidden_file; do
   mv "$hidden_file" "$(dirname "$hidden_file")/$(basename "$hidden_file" | sed 's/^\.//')"
 done
+
+# Unhide hidden directories
+unhide_directories
 
 echo "Backup completed successfully!"
