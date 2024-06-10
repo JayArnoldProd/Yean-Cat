@@ -1,9 +1,10 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, jsonify
 from utils.pinecone_operations import init_pinecone_index, upsert_vectors_to_pinecone
+import os
 
 query_openai_route = Blueprint('query_openai_route', __name__)
 
-index = init_pinecone_index()
+index = init_pinecone_index(os.getenv('PINECONE_INDEX_NAME'))
 
 @query_openai_route.route('/query', methods=['POST'])
 def query_openai():
