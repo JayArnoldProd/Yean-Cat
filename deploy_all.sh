@@ -71,17 +71,20 @@ for folder in $BACKUP_DIR/*/; do
     create_master_backup $folder
 done
 
-# Create a master backup for the top-level .txt files
-create_master_backup $BACKUP_DIR
+echo "Backup completed successfully!"
 
-# Add, commit and push changes to GitHub
+# Set the GitHub remote URL with the token for authentication
+git remote set-url origin https://${GITHUB_USERNAME}:${GITHUB_TOKEN}@github.com/${GITHUB_USERNAME}/Yean-Cat.git
+
+# Add and commit changes
 git add .
 git commit -m "Automated backup and deployment"
-git remote set-url origin https://github.com/JayArnoldProd/Yean-Cat.git
+
+# Push changes to GitHub
 git push origin main
 
 # Deploy to Heroku
-heroku git:remote -a yean-cat-git-gpt
+git remote set-url heroku https://git.heroku.com/yean-cat-git-gpt.git
 git push heroku main
 
 echo "Backup and deployment completed successfully!"

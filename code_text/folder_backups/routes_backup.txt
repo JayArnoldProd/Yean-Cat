@@ -1,40 +1,43 @@
-########## update_code.py.txt ##########
+########## assistant.py.txt ##########
 from flask import Blueprint, request, jsonify
 import requests
 import os
+import threading
 
-update_code_route = Blueprint('update_code_route', __name__)
+assistant_route = Blueprint('assistant_route', __name__)
 
-@update_code_route.route('/update_code', methods=['POST'])
-def update_code():
+thread_lock = threading.Lock()
+user_threads = {}
+
+@assistant_route.route('/assistant', methods=['POST'])
+def assistant():
     data = request.get_json()
-    file_path = data.get('file_path')
-    new_content = data.get('new_content')
-    commit_message = data.get('commit_message')
+    message = data.get('message')
+    thread_id = data.get('thread_id', 'default')
+    if not message:
+        return jsonify({"error": "Invalid input, 'message' field is required"}), 400
 
-    if not file_path or not new_content or not commit_message:
-        return jsonify({"error": "Missing required fields"}), 400
+    with thread_lock:
+        if thread_id not in user_threads:
+            user_threads[thread_id] = []
 
-    GITHUB_API_URL = os.getenv('GITHUB_API_URL')
-    GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
-
-    headers = {
-        'Authorization': f'token {GITHUB_TOKEN}',
-        'Accept': 'application/vnd.github.v3+json',
-    }
     try:
-        get_file_response = requests.get(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers)
-        get_file_response.raise_for_status()
-        file_sha = get_file_response.json().get('sha')
+        response = requests.post(
+            'https://api.openai.com/v1/assistants',
+            headers={'Authorization': f'Bearer {os.getenv("ASSISTANT_API_KEY")}'},
+            json={
+                'message': message,
+                'thread_id': thread_id,
+                'context': user_threads[thread_id]
+            }
+        )
+        response.raise_for_status()
+        assistant_response = response.json()
+        
+        with thread_lock:
+            user_threads[thread_id].append({"role": "assistant", "content": assistant_response['message']})
 
-        update_data = {
-            'message': commit_message,
-            'content': new_content,
-            'sha': file_sha,
-        }
-        update_response = requests.put(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers, json=update_data)
-        update_response.raise_for_status()
-        return jsonify(update_response.json())
+        return jsonify(assistant_response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
@@ -126,51 +129,6 @@ def generate_prompt():
 
 
 
-########## assistant.py.txt ##########
-from flask import Blueprint, request, jsonify
-import requests
-import os
-import threading
-
-assistant_route = Blueprint('assistant_route', __name__)
-
-thread_lock = threading.Lock()
-user_threads = {}
-
-@assistant_route.route('/assistant', methods=['POST'])
-def assistant():
-    data = request.get_json()
-    message = data.get('message')
-    thread_id = data.get('thread_id', 'default')
-    if not message:
-        return jsonify({"error": "Invalid input, 'message' field is required"}), 400
-
-    with thread_lock:
-        if thread_id not in user_threads:
-            user_threads[thread_id] = []
-
-    try:
-        response = requests.post(
-            'https://api.openai.com/v1/assistants',
-            headers={'Authorization': f'Bearer {os.getenv("ASSISTANT_API_KEY")}'},
-            json={
-                'message': message,
-                'thread_id': thread_id,
-                'context': user_threads[thread_id]
-            }
-        )
-        response.raise_for_status()
-        assistant_response = response.json()
-        
-        with thread_lock:
-            user_threads[thread_id].append({"role": "assistant", "content": assistant_response['message']})
-
-        return jsonify(assistant_response)
-    except requests.exceptions.RequestException as e:
-        return jsonify({"error": str(e)}), 500
-
-
-
 ########## query.py.txt ##########
 from flask import Blueprint, jsonify
 from utils.pinecone_operations import init_pinecone_index, upsert_vectors_to_pinecone
@@ -199,6 +157,48 @@ def update_code():
 def assistant():
     # Your endpoint logic here
     return jsonify({"message": "Assistant query successful"})
+
+
+
+########## update_code.py.txt ##########
+from flask import Blueprint, request, jsonify
+import requests
+import os
+
+update_code_route = Blueprint('update_code_route', __name__)
+
+@update_code_route.route('/update_code', methods=['POST'])
+def update_code():
+    data = request.get_json()
+    file_path = data.get('file_path')
+    new_content = data.get('new_content')
+    commit_message = data.get('commit_message')
+
+    if not file_path or not new_content or not commit_message:
+        return jsonify({"error": "Missing required fields"}), 400
+
+    GITHUB_API_URL = os.getenv('GITHUB_API_URL')
+    GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
+
+    headers = {
+        'Authorization': f'token {GITHUB_TOKEN}',
+        'Accept': 'application/vnd.github.v3+json',
+    }
+    try:
+        get_file_response = requests.get(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers)
+        get_file_response.raise_for_status()
+        file_sha = get_file_response.json().get('sha')
+
+        update_data = {
+            'message': commit_message,
+            'content': new_content,
+            'sha': file_sha,
+        }
+        update_response = requests.put(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers, json=update_data)
+        update_response.raise_for_status()
+        return jsonify(update_response.json())
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": str(e)}), 500
 
 
 

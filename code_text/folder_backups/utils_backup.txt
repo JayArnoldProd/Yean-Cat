@@ -1,3 +1,18 @@
+########## file_operations.py.txt ##########
+def read_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return file.read()
+    except FileNotFoundError:
+        return None
+
+def write_file(file_path, content):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'w') as file:
+        file.write(content)
+
+
+
 ########## openai_operations.py.txt ##########
 import os
 import requests
@@ -62,21 +77,6 @@ def upsert_vectors_to_pinecone(vectors):
     
     # Assuming vectors is a list of tuples (id, vector)
     index.upsert(vectors)
-
-
-
-########## file_operations.py.txt ##########
-def read_file(file_path):
-    try:
-        with open(file_path, 'r') as file:
-            return file.read()
-    except FileNotFoundError:
-        return None
-
-def write_file(file_path, content):
-    os.makedirs(os.path.dirname(file_path), exist_ok=True)
-    with open(file_path, 'w') as file:
-        file.write(content)
 
 
 
