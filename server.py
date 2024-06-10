@@ -4,6 +4,7 @@ import os
 import json
 from dotenv import load_dotenv
 from pinecone import Pinecone, ServerlessSpec
+import threading
 import time
 import random
 
@@ -18,16 +19,22 @@ PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
 GITHUB_REPO = 'JayArnoldProd/Yean-Cat'
 GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
 
-# Initialize Pinecone
+# Initialize Pinecone with a valid index name
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
-if 'yean_cat_index' not in pc.list_indexes().names():
+# Ensure index name is valid
+index_name = 'yean-cat-git-gpt-index'  # Change to a name that suits you, complying with naming rules
+
+if index_name not in pc.list_indexes().names():
     pc.create_index(
-        name='yean_cat_index',
+        name=index_name,
         dimension=1536,
         metric='euclidean',
         spec=ServerlessSpec(cloud='aws', region='us-east-1')
     )
+
+thread_lock = threading.Lock()
+user_threads = {}
 
 def read_file(file_path):
     try:
@@ -73,6 +80,7 @@ def query_openai_route():
     data = request.get_json()
     prompt_name = data.get('prompt_name')
     model = data.get('model', 'gpt-4')
+    thread_id = data.get('thread_id')
     if not prompt_name:
         return jsonify({"error": "Invalid input, 'prompt_name' field is required"}), 400
     
@@ -82,6 +90,11 @@ def query_openai_route():
 
     try:
         response = query_openai(prompt, model)
+        if thread_id:
+            with thread_lock:
+                if thread_id not in user_threads:
+                    user_threads[thread_id] = []
+                user_threads[thread_id].append(response)
         return jsonify(response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
@@ -179,6 +192,39 @@ def update_code():
         update_response = requests.put(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers, json=update_data)
         update_response.raise_for_status()
         return jsonify(update_response.json())
+    except requests.exceptions.RequestException as e:
+        return jsonify({"error": str(e)}), 500
+
+@app.route('/api/assistant', methods=['POST'])
+def assistant_api_route():
+    data = request.get_json()
+    message = data.get('message')
+    thread_id = data.get('thread_id', 'default')
+    
+    if not message:
+        return jsonify({"error": "Invalid input, 'message' field is required"}), 400
+
+    with thread_lock:
+        if thread_id not in user_threads:
+            user_threads[thread_id] = []
+
+    try:
+        response = requests.post(
+            'https://api.openai.com/v1/assistants',
+            headers={'Authorization': f'Bearer {ASSISTANT_API_KEY}'},
+            json={
+                'message': message,
+                'thread_id': thread_id,
+                'context': user_threads[thread_id]
+            }
+        )
+        response.raise_for_status()
+        assistant_response = response.json()
+        
+        with thread_lock:
+            user_threads[thread_id].append({"role": "assistant", "content": assistant_response['message']})
+
+        return jsonify(assistant_response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
