@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 import os
-import json
+import json  # Ensure json is imported
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -38,7 +38,7 @@ def query_openai():
             json={
                 'model': 'gpt-4',
                 'messages': [{'role': 'user', 'content': prompt}],
-                'max_tokens': 2048,
+                'max_tokens': 1024,
                 'temperature': 0.5,
             }
         )
@@ -101,7 +101,7 @@ def generate_prompt():
 
     prompt += "Logs:\n" + "\n".join([read_file(f'Logs/{log}') for log in item['logs']]) + "\n\n"
 
-    # Send prompt to GPT-4
+    # Send the generated prompt to GPT-4 and return the response
     try:
         response = requests.post(
             'https://api.openai.com/v1/chat/completions',
@@ -109,13 +109,12 @@ def generate_prompt():
             json={
                 'model': 'gpt-4',
                 'messages': [{'role': 'user', 'content': prompt}],
-                'max_tokens': 2048,
+                'max_tokens': 1024,
                 'temperature': 0.5,
             }
         )
         response.raise_for_status()
-        gpt_response = response.json()
-        return jsonify(gpt_response)
+        return jsonify(response.json())
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
