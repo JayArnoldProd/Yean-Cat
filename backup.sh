@@ -33,8 +33,8 @@ unhide_directories() {
   done
 }
 
-# Find all relevant files in the root directory and subdirectories
-all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store")
+# Find all relevant files in the root directory and subdirectories, excluding certain paths
+all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./code_text_backup/*" ! -path "./folder_backups/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store")
 
 # Copy files to backup directory
 copy_files $all_files
@@ -71,7 +71,10 @@ create_master_backup() {
 
 # Create master backup files for each subfolder in code_text
 for folder in $BACKUP_DIR/*/; do
-    create_master_backup $folder
+    # Exclude the code_text_backup folder from being backed up
+    if [[ $(basename $folder) != "code_text_backup" ]]; then
+        create_master_backup $folder
+    fi
 done
 
 echo "Backup completed successfully!"
