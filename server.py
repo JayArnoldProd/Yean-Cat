@@ -1,7 +1,7 @@
 from flask import Flask, request, jsonify
 import requests
 import os
-import json  # Add this import
+import json  # Ensure json is imported
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -63,23 +63,40 @@ def generate_prompt():
     if prompt_type == 'bug':
         with open('bug_list.json', 'r') as f:
             bug_list = json.load(f)
-        bug = next((bug for bug in bug_list if bug['name'] == prompt_name), None)
-        if not bug:
+        item = next((bug for bug in bug_list if bug['name'] == prompt_name), None)
+        if not item:
             return jsonify({"error": "Bug not found"}), 400
-
-        prompt = f"{intro}\n\n{bug['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\nLogs:\n{''.join([read_file(f'Logs/{log}') for log in bug['logs']])}"
 
     elif prompt_type == 'feature':
         with open('planned_features.json', 'r') as f:
             feature_list = json.load(f)
-        feature = next((feature for feature in feature_list if feature['name'] == prompt_name), None)
-        if not feature:
+        item = next((feature for feature in feature_list if feature['name'] == prompt_name), None)
+        if not item:
             return jsonify({"error": "Feature not found"}), 400
-
-        prompt = f"{intro}\n\n{feature['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\nLogs:\n{''.join([read_file(f'Logs/{log}') for log in feature['logs']])}"
 
     else:
         return jsonify({"error": "Invalid prompt type"}), 400
+
+    prompt = f"{intro}\n\n{item['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\n"
+
+    # Include relevant scripts
+    for script in item['related_scripts']:
+        script_path = f"YEAN CAT/scripts/{script}/{script}.gml"
+        script_content = read_file(script_path)
+        if script_content:
+            prompt += f"Script {script}:\n{script_content}\n\n"
+
+    # Include relevant object events
+    for obj in item['related_objects']:
+        obj_path = f"YEAN CAT/objects/{obj}/"
+        if os.path.isdir(obj_path):
+            for filename in os.listdir(obj_path):
+                if filename.endswith('.gml'):
+                    file_content = read_file(os.path.join(obj_path, filename))
+                    if file_content:
+                        prompt += f"Object {obj} ({filename}):\n{file_content}\n\n"
+
+    prompt += "Logs:\n" + "\n".join([read_file(f'Logs/{log}') for log in item['logs']]) + "\n\n"
 
     return jsonify({"prompt": prompt})
 
