@@ -3,6 +3,7 @@ import requests
 import os
 import json  # Ensure json is imported
 from dotenv import load_dotenv
+import time  # Add time for sleep
 
 load_dotenv()
 
@@ -20,17 +21,7 @@ def read_file(file_path):
     except FileNotFoundError:
         return None
 
-@app.route('/')
-def home():
-    return "Hello, this is the home page of Yean-Cat!"
-
-@app.route('/api/query', methods=['POST'])
-def query_openai():
-    data = request.get_json()
-    prompt = data.get('prompt') if data else None
-    if not prompt:
-        return jsonify({"error": "Invalid input, 'prompt' field is required"}), 400
-
+def query_openai(prompt):
     try:
         response = requests.post(
             'https://api.openai.com/v1/chat/completions',
@@ -43,7 +34,29 @@ def query_openai():
             }
         )
         response.raise_for_status()
-        return jsonify(response.json())
+        return response.json()
+    except requests.exceptions.HTTPError as e:
+        if response.status_code == 429:  # Too Many Requests
+            retry_after = int(response.headers.get("Retry-After", 10))  # default to 10 seconds
+            time.sleep(retry_after)
+            return query_openai(prompt)  # retry
+        else:
+            raise e
+
+@app.route('/')
+def home():
+    return "Hello, this is the home page of Yean-Cat!"
+
+@app.route('/api/query', methods=['POST'])
+def query_openai_route():
+    data = request.get_json()
+    prompt = data.get('prompt') if data else None
+    if not prompt:
+        return jsonify({"error": "Invalid input, 'prompt' field is required"}), 400
+
+    try:
+        response = query_openai(prompt)
+        return jsonify(response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
@@ -102,18 +115,8 @@ def generate_prompt():
     prompt += "Logs:\n" + "\n".join([read_file(f'Logs/{log}') for log in item['logs']]) + "\n\n"
 
     try:
-        response = requests.post(
-            'https://api.openai.com/v1/chat/completions',
-            headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
-            json={
-                'model': 'gpt-4',
-                'messages': [{'role': 'user', 'content': prompt}],
-                'max_tokens': 1000,
-                'temperature': 0.5,
-            }
-        )
-        response.raise_for_status()
-        return jsonify(response.json())
+        response = query_openai(prompt)
+        return jsonify(response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
