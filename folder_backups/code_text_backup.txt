@@ -95,7 +95,7 @@ create_master_backup() {
     for file in $folder/*.txt; do
         if [ -f "$file" ]; then
             echo "########## $(basename $file) ##########" >> $output_file
-            cat $file >> $output_file
+            cat "$file" >> $output_file
             echo -e "\n\n" >> $output_file
         fi
     done
@@ -108,6 +108,9 @@ for folder in $BACKUP_DIR/*/; do
         create_master_backup $folder
     fi
 done
+
+# Create a master backup for the top-level .txt files
+create_master_backup $BACKUP_DIR
 
 echo "Backup completed successfully!"
 
@@ -893,6 +896,9 @@ from flask import Flask
 from dotenv import load_dotenv
 import os
 from routes.query import query_openai_route
+from routes.generate_prompt import generate_prompt_route
+from routes.update_code import update_code_route
+from routes.assistant import assistant_route
 
 # Load environment variables from a .env file
 load_dotenv()
@@ -907,6 +913,9 @@ def home():
 
 # Register blueprints for different routes
 app.register_blueprint(query_openai_route, url_prefix='/api')
+app.register_blueprint(generate_prompt_route, url_prefix='/api')
+app.register_blueprint(update_code_route, url_prefix='/api')
+app.register_blueprint(assistant_route, url_prefix='/api')
 
 # Main entry point for the application
 if __name__ == '__main__':

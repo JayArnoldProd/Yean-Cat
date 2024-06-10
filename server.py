@@ -2,6 +2,9 @@ from flask import Flask
 from dotenv import load_dotenv
 import os
 from routes.query import query_openai_route
+from routes.generate_prompt import generate_prompt_route
+from routes.update_code import update_code_route
+from routes.assistant import assistant_route
 
 # Load environment variables from a .env file
 load_dotenv()
@@ -16,6 +19,9 @@ def home():
 
 # Register blueprints for different routes
 app.register_blueprint(query_openai_route, url_prefix='/api')
+app.register_blueprint(generate_prompt_route, url_prefix='/api')
+app.register_blueprint(update_code_route, url_prefix='/api')
+app.register_blueprint(assistant_route, url_prefix='/api')
 
 # Main entry point for the application
 if __name__ == '__main__':

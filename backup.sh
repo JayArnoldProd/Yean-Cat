@@ -63,7 +63,7 @@ create_master_backup() {
     for file in $folder/*.txt; do
         if [ -f "$file" ]; then
             echo "########## $(basename $file) ##########" >> $output_file
-            cat $file >> $output_file
+            cat "$file" >> $output_file
             echo -e "\n\n" >> $output_file
         fi
     done
@@ -76,5 +76,8 @@ for folder in $BACKUP_DIR/*/; do
         create_master_backup $folder
     fi
 done
+
+# Create a master backup for the top-level .txt files
+create_master_backup $BACKUP_DIR
 
 echo "Backup completed successfully!"
