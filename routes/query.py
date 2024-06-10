@@ -4,7 +4,8 @@ from utils.pinecone_operations import init_pinecone_index, upsert_vectors_to_pin
 query_openai_route = Blueprint('query_openai_route', __name__)
 
 index_name = "yean-cat-git-gpt-index"  # Use the correct index name
-index = init_pinecone_index(index_name)
+pinecone_instance = init_pinecone_index(index_name)
+index = pinecone_instance.Index(index_name)
 
 @query_openai_route.route('/query', methods=['POST'])
 def query_openai():

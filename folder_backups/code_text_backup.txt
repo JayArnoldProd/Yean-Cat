@@ -77,7 +77,7 @@ copy_files $all_files
 
 # Unhide .txt files if they were hidden originally
 find $BACKUP_DIR -name ".*.txt" | while read hidden_file; do
-  mv "$hidden_file" "$(dirname "$hidden_file")/$(basename "$hidden_file")"
+  mv "$hidden_file" "$(dirname "$hidden_file")/$(basename "$hidden_file" | sed 's/^\.//')"
 done
 
 # Unhide hidden directories
@@ -108,7 +108,7 @@ create_master_backup() {
 }
 
 # Create master backup files for each subfolder in code_text
-for folder in $(find $BACKUP_DIR -type d); do
+for folder in $(find $BACKUP_DIR -mindepth 1 -maxdepth 1 -type d); do
     if [[ $(basename $folder) != "code_text_backup" ]]; then
         create_master_backup $folder
     fi
