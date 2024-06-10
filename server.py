@@ -3,7 +3,6 @@ import requests
 import os
 import json
 from dotenv import load_dotenv
-import pinecone
 from pinecone import Pinecone, ServerlessSpec
 import time
 import random
@@ -20,7 +19,6 @@ GITHUB_REPO = 'JayArnoldProd/Yean-Cat'
 GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
 
 # Initialize Pinecone
-pinecone.init(api_key=PINECONE_API_KEY)
 pc = Pinecone(api_key=PINECONE_API_KEY)
 
 if 'yean_cat_index' not in pc.list_indexes().names():
