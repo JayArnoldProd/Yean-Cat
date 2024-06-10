@@ -44,4 +44,31 @@ done
 # Unhide hidden directories
 unhide_directories
 
+# Create the folder backups folder
+FOLDER_BACKUPS="folder_backups"
+mkdir -p $FOLDER_BACKUPS
+
+# Function to create a master backup file for a folder
+create_master_backup() {
+    local folder=$1
+    local output_file=$FOLDER_BACKUPS/$(basename $folder)_backup.txt
+    
+    # Empty the output file if it already exists
+    > $output_file
+
+    # Iterate over all .txt files in the folder
+    for file in $folder/*.txt; do
+        if [ -f "$file" ]; then
+            echo "########## $(basename $file) ##########" >> $output_file
+            cat $file >> $output_file
+            echo -e "\n\n" >> $output_file
+        fi
+    done
+}
+
+# Create master backup files for each subfolder in code_text
+for folder in $BACKUP_DIR/*/; do
+    create_master_backup $folder
+done
+
 echo "Backup completed successfully!"
