@@ -11,9 +11,6 @@ mkdir -p $BACKUP_DIR
 # Function to copy files while preserving directory structure
 copy_files() {
   for file in "$@"; do
-    if [[ $file == .env || $file == .env.* ]]; then
-      continue
-    fi
     dest="$BACKUP_DIR/${file#./}"
     mkdir -p "$(dirname "$dest")"
     if [[ $file != *.txt ]]; then
@@ -33,8 +30,8 @@ unhide_directories() {
   done
 }
 
-# Find all relevant files in the root directory and subdirectories, excluding .env files
-all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store" ! -name ".env")
+# Find all relevant files in the root directory and subdirectories
+all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -name ".DS_Store")
 
 # Copy files to backup directory
 copy_files $all_files
@@ -74,13 +71,17 @@ for folder in $BACKUP_DIR/*/; do
     create_master_backup $folder
 done
 
-echo "Backup and deployment completed successfully!"
+# Create a master backup for the top-level .txt files
+create_master_backup $BACKUP_DIR
 
-# Push to GitHub
+# Add, commit and push changes to GitHub
 git add .
 git commit -m "Automated backup and deployment"
+git remote set-url origin https://github.com/JayArnoldProd/Yean-Cat.git
 git push origin main
 
 # Deploy to Heroku
+heroku git:remote -a yean-cat-git-gpt
 git push heroku main
-heroku logs --tail
+
+echo "Backup and deployment completed successfully!"
