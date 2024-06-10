@@ -1,34 +1,38 @@
 import requests
 
-# Replace with your actual Heroku app URL
-HEROKU_APP_URL = 'https://yean-cat-git-gpt-dd907a6ae83f.herokuapp.com'
+BASE_URL = "https://yean-cat-git-gpt-dd907a6ae83f.herokuapp.com"
 
-def test_pinecone_initialization():
-    url = f'{HEROKU_APP_URL}/api/query'
-    payload = {"query": "Test initialization"}
-    response = requests.post(url, json=payload)
-    print("Pinecone Initialization Test Response:", response.json())
+# Pinecone Initialization Test
+response = requests.post(f"{BASE_URL}/api/query", json={
+    "prompt_name": "test_prompt",
+    "input_text": "Initialize Pinecone"
+})
+print("Pinecone Initialization Test Response:", response.json())
 
-def test_gpt_connection():
-    url = f'{HEROKU_APP_URL}/api/generate_prompt'
-    payload = {"prompt": "Hello, how are you?"}
-    response = requests.post(url, json=payload)
-    print("GPT Connection Test Response:", response.json())
+# GPT Connection Test
+response = requests.post(f"{BASE_URL}/api/generate_prompt", json={
+    "save_name": "test_save",
+    "input_text": "Test GPT connection"
+})
+print("GPT Connection Test Response:", response.json())
 
-def test_update_code():
-    url = f'{HEROKU_APP_URL}/api/update_code'
-    payload = {"code": "print('Hello, World!')"}
-    response = requests.post(url, json=payload)
-    print("Update Code Test Response:", response.json())
+# Update Code Test
+response = requests.post(f"{BASE_URL}/api/update_code", json={
+    "save_name": "test_save",
+    "code_changes": [
+        {
+            "file_path": "test.py",
+            "changes": "print('Hello World')"
+        }
+    ]
+})
+print("Update Code Test Response:", response.json())
 
-def test_assistant():
-    url = f'{HEROKU_APP_URL}/api/assistant'
-    payload = {"message": "Can you help me with my code?"}
-    response = requests.post(url, json=payload)
-    print("Assistant Test Response:", response.json())
-
-if __name__ == '__main__':
-    test_pinecone_initialization()
-    test_gpt_connection()
-    test_update_code()
-    test_assistant()
+# Assistant Test
+response = requests.post(f"{BASE_URL}/api/assistant", json={
+    "query": "Test assistant",
+    "context": "Testing the assistant endpoint."
+}, headers={
+    "Authorization": f"Bearer {os.getenv('ASSISTANT_API_KEY')}"
+})
+print("Assistant Test Response:", response.json())
