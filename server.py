@@ -5,7 +5,7 @@ import json
 from dotenv import load_dotenv
 import time
 import random
-import pinecone
+from pinecone import Pinecone, ServerlessSpec
 
 load_dotenv()
 
@@ -19,11 +19,22 @@ GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
 PINECONE_API_KEY = os.getenv('PINECONE_API_KEY')
 
 # Initialize Pinecone
-pinecone.init(api_key=PINECONE_API_KEY, environment='us-west1-gcp')
+pc = Pinecone(
+    api_key=PINECONE_API_KEY
+)
+
 index_name = 'yean-cat-vectors'
-if index_name not in pinecone.list_indexes():
-    pinecone.create_index(index_name, dimension=1536)
-index = pinecone.Index(index_name)
+if index_name not in pc.list_indexes().names():
+    pc.create_index(
+        name=index_name,
+        dimension=1536,
+        metric='euclidean',
+        spec=ServerlessSpec(
+            cloud='aws',
+            region='us-west-2'
+        )
+    )
+index = pc.Index(index_name)
 
 def read_file(file_path):
     try:
@@ -176,6 +187,7 @@ def update_code():
             'content': new_content,
             'sha': file_sha,
         }
+        update_response = requests.put(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers, json=update_data)
         update_response.raise_for_status()
         return jsonify(update_response.json())
     except requests.exceptions.RequestException as e:
@@ -184,4 +196,3 @@ def update_code():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     app.run(debug=True, host='0.0.0.0', port=port)
-    
