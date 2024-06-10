@@ -1,32 +1,32 @@
 import os
-from pinecone import Pinecone, ServerlessSpec
+import pinecone
+from pinecone import ServerlessSpec
 
-def init_pinecone_index():
+# Initialize Pinecone index
+def init_pinecone_index(index_name):
     api_key = os.getenv('PINECONE_API_KEY')
-    index_name = os.getenv('PINECONE_INDEX_NAME')
 
     if not api_key or not index_name:
         raise ValueError("PINECONE_API_KEY and PINECONE_INDEX_NAME must be set")
 
-    pc = Pinecone(api_key=api_key)
+    pinecone.init(api_key=api_key)
 
-    if index_name not in pc.list_indexes().names():
-        pc.create_index(
+    if index_name not in pinecone.list_indexes():
+        pinecone.create_index(
             name=index_name,
             dimension=1536,
             metric="euclidean",
-            spec=ServerlessSpec(
-                cloud='aws',
-                region='us-east-1'
-            )
+            pod_type="p1"
         )
-    return pc.index(index_name)
+    return pinecone.Index(index_name)
 
+# Upsert vectors to Pinecone
 def upsert_vectors_to_pinecone(vectors):
     index_name = os.getenv("PINECONE_INDEX_NAME")
     api_key = os.getenv("PINECONE_API_KEY")
-    pc = Pinecone(api_key=api_key)
-    index = pc.index(index_name)
+    
+    pinecone.init(api_key=api_key)
+    index = pinecone.Index(index_name)
     
     # Assuming vectors is a list of tuples (id, vector)
     index.upsert(vectors)
