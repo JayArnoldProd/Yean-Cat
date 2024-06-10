@@ -1,0 +1,76 @@
+########## file_operations.py.txt ##########
+def read_file(file_path):
+    try:
+        with open(file_path, 'r') as file:
+            return file.read()
+    except FileNotFoundError:
+        return None
+
+def write_file(file_path, content):
+    os.makedirs(os.path.dirname(file_path), exist_ok=True)
+    with open(file_path, 'w') as file:
+        file.write(content)
+
+
+
+########## openai_operations.py.txt ##########
+import os
+import requests
+
+OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')
+
+def query_openai(prompt, model='gpt-4', retries=3):
+    for i in range(retries):
+        try:
+            response = requests.post(
+                'https://api.openai.com/v1/chat/completions',
+                headers={'Authorization': f'Bearer {OPENAI_API_KEY}'},
+                json={
+                    'model': model,
+                    'messages': [{'role': 'user', 'content': prompt}],
+                    'max_tokens': 1000,
+                    'temperature': 0.5,
+                }
+            )
+            response.raise_for_status()
+            return response.json()
+        except requests.exceptions.HTTPError as e:
+            if response.status_code == 429:  # Too Many Requests
+                retry_after = int(response.headers.get("Retry-After", 10))  # default to 10 seconds
+                time.sleep(retry_after + random.uniform(0, 1))  # adding some jitter
+            else:
+                raise e
+    raise Exception("Max retries exceeded")
+
+
+
+########## pinecone_operations.py.txt ##########
+import os
+from pinecone import Pinecone, ServerlessSpec
+
+def init_pinecone_index(index_name):
+    api_key = os.getenv("PINECONE_API_KEY")
+    pc = Pinecone(api_key=api_key)
+    if index_name not in pc.list_indexes():
+        pc.create_index(
+            name=index_name,
+            dimension=1536,
+            metric="euclidean",
+            spec=ServerlessSpec(
+                cloud='aws',
+                region='us-east-1'
+            )
+        )
+    return pc.index(index_name)
+
+def upsert_vectors_to_pinecone(vectors):
+    index_name = os.getenv("PINECONE_INDEX_NAME")
+    api_key = os.getenv("PINECONE_API_KEY")
+    pc = Pinecone(api_key=api_key)
+    index = pc.index(index_name)
+    
+    # Assuming vectors is a list of tuples (id, vector)
+    index.upsert(vectors)
+
+
+
