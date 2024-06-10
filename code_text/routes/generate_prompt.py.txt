@@ -1,6 +1,4 @@
 from flask import request, jsonify
-import json
-import os
 from utils.file_operations import read_file, write_file
 
 def generate_prompt_route():
