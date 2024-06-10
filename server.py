@@ -21,6 +21,8 @@ GITHUB_API_URL = f'https://api.github.com/repos/{GITHUB_REPO}'
 
 # Initialize Pinecone with a valid index name
 pc = Pinecone(api_key=PINECONE_API_KEY)
+
+# Ensure index name is valid
 index_name = 'yean-cat-git-gpt-index'
 
 if index_name not in pc.list_indexes().names():
@@ -32,6 +34,7 @@ if index_name not in pc.list_indexes().names():
     )
 
 index = pc.Index(index_name)
+
 thread_lock = threading.Lock()
 user_threads = {}
 
@@ -70,6 +73,14 @@ def query_openai(prompt, model='gpt-4', retries=3):
                 raise e
     raise Exception("Max retries exceeded")
 
+def upsert_pinecone_vector(vector_id, vector_values, metadata=None):
+    vectors = [{"id": vector_id, "values": vector_values, "metadata": metadata}]
+    index.upsert(vectors=vectors)
+
+def query_pinecone_vector(vector, namespace=None, top_k=2, filter=None):
+    query_response = index.query(vector=vector, top_k=top_k, include_values=True, include_metadata=True, namespace=namespace, filter=filter)
+    return query_response
+
 @app.route('/')
 def home():
     return "Hello, this is the home page of Yean-Cat!"
@@ -94,6 +105,10 @@ def query_openai_route():
                 if thread_id not in user_threads:
                     user_threads[thread_id] = []
                 user_threads[thread_id].append(response)
+        
+        # Upsert the response to Pinecone
+        upsert_pinecone_vector(thread_id, response["choices"][0]["message"]["content"])
+        
         return jsonify(response)
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
@@ -137,11 +152,20 @@ def generate_prompt():
 
     prompt = f"{intro}\n\n{item['description']}\n\n{format_description}\n\nAdditional Instructions: {additional_instructions}\n\n"
 
-    relevant_ids = item['related_scripts'] + item['related_objects']
-    pinecone_responses = index.fetch(ids=relevant_ids)
-    
-    for id, vector in pinecone_responses['vectors'].items():
-        prompt += f"Relevant Code ({id}):\n{vector['content']}\n\n"
+    for script in item['related_scripts']:
+        script_path = f"YEAN CAT/scripts/{script}/{script}.gml"
+        script_content = read_file(script_path)
+        if script_content:
+            prompt += f"Script {script}:\n{script_content}\n\n"
+
+    for obj in item['related_objects']:
+        obj_path = f"YEAN CAT/objects/{obj}/"
+        if os.path.isdir(obj_path):
+            for filename in os.listdir(obj_path):
+                if filename.endswith('.gml'):
+                    file_content = read_file(os.path.join(obj_path, filename))
+                    if file_content:
+                        prompt += f"Object {obj} ({filename}):\n{file_content}\n\n"
 
     log_contents = []
     for log in item['logs']:
@@ -199,18 +223,13 @@ def assistant_api_route():
             user_threads[thread_id] = []
 
     try:
-        context = user_threads[thread_id]
-        if context:
-            pinecone_context = index.fetch(ids=[c['id'] for c in context])
-            context += [v['content'] for v in pinecone_context['vectors'].values()]
-
         response = requests.post(
             'https://api.openai.com/v1/assistants',
             headers={'Authorization': f'Bearer {ASSISTANT_API_KEY}'},
             json={
                 'message': message,
                 'thread_id': thread_id,
-                'context': context
+                'context': user_threads[thread_id]
             }
         )
         response.raise_for_status()
