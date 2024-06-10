@@ -9,8 +9,10 @@ def init_pinecone_index(index_name):
     if not api_key or not index_name:
         raise ValueError("PINECONE_API_KEY and PINECONE_INDEX_NAME must be set")
 
+    # Initialize the Pinecone client
     pc = Pinecone(api_key=api_key)
 
+    # Check if the index exists, if not, create it
     if index_name not in pc.list_indexes().names():
         pc.create_index(
             name=index_name,
@@ -21,7 +23,9 @@ def init_pinecone_index(index_name):
                 region='us-east-1'
             )
         )
-    return pc.index(index_name)
+    
+    # Return the initialized index
+    return pc.get_index(index_name)
 
 # Upsert vectors to Pinecone
 def upsert_vectors_to_pinecone(vectors):
@@ -29,7 +33,7 @@ def upsert_vectors_to_pinecone(vectors):
     api_key = os.getenv("PINECONE_API_KEY")
     
     pc = Pinecone(api_key=api_key)
-    index = pc.index(index_name)
+    index = pc.get_index(index_name)
     
     # Assuming vectors is a list of tuples (id, vector)
     index.upsert(vectors)
