@@ -1,5 +1,10 @@
 #!/bin/bash
+# backup.sh
 
+# Delete all files in the code_text directory
+rm -rf code_text/*
+
+# Your existing backup logic
 BACKUP_DIR="code_text"
 mkdir -p $BACKUP_DIR
 
