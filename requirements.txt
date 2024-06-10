@@ -16,3 +16,4 @@ requests==2.28.1
 setuptools==69.2.0
 wheel==0.43.0
 Werkzeug==3.0.3
+pinecone-client==4.1.1
