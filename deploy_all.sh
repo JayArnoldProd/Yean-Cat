@@ -17,11 +17,12 @@ copy_files() {
   for file in "$@"; do
     dest="$BACKUP_DIR/${file#./}"
     mkdir -p "$(dirname "$dest")"
-    echo "Copying $file to $dest"
-    if [[ $file != *.txt ]]; then
+    if [[ ! -f "$dest.txt" && $file != *.txt ]]; then
+      echo "Copying $file to $dest"
       cp "$file" "$dest.txt"
       mv "$dest.txt" "${dest#.}.txt"  # Remove leading dot to make the file visible and add .txt extension
-    else
+    elif [[ ! -f "$dest" && $file == *.txt ]]; then
+      echo "Copying $file to $dest"
       cp "$file" "$dest"
       mv "$dest" "${dest#.}"  # Remove leading dot to make the file visible
     fi
@@ -69,10 +70,12 @@ create_master_backup() {
     # Iterate over all .txt files in the folder
     for file in $(find $folder -type f -name "*.txt"); do
         if [ -f "$file" ]; then
-            echo "########## $(basename $file) ##########" >> $output_file
-            cat "$file" >> $output_file
-            echo -e "\n\n" >> $output_file
-            echo "Added $file to $output_file"
+            if ! grep -q "########## $(basename $file) ##########" $output_file; then
+                echo "########## $(basename $file) ##########" >> $output_file
+                cat "$file" >> $output_file
+                echo -e "\n\n" >> $output_file
+                echo "Added $file to $output_file"
+            fi
         fi
     done
 }
