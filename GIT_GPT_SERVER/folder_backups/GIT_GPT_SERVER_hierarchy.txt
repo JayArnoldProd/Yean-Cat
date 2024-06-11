@@ -110,6 +110,7 @@ GIT_GPT_SERVER
 │   ├── backup.sh
 │   ├── deploy.sh
 │   ├── deploy_all.sh
+│   ├── deploy_and_run.sh
 │   ├── generate_hierarchy.sh
 │   └── update_lists.sh
 ├── server.py
@@ -120,4 +121,4 @@ GIT_GPT_SERVER
     ├── openai_operations.py
     └── pinecone_operations.py
 
-26 directories, 95 files
+26 directories, 96 files
