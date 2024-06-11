@@ -41,6 +41,9 @@ find . -type f | while read -r file; do
     echo "Copying $file to $dest_file"
 done
 
+# Call create_hierarchy.sh to generate the hierarchy files
+./create_hierarchy.sh
+
 # Create individual backup files for each subdirectory in code_text
 for dir in $(find code_text -type d); do
     if [ "$(ls -A $dir)" ]; then

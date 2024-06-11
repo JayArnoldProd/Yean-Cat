@@ -1,3 +1,6 @@
+
+--- code_text/utils/openai_operations.py.txt ---
+
 import os
 import requests
 
@@ -25,6 +28,9 @@ def query_openai(prompt, model='gpt-4', retries=3):
             else:
                 raise e
     raise Exception("Max retries exceeded")
+
+--- code_text/utils/pinecone_operations.py.txt ---
+
 import os
 from pinecone import Pinecone, ServerlessSpec
 
@@ -53,6 +59,9 @@ def upsert_vectors_to_pinecone(vectors):
     
     # Assuming vectors is a list of tuples (id, vector)
     index.upsert(vectors)
+
+--- code_text/utils/file_operations.py.txt ---
+
 def read_file(file_path):
     try:
         with open(file_path, 'r') as file:
