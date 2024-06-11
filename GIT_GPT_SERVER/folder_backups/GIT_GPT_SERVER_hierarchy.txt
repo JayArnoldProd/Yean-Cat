@@ -9,45 +9,6 @@ GIT_GPT_SERVER
 │   │   ├── SessionLog_45453.16.txt.txt
 │   │   └── server_logs.json.txt
 │   ├── code_text
-│   │   ├── Logs
-│   │   │   ├── SessionLog_45453.16.txt.txt.txt
-│   │   │   └── server_logs.json.txt.txt
-│   │   ├── code_text
-│   │   ├── folder_backups
-│   │   │   ├── 0_backup.txt.txt.txt
-│   │   │   ├── GIT_GPT_SERVER_hierarchy.txt.txt.txt
-│   │   │   ├── YEAN_CAT_SERVER_hierarchy.txt.txt.txt
-│   │   │   ├── YEAN_CAT_hierarchy.txt.txt.txt
-│   │   │   ├── github_backup.txt.txt.txt
-│   │   │   ├── logs_backup.txt.txt.txt
-│   │   │   ├── misc_backup.txt.txt.txt
-│   │   │   ├── prompts_backup.txt.txt.txt
-│   │   │   ├── routes_backup.txt.txt.txt
-│   │   │   ├── scripts_backup.txt.txt.txt
-│   │   │   ├── tests_backup.txt.txt.txt
-│   │   │   └── utils_backup.txt.txt.txt
-│   │   ├── format_description.txt.txt.txt
-│   │   ├── intro.txt.txt.txt
-│   │   ├── prompts
-│   │   │   └── test_prompt.txt.txt.txt
-│   │   ├── routes
-│   │   │   ├── assistant.py.txt.txt
-│   │   │   ├── generate_prompt.py.txt.txt
-│   │   │   ├── query.py.txt.txt
-│   │   │   └── update_code.py.txt.txt
-│   │   ├── scripts
-│   │   │   ├── backup.sh.txt.txt
-│   │   │   ├── deploy.sh.txt.txt
-│   │   │   ├── deploy_all.sh.txt.txt
-│   │   │   ├── generate_hierarchy.sh.txt.txt
-│   │   │   └── update_lists.sh.txt.txt
-│   │   ├── server.py.txt.txt
-│   │   ├── tests
-│   │   │   └── test_api_endpoints.py.txt.txt
-│   │   └── utils
-│   │       ├── file_operations.py.txt.txt
-│   │       ├── openai_operations.py.txt.txt
-│   │       └── pinecone_operations.py.txt.txt
 │   ├── folder_backups
 │   │   ├── 0_backup.txt.txt
 │   │   ├── GIT_GPT_SERVER_hierarchy.txt.txt
@@ -85,12 +46,10 @@ GIT_GPT_SERVER
 │       ├── openai_operations.py.txt
 │       └── pinecone_operations.py.txt
 ├── folder_backups
-│   ├── 0_backup.txt
 │   ├── GIT_GPT_SERVER_hierarchy.txt
+│   ├── Logs_backup.txt
 │   ├── YEAN_CAT_SERVER_hierarchy.txt
 │   ├── YEAN_CAT_hierarchy.txt
-│   ├── github_backup.txt
-│   ├── logs_backup.txt
 │   ├── misc_backup.txt
 │   ├── prompts_backup.txt
 │   ├── routes_backup.txt
@@ -121,4 +80,4 @@ GIT_GPT_SERVER
     ├── openai_operations.py
     └── pinecone_operations.py
 
-26 directories, 96 files
+18 directories, 63 files

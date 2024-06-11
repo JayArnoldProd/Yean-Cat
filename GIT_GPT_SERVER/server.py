@@ -9,11 +9,12 @@ app = Flask(__name__)
 @app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
     log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
+    if not os.path.exists(log_path):
+        with open(log_path, 'w') as file:
+            file.write('{}')  # Initialize with an empty JSON object
     try:
         with open(log_path, 'r', encoding='utf-8') as file:
             content = file.read()
-    except FileNotFoundError:
-        return jsonify({"error": "Log file not found"}), 404
     except UnicodeDecodeError:
         with open(log_path, 'rb') as file:
             content = file.read().decode('latin-1')
