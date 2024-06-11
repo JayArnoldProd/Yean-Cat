@@ -7198,6 +7198,7 @@
 │           ├── handleDebugMessage.gml
 │           └── handleDebugMessage.yy
 ├── backup.sh
+├── backup_log.txt
 ├── bug_list.json
 ├── code_text
 │   ├── Logs
@@ -7206,6 +7207,7 @@
 │   ├── Procfile.txt
 │   ├── README.md.txt
 │   ├── backup.sh.txt
+│   ├── backup_log.txt.txt
 │   ├── bug_list.json.txt
 │   ├── command_list.txt.txt
 │   ├── deploy.sh.txt
@@ -7230,21 +7232,16 @@
 │   ├── tests
 │   │   └── test_api_endpoints.py.txt
 │   ├── update_lists.sh.txt
-│   └── utils
-│       ├── file_operations.py.txt
-│       ├── openai_operations.py.txt
-│       └── pinecone_operations.py.txt
+│   ├── utils
+│   │   ├── file_operations.py.txt
+│   │   ├── openai_operations.py.txt
+│   │   └── pinecone_operations.py.txt
+│   └── yeancat_masterdocument.txt.txt
 ├── command_list.txt
 ├── deploy.sh
 ├── deploy_all.sh
 ├── folder_backups
-│   ├── Logs_backup.txt
-│   ├── code_text_backup.txt
-│   ├── prompts_backup.txt
-│   ├── root_hierarchy.txt
-│   ├── routes_backup.txt
-│   ├── tests_backup.txt
-│   └── utils_backup.txt
+│   └── root_hierarchy.txt
 ├── format_description.txt
 ├── generate_hierarchy.sh
 ├── intro.txt
@@ -7265,9 +7262,10 @@
 ├── tests
 │   └── test_api_endpoints.py
 ├── update_lists.sh
-└── utils
-    ├── file_operations.py
-    ├── openai_operations.py
-    └── pinecone_operations.py
+├── utils
+│   ├── file_operations.py
+│   ├── openai_operations.py
+│   └── pinecone_operations.py
+└── yeancat_masterdocument.txt
 
-2338 directories, 4933 files
+2338 directories, 4931 files

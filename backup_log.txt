@@ -1,0 +1,94 @@
+Starting backup script...
+Files deleted.
+Copying ./planned_features.json to code_text/./planned_features.json.txt
+Copying ./server.py to code_text/./server.py.txt
+Copying ./intro.txt to code_text/./intro.txt.txt
+Copying ./requirements.txt to code_text/./requirements.txt.txt
+Copying ./.slugignore to code_text/./.slugignore.txt
+Copying ./backup_log.txt to code_text/./backup_log.txt.txt
+Copying ./generate_hierarchy.sh to code_text/./generate_hierarchy.sh.txt
+Copying ./format_description.txt to code_text/./format_description.txt.txt
+Copying ./runtime.txt to code_text/./runtime.txt.txt
+Copying ./pyproject.toml to code_text/./pyproject.toml.txt
+Copying ./tests/test_api_endpoints.py to code_text/tests/test_api_endpoints.py.txt
+Copying ./yeancat_masterdocument.txt to code_text/./yeancat_masterdocument.txt.txt
+Copying ./utils/pinecone_operations.py to code_text/utils/pinecone_operations.py.txt
+Copying ./utils/file_operations.py to code_text/utils/file_operations.py.txt
+Copying ./utils/openai_operations.py to code_text/utils/openai_operations.py.txt
+Copying ./README.md to code_text/./README.md.txt
+Copying ./backup.sh to code_text/./backup.sh.txt
+Copying ./Logs/SessionLog_45453.16.txt to code_text/Logs/SessionLog_45453.16.txt.txt
+Copying ./Logs/server_logs.json to code_text/Logs/server_logs.json.txt
+Copying ./package.json to code_text/./package.json.txt
+Copying ./.env to code_text/./.env.txt
+Copying ./update_lists.sh to code_text/./update_lists.sh.txt
+Copying ./deploy_all.sh to code_text/./deploy_all.sh.txt
+Copying ./bug_list.json to code_text/./bug_list.json.txt
+Copying ./prompts/test_prompt.txt to code_text/prompts/test_prompt.txt.txt
+Copying ./deploy.sh to code_text/./deploy.sh.txt
+Copying ./command_list.txt to code_text/./command_list.txt.txt
+Copying ./Procfile to code_text/./Procfile.txt
+Copying ./script_list.txt to code_text/./script_list.txt.txt
+Copying ./routes/query.py to code_text/routes/query.py.txt
+Copying ./routes/assistant.py to code_text/routes/assistant.py.txt
+Copying ./routes/generate_prompt.py to code_text/routes/generate_prompt.py.txt
+Copying ./routes/update_code.py to code_text/routes/update_code.py.txt
+Generating hierarchy for ....
+Hierarchy generated at folder_backups/root_hierarchy.txt
+Generating hierarchy for YEAN CAT...
+Hierarchy generated at folder_backups/yean_cat_hierarchy.txt
+Generating hierarchy for YEAN CAT SERVER...
+Hierarchy generated at folder_backups/yean_cat_server_hierarchy.txt
+Hierarchy creation completed successfully!
+Creating backup for code_text at folder_backups/code_text_backup.txt
+Adding code_text/update_lists.sh.txt to folder_backups/code_text_backup.txt
+Adding code_text/generate_hierarchy.sh.txt to folder_backups/code_text_backup.txt
+Adding code_text/format_description.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/deploy_all.sh.txt to folder_backups/code_text_backup.txt
+Adding code_text/requirements.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/.DS_Store to folder_backups/code_text_backup.txt
+Adding code_text/Procfile.txt to folder_backups/code_text_backup.txt
+Adding code_text/.env.txt to folder_backups/code_text_backup.txt
+Adding code_text/tests/test_api_endpoints.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/utils/openai_operations.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/utils/pinecone_operations.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/utils/file_operations.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/runtime.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/.slugignore.txt to folder_backups/code_text_backup.txt
+Adding code_text/deploy.sh.txt to folder_backups/code_text_backup.txt
+Adding code_text/pyproject.toml.txt to folder_backups/code_text_backup.txt
+Adding code_text/command_list.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/yeancat_masterdocument.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/package.json.txt to folder_backups/code_text_backup.txt
+Adding code_text/intro.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/bug_list.json.txt to folder_backups/code_text_backup.txt
+Adding code_text/Logs/server_logs.json.txt to folder_backups/code_text_backup.txt
+Adding code_text/Logs/SessionLog_45453.16.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/planned_features.json.txt to folder_backups/code_text_backup.txt
+Adding code_text/backup_log.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/backup.sh.txt to folder_backups/code_text_backup.txt
+Adding code_text/prompts/test_prompt.txt.txt to folder_backups/code_text_backup.txt
+Adding code_text/routes/update_code.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/routes/generate_prompt.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/routes/assistant.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/routes/query.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/README.md.txt to folder_backups/code_text_backup.txt
+Adding code_text/server.py.txt to folder_backups/code_text_backup.txt
+Adding code_text/script_list.txt.txt to folder_backups/code_text_backup.txt
+Creating backup for code_text/tests at folder_backups/tests_backup.txt
+Adding code_text/tests/test_api_endpoints.py.txt to folder_backups/tests_backup.txt
+Creating backup for code_text/utils at folder_backups/utils_backup.txt
+Adding code_text/utils/openai_operations.py.txt to folder_backups/utils_backup.txt
+Adding code_text/utils/pinecone_operations.py.txt to folder_backups/utils_backup.txt
+Adding code_text/utils/file_operations.py.txt to folder_backups/utils_backup.txt
+Creating backup for code_text/Logs at folder_backups/Logs_backup.txt
+Adding code_text/Logs/server_logs.json.txt to folder_backups/Logs_backup.txt
+Adding code_text/Logs/SessionLog_45453.16.txt.txt to folder_backups/Logs_backup.txt
+Creating backup for code_text/prompts at folder_backups/prompts_backup.txt
+Adding code_text/prompts/test_prompt.txt.txt to folder_backups/prompts_backup.txt
+Creating backup for code_text/routes at folder_backups/routes_backup.txt
+Adding code_text/routes/update_code.py.txt to folder_backups/routes_backup.txt
+Adding code_text/routes/generate_prompt.py.txt to folder_backups/routes_backup.txt
+Adding code_text/routes/assistant.py.txt to folder_backups/routes_backup.txt
+Adding code_text/routes/query.py.txt to folder_backups/routes_backup.txt
+Backup completed successfully!
