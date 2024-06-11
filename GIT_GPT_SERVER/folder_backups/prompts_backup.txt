@@ -405,3 +405,40 @@ if (keyboard_check_pressed(vk_enter)) {
 }
 Logs:
 No relevant logs for this bug.
+
+------ GIT_GPT_SERVER/prompts/test_prompt.txt ------
+Introduction:
+This prompt is designed to diagnose and provide a solution for a bug in the console of the Yean-Cat project.
+
+Bug Description:
+The console is experiencing a bug where it fails to execute certain commands correctly. Specifically, when the 'spawn_enemy' command is issued, the game does not spawn an enemy as expected. This issue occurs intermittently and seems to be related to the game's state or the sequence of previous commands.
+
+Steps to Reproduce:
+1. Start the game.
+2. Open the console.
+3. Enter the 'spawn_enemy' command.
+4. Observe that no enemy is spawned, or an error message is displayed.
+
+Relevant Scripts:
+Script 1: console_command.gml
+
+// Example script content for console_command.gml
+if (command == "spawn_enemy") {
+    if (game_state == "running") {
+        instance_create_layer(x, y, "Enemies", obj_enemy);
+    } else {
+        show_debug_message("Cannot spawn enemy: Game is not in running state.");
+    }
+}
+
+// Example script content for obj_enemy.gml
+event_inherited();
+hp = 100;
+speed = 3;
+
+// Example content for obj_console
+if (keyboard_check_pressed(vk_enter)) {
+    execute_console_command();
+}
+Logs:
+No relevant logs for this bug.

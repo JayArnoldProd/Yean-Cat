@@ -1,23 +1,7 @@
 #!/bin/bash
 # deploy_and_run.sh
 
-set -e
-
-# Function to kill processes using a specified port
-kill_process_on_port() {
-    PORT=$1
-    echo "Checking for existing Flask server on port $PORT..."
-    PID=$(lsof -t -i:$PORT)
-    if [ ! -z "$PID" ]; then
-        echo "Killing process $PID using port $PORT..."
-        kill -9 $PID
-    else
-        echo "No process using port $PORT."
-    fi
-}
-
-# Step 1: Set environment variables
-echo "Sourcing environment variables..."
+# Step 1: Set environment variables from .env
 source .env
 
 # Step 2: Update GitHub remote URL with token
@@ -28,9 +12,24 @@ git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayAr
 echo "Running backup script..."
 ./GIT_GPT_SERVER/scripts/backup.sh
 
-# Step 4: Kill existing Flask processes on ports 5000 and 5001
-kill_process_on_port 5000
-kill_process_on_port 5001
+# Step 4: Identify and kill specific Flask processes
+echo "Checking for existing Flask server on port 5000..."
+PID=$(lsof -t -i:5000)
+if [ ! -z "$PID" ]; then
+    echo "Killing process $PID using port 5000..."
+    kill -9 $PID
+else
+    echo "No process using port 5000."
+fi
+
+echo "Checking for existing Flask server on port 5001..."
+PID=$(lsof -t -i:5001)
+if [ ! -z "$PID" ]; then
+    echo "Killing process $PID using port 5001..."
+    kill -9 $PID
+else
+    echo "No process using port 5001."
+fi
 
 # Step 5: Run deploy_all script
 echo "Running deploy_all script..."
@@ -41,14 +40,6 @@ echo "Starting Flask server on port 5001..."
 export FLASK_APP=GIT_GPT_SERVER/server.py
 flask run --port=5001 &
 FLASK_PID=$!
-echo $FLASK_PID > flask_pid.txt
-
-# Ensure flask_pid.txt is in .gitignore
-if ! grep -q "flask_pid.txt" .gitignore; then
-    echo "flask_pid.txt" >> .gitignore
-    git add .gitignore
-    git commit -m "Add flask_pid.txt to .gitignore"
-fi
 
 # Step 7: Run test API endpoints script
 echo "Running test API endpoints script..."
@@ -64,3 +55,9 @@ echo "Generating hierarchy..."
 ./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
 
 echo "Deployment and run completed successfully!"
+
+# Save the Flask PID to kill it later if needed
+echo $FLASK_PID > flask_pid.txt
+
+# Notify about manual Git operations
+echo "Please manually push changes using GitHub Desktop."
