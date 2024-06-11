@@ -8,7 +8,10 @@ app = Flask(__name__)
 
 @app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
-    log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
+    log_dir = 'GIT_GPT_SERVER/Logs'
+    log_path = os.path.join(log_dir, 'server_logs.json')
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
     if not os.path.exists(log_path):
         with open(log_path, 'w') as file:
             file.write('{}')  # Initialize with an empty JSON object

@@ -2,6 +2,7 @@
 # deploy_and_run.sh
 
 # Step 1: Set environment variables we do this in .env
+source .env
 
 # Step 2: Update GitHub remote URL with token
 echo "Updating GitHub remote URL..."
