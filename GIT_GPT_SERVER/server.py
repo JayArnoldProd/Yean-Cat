@@ -6,22 +6,20 @@ load_dotenv()
 
 app = Flask(__name__)
 
+log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
+
 @app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
-    log_dir = 'GIT_GPT_SERVER/Logs'
-    log_path = os.path.join(log_dir, 'server_logs.json')
-    if not os.path.exists(log_dir):
-        os.makedirs(log_dir)
     if not os.path.exists(log_path):
-        with open(log_path, 'w') as file:
-            file.write('{}')  # Initialize with an empty JSON object
+        with open(log_path, 'w', encoding='utf-8') as file:
+            file.write('')
     try:
         with open(log_path, 'r', encoding='utf-8') as file:
             content = file.read()
     except UnicodeDecodeError:
         with open(log_path, 'rb') as file:
             content = file.read().decode('latin-1')
-    return jsonify({"content": content})
+    return {"content": content}
 
 @app.route('/api/update_code/pull_logs_summary', methods=['POST'])
 def pull_logs_summary():

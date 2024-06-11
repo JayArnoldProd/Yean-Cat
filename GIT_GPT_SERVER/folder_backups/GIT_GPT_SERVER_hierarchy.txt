@@ -1,4 +1,7 @@
 GIT_GPT_SERVER
+├── GIT_GPT_SERVER
+│   └── Logs
+│       └── server_logs.json
 ├── Logs
 │   ├── SessionLog_45453.16.txt
 │   └── server_logs.json
@@ -80,4 +83,4 @@ GIT_GPT_SERVER
     ├── openai_operations.py
     └── pinecone_operations.py
 
-18 directories, 63 files
+20 directories, 64 files
