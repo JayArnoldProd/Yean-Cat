@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# Function to create a hierarchical representation of a directory
+generate_hierarchy() {
+    local directory=$1
+    local output_file=$2
+
+    echo "Generating hierarchy for $directory..."
+    tree "$directory" -o "$output_file"
+    echo "Hierarchy generated at $output_file"
+}
+
+# Create hierarchy for root directory
+generate_hierarchy "." "folder_backups/root_hierarchy.txt"
+
+# Create hierarchy for YEAN CAT directory
+generate_hierarchy "YEAN CAT" "folder_backups/yean_cat_hierarchy.txt"
+
+# Create hierarchy for YEAN CAT SERVER directory
+generate_hierarchy "YEAN CAT SERVER" "folder_backups/yean_cat_server_hierarchy.txt"
+
+echo "Hierarchy creation completed successfully!"
