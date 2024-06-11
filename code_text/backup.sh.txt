@@ -43,16 +43,13 @@ done
 
 # Create individual backup files for each subdirectory in code_text
 for dir in $(find code_text -type d); do
-    if [ "$(ls -A $dir)" ]; then
-        backup_file="folder_backups/$(basename "$dir")_backup.txt"
-        echo "Creating backup for $dir at $backup_file"
-        > "$backup_file"
-        find "$dir" -type f | while read -r file; do
-            echo "Adding $file to $backup_file"
-            echo -e "\n--- $file ---\n" >> "$backup_file"
-            cat "$file" >> "$backup_file"
-        done
-    fi
+    backup_file="folder_backups/$(basename "$dir")_backup.txt"
+    echo "Creating backup for $dir at $backup_file"
+    > "$backup_file"
+    find "$dir" -type f | while read -r file; do
+        echo "Adding $file to $backup_file"
+        cat "$file" >> "$backup_file"
+    done
 done
 
 echo "Backup completed successfully!"
