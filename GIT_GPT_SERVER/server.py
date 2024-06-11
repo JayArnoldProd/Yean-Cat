@@ -7,7 +7,6 @@ load_dotenv()
 app = Flask(__name__)
 
 @app.route('/api/update_code/pull_logs', methods=['POST'])
-@app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
     log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
     try:
@@ -17,8 +16,6 @@ def pull_logs():
         with open(log_path, 'rb') as file:
             content = file.read().decode('latin-1')
     return {"content": content}
-    else:
-        return jsonify({"error": "Logs directory not found"}), 404
 
 @app.route('/api/update_code/pull_logs_summary', methods=['POST'])
 def pull_logs_summary():
