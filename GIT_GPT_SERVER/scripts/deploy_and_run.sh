@@ -1,13 +1,6 @@
 #!/bin/bash
 # deploy_and_run.sh
 
-# Step 1: Set environment variables
-echo "Setting environment variables..."
-export OPENAI_API_KEY='sk-proj-9FMlNRVjatGHs2Gu058BT3BlbkFJHK3n2HBzVzzWnwGw3Eqh'
-export GITHUB_TOKEN='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'
-export ASSISTANT_API_KEY='asst_7pKEzlqGiYzHbs1v0LscYoxe'
-export PINECONE_API_KEY='333283cc-9630-4a52-b47d-1898d2a1da77'
-
 # Step 2: Update GitHub remote URL with token
 echo "Updating GitHub remote URL..."
 git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
