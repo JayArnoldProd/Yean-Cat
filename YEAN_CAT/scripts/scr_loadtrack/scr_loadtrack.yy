@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"scr_loadtrack",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"scr_loadtrack",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

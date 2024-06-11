@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"majestic",
+  "audioGroupId":{
+    "name":"agMusic",
+    "path":"audiogroups/agMusic",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":70.29324,
+  "name":"majestic",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"majestic.ogg",
+  "type":1,
+  "volume":1.0,
+}

@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"xp3",
+  "audioGroupId":{
+    "name":"agSFX",
+    "path":"audiogroups/agSFX",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":1.340816,
+  "name":"xp3",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"xp3.ogg",
+  "type":1,
+  "volume":1.0,
+}

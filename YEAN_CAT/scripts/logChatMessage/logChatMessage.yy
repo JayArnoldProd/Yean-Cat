@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"logChatMessage",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"logChatMessage",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

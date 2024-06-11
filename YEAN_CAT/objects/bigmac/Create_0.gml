@@ -1,0 +1,30 @@
+/// @description Insert description here
+// You can write your code in this editor
+grav=0
+fly=0
+onground=0
+frict=1
+chomp=audio_play_sound(nothingsound,0,0);
+time=0
+_vspeed=0
+_hspeed=0
+gravpull=1
+gravstr=.75
+vspeedset=0
+worldd=[]
+bullet_height_fromground=10
+image_speed=0
+potent=1
+variant=-1
+itemidd=-1
+cid=1
+frame=0
+rateset=round(4+random(4))
+rate=rateset
+anicount=0
+scale=.75+.25*variant
+image_xscale=scale*7
+image_yscale=scale*7
+vspeedset=random(3)-1.5
+vspeed=vspeedset
+varispeed=clamp((100+random(10)-(2.5-scale)*40)/100,.1,5)+.2

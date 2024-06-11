@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_holywater4",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":3.817302,
+  "name":"snd_holywater4",
+  "parent":{
+    "name":"weaponsounds",
+    "path":"folders/Sounds/weaponsounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_holywater4.ogg",
+  "type":1,
+  "volume":1.0,
+}

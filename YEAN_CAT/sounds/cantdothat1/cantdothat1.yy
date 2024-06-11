@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"cantdothat1",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":3,
+  "conversionMode":1,
+  "duration":0.69712,
+  "name":"cantdothat1",
+  "parent":{
+    "name":"UI",
+    "path":"folders/Sounds/UI.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"cantdothat1.ogg",
+  "type":0,
+  "volume":0.64,
+}

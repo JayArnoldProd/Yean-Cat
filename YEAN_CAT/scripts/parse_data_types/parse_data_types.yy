@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"parse_data_types",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"parse_data_types",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

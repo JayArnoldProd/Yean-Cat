@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"unlocksound1",
+  "audioGroupId":{
+    "name":"agUI",
+    "path":"audiogroups/agUI",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":1.182698,
+  "name":"unlocksound1",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"unlocksound1.ogg",
+  "type":1,
+  "volume":1.0,
+}

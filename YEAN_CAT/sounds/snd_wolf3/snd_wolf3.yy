@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"snd_wolf3",
+  "audioGroupId":{
+    "name":"audiogroup_default",
+    "path":"audiogroups/audiogroup_default",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":6.494558,
+  "name":"snd_wolf3",
+  "parent":{
+    "name":"weaponsounds",
+    "path":"folders/Sounds/weaponsounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"snd_wolf3.ogg",
+  "type":1,
+  "volume":0.5,
+}

@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"countLinesInString",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"countLinesInString",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

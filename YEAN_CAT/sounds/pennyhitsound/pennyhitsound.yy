@@ -1,0 +1,25 @@
+{
+  "$GMSound":"",
+  "%Name":"pennyhitsound",
+  "audioGroupId":{
+    "name":"agDialouge",
+    "path":"audiogroups/agDialouge",
+  },
+  "bitDepth":1,
+  "bitRate":128,
+  "compression":1,
+  "conversionMode":1,
+  "duration":11.543265,
+  "name":"pennyhitsound",
+  "parent":{
+    "name":"Sounds",
+    "path":"folders/Sounds.yy",
+  },
+  "preload":false,
+  "resourceType":"GMSound",
+  "resourceVersion":"2.0",
+  "sampleRate":44100,
+  "soundFile":"pennyhitsound.ogg",
+  "type":1,
+  "volume":0.41,
+}

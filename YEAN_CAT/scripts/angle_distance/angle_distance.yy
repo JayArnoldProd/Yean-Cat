@@ -1,0 +1,13 @@
+{
+  "$GMScript":"",
+  "%Name":"angle_distance",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"angle_distance",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
