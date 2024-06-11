@@ -20,22 +20,27 @@ echo "Running backup script..."
 chmod +x GIT_GPT_SERVER/scripts/backup.sh
 ./GIT_GPT_SERVER/scripts/backup.sh
 
-# Step 5: Make deploy_all script executable and run it
+# Step 5: Run the deploy_all script
 echo "Running deploy_all script..."
 chmod +x GIT_GPT_SERVER/scripts/deploy_all.sh
 ./GIT_GPT_SERVER/scripts/deploy_all.sh
 
-# Step 6: Set the Flask app and start the server
-echo "Starting Flask server..."
+# Step 6: Kill any process using port 5000
+echo "Killing any process using port 5000..."
+PORT=5000
+fuser -k ${PORT}/tcp
+
+# Step 7: Start the Flask server
+echo "Starting the Flask server..."
 export FLASK_APP=GIT_GPT_SERVER/server.py
 flask run &
 
-# Step 7: Run test API endpoints script
+# Step 8: Run test API endpoints script
 echo "Running test API endpoints script..."
-chmod +x GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
-./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+chmod +x GIT_GPT_SERVER/tests/test_api_endpoints.py
+./GIT_GPT_SERVER/tests/test_api_endpoints.py
 
-# Step 8: Generate hierarchy
+# Step 9: Generate hierarchy
 echo "Generating hierarchy..."
 chmod +x GIT_GPT_SERVER/scripts/generate_hierarchy.sh
 ./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
