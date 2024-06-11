@@ -35,7 +35,7 @@ find . -type f | while read -r file; do
     # Get the file extension and base name
     extension="${file##*.}"
     base_name=$(basename "$file")
-    dest_file="code_text/$dir/$base_name.$extension.txt"
+    dest_file="code_text/$dir/${base_name}.txt"
 
     # Copy the file content to the .txt file
     cp "$file" "$dest_file"
