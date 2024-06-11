@@ -26,12 +26,22 @@ fi
 echo "Running deploy_all script..."
 ./GIT_GPT_SERVER/scripts/deploy_all.sh
 
-# Step 6: Start Flask server on port 5001
+# Step 6: Identify process using port 5001 and kill it
+echo "Checking for existing Flask server on port 5001..."
+PID=$(lsof -t -i:5001)
+if [ ! -z "$PID" ]; then
+    echo "Killing process $PID using port 5001..."
+    kill -9 $PID
+else
+    echo "No process using port 5001."
+fi
+
+# Step 7: Start Flask server on port 5001
 echo "Starting Flask server on port 5001..."
 export FLASK_APP=GIT_GPT_SERVER/server.py
 flask run --port=5001 &
 
-# Step 7: Run test API endpoints script
+# Step 8: Run test API endpoints script
 echo "Running test API endpoints script..."
 if [ -f ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
     chmod +x ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
@@ -40,7 +50,7 @@ else
     echo "Test script not found."
 fi
 
-# Step 8: Generate hierarchy
+# Step 9: Generate hierarchy
 echo "Generating hierarchy..."
 ./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
 

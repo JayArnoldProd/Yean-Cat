@@ -12,10 +12,12 @@ def pull_logs():
     try:
         with open(log_path, 'r', encoding='utf-8') as file:
             content = file.read()
+    except FileNotFoundError:
+        return jsonify({"error": "Log file not found"}), 404
     except UnicodeDecodeError:
         with open(log_path, 'rb') as file:
             content = file.read().decode('latin-1')
-    return {"content": content}
+    return jsonify({"content": content})
 
 @app.route('/api/update_code/pull_logs_summary', methods=['POST'])
 def pull_logs_summary():
