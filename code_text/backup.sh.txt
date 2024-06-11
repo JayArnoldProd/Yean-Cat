@@ -1,7 +1,7 @@
 #!/bin/bash
-# deploy_all.sh
+# backup.sh
 
-echo "Starting deployment script..."
+echo "Starting backup script..."
 
 # Step 1: Delete all files in the code_text directory
 echo "Deleting all files in the code_text directory..."
@@ -85,14 +85,4 @@ done
 # Step 12: Create a master backup for the top-level .txt files
 create_master_backup $BACKUP_DIR
 
-# Step 13: Add and commit changes to GitHub (without push)
-echo "Adding and committing changes to GitHub..."
-git add .
-git commit -m "Automated backup and deployment"
-
-# Step 14: Deploy to Heroku
-echo "Deploying to Heroku..."
-heroku git:remote -a yean-cat-git-gpt
-git push heroku main
-
-echo "Backup and deployment completed successfully!"
+echo "Backup completed successfully!"
