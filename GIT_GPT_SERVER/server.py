@@ -1,4 +1,3 @@
-# GIT_GPT_SERVER/server.py
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import os

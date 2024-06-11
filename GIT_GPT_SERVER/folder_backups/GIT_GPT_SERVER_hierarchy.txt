@@ -75,6 +75,7 @@ GIT_GPT_SERVER
 │   │   ├── generate_hierarchy.sh.txt
 │   │   └── update_lists.sh.txt
 │   ├── server.py.txt
+│   ├── server_logs.json.txt
 │   ├── tests
 │   │   └── test_api_endpoints.py.txt
 │   └── utils
@@ -84,6 +85,8 @@ GIT_GPT_SERVER
 ├── folder_backups
 │   ├── 0_backup.txt
 │   ├── GIT_GPT_SERVER_hierarchy.txt
+│   ├── YEAN_CAT_SERVER_hierarchy.txt
+│   ├── YEAN_CAT_hierarchy.txt
 │   ├── github_backup.txt
 │   ├── logs_backup.txt
 │   ├── misc_backup.txt
@@ -115,4 +118,4 @@ GIT_GPT_SERVER
     ├── openai_operations.py
     └── pinecone_operations.py
 
-25 directories, 91 files
+25 directories, 94 files
