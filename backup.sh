@@ -15,16 +15,18 @@ mkdir -p $BACKUP_DIR
 # Step 3: Function to copy files while preserving directory structure
 copy_files() {
   for file in "$@"; do
-    dest="$BACKUP_DIR/${file#./}"
-    mkdir -p "$(dirname "$dest")"
-    if [[ ! -f "$dest.txt" && $file != *.txt && $file != ./code_text/* && $file != ./folder_backups/* ]]; then
-      echo "Copying $file to $dest"
-      cp "$file" "$dest.txt"
-      mv "$dest.txt" "${dest#.}.txt"  # Remove leading dot to make the file visible and add .txt extension
-    elif [[ ! -f "$dest" && $file == *.txt && $file != ./code_text/* && $file != ./folder_backups/* ]]; then
-      echo "Copying $file to $dest"
-      cp "$file" "$dest"
-      mv "$dest" "${dest#.}"  # Remove leading dot to make the file visible
+    if [[ $file != *project_hierarchy.txt* && $file != *client_project_hierarchy.txt* && $file != *server_project_hierarchy.txt* && $file != *python_heroku_gpt_server_hierarchy.txt* ]]; then
+      dest="$BACKUP_DIR/${file#./}"
+      mkdir -p "$(dirname "$dest")"
+      if [[ ! -f "$dest.txt" && $file != *.txt && $file != ./code_text/* && $file != ./folder_backups/* ]]; then
+        echo "Copying $file to $dest"
+        cp "$file" "$dest.txt"
+        mv "$dest.txt" "${dest#.}.txt"  # Remove leading dot to make the file visible and add .txt extension
+      elif [[ ! -f "$dest" && $file == *.txt && $file != ./code_text/* && $file != ./folder_backups/* ]]; then
+        echo "Copying $file to $dest"
+        cp "$file" "$dest"
+        mv "$dest" "${dest#.}"  # Remove leading dot to make the file visible
+      fi
     fi
   done
 }
@@ -37,7 +39,7 @@ unhide_directories() {
 }
 
 # Step 5: Find all relevant files in the root directory and subdirectories
-all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -path "./YEAN CAT SERVER/*" ! -path "./folder_backups/*" ! -name ".DS_Store")
+all_files=$(find . -type f ! -path "./$BACKUP_DIR/*" ! -path "./.git/*" ! -path "./YEAN CAT/*" ! -path "./folder_backups/*" ! -name ".DS_Store")
 
 # Debugging information
 echo "All files to be backed up:"
@@ -88,18 +90,15 @@ done
 # Step 12: Create a master backup for the top-level .txt files
 create_master_backup $BACKUP_DIR
 
-# Step 13: Create hierarchies
+# Step 13: Create the project hierarchies and ensure they are not included in code_text
 create_hierarchy() {
-    local base_dir=$1
-    local output_file=$2
-
-    echo "Creating hierarchy for $base_dir at $output_file"
-    find "$base_dir" -type f > "$output_file"
-    echo "Hierarchy created at $output_file"
+  local dir=$1
+  local output_file=$2
+  tree -a -I 'node_modules|*.pyc|__pycache__' "$dir" > "$output_file"
 }
 
-create_hierarchy "YEAN CAT" "client_project_hierarchy.txt"
-create_hierarchy "YEAN CAT SERVER" "server_project_hierarchy.txt"
+create_hierarchy "./YEAN CAT" "client_project_hierarchy.txt"
+create_hierarchy "./YEAN CAT SERVER" "server_project_hierarchy.txt"
 create_hierarchy "." "python_heroku_gpt_server_hierarchy.txt"
 
 echo "Backup completed successfully!"
