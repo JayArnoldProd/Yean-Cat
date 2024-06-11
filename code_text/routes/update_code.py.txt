@@ -39,12 +39,17 @@ def update_code():
 
 @update_code_route.route('/pull_logs', methods=['POST'])
 def pull_logs():
-    log_files = ["SessionLog_45453.16.txt"]  # Add your log files here
+    logs_dir = 'Logs'
     logs = {}
-    for log_file in log_files:
-        try:
-            with open(f'Logs/{log_file}', 'r') as file:
-                logs[log_file] = file.read()
-        except FileNotFoundError:
-            logs[log_file] = "Log file not found."
+    
+    for log_file in os.listdir(logs_dir):
+        if log_file.endswith('.txt'):
+            try:
+                with open(os.path.join(logs_dir, log_file), 'r') as file:
+                    logs[log_file] = file.read()
+            except FileNotFoundError:
+                logs[log_file] = "Log file not found."
+            except Exception as e:
+                logs[log_file] = str(e)
+    
     return jsonify(logs)
