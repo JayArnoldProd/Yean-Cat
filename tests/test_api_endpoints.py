@@ -1,4 +1,3 @@
-# tests/test_api_endpoints.py
 import requests
 import os
 
@@ -48,4 +47,9 @@ response = requests.post(f"{BASE_URL}/api/assistant", json={
     "Authorization": f"Bearer {os.getenv('ASSISTANT_API_KEY')}"
 })
 print("Assistant Test:")
+print_response(response)
+
+# Pull Logs Test
+response = requests.post(f"{BASE_URL}/api/update_code/pull_logs")
+print("Pull Logs Test:")
 print_response(response)
