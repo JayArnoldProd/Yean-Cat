@@ -1400,3 +1400,473 @@ git add script_list.txt command_list.txt server_script_list.txt server_command_l
 git commit -m "Update script and command lists"
 
 echo "Update completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/backup.sh ------
+#!/bin/bash
+
+echo "Starting backup script..."
+
+# Define directories and files to be backed up
+directories=(
+    "GIT_GPT_SERVER/scripts"
+    "GIT_GPT_SERVER/Logs"
+    "GIT_GPT_SERVER/.github"
+    "GIT_GPT_SERVER/routes"
+    "GIT_GPT_SERVER/tests"
+    "GIT_GPT_SERVER/utils"
+    "GIT_GPT_SERVER/prompts"
+)
+misc_files=()
+
+# Function to backup a directory
+backup_directory() {
+    local directory=$1
+    local output_file=$2
+    echo "Backing up files from $directory to $output_file..."
+    for file in "$directory"/*; do
+        if [ -f "$file" ]; then
+            echo "Processing $file"
+            echo -e "
+------ $file ------
+$(cat "$file")" >> "$output_file"
+        fi
+    done
+}
+
+# Backup each specified directory
+for dir in "${directories[@]}"; do
+    dir_name=$(basename "$dir")
+    backup_directory "$dir" "GIT_GPT_SERVER/folder_backups/${dir_name}_backup.txt"
+done
+
+# Backup miscellaneous files
+echo "Backing up misc files from GIT_GPT_SERVER to GIT_GPT_SERVER/folder_backups/misc_backup.txt..."
+for file in GIT_GPT_SERVER/*; do
+    if [ -f "$file" ] && [[ "$file" != *"GIT_GPT_SERVER/folder_backups/"* ]]; then
+        misc_files+=("$file")
+        echo "Processing $file"
+        echo -e "
+------ $file ------
+$(cat "$file")" >> "GIT_GPT_SERVER/folder_backups/misc_backup.txt"
+    fi
+done
+
+# Ensure server_logs.json is copied correctly
+if [ -f "GIT_GPT_SERVER/Logs/server_logs.json" ]; then
+    echo "Copying server_logs.json to code_text directory..."
+    cp "GIT_GPT_SERVER/Logs/server_logs.json" "GIT_GPT_SERVER/code_text/server_logs.json.txt"
+fi
+
+# Generate hierarchies
+echo "Generating hierarchy..."
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
+
+echo "Backup completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/deploy.sh ------
+#!/bin/bash
+
+# Navigate to the project directory
+cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
+
+# Generate a list of all scripts
+find "YEAN CAT/scripts" -name "*.gml" -exec basename {} .gml \; > script_list.txt
+
+# Generate a list of all commands starting with scr_ and remove the scr_ prefix
+grep -r "function scr_" "YEAN CAT/scripts" | awk -F'function scr_' '{print $2}' | awk -F'(' '{print $1}' | sort -u > command_list.txt
+
+# Add and commit the updated lists
+git add script_list.txt command_list.txt
+git commit -m "Update script and command lists"
+
+# Push to Heroku
+git push heroku main
+
+------ GIT_GPT_SERVER/scripts/deploy_all.sh ------
+#!/bin/bash
+# deploy_all.sh
+
+echo "Starting deployment script..."
+
+# Step 1: Run the backup script
+./GIT_GPT_SERVER/scripts/backup.sh
+
+# Step 2: Add and commit changes to GitHub (without push)
+echo "Adding and committing changes to GitHub..."
+git add .
+git commit -m "Automated backup and deployment"
+
+# Step 3: Push changes to GitHub
+echo "Pushing changes to GitHub..."
+git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
+git push origin main
+
+# Step 4: Check if the server is running and pull logs
+if curl -s --head http://localhost:5000 | grep "200 OK" > /dev/null; then
+    echo "Pulling logs from the server..."
+    curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json
+else
+    echo "Server is not running. Starting the Flask server..."
+    cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER
+    export FLASK_APP=server.py
+    flask run &
+    sleep 5  # Wait for the server to start
+    echo "Pulling logs from the server..."
+    curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json
+fi
+
+echo "Backup and deployment completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/deploy_and_run.sh ------
+#!/bin/bash
+# deploy_and_run.sh
+
+set -e
+
+# Function to kill processes using a specified port
+kill_process_on_port() {
+    PORT=$1
+    echo "Checking for existing Flask server on port $PORT..."
+    PID=$(lsof -t -i:$PORT)
+    if [ ! -z "$PID" ]; then
+        echo "Killing process $PID using port $PORT..."
+        kill -9 $PID
+    else
+        echo "No process using port $PORT."
+    fi
+}
+
+# Step 1: Set environment variables
+echo "Sourcing environment variables..."
+source .env
+
+# Step 2: Update GitHub remote URL with token
+echo "Updating GitHub remote URL..."
+git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
+
+# Step 3: Run backup script
+echo "Running backup script..."
+./GIT_GPT_SERVER/scripts/backup.sh
+
+# Step 4: Kill existing Flask processes on ports 5000 and 5001
+kill_process_on_port 5000
+kill_process_on_port 5001
+
+# Step 5: Run deploy_all script
+echo "Running deploy_all script..."
+./GIT_GPT_SERVER/scripts/deploy_all.sh
+
+# Step 6: Start Flask server on port 5001 and save PID
+echo "Starting Flask server on port 5001..."
+export FLASK_APP=GIT_GPT_SERVER/server.py
+flask run --port=5001 &
+FLASK_PID=$!
+echo $FLASK_PID > flask_pid.txt
+
+# Step 7: Run test API endpoints script
+echo "Running test API endpoints script..."
+if [ -f ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
+    chmod +x ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+    ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+else
+    echo "Test script not found."
+fi
+
+# Step 8: Generate hierarchy
+echo "Generating hierarchy..."
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
+
+echo "Deployment and run completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/generate_hierarchy.sh ------
+#!/bin/bash
+
+# Function to create a hierarchical representation of a directory
+generate_hierarchy() {
+    local directory=$1
+    local output_file=$2
+
+    echo "Generating hierarchy for $directory..."
+    tree "$directory" -o "$output_file" || { echo "Failed to generate hierarchy for $directory"; exit 1; }
+    echo "Hierarchy generated at $output_file"
+}
+
+# Generate hierarchies for the required directories
+generate_hierarchy "GIT_GPT_SERVER" "GIT_GPT_SERVER/folder_backups/GIT_GPT_SERVER_hierarchy.txt"
+generate_hierarchy "YEAN_CAT" "GIT_GPT_SERVER/folder_backups/YEAN_CAT_hierarchy.txt"
+generate_hierarchy "YEAN_CAT_SERVER" "GIT_GPT_SERVER/folder_backups/YEAN_CAT_SERVER_hierarchy.txt"
+
+echo "Hierarchy creation completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/update_lists.sh ------
+#!/bin/bash
+# update_lists.sh
+
+# Function to generate script list
+generate_script_list() {
+  local directory=$1
+  local output_file=$2
+
+  echo "Generating script list for $directory..."
+  find "$directory" -name "*.gml" -exec basename {} .gml \; > "$output_file"
+  echo "Script list generated at $output_file"
+}
+
+# Function to generate command list
+generate_command_list() {
+  local directory=$1
+  local output_file=$2
+
+  echo "Generating command list for $directory..."
+  grep -r "function scr_" "$directory" | awk -F'function scr_' '{print $2}' | awk -F'(' '{print $1}' | sort -u > "$output_file"
+  echo "Command list generated at $output_file"
+}
+
+# Generate lists for client project
+generate_script_list "YEAN CAT/scripts" "script_list.txt"
+generate_command_list "YEAN CAT/scripts" "command_list.txt"
+
+# Generate lists for server project
+generate_script_list "YEAN CAT SERVER/scripts" "server_script_list.txt"
+generate_command_list "YEAN CAT SERVER/scripts" "server_command_list.txt"
+
+# Commit and push the updated lists
+git add script_list.txt command_list.txt server_script_list.txt server_command_list.txt
+git commit -m "Update script and command lists"
+
+echo "Update completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/backup.sh ------
+#!/bin/bash
+
+echo "Starting backup script..."
+
+# Define directories and files to be backed up
+directories=(
+    "GIT_GPT_SERVER/scripts"
+    "GIT_GPT_SERVER/Logs"
+    "GIT_GPT_SERVER/.github"
+    "GIT_GPT_SERVER/routes"
+    "GIT_GPT_SERVER/tests"
+    "GIT_GPT_SERVER/utils"
+    "GIT_GPT_SERVER/prompts"
+)
+misc_files=()
+
+# Function to backup a directory
+backup_directory() {
+    local directory=$1
+    local output_file=$2
+    echo "Backing up files from $directory to $output_file..."
+    for file in "$directory"/*; do
+        if [ -f "$file" ]; then
+            echo "Processing $file"
+            echo -e "
+------ $file ------
+$(cat "$file")" >> "$output_file"
+        fi
+    done
+}
+
+# Backup each specified directory
+for dir in "${directories[@]}"; do
+    dir_name=$(basename "$dir")
+    backup_directory "$dir" "GIT_GPT_SERVER/folder_backups/${dir_name}_backup.txt"
+done
+
+# Backup miscellaneous files
+echo "Backing up misc files from GIT_GPT_SERVER to GIT_GPT_SERVER/folder_backups/misc_backup.txt..."
+for file in GIT_GPT_SERVER/*; do
+    if [ -f "$file" ] && [[ "$file" != *"GIT_GPT_SERVER/folder_backups/"* ]]; then
+        misc_files+=("$file")
+        echo "Processing $file"
+        echo -e "
+------ $file ------
+$(cat "$file")" >> "GIT_GPT_SERVER/folder_backups/misc_backup.txt"
+    fi
+done
+
+# Ensure server_logs.json is copied correctly
+if [ -f "GIT_GPT_SERVER/Logs/server_logs.json" ]; then
+    echo "Copying server_logs.json to code_text directory..."
+    cp "GIT_GPT_SERVER/Logs/server_logs.json" "GIT_GPT_SERVER/code_text/server_logs.json.txt"
+fi
+
+# Generate hierarchies
+echo "Generating hierarchy..."
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
+
+echo "Backup completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/deploy.sh ------
+#!/bin/bash
+
+# Navigate to the project directory
+cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
+
+# Generate a list of all scripts
+find "YEAN CAT/scripts" -name "*.gml" -exec basename {} .gml \; > script_list.txt
+
+# Generate a list of all commands starting with scr_ and remove the scr_ prefix
+grep -r "function scr_" "YEAN CAT/scripts" | awk -F'function scr_' '{print $2}' | awk -F'(' '{print $1}' | sort -u > command_list.txt
+
+# Add and commit the updated lists
+git add script_list.txt command_list.txt
+git commit -m "Update script and command lists"
+
+# Push to Heroku
+git push heroku main
+
+------ GIT_GPT_SERVER/scripts/deploy_all.sh ------
+#!/bin/bash
+# deploy_all.sh
+
+echo "Starting deployment script..."
+
+# Step 1: Run the backup script
+./GIT_GPT_SERVER/scripts/backup.sh
+
+# Step 2: Add and commit changes to GitHub (without push)
+echo "Adding and committing changes to GitHub..."
+git add .
+git commit -m "Automated backup and deployment"
+
+# Step 3: Push changes to GitHub
+echo "Pushing changes to GitHub..."
+git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
+git push origin main
+
+# Step 4: Check if the server is running and pull logs
+if curl -s --head http://localhost:5000 | grep "200 OK" > /dev/null; then
+    echo "Pulling logs from the server..."
+    curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json
+else
+    echo "Server is not running. Starting the Flask server..."
+    cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER
+    export FLASK_APP=server.py
+    flask run &
+    sleep 5  # Wait for the server to start
+    echo "Pulling logs from the server..."
+    curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json
+fi
+
+echo "Backup and deployment completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/deploy_and_run.sh ------
+#!/bin/bash
+# deploy_and_run.sh
+
+set -e
+
+# Function to kill processes using a specified port
+kill_process_on_port() {
+    PORT=$1
+    echo "Checking for existing Flask server on port $PORT..."
+    PID=$(lsof -t -i:$PORT)
+    if [ ! -z "$PID" ]; then
+        echo "Killing process $PID using port $PORT..."
+        kill -9 $PID
+    else
+        echo "No process using port $PORT."
+    fi
+}
+
+# Step 1: Set environment variables
+echo "Sourcing environment variables..."
+source .env
+
+# Step 2: Update GitHub remote URL with token
+echo "Updating GitHub remote URL..."
+git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
+
+# Step 3: Run backup script
+echo "Running backup script..."
+./GIT_GPT_SERVER/scripts/backup.sh
+
+# Step 4: Kill existing Flask processes on ports 5000 and 5001
+kill_process_on_port 5000
+kill_process_on_port 5001
+
+# Step 5: Run deploy_all script
+echo "Running deploy_all script..."
+./GIT_GPT_SERVER/scripts/deploy_all.sh
+
+# Step 6: Start Flask server on port 5001 and save PID
+echo "Starting Flask server on port 5001..."
+export FLASK_APP=GIT_GPT_SERVER/server.py
+flask run --port=5001 &
+FLASK_PID=$!
+echo $FLASK_PID > flask_pid.txt
+
+# Step 7: Run test API endpoints script
+echo "Running test API endpoints script..."
+if [ -f ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
+    chmod +x ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+    ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+else
+    echo "Test script not found."
+fi
+
+# Step 8: Generate hierarchy
+echo "Generating hierarchy..."
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
+
+echo "Deployment and run completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/generate_hierarchy.sh ------
+#!/bin/bash
+
+# Function to create a hierarchical representation of a directory
+generate_hierarchy() {
+    local directory=$1
+    local output_file=$2
+
+    echo "Generating hierarchy for $directory..."
+    tree "$directory" -o "$output_file" || { echo "Failed to generate hierarchy for $directory"; exit 1; }
+    echo "Hierarchy generated at $output_file"
+}
+
+# Generate hierarchies for the required directories
+generate_hierarchy "GIT_GPT_SERVER" "GIT_GPT_SERVER/folder_backups/GIT_GPT_SERVER_hierarchy.txt"
+generate_hierarchy "YEAN_CAT" "GIT_GPT_SERVER/folder_backups/YEAN_CAT_hierarchy.txt"
+generate_hierarchy "YEAN_CAT_SERVER" "GIT_GPT_SERVER/folder_backups/YEAN_CAT_SERVER_hierarchy.txt"
+
+echo "Hierarchy creation completed successfully!"
+
+------ GIT_GPT_SERVER/scripts/update_lists.sh ------
+#!/bin/bash
+# update_lists.sh
+
+# Function to generate script list
+generate_script_list() {
+  local directory=$1
+  local output_file=$2
+
+  echo "Generating script list for $directory..."
+  find "$directory" -name "*.gml" -exec basename {} .gml \; > "$output_file"
+  echo "Script list generated at $output_file"
+}
+
+# Function to generate command list
+generate_command_list() {
+  local directory=$1
+  local output_file=$2
+
+  echo "Generating command list for $directory..."
+  grep -r "function scr_" "$directory" | awk -F'function scr_' '{print $2}' | awk -F'(' '{print $1}' | sort -u > "$output_file"
+  echo "Command list generated at $output_file"
+}
+
+# Generate lists for client project
+generate_script_list "YEAN CAT/scripts" "script_list.txt"
+generate_command_list "YEAN CAT/scripts" "command_list.txt"
+
+# Generate lists for server project
+generate_script_list "YEAN CAT SERVER/scripts" "server_script_list.txt"
+generate_command_list "YEAN CAT SERVER/scripts" "server_command_list.txt"
+
+# Commit and push the updated lists
+git add script_list.txt command_list.txt server_script_list.txt server_command_list.txt
+git commit -m "Update script and command lists"
+
+echo "Update completed successfully!"

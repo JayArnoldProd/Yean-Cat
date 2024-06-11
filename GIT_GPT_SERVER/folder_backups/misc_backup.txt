@@ -498,3 +498,169 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5001))
     debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
     app.run(debug=debug_mode, host='0.0.0.0', port=port)
+
+------ GIT_GPT_SERVER/format_description.txt ------
+If you are creating a new in-game, executable script, it should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
+
+For Example:
+/// @function scr_return_controller()
+/// @description Outputs the connected gamepad description or a message if none are connected
+function scr_return_controller() {
+    if (gamepad_is_connected(0)) {
+        var gpad_desc = gamepad_get_description(0);
+        handleDebugMessage("Connected gamepad: " + gpad_desc, true);
+    } else {
+        handleDebugMessage("No gamepad detected.", true);
+    }
+}
+
+add_command("command name (without scr_, if needs argument(s): ends with '(')", (permission level required), [["string", "real"]] (2D array defining accepted var types for each argument, boolean (whether this command needs at least 1 argument passed));
+
+Permission levels:
+0 -> Player
+1 -> Moderator
+2 -> Developer
+3 -> Owner
+
+For Example: 
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+
+*Remember this is only needed if you are adding a new command to the game, try and reuse existing scripts as much as possible and let me know if you would need to see a specific script that was not included, but could be helpful in resolving the issue! Remember that you are a 1 time chat interaction and will have no memory of this so If you cant see the solution to the bug or the method to adding the desired feature, then simply reply with what else you need to see in my code.
+
+The game features an in game console which allows players with the required permission to execute code and create new features from within the game. Typing "/" will mean that the player is typing a command. Some commands do not require a "(", for example: /toggle_server . You can create actions by typing /add_action("Name it",Command_name,[100,"example_string"]) and can create macros essentially for commands and will be able to trigger these actions in sequences and events, or possibly controlled by an AI GPT like yourself. This is how It is intended to work, but it is still needing some fixes to be able to handle saving actions for commands that take more than 1 argument, such as /chat_bubble("Text",owner).
+
+------ GIT_GPT_SERVER/intro.txt ------
+You are an AI assistant helping with the development of a 2D side-scrolling open world game in the 'survivors' genre using GameMaker Studio 2. The game includes multiplayer functionality, rhythm-based elements, and extensive object interactions. I have created a program that will allow me to communicate with gpt, and automates the process of sending my most recent code (from GitHub) to the AI. You will receive a description of the bug or feature I want you to help me with, along with any code I believe to be relevant for my request. I will also attach a log of my in game console, which I can test features and effectively communicate to you with. Since I am using API integration, sadly you will not remember any of our conversations, which is why you will be receiving so much information. Please make the most educated attempt at bringing me closer to the desired feature or bug fix. If you are not confident enough to solve my issue because you would need to see a specific script that I have not provided you with, then let me know. Please reuse and fix existing code, before adding scripts for things I might already have. Do not assume I have a script for a certain thing if you don't see evidence of it in the code I have provided you.
+
+------ GIT_GPT_SERVER/server.py ------
+from flask import Flask, jsonify, request
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+app = Flask(__name__)
+
+log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
+
+@app.route('/api/update_code/pull_logs', methods=['POST'])
+def pull_logs():
+    if not os.path.exists(log_path):
+        with open(log_path, 'w', encoding='utf-8') as file:
+            file.write('')
+    try:
+        with open(log_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+    except UnicodeDecodeError:
+        with open(log_path, 'rb') as file:
+            content = file.read().decode('latin-1')
+    return {"content": content}
+
+@app.route('/api/update_code/pull_logs_summary', methods=['POST'])
+def pull_logs_summary():
+    logs_dir = 'Logs'
+    logs_summary = []
+
+    if os.path.exists(logs_dir):
+        for log_file in os.listdir(logs_dir):
+            log_path = os.path.join(logs_dir, log_file)
+            if os.path.isfile(log_path):
+                with open(log_path, 'r') as file:
+                    lines = file.readlines()
+                    summary = lines[:5]  # Get the first 5 lines as summary
+                    logs_summary.append({
+                        "filename": log_file,
+                        "summary": ''.join(summary)
+                    })
+        return jsonify({"logs_summary": logs_summary})
+    else:
+        return jsonify({"error": "Logs directory not found"}), 404
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5001))
+    debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
+    app.run(debug=debug_mode, host='0.0.0.0', port=port)
+
+------ GIT_GPT_SERVER/format_description.txt ------
+If you are creating a new in-game, executable script, it should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
+
+For Example:
+/// @function scr_return_controller()
+/// @description Outputs the connected gamepad description or a message if none are connected
+function scr_return_controller() {
+    if (gamepad_is_connected(0)) {
+        var gpad_desc = gamepad_get_description(0);
+        handleDebugMessage("Connected gamepad: " + gpad_desc, true);
+    } else {
+        handleDebugMessage("No gamepad detected.", true);
+    }
+}
+
+add_command("command name (without scr_, if needs argument(s): ends with '(')", (permission level required), [["string", "real"]] (2D array defining accepted var types for each argument, boolean (whether this command needs at least 1 argument passed));
+
+Permission levels:
+0 -> Player
+1 -> Moderator
+2 -> Developer
+3 -> Owner
+
+For Example: 
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+
+*Remember this is only needed if you are adding a new command to the game, try and reuse existing scripts as much as possible and let me know if you would need to see a specific script that was not included, but could be helpful in resolving the issue! Remember that you are a 1 time chat interaction and will have no memory of this so If you cant see the solution to the bug or the method to adding the desired feature, then simply reply with what else you need to see in my code.
+
+The game features an in game console which allows players with the required permission to execute code and create new features from within the game. Typing "/" will mean that the player is typing a command. Some commands do not require a "(", for example: /toggle_server . You can create actions by typing /add_action("Name it",Command_name,[100,"example_string"]) and can create macros essentially for commands and will be able to trigger these actions in sequences and events, or possibly controlled by an AI GPT like yourself. This is how It is intended to work, but it is still needing some fixes to be able to handle saving actions for commands that take more than 1 argument, such as /chat_bubble("Text",owner).
+
+------ GIT_GPT_SERVER/intro.txt ------
+You are an AI assistant helping with the development of a 2D side-scrolling open world game in the 'survivors' genre using GameMaker Studio 2. The game includes multiplayer functionality, rhythm-based elements, and extensive object interactions. I have created a program that will allow me to communicate with gpt, and automates the process of sending my most recent code (from GitHub) to the AI. You will receive a description of the bug or feature I want you to help me with, along with any code I believe to be relevant for my request. I will also attach a log of my in game console, which I can test features and effectively communicate to you with. Since I am using API integration, sadly you will not remember any of our conversations, which is why you will be receiving so much information. Please make the most educated attempt at bringing me closer to the desired feature or bug fix. If you are not confident enough to solve my issue because you would need to see a specific script that I have not provided you with, then let me know. Please reuse and fix existing code, before adding scripts for things I might already have. Do not assume I have a script for a certain thing if you don't see evidence of it in the code I have provided you.
+
+------ GIT_GPT_SERVER/server.py ------
+from flask import Flask, jsonify, request
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+app = Flask(__name__)
+
+log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
+
+@app.route('/api/update_code/pull_logs', methods=['POST'])
+def pull_logs():
+    if not os.path.exists(log_path):
+        with open(log_path, 'w', encoding='utf-8') as file:
+            file.write('')
+    try:
+        with open(log_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+    except UnicodeDecodeError:
+        with open(log_path, 'rb') as file:
+            content = file.read().decode('latin-1')
+    return {"content": content}
+
+@app.route('/api/update_code/pull_logs_summary', methods=['POST'])
+def pull_logs_summary():
+    logs_dir = 'Logs'
+    logs_summary = []
+
+    if os.path.exists(logs_dir):
+        for log_file in os.listdir(logs_dir):
+            log_path = os.path.join(logs_dir, log_file)
+            if os.path.isfile(log_path):
+                with open(log_path, 'r') as file:
+                    lines = file.readlines()
+                    summary = lines[:5]  # Get the first 5 lines as summary
+                    logs_summary.append({
+                        "filename": log_file,
+                        "summary": ''.join(summary)
+                    })
+        return jsonify({"logs_summary": logs_summary})
+    else:
+        return jsonify({"error": "Logs directory not found"}), 404
+
+if __name__ == '__main__':
+    port = int(os.environ.get('PORT', 5001))
+    debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
+    app.run(debug=debug_mode, host='0.0.0.0', port=port)
