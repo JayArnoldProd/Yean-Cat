@@ -30,10 +30,10 @@ fi
 echo "Running deploy_all script..."
 ./GIT_GPT_SERVER/scripts/deploy_all.sh
 
-# Step 6: Start Flask server on port 5000
-echo "Starting Flask server..."
+# Step 6: Start Flask server on port 5001
+echo "Starting Flask server on port 5001..."
 export FLASK_APP=GIT_GPT_SERVER/server.py
-flask run --port=5000 &
+flask run --port=5001 &
 
 # Step 7: Run test API endpoints script
 echo "Running test API endpoints script..."
