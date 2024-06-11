@@ -1,0 +1,79 @@
+GIT_GPT_SERVER
+├── Logs
+│   ├── SessionLog_45453.16.txt
+│   └── server_logs.json
+├── code_text
+│   ├── Logs
+│   │   ├── SessionLog_45453.16.txt.txt
+│   │   └── server_logs.json.txt
+│   ├── code_text
+│   ├── folder_backups
+│   │   ├── 0_backup.txt.txt
+│   │   ├── GIT_GPT_SERVER_hierarchy.txt.txt
+│   │   ├── YEAN_CAT_SERVER_hierarchy.txt.txt
+│   │   ├── YEAN_CAT_hierarchy.txt.txt
+│   │   ├── github_backup.txt.txt
+│   │   ├── logs_backup.txt.txt
+│   │   ├── misc_backup.txt.txt
+│   │   ├── prompts_backup.txt.txt
+│   │   ├── routes_backup.txt.txt
+│   │   ├── scripts_backup.txt.txt
+│   │   ├── tests_backup.txt.txt
+│   │   └── utils_backup.txt.txt
+│   ├── format_description.txt.txt
+│   ├── intro.txt.txt
+│   ├── prompts
+│   │   └── test_prompt.txt.txt
+│   ├── routes
+│   │   ├── assistant.py.txt
+│   │   ├── generate_prompt.py.txt
+│   │   ├── query.py.txt
+│   │   └── update_code.py.txt
+│   ├── scripts
+│   │   ├── backup.sh.txt
+│   │   ├── deploy.sh.txt
+│   │   ├── deploy_all.sh.txt
+│   │   ├── generate_hierarchy.sh.txt
+│   │   └── update_lists.sh.txt
+│   ├── server.py.txt
+│   ├── tests
+│   │   └── test_api_endpoints.py.txt
+│   └── utils
+│       ├── file_operations.py.txt
+│       ├── openai_operations.py.txt
+│       └── pinecone_operations.py.txt
+├── folder_backups
+│   ├── 0_backup.txt
+│   ├── GIT_GPT_SERVER_hierarchy.txt
+│   ├── github_backup.txt
+│   ├── logs_backup.txt
+│   ├── misc_backup.txt
+│   ├── prompts_backup.txt
+│   ├── routes_backup.txt
+│   ├── scripts_backup.txt
+│   ├── tests_backup.txt
+│   └── utils_backup.txt
+├── format_description.txt
+├── intro.txt
+├── prompts
+│   └── test_prompt.txt
+├── routes
+│   ├── assistant.py
+│   ├── generate_prompt.py
+│   ├── query.py
+│   └── update_code.py
+├── scripts
+│   ├── backup.sh
+│   ├── deploy.sh
+│   ├── deploy_all.sh
+│   ├── generate_hierarchy.sh
+│   └── update_lists.sh
+├── server.py
+├── tests
+│   └── test_api_endpoints.py
+└── utils
+    ├── file_operations.py
+    ├── openai_operations.py
+    └── pinecone_operations.py
+
+17 directories, 60 files

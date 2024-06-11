@@ -1,0 +1,64 @@
+#!/bin/bash
+
+# Function to copy files and convert them to .txt in the code_text directory
+backup_files_as_txt() {
+    local src_dir=$1
+    local dest_dir=$2
+
+    echo "Copying files from $src_dir to $dest_dir..."
+
+    mkdir -p "$dest_dir"
+    
+    find "$src_dir" -type f | while read -r file; do
+        # Get the relative path of the file
+        relative_path="${file#$src_dir/}"
+        
+        # Create destination directory structure
+        dest_subdir="$dest_dir/$(dirname "$relative_path")"
+        mkdir -p "$dest_subdir"
+        
+        # Copy file with .txt extension
+        cp "$file" "$dest_subdir/$(basename "$file").txt"
+    done
+}
+
+# Backup function
+backup() {
+    local src_dir=$1
+    local backup_file=$2
+
+    echo "Backing up files from $src_dir to $backup_file..."
+    find "$src_dir" -type f | while read -r file; do
+        echo "Processing $file"
+        echo "---- $file ----" >> "$backup_file"
+        cat "$file" >> "$backup_file"
+        echo -e "\n\n" >> "$backup_file"
+    done
+}
+
+# Define directories to backup
+declare -A directories=(
+    ["scripts"]="GIT_GPT_SERVER/scripts"
+    ["Logs"]="GIT_GPT_SERVER/Logs"
+    [".github"]="GIT_GPT_SERVER/.github"
+    ["routes"]="GIT_GPT_SERVER/routes"
+    ["tests"]="GIT_GPT_SERVER/tests"
+    ["utils"]="GIT_GPT_SERVER/utils"
+    ["prompts"]="GIT_GPT_SERVER/prompts"
+)
+
+# Backup individual directories
+for dir in "${!directories[@]}"; do
+    backup "${directories[$dir]}" "GIT_GPT_SERVER/folder_backups/${dir}_backup.txt"
+done
+
+# Backup misc files
+backup_files_as_txt "GIT_GPT_SERVER" "GIT_GPT_SERVER/code_text"
+
+# Remove hierarchies from misc backup
+find GIT_GPT_SERVER/folder_backups -name '*_hierarchy.txt' -delete
+
+# Generate hierarchies
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
+
+echo "Backup completed successfully!"
