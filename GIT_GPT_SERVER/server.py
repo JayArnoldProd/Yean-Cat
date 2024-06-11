@@ -7,20 +7,16 @@ load_dotenv()
 app = Flask(__name__)
 
 @app.route('/api/update_code/pull_logs', methods=['POST'])
+@app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
-    logs_dir = 'Logs'
-    logs = []
-
-    if os.path.exists(logs_dir):
-        for log_file in os.listdir(logs_dir):
-            log_path = os.path.join(logs_dir, log_file)
-            if os.path.isfile(log_path):
-                with open(log_path, 'r') as file:
-                    logs.append({
-                        "filename": log_file,
-                        "content": file.read()
-                    })
-        return jsonify({"logs": logs})
+    log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
+    try:
+        with open(log_path, 'r', encoding='utf-8') as file:
+            content = file.read()
+    except UnicodeDecodeError:
+        with open(log_path, 'rb') as file:
+            content = file.read().decode('latin-1')
+    return {"content": content}
     else:
         return jsonify({"error": "Logs directory not found"}), 404
 
