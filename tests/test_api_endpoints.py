@@ -3,14 +3,13 @@ import os
 
 BASE_URL = "https://yean-cat-git-gpt-dd907a6ae83f.herokuapp.com"
 
-# Function to print response content
 def print_response(response):
     try:
         print("Response JSON:", response.json())
     except requests.exceptions.JSONDecodeError:
         print("Response Content:", response.content)
 
-# Pinecone Initialization Test
+print("Starting Pinecone Initialization Test")
 response = requests.post(f"{BASE_URL}/api/query", json={
     "prompt_name": "test_prompt",
     "input_text": "Initialize Pinecone"
@@ -18,7 +17,7 @@ response = requests.post(f"{BASE_URL}/api/query", json={
 print("Pinecone Initialization Test:")
 print_response(response)
 
-# GPT Connection Test
+print("Starting GPT Connection Test")
 response = requests.post(f"{BASE_URL}/api/generate_prompt", json={
     "save_name": "test_save",
     "input_text": "Test GPT connection"
@@ -26,30 +25,26 @@ response = requests.post(f"{BASE_URL}/api/generate_prompt", json={
 print("GPT Connection Test:")
 print_response(response)
 
-# Update Code Test
+print("Starting Update Code Test")
 response = requests.post(f"{BASE_URL}/api/update_code", json={
-    "save_name": "test_save",
-    "code_changes": [
-        {
-            "file_path": "test.py",
-            "changes": "print('Hello World')"
-        }
-    ]
+    "file_path": "test.py",
+    "new_content": "print('Hello World')",
+    "commit_message": "Test update"
 })
 print("Update Code Test:")
 print_response(response)
 
-# Assistant Test
+print("Starting Assistant Test")
 response = requests.post(f"{BASE_URL}/api/assistant", json={
-    "query": "Test assistant",
-    "context": "Testing the assistant endpoint."
+    "message": "Test assistant",
+    "thread_id": "test_thread"
 }, headers={
     "Authorization": f"Bearer {os.getenv('ASSISTANT_API_KEY')}"
 })
 print("Assistant Test:")
 print_response(response)
 
-# Pull Logs Test
+print("Starting Pull Logs Test")
 response = requests.post(f"{BASE_URL}/api/update_code/pull_logs")
 print("Pull Logs Test:")
 print_response(response)
