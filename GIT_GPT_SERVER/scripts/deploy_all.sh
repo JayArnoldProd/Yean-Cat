@@ -18,6 +18,11 @@ git commit -m "Automated backup and deployment"
 
 # Step 3: Push changes to GitHub
 echo "Pushing changes to GitHub..."
+if [ -z "$GITHUB_TOKEN" ]; then
+    echo "GITHUB_TOKEN is not set. Please export your GitHub token."
+    exit 1
+fi
+
 git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
 git push origin main
 
