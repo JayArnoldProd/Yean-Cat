@@ -3,7 +3,7 @@
 echo "Starting backup script..."
 
 # Define directories and files to exclude from the backup
-exclude_patterns=("YEAN CAT" "YEAN CAT SERVER" ".git" "node_modules" "__pycache__" "*.pyc" ".DS_Store" "*.yyp" "*.yy" "*.otf" "*.ttf" "*.pdf" "*.zip" "*.csv" "*.png" "*.ogg" "code_text" "folder_backups")
+exclude_patterns=("YEAN CAT" "YEAN CAT SERVER" ".git" "node_modules" "__pycache__" "*.pyc" ".DS_Store" "*.yyp" "*.yy" "*.otf" "*.ttf" "*.pdf" "*.zip" "*.csv" "*.png" "*.ogg")
 
 # Function to check if a file should be excluded
 should_exclude() {
@@ -22,20 +22,16 @@ mkdir -p code_text
 
 echo "Files deleted."
 
-# Copy files to code_text directory, maintaining directory structure and creating a .txt file for each
-find . -type f | while read -r file; do
+# Copy files to code_text directory, creating a .txt file for each
+find . -type f ! -path "./code_text/*" ! -path "./folder_backups/*" | while read -r file; do
     if should_exclude "$file"; then
         continue
     fi
 
-    # Create the corresponding directory in code_text
-    dir=$(dirname "$file" | sed 's|^\./||')
-    mkdir -p "code_text/$dir"
-
-    # Get the file extension and base name
+    # Get the file extension
     extension="${file##*.}"
     base_name=$(basename "$file")
-    dest_file="code_text/$dir/$base_name.$extension.txt"
+    dest_file="code_text/${base_name}.${extension}.txt"
 
     # Copy the file content to the .txt file
     cp "$file" "$dest_file"
