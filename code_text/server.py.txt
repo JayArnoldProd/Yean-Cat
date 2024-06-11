@@ -24,7 +24,7 @@ def home():
 # Register blueprints for different routes
 app.register_blueprint(query_openai_route, url_prefix='/api')
 app.register_blueprint(generate_prompt_route, url_prefix='/api')
-app.register_blueprint(update_code_route, url_prefix='/api/update_code')
+app.register_blueprint(update_code_route, url_prefix='/api')
 app.register_blueprint(assistant_route, url_prefix='/api')
 
 # Main entry point for the application

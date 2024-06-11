@@ -5,7 +5,7 @@ import requests
 
 update_code_route = Blueprint('update_code_route', __name__)
 
-@update_code_route.route('/update_code', methods=['POST'])
+@update_code_route.route('/api/update_code', methods=['POST'])
 def update_code():
     data = request.get_json()
     file_path = data.get('file_path')
@@ -38,11 +38,11 @@ def update_code():
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
-@update_code_route.route('/pull_logs', methods=['POST'])
+@update_code_route.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
     logs_dir = 'Logs'
     logs = {}
-    
+
     for log_file in os.listdir(logs_dir):
         if log_file.endswith('.txt'):
             try:
@@ -52,7 +52,7 @@ def pull_logs():
                 logs[log_file] = "Log file not found."
             except Exception as e:
                 logs[log_file] = str(e)
-    
+
     return jsonify(logs)
 
 
