@@ -36,10 +36,9 @@ echo "Adding and committing changes to GitHub..."
 git add .
 git commit -m "Automated backup and deployment"
 
-# Step 3: Deploy to Heroku
-echo "Deploying to Heroku..."
-heroku git:remote -a yean-cat-git-gpt
-git push heroku main
+# Step 3: Pull logs from the server
+echo "Pulling logs from the server..."
+curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json
 
 echo "Backup and deployment completed successfully!"
 
@@ -119,20 +118,18 @@ python-3.10.14
 
 
 ########## test_api_endpoints.py.txt ##########
-# tests/test_api_endpoints.py
 import requests
 import os
 
 BASE_URL = "https://yean-cat-git-gpt-dd907a6ae83f.herokuapp.com"
 
-# Function to print response content
 def print_response(response):
     try:
         print("Response JSON:", response.json())
     except requests.exceptions.JSONDecodeError:
         print("Response Content:", response.content)
 
-# Pinecone Initialization Test
+print("Starting Pinecone Initialization Test")
 response = requests.post(f"{BASE_URL}/api/query", json={
     "prompt_name": "test_prompt",
     "input_text": "Initialize Pinecone"
@@ -140,7 +137,7 @@ response = requests.post(f"{BASE_URL}/api/query", json={
 print("Pinecone Initialization Test:")
 print_response(response)
 
-# GPT Connection Test
+print("Starting GPT Connection Test")
 response = requests.post(f"{BASE_URL}/api/generate_prompt", json={
     "save_name": "test_save",
     "input_text": "Test GPT connection"
@@ -148,27 +145,28 @@ response = requests.post(f"{BASE_URL}/api/generate_prompt", json={
 print("GPT Connection Test:")
 print_response(response)
 
-# Update Code Test
+print("Starting Update Code Test")
 response = requests.post(f"{BASE_URL}/api/update_code", json={
-    "save_name": "test_save",
-    "code_changes": [
-        {
-            "file_path": "test.py",
-            "changes": "print('Hello World')"
-        }
-    ]
+    "file_path": "test.py",
+    "new_content": "print('Hello World')",
+    "commit_message": "Test update"
 })
 print("Update Code Test:")
 print_response(response)
 
-# Assistant Test
+print("Starting Assistant Test")
 response = requests.post(f"{BASE_URL}/api/assistant", json={
-    "query": "Test assistant",
-    "context": "Testing the assistant endpoint."
+    "message": "Test assistant",
+    "thread_id": "test_thread"
 }, headers={
     "Authorization": f"Bearer {os.getenv('ASSISTANT_API_KEY')}"
 })
 print("Assistant Test:")
+print_response(response)
+
+print("Starting Pull Logs Test")
+response = requests.post(f"{BASE_URL}/api/update_code/pull_logs")
+print("Pull Logs Test:")
 print_response(response)
 
 
@@ -1113,12 +1111,30 @@ def update_code():
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
 
+@update_code_route.route('/pull_logs', methods=['POST'])
+def pull_logs():
+    log_files = ["SessionLog_45453.16.txt"]  # Add your log files here
+    logs = {}
+    for log_file in log_files:
+        try:
+            with open(f'Logs/{log_file}', 'r') as file:
+                logs[log_file] = file.read()
+        except FileNotFoundError:
+            logs[log_file] = "Log file not found."
+    return jsonify(logs)
+
 
 
 ########## generate_prompt.py.txt ##########
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
+import os
+import json
+from threading import Lock
 
 generate_prompt_route = Blueprint('generate_prompt_route', __name__)
+
+thread_lock = Lock()
+user_threads = {}
 
 def read_file(filepath):
     try:
@@ -1137,10 +1153,11 @@ def generate_prompt():
     prompt_type = data.get('type')
     item_name = data.get('name')
     save_name = data.get('save_name')
+    thread_id = data.get('thread_id', 'default')
     additional_instructions = data.get('additional_instructions', '')
 
-    if not save_name:
-        return jsonify({"error": "Invalid input, 'save_name' field is required"}), 400
+    if not save_name or not thread_id:
+        return jsonify({"error": "Invalid input, 'save_name' and 'thread_id' fields are required"}), 400
 
     intro = read_file('intro.txt')
     format_description = read_file('format_description.txt')
@@ -1194,6 +1211,11 @@ def generate_prompt():
 
     prompt_file_path = f'prompts/{save_name}.txt'
     write_file(prompt_file_path, prompt)
+
+    with thread_lock:
+        if thread_id not in user_threads:
+            user_threads[thread_id] = []
+        user_threads[thread_id].append(prompt)
 
     return jsonify({"message": f"Prompt saved as '{prompt_file_path}'"})
 
@@ -1329,7 +1351,7 @@ def home():
 # Register blueprints for different routes
 app.register_blueprint(query_openai_route, url_prefix='/api')
 app.register_blueprint(generate_prompt_route, url_prefix='/api')
-app.register_blueprint(update_code_route, url_prefix='/api')
+app.register_blueprint(update_code_route, url_prefix='/api/update_code')
 app.register_blueprint(assistant_route, url_prefix='/api')
 
 # Main entry point for the application

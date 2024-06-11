@@ -36,3 +36,15 @@ def update_code():
         return jsonify(update_response.json())
     except requests.exceptions.RequestException as e:
         return jsonify({"error": str(e)}), 500
+
+@update_code_route.route('/pull_logs', methods=['POST'])
+def pull_logs():
+    log_files = ["SessionLog_45453.16.txt"]  # Add your log files here
+    logs = {}
+    for log_file in log_files:
+        try:
+            with open(f'Logs/{log_file}', 'r') as file:
+                logs[log_file] = file.read()
+        except FileNotFoundError:
+            logs[log_file] = "Log file not found."
+    return jsonify(logs)

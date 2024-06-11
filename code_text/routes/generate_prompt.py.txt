@@ -1,6 +1,12 @@
-from flask import Blueprint, jsonify
+from flask import Blueprint, jsonify, request
+import os
+import json
+from threading import Lock
 
 generate_prompt_route = Blueprint('generate_prompt_route', __name__)
+
+thread_lock = Lock()
+user_threads = {}
 
 def read_file(filepath):
     try:
@@ -19,10 +25,11 @@ def generate_prompt():
     prompt_type = data.get('type')
     item_name = data.get('name')
     save_name = data.get('save_name')
+    thread_id = data.get('thread_id', 'default')
     additional_instructions = data.get('additional_instructions', '')
 
-    if not save_name:
-        return jsonify({"error": "Invalid input, 'save_name' field is required"}), 400
+    if not save_name or not thread_id:
+        return jsonify({"error": "Invalid input, 'save_name' and 'thread_id' fields are required"}), 400
 
     intro = read_file('intro.txt')
     format_description = read_file('format_description.txt')
@@ -76,5 +83,10 @@ def generate_prompt():
 
     prompt_file_path = f'prompts/{save_name}.txt'
     write_file(prompt_file_path, prompt)
+
+    with thread_lock:
+        if thread_id not in user_threads:
+            user_threads[thread_id] = []
+        user_threads[thread_id].append(prompt)
 
     return jsonify({"message": f"Prompt saved as '{prompt_file_path}'"})
