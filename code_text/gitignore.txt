@@ -1,0 +1,24 @@
+# GameMaker Studio 2 specific files
+*.yyc
+*.yyp
+*.yys
+*.yyw
+*.yyz
+*.yydebug
+*.win
+*.linux
+*.osx
+*.ios
+*.android
+
+# Temporary files
+*.tmp
+*.temp
+
+# System files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+code_text/env.txt
