@@ -1,0 +1,38 @@
+code_text/
+    code_text/update_lists.sh.txt
+    code_text/format_description.txt.txt
+    code_text/deploy_all.sh.txt
+    code_text/requirements.txt.txt
+    code_text/.DS_Store
+    code_text/Procfile.txt
+    code_text/.env.txt
+    code_text/create_hierarchy.sh.txt
+    code_text/runtime.txt.txt
+    code_text/.slugignore.txt
+    code_text/deploy.sh.txt
+    code_text/pyproject.toml.txt
+    code_text/command_list.txt.txt
+    code_text/package.json.txt
+    code_text/intro.txt.txt
+    code_text/bug_list.json.txt
+    code_text/planned_features.json.txt
+    code_text/backup.sh.txt
+    code_text/README.md.txt
+    code_text/server.py.txt
+    code_text/script_list.txt.txt
+code_text/tests/
+    code_text/tests/test_api_endpoints.py.txt
+code_text/utils/
+    code_text/utils/openai_operations.py.txt
+    code_text/utils/pinecone_operations.py.txt
+    code_text/utils/file_operations.py.txt
+code_text/Logs/
+    code_text/Logs/server_logs.json.txt
+    code_text/Logs/SessionLog_45453.16.txt.txt
+code_text/prompts/
+    code_text/prompts/test_prompt.txt.txt
+code_text/routes/
+    code_text/routes/update_code.py.txt
+    code_text/routes/generate_prompt.py.txt
+    code_text/routes/assistant.py.txt
+    code_text/routes/query.py.txt
