@@ -43,6 +43,13 @@ flask run --port=5001 &
 FLASK_PID=$!
 echo $FLASK_PID > flask_pid.txt
 
+# Ensure flask_pid.txt is in .gitignore
+if ! grep -q "flask_pid.txt" .gitignore; then
+    echo "flask_pid.txt" >> .gitignore
+    git add .gitignore
+    git commit -m "Add flask_pid.txt to .gitignore"
+fi
+
 # Step 7: Run test API endpoints script
 echo "Running test API endpoints script..."
 if [ -f ./GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
