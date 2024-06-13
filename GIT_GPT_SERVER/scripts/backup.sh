@@ -2,75 +2,65 @@
 
 set -e
 
-echo "Starting backup script..."
-
 # Source the backup configuration
 source ./GIT_GPT_SERVER/scripts/backup_config.sh
 
 # Run the update lists script to generate script and command lists
 ./GIT_GPT_SERVER/scripts/update_lists.sh
-echo "Backed up Lists!"
 
 # Create backup directory if it doesn't exist
 backup_dir="code_backups"
-code_text_dir="code_text"
 mkdir -p "$backup_dir"
-mkdir -p "$code_text_dir"
 
-# Function to backup a directory and create text files
-backup_directory() {
-    local directory=$1
-    local backup_file=$2
-
-    echo "Backing up files from $directory to $backup_file..."
-    for file in "$directory"/*; do
-        if [ -f "$file" ]; then
-            echo "Processing $file"
-            # Append file contents to the backup file
-            echo -e "\n------ $file ------\n$(cat "$file")" >> "$backup_file"
-            # Copy file to code_text directory
-            target_file="$code_text_dir/${file}.txt"
-            mkdir -p "$(dirname "$target_file")"
-            cp "$file" "$target_file"
+# Function to backup directories
+backup_directories() {
+    local directories=("$@")
+    for dir in "${directories[@]}"; do
+        if [ -d "$dir" ]; then
+            tar -czf "$backup_dir/${dir}_backup.tar.gz" "$dir"
+            echo "$dir backup completed."
+        else
+            echo "$dir does not exist, skipping..."
         fi
     done
 }
 
-# Function to backup a group of files
-backup_group() {
-    local output_file=$1
-    shift
-    local group=("$@")
-    echo "Backing up group of files to $output_file..."
-    for file in "${group[@]}"; do
+# Function to backup files
+backup_files() {
+    local files=("$@")
+    for file in "${files[@]}"; do
         if [ -f "$file" ]; then
-            echo "Processing $file"
-            # Append file contents to the backup file
-            echo -e "\n------ $file ------\n$(cat "$file")" >> "$output_file"
-            # Copy file to code_text directory
-            target_file="$code_text_dir/${file}.txt"
-            mkdir -p "$(dirname "$target_file")"
-            cp "$file" "$target_file"
+            cp "$file" "$backup_dir/$(basename "$file").backup"
+            echo "$file backup completed."
+        else
+            echo "$file does not exist, skipping..."
         fi
     done
 }
 
-# Backup each specified directory
-for dir in "${directories[@]}"; do
-    dir_name=$(basename "$dir")
-    backup_file="$backup_dir/${dir_name}_backup.txt"
-    backup_directory "$dir" "$backup_file"
-done
+# Backup directories and files
+backup_directories "${backup_directories[@]}"
+backup_directories "${git_gpt_server_directories[@]}"
+backup_files "${git_gpt_server_files[@]}"
+backup_files "${misc_files[@]}"
 
-# Backup miscellaneous files in logical groups
-backup_group "$backup_dir/documentation_backup.txt" "${group1[@]}"
-backup_group "$backup_dir/config_backup.txt" "${group2[@]}"
-backup_group "$backup_dir/script_lists_backup.txt" "${group3[@]}"
-backup_group "$backup_dir/metadata_backup.txt" "${group4[@]}"
-backup_group "$backup_dir/git_files_backup.txt" "${group5[@]}"
+# Generate hierarchy files
+generate_hierarchy() {
+    local dir=$1
+    local output_file=$2
 
-# Generate hierarchy
-echo "Generating hierarchy..."
-./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
+    echo "Generating hierarchy for $dir..."
+    if [ -d "$dir" ]; then
+        tree "$dir" > "$output_file"
+        echo "Hierarchy generated at $output_file"
+    else
+        echo "$dir does not exist, skipping hierarchy generation..."
+    fi
+}
 
-echo "Backup completed successfully!"
+generate_hierarchy "GIT_GPT_SERVER" "hierarchies/GIT_GPT_SERVER_hierarchy.txt"
+generate_hierarchy "YEAN_CAT" "hierarchies/YEAN_CAT_hierarchy.txt"
+generate_hierarchy "YEAN_CAT_SERVER" "hierarchies/YEAN_CAT_SERVER_hierarchy.txt"
+generate_hierarchy "." "hierarchies/Yean-Cat_hierarchy.txt"
+
+echo "Backup script completed successfully!"
