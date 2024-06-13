@@ -1,11 +1,12 @@
-from flask import Flask
+from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import os
 from routes.update_code import update_code_route
 
 load_dotenv()
 
-print("GITHUB_API_URL:", os.getenv('GITHUB_API_URL'))  # Add this line for debugging
+# Debugging environment variables
+print("GITHUB_API_URL:", os.getenv('GITHUB_API_URL'))
 print("GITHUB_TOKEN:", os.getenv('GITHUB_TOKEN'))
 print("ASSISTANT_ID:", os.getenv('ASSISTANT_ID'))
 print("PINECONE_API_KEY:", os.getenv('PINECONE_API_KEY'))
@@ -54,3 +55,4 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
     app.run(debug=debug_mode, host='0.0.0.0', port=port)
+
