@@ -1,39 +1,23 @@
-# Git-related files
 .git
-
-# Log files
 *.log
-
-# Node.js dependencies
 node_modules
-
-# Python cache files
 __pycache__
 *.pyc
-
-# macOS specific files
 .DS_Store
-
-# Test directories
 tests
-
-# Environment files
 .env
-
-# Conda-related files
 conda-meta
 lib/python*/site-packages/conda
 lib/python*/site-packages/tensorboardX
 lib/python*/site-packages/protobuf
-
-# Large asset directories
 YEAN CAT/sprites
 YEAN CAT/sounds
 YEAN CAT SERVER/sprites/
 YEAN CAT SERVER/sounds/
+deploy.sh
 
-# Additional large directories and files within GIT_GPT_SERVER to be excluded
-GIT_GPT_SERVER/scripts/
+# Exclude GIT_GPT_SERVER subdirectories that are not needed
+GIT_GPT_SERVER/scripts/tests/
 GIT_GPT_SERVER/Logs/
 GIT_GPT_SERVER/__pycache__/
 GIT_GPT_SERVER/code_text/
@@ -42,3 +26,17 @@ GIT_GPT_SERVER/.github/
 GIT_GPT_SERVER/flask_pid.txt
 GIT_GPT_SERVER/format_description.txt
 GIT_GPT_SERVER/intro.txt
+GIT_GPT_SERVER/README.md
+
+# Exclude unnecessary build files
+package.json
+command_list.txt
+script_list.txt
+runtime.txt
+
+# Exclude node_modules directories
+**/node_modules
+
+# Exclude test files and directories
+**/tests
+
