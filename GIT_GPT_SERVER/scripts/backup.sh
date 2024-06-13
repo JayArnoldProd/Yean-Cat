@@ -15,26 +15,8 @@ backup_files() {
     echo "Backup completed for $src_dir to $backup_file"
 }
 
-# Generate script and command lists
-echo "Generating script list for YEAN_CAT/scripts..."
-find YEAN_CAT/scripts -type f -name "*.gml" -exec basename {} \; > script_list.txt
-echo "Script list generated at script_list.txt"
-
-echo "Generating command list for YEAN_CAT/scripts..."
-find YEAN_CAT/scripts -type f -name "scr_*.gml" -exec basename {} \; > command_list.txt
-echo "Command list generated at command_list.txt"
-
-echo "Generating script list for YEAN_CAT_SERVER/scripts..."
-find YEAN_CAT_SERVER/scripts -type f -name "*.gml" -exec basename {} \; > server_script_list.txt
-echo "Script list generated at server_script_list.txt"
-
-echo "Generating command list for YEAN_CAT_SERVER/scripts..."
-find YEAN_CAT_SERVER/scripts -type f -name "scr_*.gml" -exec basename {} \; > server_command_list.txt
-echo "Command list generated at server_command_list.txt"
-
-# Add the changes to git
-git add script_list.txt command_list.txt server_script_list.txt server_command_list.txt
-git commit -m "Update script and command lists"
+# Run the update_lists.sh script
+./GIT_GPT_SERVER/scripts/update_lists.sh
 
 # Backup various files
 backup_files "GIT_GPT_SERVER/scripts" "code_backups/scripts_backup.txt"
