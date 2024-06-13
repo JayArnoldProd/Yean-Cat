@@ -1,4 +1,5 @@
 #!/bin/bash
+# backup.sh
 
 echo "Starting backup script..."
 
@@ -52,5 +53,9 @@ if [ -f "GIT_GPT_SERVER/Logs/server_logs.json" ]; then
     echo "Copying server_logs.json to code_text directory..."
     cp "GIT_GPT_SERVER/Logs/server_logs.json" "GIT_GPT_SERVER/code_text/server_logs.json.txt"
 fi
+
+# Generate hierarchy
+echo "Generating hierarchy..."
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
 
 echo "Backup completed successfully!"
