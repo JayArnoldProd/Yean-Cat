@@ -2,8 +2,7 @@
 
 # Create the code_text directory in the root
 mkdir -p code_text/GIT_GPT_SERVER
-mkdir -p code_text/GIT_GPT_SERVER/github/workflows
-mkdir -p code_text/.git
+mkdir -p code_text/github/workflows
 
 # Function to copy and rename files with .txt extension
 copy_and_rename() {
@@ -55,7 +54,7 @@ copy_and_rename server_script_list.txt code_text/server_script_list.txt
 # Copy GIT_GPT_SERVER directory structure to code_text and rename with .txt extension
 copy_dir_and_rename GIT_GPT_SERVER code_text/GIT_GPT_SERVER
 
-# Copy .github/workflows/main.yml to code_text/GIT_GPT_SERVER/github/workflows
+# Copy .github/workflows/main.yml to code_text/github/workflows
 if [ -f ".github/workflows/main.yml" ]; then
     copy_and_rename ".github/workflows/main.yml" "code_text/github/workflows/main.yml"
 else
@@ -79,6 +78,13 @@ if [ -f ".gitattributes" ]; then
     copy_and_rename ".gitattributes" "code_text/gitattributes"
 else
     echo "File .gitattributes does not exist"
+fi
+
+# Ensure the .git directory is copied and renamed to git
+if [ -d ".git" ]; then
+    copy_dir_and_rename ".git" "code_text/git"
+else
+    echo "Directory .git does not exist"
 fi
 
 echo "Code text backup completed successfully!"
