@@ -50,9 +50,14 @@ except Exception as e:
 
 log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
 
+@app.route('/')
+def home():
+    return jsonify({"message": "Welcome to the Yean Cat GPT API!"})
+
 @app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
     if not os.path.exists(log_path):
+        os.makedirs(os.path.dirname(log_path), exist_ok=True)
         with open(log_path, 'w', encoding='utf-8') as file:
             file.write('')
     try:
@@ -65,7 +70,7 @@ def pull_logs():
 
 @app.route('/api/update_code/pull_logs_summary', methods=['POST'])
 def pull_logs_summary():
-    logs_dir = 'Logs'
+    logs_dir = 'GIT_GPT_SERVER/Logs'
     logs_summary = []
 
     if os.path.exists(logs_dir):
@@ -87,6 +92,11 @@ def pull_logs_summary():
 @app.route('/debug', methods=['GET'])
 def debug():
     return jsonify({"status": "Server is running", "routes": [str(rule) for rule in app.url_map.iter_rules()]})
+
+@app.route('/query', methods=['POST'])
+def query():
+    # Your query logic here
+    return jsonify({"message": "Query received"})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
