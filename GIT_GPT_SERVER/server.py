@@ -1,15 +1,12 @@
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import os
-import requests
 
 load_dotenv()
 
 app = Flask(__name__)
 
 log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
-API_KEY = os.getenv('API_KEY')
-API_URL = os.getenv('API_URL')
 
 @app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
@@ -43,27 +40,6 @@ def pull_logs_summary():
         return jsonify({"logs_summary": logs_summary})
     else:
         return jsonify({"error": "Logs directory not found"}), 404
-
-@app.route('/api/generate_prompt', methods=['POST'])
-def generate_prompt():
-    data = request.json
-    prompt = data.get('prompt', '')
-    
-    response = send_to_gpt(prompt)
-    
-    return jsonify(response)
-
-def send_to_gpt(prompt):
-    headers = {
-        'Content-Type': 'application/json',
-        'Authorization': f'Bearer {API_KEY}'
-    }
-    payload = {
-        "model": "gpt-4",
-        "messages": [{"role": "system", "content": "You are a helpful assistant."}, {"role": "user", "content": prompt}]
-    }
-    response = requests.post(API_URL, json=payload, headers=headers)
-    return response.json()
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5001))
