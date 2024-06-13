@@ -55,6 +55,10 @@ copy_and_rename server_script_list.txt code_text/server_script_list.txt
 copy_dir_and_rename GIT_GPT_SERVER code_text/GIT_GPT_SERVER
 
 # Copy .github/workflows/main.yml to code_text/GIT_GPT_SERVER/github/workflows
-copy_and_rename .github/workflows/main.yml code_text/GIT_GPT_SERVER/github/workflows/main.yml
+if [ -f ".github/workflows/main.yml" ]; then
+    copy_and_rename ".github/workflows/main.yml" "code_text/GIT_GPT_SERVER/github/workflows/main.yml"
+else
+    echo "File .github/workflows/main.yml does not exist"
+fi
 
 echo "Code text backup completed successfully!"
