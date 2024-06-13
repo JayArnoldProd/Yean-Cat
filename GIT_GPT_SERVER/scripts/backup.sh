@@ -68,9 +68,9 @@ $(cat "$file")" >> "$output_file"
 
 # Function to backup a group of files
 backup_group() {
-    local group=("$@")
     local output_file=$1
     shift
+    local group=("$@")
     echo "Backing up group of files to $output_file..."
     for file in "${group[@]}"; do
         if [ -f "$file" ]; then

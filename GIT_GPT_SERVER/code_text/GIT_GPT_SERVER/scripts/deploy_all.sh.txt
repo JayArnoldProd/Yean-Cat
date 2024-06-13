@@ -20,9 +20,7 @@ echo "Checking for and killing existing Flask servers on ports 5000..."
 echo "Adding and committing changes to GitHub..."
 git add .
 git commit -m "Automated backup and deployment"
-
-# Notify about manual Git operations
-echo "Please manually push changes using GitHub Desktop."
+git push origin main
 
 # Step 6: Check if the server is running and pull logs
 if curl -s --head http://localhost:5000 | grep "200 OK" > /dev/null; then
@@ -33,6 +31,8 @@ else
     cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER
     export FLASK_APP=server.py
     flask run &
+    FLASK_PID=$!  # Capture the Flask server PID
+    echo $FLASK_PID > /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/flask_pid.txt
     sleep 5  # Wait for the server to start
     echo "Pulling logs from the server..."
     curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json
@@ -40,22 +40,21 @@ fi
 
 echo "Backup and deployment completed successfully!"
 
-# Step 7: Save Flask server PID
-FLASK_PID=$!
-echo $FLASK_PID > /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/flask_pid.txt
+# Step 7: Save Flask server PID (already done in Step 6)
 
-## Step 8: Run test API endpoints script
-#echo "Running test API endpoints script..."
-#if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
-#    python /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
-#else
-#    echo "Test script not found."
-#fi
+# Step 8: Optionally run test API endpoints script
+# echo "Running test API endpoints script..."
+# if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
+#     python /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+# else
+#     echo "Test script not found."
+# fi
 
 # Navigate to the project directory
 cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
 
 # Push to Heroku
+echo "Pushing to Heroku..."
 git push heroku main
 
 echo "Deployment and run completed successfully!"

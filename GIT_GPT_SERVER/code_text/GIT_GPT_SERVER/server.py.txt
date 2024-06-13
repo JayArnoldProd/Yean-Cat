@@ -17,15 +17,11 @@ except ImportError:
     DEBUG_MODE = True
 
 # Importing blueprints
-try:
-    from routes.update_code import update_code_route
-    from routes.query_openai import query_openai_route
-    from routes.generate_prompt import generate_prompt_route
-    from routes.assistant import assistant_route
-    from routes.logs import logs_route
-except ImportError as e:
-    print(f"Error importing routes: {e}")
-    sys.exit(1)
+from routes.update_code import update_code_route
+from routes.query_openai import query_openai_route
+from routes.generate_prompt import generate_prompt_route
+from routes.assistant import assistant_route
+from routes.logs import logs_route
 
 app = Flask(__name__)
 
