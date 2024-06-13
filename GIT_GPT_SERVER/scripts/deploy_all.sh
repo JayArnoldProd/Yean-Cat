@@ -13,7 +13,7 @@ echo "Running backup script..."
 ./GIT_GPT_SERVER/scripts/backup.sh
 
 # Step 4: Identify and kill specific Flask processes
-echo "Checking for and killing existing Flask servers on ports 5000 and 5001..."
+echo "Checking for and killing existing Flask servers on ports 5000..."
 ./GIT_GPT_SERVER/scripts/stop_server.sh
 
 # Step 5: Add and commit changes to GitHub (without push)
@@ -40,15 +40,9 @@ fi
 
 echo "Backup and deployment completed successfully!"
 
-# Step 7: Start Flask server on port 5001 and save PID
-echo "Starting Flask server on port 5001..."
-cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER
-export FLASK_APP=server.py
-flask run --port=5001 &
+# Step 7: Save Flask server PID
 FLASK_PID=$!
-
-# Save the Flask PID to kill it later if needed
-echo $FLASK_PID > flask_pid.txt
+echo $FLASK_PID > /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/flask_pid.txt
 
 # Step 8: Run test API endpoints script
 echo "Running test API endpoints script..."

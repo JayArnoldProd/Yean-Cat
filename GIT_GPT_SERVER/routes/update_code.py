@@ -56,7 +56,3 @@ def pull_logs():
                 logs[log_file] = str(e)
 
     return jsonify(logs)
-
-# Ensure to register the blueprint in your main app file
-# from your_blueprint_file import update_code_route
-# app.register_blueprint(update_code_route)

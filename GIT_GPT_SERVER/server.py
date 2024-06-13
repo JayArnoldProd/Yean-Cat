@@ -1,10 +1,12 @@
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import os
+from routes.update_code import update_code_route
 
 load_dotenv()
 
 app = Flask(__name__)
+app.register_blueprint(update_code_route)
 
 log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
 
@@ -42,6 +44,6 @@ def pull_logs_summary():
         return jsonify({"error": "Logs directory not found"}), 404
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5001))
+    port = int(os.environ.get('PORT', 5000))  # Changed to port 5000
     debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
     app.run(debug=debug_mode, host='0.0.0.0', port=port)
