@@ -1,66 +1,55 @@
 #!/bin/bash
 
-set -e
-
-# Source the backup configuration
-source ./GIT_GPT_SERVER/scripts/backup_config.sh
-
-# Run the update lists script to generate script and command lists
-./GIT_GPT_SERVER/scripts/update_lists.sh
-
-# Create backup directory if it doesn't exist
-backup_dir="code_backups"
-mkdir -p "$backup_dir"
-
-# Function to backup directories
-backup_directories() {
-    local directories=("$@")
-    for dir in "${directories[@]}"; do
-        if [ -d "$dir" ]; then
-            tar -czf "$backup_dir/${dir}_backup.tar.gz" "$dir"
-            echo "$dir backup completed."
-        else
-            echo "$dir does not exist, skipping..."
-        fi
-    done
-}
-
-# Function to backup files
+# Function to backup files from a source directory to a backup file
 backup_files() {
-    local files=("$@")
-    for file in "${files[@]}"; do
-        if [ -f "$file" ]; then
-            cp "$file" "$backup_dir/$(basename "$file").backup"
-            echo "$file backup completed."
-        else
-            echo "$file does not exist, skipping..."
-        fi
-    done
-}
+    local src_dir=$1
+    local backup_file=$2
+    local exclude_file=$3
 
-# Backup directories and files
-backup_directories "${backup_directories[@]}"
-backup_directories "${git_gpt_server_directories[@]}"
-backup_files "${git_gpt_server_files[@]}"
-backup_files "${misc_files[@]}"
-
-# Generate hierarchy files
-generate_hierarchy() {
-    local dir=$1
-    local output_file=$2
-
-    echo "Generating hierarchy for $dir..."
-    if [ -d "$dir" ]; then
-        tree "$dir" > "$output_file"
-        echo "Hierarchy generated at $output_file"
+    echo "Backing up files from $src_dir to $backup_file..."
+    if [ -z "$exclude_file" ]; then
+        find "$src_dir" -type f -exec echo "Processing {}" \; -exec cat {} + > "$backup_file"
     else
-        echo "$dir does not exist, skipping hierarchy generation..."
+        find "$src_dir" -type f ! -name "$exclude_file" -exec echo "Processing {}" \; -exec cat {} + > "$backup_file"
     fi
+    echo "Backup completed for $src_dir to $backup_file"
 }
 
-generate_hierarchy "GIT_GPT_SERVER" "hierarchies/GIT_GPT_SERVER_hierarchy.txt"
-generate_hierarchy "YEAN_CAT" "hierarchies/YEAN_CAT_hierarchy.txt"
-generate_hierarchy "YEAN_CAT_SERVER" "hierarchies/YEAN_CAT_SERVER_hierarchy.txt"
-generate_hierarchy "." "hierarchies/Yean-Cat_hierarchy.txt"
+# Generate script and command lists
+echo "Generating script list for YEAN_CAT/scripts..."
+find YEAN_CAT/scripts -type f -name "*.gml" -exec basename {} \; > script_list.txt
+echo "Script list generated at script_list.txt"
+
+echo "Generating command list for YEAN_CAT/scripts..."
+find YEAN_CAT/scripts -type f -name "scr_*.gml" -exec basename {} \; > command_list.txt
+echo "Command list generated at command_list.txt"
+
+echo "Generating script list for YEAN_CAT_SERVER/scripts..."
+find YEAN_CAT_SERVER/scripts -type f -name "*.gml" -exec basename {} \; > server_script_list.txt
+echo "Script list generated at server_script_list.txt"
+
+echo "Generating command list for YEAN_CAT_SERVER/scripts..."
+find YEAN_CAT_SERVER/scripts -type f -name "scr_*.gml" -exec basename {} \; > server_command_list.txt
+echo "Command list generated at server_command_list.txt"
+
+# Add the changes to git
+git add script_list.txt command_list.txt server_script_list.txt server_command_list.txt
+git commit -m "Update script and command lists"
+
+# Backup various files
+backup_files "GIT_GPT_SERVER/scripts" "code_backups/scripts_backup.txt"
+backup_files "GIT_GPT_SERVER/Logs" "code_backups/Logs_backup.txt"
+backup_files "GIT_GPT_SERVER/.github" "code_backups/.github_backup.txt"
+backup_files "GIT_GPT_SERVER/routes" "code_backups/routes_backup.txt"
+backup_files "GIT_GPT_SERVER/tests" "code_backups/tests_backup.txt"
+backup_files "GIT_GPT_SERVER/utils" "code_backups/utils_backup.txt"
+backup_files "GIT_GPT_SERVER/prompts" "code_backups/prompts_backup.txt"
+backup_files "GIT_GPT_SERVER" "code_backups/documentation_backup.txt" ".*"
+backup_files "GIT_GPT_SERVER" "code_backups/config_backup.txt" ".*"
+backup_files "GIT_GPT_SERVER" "code_backups/metadata_backup.txt" ".*"
+backup_files "GIT_GPT_SERVER" "code_backups/git_files_backup.txt" ".env"
+
+# Generate hierarchies
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
 
 echo "Backup script completed successfully!"
