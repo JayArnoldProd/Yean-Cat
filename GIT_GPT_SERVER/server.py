@@ -5,6 +5,13 @@ from routes.update_code import update_code_route
 
 load_dotenv()
 
+print("GITHUB_API_URL:", os.getenv('GITHUB_API_URL'))  # Add this line for debugging
+print("GITHUB_TOKEN:", os.getenv('GITHUB_TOKEN'))
+print("ASSISTANT_ID:", os.getenv('ASSISTANT_ID'))
+print("PINECONE_API_KEY:", os.getenv('PINECONE_API_KEY'))
+print("PINECONE_INDEX_NAME:", os.getenv('PINECONE_INDEX_NAME'))
+print("GITHUB_USERNAME:", os.getenv('GITHUB_USERNAME'))
+
 app = Flask(__name__)
 app.register_blueprint(update_code_route)
 
