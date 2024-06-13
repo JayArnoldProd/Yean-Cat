@@ -16,7 +16,7 @@ load_dotenv()
 # Debugging environment variables
 print("GITHUB_API_URL:", os.getenv('GITHUB_API_URL'))
 print("GITHUB_TOKEN:", os.getenv('GITHUB_TOKEN'))
-print("ASSISTANT_ID:", os.getenv('ASSISTANT_ID'))
+print("ASSISTANT_ID:", os.getenv('ASSISTANT_ID'))  # Ensure this is correctly named in Heroku
 print("PINECONE_API_KEY:", os.getenv('PINECONE_API_KEY'))
 print("PINECONE_INDEX_NAME:", os.getenv('PINECONE_INDEX_NAME'))
 print("GITHUB_USERNAME:", os.getenv('GITHUB_USERNAME'))
@@ -59,9 +59,11 @@ def pull_logs():
     log_dir = os.path.dirname(log_path)
     if not os.path.exists(log_dir):
         os.makedirs(log_dir)
+        return jsonify({"error": "Logs directory does not exist. Directory created."}), 404
     if not os.path.exists(log_path):
         with open(log_path, 'w', encoding='utf-8') as file:
             file.write('')
+        return jsonify({"error": "Log file does not exist. File created."}), 404
     try:
         with open(log_path, 'r', encoding='utf-8') as file:
             content = file.read()
