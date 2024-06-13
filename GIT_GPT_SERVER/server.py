@@ -1,6 +1,11 @@
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import os
+import sys
+
+# Add the utils directory to the sys.path
+sys.path.insert(0, os.path.join(os.path.dirname(__file__), 'utils'))
+
 from GIT_GPT_SERVER.routes.update_code import update_code_route
 from GIT_GPT_SERVER.routes.query import query_openai_route
 from GIT_GPT_SERVER.routes.generate_prompt import generate_prompt_route
