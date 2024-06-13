@@ -40,3 +40,36 @@ GITHUB_USERNAME = os.getenv('GITHUB_USERNAME')
 
 == End: config.py.txt
 
+== Begin: pyproject.toml.txt
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+== End: pyproject.toml.txt
+
+== Begin: requirements.txt.txt
+blinker==1.8.2
+brotlipy==0.7.0
+certifi==2022.12.7
+cffi==1.15.1
+charset-normalizer==2.1.1
+click==8.1.7
+Flask==3.0.3
+gunicorn==22.0.0
+idna==3.4
+itsdangerous==2.2.0
+Jinja2==3.1.4
+MarkupSafe==2.1.5
+numpy==1.24.2
+python-dotenv==1.0.1
+requests==2.28.1
+setuptools==69.2.0
+wheel==0.43.0
+Werkzeug==3.0.3
+pinecone-client==4.1.1
+== End: requirements.txt.txt
+
+== Begin: runtime.txt.txt
+python-3.10.14
+== End: runtime.txt.txt
+

@@ -39,3 +39,16 @@ toggle_server
 
 == End: command_list.txt.txt
 
+== Begin: planned_features.json.txt
+[
+    {
+        "name": "Sample Feature",
+        "description": "This is a sample feature description.",
+        "related_objects": ["obj_client", "dondadollar"],
+        "related_scripts": ["scr_toggle_server", "scr_list_colors"],
+        "logs": ["SessionLog_45450.51.txt"]
+    }
+]
+
+== End: planned_features.json.txt
+
