@@ -1,8 +1,9 @@
 # routes/logs.py
 import os
-from flask import jsonify
-from . import logs_route
+from flask import jsonify, Blueprint
 from config import LOG_PATH
+
+logs_route = Blueprint('logs_route', __name__)
 
 @logs_route.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
