@@ -430,13 +430,3 @@ add_command("save_game", 0, [[]], false);  // Does not require "(" visually
 The game features an in game console which allows players with the required permission to execute code and create new features from within the game. Typing "/" will mean that the player is typing a command. Some commands do not require a "(", for example: /toggle_server . You can create actions by typing /add_action("Name it",Command_name,[100,"example_string"]) and can create macros essentially for commands and will be able to trigger these actions in sequences and events, or possibly controlled by an AI GPT like yourself. This is how It is intended to work, but it is still needing some fixes to be able to handle saving actions for commands that take more than 1 argument, such as /chat_bubble("Text",owner).
 == End: format_description.txt.txt
 
-== Begin: last_words_generation_1.txt
-This generation focused on improving the backup process...
-
-== End: last_words_generation_1.txt
-
-== Begin: last_words_generation_2.txt
-This generation focused on improving the backup process...
-
-== End: last_words_generation_2.txt
-
