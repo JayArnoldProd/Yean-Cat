@@ -1,0 +1,18 @@
+*.log
+node_modules
+*.pyc
+conda-meta
+lib/python*/site-packages/conda
+lib/python*/site-packages/tensorboardX
+lib/python*/site-packages/protobuf
+
+# Exclude large directories in YEAN_CAT
+YEAN_CAT/sprites/
+YEAN_CAT/sounds/
+
+# Exclude large directories in YEAN_CAT_SERVER
+YEAN_CAT_SERVER/sprites/
+YEAN_CAT_SERVER/sounds/
+
+# Exclude node_modules directories
+**/node_modules

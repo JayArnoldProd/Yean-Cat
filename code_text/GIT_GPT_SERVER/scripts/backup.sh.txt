@@ -15,9 +15,6 @@ backup_directory() {
     echo "Backup completed for $source_dir to $backup_file"
 }
 
-# Ensure the code_backups directory exists
-mkdir -p code_backups
-
 # Backup Scripts
 backup_directory "code_text/GIT_GPT_SERVER/scripts" "code_backups/scripts_backup.txt" "*.txt"
 
