@@ -2,108 +2,75 @@
 
 set -e
 
-backup_file() {
-    src=$1
-    dest=$2
-    if [ -f "$src" ]; then
-        mkdir -p "$(dirname "$dest")"
-        cp "$src" "$dest"
-    fi
-}
-
-backup_folder() {
-    folder=$1
-    backup=$2
-    if [ -d "$folder" ]; then
-        mkdir -p "$(dirname "$backup")"
-        find "$folder" -type f -exec sh -c 'echo "Processing $1"; echo "------ $1 ------" >> "$2"; cat "$1" >> "$2"; echo "\n" >> "$2"' _ {} "$backup" \;
-    fi
-}
-
 echo "Starting backup script..."
-# Update Lists
+
+# Source the backup configuration
+source ./GIT_GPT_SERVER/scripts/backup_config.sh
+
+# Run the update lists script to generate script and command lists
 ./GIT_GPT_SERVER/scripts/update_lists.sh
+echo "Backed up Lists!"
 
-# Clean and recreate the backup directory
+# Create backup directory if it doesn't exist
 backup_dir="code_backups"
-rm -rf $backup_dir
-mkdir -p $backup_dir
-
-# Clean and recreate the code_text directory
 code_text_dir="code_text"
-rm -rf $code_text_dir
-mkdir -p $code_text_dir
+mkdir -p "$backup_dir"
+mkdir -p "$code_text_dir"
 
-# Backup files from GIT_GPT_SERVER directories to backup files
-backup_folder "GIT_GPT_SERVER/scripts" "$backup_dir/scripts_backup.txt"
-backup_folder "GIT_GPT_SERVER/Logs" "$backup_dir/Logs_backup.txt"
-backup_folder "GIT_GPT_SERVER/.github/workflows" "$backup_dir/workflows_backup.txt"
-backup_folder "GIT_GPT_SERVER/routes" "$backup_dir/routes_backup.txt"
-backup_folder "GIT_GPT_SERVER/utils" "$backup_dir/utils_backup.txt"
-backup_folder "GIT_GPT_SERVER/prompts" "$backup_dir/prompts_backup.txt"
+# Function to backup a directory and create text files
+backup_directory() {
+    local directory=$1
+    local backup_file=$2
 
-# Backup grouped files
-grouped_files=("GIT_GPT_SERVER/__init__.py" "GIT_GPT_SERVER/config.py" "GIT_GPT_SERVER/flask_pid.txt" "GIT_GPT_SERVER/format_description.txt" "GIT_GPT_SERVER/intro.txt" "GIT_GPT_SERVER/server.py")
-for file in "${grouped_files[@]}"; do
-    backup_file "$file" "$backup_dir/documentation_backup.txt"
+    echo "Backing up files from $directory to $backup_file..."
+    for file in "$directory"/*; do
+        if [ -f "$file" ]; then
+            echo "Processing $file"
+            # Append file contents to the backup file
+            echo -e "\n------ $file ------\n$(cat "$file")" >> "$backup_file"
+            # Copy file to code_text directory
+            target_file="$code_text_dir/${file}.txt"
+            mkdir -p "$(dirname "$target_file")"
+            cp "$file" "$target_file"
+        fi
+    done
+}
+
+# Function to backup a group of files
+backup_group() {
+    local output_file=$1
+    shift
+    local group=("$@")
+    echo "Backing up group of files to $output_file..."
+    for file in "${group[@]}"; do
+        if [ -f "$file" ]; then
+            echo "Processing $file"
+            # Append file contents to the backup file
+            echo -e "\n------ $file ------\n$(cat "$file")" >> "$output_file"
+            # Copy file to code_text directory
+            target_file="$code_text_dir/${file}.txt"
+            mkdir -p "$(dirname "$target_file")"
+            cp "$file" "$target_file"
+        fi
+    done
+}
+
+# Backup each specified directory
+for dir in "${directories[@]}"; do
+    dir_name=$(basename "$dir")
+    backup_file="$backup_dir/${dir_name}_backup.txt"
+    backup_directory "$dir" "$backup_file"
 done
 
-main_files=("README.md" "script_list.txt" "bug_list.json" "command_list.txt" "package.json" ".slugignore" "requirements.txt" "planned_features.json")
-for file in "${main_files[@]}"; do
-    backup_file "$file" "$backup_dir/config_backup.txt"
-done
+# Backup miscellaneous files in logical groups
+backup_group "$backup_dir/documentation_backup.txt" "${group1[@]}"
+backup_group "$backup_dir/config_backup.txt" "${group2[@]}"
+backup_group "$backup_dir/script_lists_backup.txt" "${group3[@]}"
+backup_group "$backup_dir/metadata_backup.txt" "${group4[@]}"
+backup_group "$backup_dir/git_files_backup.txt" "${group5[@]}"
 
-metadata_files=(".gitignore" "pyproject.toml" "Procfile" ".gitattributes" "server_script_list.txt" "runtime.txt" "server_command_list.txt")
-for file in "${metadata_files[@]}"; do
-    backup_file "$file" "$backup_dir/metadata_backup.txt"
-done
-
-script_list_files=("script_list.txt" "command_list.txt")
-for file in "${script_list_files[@]}"; do
-    backup_file "$file" "$backup_dir/script_lists_backup.txt"
-done
-
-# Copy files to code_text directory
-echo "Copying files to code_text directory..."
-find GIT_GPT_SERVER -type f -exec sh -c 'mkdir -p "code_text/${1%/*}"; cp "$1" "code_text/${1}.txt"' _ {} \;
-
-# Copy main directory files to code_text directory
-main_files_for_code_text=("README.md" "script_list.txt" "bug_list.json" "command_list.txt" "package.json" ".gitignore" "pyproject.toml" "Procfile" ".gitattributes" "server_script_list.txt" "runtime.txt" "server_command_list.txt" "planned_features.json" "requirements.txt" ".slugignore")
-for file in "${main_files_for_code_text[@]}"; do
-    backup_file "$file" "code_text/${file}.txt"
-done
-
-# Handle hidden files
-echo "Copying hidden files to code_text directory..."
-hidden_files=(".gitignore" ".slugignore" ".gitattributes")
-for file in "${hidden_files[@]}"; do
-    if [ -f "$file" ]; then
-        cp "$file" "code_text/${file}.txt"
-    fi
-done
-
-# Handle .github folder
-if [ -d "GIT_GPT_SERVER/.github" ]; then
-    backup_folder "GIT_GPT_SERVER/.github" "$backup_dir/github_backup.txt"
-fi
-
+# Generate hierarchy
 echo "Generating hierarchy..."
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
 
-# Generate hierarchy for GIT_GPT_SERVER
-echo "Generating hierarchy for GIT_GPT_SERVER..."
-./GIT_GPT_SERVER/scripts/generate_hierarchy.sh GIT_GPT_SERVER hierarchies/GIT_GPT_SERVER_hierarchy.txt
-
-# Generate hierarchy for YEAN_CAT
-echo "Generating hierarchy for YEAN_CAT..."
-./GIT_GPT_SERVER/scripts/generate_hierarchy.sh YEAN_CAT hierarchies/YEAN_CAT_hierarchy.txt
-
-# Generate hierarchy for YEAN_CAT_SERVER
-echo "Generating hierarchy for YEAN_CAT_SERVER..."
-./GIT_GPT_SERVER/scripts/generate_hierarchy.sh YEAN_CAT_SERVER hierarchies/YEAN_CAT_SERVER_hierarchy.txt
-
-# Generate hierarchy for the main directory
-echo "Generating hierarchy for Yean-Cat..."
-./GIT_GPT_SERVER/scripts/generate_hierarchy.sh . hierarchies/Yean-Cat_hierarchy.txt
-
-echo "Hierarchy creation completed successfully!"
 echo "Backup completed successfully!"

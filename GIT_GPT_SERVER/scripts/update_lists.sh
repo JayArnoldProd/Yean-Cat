@@ -1,24 +1,23 @@
 #!/bin/bash
-# update_lists.sh
 
-# Function to generate script list
+# Function to generate a list of scripts
 generate_script_list() {
-  local directory=$1
-  local output_file=$2
+    local dir=$1
+    local output_file=$2
 
-  echo "Generating script list for $directory..."
-  find "$directory" -name "*.gml" -exec basename {} .gml \; > "$output_file"
-  echo "Script list generated at $output_file"
+    echo "Generating script list for $dir..."
+    find "$dir" -name "*.gml" -exec basename {} .gml \; > "$output_file"
+    echo "Script list generated at $output_file"
 }
 
-# Function to generate command list
+# Function to generate a list of commands
 generate_command_list() {
-  local directory=$1
-  local output_file=$2
+    local dir=$1
+    local output_file=$2
 
-  echo "Generating command list for $directory..."
-  grep -r "function scr_" "$directory" | awk -F'function scr_' '{print $2}' | awk -F'(' '{print $1}' | sort -u > "$output_file"
-  echo "Command list generated at $output_file"
+    echo "Generating command list for $dir..."
+    grep -r "function scr_" "$dir" | awk -F'function scr_' '{print $2}' | awk -F'(' '{print $1}' | sort -u > "$output_file"
+    echo "Command list generated at $output_file"
 }
 
 # Generate lists for client project
