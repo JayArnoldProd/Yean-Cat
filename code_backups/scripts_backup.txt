@@ -1,0 +1,470 @@
+== Begin: update_lists.sh.txt
+#!/bin/bash
+
+# Function to generate a list of scripts
+generate_script_list() {
+    local dir=$1
+    local output_file=$2
+
+    echo "Generating script list for $dir..."
+    find "$dir" -name "*.gml" -exec basename {} .gml \; > "$output_file"
+    echo "Script list generated at $output_file"
+}
+
+# Function to generate a list of commands
+generate_command_list() {
+    local dir=$1
+    local output_file=$2
+
+    echo "Generating command list for $dir..."
+    grep -r "function scr_" "$dir" | awk -F'function scr_' '{print $2}' | awk -F'(' '{print $1}' | sort -u > "$output_file"
+    echo "Command list generated at $output_file"
+}
+
+# Generate lists for client project
+generate_script_list "YEAN_CAT/scripts" "script_list.txt"
+generate_command_list "YEAN_CAT/scripts" "command_list.txt"
+
+# Generate lists for server project
+generate_script_list "YEAN_CAT_SERVER/scripts" "server_script_list.txt"
+generate_command_list "YEAN_CAT_SERVER/scripts" "server_command_list.txt"
+
+# Commit and push the updated lists
+git add script_list.txt command_list.txt server_script_list.txt server_command_list.txt
+git commit -m "Update script and command lists"
+
+echo "Update completed successfully!"
+
+== End: update_lists.sh.txt
+
+== Begin: generate_hierarchy.sh.txt
+#!/bin/bash
+
+# Create a hierarchies directory in the root
+mkdir -p hierarchies
+
+# Function to create a hierarchical representation of a directory
+generate_hierarchy() {
+    local directory=$1
+    local output_file=$2
+    local depth=$3
+
+    echo "Generating hierarchy for $directory..."
+    if [ -z "$depth" ]; then
+        tree "$directory" -o "$output_file" || { echo "Failed to generate hierarchy for $directory"; exit 1; }
+    else
+        tree -L "$depth" "$directory" -o "$output_file" || { echo "Failed to generate hierarchy for $directory"; exit 1; }
+    fi
+    echo "Hierarchy generated at $output_file"
+}
+
+# Generate hierarchies for the required directories and save in the hierarchies folder
+generate_hierarchy "GIT_GPT_SERVER" "hierarchies/GIT_GPT_SERVER_hierarchy.txt"
+generate_hierarchy "YEAN_CAT" "hierarchies/YEAN_CAT_hierarchy.txt" 5
+generate_hierarchy "YEAN_CAT_SERVER" "hierarchies/YEAN_CAT_SERVER_hierarchy.txt"
+
+# Generate top-level hierarchy for Yean-Cat without including files within subdirectories
+generate_hierarchy "." "hierarchies/Yean-Cat_hierarchy.txt" 1
+
+echo "Hierarchy creation completed successfully!"
+
+== End: generate_hierarchy.sh.txt
+
+== Begin: deploy_all.sh.txt
+#!/bin/bash
+
+# Step 1: Set environment variables from .env
+source .env
+
+# Step 2: Update GitHub remote URL with token
+echo "Updating GitHub remote URL..."
+git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
+
+# Step 3: Run code_backup script with hierarchy generation
+echo "Running backup script..."
+./GIT_GPT_SERVER/scripts/code_backup.sh
+
+# Step 4: Identify and kill specific Flask processes
+echo "Checking for and killing existing Flask servers on ports 5000..."
+./GIT_GPT_SERVER/scripts/stop_server.sh
+
+# Step 5: Run force_push.sh with an optional commit message argument
+echo "Running force_push.sh..."
+./GIT_GPT_SERVER/scripts/force_push.sh "${1:-Catch up with local changes}"
+
+# Step 6: Check if the server is running and pull logs
+if curl -s --head http://localhost:5000 | grep "200 OK" > /dev/null; then
+    echo "Pulling logs from the server..."
+    curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json
+else
+    echo "Server is not running. Starting the Flask server..."
+    cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER
+    export FLASK_APP=server.py
+    flask run &
+    FLASK_PID=$!  # Capture the Flask server PID
+    echo $FLASK_PID > /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/flask_pid.txt
+    sleep 5  # Wait for the server to start
+    echo "Pulling logs from the server..."
+    curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json
+fi
+
+echo "Backup and deployment completed successfully!"
+
+# Step 7: Optionally run test API endpoints script
+echo "Running test API endpoints script..."
+if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
+    python /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+else
+    echo "Test script not found."
+fi
+
+echo "Deployment and run completed successfully!"
+
+== End: deploy_all.sh.txt
+
+== Begin: test_api_endpoints.py.txt
+import requests
+import os
+
+BASE_URL = "https://yean-cat-git-gpt-dd907a6ae83f.herokuapp.com"
+
+def print_response(response):
+    try:
+        response.raise_for_status()  # Check if the request was successful
+        print("Response JSON:", response.json())
+    except requests.exceptions.HTTPError as http_err:
+        print(f"HTTP error occurred: {http_err}")
+        print("Response Content:", response.content)
+    except requests.exceptions.JSONDecodeError:
+        print("Response Content:", response.content)
+
+def main():
+    print("Starting Pinecone Initialization Test")
+    response = requests.post(f"{BASE_URL}/api/query", json={
+        "prompt_name": "test_prompt",
+        "input_text": "Initialize Pinecone"
+    })
+    print("Pinecone Initialization Test:")
+    print_response(response)
+
+    print("Starting GPT Connection Test")
+    response = requests.post(f"{BASE_URL}/api/generate_prompt", json={
+        "save_name": "test_save",
+        "input_text": "Test GPT connection"
+    })
+    print("GPT Connection Test:")
+    print_response(response)
+
+    print("Starting Update Code Test")
+    response = requests.post(f"{BASE_URL}/api/update_code", json={
+        "file_path": "test.py",
+        "new_content": "print('Hello World')",
+        "commit_message": "Test update"
+    })
+    print("Update Code Test:")
+    print_response(response)
+
+    print("Starting Assistant Test")
+    response = requests.post(f"{BASE_URL}/api/assistant", json={
+        "message": "Test assistant",
+        "thread_id": "test_thread"
+    }, headers={
+        "Authorization": f"Bearer {os.getenv('ASSISTANT_API_KEY')}"
+    })
+    print("Assistant Test:")
+    print_response(response)
+
+    print("Starting Pull Logs Test")
+    response = requests.post(f"{BASE_URL}/api/update_code/pull_logs")
+    print("Pull Logs Test:")
+    print_response(response)
+
+if __name__ == "__main__":
+    main()
+
+== End: test_api_endpoints.py.txt
+
+== Begin: stop_server.sh.txt
+#!/bin/bash
+# stop_server.sh
+
+# Function to kill a process using a specific port
+kill_process_on_port() {
+    local port=$1
+    echo "Checking for existing server on port $port..."
+    PID=$(lsof -t -i:$port)
+    if [ ! -z "$PID" ]; then
+        echo "Killing process $PID using port $port..."
+        kill -9 $PID
+    else
+        echo "No process using port $port."
+    fi
+}
+
+# Kill servers on specified ports
+kill_process_on_port 5000
+kill_process_on_port 5001
+
+# Optionally, kill the Flask server using the PID saved in flask_pid.txt
+FLASK_PID_FILE="GIT_GPT_SERVER/flask_pid.txt"
+if [ -f "$FLASK_PID_FILE" ]; then
+    echo "Killing Flask server using PID from $FLASK_PID_FILE..."
+    FLASK_PID=$(cat "$FLASK_PID_FILE")
+    if [ ! -z "$FLASK_PID" ]; then
+        kill -9 $FLASK_PID
+        echo "Flask server with PID $FLASK_PID has been killed."
+        rm "$FLASK_PID_FILE"
+    else
+        echo "No Flask server PID found in $FLASK_PID_FILE."
+    fi
+else
+    echo "$FLASK_PID_FILE not found."
+fi
+
+echo "Server shutdown completed successfully!"
+
+== End: stop_server.sh.txt
+
+== Begin: deploy.sh.txt
+#!/bin/bash
+# Navigate to the project directory
+cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
+
+# Push to Heroku
+echo "Pushing to Heroku..."
+git push heroku main
+
+== End: deploy.sh.txt
+
+== Begin: force_push.sh.txt
+#!/bin/bash
+
+# Get the commit message from the argument, default to a preset value if not provided
+COMMIT_MESSAGE=${1:-"Catch up with local changes"}
+
+# Navigate to the project directory
+cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
+
+# Set the GitHub remote URL with token
+echo "Setting GitHub remote URL..."
+git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
+
+# Add all changes
+echo "Adding changes..."
+git add .
+
+# Commit with the provided message
+echo "Committing changes..."
+git commit -m "$COMMIT_MESSAGE"
+
+# Force push to main
+echo "Pushing to GitHub with force..."
+git push origin main --force
+
+echo "Force push completed successfully!"
+
+== End: force_push.sh.txt
+
+== Begin: backup.sh.txt
+#!/bin/bash
+
+# Function to backup a directory with specific file pattern
+backup_directory() {
+    local source_dir=$1
+    local backup_file=$2
+    local pattern=$3
+
+    # Clear the backup file before writing new data
+    : > "$backup_file"
+
+    echo "Backing up files from $source_dir to $backup_file..."
+    find "$source_dir" -type f -name "$pattern" | while read -r file; do
+        echo "== Begin: ${file##*/}" >> "$backup_file"
+        # Handle binary files properly to prevent corruption
+        if [[ $file == *.pyc ]]; then
+            xxd "$file" >> "$backup_file"
+        else
+            cat "$file" >> "$backup_file"
+        fi
+        echo -e "\n== End: ${file##*/}\n" >> "$backup_file"
+    done
+    echo "Backup completed for $source_dir to $backup_file"
+}
+
+# Ensure the code_backups directory exists
+mkdir -p code_backups
+
+# List of directories to backup
+backup_dirs=(
+    "code_text/GIT_GPT_SERVER/scripts"
+    "code_text/GIT_GPT_SERVER/Logs"
+    "code_text/GIT_GPT_SERVER/routes"
+    "code_text/GIT_GPT_SERVER/scripts/tests"
+    "code_text/GIT_GPT_SERVER/utils"
+    "code_text/GIT_GPT_SERVER/prompts"
+)
+
+# Backup each directory
+for dir in "${backup_dirs[@]}"; do
+    backup_file="code_backups/$(basename "$dir")_backup.txt"
+    backup_directory "$dir" "$backup_file" "*.txt"
+done
+
+# Backup specific groups of files
+backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.txt"
+backup_directory "code_text" "code_backups/config_backup.txt" "config.py.txt"
+backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.txt.txt"
+
+echo "Ensuring all files in code_text have the correct extensions..."
+echo "Backup script completed successfully!"
+
+== End: backup.sh.txt
+
+== Begin: backup_config.sh.txt
+#!/bin/bash
+
+# Define directories and files to be backed up
+directories=(
+    "GIT_GPT_SERVER/scripts"
+    "GIT_GPT_SERVER/Logs"
+    "GIT_GPT_SERVER/.github"
+    "GIT_GPT_SERVER/routes"
+    "GIT_GPT_SERVER/tests"
+    "GIT_GPT_SERVER/utils"
+    "GIT_GPT_SERVER/prompts"
+)
+
+# Logical groups for miscellaneous files
+group1=("README.md" "GIT_GPT_SERVER/intro.txt" "GIT_GPT_SERVER/format_description.txt")
+group2=("GIT_GPT_SERVER/__init__.py" "GIT_GPT_SERVER/config.py" "GIT_GPT_SERVER/flask_pid.txt" "GIT_GPT_SERVER/server.py")
+group3=("script_list.txt" "command_list.txt" "server_script_list.txt" "server_command_list.txt")
+group4=("bug_list.json" "planned_features.json" "package.json" "requirements.txt" "pyproject.toml")
+group5=(".gitignore" ".gitattributes" ".slugignore" ".env" "Procfile")
+
+== End: backup_config.sh.txt
+
+== Begin: backup_code_text.sh.txt
+#!/bin/bash
+
+# Create the code_text directory in the root
+mkdir -p code_text/GIT_GPT_SERVER/github/workflows
+
+# Function to copy and rename files with .txt extension
+copy_and_rename() {
+    local src_file=$1
+    local dest_file=$2
+    cp "$src_file" "${dest_file}.txt"
+    echo "Copied and renamed $src_file to ${dest_file}.txt"
+}
+
+# Recursive function to copy and rename files in directories
+copy_dir_and_rename() {
+    local src_dir=$1
+    local dest_dir=$2
+
+    mkdir -p "$dest_dir"
+    for file in "$src_dir"/*; do
+        if [ -d "$file" ]; then
+            local sub_dir=$(basename "$file")
+            if [[ "$sub_dir" == .* || "$sub_dir" == __pycache__ ]]; then
+                continue
+            fi
+            copy_dir_and_rename "$file" "$dest_dir/$sub_dir"
+        else
+            filename=$(basename "$file")
+            if [[ "$filename" == "__init__.py" ]]; then
+                continue
+            fi
+            extension="${file##*.}"
+            base="${file%.*}"
+            copy_and_rename "$file" "$dest_dir/$(basename "$base").$extension"
+        fi
+    done
+}
+
+# Copy files to the code_text directory and rename with .txt extension
+echo "Copying and converting files to code_text directory..."
+copy_and_rename README.md code_text/README.md
+copy_and_rename command_list.txt code_text/command_list.txt
+copy_and_rename config.py code_text/config.py
+copy_and_rename flask_pid.txt code_text/flask_pid.txt
+copy_and_rename format_description.txt code_text/format_description.txt
+copy_and_rename intro.txt code_text/intro.txt
+copy_and_rename package.json code_text/package.json
+copy_and_rename planned_features.json code_text/planned_features.json
+copy_and_rename pyproject.toml code_text/pyproject.toml
+copy_and_rename requirements.txt code_text/requirements.txt
+copy_and_rename runtime.txt code_text/runtime.txt
+copy_and_rename script_list.txt code_text/script_list.txt
+copy_and_rename server.py code_text/server.py
+copy_and_rename server_command_list.txt code_text/server_command_list.txt
+copy_and_rename server_script_list.txt code_text/server_script_list.txt
+
+# Copy GIT_GPT_SERVER directory structure to code_text and rename with .txt extension
+copy_dir_and_rename GIT_GPT_SERVER code_text/GIT_GPT_SERVER
+
+# Copy .github/workflows/main.yml to code_text/GIT_GPT_SERVER/github/workflows
+if [ -f ".github/workflows/main.yml" ]; then
+    copy_and_rename ".github/workflows/main.yml" "code_text/GIT_GPT_SERVER/github/workflows/main.yml"
+else
+    echo "File .github/workflows/main.yml does not exist"
+fi
+
+# Copy .gitignore, .slugignore, and .gitattributes to code_text
+if [ -f ".gitignore" ]; then
+    copy_and_rename ".gitignore" "code_text/gitignore"
+else
+    echo "File .gitignore does not exist"
+fi
+
+if [ -f ".slugignore" ]; then
+    copy_and_rename ".slugignore" "code_text/slugignore"
+else
+    echo "File .slugignore does not exist"
+fi
+
+if [ -f ".gitattributes" ]; then
+    copy_and_rename ".gitattributes" "code_text/gitattributes"
+else
+    echo "File .gitattributes does not exist"
+fi
+
+echo "Code text backup completed successfully!"
+
+== End: backup_code_text.sh.txt
+
+== Begin: print_env.py.txt
+# print_env.py
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+print("GITHUB_API_URL:", os.getenv('GITHUB_API_URL'))
+print("GITHUB_TOKEN:", os.getenv('GITHUB_TOKEN'))
+print("ASSISTANT_ID:", os.getenv('ASSISTANT_ID'))  # Ensure this is correctly named in Heroku
+print("PINECONE_API_KEY:", os.getenv('PINECONE_API_KEY'))
+print("PINECONE_INDEX_NAME:", os.getenv('PINECONE_INDEX_NAME'))
+print("GITHUB_USERNAME:", os.getenv('GITHUB_USERNAME'))
+
+== End: print_env.py.txt
+
+== Begin: code_backup.sh.txt
+#!/bin/bash
+
+# Step 1: Run backup_code_text.sh
+echo "Running backup_code_text.sh..."
+./GIT_GPT_SERVER/scripts/backup_code_text.sh
+
+# Step 2: Run backup.sh
+echo "Running backup.sh..."
+./GIT_GPT_SERVER/scripts/backup.sh
+
+# Step 3: Run generate_hierarchy.sh
+echo "Running generate_hierarchy.sh..."
+./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
+
+echo "Code backup process completed successfully!"
+
+== End: code_backup.sh.txt
+

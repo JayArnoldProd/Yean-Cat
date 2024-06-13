@@ -4,23 +4,21 @@
 backup_directory() {
     local source_dir=$1
     local backup_file=$2
-    local patterns=$3
+    local pattern=$3
 
     # Clear the backup file before writing new data
     : > "$backup_file"
 
     echo "Backing up files from $source_dir to $backup_file..."
-    for pattern in $patterns; do
-        find "$source_dir" -type f -name "$pattern" | while read -r file; do
-            echo "== Begin: ${file##*/}" >> "$backup_file"
-            # Handle binary files properly to prevent corruption
-            if [[ $file == *.pyc ]]; then
-                xxd "$file" >> "$backup_file"
-            else
-                cat "$file" >> "$backup_file"
-            fi
-            echo -e "\n== End: ${file##*/}\n" >> "$backup_file"
-        done
+    find "$source_dir" -type f -name "$pattern" | while read -r file; do
+        echo "== Begin: ${file##*/}" >> "$backup_file"
+        # Handle binary files properly to prevent corruption
+        if [[ $file == *.pyc ]]; then
+            xxd "$file" >> "$backup_file"
+        else
+            cat "$file" >> "$backup_file"
+        fi
+        echo -e "\n== End: ${file##*/}\n" >> "$backup_file"
     done
     echo "Backup completed for $source_dir to $backup_file"
 }
@@ -45,9 +43,9 @@ for dir in "${backup_dirs[@]}"; do
 done
 
 # Backup specific groups of files
-backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.txt intro.txt.txt format_description.txt.txt"
-backup_directory "code_text" "code_backups/config_backup.txt" "config.py.txt pyproject.toml.txt requirements.txt.txt runtime.txt.txt"
-backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.txt.txt planned_features.json.txt"
+backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.txt"
+backup_directory "code_text" "code_backups/config_backup.txt" "config.py.txt"
+backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.txt.txt"
 
 echo "Ensuring all files in code_text have the correct extensions..."
 echo "Backup script completed successfully!"
