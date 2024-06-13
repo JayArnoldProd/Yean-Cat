@@ -59,9 +59,9 @@ backup_directory() {
 
 # Function to backup a group of files
 backup_group() {
-    local group=("$@")
     local output_file=$1
     shift
+    local group=("$@")
     echo "Backing up group of files to $output_file..."
     for file in "${group[@]}"; do
         if [ -f "$file" ]; then
@@ -78,13 +78,13 @@ for dir in "${directories[@]}"; do
 done
 
 # Backup miscellaneous files in logical groups
-backup_group "GIT_GPT_SERVER/code_backups/documentation_backup.txt" "${group1[@]}"
-backup_group "GIT_GPT_SERVER/code_backups/config_backup.txt" "${group2[@]}"
-backup_group "GIT_GPT_SERVER/code_backups/script_lists_backup.txt" "${group3[@]}"
-backup_group "GIT_GPT_SERVER/code_backups/metadata_backup.txt" "${group4[@]}"
-backup_group "GIT_GPT_SERVER/code_backups/git_files_backup.txt" "${group5[@]}"
+backup_group "GIT_GPT_SERVER/code_backups/documentation_backup.txt" "${misc_files[@]:0:5}"
+backup_group "GIT_GPT_SERVER/code_backups/config_backup.txt" "${misc_files[@]:5:10}"
+backup_group "GIT_GPT_SERVER/code_backups/script_lists_backup.txt" "${misc_files[@]:10:15}"
+backup_group "GIT_GPT_SERVER/code_backups/metadata_backup.txt" "${misc_files[@]:15:20}"
+backup_group "GIT_GPT_SERVER/code_backups/git_files_backup.txt" "${misc_files[@]:20}"
 
-# Copy files to code_text directory
+# Copy files to code_text directory, excluding code_text and code_backups
 copy_to_code_text() {
     local source_file=$1
     local target_file=$2
@@ -97,6 +97,9 @@ copy_to_code_text() {
 copy_files() {
     local dir=$1
     for file in "$dir"/*; do
+        if [[ "$file" == *"code_text"* || "$file" == *"code_backups"* ]]; then
+            continue
+        fi
         if [ -f "$file" ]; then
             local target_file="GIT_GPT_SERVER/code_text/${file}.txt"
             copy_to_code_text "$file" "$target_file"
@@ -106,7 +109,7 @@ copy_files() {
     done
 }
 
-# Copy the directories to code_text
+# Copy the directories to code_text, excluding code_text and code_backups
 copy_files "GIT_GPT_SERVER"
 
 # Copy root directory files to root_code_text
