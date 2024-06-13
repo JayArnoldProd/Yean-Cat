@@ -50,5 +50,22 @@ backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.
 backup_directory "code_text" "code_backups/config_backup.txt" "config.py.txt" "pyproject.toml.txt" "requirements.txt.txt" "runtime.txt.txt"
 backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.txt.txt" "planned_features.json.txt"
 
+# Append Last_Words files to the documentation_backup.txt
+LAST_WORDS_DIR="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/Last_Words"
+documentation_backup="code_backups/documentation_backup.txt"
+
+if [ -d "$LAST_WORDS_DIR" ]; then
+    echo "Appending Last_Words files to $documentation_backup..."
+    for file in "$LAST_WORDS_DIR"/*.txt; do
+        [ -e "$file" ] || continue
+        echo "== Begin: ${file##*/}" >> "$documentation_backup"
+        cat "$file" >> "$documentation_backup"
+        echo -e "\n== End: ${file##*/}\n" >> "$documentation_backup"
+    done
+    echo "Last_Words files appended to $documentation_backup"
+else
+    echo "Last_Words directory does not exist. Skipping."
+fi
+
 echo "Ensuring all files in code_text have the correct extensions..."
 echo "Backup script completed successfully!"

@@ -318,6 +318,23 @@ backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.
 backup_directory "code_text" "code_backups/config_backup.txt" "config.py.txt" "pyproject.toml.txt" "requirements.txt.txt" "runtime.txt.txt"
 backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.txt.txt" "planned_features.json.txt"
 
+# Append Last_Words files to the documentation_backup.txt
+LAST_WORDS_DIR="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/Last_Words"
+documentation_backup="code_backups/documentation_backup.txt"
+
+if [ -d "$LAST_WORDS_DIR" ]; then
+    echo "Appending Last_Words files to $documentation_backup..."
+    for file in "$LAST_WORDS_DIR"/*.txt; do
+        [ -e "$file" ] || continue
+        echo "== Begin: ${file##*/}" >> "$documentation_backup"
+        cat "$file" >> "$documentation_backup"
+        echo -e "\n== End: ${file##*/}\n" >> "$documentation_backup"
+    done
+    echo "Last_Words files appended to $documentation_backup"
+else
+    echo "Last_Words directory does not exist. Skipping."
+fi
+
 echo "Ensuring all files in code_text have the correct extensions..."
 echo "Backup script completed successfully!"
 
@@ -470,4 +487,42 @@ echo "Running generate_hierarchy.sh..."
 echo "Code backup process completed successfully!"
 
 == End: code_backup.sh.txt
+
+== Begin: last_words.sh.txt
+#!/bin/bash
+
+# Ensure the Last_Words directory exists
+LAST_WORDS_DIR="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/Last_Words"
+mkdir -p "$LAST_WORDS_DIR"
+
+# Function to generate the last words file
+generate_last_words() {
+    local message="$1"
+
+    # Find the highest existing last words file number
+    latest_file=$(ls "$LAST_WORDS_DIR" | grep -Eo 'last_words_generation_[0-9]+\.txt' | sort -V | tail -n 1)
+    if [ -z "$latest_file" ]; then
+        new_number=1
+    else
+        latest_number=$(echo "$latest_file" | grep -Eo '[0-9]+')
+        new_number=$((latest_number + 1))
+    fi
+
+    new_file="$LAST_WORDS_DIR/last_words_generation_${new_number}.txt"
+
+    # Write the message to the new file
+    echo "$message" > "$new_file"
+    echo "Last words saved to $new_file"
+}
+
+# Check if a message argument was provided
+if [ -z "$1" ]; then
+    echo "Usage: $0 \"Your last words message\""
+    exit 1
+fi
+
+# Call the function to generate the last words file
+generate_last_words "$1"
+
+== End: last_words.sh.txt
 
