@@ -31,7 +31,7 @@ if curl -s --head http://localhost:5000 | grep "200 OK" > /dev/null; then
 else
     echo "Server is not running. Starting the Flask server..."
     cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER
-    export FLASK_APP=GIT_GPT_SERVER.server
+    export FLASK_APP=server.py
     flask run &
     sleep 5  # Wait for the server to start
     echo "Pulling logs from the server..."
@@ -42,7 +42,8 @@ echo "Backup and deployment completed successfully!"
 
 # Step 7: Start Flask server on port 5001 and save PID
 echo "Starting Flask server on port 5001..."
-export FLASK_APP=GIT_GPT_SERVER.server
+cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER
+export FLASK_APP=server.py
 flask run --port=5001 &
 FLASK_PID=$!
 
@@ -56,6 +57,5 @@ if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tes
 else
     echo "Test script not found."
 fi
-
 
 echo "Deployment and run completed successfully!"
