@@ -4,23 +4,22 @@
 # Step 1: Set environment variables from .env
 source .env
 
-# Step 2: Update GitHub remote URL with token
-echo "Updating GitHub remote URL..."
-git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
-
-# Step 3: Run backup script with hierarchy generation
+# Step 2: Run backup script with hierarchy generation
 echo "Running backup script..."
 ./GIT_GPT_SERVER/scripts/backup.sh
 
-# Step 4: Identify and kill specific Flask processes
+# Step 3: Identify and kill specific Flask processes
 echo "Checking for and killing existing Flask servers on ports 5000..."
 ./GIT_GPT_SERVER/scripts/stop_server.sh
 
-# Step 5: Add and commit changes to GitHub (without push)
+# Step 4: Add and commit changes to GitHub (without push)
 echo "Adding and committing changes to GitHub..."
+cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
+# Step 5: Update GitHub remote URL with token
+git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
 git add .
 git commit -m "Automated backup and deployment"
-git push origin main
+git push origin main --force
 
 # Step 6: Check if the server is running and pull logs
 if curl -s --head http://localhost:5000 | grep "200 OK" > /dev/null; then
