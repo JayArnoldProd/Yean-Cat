@@ -28,3 +28,8 @@ flask_pid.txt
 
 *.pyc
 __pycache__/
+
+# Exclude text backups which may contain sensitive information
+GIT_GPT_SERVER/code_text
+GIT_GPT_SERVER/code_backups
+GIT_GPT_SERVER/Logs
