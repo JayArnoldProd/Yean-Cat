@@ -3,6 +3,9 @@ GIT_GPT_SERVER
 │   ├── SessionLog_45453.16.txt
 │   └── server_logs.json
 ├── __init__.py
+├── __pycache__
+│   ├── __init__.cpython-310.pyc
+│   └── server.cpython-310.pyc
 ├── code_backups
 │   ├── Logs_backup.txt
 │   ├── misc_backup.txt
@@ -46,6 +49,10 @@ GIT_GPT_SERVER
 │   └── test_prompt.txt
 ├── routes
 │   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-310.pyc
+│   │   ├── query.cpython-310.pyc
+│   │   └── update_code.cpython-310.pyc
 │   ├── assistant.py
 │   ├── generate_prompt.py
 │   ├── query.py
@@ -68,4 +75,4 @@ GIT_GPT_SERVER
     ├── openai_operations.py
     └── pinecone_operations.py
 
-16 directories, 53 files
+18 directories, 58 files
