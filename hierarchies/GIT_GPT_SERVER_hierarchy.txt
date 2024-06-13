@@ -12,36 +12,139 @@ GIT_GPT_SERVER
 │   ├── prompts_backup.txt
 │   ├── routes_backup.txt
 │   ├── scripts_backup.txt
-│   ├── tests_backup.txt
 │   └── utils_backup.txt
 ├── code_text
-│   ├── Logs
-│   │   ├── SessionLog_45453.16.txt.txt
-│   │   └── server_logs.json.txt
-│   ├── folder_backups
-│   ├── format_description.txt.txt
-│   ├── intro.txt.txt
-│   ├── prompts
-│   │   └── test_prompt.txt.txt
-│   ├── routes
-│   │   ├── assistant.py.txt
-│   │   ├── generate_prompt.py.txt
-│   │   ├── query.py.txt
-│   │   └── update_code.py.txt
-│   ├── scripts
-│   │   ├── backup.sh.txt
-│   │   ├── deploy.sh.txt
-│   │   ├── deploy_all.sh.txt
-│   │   ├── generate_hierarchy.sh.txt
-│   │   └── update_lists.sh.txt
-│   ├── server.py.txt
-│   ├── server_logs.json.txt
-│   ├── tests
-│   │   └── test_api_endpoints.py.txt
-│   └── utils
-│       ├── file_operations.py.txt
-│       ├── openai_operations.py.txt
-│       └── pinecone_operations.py.txt
+│   ├── GIT_GPT_SERVER
+│   │   ├── Logs
+│   │   │   ├── SessionLog_45453.16.txt.txt
+│   │   │   └── server_logs.json.txt
+│   │   ├── __init__.py.txt
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-310.pyc.txt
+│   │   │   └── server.cpython-310.pyc.txt
+│   │   ├── code_backups
+│   │   │   ├── Logs_backup.txt.txt
+│   │   │   ├── misc_backup.txt.txt
+│   │   │   ├── prompts_backup.txt.txt
+│   │   │   ├── routes_backup.txt.txt
+│   │   │   ├── scripts_backup.txt.txt
+│   │   │   └── utils_backup.txt.txt
+│   │   ├── code_text
+│   │   │   ├── GIT_GPT_SERVER
+│   │   │   │   ├── Logs
+│   │   │   │   │   ├── SessionLog_45453.16.txt.txt.txt
+│   │   │   │   │   └── server_logs.json.txt.txt
+│   │   │   │   ├── __init__.py.txt.txt
+│   │   │   │   ├── __pycache__
+│   │   │   │   │   ├── __init__.cpython-310.pyc.txt.txt
+│   │   │   │   │   └── server.cpython-310.pyc.txt.txt
+│   │   │   │   ├── code_backups
+│   │   │   │   │   ├── Logs_backup.txt.txt.txt
+│   │   │   │   │   ├── misc_backup.txt.txt.txt
+│   │   │   │   │   ├── prompts_backup.txt.txt.txt
+│   │   │   │   │   ├── routes_backup.txt.txt.txt
+│   │   │   │   │   ├── scripts_backup.txt.txt.txt
+│   │   │   │   │   └── utils_backup.txt.txt.txt
+│   │   │   │   ├── code_text
+│   │   │   │   │   ├── GIT_GPT_SERVER
+│   │   │   │   │   │   ├── Logs
+│   │   │   │   │   │   │   ├── SessionLog_45453.16.txt.txt.txt.txt
+│   │   │   │   │   │   │   └── server_logs.json.txt.txt.txt
+│   │   │   │   │   │   ├── __init__.py.txt.txt.txt
+│   │   │   │   │   │   ├── __pycache__
+│   │   │   │   │   │   │   ├── __init__.cpython-310.pyc.txt.txt.txt
+│   │   │   │   │   │   │   └── server.cpython-310.pyc.txt.txt.txt
+│   │   │   │   │   │   └── code_backups
+│   │   │   │   │   │       ├── Logs_backup.txt.txt.txt.txt
+│   │   │   │   │   │       ├── misc_backup.txt.txt.txt.txt
+│   │   │   │   │   │       ├── prompts_backup.txt.txt.txt.txt
+│   │   │   │   │   │       ├── routes_backup.txt.txt.txt.txt
+│   │   │   │   │   │       ├── scripts_backup.txt.txt.txt.txt
+│   │   │   │   │   │       └── utils_backup.txt.txt.txt.txt
+│   │   │   │   │   └── server_logs.json.txt.txt.txt
+│   │   │   │   ├── config.py.txt.txt
+│   │   │   │   ├── flask_pid.txt.txt.txt
+│   │   │   │   ├── format_description.txt.txt.txt
+│   │   │   │   ├── intro.txt.txt.txt
+│   │   │   │   ├── prompts
+│   │   │   │   │   └── test_prompt.txt.txt.txt
+│   │   │   │   ├── routes
+│   │   │   │   │   ├── __init__.py.txt.txt
+│   │   │   │   │   ├── __pycache__
+│   │   │   │   │   │   ├── __init__.cpython-310.pyc.txt.txt
+│   │   │   │   │   │   ├── assistant.cpython-310.pyc.txt.txt
+│   │   │   │   │   │   ├── generate_prompt.cpython-310.pyc.txt.txt
+│   │   │   │   │   │   ├── query.cpython-310.pyc.txt.txt
+│   │   │   │   │   │   └── update_code.cpython-310.pyc.txt.txt
+│   │   │   │   │   ├── assistant.py.txt.txt
+│   │   │   │   │   ├── generate_prompt.py.txt.txt
+│   │   │   │   │   ├── logs.py.txt.txt
+│   │   │   │   │   ├── query.py.txt.txt
+│   │   │   │   │   └── update_code.py.txt.txt
+│   │   │   │   ├── scripts
+│   │   │   │   │   ├── __init__.py.txt.txt
+│   │   │   │   │   ├── backup.sh.txt.txt
+│   │   │   │   │   ├── deploy.sh.txt.txt
+│   │   │   │   │   ├── deploy_all.sh.txt.txt
+│   │   │   │   │   ├── generate_hierarchy.sh.txt.txt
+│   │   │   │   │   ├── print_env.py.txt.txt
+│   │   │   │   │   ├── stop_server.sh.txt.txt
+│   │   │   │   │   ├── tests
+│   │   │   │   │   │   ├── __init__.py.txt.txt
+│   │   │   │   │   │   └── test_api_endpoints.py.txt.txt
+│   │   │   │   │   └── update_lists.sh.txt.txt
+│   │   │   │   ├── server.py.txt.txt
+│   │   │   │   └── utils
+│   │   │   │       ├── __init__.py.txt.txt
+│   │   │   │       ├── __pycache__
+│   │   │   │       │   ├── __init__.cpython-310.pyc.txt.txt
+│   │   │   │       │   └── pinecone_operations.cpython-310.pyc.txt.txt
+│   │   │   │       ├── file_operations.py.txt.txt
+│   │   │   │       ├── openai_operations.py.txt.txt
+│   │   │   │       └── pinecone_operations.py.txt.txt
+│   │   │   └── server_logs.json.txt.txt
+│   │   ├── config.py.txt
+│   │   ├── flask_pid.txt.txt
+│   │   ├── format_description.txt.txt
+│   │   ├── intro.txt.txt
+│   │   ├── prompts
+│   │   │   └── test_prompt.txt.txt
+│   │   ├── routes
+│   │   │   ├── __init__.py.txt
+│   │   │   ├── __pycache__
+│   │   │   │   ├── __init__.cpython-310.pyc.txt
+│   │   │   │   ├── assistant.cpython-310.pyc.txt
+│   │   │   │   ├── generate_prompt.cpython-310.pyc.txt
+│   │   │   │   ├── query.cpython-310.pyc.txt
+│   │   │   │   └── update_code.cpython-310.pyc.txt
+│   │   │   ├── assistant.py.txt
+│   │   │   ├── generate_prompt.py.txt
+│   │   │   ├── logs.py.txt
+│   │   │   ├── query.py.txt
+│   │   │   └── update_code.py.txt
+│   │   ├── scripts
+│   │   │   ├── __init__.py.txt
+│   │   │   ├── backup.sh.txt
+│   │   │   ├── deploy.sh.txt
+│   │   │   ├── deploy_all.sh.txt
+│   │   │   ├── generate_hierarchy.sh.txt
+│   │   │   ├── print_env.py.txt
+│   │   │   ├── stop_server.sh.txt
+│   │   │   ├── tests
+│   │   │   │   ├── __init__.py.txt
+│   │   │   │   └── test_api_endpoints.py.txt
+│   │   │   └── update_lists.sh.txt
+│   │   ├── server.py.txt
+│   │   └── utils
+│   │       ├── __init__.py.txt
+│   │       ├── __pycache__
+│   │       │   ├── __init__.cpython-310.pyc.txt
+│   │       │   └── pinecone_operations.cpython-310.pyc.txt
+│   │       ├── file_operations.py.txt
+│   │       ├── openai_operations.py.txt
+│   │       └── pinecone_operations.py.txt
+│   └── server_logs.json.txt
+├── config.py
 ├── flask_pid.txt
 ├── format_description.txt
 ├── intro.txt
@@ -57,6 +160,7 @@ GIT_GPT_SERVER
 │   │   └── update_code.cpython-310.pyc
 │   ├── assistant.py
 │   ├── generate_prompt.py
+│   ├── logs.py
 │   ├── query.py
 │   └── update_code.py
 ├── scripts
@@ -65,6 +169,7 @@ GIT_GPT_SERVER
 │   ├── deploy.sh
 │   ├── deploy_all.sh
 │   ├── generate_hierarchy.sh
+│   ├── print_env.py
 │   ├── stop_server.sh
 │   ├── tests
 │   │   ├── __init__.py
@@ -80,4 +185,4 @@ GIT_GPT_SERVER
     ├── openai_operations.py
     └── pinecone_operations.py
 
-19 directories, 62 files
+40 directories, 146 files
