@@ -52,10 +52,10 @@ echo $FLASK_PID > flask_pid.txt
 # Step 8: Run test API endpoints script
 echo "Running test API endpoints script..."
 if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
-    chmod +x /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
-    /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+    python /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
 else
     echo "Test script not found."
 fi
+
 
 echo "Deployment and run completed successfully!"
