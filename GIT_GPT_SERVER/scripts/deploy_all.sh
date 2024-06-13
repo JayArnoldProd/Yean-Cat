@@ -20,7 +20,6 @@ echo "Checking for and killing existing Flask servers on ports 5000..."
 echo "Adding and committing changes to GitHub..."
 git add .
 git commit -m "Automated backup and deployment"
-git push origin main
 
 # Step 6: Check if the server is running and pull logs
 if curl -s --head http://localhost:5000 | grep "200 OK" > /dev/null; then
