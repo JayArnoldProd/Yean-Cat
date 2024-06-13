@@ -1,7 +1,7 @@
 from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import os
-from routes.update_code import update_code_route
+from GIT_GPT_SERVER.routes.update_code import update_code_route
 
 load_dotenv()
 
