@@ -42,6 +42,6 @@ def pull_logs_summary():
         return jsonify({"error": "Logs directory not found"}), 404
 
 if __name__ == '__main__':
-    port = int(os.environ.get('PORT', 5001))
+    port = int(os.environ.get('PORT', 5000))
     debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
     app.run(debug=debug_mode, host='0.0.0.0', port=port)
