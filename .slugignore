@@ -9,13 +9,17 @@ conda-meta
 lib/python*/site-packages/conda
 lib/python*/site-packages/tensorboardX
 lib/python*/site-packages/protobuf
-YEAN_CAT/sprites
-YEAN_CAT/sounds
+
+# Exclude large directories in YEAN_CAT
+YEAN_CAT/sprites/
+YEAN_CAT/sounds/
+
+# Exclude large directories in YEAN_CAT_SERVER
 YEAN_CAT_SERVER/sprites/
 YEAN_CAT_SERVER/sounds/
-deploy.sh
 
-# Exclude GIT_GPT_SERVER subdirectories that are not needed
+# Include code_backups directory
+# Ensure necessary subdirectories in GIT_GPT_SERVER are included
 GIT_GPT_SERVER/__pycache__/
 GIT_GPT_SERVER/code_text/
 GIT_GPT_SERVER/flask_pid.txt
@@ -25,5 +29,3 @@ package.json
 
 # Exclude node_modules directories
 **/node_modules
-
-
