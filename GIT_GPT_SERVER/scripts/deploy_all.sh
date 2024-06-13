@@ -39,14 +39,12 @@ fi
 
 echo "Backup and deployment completed successfully!"
 
-# Step 7: Save Flask server PID (already done in Step 6)
-
-# Step 8: Optionally run test API endpoints script
-# echo "Running test API endpoints script..."
-# if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
-#     python /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
-# else
-#     echo "Test script not found."
-# fi
+ Step 7: Optionally run test API endpoints script
+ echo "Running test API endpoints script..."
+ if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
+     python /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+ else
+     echo "Test script not found."
+ fi
 
 echo "Deployment and run completed successfully!"

@@ -7,6 +7,8 @@
 ├── __init__.py
 ├── __pycache__
 ├── bug_list.json
+├── code_backups
+├── code_text
 ├── command_list.txt
 ├── config.py
 ├── flask_pid.txt
@@ -23,4 +25,4 @@
 ├── server_command_list.txt
 └── server_script_list.txt
 
-6 directories, 18 files
+8 directories, 18 files
