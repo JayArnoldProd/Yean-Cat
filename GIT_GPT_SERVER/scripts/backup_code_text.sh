@@ -11,6 +11,23 @@ copy_and_rename() {
     echo "Copied and renamed $src_file to ${dest_file}.txt"
 }
 
+# Recursive function to copy and rename files in directories
+copy_dir_and_rename() {
+    local src_dir=$1
+    local dest_dir=$2
+
+    mkdir -p "$dest_dir"
+    for file in "$src_dir"/*; do
+        if [ -d "$file" ]; then
+            copy_dir_and_rename "$file" "$dest_dir/$(basename "$file")"
+        else
+            extension="${file##*.}"
+            base="${file%.*}"
+            copy_and_rename "$file" "$dest_dir/$(basename "$base").$extension"
+        fi
+    done
+}
+
 # Copy files to the code_text directory and rename with .txt extension
 echo "Copying and converting files to code_text directory..."
 copy_and_rename README.md code_text/README.md
@@ -30,14 +47,6 @@ copy_and_rename server_command_list.txt code_text/server_command_list.txt
 copy_and_rename server_script_list.txt code_text/server_script_list.txt
 
 # Copy GIT_GPT_SERVER directory structure to code_text and rename with .txt extension
-for file in GIT_GPT_SERVER/*; do
-    if [ -d "$file" ]; then
-        mkdir -p "code_text/GIT_GPT_SERVER/$(basename "$file")"
-    else
-        extension="${file##*.}"
-        base="${file%.*}"
-        copy_and_rename "$file" "code_text/GIT_GPT_SERVER/$(basename "$base").$extension"
-    fi
-done
+copy_dir_and_rename GIT_GPT_SERVER code_text/GIT_GPT_SERVER
 
 echo "Code text backup completed successfully!"
