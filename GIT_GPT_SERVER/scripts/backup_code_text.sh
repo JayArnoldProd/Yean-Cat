@@ -20,11 +20,15 @@ copy_dir_and_rename() {
     for file in "$src_dir"/*; do
         if [ -d "$file" ]; then
             local sub_dir=$(basename "$file")
-            if [[ "$sub_dir" == .* ]]; then
-                sub_dir=${sub_dir#.}
+            if [[ "$sub_dir" == .* || "$sub_dir" == __pycache__ ]]; then
+                continue
             fi
             copy_dir_and_rename "$file" "$dest_dir/$sub_dir"
         else
+            filename=$(basename "$file")
+            if [[ "$filename" == "__init__.py" ]]; then
+                continue
+            fi
             extension="${file##*.}"
             base="${file%.*}"
             copy_and_rename "$file" "$dest_dir/$(basename "$base").$extension"
