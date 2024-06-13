@@ -28,7 +28,7 @@ def update_code():
 
         update_data = {
             'message': commit_message,
-            'content': new_content,
+            'content': new_content.encode('utf-8').decode('ascii'),
             'sha': file_sha,
         }
         update_response = requests.put(f'{GITHUB_API_URL}/contents/{file_path}', headers=headers, json=update_data)
@@ -42,6 +42,9 @@ def pull_logs():
     logs_dir = 'Logs'
     logs = {}
 
+    if not os.path.exists(logs_dir):
+        return jsonify({"error": "Logs directory does not exist."}), 404
+
     for log_file in os.listdir(logs_dir):
         if log_file.endswith('.txt'):
             try:
@@ -53,3 +56,7 @@ def pull_logs():
                 logs[log_file] = str(e)
 
     return jsonify(logs)
+
+# Ensure to register the blueprint in your main app file
+# from your_blueprint_file import update_code_route
+# app.register_blueprint(update_code_route)

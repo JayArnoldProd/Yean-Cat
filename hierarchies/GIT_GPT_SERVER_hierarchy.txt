@@ -72,10 +72,10 @@ GIT_GPT_SERVER
 │   ├── deploy_all.sh
 │   ├── generate_hierarchy.sh
 │   ├── stop_server.sh
+│   ├── tests
+│   │   └── test_api_endpoints.py
 │   └── update_lists.sh
 ├── server.py
-├── tests
-│   └── test_api_endpoints.py
 └── utils
     ├── file_operations.py
     ├── openai_operations.py
