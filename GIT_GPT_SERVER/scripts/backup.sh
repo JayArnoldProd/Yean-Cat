@@ -43,7 +43,7 @@ for dir in "${backup_dirs[@]}"; do
 done
 
 # Backup specific groups of files
-backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.txt intro.txt.txt format_description.txt.txt"
+backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.txt"
 backup_directory "code_text" "code_backups/config_backup.txt" "config.py.txt pyproject.toml.txt requirements.txt.txt runtime.txt.txt"
 backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.txt.txt planned_features.json.txt"
 
