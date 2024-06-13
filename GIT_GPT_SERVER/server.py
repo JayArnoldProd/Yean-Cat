@@ -22,10 +22,31 @@ print("PINECONE_INDEX_NAME:", os.getenv('PINECONE_INDEX_NAME'))
 print("GITHUB_USERNAME:", os.getenv('GITHUB_USERNAME'))
 
 app = Flask(__name__)
-app.register_blueprint(update_code_route)
-app.register_blueprint(query_openai_route)
-app.register_blueprint(generate_prompt_route)
-app.register_blueprint(assistant_route)
+
+# Registering blueprints with additional logging
+try:
+    app.register_blueprint(update_code_route)
+    print("update_code_route registered successfully.")
+except Exception as e:
+    print(f"Failed to register update_code_route: {e}")
+
+try:
+    app.register_blueprint(query_openai_route)
+    print("query_openai_route registered successfully.")
+except Exception as e:
+    print(f"Failed to register query_openai_route: {e}")
+
+try:
+    app.register_blueprint(generate_prompt_route)
+    print("generate_prompt_route registered successfully.")
+except Exception as e:
+    print(f"Failed to register generate_prompt_route: {e}")
+
+try:
+    app.register_blueprint(assistant_route)
+    print("assistant_route registered successfully.")
+except Exception as e:
+    print(f"Failed to register assistant_route: {e}")
 
 log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
 
@@ -61,6 +82,11 @@ def pull_logs_summary():
         return jsonify({"logs_summary": logs_summary})
     else:
         return jsonify({"error": "Logs directory not found"}), 404
+
+# Add a debug route to check if the app is running
+@app.route('/debug', methods=['GET'])
+def debug():
+    return jsonify({"status": "Server is running", "routes": [str(rule) for rule in app.url_map.iter_rules()]})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
