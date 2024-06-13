@@ -1,7 +1,8 @@
-# routes/logs.py
+# GIT_GPT_SERVER/routes/logs.py
 import os
 from flask import jsonify, Blueprint
 from config import LOG_PATH
+from utils.sanitize_logs import sanitize_log_content
 
 logs_route = Blueprint('logs_route', __name__)
 
@@ -18,10 +19,12 @@ def pull_logs():
     try:
         with open(LOG_PATH, 'r', encoding='utf-8') as file:
             content = file.read()
+            sanitized_content = sanitize_log_content(content)
     except UnicodeDecodeError:
         with open(LOG_PATH, 'rb') as file:
             content = file.read().decode('latin-1')
-    return {"content": content}
+            sanitized_content = sanitize_log_content(content)
+    return {"content": sanitized_content}
 
 @logs_route.route('/api/update_code/pull_logs_summary', methods=['POST'])
 def pull_logs_summary():
@@ -35,9 +38,10 @@ def pull_logs_summary():
                 with open(log_path, 'r') as file:
                     lines = file.readlines()
                     summary = lines[:5]  # Get the first 5 lines as summary
+                    sanitized_summary = [sanitize_log_content(line) for line in summary]
                     logs_summary.append({
                         "filename": log_file,
-                        "summary": ''.join(summary)
+                        "summary": ''.join(sanitized_summary)
                     })
         return jsonify({"logs_summary": logs_summary})
     else:
