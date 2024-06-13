@@ -1,0 +1,54 @@
+== Begin: command_list.txt.txt
+add_action
+add_color
+betterdirection
+calculate_spent
+chat_bubble
+disable_heartbeat
+enable_heartbeat
+execute_action
+game_end
+goto_planet
+jump_planet
+level_up
+list_actions
+list_clients
+list_colors
+list_commands
+list_variables
+load_game
+loadtrack
+loadtrack2
+name_color
+return_controller
+save_actions
+save_game
+save_macros
+savetrack
+set_my_permission
+set_variable
+show_gamepad_mapping
+show_lines
+show_variable
+show_wpm
+slider_cluster
+toggle_debug
+toggle_input_display
+toggle_log_debug
+toggle_server
+
+== End: command_list.txt.txt
+
+== Begin: planned_features.json.txt
+[
+    {
+        "name": "Sample Feature",
+        "description": "This is a sample feature description.",
+        "related_objects": ["obj_client", "dondadollar"],
+        "related_scripts": ["scr_toggle_server", "scr_list_colors"],
+        "logs": ["SessionLog_45450.51.txt"]
+    }
+]
+
+== End: planned_features.json.txt
+

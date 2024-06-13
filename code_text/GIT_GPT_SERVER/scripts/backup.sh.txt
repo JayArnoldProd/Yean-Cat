@@ -4,21 +4,23 @@
 backup_directory() {
     local source_dir=$1
     local backup_file=$2
-    local pattern=$3
+    local patterns=$3
 
     # Clear the backup file before writing new data
     : > "$backup_file"
 
     echo "Backing up files from $source_dir to $backup_file..."
-    find "$source_dir" -type f -name "$pattern" | while read -r file; do
-        echo "== Begin: ${file##*/}" >> "$backup_file"
-        # Handle binary files properly to prevent corruption
-        if [[ $file == *.pyc ]]; then
-            xxd "$file" >> "$backup_file"
-        else
-            cat "$file" >> "$backup_file"
-        fi
-        echo -e "\n== End: ${file##*/}\n" >> "$backup_file"
+    for pattern in $patterns; do
+        find "$source_dir" -type f -name "$pattern" | while read -r file; do
+            echo "== Begin: ${file##*/}" >> "$backup_file"
+            # Handle binary files properly to prevent corruption
+            if [[ $file == *.pyc ]]; then
+                xxd "$file" >> "$backup_file"
+            else
+                cat "$file" >> "$backup_file"
+            fi
+            echo -e "\n== End: ${file##*/}\n" >> "$backup_file"
+        done
     done
     echo "Backup completed for $source_dir to $backup_file"
 }
