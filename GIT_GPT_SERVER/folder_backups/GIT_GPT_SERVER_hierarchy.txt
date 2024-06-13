@@ -48,6 +48,7 @@ GIT_GPT_SERVER
 │       ├── file_operations.py.txt
 │       ├── openai_operations.py.txt
 │       └── pinecone_operations.py.txt
+├── flask_pid.txt
 ├── folder_backups
 │   ├── GIT_GPT_SERVER_hierarchy.txt
 │   ├── Logs_backup.txt
@@ -83,4 +84,4 @@ GIT_GPT_SERVER
     ├── openai_operations.py
     └── pinecone_operations.py
 
-20 directories, 64 files
+20 directories, 65 files
