@@ -56,8 +56,9 @@ def home():
 
 @app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
-    if not os.path.exists(os.path.dirname(log_path)):
-        os.makedirs(os.path.dirname(log_path))
+    log_dir = os.path.dirname(log_path)
+    if not os.path.exists(log_dir):
+        os.makedirs(log_dir)
     if not os.path.exists(log_path):
         with open(log_path, 'w', encoding='utf-8') as file:
             file.write('')
