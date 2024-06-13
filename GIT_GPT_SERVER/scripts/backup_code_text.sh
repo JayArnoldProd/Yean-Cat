@@ -3,6 +3,7 @@
 # Create the code_text directory in the root
 mkdir -p code_text/GIT_GPT_SERVER
 mkdir -p code_text/GIT_GPT_SERVER/github/workflows
+mkdir -p code_text/.git
 
 # Function to copy and rename files with .txt extension
 copy_and_rename() {
@@ -56,9 +57,28 @@ copy_dir_and_rename GIT_GPT_SERVER code_text/GIT_GPT_SERVER
 
 # Copy .github/workflows/main.yml to code_text/GIT_GPT_SERVER/github/workflows
 if [ -f ".github/workflows/main.yml" ]; then
-    copy_and_rename ".github/workflows/main.yml" "code_text/GIT_GPT_SERVER/github/workflows/main.yml"
+    copy_and_rename ".github/workflows/main.yml" "code_text/github/workflows/main.yml"
 else
     echo "File .github/workflows/main.yml does not exist"
+fi
+
+# Copy .gitignore, .slugignore, and .gitattributes to code_text
+if [ -f ".gitignore" ]; then
+    copy_and_rename ".gitignore" "code_text/gitignore"
+else
+    echo "File .gitignore does not exist"
+fi
+
+if [ -f ".slugignore" ]; then
+    copy_and_rename ".slugignore" "code_text/slugignore"
+else
+    echo "File .slugignore does not exist"
+fi
+
+if [ -f ".gitattributes" ]; then
+    copy_and_rename ".gitattributes" "code_text/gitattributes"
+else
+    echo "File .gitattributes does not exist"
 fi
 
 echo "Code text backup completed successfully!"
