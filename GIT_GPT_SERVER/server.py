@@ -2,6 +2,9 @@ from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import os
 from GIT_GPT_SERVER.routes.update_code import update_code_route
+from GIT_GPT_SERVER.routes.query import query_route
+from GIT_GPT_SERVER.routes.generate_prompt import generate_prompt_route
+from GIT_GPT_SERVER.routes.assistant import assistant_route
 
 load_dotenv()
 
@@ -15,6 +18,9 @@ print("GITHUB_USERNAME:", os.getenv('GITHUB_USERNAME'))
 
 app = Flask(__name__)
 app.register_blueprint(update_code_route)
+app.register_blueprint(query_route)
+app.register_blueprint(generate_prompt_route)
+app.register_blueprint(assistant_route)
 
 log_path = 'GIT_GPT_SERVER/Logs/server_logs.json'
 
@@ -55,4 +61,3 @@ if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
     debug_mode = os.environ.get('FLASK_DEBUG', 'false').lower() == 'true'
     app.run(debug=debug_mode, host='0.0.0.0', port=port)
-
