@@ -19,7 +19,7 @@ kill_process_on_port 5000
 kill_process_on_port 5001
 
 # Optionally, kill the Flask server using the PID saved in flask_pid.txt
-FLASK_PID_FILE="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/flask_pid.txt"
+FLASK_PID_FILE="GIT_GPT_SERVER/flask_pid.txt"
 if [ -f "$FLASK_PID_FILE" ]; then
     echo "Killing Flask server using PID from $FLASK_PID_FILE..."
     FLASK_PID=$(cat "$FLASK_PID_FILE")

@@ -44,13 +44,6 @@ misc_files=(
     "server_command_list.txt"
 )
 
-# Logical groups for miscellaneous files
-group1=("README.md" "GIT_GPT_SERVER/intro.txt" "GIT_GPT_SERVER/format_description.txt")
-group2=("GIT_GPT_SERVER/__init__.py" "GIT_GPT_SERVER/config.py" "GIT_GPT_SERVER/flask_pid.txt" "GIT_GPT_SERVER/server.py")
-group3=("script_list.txt" "command_list.txt" "server_script_list.txt" "server_command_list.txt")
-group4=("bug_list.json" "planned_features.json" "package.json" "requirements.txt" "pyproject.toml")
-group5=(".gitignore" ".gitattributes" ".slugignore" ".env" "Procfile")
-
 # Function to backup a directory
 backup_directory() {
     local directory=$1
@@ -59,25 +52,21 @@ backup_directory() {
     for file in "$directory"/*; do
         if [ -f "$file" ]; then
             echo "Processing $file"
-            echo -e "
------- $file ------
-$(cat "$file")" >> "$output_file"
+            echo -e "\n------ $file ------\n$(cat "$file")" >> "$output_file"
         fi
     done
 }
 
 # Function to backup a group of files
 backup_group() {
+    local group=("$@")
     local output_file=$1
     shift
-    local group=("$@")
     echo "Backing up group of files to $output_file..."
     for file in "${group[@]}"; do
         if [ -f "$file" ]; then
             echo "Processing $file"
-            echo -e "
------- $file ------
-$(cat "$file")" >> "$output_file"
+            echo -e "\n------ $file ------\n$(cat "$file")" >> "$output_file"
         fi
     done
 }
