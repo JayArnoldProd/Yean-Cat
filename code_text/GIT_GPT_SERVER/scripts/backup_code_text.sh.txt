@@ -2,7 +2,6 @@
 
 # Create the code_text directory in the root
 mkdir -p code_text/GIT_GPT_SERVER
-mkdir -p code_text/GIT_GPT_SERVER/github/workflows
 
 # Function to copy and rename files with .txt extension
 copy_and_rename() {
