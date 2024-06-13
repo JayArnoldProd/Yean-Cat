@@ -6,6 +6,57 @@ GIT_GPT_SERVER
 ├── __pycache__
 │   ├── __init__.cpython-310.pyc
 │   └── server.cpython-310.pyc
+├── code_text
+│   └── GIT_GPT_SERVER
+│       ├── Logs
+│       │   ├── SessionLog_45453.16.txt.txt
+│       │   └── server_logs.json.txt
+│       ├── __init__.py.txt
+│       ├── __pycache__
+│       │   ├── __init__.cpython-310.pyc.txt
+│       │   └── server.cpython-310.pyc.txt
+│       ├── config.py.txt
+│       ├── flask_pid.txt.txt
+│       ├── format_description.txt.txt
+│       ├── intro.txt.txt
+│       ├── prompts
+│       │   └── test_prompt.txt.txt
+│       ├── routes
+│       │   ├── __init__.py.txt
+│       │   ├── __pycache__
+│       │   │   ├── __init__.cpython-310.pyc.txt
+│       │   │   ├── assistant.cpython-310.pyc.txt
+│       │   │   ├── generate_prompt.cpython-310.pyc.txt
+│       │   │   ├── query.cpython-310.pyc.txt
+│       │   │   └── update_code.cpython-310.pyc.txt
+│       │   ├── assistant.py.txt
+│       │   ├── generate_prompt.py.txt
+│       │   ├── logs.py.txt
+│       │   ├── query.py.txt
+│       │   └── update_code.py.txt
+│       ├── scripts
+│       │   ├── __init__.py.txt
+│       │   ├── backup.sh.txt
+│       │   ├── backup_config.sh.txt
+│       │   ├── deploy.sh.txt
+│       │   ├── deploy_all.sh.txt
+│       │   ├── generate_hierarchy.sh.txt
+│       │   ├── print_env.py.txt
+│       │   ├── stop_server.sh.txt
+│       │   ├── tests
+│       │   │   ├── __init__.py.txt
+│       │   │   └── test_api_endpoints.py.txt
+│       │   └── update_lists.sh.txt
+│       ├── server.py.txt
+│       └── utils
+│           ├── __init__.py.txt
+│           ├── __pycache__
+│           │   ├── __init__.cpython-310.pyc.txt
+│           │   └── pinecone_operations.cpython-310.pyc.txt
+│           ├── file_operations.py.txt
+│           ├── openai_operations.py.txt
+│           ├── pinecone_operations.py.txt
+│           └── sanatize_logs.py.txt
 ├── config.py
 ├── flask_pid.txt
 ├── format_description.txt
@@ -49,4 +100,4 @@ GIT_GPT_SERVER
     ├── pinecone_operations.py
     └── sanatize_logs.py
 
-10 directories, 40 files
+21 directories, 80 files
