@@ -33,6 +33,7 @@ GIT_GPT_SERVER
 │   ├── code_backup.sh
 │   ├── deploy.sh
 │   ├── deploy_all.sh
+│   ├── force_push.sh
 │   ├── generate_hierarchy.sh
 │   ├── print_env.py
 │   ├── stop_server.sh
@@ -51,4 +52,4 @@ GIT_GPT_SERVER
     ├── pinecone_operations.py
     └── sanatize_logs.py
 
-10 directories, 42 files
+10 directories, 43 files
