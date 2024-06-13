@@ -3,6 +3,10 @@
 
 echo "Starting backup script..."
 
+#update lists
+./GIT_GPT_SERVER/scripts/update_lists.sh
+echo "Backed up Lists!"
+
 # Define directories and files to be backed up
 directories=(
     "GIT_GPT_SERVER/scripts"

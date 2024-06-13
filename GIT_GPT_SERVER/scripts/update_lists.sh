@@ -22,12 +22,12 @@ generate_command_list() {
 }
 
 # Generate lists for client project
-generate_script_list "YEAN CAT/scripts" "script_list.txt"
-generate_command_list "YEAN CAT/scripts" "command_list.txt"
+generate_script_list "YEAN_CAT/scripts" "script_list.txt"
+generate_command_list "YEAN_CAT/scripts" "command_list.txt"
 
 # Generate lists for server project
-generate_script_list "YEAN CAT SERVER/scripts" "server_script_list.txt"
-generate_command_list "YEAN CAT SERVER/scripts" "server_command_list.txt"
+generate_script_list "YEAN_CAT_SERVER/scripts" "server_script_list.txt"
+generate_command_list "YEAN_CAT_SERVER/scripts" "server_command_list.txt"
 
 # Commit and push the updated lists
 git add script_list.txt command_list.txt server_script_list.txt server_command_list.txt

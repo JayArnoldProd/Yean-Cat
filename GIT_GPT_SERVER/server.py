@@ -2,7 +2,7 @@ from flask import Flask, jsonify, request
 from dotenv import load_dotenv
 import os
 from GIT_GPT_SERVER.routes.update_code import update_code_route
-from GIT_GPT_SERVER.routes.query import query_route
+from GIT_GPT_SERVER.routes.query import query_openai_route
 from GIT_GPT_SERVER.routes.generate_prompt import generate_prompt_route
 from GIT_GPT_SERVER.routes.assistant import assistant_route
 
@@ -18,7 +18,7 @@ print("GITHUB_USERNAME:", os.getenv('GITHUB_USERNAME'))
 
 app = Flask(__name__)
 app.register_blueprint(update_code_route)
-app.register_blueprint(query_route)
+app.register_blueprint(query_openai_route)
 app.register_blueprint(generate_prompt_route)
 app.register_blueprint(assistant_route)
 
