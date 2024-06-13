@@ -62,6 +62,8 @@ GIT_GPT_SERVER
 ├── prompts
 │   └── test_prompt.txt
 ├── routes
+│   ├── __pycache__
+│   │   └── update_code.cpython-310.pyc
 │   ├── assistant.py
 │   ├── generate_prompt.py
 │   ├── query.py
@@ -81,4 +83,4 @@ GIT_GPT_SERVER
     ├── openai_operations.py
     └── pinecone_operations.py
 
-20 directories, 62 files
+21 directories, 63 files

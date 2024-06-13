@@ -1,1 +1,1 @@
-web: gunicorn server:app
+web: gunicorn GIT_GPT_SERVER.server:app
