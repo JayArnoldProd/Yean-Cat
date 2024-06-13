@@ -53,8 +53,4 @@ if [ -f "GIT_GPT_SERVER/Logs/server_logs.json" ]; then
     cp "GIT_GPT_SERVER/Logs/server_logs.json" "GIT_GPT_SERVER/code_text/server_logs.json.txt"
 fi
 
-# Generate hierarchies
-echo "Generating hierarchy..."
-./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
-
 echo "Backup completed successfully!"

@@ -13,23 +13,8 @@ echo "Running backup script..."
 ./GIT_GPT_SERVER/scripts/backup.sh
 
 # Step 4: Identify and kill specific Flask processes
-echo "Checking for existing Flask server on port 5000..."
-PID=$(lsof -t -i:5000)
-if [ ! -z "$PID" ]; then
-    echo "Killing process $PID using port 5000..."
-    kill -9 $PID
-else
-    echo "No process using port 5000."
-fi
-
-echo "Checking for existing Flask server on port 5001..."
-PID=$(lsof -t -i:5001)
-if [ ! -z "$PID" ]; then
-    echo "Killing process $PID using port 5001..."
-    kill -9 $PID
-else
-    echo "No process using port 5001."
-fi
+echo "Checking for and killing existing Flask servers on ports 5000 and 5001..."
+./GIT_GPT_SERVER/scripts/stop_server.sh
 
 # Step 5: Run deploy_all script
 echo "Running deploy_all script..."
