@@ -110,3 +110,78 @@ HelloWorld,chat_bubble,[ \"\"Hello World!\" ] // it appears to not have saved th
 06/09/24 22:59:30: Saved Game
 06/09/24 22:59:30: Game saved and ending.
 "}
+
+------ GIT_GPT_SERVER/Logs/SessionLog_45453.16.txt ------
+06/09/24 22:53:39: Actions.txt not found. Starting with an empty actions map.
+06/09/24 22:54:26: [Jay Arnold] Hello World!
+06/09/24 22:54:37: [Jay Arnold] I will now demonstrate how the add action is not working
+06/09/24 22:54:59: Action 'Lvl100' added successfully.
+06/09/24 22:55:08: Executing action: level_up(100)
+06/09/24 22:55:08: Level up initiated with goal: 100
+06/09/24 22:55:18: [Jay Arnold] see? that works beautifully
+06/09/24 22:55:22: Actions: Lvl100, 
+06/09/24 22:55:37: [Jay Arnold] now what if i try /chat_bubble
+06/09/24 22:55:50: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
+06/09/24 22:56:08: [Jay Arnold] the command works when executing normally, lets try and make it 
+into an action
+06/09/24 22:56:50: Action 'HelloWorld' added successfully.
+06/09/24 22:56:54: Actions: Lvl100, HelloWorld, 
+06/09/24 22:56:58: Actions saved successfully to Actions.txt.
+06/09/24 22:57:15: [Jay Arnold] i will insert what the Actions.txt contains here:
+
+Lvl100,level_up,[ 100 ]
+HelloWorld,chat_bubble,[ ""Hello World!" ] // it appears to not have saved the second argument!
+
+06/09/24 22:57:39: Executing action: chat_bubble("Hello World!)
+06/09/24 22:57:39: Error: Owner object 'undefined' not found
+06/09/24 22:57:52: [Jay Arnold] See! an error!
+06/09/24 22:59:08: [Jay Arnold] I will now end the test. but first heres a list of all my commands i can
+ use so far. We just need to fix this bug involving the actions and then
+ we can make many cool systems that use our action system.
+06/09/24 22:59:15: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+06/09/24 22:59:15: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+06/09/24 22:59:15: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+06/09/24 22:59:15: list_variables, return_controller, save_actions, save_game, 
+06/09/24 22:59:15: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+06/09/24 22:59:15: show_lines(, show_variable(, show_wpm, toggle_debug, 
+06/09/24 22:59:15: toggle_input_display, toggle_log_debug, toggle_server
+06/09/24 22:59:30: Saved Game
+06/09/24 22:59:30: Game saved and ending.
+
+------ GIT_GPT_SERVER/Logs/server_logs.json ------
+{"SessionLog_45453.16.txt":"06/09/24 22:53:39: Actions.txt not found. Starting with an empty actions map.
+06/09/24 22:54:26: [Jay Arnold] Hello World!
+06/09/24 22:54:37: [Jay Arnold] I will now demonstrate how the add action is not working
+06/09/24 22:54:59: Action 'Lvl100' added successfully.
+06/09/24 22:55:08: Executing action: level_up(100)
+06/09/24 22:55:08: Level up initiated with goal: 100
+06/09/24 22:55:18: [Jay Arnold] see? that works beautifully
+06/09/24 22:55:22: Actions: Lvl100, 
+06/09/24 22:55:37: [Jay Arnold] now what if i try /chat_bubble
+06/09/24 22:55:50: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
+06/09/24 22:56:08: [Jay Arnold] the command works when executing normally, lets try and make it 
+into an action
+06/09/24 22:56:50: Action 'HelloWorld' added successfully.
+06/09/24 22:56:54: Actions: Lvl100, HelloWorld, 
+06/09/24 22:56:58: Actions saved successfully to Actions.txt.
+06/09/24 22:57:15: [Jay Arnold] i will insert what the Actions.txt contains here:
+
+Lvl100,level_up,[ 100 ]
+HelloWorld,chat_bubble,[ \"\"Hello World!\" ] // it appears to not have saved the second argument!
+
+06/09/24 22:57:39: Executing action: chat_bubble(\"Hello World!)
+06/09/24 22:57:39: Error: Owner object 'undefined' not found
+06/09/24 22:57:52: [Jay Arnold] See! an error!
+06/09/24 22:59:08: [Jay Arnold] I will now end the test. but first heres a list of all my commands i can
+ use so far. We just need to fix this bug involving the actions and then
+ we can make many cool systems that use our action system.
+06/09/24 22:59:15: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+06/09/24 22:59:15: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+06/09/24 22:59:15: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+06/09/24 22:59:15: list_variables, return_controller, save_actions, save_game, 
+06/09/24 22:59:15: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+06/09/24 22:59:15: show_lines(, show_variable(, show_wpm, toggle_debug, 
+06/09/24 22:59:15: toggle_input_display, toggle_log_debug, toggle_server
+06/09/24 22:59:30: Saved Game
+06/09/24 22:59:30: Game saved and ending.
+"}

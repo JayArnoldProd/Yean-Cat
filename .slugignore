@@ -1,10 +1,6 @@
-.git
 *.log
 node_modules
-__pycache__
 *.pyc
-.DS_Store
-.env
 conda-meta
 lib/python*/site-packages/conda
 lib/python*/site-packages/tensorboardX
@@ -23,9 +19,6 @@ YEAN_CAT_SERVER/sounds/
 GIT_GPT_SERVER/__pycache__/
 GIT_GPT_SERVER/code_text/
 GIT_GPT_SERVER/flask_pid.txt
-
-# Exclude unnecessary build files
-package.json
 
 # Exclude node_modules directories
 **/node_modules
