@@ -312,8 +312,8 @@ done
 
 # Backup specific groups of files
 backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.txt intro.txt.txt format_description.txt.txt"
-backup_directory "code_text" "code_backups/config_backup.txt" "*.py.txt *.toml.txt *.txt"  # Wildcard pattern to capture all relevant config files
-backup_directory "code_text" "code_backups/metadata_backup.txt" "*.txt"  # Adjusted to capture all .txt files in metadata
+backup_directory "code_text" "code_backups/config_backup.txt" "config.py.txt pyproject.toml.txt requirements.txt.txt runtime.txt.txt"
+backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.txt.txt planned_features.json.txt"
 
 echo "Ensuring all files in code_text have the correct extensions..."
 echo "Backup script completed successfully!"
