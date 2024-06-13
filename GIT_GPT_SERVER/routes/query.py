@@ -2,7 +2,6 @@ from flask import Blueprint, jsonify
 from GIT_GPT_SERVER.utils.pinecone_operations import init_pinecone_index, upsert_vectors_to_pinecone
 
 # Define your blueprint and routes here
-
 query_openai_route = Blueprint('query_openai_route', __name__)
 
 index_name = "yean-cat-git-gpt-index"  # Use the correct index name
