@@ -56,8 +56,9 @@ def home():
 
 @app.route('/api/update_code/pull_logs', methods=['POST'])
 def pull_logs():
+    if not os.path.exists(os.path.dirname(log_path)):
+        os.makedirs(os.path.dirname(log_path))
     if not os.path.exists(log_path):
-        os.makedirs(os.path.dirname(log_path), exist_ok=True)
         with open(log_path, 'w', encoding='utf-8') as file:
             file.write('')
     try:
@@ -88,15 +89,23 @@ def pull_logs_summary():
     else:
         return jsonify({"error": "Logs directory not found"}), 404
 
-# Add a debug route to check if the app is running
-@app.route('/debug', methods=['GET'])
-def debug():
-    return jsonify({"status": "Server is running", "routes": [str(rule) for rule in app.url_map.iter_rules()]})
+@app.route('/api/update_code', methods=['POST'])
+def update_code():
+    data = request.get_json()
+    if not data or 'key' not in data:
+        return jsonify({"error": "Missing required fields"}), 400
+    # Process the update code logic here
+    return jsonify({"message": "Update code received"})
 
 @app.route('/query', methods=['POST'])
 def query():
     # Your query logic here
     return jsonify({"message": "Query received"})
+
+# Add a debug route to check if the app is running
+@app.route('/debug', methods=['GET'])
+def debug():
+    return jsonify({"status": "Server is running", "routes": [str(rule) for rule in app.url_map.iter_rules()]})
 
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 5000))
