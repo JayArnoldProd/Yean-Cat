@@ -11,12 +11,10 @@ echo "Adding and committing changes to GitHub..."
 git add .
 git commit -m "Automated backup and deployment"
 
-# Step 3: Push changes to GitHub
-echo "Pushing changes to GitHub..."
-git remote set-url origin https://JayArnoldProd:${GITHUB_TOKEN}@github.com/JayArnoldProd/Yean-Cat.git
-git push origin main
+# Notify about manual Git operations
+echo "Please manually push changes using GitHub Desktop."
 
-# Step 4: Check if the server is running and pull logs
+# Step 3: Check if the server is running and pull logs
 if curl -s --head http://localhost:5000 | grep "200 OK" > /dev/null; then
     echo "Pulling logs from the server..."
     curl -X POST http://localhost:5000/api/update_code/pull_logs -o Logs/server_logs.json

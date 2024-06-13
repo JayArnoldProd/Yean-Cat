@@ -60,4 +60,4 @@ echo "Deployment and run completed successfully!"
 echo $FLASK_PID > flask_pid.txt
 
 # Notify about manual Git operations
-echo "Please manually push changes using GitHub Desktop."
+echo "Please manually add, commit, and push changes using GitHub Desktop."
