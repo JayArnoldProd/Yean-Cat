@@ -49,11 +49,4 @@ echo "Backup and deployment completed successfully!"
 #     echo "Test script not found."
 # fi
 
-# Navigate to the project directory
-cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
-
-# Push to Heroku
-echo "Pushing to Heroku..."
-git push heroku main
-
 echo "Deployment and run completed successfully!"
