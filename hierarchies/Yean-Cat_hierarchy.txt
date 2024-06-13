@@ -4,10 +4,10 @@
 ├── README.md
 ├── YEAN_CAT
 ├── YEAN_CAT_SERVER
-├── Yean-Cat_hierarchy.txt
 ├── bug_list.json
 ├── command_list.txt
 ├── flask_pid.txt
+├── hierarchies
 ├── package.json
 ├── planned_features.json
 ├── pyproject.toml
@@ -15,4 +15,4 @@
 ├── runtime.txt
 └── script_list.txt
 
-4 directories, 12 files
+5 directories, 11 files
