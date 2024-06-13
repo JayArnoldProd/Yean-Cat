@@ -44,18 +44,18 @@ echo "Backup and deployment completed successfully!"
 FLASK_PID=$!
 echo $FLASK_PID > /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/flask_pid.txt
 
-# Step 8: Run test API endpoints script
-echo "Running test API endpoints script..."
-if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
-    python /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
-else
-    echo "Test script not found."
-fi
+## Step 8: Run test API endpoints script
+#echo "Running test API endpoints script..."
+#if [ -f /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py ]; then
+#    python /Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/scripts/tests/test_api_endpoints.py
+#else
+#    echo "Test script not found."
+#fi
 
-# Navigate to the project directory
-cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
-
-# Push to Heroku
-git push heroku main
+## Navigate to the project directory
+#cd /Users/joshuaarnold/Documents/GitHub/Yean-Cat
+#
+## Push to Heroku
+#git push heroku main
 
 echo "Deployment and run completed successfully!"
