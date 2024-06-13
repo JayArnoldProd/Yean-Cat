@@ -25,3 +25,6 @@ code_text/env.txt
 
 flask_pid.txt
 flask_pid.txt
+
+*.pyc
+__pycache__/
