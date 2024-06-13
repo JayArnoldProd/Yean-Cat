@@ -33,18 +33,18 @@ $(cat "$file")" >> "$output_file"
 # Backup each specified directory
 for dir in "${directories[@]}"; do
     dir_name=$(basename "$dir")
-    backup_directory "$dir" "GIT_GPT_SERVER/folder_backups/${dir_name}_backup.txt"
+    backup_directory "$dir" "GIT_GPT_SERVER/code_backups/${dir_name}_backup.txt"
 done
 
 # Backup miscellaneous files
-echo "Backing up misc files from GIT_GPT_SERVER to GIT_GPT_SERVER/folder_backups/misc_backup.txt..."
+echo "Backing up misc files from GIT_GPT_SERVER to GIT_GPT_SERVER/code_backups/misc_backup.txt..."
 for file in GIT_GPT_SERVER/*; do
-    if [ -f "$file" ] && [[ "$file" != *"GIT_GPT_SERVER/folder_backups/"* ]]; then
+    if [ -f "$file" ] && [[ "$file" != *"GIT_GPT_SERVER/code_backups/"* ]]; then
         misc_files+=("$file")
         echo "Processing $file"
         echo -e "
 ------ $file ------
-$(cat "$file")" >> "GIT_GPT_SERVER/folder_backups/misc_backup.txt"
+$(cat "$file")" >> "GIT_GPT_SERVER/code_backups/misc_backup.txt"
     fi
 done
 

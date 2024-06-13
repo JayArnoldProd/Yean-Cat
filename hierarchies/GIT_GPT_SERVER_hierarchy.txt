@@ -7,6 +7,14 @@ GIT_GPT_SERVER
 │   └── server_logs.json
 ├── __pycache__
 │   └── server.cpython-310.pyc
+├── code_backups
+│   ├── Logs_backup.txt
+│   ├── misc_backup.txt
+│   ├── prompts_backup.txt
+│   ├── routes_backup.txt
+│   ├── scripts_backup.txt
+│   ├── tests_backup.txt
+│   └── utils_backup.txt
 ├── code_text
 │   ├── Logs
 │   │   ├── SessionLog_45453.16.txt.txt
@@ -49,14 +57,6 @@ GIT_GPT_SERVER
 │       ├── openai_operations.py.txt
 │       └── pinecone_operations.py.txt
 ├── flask_pid.txt
-├── folder_backups
-│   ├── Logs_backup.txt
-│   ├── misc_backup.txt
-│   ├── prompts_backup.txt
-│   ├── routes_backup.txt
-│   ├── scripts_backup.txt
-│   ├── tests_backup.txt
-│   └── utils_backup.txt
 ├── format_description.txt
 ├── intro.txt
 ├── prompts
