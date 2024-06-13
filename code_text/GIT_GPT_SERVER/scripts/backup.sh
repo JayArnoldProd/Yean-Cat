@@ -4,13 +4,13 @@
 backup_files() {
     local src_dir=$1
     local backup_file=$2
-    local exclude_file=$3
+    local exclude_files=("${@:3}")
 
     echo "Backing up files from $src_dir to $backup_file..."
-    if [ -z "$exclude_file" ]; then
+    if [ ${#exclude_files[@]} -eq 0 ]; then
         find "$src_dir" -type f -exec cat {} + > "$backup_file"
     else
-        find "$src_dir" -type f ! -name "$exclude_file" -exec cat {} + > "$backup_file"
+        find "$src_dir" -type f $(printf "! -name %s " "${exclude_files[@]}") -exec cat {} + > "$backup_file"
     fi
     echo "Backup completed for $src_dir to $backup_file"
 }
@@ -44,9 +44,9 @@ backup_files "GIT_GPT_SERVER/routes" "code_backups/routes_backup.txt"
 backup_files "GIT_GPT_SERVER/tests" "code_backups/tests_backup.txt"
 backup_files "GIT_GPT_SERVER/utils" "code_backups/utils_backup.txt"
 backup_files "GIT_GPT_SERVER/prompts" "code_backups/prompts_backup.txt"
-backup_files "GIT_GPT_SERVER" "code_backups/documentation_backup.txt" ".*"
-backup_files "GIT_GPT_SERVER" "code_backups/config_backup.txt" ".*"
-backup_files "GIT_GPT_SERVER" "code_backups/metadata_backup.txt" ".*"
+backup_files "GIT_GPT_SERVER" "code_backups/documentation_backup.txt" ".*" "config.py" "flask_pid.txt" "intro.txt"
+backup_files "GIT_GPT_SERVER" "code_backups/config_backup.txt" ".*" "server.py"
+backup_files "GIT_GPT_SERVER" "code_backups/metadata_backup.txt" ".*" "bug_list.json" "planned_features.json"
 backup_files "GIT_GPT_SERVER" "code_backups/git_files_backup.txt" ".env"
 
 # Create the code_text directory in the root
@@ -54,7 +54,7 @@ mkdir -p code_text/GIT_GPT_SERVER
 
 # Copy files to the code_text directory
 echo "Copying files to code_text directory..."
-cp -r README.md command_list.txt config.py flask_pid.txt format_description.txt intro.txt package.json planned_features.json pyproject.toml requirements.txt runtime.txt script_list.txt server.py server_command_list.txt server_script_list.txt code_text/
+cp README.md command_list.txt config.py flask_pid.txt format_description.txt intro.txt package.json planned_features.json pyproject.toml requirements.txt runtime.txt script_list.txt server.py server_command_list.txt server_script_list.txt code_text/
 
 # Copy GIT_GPT_SERVER directory structure to code_text
 cp -r GIT_GPT_SERVER/* code_text/GIT_GPT_SERVER/

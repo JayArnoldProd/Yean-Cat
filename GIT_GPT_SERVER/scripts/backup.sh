@@ -49,18 +49,8 @@ backup_files "GIT_GPT_SERVER" "code_backups/config_backup.txt" ".*" "server.py"
 backup_files "GIT_GPT_SERVER" "code_backups/metadata_backup.txt" ".*" "bug_list.json" "planned_features.json"
 backup_files "GIT_GPT_SERVER" "code_backups/git_files_backup.txt" ".env"
 
-# Create the code_text directory in the root
-mkdir -p code_text/GIT_GPT_SERVER
-
-# Copy files to the code_text directory
-echo "Copying files to code_text directory..."
-cp README.md command_list.txt config.py flask_pid.txt format_description.txt intro.txt package.json planned_features.json pyproject.toml requirements.txt runtime.txt script_list.txt server.py server_command_list.txt server_script_list.txt code_text/
-
-# Copy GIT_GPT_SERVER directory structure to code_text
-cp -r GIT_GPT_SERVER/* code_text/GIT_GPT_SERVER/
-
-# Remove the .env file from code_text
-rm code_text/.env
+# Run the code text backup script
+./GIT_GPT_SERVER/scripts/backup_code_text.sh
 
 # Generate hierarchies
 ./GIT_GPT_SERVER/scripts/generate_hierarchy.sh
