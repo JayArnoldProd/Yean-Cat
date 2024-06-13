@@ -14,11 +14,5 @@ YEAN_CAT/sounds/
 YEAN_CAT_SERVER/sprites/
 YEAN_CAT_SERVER/sounds/
 
-# Include code_backups directory
-# Ensure necessary subdirectories in GIT_GPT_SERVER are included
-GIT_GPT_SERVER/__pycache__/
-GIT_GPT_SERVER/code_text/
-GIT_GPT_SERVER/flask_pid.txt
-
 # Exclude node_modules directories
 **/node_modules
