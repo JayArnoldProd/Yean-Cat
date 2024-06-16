@@ -27,6 +27,9 @@ GIT_GPT_SERVER
 │   └── update_code.py
 ├── scripts
 │   ├── __init__.py
+│   ├── add_bug.sh
+│   ├── add_feature.sh
+│   ├── add_planned_feature.sh
 │   ├── backup.sh
 │   ├── backup_code_text.sh
 │   ├── backup_config.sh
@@ -53,4 +56,4 @@ GIT_GPT_SERVER
     ├── pinecone_operations.py
     └── sanatize_logs.py
 
-10 directories, 44 files
+10 directories, 47 files

@@ -122,6 +122,89 @@ echo "Deployment and run completed successfully!"
 
 == End: deploy_all.sh.txt
 
+== Begin: add_bug.sh.txt
+#!/bin/bash
+
+BUG_NAME=$1
+BUG_DESCRIPTION=$2
+BUG_SOURCE=$3
+BUG_PRIORITY=$4
+BUG_STATUS=$5
+BUG_DATE_REPORTED=$6
+BUG_REPORTED_BY=$7
+BUG_ASSIGNED_TO=$8
+BUG_GENERATION=$9
+BUG_LOGS=${10}
+BUG_STEPS_TO_REPRODUCE=${11}
+BUG_RESOLUTION=${12}
+BUG_RELATED_FEATURES=${13}
+
+jq --arg name "$BUG_NAME" --arg description "$BUG_DESCRIPTION" --arg source "$BUG_SOURCE" --arg priority "$BUG_PRIORITY" \
+   --arg status "$BUG_STATUS" --arg date_reported "$BUG_DATE_REPORTED" --arg reported_by "$BUG_REPORTED_BY" \
+   --arg assigned_to "$BUG_ASSIGNED_TO" --arg generation "$BUG_GENERATION" --arg logs "$BUG_LOGS" \
+   --arg steps_to_reproduce "$BUG_STEPS_TO_REPRODUCE" --arg resolution "$BUG_RESOLUTION" --arg related_features "$BUG_RELATED_FEATURES" \
+   '. += [{"name": $name, "description": $description, "source": $source, "priority": $priority, "status": $status, \
+   "date_reported": $date_reported, "reported_by": $reported_by, "assigned_to": $assigned_to, "generation": $generation, \
+   "logs": $logs, "steps_to_reproduce": $steps_to_reproduce, "resolution": $resolution, "related_features": $related_features}]' \
+   bug_list.json > tmp.json && mv tmp.json bug_list.json
+
+echo "Bug added successfully."
+
+== End: add_bug.sh.txt
+
+== Begin: add_feature.sh.txt
+#!/bin/bash
+
+FEATURE_NAME=$1
+FEATURE_DESCRIPTION=$2
+FEATURE_SOURCE=$3
+FEATURE_PRIORITY=$4
+FEATURE_STATUS=$5
+FEATURE_DATE_COMPLETED=$6
+FEATURE_IMPLEMENTED_BY=$7
+FEATURE_GENERATION=$8
+FEATURE_RELATED_BUGS=${9}
+FEATURE_IMPLEMENTATION_STEPS=${10}
+FEATURE_DEPENDENCIES=${11}
+FEATURE_DOCUMENTATION=${12}
+
+jq --arg name "$FEATURE_NAME" --arg description "$FEATURE_DESCRIPTION" --arg source "$FEATURE_SOURCE" --arg priority "$FEATURE_PRIORITY" \
+   --arg status "$FEATURE_STATUS" --arg date_completed "$FEATURE_DATE_COMPLETED" --arg implemented_by "$FEATURE_IMPLEMENTED_BY" \
+   --arg generation "$FEATURE_GENERATION" --arg related_bugs "$FEATURE_RELATED_BUGS" \
+   --arg implementation_steps "$FEATURE_IMPLEMENTATION_STEPS" --arg dependencies "$FEATURE_DEPENDENCIES" \
+   --arg documentation "$FEATURE_DOCUMENTATION"
+
+== End: add_feature.sh.txt
+
+== Begin: add_planned_feature.sh.txt
+#!/bin/bash
+
+FEATURE_NAME=$1
+FEATURE_DESCRIPTION=$2
+FEATURE_SOURCE=$3
+FEATURE_PRIORITY=$4
+FEATURE_STATUS=$5
+FEATURE_DATE_PLANNED=$6
+FEATURE_PLANNED_BY=$7
+FEATURE_ASSIGNED_TO=$8
+FEATURE_GENERATION=$9
+FEATURE_RELATED_BUGS=${10}
+FEATURE_IMPLEMENTATION_STEPS=${11}
+FEATURE_DEPENDENCIES=${12}
+
+jq --arg name "$FEATURE_NAME" --arg description "$FEATURE_DESCRIPTION" --arg source "$FEATURE_SOURCE" --arg priority "$FEATURE_PRIORITY" \
+   --arg status "$FEATURE_STATUS" --arg date_planned "$FEATURE_DATE_PLANNED" --arg planned_by "$FEATURE_PLANNED_BY" \
+   --arg assigned_to "$FEATURE_ASSIGNED_TO" --arg generation "$FEATURE_GENERATION" --arg related_bugs "$FEATURE_RELATED_BUGS" \
+   --arg implementation_steps "$FEATURE_IMPLEMENTATION_STEPS" --arg dependencies "$FEATURE_DEPENDENCIES" \
+   '. += [{"name": $name, "description": $description, "source": $source, "priority": $priority, "status": $status, \
+   "date_planned": $date_planned, "planned_by": $planned_by, "assigned_to": $assigned_to, "generation": $generation, \
+   "related_bugs": $related_bugs, "implementation_steps": $implementation_steps, "dependencies": $dependencies}]' \
+   planned_features.json > tmp.json && mv tmp.json planned_features.json
+
+echo "Planned feature added successfully."
+
+== End: add_planned_feature.sh.txt
+
 == Begin: test_api_endpoints.py.txt
 import requests
 import os
