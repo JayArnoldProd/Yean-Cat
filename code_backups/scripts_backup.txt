@@ -37,6 +37,34 @@ echo "Update completed successfully!"
 
 == End: update_lists.sh.txt
 
+== Begin: display_entry.sh.txt
+#!/bin/bash
+
+LIST_TYPE=$1  # Can be "bug", "planned_feature", "feature"
+ENTRY_NAME=$2
+
+if [ "$LIST_TYPE" == "bug" ]; then
+    LIST_FILE="bug_list.json"
+elif [ "$LIST_TYPE" == "planned_feature" ]; then
+    LIST_FILE="planned_features.json"
+elif [ "$LIST_TYPE" == "feature" ]; then
+    LIST_FILE="completed_features.json"
+else
+    echo "Invalid list type specified."
+    exit 1
+fi
+
+# Check if the list file exists
+if [ ! -f "$LIST_FILE" ]; then
+    echo "The list file $LIST_FILE does not exist."
+    exit 1
+fi
+
+# Display the entry
+jq --arg name "$ENTRY_NAME" '.[] | select(.name == $name)' "$LIST_FILE"
+
+== End: display_entry.sh.txt
+
 == Begin: generate_hierarchy.sh.txt
 #!/bin/bash
 
@@ -121,6 +149,60 @@ fi
 echo "Deployment and run completed successfully!"
 
 == End: deploy_all.sh.txt
+
+== Begin: search_entries.sh.txt
+#!/bin/bash
+
+LIST_TYPE=$1  # Can be "bug", "planned_feature", "feature"
+SEARCH_FIELD=$2
+SEARCH_VALUE=$3
+
+if [ "$LIST_TYPE" == "bug" ]; then
+    LIST_FILE="bug_list.json"
+elif [ "$LIST_TYPE" == "planned_feature" ]; then
+    LIST_FILE="planned_features.json"
+elif [ "$LIST_TYPE" == "feature" ]; then
+    LIST_FILE="completed_features.json"
+else
+    echo "Invalid list type specified."
+    exit 1
+fi
+
+# Check if the list file exists
+if [ ! -f "$LIST_FILE" ]; then
+    echo "The list file $LIST_FILE does not exist."
+    exit 1
+fi
+
+# Search for entries
+jq --arg field "$SEARCH_FIELD" --arg value "$SEARCH_VALUE" \
+   '.[] | select(.[$field] == $value)' "$LIST_FILE"
+
+== End: search_entries.sh.txt
+
+== Begin: ask_user.sh.txt
+#!/bin/bash
+
+QUESTION=$1
+INPUT_TYPE=$2  # Can be "yesno" or "freeinput"
+
+if [ "$INPUT_TYPE" == "yesno" ]; then
+    while true; do
+        read -p "$QUESTION (y/n): " yn
+        case $yn in
+            [Yy]* ) echo "yes"; break;;
+            [Nn]* ) echo "no"; break;;
+            * ) echo "Please answer yes or no.";;
+        esac
+    done
+elif [ "$INPUT_TYPE" == "freeinput" ]; then
+    read -p "$QUESTION: " input
+    echo "$input"
+else
+    echo "Invalid input type specified."
+fi
+
+== End: ask_user.sh.txt
 
 == Begin: add_bug.sh.txt
 #!/bin/bash
@@ -308,6 +390,47 @@ echo "Server shutdown completed successfully!"
 
 == End: stop_server.sh.txt
 
+== Begin: update_entry.sh.txt
+#!/bin/bash
+
+LIST_TYPE=$1  # Can be "bug", "planned_feature", "feature"
+ENTRY_NAME=$2
+FIELD_NAME=$3
+NEW_VALUE=$4
+
+if [ "$LIST_TYPE" == "bug" ]; then
+    LIST_FILE="bug_list.json"
+elif [ "$LIST_TYPE" == "planned_feature" ]; then
+    LIST_FILE="planned_features.json"
+elif [ "$LIST_TYPE" == "feature" ]; then
+    LIST_FILE="completed_features.json"
+else
+    echo "Invalid list type specified."
+    exit 1
+fi
+
+# Check if the list file exists
+if [ ! -f "$LIST_FILE" ]; then
+    echo "The list file $LIST_FILE does not exist."
+    exit 1
+fi
+
+# Check if an entry with the specified name exists
+EXISTING_ENTRY=$(jq --arg name "$ENTRY_NAME" '.[] | select(.name == $name)' "$LIST_FILE")
+
+if [ -z "$EXISTING_ENTRY" ]; then
+    echo "No entry with the name '$ENTRY_NAME' found in $LIST_FILE."
+    exit 1
+fi
+
+# Update the specified field
+jq --arg name "$ENTRY_NAME" --arg field "$FIELD_NAME" --arg value "$NEW_VALUE" \
+   '(.[] | select(.name == $name) | .[$field]) = $value' "$LIST_FILE" > tmp.json && mv tmp.json "$LIST_FILE"
+
+echo "Entry '$ENTRY_NAME' updated successfully in $LIST_FILE."
+
+== End: update_entry.sh.txt
+
 == Begin: deploy.sh.txt
 #!/bin/bash
 # Navigate to the project directory
@@ -347,6 +470,75 @@ git push origin main --force
 echo "Force push completed successfully!"
 
 == End: force_push.sh.txt
+
+== Begin: complete_feature.sh.txt
+#!/bin/bash
+
+FEATURE_NAME=$1
+COMPLETED_BY=$2
+CURRENT_GEN=$(./GIT_GPT_SERVER/scripts/get_config.py CURRENT_GEN)
+CURRENT_DATE=$(date '+%Y-%m-%d')
+
+PLANNED_FEATURES_FILE="./planned_features.json"
+COMPLETED_FEATURES_FILE="./completed_features.json"
+
+# Check if completed_features.json exists, create if it doesn't
+if [ ! -f $COMPLETED_FEATURES_FILE ]; then
+    echo "[]" > $COMPLETED_FEATURES_FILE
+fi
+
+# Find the feature in planned_features.json
+FEATURE=$(jq --arg name "$FEATURE_NAME" '.[] | select(.name == $name)' $PLANNED_FEATURES_FILE)
+
+if [ "$FEATURE" == "" ]; then
+    echo "No planned feature with the name '$FEATURE_NAME' found."
+    exit 1
+fi
+
+# Update the status and completion details
+UPDATED_FEATURE=$(echo "$FEATURE" | jq --arg date "$CURRENT_DATE" --arg gen "$CURRENT_GEN" --arg completed_by "$COMPLETED_BY" \
+    '.status = "completed" | .date_completed = $date | .generation = $gen | .completed_by = $completed_by')
+
+# Add to completed_features.json
+jq --argjson feature "$UPDATED_FEATURE" '. += [$feature]' $COMPLETED_FEATURES_FILE > tmp.json && mv tmp.json $COMPLETED_FEATURES_FILE
+
+# Remove from planned_features.json
+jq --arg name "$FEATURE_NAME" 'del(.[] | select(.name == $name))' $PLANNED_FEATURES_FILE > tmp.json && mv tmp.json $PLANNED_FEATURES_FILE
+
+echo "Feature '$FEATURE_NAME' completed and moved to $COMPLETED_FEATURES_FILE successfully."
+
+== End: complete_feature.sh.txt
+
+== Begin: get_config.py.txt
+#!/usr/bin/env python3
+
+import json
+import os
+import sys
+
+# Locate the project root and config file
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+CONFIG_FILE = os.path.join(BASE_DIR, 'config', 'config.json')
+
+# Load JSON configuration
+with open(CONFIG_FILE, 'r') as f:
+    config = json.load(f)
+
+def get_config_value(key):
+    if key in config:
+        print(config[key])
+    else:
+        print(f"Unknown configuration key: {key}", file=sys.stderr)
+        sys.exit(1)
+
+if __name__ == "__main__":
+    if len(sys.argv) != 2:
+        print("Usage: get_config.py <CONFIG_KEY>", file=sys.stderr)
+        sys.exit(1)
+    
+    get_config_value(sys.argv[1])
+
+== End: get_config.py.txt
 
 == Begin: backup.sh.txt
 #!/bin/bash
@@ -439,7 +631,7 @@ directories=(
 
 # Logical groups for miscellaneous files
 group1=("README.md" "GIT_GPT_SERVER/intro.txt" "GIT_GPT_SERVER/format_description.txt")
-group2=("GIT_GPT_SERVER/__init__.py" "GIT_GPT_SERVER/config.py" "GIT_GPT_SERVER/flask_pid.txt" "GIT_GPT_SERVER/server.py")
+group2=("GIT_GPT_SERVER/__init__.py" "GIT_GPT_SERVER/config/config.py" "GIT_GPT_SERVER/config/config.json" "GIT_GPT_SERVER/flask_pid.txt" "GIT_GPT_SERVER/server.py")
 group3=("script_list.txt" "command_list.txt" "server_script_list.txt" "server_command_list.txt")
 group4=("bug_list.json" "planned_features.json" "package.json" "requirements.txt" "pyproject.toml")
 group5=(".gitignore" ".gitattributes" ".slugignore" ".env" "Procfile")
@@ -536,6 +728,44 @@ echo "Code text backup completed successfully!"
 
 == End: backup_code_text.sh.txt
 
+== Begin: delete_entry.sh.txt
+#!/bin/bash
+
+LIST_TYPE=$1  # Can be "bug", "planned_feature", "feature"
+ENTRY_NAME=$2
+
+if [ "$LIST_TYPE" == "bug" ]; then
+    LIST_FILE="bug_list.json"
+elif [ "$LIST_TYPE" == "planned_feature" ]; then
+    LIST_FILE="planned_features.json"
+elif [ "$LIST_TYPE" == "feature" ]; then
+    LIST_FILE="completed_features.json"
+else
+    echo "Invalid list type specified."
+    exit 1
+fi
+
+# Check if the list file exists
+if [ ! -f "$LIST_FILE" ]; then
+    echo "The list file $LIST_FILE does not exist."
+    exit 1
+fi
+
+# Check if an entry with the specified name exists
+EXISTING_ENTRY=$(jq --arg name "$ENTRY_NAME" '.[] | select(.name == $name)' "$LIST_FILE")
+
+if [ -z "$EXISTING_ENTRY" ]; then
+    echo "No entry with the name '$ENTRY_NAME' found in $LIST_FILE."
+    exit 1
+fi
+
+# Remove the existing entry
+jq --arg name "$ENTRY_NAME" 'del(.[] | select(.name == $name))' "$LIST_FILE" > tmp.json && mv tmp.json "$LIST_FILE"
+
+echo "Entry '$ENTRY_NAME' deleted successfully from $LIST_FILE."
+
+== End: delete_entry.sh.txt
+
 == Begin: print_env.py.txt
 # print_env.py
 from dotenv import load_dotenv
@@ -551,6 +781,38 @@ print("PINECONE_INDEX_NAME:", os.getenv('PINECONE_INDEX_NAME'))
 print("GITHUB_USERNAME:", os.getenv('GITHUB_USERNAME'))
 
 == End: print_env.py.txt
+
+== Begin: move_closed_bugs.sh.txt
+#!/bin/bash
+
+# Get the current generation
+CURRENT_GEN=$(./GIT_GPT_SERVER/scripts/get_config.py CURRENT_GEN)
+CURRENT_DATE=$(date '+%Y-%m-%d')
+
+# Define paths
+BUG_LIST_FILE="./bug_list.json"
+FIXED_BUGS_FILE="./fixed_bugs.json"
+
+# Check if fixed_bugs.json exists, create if it doesn't
+if [ ! -f $FIXED_BUGS_FILE ]; then
+    echo "[]" > $FIXED_BUGS_FILE
+fi
+
+# Extract closed bugs and remaining bugs
+CLOSED_BUGS=$(jq 'map(select(.status == "closed"))' $BUG_LIST_FILE)
+REMAINING_BUGS=$(jq 'map(select(.status != "closed"))' $BUG_LIST_FILE)
+
+# Append closed bugs to fixed_bugs.json
+if [ "$(echo $CLOSED_BUGS | jq 'length')" -gt 0 ]; then
+    jq --argjson closed "$CLOSED_BUGS" '. + $closed' $FIXED_BUGS_FILE > tmp.json && mv tmp.json $FIXED_BUGS_FILE
+fi
+
+# Update bug_list.json with remaining bugs
+echo "$REMAINING_BUGS" > $BUG_LIST_FILE
+
+echo "Closed bugs moved to $FIXED_BUGS_FILE and removed from $BUG_LIST_FILE successfully."
+
+== End: move_closed_bugs.sh.txt
 
 == Begin: code_backup.sh.txt
 #!/bin/bash
@@ -599,4 +861,153 @@ echo "$1" > "$last_words_file"
 echo "Last words for generation ${next_number} saved to ${last_words_file}"
 
 == End: last_words.sh.txt
+
+== Begin: add_entry.sh.txt
+#!/bin/bash
+
+TYPE=$1
+shift
+
+NAME=$1
+DESCRIPTION=$2
+SOURCE=$3
+PRIORITY=$4
+STATUS=$5
+DATE=$6
+REPORTED_BY=$7
+ASSIGNED_TO=$8
+GENERATION=$9
+shift 9
+
+# Remaining arguments
+LOGS=$1
+STEPS=$2
+RESOLUTION=$3
+RELATED_FEATURES=$4
+RELATED_OBJECTS=$5
+RELATED_SCRIPTS=$6
+
+# Function to convert a string to a JSON array
+to_json_array() {
+    local arr_str=$1
+    echo "$arr_str" | tr -d '\n' | jq -R -s 'split(",") | map(select(length > 0))'
+}
+
+# Function to strip trailing spaces and newlines from the input strings
+strip_trailing_newlines_and_spaces() {
+    local input_str=$1
+    echo "$input_str" | tr -d '\n' | sed 's/[[:space:]]*$//'
+}
+
+# Function to handle resolution specifically
+strip_newlines_resolution() {
+    local input_str=$1
+    echo "$input_str" | tr -d '\n' | sed 's/\\n/ /g'
+}
+
+# Convert string arrays to JSON arrays
+LOGS=$(strip_trailing_newlines_and_spaces "$LOGS")
+STEPS=$(strip_trailing_newlines_and_spaces "$STEPS")
+RESOLUTION=$(strip_newlines_resolution "$RESOLUTION")
+RELATED_FEATURES=$(strip_trailing_newlines_and_spaces "$RELATED_FEATURES")
+RELATED_OBJECTS=$(strip_trailing_newlines_and_spaces "$RELATED_OBJECTS")
+RELATED_SCRIPTS=$(strip_trailing_newlines_and_spaces "$RELATED_SCRIPTS")
+
+LOGS=$(to_json_array "$LOGS")
+STEPS=$(to_json_array "$STEPS")
+RESOLUTION=$(to_json_array "$RESOLUTION")
+RELATED_FEATURES=$(to_json_array "$RELATED_FEATURES")
+RELATED_OBJECTS=$(to_json_array "$RELATED_OBJECTS")
+RELATED_SCRIPTS=$(to_json_array "$RELATED_SCRIPTS")
+
+# File paths
+BUG_LIST_FILE="./bug_list.json"
+PLANNED_FEATURES_FILE="./planned_features.json"
+FEATURES_FILE="./completed_features.json"
+
+# Function to add an entry
+add_entry() {
+    local file=$1
+    local entry=$2
+    if [ ! -f $file ]; then
+        echo "[]" > $file
+    fi
+
+    local existing_entry=$(jq --arg name "$NAME" '.[] | select(.name == $name)' $file)
+
+    if [ "$existing_entry" != "" ]; then
+        read -p "An entry with the name '$NAME' already exists. Do you want to replace it? (y/n): " replace
+        if [ "$replace" != "y" ]; then
+            echo "Entry addition canceled."
+            exit 0
+        fi
+        jq --arg name "$NAME" 'del(.[] | select(.name == $name))' $file > tmp.json && mv tmp.json $file
+    fi
+
+    jq --argjson entry "$entry" '. += [$entry]' $file > tmp.json && mv tmp.json $file
+    echo "Entry '$NAME' added successfully."
+}
+
+# Prepare entry JSON based on the type
+case $TYPE in
+    bug)
+        ENTRY=$(jq -n --arg name "$NAME" --arg description "$DESCRIPTION" --arg source "$SOURCE" --arg priority "$PRIORITY" \
+                    --arg status "$STATUS" --arg date_reported "$DATE" --arg reported_by "$REPORTED_BY" --arg assigned_to "$ASSIGNED_TO" \
+                    --arg generation "$GENERATION" --argjson logs "$LOGS" --argjson steps "$STEPS" --argjson resolution "$RESOLUTION" \
+                    --argjson related_features "$RELATED_FEATURES" --argjson related_objects "$RELATED_OBJECTS" --argjson related_scripts "$RELATED_SCRIPTS" \
+                    '{name: $name, description: $description, source: $source, priority: $priority, status: $status, date_reported: $date_reported, reported_by: $reported_by, assigned_to: $assigned_to, generation: $generation, logs: $logs, steps_to_reproduce: $steps, resolution: $resolution, related_features: $related_features, related_objects: $related_objects, related_scripts: $related_scripts}')
+        add_entry $BUG_LIST_FILE "$ENTRY"
+        ;;
+    planned_feature)
+        ENTRY=$(jq -n --arg name "$NAME" --arg description "$DESCRIPTION" --arg source "$SOURCE" --arg priority "$PRIORITY" \
+                    --arg status "$STATUS" --arg date_planned "$DATE" --arg planned_by "$REPORTED_BY" --arg assigned_to "$ASSIGNED_TO" \
+                    --arg generation "$GENERATION" --argjson related_bugs "$LOGS" --argjson implementation_steps "$STEPS" --argjson dependencies "$RELATED_FEATURES" \
+                    --argjson related_objects "$RELATED_OBJECTS" --argjson related_scripts "$RELATED_SCRIPTS" \
+                    '{name: $name, description: $description, source: $source, priority: $priority, status: $status, date_planned: $date_planned, planned_by: $planned_by, assigned_to: $assigned_to, generation: $generation, related_bugs: $related_bugs, implementation_steps: $implementation_steps, dependencies: $dependencies, related_objects: $related_objects, related_scripts: $related_scripts}')
+        add_entry $PLANNED_FEATURES_FILE "$ENTRY"
+        ;;
+    feature)
+        ENTRY=$(jq -n --arg name "$NAME" --arg description "$DESCRIPTION" --arg source "$SOURCE" --arg priority "$PRIORITY" \
+                    --arg status "$STATUS" --arg date_completed "$DATE" --arg completed_by "$REPORTED_BY" --arg generation "$GENERATION" \
+                    --argjson related_bugs "$LOGS" --argjson steps "$STEPS" --argjson dependencies "$RELATED_FEATURES" --argjson documentation_links "$RESOLUTION" \
+                    --argjson related_objects "$RELATED_OBJECTS" --argjson related_scripts "$RELATED_SCRIPTS" \
+                    '{name: $name, description: $description, source: $source, priority: $priority, status: $status, date_completed: $date_completed, completed_by: $completed_by, generation: $generation, related_bugs: $related_bugs, implementation_steps: $steps, dependencies: $dependencies, documentation_links: $documentation_links, related_objects: $related_objects, related_scripts: $related_scripts}')
+        add_entry $FEATURES_FILE "$ENTRY"
+        ;;
+    *)
+        echo "Invalid entry type. Use 'bug', 'planned_feature', or 'feature'."
+        exit 1
+        ;;
+esac
+
+== End: add_entry.sh.txt
+
+== Begin: list_entries.sh.txt
+#!/bin/bash
+
+LIST_TYPE=$1  # Can be "bug", "planned_feature", "feature"
+STATUS_FILTER=${2:-unresolved}  # Default to showing only unresolved bugs
+
+if [ "$LIST_TYPE" == "bug" ]; then
+    LIST_FILE="bug_list.json"
+    if [ "$STATUS_FILTER" == "unresolved" ]; then
+        jq '.[] | select(.status != "closed")' "$LIST_FILE"
+    elif [ "$STATUS_FILTER" == "all" ]; then
+        jq '.' "$LIST_FILE"
+    else
+        echo "Invalid status filter specified. Use 'unresolved' or 'all'."
+        exit 1
+    fi
+elif [ "$LIST_TYPE" == "planned_feature" ]; then
+    LIST_FILE="planned_features.json"
+    jq '.' "$LIST_FILE"
+elif [ "$LIST_TYPE" == "feature" ]; then
+    LIST_FILE="completed_features.json"
+    jq '.' "$LIST_FILE"
+else
+    echo "Invalid list type specified."
+    exit 1
+fi
+
+== End: list_entries.sh.txt
 

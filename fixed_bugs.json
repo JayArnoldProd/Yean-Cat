@@ -1,0 +1,42 @@
+[
+  {
+    "name": "API Endpoint Failure",
+    "description": "The /api/query endpoint fails intermittently.",
+    "source": "GIT_GPT_SERVER",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-06-16",
+    "reported_by": "User",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "logs": [
+      [
+        "Log entry 1",
+        "Log entry 2"
+      ]
+    ],
+    "steps_to_reproduce": [
+      [
+        "Step 1: Call the endpoint.",
+        "Step 2: Observe the failure."
+      ]
+    ],
+    "resolution": "[]",
+    "related_features": [
+      [
+        "Feature 1"
+      ]
+    ],
+    "related_objects": [
+      [
+        "server_object"
+      ]
+    ],
+    "related_scripts": [
+      [
+        "server_script_1",
+        "server_script_2"
+      ]
+    ]
+  }
+]
