@@ -1,25 +1,24 @@
 [
   {
-    "name": "Enhanced User Authentication",
-    "description": "Implement two-factor authentication to improve user security.",
+    "name": "Sample Feature",
+    "description": "Implement a sample feature for testing purposes.",
     "source": "SYSTEM",
-    "priority": "high",
+    "priority": "medium",
     "status": "completed",
-    "date_planned": "2024-06-18",
-    "planned_by": "AI Assistant",
+    "date_planned": "2024-06-20",
+    "planned_by": "Tester",
     "assigned_to": "Dev Team",
     "generation": "2",
     "related_logs": [
       "No related logs"
     ],
     "implementation_steps": [
-      "Step 1: Design the two-factor authentication workflow.",
-      "Step 2: Implement the authentication logic.",
-      "Step 3: Integrate with the existing user management system.",
-      "Step 4: Test the functionality."
+      "Step 1: Design the feature.",
+      "Step 2: Implement the feature.",
+      "Step 3: Test the feature."
     ],
     "expected_outcome": [
-      "Expected outcome: Increased user security and reduced unauthorized access."
+      "Expected outcome: A sample feature implemented for testing purposes."
     ],
     "related_features": [
       "No related features"
@@ -29,8 +28,6 @@
     ],
     "related_scripts": [
       "No related scripts"
-    ],
-    "date_completed": "2024-06-20",
-    "completed_by": ""
+    ]
   }
 ]

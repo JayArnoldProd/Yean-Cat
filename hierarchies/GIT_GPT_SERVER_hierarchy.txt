@@ -38,7 +38,6 @@ GIT_GPT_SERVER
 │   ├── backup_code_text.sh
 │   ├── backup_config.sh
 │   ├── code_backup.sh
-│   ├── complete_feature.sh
 │   ├── delete_entry.sh
 │   ├── deploy.sh
 │   ├── deploy_all.sh
@@ -49,6 +48,7 @@ GIT_GPT_SERVER
 │   ├── last_words.sh
 │   ├── list_entries.sh
 │   ├── move_closed_bugs.sh
+│   ├── move_completed_features.sh
 │   ├── print_env.py
 │   ├── search_entries.sh
 │   ├── stop_server.sh
