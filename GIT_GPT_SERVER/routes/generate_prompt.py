@@ -31,8 +31,8 @@ def generate_prompt():
     if not save_name or not thread_id:
         return jsonify({"error": "Invalid input, 'save_name' and 'thread_id' fields are required"}), 400
 
-    intro = read_file('intro.txt')
-    format_description = read_file('format_description.txt')
+    intro = read_file('Prompt Assembly/intro.txt')
+    format_description = read_file('Documentation/Game Command Format Documentation.txt')
 
     if not intro or not format_description:
         return jsonify({"error": "Intro or format description files not found"}), 400

@@ -1,4 +1,4 @@
-If you are creating a new in-game, executable script, it should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
+If you are creating a new in-game, executable script (for YEAN_CAT_CLIENT), it should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
 
 For Example:
 /// @function scr_return_controller()

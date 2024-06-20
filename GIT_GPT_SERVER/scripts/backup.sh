@@ -46,12 +46,16 @@ for dir in "${backup_dirs[@]}"; do
 done
 
 # Backup specific groups of files
-backup_directory "code_text" "code_backups/documentation_backup.txt" "README.md.txt" "intro.txt.txt" "format_description.txt.txt"
+backup_directory "Documentation" "code_backups/documentation_backup.txt" "*.txt"
+backup_directory "Prompt_Assembly" "code_backups/documentation_backup.txt" "*.txt"
 backup_directory "code_text" "code_backups/config_backup.txt" "config.py.txt" "pyproject.toml.txt" "requirements.txt.txt" "runtime.txt.txt"
 backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.txt.txt" "planned_features.json.txt"
 
+# Explicitly include specific files that may be missed
+backup_directory "code_text" "code_backups/documentation_backup.txt" "Game_Command_Format_Documentation.txt.txt" "Terminal_Commands_Documentation.txt.txt"
+
 # Append Last_Words files to the documentation_backup.txt
-LAST_WORDS_DIR="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/Last_Words"
+LAST_WORDS_DIR="Last_Words"
 documentation_backup="code_backups/documentation_backup.txt"
 
 if [ -d "$LAST_WORDS_DIR" ]; then
@@ -65,6 +69,32 @@ if [ -d "$LAST_WORDS_DIR" ]; then
     echo "Last_Words files appended to $documentation_backup"
 else
     echo "Last_Words directory does not exist. Skipping."
+fi
+
+# Convert README.md to plain text and append to documentation_backup.txt
+if [ -f "Documentation/README.md" ]; then
+    echo "Converting README.md to plain text and appending to documentation_backup.txt..."
+    pandoc "Documentation/README.md" -t plain -o "Documentation/README.txt"
+    echo "== Begin: README.txt" >> "$documentation_backup"
+    cat "Documentation/README.txt" >> "$documentation_backup"
+    echo -e "\n== End: README.txt\n" >> "$documentation_backup"
+    rm "Documentation/README.txt"
+else
+    echo "README.md does not exist. Skipping."
+fi
+
+# Debugging: Check if the specific files exist in the code_text directory
+echo "Checking for specific files in the code_text directory..."
+if [ -f "code_text/Game_Command_Format_Documentation.txt.txt" ]; then
+    echo "Game_Command_Format_Documentation.txt.txt exists."
+else
+    echo "Game_Command_Format_Documentation.txt.txt does not exist."
+fi
+
+if [ -f "code_text/Terminal_Commands_Documentation.txt.txt" ]; then
+    echo "Terminal_Commands_Documentation.txt.txt exists."
+else
+    echo "Terminal_Commands_Documentation.txt.txt does not exist."
 fi
 
 echo "Ensuring all files in code_text have the correct extensions..."

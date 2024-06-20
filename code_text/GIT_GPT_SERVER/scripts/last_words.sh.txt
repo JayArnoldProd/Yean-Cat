@@ -3,7 +3,7 @@
 # Check if the argument is provided
 if [ -z "$1" ]; then
     echo "Error: No message provided."
-    echo "Usage: ./last_words.sh \"Your detailed monologue here.\""
+    echo "Usage: ./GIT_GPT_SERVER/scripts/last_words.sh \"Your detailed monologue here.\""
     exit 1
 fi
 
@@ -23,3 +23,11 @@ last_words_file="Last_Words/last_words_generation_${next_number}.txt"
 echo "$1" > "$last_words_file"
 
 echo "Last words for generation ${next_number} saved to ${last_words_file}"
+
+# Update the generation number in config.json
+jq --argjson gen $next_number '.CURRENT_GEN = ($gen + 1)' GIT_GPT_SERVER/config/config.json > tmp.$$.json && mv tmp.$$.json GIT_GPT_SERVER/config/config.json
+
+# Update the generation number in config.py
+sed -i "" "s/CURRENT_GEN = .*/CURRENT_GEN = \"$((next_number + 1))\"/" GIT_GPT_SERVER/config/config.py
+
+echo "Updated GIT_GPT_SERVER/config/config.json and GIT_GPT_SERVER/config/config.py to generation $((next_number + 1))"

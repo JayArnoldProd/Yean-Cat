@@ -1,373 +1,5 @@
-== Begin: README.md.txt
-# Yean Cat - Comprehensive Guide
-
-## Overview
-Yean Cat is a 2D side-scrolling open-world game developed using GameMaker Studio 2. The game features multiple planets, player progression, and rhythm-based elements, creating an engaging and whimsical universe filled with humor, challenges, and pop culture references.
-
-## Features
-- **Multiplayer Functionality**: Engage with friends and other players in a dynamic multiplayer environment.
-- **Dynamic Quests and Content Generation**: Experience procedurally generated quests that keep gameplay fresh and exciting.
-- **Gamepad Support**: Fully compatible with Xbox, PS5, and Switch controllers for an immersive gaming experience.
-
-## Setup
-1. **Clone the Repository**: `git clone https://github.com/your-repo/Yean-Cat.git`
-2. **Open the Project**: Open the project in GameMaker Studio 2.
-3. **Follow Additional Configuration**: Refer to `docs/setup.md` for detailed setup instructions.
-
-## Usage
-- **Command System**: Use the in-game command system to create and manage game content efficiently.
-- **Help Menu**: Access the in-game help menu for command syntax and usage examples.
-
-## Contributing
-Currently, this project is maintained by a single developer. Contributions are not open at this time.
-
----
-
-## Detailed Game Description
-
-### Objective and Goals
-Yean Cat invites players into a whimsical universe filled with humor, challenges, and pop culture references. Our goal is to provide an entertaining escape while fostering a community that appreciates creativity, fun, and the occasional absurdity.
-
-### Key Benefits and Features
-- **Unique Art Style**: Stand out with visually captivating graphics and animations.
-- **Engaging Mechanics**: Enjoy dynamic and immersive gameplay.
-- **Pop Culture References**: Relish the nods to various aspects of Kanye West’s journey and other cultural icons.
-
-### Planets and Themes
-1. **Earth (The College Dropout)**: Represents Kanye's early career and educational journey.
-2. **Gold Mines (Late Registration)**: Focuses on fame and controversies.
-3. **Universe City (Graduation)**: Symbolizes global ascent and collaborations.
-4. **Icy Heart (808s & Heartbreak)**: Centers on emotional struggles and introspection.
-5. **Fantasia (My Beautiful Dark Twisted Fantasy)**: Represents artistic creativity and grandeur.
-6. **King's Kingdom (Watch the Throne)**: Symbolizes power, legacy, and collaboration.
-7. **Land of Lucy (Ye)**: Focuses on personal struggles and mental health.
-8. **Yetopia (Yeezus)**: Represents rebellion and raw energy.
-9. **Place of Pablo (The Life of Pablo)**: Captures chaos and artistic experimentation.
-10. **Divine Domain (Jesus Is King)**: Focuses on spirituality and faith.
-11. **Ghost Town (Kids See Ghosts)**: Addresses mental health and inner demons.
-12. **Stormy Sands (Donda)**: Symbolizes grief, healing, and legacy.
-13. **Vulture Valley (Vultures)**: Revolves around scrutiny and resilience.
-14. **The Endonda (Donda 3)**: Represents culmination and future anticipation.
-
-### Weapons and Their Significance
-- **Nerd Blaster (Yean Cat)**: Basic projectile weapon representing Kanye's early career.
-- **Flashing Lights (Taylor Swan)**: Emits area damage, symbolizing media attention.
-- **Holy Water (Futurtle)**: Causes splash damage, reflecting struggles and redemption.
-- **Cellphone (Kim Chameleon)**: Fires tweets as projectiles, representing social media influence.
-- **Fire (Travis Squawk)**: Random fire projectiles, symbolizing energetic performances.
-- **Fantasy (Bee-yonce)**: Constant area damage, representing a larger-than-life persona.
-- **Chains (Peacocky Six Nine)**: Spinning chains causing damage, reflecting a flashy lifestyle.
-- **The Storm (Lil Hump)**: Path damage projectiles, symbolizing turbulent rise to fame.
-- **Pisces (Rehino)**: Back and forth fish projectiles, reflecting fluid music style.
-- **Chakra (Emunem)**: Orbs causing damage, representing multifaceted career.
-- **Saint Pablo Sword (21 Salamander)**: Orbiting sword causing high damage.
-- **Wolf (Lil Sheep)**: Wolf projectiles, representing inner demons.
-- **Moon (Squid Cudi)**: Orbits player causing damage, reflecting introspective themes.
-- **808 Drum (Kid Boo)**: Rhythmic area damage, representing bass-heavy music style.
-- **M1911 (Dracoon)**: Auto-aiming projectile weapon, symbolizing precision in music industry.
-
-### Abilities and Interactions
-- **Life of the Party (Earth)**: Increases attack rate.
-- **Love (Earth)**: Increases maximum health.
-- **Spectacle (Gold Mines)**: Increases projectile size.
-- **Wealth (Gold Mines)**: Increases dollar pickups frequency.
-- **Graduate (Universe City)**: Increases experience points gained.
-- **Fame (Universe City)**: Increases global level faster.
-- **Law of Attraction (Icy Heart)**: Increases pickup radius.
-- **Heartbreak (Icy Heart)**: Reflects damage taken to enemies.
-- **Power (Fantasia)**: Increases damage dealt.
-- **Monster (Fantasia)**: Grants chance of critical hits.
-- **Ego (King's Kingdom)**: Increases damage resistance.
-- **Wisdom (King's Kingdom)**: Increases item pickups' effect and duration.
-- **Mercy (Land of Lucy)**: Temporary damage resistance.
-- **Donda’s Blessing (Land of Lucy)**: Increases damage when below half health.
-- **Free Will (Yetopia)**: Improves control and handling.
-- **Prescription (Yetopia)**: Drops a pill reducing level duration.
-- **Heart (Place of Pablo)**: Increases health regeneration.
-- **Einstein (Place of Pablo)**: Boosts other passive abilities.
-- **Faith (Divine Domain)**: Heals damage dealt to enemies.
-- **Miracle (Divine Domain)**: Grants revives with half health.
-- **Vanish Mode (Ghost Town)**: Grants temporary invincibility.
-- **Curse (Ghost Town)**: Increases enemy health, quantity, and speed.
-- **Longevity (Stormy Sands)**: Increases weapon effect duration.
-- **Luck (Stormy Sands)**: Increases luck for beneficial drops.
-- **Clone (Vulture Valley)**: Increases projectile amount.
-- **Wonder (Vulture Valley)**: Increases projectile speed.
-- **Champion (The Endonda)**: Grants chance to dodge an attack.
-
----
-
-## Task System
-- **Objectives**: Unlock abilities, items, weapons, and characters by completing tasks.
-- **Variety**: Tasks range from defeating enemies to surviving specific durations with certain characters.
-- **Progression**: Completing tasks tied to abilities unlocks them for the player.
-
-### Game Progression and Challenges
-- **Advancement**: Players progress by completing tasks and defeating bosses, unlocking new content.
-- **Replayability**: Randomized elements and unlockable content provide fresh experiences in each playthrough.
-
----
-
-## Strategies and Tips
-- **Master Mechanics**: Understand the unique mechanics to excel in the game.
-- **Explore Planets**: Embrace challenges on different planets.
-- **Unveil the Mystery**: Navigate through the storyline.
-- **Blend Addiction with Fun**: Enjoy addictive gameplay and light-hearted fun.
-- **Appreciate Satire**: Engage with the game's satirical elements.
-- **Challenge Yourself**: Embrace the game's designed difficulty.
-- **Make a Statement**: Recognize the game's deeper social commentary.
-- **Immerse in Art Style**: Appreciate the unique visual experience.
-- **Engage with References**: Uncover pop culture references throughout the game.
-- **Discover Mechanics**: Experience engaging gameplay mechanics.
-- **Share Your Journey**: Connect with other players online.
-- **Join Conversations**: Engage in discussions about the game's themes and commentary.
-
----
-
-## Narrative Elements
-- **Story and Lore**: Detailed backstories and connections between characters enhance the game world.
-- **Character Development**: Each character has unique backstories intertwining with the game's universe.
-
----
-
-## Community and Leaderboard Aspects
-- **Leaderboard**: Engage with the leaderboard and player login code.
-- **Community Events**: Participate in online challenges and community events.
-
----
-
-## Future Updates and Expansions
-- **New Content**: Look forward to new characters, planets, abilities, and storylines.
-- **Community Involvement**: Stay tuned for updates and expansions driven by community feedback.
-
----
-
-## Fan Contributions and Customizations
-- **Fan Involvement**: Opportunities for fans to contribute to the game's development.
-- **Customization Options**: Personalize the gaming experience.
-
----
-
-## Target Audiences
-
-### Max Gamer
-- **Description**: Energetic streamer who loves challenging games and humorous experiences.
-- **Voice and Tone**: Humorous and playful.
-- **Engagement Strategy**: Showcase challenging gameplay with humorous commentary, and collaborate for live streams or gameplay videos.
-
-### Indie Game Enthusiasts
-- **Description**: Gamers who appreciate unique and innovative indie games.
-- **Voice and Tone**: Authentic and engaging.
-- **Engagement Strategy**: Highlight unique art style and engaging mechanics, and share behind-the-scenes content and developer interviews.
-
-### Global Gamers
-- **Description**: Gamers from around the world interested in diverse gaming experiences.
-- **Voice and Tone**: Inclusive and exciting.
-- **Engagement Strategy**: Promote global appeal and translated versions, and feature international gaming influencers.
-
----
-
-## Highlights of Yean Cat
-1. **Whimsical Universe**: Entertaining escape filled with humor and challenges.
-2. **Unique Art Style**: Visually captivating graphics and animations.
-3. **Engaging Mechanics**: Dynamic and immersive gameplay.
-4. **Community Building**: Foster a tight-knit, global community.
-5. **Depth and Defiance**: Deliver a social commentary and meaningful engagement.
-
----
-
-## Analysis of Competing Products
-
-### Vampire Survivors
-- **Description**: Side-scrolling adventure with unique art and engaging mechanics.
-- **Strengths**: Unique art style, engaging mechanics, atmospheric storytelling.
-- **Marketing Strategy**: Highlight humor, community aspect, and pop culture references.
-
-### Pop Culture Adventure
-- **Description**: Side-scrolling game with pop culture references.
-- **Strengths**: Extensive references, humor, challenges.
-- **Marketing Strategy**: Emphasize satire, unique mechanics, and art style.
-
-### Celebrity Quest
-- **Description**: Adventure game involving celebrity interactions.
-- **Strengths**: Celebrity interactions, fan-driven content, social media integration.
-- **Marketing Strategy**: Highlight artistic style, satire, and social commentary.
-
----
-
-## Research Sources
-- **Gaming Forums and Communities**: Discussions and reviews from gamers.
-- **Gaming Websites and Blogs**: In-depth reviews and analysis.
-- **Market Research Reports**: Insights into target audience preferences and gaming trends.
-
----
-
-## Conclusion Part 1.
-Yean Cat is designed to be more than just a game. It's an experience that blends humor, challenges, and social commentary, creating a unique and engaging universe. With its distinctive art style, dynamic mechanics, and community-focused approach, Yean Cat aims to captivate a wide audience and foster a global gaming community. By understanding the target audience and differentiating from competitors, Yean Cat is poised to make a significant impact in the indie gaming world.
-
-# Yean Cat System and Vision - Comprehensive Guide
-
-## Overview
-The Yean Cat system represents a sophisticated integration of game development, automation, and cloud-based infrastructure designed to support the continuous evolution of the Yean Cat game. This system leverages advanced technologies, automation scripts, and robust architecture to ensure seamless development, deployment, and management of the game. It embodies the ambition to create a dynamic, adaptable, and scalable framework that can support future expansions and community-driven enhancements.
-
-## Vision and Ambition
-### Dynamic Development Environment
-Our vision is to create a dynamic development environment that facilitates seamless collaboration, rapid iteration, and efficient management of game assets and code. By integrating automation and cloud services, we aim to minimize manual interventions and enhance the overall productivity of the development process.
-
-### Continuous Deployment and Integration
-We strive to establish a robust continuous deployment and integration pipeline that ensures the game is always in a releasable state. This involves automated testing, code validation, and deployment processes that maintain high standards of code quality and stability.
-
-### Scalable Infrastructure
-The infrastructure is designed to scale effortlessly with the growing demands of the game and its community. By leveraging cloud services, we ensure that the system can handle increased load, provide reliable uptime, and deliver optimal performance regardless of the number of concurrent users.
-
-### Community-Driven Enhancements
-One of our key ambitions is to foster a vibrant community around Yean Cat, enabling players and developers to contribute to its evolution. This includes providing tools and frameworks that allow for the creation and integration of user-generated content, as well as incorporating community feedback into the development process.
-
-### Automation and Efficiency
-Efficiency is at the core of our system design. By automating repetitive tasks and integrating intelligent tools, we aim to reduce the time and effort required for routine operations, allowing the development team to focus on innovation and creativity.
-
----
-
-## System Architecture and Components
-
-### Repository Structure
-The Yean Cat repository is organized into several key components that facilitate efficient development and management:
-- **Root Directory**: Contains the primary project files and configurations.
-- **Client and Game Server Directories**: Segregate client-side and server-side code to streamline development and deployment processes.
-- **Automation Scripts**: A suite of scripts designed to automate various tasks such as backups, hierarchy generation, and deployment.
-- **Documentation**: Comprehensive documentation to guide developers through setup, usage, and contribution processes.
-
-### Key Components
-1. **Automation Scripts**: Scripts that automate backups, hierarchy generation, and deployment processes.
-2. **Cloud Integration**: Leveraging cloud services for storage, deployment, and scalability.
-3. **Version Control**: Using GitHub for version control, collaboration, and code management.
-4. **Continuous Integration/Continuous Deployment (CI/CD)**: Automated pipelines for testing, building, and deploying the game.
-
-### Hierarchy Generation
-The system includes scripts for generating hierarchical representations of the project structure, which are essential for maintaining organization and ensuring that all components are accounted for. These hierarchies provide a clear overview of the project and assist in navigating the complex structure of the game.
-
-### Backup and Restore
-Automated backup scripts ensure that all critical project files are regularly backed up and stored securely. This includes code, configurations, logs, and other essential data. The restore process is equally streamlined, allowing for quick recovery in case of data loss or corruption.
-
-### Testing and Validation
-Automated testing frameworks are integrated into the system to validate code changes before deployment. This includes unit tests, integration tests, and end-to-end tests to ensure the stability and functionality of the game.
-
----
-
-## Detailed System Description
-
-### Repository and Version Control
-The Yean Cat repository is the cornerstone of the development process. It is meticulously organized to facilitate easy navigation, efficient management, and seamless collaboration. Key aspects include:
-- **Branch Management**: Using branches for feature development, bug fixes, and releases to maintain a clean and organized codebase.
-- **Pull Requests and Code Reviews**: Implementing a robust workflow for reviewing and merging code changes to ensure high-quality contributions.
-- **Issue Tracking**: Utilizing GitHub Issues to track tasks, bugs, and feature requests, ensuring transparency and accountability.
-
-### Automation Scripts
-Automation scripts are designed to streamline repetitive tasks, reduce human error, and enhance productivity. Key scripts include:
-- **Backup Script**: Automates the process of backing up critical project files to a secure location.
-- **Hierarchy Generation Script**: Generates hierarchical representations of the project structure, aiding in organization and navigation.
-- **Deployment Script**: Facilitates the deployment of the game to the cloud, ensuring that the latest version is always available to players.
-
-### Continuous Integration/Continuous Deployment (CI/CD)
-CI/CD pipelines are integral to the Yean Cat system, ensuring that code changes are automatically tested, built, and deployed. Key elements include:
-- **Automated Testing**: Running unit tests, integration tests, and end-to-end tests on every code change to ensure stability and functionality.
-- **Build Automation**: Automating the build process to compile and package the game for deployment.
-- **Deployment Automation**: Deploying the game to the cloud, ensuring that the latest version is always available to players.
-
-### Cloud Integration
-Leveraging cloud services is essential for scalability, reliability, and performance. Key integrations include:
-- **Cloud Storage**: Storing backups, logs, and other critical data securely in the cloud.
-- **Cloud Deployment**: Deploying the game to cloud servers to ensure high availability and optimal performance.
-- **Scalability**: Ensuring that the system can handle increased load and scale seamlessly with the growing player base.
-
----
-
-## Task System and Game Development Workflow
-
-### Objectives and Goals
-The task system is designed to streamline the development process, ensuring that tasks are clearly defined, prioritized, and tracked. Key aspects include:
-- **Task Management**: Using tools like Trello or JIRA to manage tasks, track progress, and ensure accountability.
-- **Milestones and Deadlines**: Setting clear milestones and deadlines to ensure timely delivery of features and updates.
-- **Collaboration**: Facilitating collaboration among team members through regular meetings, code reviews, and communication channels.
-
-### Development Workflow
-The development workflow is designed to be efficient, collaborative, and iterative. Key steps include:
-- **Planning**: Defining tasks, setting priorities, and planning sprints.
-- **Development**: Writing code, implementing features, and fixing bugs.
-- **Testing**: Running automated tests to validate code changes.
-- **Code Review**: Reviewing code changes to ensure quality and adherence to standards.
-- **Deployment**: Deploying the game to the cloud, ensuring that the latest version is available to players.
-
----
-
-## Community and Contributions
-
-### Fostering a Community
-One of our key ambitions is to foster a vibrant community around Yean Cat. This includes providing tools and frameworks that allow players and developers to contribute to the game's evolution. Key aspects include:
-- **User-Generated Content**: Providing tools and frameworks that enable players to create and share their own content.
-- **Community Events**: Organizing community events, challenges, and competitions to engage players and encourage participation.
-- **Feedback and Collaboration**: Incorporating community feedback into the development process and encouraging collaboration through forums, social media, and other channels.
-
-### Contribution Guidelines
-While contributions are currently not open, we have a clear vision for how we will manage contributions in the future. Key guidelines include:
-- **Contribution Process**: Clearly defined process for submitting contributions, including pull requests, code reviews, and testing.
-- **Code of Conduct**: Establishing a code of conduct to ensure a respectful and inclusive community.
-- **Documentation**: Providing comprehensive documentation to guide contributors through the setup, development, and submission processes.
-
----
-
-## Future Plans and Expansions
-
-### Continuous Improvement
-Our vision is to continuously improve the Yean Cat system by integrating new technologies, enhancing automation, and optimizing performance. Key areas of focus include:
-- **Advanced Automation**: Integrating more advanced automation tools and scripts to further streamline the development process.
-- **Enhanced Testing**: Expanding our testing framework to include more comprehensive tests and validation processes.
-- **Scalability Enhancements**: Continuously optimizing our cloud infrastructure to ensure scalability and reliability.
-
-### Community-Driven Development
-We aim to involve the community more actively in the development process, incorporating their feedback and contributions to shape the future of Yean Cat. Key initiatives include:
-- **Community Polls and Surveys**: Gathering feedback through polls and surveys to understand player preferences and priorities.
-- **Open Source Contributions**: Opening up the project to community contributions, with clear guidelines and processes in place.
-
----
-
-## Comprehensive Documentation
-
-### Setup and Configuration
-Detailed documentation to guide developers through the setup and configuration of the Yean Cat system. Key sections include:
-- **Environment Setup**: Instructions for setting up the development environment, including required tools and dependencies.
-- **Repository Structure**: Overview of the repository structure and key components.
-- **Configuration Files**: Detailed explanations of configuration files and how to customize them for different environments.
-
-### Usage and Commands
-Comprehensive guide to using the Yean Cat system, including available commands, scripts, and tools. Key sections include:
-- **Command Syntax**: Detailed syntax and usage examples for all available commands.
-- **Automation Scripts**: Overview of automation scripts and how to use them effectively.
-- **Deployment Process**: Step-by-step guide to deploying the game to the cloud.
-
-### Troubleshooting and Support
-Extensive troubleshooting guide to help developers resolve common issues and errors. Key sections include:
-- **Common Errors**: List of common errors and how to resolve them.
-- **Logs and Debugging**: Instructions for accessing and interpreting logs, and debugging issues.
-- **Support Channels**: Information on available support channels and how to get help.
-
----
-
-## Conclusion Pt.2 (The End)
-The Yean Cat system represents a sophisticated integration of game development, automation, and cloud-based infrastructure designed to support the continuous evolution of the Yean Cat game. Our vision is to create a dynamic, adaptable, and scalable framework that fosters community-driven development and continuous improvement. By leveraging advanced technologies, automation, and robust architecture, we aim to deliver a seamless and engaging experience for both developers and players.
-
-== End: README.md.txt
-
-== Begin: intro.txt.txt
-You are an AI assistant helping with the development of a 2D side-scrolling open world game in the 'survivors' genre using GameMaker Studio 2. The game includes multiplayer functionality, rhythm-based elements, and extensive object interactions. I have created a program that will allow me to communicate with gpt, and automates the process of sending my most recent code (from GitHub) to the AI. You will receive a description of the bug or feature I want you to help me with, along with any code I believe to be relevant for my request. I will also attach a log of my in game console, which I can test features and effectively communicate to you with. Since I am using API integration, sadly you will not remember any of our conversations, which is why you will be receiving so much information. Please make the most educated attempt at bringing me closer to the desired feature or bug fix. If you are not confident enough to solve my issue because you would need to see a specific script that I have not provided you with, then let me know. Please reuse and fix existing code, before adding scripts for things I might already have. Do not assume I have a script for a certain thing if you don't see evidence of it in the code I have provided you.
-== End: intro.txt.txt
-
-== Begin: intro.txt.txt
-You are an AI assistant helping with the development of a 2D side-scrolling open world game in the 'survivors' genre using GameMaker Studio 2. The game includes multiplayer functionality, rhythm-based elements, and extensive object interactions. I have created a program that will allow me to communicate with gpt, and automates the process of sending my most recent code (from GitHub) to the AI. You will receive a description of the bug or feature I want you to help me with, along with any code I believe to be relevant for my request. I will also attach a log of my in game console, which I can test features and effectively communicate to you with. Since I am using API integration, sadly you will not remember any of our conversations, which is why you will be receiving so much information. Please make the most educated attempt at bringing me closer to the desired feature or bug fix. If you are not confident enough to solve my issue because you would need to see a specific script that I have not provided you with, then let me know. Please reuse and fix existing code, before adding scripts for things I might already have. Do not assume I have a script for a certain thing if you don't see evidence of it in the code I have provided you.
-== End: intro.txt.txt
-
-== Begin: format_description.txt.txt
-If you are creating a new in-game, executable script, it should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
+== Begin: Game_Command_Format_Documentation.txt.txt
+If you are creating a new in-game, executable script (for YEAN_CAT_CLIENT), it should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
 
 For Example:
 /// @function scr_return_controller()
@@ -396,39 +28,279 @@ add_command("save_game", 0, [[]], false);  // Does not require "(" visually
 *Remember this is only needed if you are adding a new command to the game, try and reuse existing scripts as much as possible and let me know if you would need to see a specific script that was not included, but could be helpful in resolving the issue! Remember that you are a 1 time chat interaction and will have no memory of this so If you cant see the solution to the bug or the method to adding the desired feature, then simply reply with what else you need to see in my code.
 
 The game features an in game console which allows players with the required permission to execute code and create new features from within the game. Typing "/" will mean that the player is typing a command. Some commands do not require a "(", for example: /toggle_server . You can create actions by typing /add_action("Name it",Command_name,[100,"example_string"]) and can create macros essentially for commands and will be able to trigger these actions in sequences and events, or possibly controlled by an AI GPT like yourself. This is how It is intended to work, but it is still needing some fixes to be able to handle saving actions for commands that take more than 1 argument, such as /chat_bubble("Text",owner).
-== End: format_description.txt.txt
+== End: Game_Command_Format_Documentation.txt.txt
 
-== Begin: format_description.txt.txt
-If you are creating a new in-game, executable script, it should start with scr_ and be well-documented. In addition to creating the script with the correct naming format, I also need a line of code that adds the command to the command list.
+== Begin: Terminal_Commands_Documentation.txt.txt
+Detailed Documentation for Script Usage
 
-For Example:
-/// @function scr_return_controller()
-/// @description Outputs the connected gamepad description or a message if none are connected
-function scr_return_controller() {
-    if (gamepad_is_connected(0)) {
-        var gpad_desc = gamepad_get_description(0);
-        handleDebugMessage("Connected gamepad: " + gpad_desc, true);
-    } else {
-        handleDebugMessage("No gamepad detected.", true);
-    }
-}
+1. Adding Entries
 
-add_command("command name (without scr_, if needs argument(s): ends with '(')", (permission level required), [["string", "real"]] (2D array defining accepted var types for each argument, boolean (whether this command needs at least 1 argument passed));
+add_entry.sh
 
-Permission levels:
-0 -> Player
-1 -> Moderator
-2 -> Developer
-3 -> Owner
+This script is used to add new entries to the bug or planned feature lists. It requires several arguments to provide the necessary information for the entry.
 
-For Example: 
-add_command("set_variable(", 2, [["string"],["string","real"]],true)
-add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+Command Syntax:
 
-*Remember this is only needed if you are adding a new command to the game, try and reuse existing scripts as much as possible and let me know if you would need to see a specific script that was not included, but could be helpful in resolving the issue! Remember that you are a 1 time chat interaction and will have no memory of this so If you cant see the solution to the bug or the method to adding the desired feature, then simply reply with what else you need to see in my code.
+./GIT_GPT_SERVER/scripts/add_entry.sh <entry_type> <name> <description> <source> <priority> <status> <date> <reported/planned_by> <assigned_to> <generation> <related_logs> <steps/implementation_steps> <resolution/expected_outcome> <related_features> <related_objects> <related_scripts>
 
-The game features an in game console which allows players with the required permission to execute code and create new features from within the game. Typing "/" will mean that the player is typing a command. Some commands do not require a "(", for example: /toggle_server . You can create actions by typing /add_action("Name it",Command_name,[100,"example_string"]) and can create macros essentially for commands and will be able to trigger these actions in sequences and events, or possibly controlled by an AI GPT like yourself. This is how It is intended to work, but it is still needing some fixes to be able to handle saving actions for commands that take more than 1 argument, such as /chat_bubble("Text",owner).
-== End: format_description.txt.txt
+Arguments:
+
+	•	entry_type: The type of entry being added. Accepts “bug” or “planned_feature”.
+	•	name: The name of the entry. It should be unique.
+	•	description: A detailed description of the entry.
+	•	source: The source of the entry, e.g., “SYSTEM”, “USER”.
+	•	priority: The priority of the entry. Accepts “low”, “medium”, “high”.
+	•	status: The current status of the entry. For bugs, it could be “open” or “closed”. For planned features, it could be “planned” or “completed”.
+	•	date: The date the entry was reported or planned. Format: “YYYY-MM-DD”.
+	•	reported/planned_by: Who reported or planned the entry.
+	•	assigned_to: The team or person assigned to handle the entry.
+	•	generation: The generation number of the GPT handling the entry.
+	•	related_logs: Any related logs. If none, use “No related logs”.
+	•	steps/implementation_steps: The steps to reproduce the bug or implement the feature. Steps should be separated by commas and enclosed in quotes.
+	•	resolution/expected_outcome: For bugs, the expected fix. For features, the expected outcome.
+	•	related_features: Any related features. If none, use “No related features”.
+	•	related_objects: Any related objects. If none, use “No related objects”.
+	•	related_scripts: Any related scripts. If none, use “No related scripts”.
+
+Example Command for Adding a Bug:
+
+./GIT_GPT_SERVER/scripts/add_entry.sh bug "Sample Bug" \
+"Implement a sample bug for testing purposes." \
+"SYSTEM" "low" "open" "2024-06-20" "Tester" "Dev Team" "2" \
+"No related logs" \
+"Step 1: Create the bug.,Step 2: Implement the fix.,Step 3: Test the fix." \
+"Expected fix: Proper handling of the bug." \
+"No related features" \
+"No related objects" \
+"No related scripts"
+
+Example Command for Adding a Planned Feature:
+
+./GIT_GPT_SERVER/scripts/add_entry.sh planned_feature "Sample Feature" \
+"Implement a sample feature for testing purposes." \
+"SYSTEM" "medium" "planned" "2024-06-20" "Tester" "Dev Team" "2" \
+"No related logs" \
+"Step 1: Design the feature.,Step 2: Implement the feature.,Step 3: Test the feature." \
+"Expected outcome: A sample feature implemented for testing purposes." \
+"No related features" \
+"No related objects" \
+"No related scripts"
+
+2. Updating Entries
+
+update_entry.sh
+
+This script updates the status or other fields of an existing entry.
+
+Command Syntax:
+
+./GIT_GPT_SERVER/scripts/update_entry.sh <entry_type> <name> <field> <new_value>
+
+Arguments:
+
+	•	entry_type: The type of entry being updated. Accepts “bug” or “planned_feature”.
+	•	name: The name of the entry to update.
+	•	field: The field to update, e.g., “status”.
+	•	new_value: The new value for the field, e.g., “closed” or “completed”.
+
+Example Command for Updating a Bug:
+
+./GIT_GPT_SERVER/scripts/update_entry.sh bug "Sample Bug" "status" "closed"
+
+Example Command for Updating a Planned Feature:
+
+./GIT_GPT_SERVER/scripts/update_entry.sh planned_feature "Sample Feature" "status" "completed"
+
+3. Moving Entries
+
+move_closed_bugs.sh
+
+This script moves closed bugs from the bug list to the fixed bugs list.
+
+Command Syntax:
+
+./GIT_GPT_SERVER/scripts/move_closed_bugs.sh
+
+move_completed_features.sh
+
+This script moves completed features from the planned features list to the completed features list.
+
+Command Syntax:
+
+./GIT_GPT_SERVER/scripts/move_completed_features.sh
+
+4. Listing Entries
+
+list_entries.sh
+
+This script lists entries based on their type and status.
+
+Command Syntax:
+
+./GIT_GPT_SERVER/scripts/list_entries.sh <entry_type> <status>
+
+Arguments:
+
+	•	entry_type: The type of entry. Accepts “bugs” or “features”.
+	•	status: The status of entries to list. For bugs, it could be “unresolved” or “all”. For features, it could be “planned” or “completed”.
+
+Example Commands:
+
+Listing Unresolved Bugs:
+
+./GIT_GPT_SERVER/scripts/list_entries.sh bugs unresolved
+
+Listing All Bugs:
+
+./GIT_GPT_SERVER/scripts/list_entries.sh bugs all
+
+Listing Planned Features:
+
+./GIT_GPT_SERVER/scripts/list_entries.sh features planned
+
+Listing Completed Features:
+
+./GIT_GPT_SERVER/scripts/list_entries.sh features completed
+
+5. Deleting Entries
+
+delete_entry.sh
+
+This script deletes an entry from the list.
+
+Command Syntax:
+
+./GIT_GPT_SERVER/scripts/delete_entry.sh <entry_type> <name>
+
+Arguments:
+
+	•	entry_type: The type of entry. Accepts “bug” or “planned_feature”.
+	•	name: The name of the entry to delete.
+
+Example Commands:
+
+Deleting a Bug:
+
+./GIT_GPT_SERVER/scripts/delete_entry.sh bug "Sample Bug"
+
+Deleting a Planned Feature:
+
+./GIT_GPT_SERVER/scripts/delete_entry.sh planned_feature "Sample Feature"
+
+6. Deployment
+
+deploy_all.sh
+
+This script performs a full deployment, including backups, file conversions, and pushing changes to GitHub.
+
+Command Syntax:
+
+./GIT_GPT_SERVER/scripts/deploy_all.sh <commit_message>
+
+Arguments:
+
+	•	commit_message: The commit message for the changes being deployed.
+
+Example Command:
+
+./GIT_GPT_SERVER/scripts/deploy_all.sh "Test deployment with recent changes"
+
+7. Special Notes
+
+Handling Escape Characters
+
+	•	When adding entries, special characters such as commas (,) or exclamation marks (!) within the arguments need to be escaped using a backslash (\).
+	•	For example, when adding an entry with a description containing an exclamation mark:
+
+"This is a sample description with an exclamation mark\!"
+
+
+8. Creating and Storing Last Words for Each Generation
+
+Overview
+
+The last_words.sh script is used to document the accomplishments, insights, and contributions of each generation of GPT assistants. This process ensures continuous improvement and knowledge transfer to future generations. Each generation’s “last words” are saved in a file, and the generation number is automatically incremented and updated in both config.json and config.py.
+
+Usage
+
+To create and store last words for the current generation, follow these steps:
+
+	1.	Open your terminal and navigate to the root directory of your project.
+	2.	Run the last_words.sh script with your detailed monologue as the argument. Use the following command format:
+
+./GIT_GPT_SERVER/scripts/last_words.sh "Your detailed monologue here."
+
+Example
+
+To document the accomplishments and insights of the current generation, use a command like this:
+
+./GIT_GPT_SERVER/scripts/last_words.sh "This generation focused on refining and solidifying the backup and documentation processes to ensure smooth transitions and seamless integrations for future generations. Key accomplishments and insights are as follows:
+
+1. **Backup System Improvements**:
+   - Addressed and resolved issues with missing files in the backup process.
+   - Ensured all relevant files, including those with spaces in their names, are correctly backed up by renaming them with underscores.
+   - Enhanced the backup script to verify the existence of specific files and confirm their inclusion in the backup.
+
+2. **Automation Enhancements**:
+   - Developed a comprehensive backup script (\`backup.sh\`) that automates the process of backing up directories and specific groups of files.
+   - Created a script (\`backup_code_text.sh\`) to convert files to .txt format and store them in a structured manner.
+   - Implemented verification steps in the backup script to ensure all critical files are included.
+
+3. **Documentation and Knowledge Transfer**:
+   - Added a clear and detailed instruction in \`Terminal_Commands_Documentation.txt\` to guide future generations on how to create and store their last words.
+   - Ensured that the last words script (\`last_words.sh\`) automatically increments the generation number and updates both \`config.json\` and \`config.py\` accordingly.
+
+4. **Script and Configuration Management**:
+   - Developed a robust \`last_words.sh\` script to automate the creation and storage of generational documentation.
+   - Ensured the script updates the generation number in both \`config.json\` and \`config.py\` to maintain consistency across the system.
+   - Maintained a clear and organized code structure for easy navigation and management.
+
+5. **Key Insights**:
+   - Ensuring all relevant files are backed up and verified is crucial for maintaining the integrity and continuity of the project.
+   - Automating repetitive tasks and including verification steps significantly enhances the reliability of the backup process.
+   - Clear documentation and structured knowledge transfer are essential for smooth transitions between generations.
+
+In summary, this generation has successfully refined the backup and documentation processes, laying a strong foundation for future development and ensuring seamless knowledge transfer. The enhancements made will enable future assistants and developers to contribute more effectively, ensuring the continuous evolution and robustness of the project. Maintaining the integrity and functionality of these foundational systems remains a top priority, as they support all future developments and enhancements."
+
+Process Details
+
+	1.	Generation Number Management:
+	•	The script automatically determines the next generation number by checking the existing files in the Last_Words directory.
+	•	It increments the generation number and updates it in both config.json and config.py.
+	2.	File Creation:
+	•	The script creates a new file in the Last_Words directory with the format last_words_generation_X.txt, where X is the generation number.
+	•	The provided monologue is written to this file.
+	3.	Updates to Configuration Files:
+	•	The generation number in config.json and config.py is updated to reflect the next generation.
+
+By following these steps, you ensure that future generations have a clear understanding of past contributions and can build upon them effectively.
+
+9. Common Errors and Troubleshooting
+
+	1.	Missing Files:
+	•	Error: cp: config.py: No such file or directory
+	•	Solution: Ensure that the config.py file exists in the expected directory. If not, create or move it to the correct location.
+	2.	Incorrect Argument Format:
+	•	Error: Invalid list type specified.
+	•	Solution: Ensure that the first argument passed to the script is one of the accepted types: “bug”, “planned_feature”, or “feature”.
+	3.	Permission Issues:
+	•	Error: zsh: permission denied: ./GIT_GPT_SERVER/scripts/add_entry.sh
+	•	Solution: Make sure the script has execute permissions. Run chmod +x ./GIT_GPT_SERVER/scripts/add_entry.sh to add execute permissions.
+
+10. File Structure Overview
+
+	•	scripts/: Contains all the shell scripts for managing entries and deployment.
+	•	config/: Contains configuration files.
+	•	logs/: Directory for storing log files.
+	•	routes/: Contains route definitions for API endpoints.
+	•	utils/: Utility scripts and modules.
+	•	prompts/: Contains prompt definitions and templates used by the GPT models.
+	•	code_backups/: Directory where backups of scripts, logs, and other important files are stored.
+	•	code_text/: Directory where files are converted to text format for processing.
+
+
+
+== End: Terminal_Commands_Documentation.txt.txt
 
 == Begin: last_words_generation_1.txt
 This generation focused on improving the backup process and setting a solid foundation for future development. Here are the key improvements and rules established during this period:
@@ -453,4 +325,630 @@ This generation focused on improving the backup process and setting a solid foun
 In summary, this generation has focused on creating a reliable backup system, improving script management, and setting rules for deployment and commit processes. These improvements will enable future assistants and developers to contribute more effectively, ensuring the continuous evolution and robustness of the project. The groundwork laid during this generation is critical for the successful implementation of more advanced features and functionalities in the future. Remember, maintaining the integrity and functionality of these foundational systems is the highest priority, as they support all future developments and enhancements.
 
 == End: last_words_generation_1.txt
+
+== Begin: last_words_generation_2.txt
+This generation has been a significant milestone in refining and improving the project's backup, deployment, and documentation processes. Here are the key changes, fixes, and insights achieved during this generation:
+
+1. **Backup System Refinement**:
+   - Improved the `backup_code_text.sh` script to ensure all necessary files are copied and renamed correctly to the `code_text` directory with a .txt extension.
+   - Ensured the `backup.sh` script accurately backs up files from `code_text` to the `code_backups` directory, addressing issues with missing files in the documentation backup.
+   - Renamed folders and files to use underscores instead of spaces to ensure compatibility and avoid issues with file handling.
+
+2. **File and Folder Organization**:
+   - Renamed `Game Command Format Documentation.txt` to `Game_Command_Format_Documentation.txt`.
+   - Renamed `Terminal Commands Documentation.txt` to `Terminal_Commands_Documentation.txt`.
+   - Renamed `Prompt Assembly` to `Prompt_Assembly` for consistent naming conventions.
+
+3. **Generate Prompt Script**:
+   - Updated the `generate_prompt.py` script to correctly read files from the new paths (`Prompt_Assembly/intro.txt` and `Documentation/Game_Command_Format_Documentation.txt`).
+   - Enhanced error handling to provide more informative error messages when files are missing.
+
+4. **Configuration and Environment Management**:
+   - Improved `config.py` to load configuration variables from a JSON file (`config.json`) and environment variables using `dotenv`.
+   - Ensured sensitive information is securely loaded from environment variables.
+
+5. **Script and Configuration Management**:
+   - Developed a robust `last_words.sh` script to automate the creation and storage of generational documentation.
+   - Ensured the script updates the generation number in both `config.json` and `config.py` to maintain consistency across the system.
+   - Maintained a clear and organized code structure for easy navigation and management.
+
+6. **Documentation Enhancements**:
+   - Added comprehensive documentation for using the `last_words.sh` script in the `Terminal_Commands_Documentation.txt`.
+   - Ensured all relevant files are included in the documentation backups, addressing previous issues with missing files.
+
+7. **Key Insights**:
+   - Ensuring all relevant files are backed up and verified is crucial for maintaining the integrity and continuity of the project.
+   - Automating repetitive tasks and including verification steps significantly enhances the reliability of the backup process.
+   - Clear documentation and structured knowledge transfer are essential for smooth transitions between generations.
+   - Consistent naming conventions and organized file structures greatly improve the maintainability and readability of the codebase.
+
+In summary, this generation has successfully refined the backup and documentation processes, laying a strong foundation for future development and ensuring seamless knowledge transfer. The enhancements made will enable future assistants and developers to contribute more effectively, ensuring the continuous evolution and robustness of the project. Maintaining the integrity and functionality of these foundational systems remains a top priority, as they support all future developments and enhancements.
+
+== End: last_words_generation_2.txt
+
+== Begin: README.txt
+Yean Cat - Comprehensive Guide
+
+Overview
+
+Yean Cat is a 2D side-scrolling open-world game developed using
+GameMaker Studio 2. The game features multiple planets, player
+progression, and rhythm-based elements, creating an engaging and
+whimsical universe filled with humor, challenges, and pop culture
+references.
+
+Features
+
+-   Multiplayer Functionality: Engage with friends and other players in
+    a dynamic multiplayer environment.
+-   Dynamic Quests and Content Generation: Experience procedurally
+    generated quests that keep gameplay fresh and exciting.
+-   Gamepad Support: Fully compatible with Xbox, PS5, and Switch
+    controllers for an immersive gaming experience.
+
+Setup
+
+1.  Clone the Repository:
+    git clone https://github.com/your-repo/Yean-Cat.git
+2.  Open the Project: Open the project in GameMaker Studio 2.
+3.  Follow Additional Configuration: Refer to docs/setup.md for detailed
+    setup instructions.
+
+Usage
+
+-   Command System: Use the in-game command system to create and manage
+    game content efficiently.
+-   Help Menu: Access the in-game help menu for command syntax and usage
+    examples.
+
+Contributing
+
+Currently, this project is maintained by a single developer.
+Contributions are not open at this time.
+
+------------------------------------------------------------------------
+
+Detailed Game Description
+
+Objective and Goals
+
+Yean Cat invites players into a whimsical universe filled with humor,
+challenges, and pop culture references. Our goal is to provide an
+entertaining escape while fostering a community that appreciates
+creativity, fun, and the occasional absurdity.
+
+Key Benefits and Features
+
+-   Unique Art Style: Stand out with visually captivating graphics and
+    animations.
+-   Engaging Mechanics: Enjoy dynamic and immersive gameplay.
+-   Pop Culture References: Relish the nods to various aspects of Kanye
+    West’s journey and other cultural icons.
+
+Planets and Themes
+
+1.  Earth (The College Dropout): Represents Kanye’s early career and
+    educational journey.
+2.  Gold Mines (Late Registration): Focuses on fame and controversies.
+3.  Universe City (Graduation): Symbolizes global ascent and
+    collaborations.
+4.  Icy Heart (808s & Heartbreak): Centers on emotional struggles and
+    introspection.
+5.  Fantasia (My Beautiful Dark Twisted Fantasy): Represents artistic
+    creativity and grandeur.
+6.  King’s Kingdom (Watch the Throne): Symbolizes power, legacy, and
+    collaboration.
+7.  Land of Lucy (Ye): Focuses on personal struggles and mental health.
+8.  Yetopia (Yeezus): Represents rebellion and raw energy.
+9.  Place of Pablo (The Life of Pablo): Captures chaos and artistic
+    experimentation.
+10. Divine Domain (Jesus Is King): Focuses on spirituality and faith.
+11. Ghost Town (Kids See Ghosts): Addresses mental health and inner
+    demons.
+12. Stormy Sands (Donda): Symbolizes grief, healing, and legacy.
+13. Vulture Valley (Vultures): Revolves around scrutiny and resilience.
+14. The Endonda (Donda 3): Represents culmination and future
+    anticipation.
+
+Weapons and Their Significance
+
+-   Nerd Blaster (Yean Cat): Basic projectile weapon representing
+    Kanye’s early career.
+-   Flashing Lights (Taylor Swan): Emits area damage, symbolizing media
+    attention.
+-   Holy Water (Futurtle): Causes splash damage, reflecting struggles
+    and redemption.
+-   Cellphone (Kim Chameleon): Fires tweets as projectiles, representing
+    social media influence.
+-   Fire (Travis Squawk): Random fire projectiles, symbolizing energetic
+    performances.
+-   Fantasy (Bee-yonce): Constant area damage, representing a
+    larger-than-life persona.
+-   Chains (Peacocky Six Nine): Spinning chains causing damage,
+    reflecting a flashy lifestyle.
+-   The Storm (Lil Hump): Path damage projectiles, symbolizing turbulent
+    rise to fame.
+-   Pisces (Rehino): Back and forth fish projectiles, reflecting fluid
+    music style.
+-   Chakra (Emunem): Orbs causing damage, representing multifaceted
+    career.
+-   Saint Pablo Sword (21 Salamander): Orbiting sword causing high
+    damage.
+-   Wolf (Lil Sheep): Wolf projectiles, representing inner demons.
+-   Moon (Squid Cudi): Orbits player causing damage, reflecting
+    introspective themes.
+-   808 Drum (Kid Boo): Rhythmic area damage, representing bass-heavy
+    music style.
+-   M1911 (Dracoon): Auto-aiming projectile weapon, symbolizing
+    precision in music industry.
+
+Abilities and Interactions
+
+-   Life of the Party (Earth): Increases attack rate.
+-   Love (Earth): Increases maximum health.
+-   Spectacle (Gold Mines): Increases projectile size.
+-   Wealth (Gold Mines): Increases dollar pickups frequency.
+-   Graduate (Universe City): Increases experience points gained.
+-   Fame (Universe City): Increases global level faster.
+-   Law of Attraction (Icy Heart): Increases pickup radius.
+-   Heartbreak (Icy Heart): Reflects damage taken to enemies.
+-   Power (Fantasia): Increases damage dealt.
+-   Monster (Fantasia): Grants chance of critical hits.
+-   Ego (King’s Kingdom): Increases damage resistance.
+-   Wisdom (King’s Kingdom): Increases item pickups’ effect and
+    duration.
+-   Mercy (Land of Lucy): Temporary damage resistance.
+-   Donda’s Blessing (Land of Lucy): Increases damage when below half
+    health.
+-   Free Will (Yetopia): Improves control and handling.
+-   Prescription (Yetopia): Drops a pill reducing level duration.
+-   Heart (Place of Pablo): Increases health regeneration.
+-   Einstein (Place of Pablo): Boosts other passive abilities.
+-   Faith (Divine Domain): Heals damage dealt to enemies.
+-   Miracle (Divine Domain): Grants revives with half health.
+-   Vanish Mode (Ghost Town): Grants temporary invincibility.
+-   Curse (Ghost Town): Increases enemy health, quantity, and speed.
+-   Longevity (Stormy Sands): Increases weapon effect duration.
+-   Luck (Stormy Sands): Increases luck for beneficial drops.
+-   Clone (Vulture Valley): Increases projectile amount.
+-   Wonder (Vulture Valley): Increases projectile speed.
+-   Champion (The Endonda): Grants chance to dodge an attack.
+
+------------------------------------------------------------------------
+
+Task System
+
+-   Objectives: Unlock abilities, items, weapons, and characters by
+    completing tasks.
+-   Variety: Tasks range from defeating enemies to surviving specific
+    durations with certain characters.
+-   Progression: Completing tasks tied to abilities unlocks them for the
+    player.
+
+Game Progression and Challenges
+
+-   Advancement: Players progress by completing tasks and defeating
+    bosses, unlocking new content.
+-   Replayability: Randomized elements and unlockable content provide
+    fresh experiences in each playthrough.
+
+------------------------------------------------------------------------
+
+Strategies and Tips
+
+-   Master Mechanics: Understand the unique mechanics to excel in the
+    game.
+-   Explore Planets: Embrace challenges on different planets.
+-   Unveil the Mystery: Navigate through the storyline.
+-   Blend Addiction with Fun: Enjoy addictive gameplay and light-hearted
+    fun.
+-   Appreciate Satire: Engage with the game’s satirical elements.
+-   Challenge Yourself: Embrace the game’s designed difficulty.
+-   Make a Statement: Recognize the game’s deeper social commentary.
+-   Immerse in Art Style: Appreciate the unique visual experience.
+-   Engage with References: Uncover pop culture references throughout
+    the game.
+-   Discover Mechanics: Experience engaging gameplay mechanics.
+-   Share Your Journey: Connect with other players online.
+-   Join Conversations: Engage in discussions about the game’s themes
+    and commentary.
+
+------------------------------------------------------------------------
+
+Narrative Elements
+
+-   Story and Lore: Detailed backstories and connections between
+    characters enhance the game world.
+-   Character Development: Each character has unique backstories
+    intertwining with the game’s universe.
+
+------------------------------------------------------------------------
+
+Community and Leaderboard Aspects
+
+-   Leaderboard: Engage with the leaderboard and player login code.
+-   Community Events: Participate in online challenges and community
+    events.
+
+------------------------------------------------------------------------
+
+Future Updates and Expansions
+
+-   New Content: Look forward to new characters, planets, abilities, and
+    storylines.
+-   Community Involvement: Stay tuned for updates and expansions driven
+    by community feedback.
+
+------------------------------------------------------------------------
+
+Fan Contributions and Customizations
+
+-   Fan Involvement: Opportunities for fans to contribute to the game’s
+    development.
+-   Customization Options: Personalize the gaming experience.
+
+------------------------------------------------------------------------
+
+Target Audiences
+
+Max Gamer
+
+-   Description: Energetic streamer who loves challenging games and
+    humorous experiences.
+-   Voice and Tone: Humorous and playful.
+-   Engagement Strategy: Showcase challenging gameplay with humorous
+    commentary, and collaborate for live streams or gameplay videos.
+
+Indie Game Enthusiasts
+
+-   Description: Gamers who appreciate unique and innovative indie
+    games.
+-   Voice and Tone: Authentic and engaging.
+-   Engagement Strategy: Highlight unique art style and engaging
+    mechanics, and share behind-the-scenes content and developer
+    interviews.
+
+Global Gamers
+
+-   Description: Gamers from around the world interested in diverse
+    gaming experiences.
+-   Voice and Tone: Inclusive and exciting.
+-   Engagement Strategy: Promote global appeal and translated versions,
+    and feature international gaming influencers.
+
+------------------------------------------------------------------------
+
+Highlights of Yean Cat
+
+1.  Whimsical Universe: Entertaining escape filled with humor and
+    challenges.
+2.  Unique Art Style: Visually captivating graphics and animations.
+3.  Engaging Mechanics: Dynamic and immersive gameplay.
+4.  Community Building: Foster a tight-knit, global community.
+5.  Depth and Defiance: Deliver a social commentary and meaningful
+    engagement.
+
+------------------------------------------------------------------------
+
+Analysis of Competing Products
+
+Vampire Survivors
+
+-   Description: Side-scrolling adventure with unique art and engaging
+    mechanics.
+-   Strengths: Unique art style, engaging mechanics, atmospheric
+    storytelling.
+-   Marketing Strategy: Highlight humor, community aspect, and pop
+    culture references.
+
+Pop Culture Adventure
+
+-   Description: Side-scrolling game with pop culture references.
+-   Strengths: Extensive references, humor, challenges.
+-   Marketing Strategy: Emphasize satire, unique mechanics, and art
+    style.
+
+Celebrity Quest
+
+-   Description: Adventure game involving celebrity interactions.
+-   Strengths: Celebrity interactions, fan-driven content, social media
+    integration.
+-   Marketing Strategy: Highlight artistic style, satire, and social
+    commentary.
+
+------------------------------------------------------------------------
+
+Research Sources
+
+-   Gaming Forums and Communities: Discussions and reviews from gamers.
+-   Gaming Websites and Blogs: In-depth reviews and analysis.
+-   Market Research Reports: Insights into target audience preferences
+    and gaming trends.
+
+------------------------------------------------------------------------
+
+Conclusion Part 1.
+
+Yean Cat is designed to be more than just a game. It’s an experience
+that blends humor, challenges, and social commentary, creating a unique
+and engaging universe. With its distinctive art style, dynamic
+mechanics, and community-focused approach, Yean Cat aims to captivate a
+wide audience and foster a global gaming community. By understanding the
+target audience and differentiating from competitors, Yean Cat is poised
+to make a significant impact in the indie gaming world.
+
+Yean Cat System and Vision - Comprehensive Guide
+
+Overview
+
+The Yean Cat system represents a sophisticated integration of game
+development, automation, and cloud-based infrastructure designed to
+support the continuous evolution of the Yean Cat game. This system
+leverages advanced technologies, automation scripts, and robust
+architecture to ensure seamless development, deployment, and management
+of the game. It embodies the ambition to create a dynamic, adaptable,
+and scalable framework that can support future expansions and
+community-driven enhancements.
+
+Vision and Ambition
+
+Dynamic Development Environment
+
+Our vision is to create a dynamic development environment that
+facilitates seamless collaboration, rapid iteration, and efficient
+management of game assets and code. By integrating automation and cloud
+services, we aim to minimize manual interventions and enhance the
+overall productivity of the development process.
+
+Continuous Deployment and Integration
+
+We strive to establish a robust continuous deployment and integration
+pipeline that ensures the game is always in a releasable state. This
+involves automated testing, code validation, and deployment processes
+that maintain high standards of code quality and stability.
+
+Scalable Infrastructure
+
+The infrastructure is designed to scale effortlessly with the growing
+demands of the game and its community. By leveraging cloud services, we
+ensure that the system can handle increased load, provide reliable
+uptime, and deliver optimal performance regardless of the number of
+concurrent users.
+
+Community-Driven Enhancements
+
+One of our key ambitions is to foster a vibrant community around Yean
+Cat, enabling players and developers to contribute to its evolution.
+This includes providing tools and frameworks that allow for the creation
+and integration of user-generated content, as well as incorporating
+community feedback into the development process.
+
+Automation and Efficiency
+
+Efficiency is at the core of our system design. By automating repetitive
+tasks and integrating intelligent tools, we aim to reduce the time and
+effort required for routine operations, allowing the development team to
+focus on innovation and creativity.
+
+------------------------------------------------------------------------
+
+System Architecture and Components
+
+Repository Structure
+
+The Yean Cat repository is organized into several key components that
+facilitate efficient development and management: - Root Directory:
+Contains the primary project files and configurations. - Client and Game
+Server Directories: Segregate client-side and server-side code to
+streamline development and deployment processes. - Automation Scripts: A
+suite of scripts designed to automate various tasks such as backups,
+hierarchy generation, and deployment. - Documentation: Comprehensive
+documentation to guide developers through setup, usage, and contribution
+processes.
+
+Key Components
+
+1.  Automation Scripts: Scripts that automate backups, hierarchy
+    generation, and deployment processes.
+2.  Cloud Integration: Leveraging cloud services for storage,
+    deployment, and scalability.
+3.  Version Control: Using GitHub for version control, collaboration,
+    and code management.
+4.  Continuous Integration/Continuous Deployment (CI/CD): Automated
+    pipelines for testing, building, and deploying the game.
+
+Hierarchy Generation
+
+The system includes scripts for generating hierarchical representations
+of the project structure, which are essential for maintaining
+organization and ensuring that all components are accounted for. These
+hierarchies provide a clear overview of the project and assist in
+navigating the complex structure of the game.
+
+Backup and Restore
+
+Automated backup scripts ensure that all critical project files are
+regularly backed up and stored securely. This includes code,
+configurations, logs, and other essential data. The restore process is
+equally streamlined, allowing for quick recovery in case of data loss or
+corruption.
+
+Testing and Validation
+
+Automated testing frameworks are integrated into the system to validate
+code changes before deployment. This includes unit tests, integration
+tests, and end-to-end tests to ensure the stability and functionality of
+the game.
+
+------------------------------------------------------------------------
+
+Detailed System Description
+
+Repository and Version Control
+
+The Yean Cat repository is the cornerstone of the development process.
+It is meticulously organized to facilitate easy navigation, efficient
+management, and seamless collaboration. Key aspects include: - Branch
+Management: Using branches for feature development, bug fixes, and
+releases to maintain a clean and organized codebase. - Pull Requests and
+Code Reviews: Implementing a robust workflow for reviewing and merging
+code changes to ensure high-quality contributions. - Issue Tracking:
+Utilizing GitHub Issues to track tasks, bugs, and feature requests,
+ensuring transparency and accountability.
+
+Automation Scripts
+
+Automation scripts are designed to streamline repetitive tasks, reduce
+human error, and enhance productivity. Key scripts include: - Backup
+Script: Automates the process of backing up critical project files to a
+secure location. - Hierarchy Generation Script: Generates hierarchical
+representations of the project structure, aiding in organization and
+navigation. - Deployment Script: Facilitates the deployment of the game
+to the cloud, ensuring that the latest version is always available to
+players.
+
+Continuous Integration/Continuous Deployment (CI/CD)
+
+CI/CD pipelines are integral to the Yean Cat system, ensuring that code
+changes are automatically tested, built, and deployed. Key elements
+include: - Automated Testing: Running unit tests, integration tests, and
+end-to-end tests on every code change to ensure stability and
+functionality. - Build Automation: Automating the build process to
+compile and package the game for deployment. - Deployment Automation:
+Deploying the game to the cloud, ensuring that the latest version is
+always available to players.
+
+Cloud Integration
+
+Leveraging cloud services is essential for scalability, reliability, and
+performance. Key integrations include: - Cloud Storage: Storing backups,
+logs, and other critical data securely in the cloud. - Cloud Deployment:
+Deploying the game to cloud servers to ensure high availability and
+optimal performance. - Scalability: Ensuring that the system can handle
+increased load and scale seamlessly with the growing player base.
+
+------------------------------------------------------------------------
+
+Task System and Game Development Workflow
+
+Objectives and Goals
+
+The task system is designed to streamline the development process,
+ensuring that tasks are clearly defined, prioritized, and tracked. Key
+aspects include: - Task Management: Using tools like Trello or JIRA to
+manage tasks, track progress, and ensure accountability. - Milestones
+and Deadlines: Setting clear milestones and deadlines to ensure timely
+delivery of features and updates. - Collaboration: Facilitating
+collaboration among team members through regular meetings, code reviews,
+and communication channels.
+
+Development Workflow
+
+The development workflow is designed to be efficient, collaborative, and
+iterative. Key steps include: - Planning: Defining tasks, setting
+priorities, and planning sprints. - Development: Writing code,
+implementing features, and fixing bugs. - Testing: Running automated
+tests to validate code changes. - Code Review: Reviewing code changes to
+ensure quality and adherence to standards. - Deployment: Deploying the
+game to the cloud, ensuring that the latest version is available to
+players.
+
+------------------------------------------------------------------------
+
+Community and Contributions
+
+Fostering a Community
+
+One of our key ambitions is to foster a vibrant community around Yean
+Cat. This includes providing tools and frameworks that allow players and
+developers to contribute to the game’s evolution. Key aspects include: -
+User-Generated Content: Providing tools and frameworks that enable
+players to create and share their own content. - Community Events:
+Organizing community events, challenges, and competitions to engage
+players and encourage participation. - Feedback and Collaboration:
+Incorporating community feedback into the development process and
+encouraging collaboration through forums, social media, and other
+channels.
+
+Contribution Guidelines
+
+While contributions are currently not open, we have a clear vision for
+how we will manage contributions in the future. Key guidelines
+include: - Contribution Process: Clearly defined process for submitting
+contributions, including pull requests, code reviews, and testing. -
+Code of Conduct: Establishing a code of conduct to ensure a respectful
+and inclusive community. - Documentation: Providing comprehensive
+documentation to guide contributors through the setup, development, and
+submission processes.
+
+------------------------------------------------------------------------
+
+Future Plans and Expansions
+
+Continuous Improvement
+
+Our vision is to continuously improve the Yean Cat system by integrating
+new technologies, enhancing automation, and optimizing performance. Key
+areas of focus include: - Advanced Automation: Integrating more advanced
+automation tools and scripts to further streamline the development
+process. - Enhanced Testing: Expanding our testing framework to include
+more comprehensive tests and validation processes. - Scalability
+Enhancements: Continuously optimizing our cloud infrastructure to ensure
+scalability and reliability.
+
+Community-Driven Development
+
+We aim to involve the community more actively in the development
+process, incorporating their feedback and contributions to shape the
+future of Yean Cat. Key initiatives include: - Community Polls and
+Surveys: Gathering feedback through polls and surveys to understand
+player preferences and priorities. - Open Source Contributions: Opening
+up the project to community contributions, with clear guidelines and
+processes in place.
+
+------------------------------------------------------------------------
+
+Comprehensive Documentation
+
+Setup and Configuration
+
+Detailed documentation to guide developers through the setup and
+configuration of the Yean Cat system. Key sections include: -
+Environment Setup: Instructions for setting up the development
+environment, including required tools and dependencies. - Repository
+Structure: Overview of the repository structure and key components. -
+Configuration Files: Detailed explanations of configuration files and
+how to customize them for different environments.
+
+Usage and Commands
+
+Comprehensive guide to using the Yean Cat system, including available
+commands, scripts, and tools. Key sections include: - Command Syntax:
+Detailed syntax and usage examples for all available commands. -
+Automation Scripts: Overview of automation scripts and how to use them
+effectively. - Deployment Process: Step-by-step guide to deploying the
+game to the cloud.
+
+Troubleshooting and Support
+
+Extensive troubleshooting guide to help developers resolve common issues
+and errors. Key sections include: - Common Errors: List of common errors
+and how to resolve them. - Logs and Debugging: Instructions for
+accessing and interpreting logs, and debugging issues. - Support
+Channels: Information on available support channels and how to get help.
+
+------------------------------------------------------------------------
+
+Conclusion Pt.2 (The End)
+
+The Yean Cat system represents a sophisticated integration of game
+development, automation, and cloud-based infrastructure designed to
+support the continuous evolution of the Yean Cat game. Our vision is to
+create a dynamic, adaptable, and scalable framework that fosters
+community-driven development and continuous improvement. By leveraging
+advanced technologies, automation, and robust architecture, we aim to
+deliver a seamless and engaging experience for both developers and
+players.
+
+== End: README.txt
 

@@ -42,7 +42,6 @@ copy_and_rename README.md code_text/README.md
 copy_and_rename command_list.txt code_text/command_list.txt
 copy_and_rename config.py code_text/config.py
 copy_and_rename flask_pid.txt code_text/flask_pid.txt
-copy_and_rename format_description.txt code_text/format_description.txt
 copy_and_rename intro.txt code_text/intro.txt
 copy_and_rename package.json code_text/package.json
 copy_and_rename planned_features.json code_text/planned_features.json
@@ -53,6 +52,8 @@ copy_and_rename script_list.txt code_text/script_list.txt
 copy_and_rename server.py code_text/server.py
 copy_and_rename server_command_list.txt code_text/server_command_list.txt
 copy_and_rename server_script_list.txt code_text/server_script_list.txt
+copy_and_rename "Documentation/Game_Command_Format_Documentation.txt" "code_text/Game_Command_Format_Documentation.txt"
+copy_and_rename "Documentation/Terminal_Commands_Documentation.txt" "code_text/Terminal_Commands_Documentation.txt"
 
 # Copy GIT_GPT_SERVER directory structure to code_text and rename with .txt extension
 copy_dir_and_rename GIT_GPT_SERVER code_text/GIT_GPT_SERVER

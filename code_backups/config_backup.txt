@@ -17,7 +17,7 @@ with open(CONFIG_FILE, 'r') as f:
 # Configuration variables
 PORT = config.get('PORT', 5000)
 DEBUG_MODE = config.get('DEBUG_MODE', True)
-CURRENT_GEN = config.get('CURRENT_GEN', "2")
+CURRENT_GEN = "3"
 
 # Sensitive information from .env
 OPENAI_API_KEY = os.getenv('OPENAI_API_KEY')

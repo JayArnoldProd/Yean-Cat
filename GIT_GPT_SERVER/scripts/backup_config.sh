@@ -12,8 +12,8 @@ directories=(
 )
 
 # Logical groups for miscellaneous files
-group1=("README.md" "GIT_GPT_SERVER/intro.txt" "GIT_GPT_SERVER/format_description.txt")
+group1=("Documentation/README.md" "Prompt_Assembly/intro.txt" "Documentation/Game_Command_Format_Documentation.txt")
 group2=("GIT_GPT_SERVER/__init__.py" "GIT_GPT_SERVER/config/config.py" "GIT_GPT_SERVER/config/config.json" "GIT_GPT_SERVER/flask_pid.txt" "GIT_GPT_SERVER/server.py")
-group3=("script_list.txt" "command_list.txt" "server_script_list.txt" "server_command_list.txt")
+group3=("Documentation/Terminal_Commands_Documentation.txt" "command_list.txt" "server_script_list.txt" "server_command_list.txt")
 group4=("bug_list.json" "planned_features.json" "package.json" "requirements.txt" "pyproject.toml")
 group5=(".gitignore" ".gitattributes" ".slugignore" ".env" "Procfile")
