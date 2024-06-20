@@ -1,11 +1,12 @@
 #!/bin/bash
 
-LIST_TYPE=$1  # Can be "bugs", "planned_features", "features"
+LIST_TYPE=$1  # Can be "bugs", "planned_features", "features", "fixed_bugs"
 STATUS_FILTER=${2:-unresolved}  # Default to showing only unresolved bugs
 
 BUG_LIST_FILE="./bug_list.json"
 PLANNED_FEATURES_FILE="./planned_features.json"
 FEATURES_FILE="./completed_features.json"
+FIXED_BUGS_FILE="./fixed_bugs.json"
 
 list_entries() {
     local file=$1
@@ -32,6 +33,9 @@ case $LIST_TYPE in
         ;;
     features)
         jq -s '.[0] + .[1]' <(list_entries $PLANNED_FEATURES_FILE) <(list_entries $FEATURES_FILE)
+        ;;
+    fixed_bugs)
+        list_entries $FIXED_BUGS_FILE | jq '.'
         ;;
     *)
         echo "Invalid list type specified."

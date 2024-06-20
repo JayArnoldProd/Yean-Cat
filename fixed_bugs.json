@@ -38,5 +38,34 @@
         "server_script_2"
       ]
     ]
+  },
+  {
+    "name": "Sample Bug",
+    "description": "Implement a sample bug to test closing and moving to fixed bugs list.",
+    "source": "SYSTEM",
+    "priority": "low",
+    "status": "closed",
+    "date_reported": "2024-06-17",
+    "reported_by": "AI Assistant",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "logs": [
+      "No related logs"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Create a sample bug.",
+      "Step 2: Test closing the bug.",
+      "Step 3: Move the bug to fixed bugs list."
+    ],
+    "resolution": [
+      "No related features"
+    ],
+    "related_features": [
+      "No related objects"
+    ],
+    "related_objects": [
+      "No related scripts"
+    ],
+    "related_scripts": []
   }
 ]
