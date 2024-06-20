@@ -8,9 +8,11 @@
 ├── __init__.py
 ├── __pycache__
 ├── bug_list.json
+├── bug_list2.json
 ├── code_backups
 ├── code_text
 ├── command_list.txt
+├── completed_features.json
 ├── fixed_bugs.json
 ├── flask_pid.txt
 ├── format_description.txt
@@ -18,6 +20,7 @@
 ├── intro.txt
 ├── package.json
 ├── planned_features.json
+├── planned_features2.json
 ├── pyproject.toml
 ├── requirements.txt
 ├── runtime.txt
@@ -26,4 +29,4 @@
 ├── server_command_list.txt
 └── server_script_list.txt
 
-9 directories, 18 files
+9 directories, 21 files

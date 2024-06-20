@@ -1,0 +1,96 @@
+[
+  {
+    "name": "Console Bug",
+    "description": "The main bug in my game that needs fixing is that for some reason, typing /add_action(Lvl100,level_up,[100]) works and creates a reusable action named,Lvl100. Typing /execute_action(Lvl100) will level up the player 100 times. The issue is when I try to create an action with 2 or more arguments, something goes wrong. For example: /add_action(HelloWorld,chat_bubble,[Hello World!,yeancat]) does not work. It says that it created an action, but when I try to execute the action, it throws an error (see client logs). I have reason to believe the saving of the actions is where this goes wrong. (scr_add_action)",
+    "source": "YEAN_CAT_CLIENT",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-06-16",
+    "reported_by": "Developer",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "logs": [
+      "SessionLog_45453.16.txt"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Type /add_action(Lvl100",
+      "level_up",
+      "[100]).",
+      "Step 2: Type /execute_action(Lvl100).",
+      "Step 3: Type /add_action(HelloWorld",
+      "chat_bubble",
+      "[Hello World!",
+      "yeancat]).",
+      "Step 4: Type /execute_action(HelloWorld)."
+    ],
+    "resolution": [
+      "Error not yet resolved"
+    ],
+    "related_features": [
+      "action_feature"
+    ],
+    "related_objects": [
+      "action_script"
+    ],
+    "related_scripts": []
+  },
+  {
+    "name": "Step Entry Split on Commas",
+    "description": "When listing steps with commas, each comma causes a new entry. This needs to be fixed so that steps can handle commas without creating new entries or a format must be decided to avoid this issue.",
+    "source": "GIT_GPT_SERVER",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-06-16",
+    "reported_by": "AI Assistant",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "logs": [
+      "No related logs"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: List steps with commas.",
+      "Step 2: Observe each comma causing a new entry."
+    ],
+    "resolution": [
+      "Error not yet resolved"
+    ],
+    "related_features": [
+      "step_handling_feature"
+    ],
+    "related_objects": [
+      "add_entry_script"
+    ],
+    "related_scripts": [
+      "add_entry.sh"
+    ]
+  },
+  {
+    "name": "Sample Bug",
+    "description": "Implement a sample bug to test closing and moving to fixed bugs list.",
+    "source": "SYSTEM",
+    "priority": "low",
+    "status": "open",
+    "date_reported": "2024-06-17",
+    "reported_by": "AI Assistant",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "related_logs": [
+      "No related logs"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Create a sample bug.",
+      "Step 2: Test closing the bug.",
+      "Step 3: Move the bug to fixed bugs list."
+    ],
+    "resolution": [
+      "No related features"
+    ],
+    "related_features": [
+      "No related objects"
+    ],
+    "related_objects": [
+      "No related scripts"
+    ],
+    "related_scripts": []
+  }
+]
