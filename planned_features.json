@@ -125,5 +125,36 @@
     "related_scripts": [
       "No related scripts"
     ]
+  },
+  {
+    "name": "Sample Feature",
+    "description": "Implement a sample feature for testing purposes.",
+    "source": "SYSTEM",
+    "priority": "medium",
+    "status": "planned",
+    "date_planned": "2024-06-20",
+    "planned_by": "Tester",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "related_logs": [
+      "No related logs"
+    ],
+    "implementation_steps": [
+      "Step 1: Design the feature.",
+      "Step 2: Implement the feature.",
+      "Step 3: Test the feature."
+    ],
+    "expected_outcome": [
+      "Expected outcome: A sample feature implemented for testing purposes."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "No related objects"
+    ],
+    "related_scripts": [
+      "No related scripts"
+    ]
   }
 ]
