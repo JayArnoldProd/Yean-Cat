@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"logChatMessage",
   "isCompatibility":false,
   "isDnD":false,

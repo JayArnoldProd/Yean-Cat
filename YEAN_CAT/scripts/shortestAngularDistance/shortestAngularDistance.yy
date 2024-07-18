@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"shortestAngularDistance",
   "isCompatibility":false,
   "isDnD":false,

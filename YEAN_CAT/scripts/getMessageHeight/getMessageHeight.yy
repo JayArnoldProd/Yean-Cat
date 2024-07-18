@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"getMessageHeight",
   "isCompatibility":false,
   "isDnD":false,

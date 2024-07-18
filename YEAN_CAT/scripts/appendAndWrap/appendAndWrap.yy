@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"appendAndWrap",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"check_control_type",
   "isCompatibility":false,
   "isDnD":false,

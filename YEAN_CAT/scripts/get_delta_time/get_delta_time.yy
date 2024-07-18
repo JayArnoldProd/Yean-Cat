@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"get_delta_time",
   "isCompatibility":false,
   "isDnD":false,

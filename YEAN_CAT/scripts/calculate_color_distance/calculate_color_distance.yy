@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"calculate_color_distance",
   "isCompatibility":false,
   "isDnD":false,

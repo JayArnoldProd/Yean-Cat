@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"player_data_needs_update",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_chat_bubble",
   "isCompatibility":false,
   "isDnD":false,

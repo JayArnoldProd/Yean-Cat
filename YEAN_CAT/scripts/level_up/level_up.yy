@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"level_up",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"handleCommandWithArgs",
   "isCompatibility":false,
   "isDnD":false,

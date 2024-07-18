@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"drawTextWithOutline",
   "isCompatibility":false,
   "isDnD":false,

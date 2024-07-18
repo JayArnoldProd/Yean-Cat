@@ -43,6 +43,7 @@ GIT_GPT_SERVER
 │   ├── deploy_all.sh
 │   ├── display_entry.sh
 │   ├── force_push.sh
+│   ├── gather_bug_information.sh
 │   ├── generate_hierarchy.sh
 │   ├── get_config.py
 │   ├── last_words.sh
@@ -68,4 +69,4 @@ GIT_GPT_SERVER
     ├── pinecone_operations.py
     └── sanatize_logs.py
 
-14 directories, 55 files
+14 directories, 56 files

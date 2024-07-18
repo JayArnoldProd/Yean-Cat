@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"check_permission_command",
   "isCompatibility":false,
   "isDnD":false,

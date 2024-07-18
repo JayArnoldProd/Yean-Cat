@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_set_my_permission",
   "isCompatibility":false,
   "isDnD":false,

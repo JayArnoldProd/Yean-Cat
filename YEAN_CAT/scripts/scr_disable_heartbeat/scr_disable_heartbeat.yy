@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_disable_heartbeat",
   "isCompatibility":false,
   "isDnD":false,

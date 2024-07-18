@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"nextSpawnTime",
   "isCompatibility":false,
   "isDnD":false,

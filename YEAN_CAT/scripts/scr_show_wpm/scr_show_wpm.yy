@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_show_wpm",
   "isCompatibility":false,
   "isDnD":false,

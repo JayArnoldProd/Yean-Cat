@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"update_chat_input_visuals",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"updateLongestMessage",
   "isCompatibility":false,
   "isDnD":false,

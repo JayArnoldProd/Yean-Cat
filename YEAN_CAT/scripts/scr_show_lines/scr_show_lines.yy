@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_show_lines",
   "isCompatibility":false,
   "isDnD":false,

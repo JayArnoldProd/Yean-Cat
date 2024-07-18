@@ -1,41 +1,41 @@
 [
-  {
-    "name": "Console Bug",
-    "description": "The main bug in my game that needs fixing is that for some reason, typing /add_action(Lvl100,level_up,[100]) works and creates a reusable action named Lvl100. Typing /execute_action(Lvl100) will level up the player 100 times. The issue is when I try to create an action with 2 or more arguments, something goes wrong. For example: /add_action(HelloWorld,chat_bubble,[Hello World!,yeancat]) does not work. It says that it created an action, but when I try to execute the action, it throws an error (see client logs). I have reason to believe the saving of the actions is where this goes wrong. (scr_add_action)",
-    "source": "YEAN_CAT_CLIENT",
-    "priority": "high",
-    "status": "closed",
-    "date_reported": "2024-06-16",
-    "reported_by": "Developer",
-    "assigned_to": "Dev Team",
-    "generation": "2",
-    "related_logs": [
-      "No related logs"
-    ],
-    "steps_to_reproduce": [
-      "Step 1: Type /add_action(Lvl100",
-      "level_up",
-      "[100]).",
-      "Step 2: Type /execute_action(Lvl100).",
-      "Step 3: Type /add_action(HelloWorld",
-      "chat_bubble",
-      "[Hello World!",
-      "yeancat]).",
-      "Step 4: Type /execute_action(HelloWorld)."
-    ],
-    "resolution": [
-      "Expected fix: Adjust function to properly handle multi-argument actions."
-    ],
-    "related_features": [
-      "No related features"
-    ],
-    "related_objects": [
-      "No related objects"
-    ],
-    "related_scripts": [
-      "No related scripts"
-    ]
-  },
+    {
+      "name": "Action_Bug1",
+      "description": "In the in-game Dev Console, unable to save actions of commands that require more than one argument! My command add_action() can create and save an action for commands that require 0 or 1 arguments but not ones that require 2 or more. For example, /add_action(LVL100,level_up,[100]) will work, but /add_action(Hello,chat_bubble,[Hello World,yeancat]) does not work.",
+      "source": "YEAN_CAT",
+      "priority": "high",
+      "status": "open",
+      "date_reported": "2024-06-16",
+      "reported_by": "Jay Arnold",
+      "assigned_to": "Dev Team",
+      "generation": "2",
+      "related_logs": [
+        "SessionLog_45453.16"
+      ],
+      "steps_to_reproduce": [
+        "Step 1: Attempt to add an action using a command with multiple arguments.",
+        "Step 2: If it saves, then attempt to execute it, if it doesnt save, that is a fail.",
+        "Step 3: Execute the action, and see Error: Owner object 'undefined' not found.",
+      ],
+      "resolution": [
+        "Expected fix: Ensure that multiple arguments are detected using commas within the brackets and that they are properly parsed into the command when using execute_action."
+      ],
+      "related_features": [
+        "No related features"
+      ],
+      "related_objects": [
+        "obj_Client"
+      ],
+      "related_scripts": [
+        "scr_add_action",
+        "scr_execute_action",
+        "handleDebugMessage",
+        "execute_command",
+        "update_chat_input_visuals",
+        "parse_data_types",
+        "parse_arguments"
+      ]
+    },
   {
     "name": "Step Entry Split on Commas",
     "description": "When listing steps with commas, each comma causes a new entry. This needs to be fixed so that steps can handle commas without creating new entries or a format must be decided to avoid this issue.",

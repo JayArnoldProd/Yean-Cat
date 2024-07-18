@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"shortestAngularDirection",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"handleNetworkData",
   "isCompatibility":false,
   "isDnD":false,

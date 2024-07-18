@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"draw_rectangle_outlined",
   "isCompatibility":false,
   "isDnD":false,

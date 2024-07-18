@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"calculateAngle",
   "isCompatibility":false,
   "isDnD":false,

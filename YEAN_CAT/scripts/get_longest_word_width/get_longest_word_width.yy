@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"get_longest_word_width",
   "isCompatibility":false,
   "isDnD":false,

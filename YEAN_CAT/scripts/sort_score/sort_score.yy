@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"sort_score",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"countLinesInString",
   "isCompatibility":false,
   "isDnD":false,

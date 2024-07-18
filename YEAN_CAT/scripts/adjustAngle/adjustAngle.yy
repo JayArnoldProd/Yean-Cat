@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"adjustAngle",
   "isCompatibility":false,
   "isDnD":false,

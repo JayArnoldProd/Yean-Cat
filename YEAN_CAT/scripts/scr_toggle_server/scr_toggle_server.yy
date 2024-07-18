@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_toggle_server",
   "isCompatibility":false,
   "isDnD":false,

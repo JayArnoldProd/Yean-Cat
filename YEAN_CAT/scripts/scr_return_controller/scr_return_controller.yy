@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"scr_return_controller",
   "isCompatibility":false,
   "isDnD":false,

@@ -1,5 +1,5 @@
 {
-  "$GMScript":"",
+  "$GMScript":"v1",
   "%Name":"adjust_pitch",
   "isCompatibility":false,
   "isDnD":false,
