@@ -3,10 +3,1723 @@
 
 == End: server_logs.json.txt
 
+== Begin: SessionLog_45436.97.txt.txt
+05/24/24 18:19:37: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45436.97.txt.txt
+
+== Begin: SessionLog_45436.87.txt.txt
+05/24/24 15:48:24: Actions.txt not found. Starting with an empty actions map.
+05/24/24 15:48:47: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+05/24/24 15:48:47: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+05/24/24 15:48:47: ControllerType, Level
+05/24/24 15:48:52: Unknown command: show type '/list_commands' to see all commands
+05/24/24 15:57:10: Actions.txt not found. Starting with an empty actions map.
+//I typed /show_variable(ControllerType)
+05/24/24 16:02:07: Error: Variable 'ControllerType' does not exist.
+05/24/24 16:02:14: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+05/24/24 16:02:14: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+05/24/24 16:02:14: ControllerType, Level
+//you might need to consider that its a global variable. Each variable is assigned an owner (master/global/any object/etc).
+
+Here are my add variables
+
+add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
+add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
+add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 1000, [], [], "Social");
+add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro4", "macro4", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro5", "macro5", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro6", "macro6", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro7", "macro7", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro8", "macro8", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro9", "macro9", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro10", "macro10", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 99999999, [], [], "Global");
+== End: SessionLog_45436.87.txt.txt
+
 == Begin: server_logs.json.txt
 {"SessionLog_45453.16.txt":"06/09/24 22:53:39: Actions.txt not found. Starting with an empty actions map.\n06/09/24 22:54:26: [Jay Arnold] Hello World!\n06/09/24 22:54:37: [Jay Arnold] I will now demonstrate how the add action is not working\n06/09/24 22:54:59: Action 'Lvl100' added successfully.\n06/09/24 22:55:08: Executing action: level_up(100)\n06/09/24 22:55:08: Level up initiated with goal: 100\n06/09/24 22:55:18: [Jay Arnold] see? that works beautifully\n06/09/24 22:55:22: Actions: Lvl100, \n06/09/24 22:55:37: [Jay Arnold] now what if i try /chat_bubble\n06/09/24 22:55:50: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'\n06/09/24 22:56:08: [Jay Arnold] the command works when executing normally, lets try and make it \ninto an action\n06/09/24 22:56:50: Action 'HelloWorld' added successfully.\n06/09/24 22:56:54: Actions: Lvl100, HelloWorld, \n06/09/24 22:56:58: Actions saved successfully to Actions.txt.\n06/09/24 22:57:15: [Jay Arnold] i will insert what the Actions.txt contains here:\n\nLvl100,level_up,[ 100 ]\nHelloWorld,chat_bubble,[ \"\"Hello World!\" ] // it appears to not have saved the second argument!\n\n06/09/24 22:57:39: Executing action: chat_bubble(\"Hello World!)\n06/09/24 22:57:39: Error: Owner object 'undefined' not found\n06/09/24 22:57:52: [Jay Arnold] See! an error!\n06/09/24 22:59:08: [Jay Arnold] I will now end the test. but first heres a list of all my commands i can\n use so far. We just need to fix this bug involving the actions and then\n we can make many cool systems that use our action system.\n06/09/24 22:59:15: Commands: add_action(, chat_bubble(, disable_heartbeat, \n06/09/24 22:59:15: enable_heartbeat, execute_action(, game_end(, goto_planet(, \n06/09/24 22:59:15: jump_planet(, level_up(, list_actions, list_clients, list_commands, \n06/09/24 22:59:15: list_variables, return_controller, save_actions, save_game, \n06/09/24 22:59:15: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, \n06/09/24 22:59:15: show_lines(, show_variable(, show_wpm, toggle_debug, \n06/09/24 22:59:15: toggle_input_display, toggle_log_debug, toggle_server\n06/09/24 22:59:30: Saved Game\n06/09/24 22:59:30: Game saved and ending.\n"}
 
 == End: server_logs.json.txt
+
+== Begin: SessionLog_45437.38.txt.txt
+05/25/24 04:07:25: Actions.txt not found. Starting with an empty actions map.
+05/25/24 04:10:21: Saved Game
+05/25/24 04:10:23: Saved Game
+
+== End: SessionLog_45437.38.txt.txt
+
+== Begin: SessionLog_45438.04.txt.txt
+05/25/24 19:51:17: Actions.txt not found. Starting with an empty actions map.
+05/25/24 19:52:00: Checking commands: disable_heartbeat (level 2), show_wpm (level 0), goto_planet( (level 1), save_game (level 0), list_actions (level 2), jump_planet( (level 1), save_macros (level 1), toggle_input_display (level 1), return_controller (level 1), set_variable( (level 2), show_gamepad_mapping (level 1), list_variables (level 2), list_clients (level 1), execute_action( (level 2), game_end( (level 0), show_variable( (level 2), save_actions (level 2), enable_heartbeat (level 2), toggle_debug (level 1), chat_bubble( (level 1), list_commands (level 0), set_my_permission( (level 0), toggle_server (level 3), toggle_log_debug (level 2), level_up( (level 1), add_action( (level 2), show_lines( (level 0), 
+05/25/24 19:52:00: Commands: 
+05/25/24 19:54:08: Error: Variable 'Permission' does not exist.
+05/25/24 19:54:13: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+05/25/24 19:54:13: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+05/25/24 19:54:13: ControllerType, Level
+//I tried to show you my permission, but know that I have the permission of owner or (3). Here's some code I think you might need to understand to help find the solution. Because it fails to line break. But that might not be the issue either. Just a reminder: 
+
+/// @function handleDebugMessage(msg, isDebug)
+/// @description Logs messages to the debug console and files, and manages chat display
+/// @param {string} msg - The message to log
+/// @param {bool} isDebug - True if this is a debug message, false for essential messages
+function handleDebugMessage(msg, isDebug) {
+    var safeMsg = is_string(msg) ? msg : "Undefined message content";
+    var currentDate = date_current_datetime();
+    var formattedDate = date_date_string(currentDate);
+    var formattedTime = date_time_string(currentDate);
+    var logMsg = formattedDate + " " + formattedTime + ": " + safeMsg + "\n";
+
+    show_debug_message("Date: " + formattedDate + " Time: " + formattedTime + " Msg: " + safeMsg);
+
+    // Function to handle file logging
+    function logToFile(filePath, message) {
+        var file;
+        if (file_exists(filePath)) {
+            file = file_text_open_append(filePath);
+        } else {
+            file = file_text_open_write(filePath);
+        }
+        file_text_write_string(file, message);
+        file_text_close(file);
+    }
+
+    logToFile(working_directory + global.sessionLogFileName, logMsg);
+    logToFile(working_directory + global.masterLogFileName, logMsg);
+
+    // Update the chat system and possibly calculate WPM
+    if (isDebug && global.showDebugMessages) {
+        if (ds_list_size(global.debugMessages) >= global.maximumMessages) {
+            ds_list_delete(global.debugMessages, 0); // Keep the latest messages
+        }
+        ds_list_add(global.debugMessages, safeMsg);
+
+        // Before drawing chat messages, ensure messages is a valid ds_list
+        if (!ds_exists(global.debugMessages, ds_type_list)) {
+            show_debug_message("Error: debugMessages is not a valid ds_list.");
+            return;
+        }
+
+        var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+        if (totalLines - obj_Client.scrollIndex > global.max_visible_lines) {
+            var totalLines_inRecentMessage = is_string(msg) ? countLinesInString(msg) : 1;
+            obj_Client.scrollIndex = totalLines; // Scroll to bottom when new message
+            obj_Client.scrollIndex -= (clamp(totalLines_inRecentMessage - 1, 0, 999999)); // Scroll back up number of lines in newest message (-1)
+        }
+        if (obj_Client.scrollIndex > totalLines) {
+            // Clamp scroll
+            obj_Client.scrollIndex = clamp(totalLines, 0, 99999);
+        }
+        draw_set_font(obj_Client.fnt_chat);
+        global.longestmessage = updateLongestMessage(global.debugMessages);
+    }
+
+    // Create a chat bubble when no command is entered
+    if (isDebug = 1) and !(string_char_at(safeMsg,0) = "/") {
+        global.bubble_send_to_log = 0; // Don't send message to chat log
+        var cleanMsg = string_remove_between(safeMsg, "[", "]");
+        cleanMsg = string_replace_all(cleanMsg, "\n", " ");  // Remove existing line breaks
+		if global.message_is_bubble=1 {
+        scr_chat_bubble(cleanMsg, "yeancat");
+		}
+        global.bubble_send_to_log = 1; // Reset the variable
+    }
+
+    // WPM Calculation Logic Integration
+    if (isDebug) {  // Assuming non-debug messages are chat messages
+        var wordCount = string_word_count(safeMsg);
+        var messageDetails = [currentDate, wordCount];
+        ds_list_add(global.chatLogs, messageDetails);
+        updateWPM();  // This would be a new function to handle WPM updates based on chatLogs
+    }
+}
+
+05/25/24 20:01:01: Actions.txt not found. Starting with an empty actions map.
+05/25/24 20:01:55: [Jay Arnold] okay i will now perform a test
+
+== End: SessionLog_45438.04.txt.txt
+
+== Begin: SessionLog_45438.14.txt.txt
+05/25/24 22:24:44: Actions.txt not found. Starting with an empty actions map.
+05/25/24 22:24:58: [Jay Arnold] okay lets see here
+05/25/24 22:25:01: Connected gamepad: PS5 Controller
+05/25/24 22:25:09: ControllerType: 2
+05/25/24 22:26:44: Gamepad input display is now enabled.
+05/25/24 22:26:56: Gamepad input display is now disabled.
+05/25/24 22:27:14: [Jay Arnold] well your new input display script did not return anything. so yeah.
+05/25/24 22:27:19: Game ending without saving.
+
+//I reverted the code to this:
+/// @description Checks for gamepad input and logs it to the chat console
+function check_gamepad_input() {
+    if (!global.inputDisplayEnabled) return;
+
+for (var i = gp_face1; i < gp_axisrv; i++) {
+        if (input_gamepad_check_pressed(0, i)) {
+            handleDebugMessage("Gamepad button pressed: " + string(i), true);
+            break;  // Stop checking after the first pressed button is found
+        }
+    }
+}
+//I will stop trying to get these things working while I solve on my own why the controller is not working with my system. As I haven't really shared with you how that part works or allowed you to modify it. Let me know you understand.
+== End: SessionLog_45438.14.txt.txt
+
+== Begin: SessionLog_45459.11.txt.txt
+06/15/24 21:43:17: Actions loaded successfully from Actions.txt.
+06/15/24 21:43:17: Action 'Lvl100': Command = level_up, Parameters = [ 100 ]
+06/15/24 21:43:17: Action 'HelloWorld': Command = chat_bubble, Parameters = [ """Hello World!"" ]
+06/15/24 22:01:01: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+06/15/24 22:01:01: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+06/15/24 22:01:01: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+06/15/24 22:01:01: list_variables, return_controller, save_actions, save_game, 
+06/15/24 22:01:01: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+06/15/24 22:01:01: show_lines(, show_variable(, show_wpm, toggle_debug, 
+06/15/24 22:01:01: toggle_input_display, toggle_log_debug, toggle_server
+06/15/24 22:01:16: Level up initiated with goal: 20
+06/15/24 22:01:46: Action '100lvls' added successfully.
+06/15/24 22:01:56: Executing action: level_up(100)
+06/15/24 22:01:56: Level up initiated with goal: 100
+06/15/24 22:02:30: Saved Game
+06/15/24 22:02:32: Saved Game
+06/15/24 22:02:39: Saved Game
+06/15/24 22:02:42: Saved Game
+06/15/24 22:02:51: Executing action: level_up(100)
+06/15/24 22:02:51: Level up initiated with goal: 100
+06/15/24 22:03:03: Executing action: level_up(100)
+06/15/24 22:03:03: Level up initiated with goal: 100
+06/15/24 22:03:28: Executing action: level_up(100)
+06/15/24 22:03:28: Level up initiated with goal: 100
+06/15/24 22:03:29: Executing action: level_up(100)
+06/15/24 22:03:29: Level up initiated with goal: 100
+06/15/24 22:03:49: Executing action: level_up(100)
+06/15/24 22:03:49: Level up initiated with goal: 100
+
+== End: SessionLog_45459.11.txt.txt
+
+== Begin: SessionLog_45437.88.txt.txt
+05/25/24 16:13:13: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.88.txt.txt
+
+== Begin: SessionLog_45437.99.txt.txt
+05/25/24 18:43:50: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.99.txt.txt
+
+== Begin: SessionLog_45437.89.txt.txt
+05/25/24 16:17:23: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.89.txt.txt
+
+== Begin: SessionLog_45438.05.txt.txt
+05/25/24 20:13:41: Actions.txt not found. Starting with an empty actions map.
+05/25/24 20:14:12: [Jay Arnold] okay we will now test the attempt to list the commands 
+unalphabetically
+05/25/24 20:14:19: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 20:14:19: Commands: list_actions, jump_planet(, save_macros, 
+05/25/24 20:14:19: Commands: toggle_input_display, return_controller, set_variable(, 
+05/25/24 20:14:19: Commands: show_gamepad_mapping, list_variables, list_clients, 
+05/25/24 20:14:19: Commands: execute_action(, game_end(, show_variable(, save_actions, 
+05/25/24 20:14:19: Commands: enable_heartbeat, toggle_debug, chat_bubble(, 
+05/25/24 20:14:19: Commands: list_commands, set_my_permission(, toggle_server, 
+05/25/24 20:14:19: Commands: toggle_log_debug, level_up(, add_action(, show_lines(
+05/25/24 20:14:41: [Jay Arnold] not bad, though it has the word "Commands:" way too many times
+05/25/24 20:15:12: [Jay Arnold] i think the old code would only say "Commands: " once and it would 
+wrap appropriately within the bounds.
+05/25/24 20:15:25: [Jay Arnold] this is a good step forward. it doesnt crash
+05/25/24 20:16:02: [Jay Arnold] lets resolve both issues at the same time as they may be related.
+05/25/24 20:16:20: Saved Game
+05/25/24 20:16:20: Game saved and ending.
+
+== End: SessionLog_45438.05.txt.txt
+
+== Begin: SessionLog_45437.39.txt.txt
+05/25/24 04:15:52: Actions.txt not found. Starting with an empty actions map.
+05/25/24 04:21:11: Actions.txt not found. Starting with an empty actions map.
+05/25/24 04:27:32: Level up initiated with goal: 100
+05/25/24 04:31:45: Saved Game
+05/25/24 04:31:53: Saved Game
+
+== End: SessionLog_45437.39.txt.txt
+
+== Begin: SessionLog_45450.51.txt.txt
+06/07/24 07:19:37: Actions.txt not found. Starting with an empty actions map.
+06/07/24 07:19:55: [Jay Arnold] Hello world
+06/07/24 07:20:00: [Jay Arnold] im looking for this Log file
+06/07/24 07:21:19: Saved Game
+06/07/24 07:21:21: Saved Game
+
+== End: SessionLog_45450.51.txt.txt
+
+== Begin: SessionLog_45438.38.txt.txt
+05/26/24 04:00:07: Actions.txt not found. Starting with an empty actions map.
+05/26/24 04:00:30: Connected gamepad: PS5 Controller
+05/26/24 04:00:38: [Jay Arnold] i updated the input extension
+05/26/24 04:00:45: [Jay Arnold] lets see if ps5 works functionally now
+05/26/24 04:01:33: [Jay Arnold] well i can use the left thumbstick and the x button now
+05/26/24 04:01:40: [Jay Arnold] i think thats an improvement
+05/26/24 04:01:44: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/26/24 04:01:44: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/26/24 04:01:44: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/26/24 04:01:44: list_variables, return_controller, save_actions, save_game, 
+05/26/24 04:01:44: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/26/24 04:01:44: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/26/24 04:01:44: toggle_input_display, toggle_log_debug, toggle_server
+05/26/24 04:01:50: Gamepad input display is now enabled.
+05/26/24 04:01:54: Gamepad button pressed: 32775
+05/26/24 04:01:54: Gamepad button pressed: 32773
+05/26/24 04:01:55: Gamepad button pressed: 32786
+05/26/24 04:01:56: Gamepad button pressed: 32786
+05/26/24 04:01:56: Gamepad button pressed: 32786
+05/26/24 04:01:57: Gamepad button pressed: 32769
+05/26/24 04:01:58: Gamepad button pressed: 32785
+05/26/24 04:01:58: Gamepad button pressed: 32786
+05/26/24 04:01:59: Gamepad button pressed: 32785
+05/26/24 04:01:59: Gamepad button pressed: 32786
+05/26/24 04:02:01: Gamepad button pressed: 32771
+05/26/24 04:02:02: Gamepad button pressed: 32772
+05/26/24 04:02:02: Gamepad button pressed: 32770
+05/26/24 04:02:04: Gamepad button pressed: 32772
+05/26/24 04:02:04: Gamepad button pressed: 32770
+05/26/24 04:02:05: Gamepad button pressed: 32769
+05/26/24 04:02:29: Gamepad button pressed: 32771
+05/26/24 04:02:29: Gamepad button pressed: 32772
+05/26/24 04:02:30: Gamepad button pressed: 32770
+05/26/24 04:02:31: Gamepad button pressed: 32769
+05/26/24 04:02:33: Gamepad button pressed: 32770
+05/26/24 04:02:33: Gamepad button pressed: 32772
+05/26/24 04:02:34: Gamepad button pressed: 32771
+05/26/24 04:02:53: [Jay Arnold] the last 3 were buttons that werent triggering the verbs. 70 is circle, 72
+ is triangle 71 is square.
+05/26/24 04:02:55: Gamepad button pressed: 32773
+05/26/24 04:02:56: Gamepad button pressed: 32774
+05/26/24 04:03:06: [Jay Arnold] l1 is 73 and r2 is 74
+05/26/24 04:03:09: [Jay Arnold] good test
+05/26/24 04:03:32: [Jay Arnold] i wont test xbox right now because the controller cant be used by me
+ right now for unrelated reasons.
+05/26/24 04:03:46: [Jay Arnold] (my friend is using it for his other game)
+05/26/24 04:03:51: Saved Game
+05/26/24 04:03:51: Game saved and ending.
+
+== End: SessionLog_45438.38.txt.txt
+
+== Begin: SessionLog_45436.94.txt.txt
+05/24/24 17:32:24: Actions.txt not found. Starting with an empty actions map.
+05/24/24 17:37:57: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45436.94.txt.txt
+
+== Begin: SessionLog_45437.76.txt.txt
+05/25/24 13:08:02: Actions.txt not found. Starting with an empty actions map.
+05/25/24 13:09:34: No actions found.
+05/25/24 13:09:38: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 13:09:38: list_actions, jump_planet(, save_macros, return_controller, 
+05/25/24 13:09:38: set_variable(, list_variables, list_clients, execute_action(, 
+05/25/24 13:09:38: game_end(, show_variable(, save_actions, enable_heartbeat, 
+05/25/24 13:09:38: toggle_debug, chat_bubble(, list_commands, set_my_permission(, 
+05/25/24 13:09:38: toggle_server, toggle_log_debug, level_up(, add_action(, show_lines(
+05/25/24 13:09:53: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 13:13:59: Actions.txt not found. Starting with an empty actions map.
+05/25/24 13:16:02: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 13:16:02: list_actions, jump_planet(, save_macros, return_controller, 
+05/25/24 13:16:02: set_variable(, list_variables, list_clients, execute_action(, 
+05/25/24 13:16:02: game_end(, show_variable(, save_actions, enable_heartbeat, 
+05/25/24 13:16:02: toggle_debug, chat_bubble(, list_commands, set_my_permission(, 
+05/25/24 13:16:02: toggle_server, toggle_log_debug, level_up(, add_action(, show_lines(
+05/25/24 13:16:16: ControllerType: 4
+
+== End: SessionLog_45437.76.txt.txt
+
+== Begin: SessionLog_45438.07.txt.txt
+05/25/24 20:46:57: Actions.txt not found. Starting with an empty actions map.
+05/25/24 20:47:12: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 20:47:12: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 20:47:12: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 20:47:12: list_variables, return_controller, save_actions, save_game, 
+05/25/24 20:47:12: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 20:47:12: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 20:47:12: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 20:47:53: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 20:48:51: [Jay Arnold] i dont think thats right because the controller is off. but ill make sure
+ thats true before you try to fix anything about that
+05/25/24 20:49:25: ControllerType: 4
+05/25/24 20:49:52: Gamepad mapping: 030000007e0500000920000001000000,Nintendo Switch Pro Controller,platform:Mac OS X,
+05/25/24 20:54:18: Gamepad mapping: 030000007e0500000920000001000000,Nintendo Switch Pro Controller,platform:Mac OS X,
+05/25/24 20:54:40: Gamepad input display is now enabled.
+05/25/24 20:55:27: Gamepad input display is now disabled.
+05/25/24 20:56:03: Gamepad input display is now enabled.
+05/25/24 20:56:15: Gamepad input display is now disabled.
+05/25/24 20:57:41: [Jay Arnold] the switch pro controller is allowing me to move up and down in the 
+scroll of the chat box and up and down when selecting choices. This 
+means my switch is triggering the verbs that cause these actions. but 
+for some reason gamepad input display is not showing me anything in
+ the chat log when
+05/25/24 20:58:08: [Jay Arnold] i trigger an action successfully with the switch controller
+05/25/24 20:58:14: Saved Game
+05/25/24 20:58:14: Game saved and ending.
+
+== End: SessionLog_45438.07.txt.txt
+
+== Begin: SessionLog_45438.17.txt.txt
+05/25/24 23:04:03: Actions.txt not found. Starting with an empty actions map.
+05/25/24 23:05:19: Connected gamepad: PS5 Controller
+05/25/24 23:10:13: Actions.txt not found. Starting with an empty actions map.
+05/25/24 23:10:41: Connected gamepad: Xbox Wireless Controller
+05/25/24 23:10:50: [Jay Arnold] lets try with another controller and see if it works
+05/25/24 23:10:58: [Jay Arnold] i think i know where my issues are coming from.
+05/25/24 23:11:46: [Jay Arnold] i updated my mac os to the newest operating system and my 
+gamemaker as well. I noticed that there have been 1 new version of the
+ input extension since i last updated it, and theres even a beta for a 
+next version available
+05/25/24 23:12:28: [Jay Arnold] the xbox controller works ! it functions well, so that means theres 
+something wrong with the playstation functionality and possibly switch
+ controller aside from the xbox.
+05/25/24 23:13:01: ControllerType: 3
+05/25/24 23:13:17: [Jay Arnold] nice, even the button indicators are correct for xbox and every button
+ functions
+05/25/24 23:13:33: [Jay Arnold] ill turn on the toggle thing and press each button
+05/25/24 23:13:38: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 23:13:38: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 23:13:38: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 23:13:38: list_variables, return_controller, save_actions, save_game, 
+05/25/24 23:13:38: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 23:13:38: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 23:13:38: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 23:13:47: Gamepad input display is now enabled.
+05/25/24 23:13:53: Gamepad button pressed: 32769
+05/25/24 23:13:56: Gamepad button pressed: 32770
+05/25/24 23:13:57: Gamepad button pressed: 32772
+05/25/24 23:13:58: Gamepad button pressed: 32771
+05/25/24 23:13:59: Gamepad button pressed: 32774
+05/25/24 23:14:00: Gamepad button pressed: 32773
+05/25/24 23:14:01: Gamepad button pressed: 32776
+05/25/24 23:14:02: Gamepad button pressed: 32775
+05/25/24 23:14:02: Gamepad button pressed: 32776
+05/25/24 23:14:03: Gamepad button pressed: 32775
+05/25/24 23:14:03: Gamepad button pressed: 32775
+05/25/24 23:14:04: Gamepad button pressed: 32786
+05/25/24 23:14:05: Gamepad button pressed: 32785
+05/25/24 23:14:05: Gamepad button pressed: 32786
+05/25/24 23:14:06: Gamepad button pressed: 32785
+05/25/24 23:14:07: Gamepad button pressed: 32785
+05/25/24 23:14:07: Gamepad button pressed: 32785
+05/25/24 23:14:07: Gamepad button pressed: 32785
+05/25/24 23:14:07: Gamepad button pressed: 32786
+05/25/24 23:14:08: Gamepad button pressed: 32786
+05/25/24 23:14:08: Gamepad button pressed: 32786
+05/25/24 23:15:19: [Jay Arnold] some of the numbers are repeated. I believe the last ones were the 
+horizontal and vertical movement of the joystick. and theres another 
+value positive or negative that were not returning that indicates the 
+direction. I think!
+05/25/24 23:15:59: [Jay Arnold] i think its okay that we cant see this info. that was a good xbox test. ill
+ try swaping to ps5 without restarting the game. my button icons 
+should change. and we expect it to not function though.
+05/25/24 23:16:06: Connected gamepad: Xbox Wireless Controller
+05/25/24 23:16:21: No gamepad detected.
+05/25/24 23:16:42: [Jay Arnold] button icons are gone. good.
+05/25/24 23:17:50: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 23:18:22: [Jay Arnold] oops for some reason the switch controller connected
+05/25/24 23:18:30: [Jay Arnold] i disconnected it.
+05/25/24 23:18:33: No gamepad detected.
+05/25/24 23:19:11: Connected gamepad: PS5 Controller
+05/25/24 23:19:20: [Jay Arnold] cool the buttons changed
+05/25/24 23:19:22: Gamepad button pressed: 32786
+05/25/24 23:19:24: Gamepad button pressed: 32776
+05/25/24 23:19:24: Gamepad button pressed: 32775
+05/25/24 23:19:24: Gamepad button pressed: 32783
+05/25/24 23:19:24: Gamepad button pressed: 32782
+05/25/24 23:19:24: Gamepad button pressed: 32782
+05/25/24 23:19:24: Gamepad button pressed: 32783
+05/25/24 23:19:25: Gamepad button pressed: 32782
+05/25/24 23:19:25: Gamepad button pressed: 32784
+05/25/24 23:19:25: Gamepad button pressed: 32782
+05/25/24 23:19:25: Gamepad button pressed: 32784
+05/25/24 23:19:25: Gamepad button pressed: 32783
+05/25/24 23:19:25: Gamepad button pressed: 32780
+05/25/24 23:19:26: Gamepad button pressed: 32782
+05/25/24 23:19:30: Gamepad button pressed: 32781
+05/25/24 23:19:31: Gamepad button pressed: 32782
+05/25/24 23:19:40: [Jay Arnold] i can only scroll up and down with these buttons:
+05/25/24 23:19:42: Gamepad button pressed: 32781
+05/25/24 23:19:42: Gamepad button pressed: 32782
+05/25/24 23:20:04: [Jay Arnold] these buttons are not triggering the things they are supposed to but 
+were working fine on xbox:
+05/25/24 23:20:09: Gamepad button pressed: 32780
+05/25/24 23:20:12: Gamepad button pressed: 32776
+05/25/24 23:20:13: Gamepad button pressed: 32775
+05/25/24 23:20:17: Gamepad button pressed: 32776
+05/25/24 23:20:18: Gamepad button pressed: 32775
+05/25/24 23:20:19: Gamepad button pressed: 32780
+05/25/24 23:20:20: Gamepad button pressed: 32780
+05/25/24 23:20:21: Gamepad button pressed: 32780
+05/25/24 23:21:34: [Jay Arnold] 32780 is actually the only button that i could press that returned a 
+value and was a button that wasnt functioning. the other buttons i 
+pressed were not functioning and were not sending the message. the 
+32780 is the square button and normally it enables banishment of 
+choices in the levelup meu
+05/25/24 23:21:38: [Jay Arnold] menu. 
+05/25/24 23:22:46: [Jay Arnold] the triangle, circle, r1, and l1 buttons are doing anything at all. 
+Perhaps updating input will solve this. my os update is the only 
+explanation i can think of since you didnt (i think you didnt) modify any
+ code that would have changed the functionality. 
+05/25/24 23:22:50: [Jay Arnold] do you agree?
+05/25/24 23:22:56: Saved Game
+05/25/24 23:22:56: Game saved and ending.
+
+== End: SessionLog_45438.17.txt.txt
+
+== Begin: SessionLog_45436.85.txt.txt
+05/24/24 15:22:32: Actions.txt not found. Starting with an empty actions map.
+05/24/24 15:24:29: Saved Game
+05/24/24 15:25:04: Saved Game
+
+== End: SessionLog_45436.85.txt.txt
+
+== Begin: SessionLog_45436.95.txt.txt
+05/24/24 17:53:35: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45436.95.txt.txt
+
+== Begin: SessionLog_45437.15.txt.txt
+05/24/24 22:29:25: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.15.txt.txt
+
+== Begin: SessionLog_45437.77.txt.txt
+05/25/24 13:33:32: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.77.txt.txt
+
+== Begin: SessionLog_45438.16.txt.txt
+05/25/24 22:53:57: Actions.txt not found. Starting with an empty actions map.
+05/25/24 22:54:14: Connected gamepad: PS5 Controller
+
+== End: SessionLog_45438.16.txt.txt
+
+== Begin: SessionLog_45438.06.txt.txt
+05/25/24 20:20:33: Actions.txt not found. Starting with an empty actions map.
+05/25/24 20:20:48: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 20:20:48: list_actions, jump_planet(, save_macros, toggle_input_display, 
+05/25/24 20:20:48: return_controller, set_variable(, show_gamepad_mapping, 
+05/25/24 20:20:48: list_variables, list_clients, execute_action(, game_end(, 
+05/25/24 20:20:48: show_variable(, save_actions, enable_heartbeat, toggle_debug, 
+05/25/24 20:20:48: chat_bubble(, list_commands, set_my_permission(, toggle_server, 
+05/25/24 20:20:48: toggle_log_debug, level_up(, add_action(, show_lines(
+05/25/24 20:21:03: [Jay Arnold] good job. this means you understand my code well. 
+05/25/24 20:21:11: [Jay Arnold] Now try to sort it alphabetically!
+05/25/24 20:21:19: Saved Game
+05/25/24 20:21:19: Game saved and ending.
+05/25/24 20:25:02: Actions.txt not found. Starting with an empty actions map.
+05/25/24 20:30:04: Actions.txt not found. Starting with an empty actions map.
+05/25/24 20:30:49: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 20:30:49: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 20:30:49: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 20:30:49: list_variables, return_controller, save_actions, save_game, 
+05/25/24 20:30:49: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 20:30:49: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 20:30:49: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 20:31:16: [Jay Arnold] good job. my friend  nick gives you a golf clap.
+05/25/24 20:31:26: Saved Game
+05/25/24 20:31:26: Game saved and ending.
+
+== End: SessionLog_45438.06.txt.txt
+
+== Begin: SessionLog_45439.19.txt.txt
+05/26/24 23:34:44: Actions.txt not found. Starting with an empty actions map.
+05/26/24 23:36:51: No actions found.
+05/26/24 23:36:54: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/26/24 23:36:54: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/26/24 23:36:54: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/26/24 23:36:54: list_variables, return_controller, save_actions, save_game, 
+05/26/24 23:36:54: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/26/24 23:36:54: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/26/24 23:36:54: toggle_input_display, toggle_log_debug, toggle_server
+05/26/24 23:37:22: No gamepad detected.
+05/26/24 23:37:43: Connected gamepad: PS5 Controller
+05/26/24 23:38:31: Gamepad input display is now enabled.
+05/26/24 23:39:24: Gamepad button pressed: 32786
+05/26/24 23:39:26: Gamepad button pressed: 32782
+05/26/24 23:39:27: Gamepad button pressed: 32784
+05/26/24 23:39:27: Gamepad button pressed: 32783
+05/26/24 23:39:28: Gamepad button pressed: 32781
+05/26/24 23:39:28: Gamepad button pressed: 32782
+05/26/24 23:39:29: Gamepad button pressed: 32770
+05/26/24 23:39:29: Gamepad button pressed: 32772
+05/26/24 23:39:29: Gamepad button pressed: 32771
+05/26/24 23:39:30: Gamepad button pressed: 32769
+05/26/24 23:39:30: Gamepad button pressed: 32770
+05/26/24 23:39:33: Gamepad button pressed: 32769
+05/26/24 23:39:34: Gamepad button pressed: 32771
+05/26/24 23:39:34: Gamepad button pressed: 32772
+05/26/24 23:39:34: Gamepad button pressed: 32770
+05/26/24 23:39:35: Gamepad button pressed: 32769
+05/26/24 23:39:38: Gamepad button pressed: 32785
+05/26/24 23:39:43: Gamepad button pressed: 32784
+05/26/24 23:39:49: Gamepad button pressed: 32770
+05/26/24 23:39:50: Gamepad button pressed: 32771
+05/26/24 23:39:50: Gamepad button pressed: 32769
+05/26/24 23:39:50: Gamepad button pressed: 32770
+05/26/24 23:39:50: Gamepad button pressed: 32773
+05/26/24 23:39:50: Gamepad button pressed: 32772
+05/26/24 23:39:51: Gamepad button pressed: 32770
+05/26/24 23:39:51: Gamepad button pressed: 32775
+05/26/24 23:39:51: Gamepad button pressed: 32770
+05/26/24 23:39:52: Gamepad button pressed: 32769
+05/26/24 23:39:52: Gamepad button pressed: 32776
+05/26/24 23:39:52: Gamepad button pressed: 32770
+05/26/24 23:39:52: Gamepad button pressed: 32775
+05/26/24 23:39:52: Gamepad button pressed: 32769
+05/26/24 23:39:52: Gamepad button pressed: 32776
+05/26/24 23:39:52: Gamepad button pressed: 32774
+05/26/24 23:39:52: Gamepad button pressed: 32770
+05/26/24 23:39:53: Gamepad button pressed: 32769
+05/26/24 23:39:53: Gamepad button pressed: 32775
+05/26/24 23:39:54: Gamepad button pressed: 32772
+05/26/24 23:39:55: Gamepad button pressed: 32771
+05/26/24 23:39:55: Gamepad button pressed: 32771
+05/26/24 23:39:56: Gamepad button pressed: 32772
+05/26/24 23:39:56: Gamepad button pressed: 32770
+05/26/24 23:39:58: Gamepad button pressed: 32775
+05/26/24 23:40:26: Gamepad button pressed: 32775
+05/26/24 23:40:26: Gamepad button pressed: 32775
+05/26/24 23:40:30: Gamepad button pressed: 32775
+05/26/24 23:40:56: Gamepad button pressed: 32775
+05/26/24 23:40:59: Gamepad button pressed: 32775
+05/26/24 23:42:35: Gamepad button pressed: 32775
+05/26/24 23:42:55: Gamepad button pressed: 32776
+05/26/24 23:42:57: Connected gamepad: Xbox Wireless Controller
+05/26/24 23:43:20: Gamepad button pressed: 32785
+05/26/24 23:43:20: Gamepad button pressed: 32786
+05/26/24 23:43:20: Gamepad button pressed: 32785
+05/26/24 23:43:20: Gamepad button pressed: 32786
+05/26/24 23:43:20: Gamepad button pressed: 32785
+05/26/24 23:43:21: Gamepad button pressed: 32786
+05/26/24 23:43:22: Gamepad button pressed: 32785
+
+== End: SessionLog_45439.19.txt.txt
+
+== Begin: SessionLog_45491.71.txt.txt
+07/18/24 11:57:47: Actions loaded successfully from Actions.txt.
+07/18/24 11:57:47: Action 'Lvl100': Command = level_up, Parameters = [ 100 ]
+07/18/24 11:57:47: Action 'HelloWorld': Command = chat_bubble, Parameters = [ """Hello World!"" ]
+
+== End: SessionLog_45491.71.txt.txt
+
+== Begin: SessionLog_45437.36.txt.txt
+05/25/24 03:33:54: Actions.txt not found. Starting with an empty actions map.
+05/25/24 03:38:10: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.36.txt.txt
+
+== Begin: SessionLog_45491.80.txt.txt
+07/18/24 14:19:11: Actions loaded successfully from Actions.txt.
+07/18/24 14:19:11: Action 'Lvl100': Command = level_up, Parameters = [ 100 ]
+07/18/24 14:19:11: Action 'HelloWorld': Command = chat_bubble, Parameters = [ """Hello World!"" ]
+07/18/24 14:20:27: Saved Game
+07/18/24 14:20:29: Saved Game
+
+== End: SessionLog_45491.80.txt.txt
+
+== Begin: SessionLog_45436.89.txt.txt
+05/24/24 16:17:47: Actions.txt not found. Starting with an empty actions map.
+05/24/24 16:26:12: Actions.txt not found. Starting with an empty actions map.
+05/24/24 16:26:28: ControllerType: 1
+05/24/24 16:27:40: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+05/24/24 16:27:40: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+05/24/24 16:27:40: ControllerType, Level
+05/24/24 16:29:23: BPM set to 115
+05/24/24 16:31:30: BPM set to 115
+05/24/24 16:31:48: BPM set to 150
+05/24/24 16:31:56: BPM set to 200
+05/24/24 16:32:03: BPM set to 400
+05/24/24 16:32:19: BPM set to 50
+05/24/24 16:36:48: Saved Game
+05/24/24 16:36:53: Saved Game
+05/24/24 16:37:31: ControllerType: 1
+
+== End: SessionLog_45436.89.txt.txt
+
+== Begin: SessionLog_45436.99.txt.txt
+05/24/24 18:43:39: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45436.99.txt.txt
+
+== Begin: SessionLog_45438.03.txt.txt
+05/25/24 19:39:14: Actions.txt not found. Starting with an empty actions map.
+05/25/24 19:42:57: Commands: 
+05/25/24 19:43:01: [Jay Arnold] 
+05/25/24 19:47:33: Actions.txt not found. Starting with an empty actions map.
+05/25/24 19:47:46: Commands: 
+05/25/24 19:49:24: Actions.txt not found. Starting with an empty actions map.
+05/25/24 19:49:35: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 19:49:35: list_actions, jump_planet(, save_macros, toggle_input_display, 
+05/25/24 19:49:35: return_controller, set_variable(, show_gamepad_mapping, 
+05/25/24 19:49:35: list_variables, list_clients, execute_action(, game_end(, 
+05/25/24 19:49:35: show_variable(, save_actions, enable_heartbeat, toggle_debug, 
+05/25/24 19:49:35: chat_bubble(, list_commands, set_my_permission(, toggle_server, 
+05/25/24 19:49:35: toggle_log_debug, level_up(, add_action(, show_lines(
+
+== End: SessionLog_45438.03.txt.txt
+
+== Begin: SessionLog_45438.13.txt.txt
+05/25/24 22:02:05: Actions.txt not found. Starting with an empty actions map.
+05/25/24 22:02:25: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 22:02:25: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 22:02:25: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 22:02:25: list_variables, return_controller, save_actions, save_game, 
+05/25/24 22:02:25: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 22:02:25: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 22:02:25: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 22:02:34: No gamepad detected.
+05/25/24 22:02:56: Connected gamepad: PS5 Controller
+05/25/24 22:03:08: Gamepad input display is now enabled.
+05/25/24 22:03:10: Gamepad button pressed: 32786
+05/25/24 22:03:10: Gamepad button pressed: 32786
+05/25/24 22:03:11: Gamepad button pressed: 32786
+05/25/24 22:03:11: Gamepad button pressed: 32786
+05/25/24 22:03:11: Gamepad button pressed: 32785
+05/25/24 22:03:13: Gamepad button pressed: 32781
+05/25/24 22:03:14: Gamepad button pressed: 32780
+05/25/24 22:03:14: Gamepad button pressed: 32782
+05/25/24 22:03:14: Gamepad button pressed: 32784
+05/25/24 22:03:15: Gamepad button pressed: 32781
+05/25/24 22:03:15: Gamepad button pressed: 32783
+05/25/24 22:03:17: Gamepad button pressed: 32776
+05/25/24 22:03:17: Gamepad button pressed: 32775
+05/25/24 22:03:18: Gamepad button pressed: 32776
+05/25/24 22:03:18: Gamepad button pressed: 32775
+05/25/24 22:03:18: Gamepad button pressed: 32776
+05/25/24 22:03:20: Gamepad button pressed: 32780
+05/25/24 22:03:21: Gamepad button pressed: 32780
+05/25/24 22:03:21: Gamepad button pressed: 32780
+05/25/24 22:04:08: [Jay Arnold] triangle, circle, x r1 and l1 are not sending gamepad button pressed 
+from what i can see, but i expect that they still function in my game 
+logic
+05/25/24 22:04:27: Gamepad button pressed: 32786
+05/25/24 22:04:27: Gamepad button pressed: 32786
+05/25/24 22:04:27: Gamepad button pressed: 32785
+05/25/24 22:04:27: Gamepad button pressed: 32786
+05/25/24 22:04:27: Gamepad button pressed: 32786
+05/25/24 22:04:28: Gamepad button pressed: 32786
+05/25/24 22:04:28: Gamepad button pressed: 32786
+05/25/24 22:04:28: Gamepad button pressed: 32786
+05/25/24 22:04:29: Gamepad button pressed: 32786
+05/25/24 22:04:30: Gamepad button pressed: 32782
+05/25/24 22:04:30: Gamepad button pressed: 32782
+05/25/24 22:04:31: Gamepad button pressed: 32782
+05/25/24 22:04:31: Gamepad button pressed: 32782
+05/25/24 22:04:31: Gamepad button pressed: 32786
+05/25/24 22:04:31: Gamepad button pressed: 32785
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32785
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32785
+05/25/24 22:04:50: Gamepad button pressed: 32776
+05/25/24 22:04:51: Gamepad button pressed: 32780
+05/25/24 22:04:54: Gamepad button pressed: 32780
+05/25/24 22:04:55: Gamepad button pressed: 32776
+05/25/24 22:04:55: Gamepad button pressed: 32785
+05/25/24 22:04:55: Gamepad button pressed: 32786
+05/25/24 22:04:56: Gamepad button pressed: 32785
+05/25/24 22:04:56: Gamepad button pressed: 32786
+05/25/24 22:04:56: Gamepad button pressed: 32786
+05/25/24 22:04:57: Gamepad button pressed: 32783
+05/25/24 22:04:57: Gamepad button pressed: 32775
+05/25/24 22:04:57: Gamepad button pressed: 32776
+05/25/24 22:04:57: Gamepad button pressed: 32775
+05/25/24 22:04:57: Gamepad button pressed: 32783
+05/25/24 22:04:57: Gamepad button pressed: 32784
+05/25/24 22:04:59: Gamepad button pressed: 32786
+05/25/24 22:04:59: Gamepad button pressed: 32785
+05/25/24 22:04:59: Gamepad button pressed: 32786
+05/25/24 22:05:00: Gamepad button pressed: 32785
+05/25/24 22:05:00: Gamepad button pressed: 32785
+05/25/24 22:05:00: Gamepad button pressed: 32786
+05/25/24 22:05:00: Gamepad button pressed: 32785
+05/25/24 22:05:00: Gamepad button pressed: 32785
+05/25/24 22:05:00: Gamepad button pressed: 32786
+05/25/24 22:05:00: Gamepad button pressed: 32787
+05/25/24 22:05:01: Gamepad button pressed: 32780
+05/25/24 22:05:02: Gamepad button pressed: 32780
+05/25/24 22:05:02: Gamepad button pressed: 32780
+05/25/24 22:05:02: Gamepad button pressed: 32780
+05/25/24 22:05:02: Gamepad button pressed: 32780
+05/25/24 22:05:03: Gamepad button pressed: 32780
+05/25/24 22:05:03: Gamepad button pressed: 32780
+05/25/24 22:05:39: [Jay Arnold] i can only move up and down with the thumbstick and i think its 
+because it wasnt connecteed when the game started
+05/25/24 22:05:51: [Jay Arnold] i bet if i look up the ControllerType it will be 1
+05/25/24 22:05:59: ControllerType: 1
+05/25/24 22:06:02: [Jay Arnold] yes! i am right
+05/25/24 22:07:04: [Jay Arnold] i need to check for the controller type more than just when the game
+ starts. when do you think would be a good time? maybe theres a way
+ to check for type when it detects a new controller? for now this is a 1
+ player game and the input system is designed to be able to handle 
+multiple controllers
+05/25/24 22:07:50: [Jay Arnold] on one system. perhaps we will be able to utilize that in the future for
+ multiplayer on the same screen, but for now just keep that in mind 
+when you see input extention related code. the default player id is "0".
+05/25/24 22:08:08: Saved Game
+05/25/24 22:08:08: Game saved and ending.
+
+== End: SessionLog_45438.13.txt.txt
+
+== Begin: SessionLog_45438.02.txt.txt
+05/25/24 19:31:33: Actions.txt not found. Starting with an empty actions map.
+05/25/24 19:31:47: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 19:31:47: list_actions, jump_planet(, save_macros, toggle_input_display, 
+05/25/24 19:31:47: return_controller, set_variable(, show_gamepad_mapping, 
+05/25/24 19:31:47: list_variables, list_clients, execute_action(, game_end(, 
+05/25/24 19:31:47: show_variable(, save_actions, enable_heartbeat, toggle_debug, 
+05/25/24 19:31:47: chat_bubble(, list_commands, set_my_permission(, toggle_server, 
+05/25/24 19:31:47: toggle_log_debug, level_up(, add_action(, show_lines(
+05/25/24 19:32:03: Connected gamepad: PS5 Controller
+05/25/24 19:32:18: Gamepad input display is now enabled.
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4130
+05/25/24 19:32:18: Gamepad button pressed: 4128
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4130
+05/25/24 19:32:18: Gamepad button pressed: 4129
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4161
+05/25/24 19:32:18: Gamepad button pressed: 4163
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:18: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4132
+05/25/24 19:32:19: Gamepad button pressed: 4129
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4190
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4102
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4121
+05/25/24 19:32:19: Gamepad button pressed: 4121
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4120
+05/25/24 19:32:19: Gamepad button pressed: 4144
+05/25/24 19:32:19: Gamepad button pressed: 4128
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4138
+05/25/24 19:32:20: Gamepad button pressed: 4138
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4138
+05/25/24 19:32:20: Gamepad button pressed: 4138
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4104
+05/25/24 19:32:20: Gamepad button pressed: 4132
+05/25/24 19:32:20: Gamepad button pressed: 4128
+05/25/24 19:32:21: Gamepad button pressed: 4144
+05/25/24 19:32:21: Gamepad button pressed: 4128
+05/25/24 19:32:21: Gamepad button pressed: 4144
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4121
+05/25/24 19:32:21: Gamepad button pressed: 4121
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4128
+05/25/24 19:32:21: Gamepad button pressed: 4144
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:21: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:22: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 30
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 4120
+05/25/24 19:32:23: Gamepad button pressed: 30
+05/25/24 19:32:23: Gamepad button pressed: 4121
+05/25/24 19:32:23: Gamepad button pressed: 4121
+05/25/24 19:32:23: Gamepad button pressed: 4121
+05/25/24 19:32:23: Gamepad button pressed: 4121
+05/25/24 19:32:23: Gamepad button pressed: 4121
+05/25/24 19:32:23: Gamepad button pressed: 4121
+05/25/24 19:32:23: Gamepad button pressed: 4121
+05/25/24 19:32:23: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 30
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 4121
+05/25/24 19:32:24: Gamepad button pressed: 30
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 31
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4146
+05/25/24 19:32:24: Gamepad button pressed: 4130
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:24: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 31
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 31
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 28
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 28
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 4120
+05/25/24 19:32:25: Gamepad button pressed: 28
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 29
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 29
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 33
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:26: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 33
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 35
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 34
+05/25/24 19:32:27: Gamepad button pressed: 4105
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 32
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:27: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:28: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:29: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4121
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:30: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4103
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:31: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4102
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4103
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4102
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4120
+05/25/24 19:32:32: Gamepad button pressed: 4103
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4102
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4103
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:33: Gamepad button pressed: 4121
+05/25/24 19:32:33: Gamepad button pressed: 4121
+05/25/24 19:32:33: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:34: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:35: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 29
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4130
+05/25/24 19:32:36: Gamepad button pressed: 4130
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 30
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:36: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 28
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 29
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 30
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 34
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4105
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 35
+05/25/24 19:32:37: Gamepad button pressed: 4106
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:37: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 33
+05/25/24 19:32:38: Gamepad button pressed: 4121
+05/25/24 19:32:38: Gamepad button pressed: 4121
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 32
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 33
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 30
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:38: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:39: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 28
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 31
+05/25/24 19:32:40: Gamepad button pressed: 30
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 32
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:40: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 29
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 32
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 31
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 33
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 30
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:41: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 37
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+05/25/24 19:32:42: Gamepad button pressed: 4120
+
+== End: SessionLog_45438.02.txt.txt
+
+== Begin: SessionLog_45437.01.txt.txt
+05/24/24 19:13:01: Actions.txt not found. Starting with an empty actions map.
+05/24/24 19:18:26: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.01.txt.txt
+
+== Begin: SessionLog_45437.37.txt.txt
+05/25/24 03:51:33: Actions.txt not found. Starting with an empty actions map.
+05/25/24 03:58:18: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.37.txt.txt
+
+== Begin: SessionLog_45491.81.txt.txt
+07/18/24 14:24:59: Actions loaded successfully from Actions.txt.
+07/18/24 14:24:59: No actions found in `global.actionDetails`.
+07/18/24 14:25:34: Action 'Level100' added successfully.
+07/18/24 14:25:45: Executing action: level_up("100")
+
+//GAME CRASHES
+
+//try again to save the actions.txt before the crash to see more information.
+
+07/18/24 14:31:27: Actions loaded successfully from Actions.txt.
+07/18/24 14:31:27: No actions found in `global.actionDetails`.
+07/18/24 14:33:01: Action 'Level100' added successfully.
+07/18/24 14:33:07: Actions: Level100, 
+07/18/24 14:33:15: Actions saved successfully to Actions.txt.
+07/18/24 14:33:24: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+07/18/24 14:33:24: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+07/18/24 14:33:24: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+07/18/24 14:33:25: list_variables, return_controller, save_actions, save_game, 
+07/18/24 14:33:25: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+07/18/24 14:33:25: show_lines(, show_variable(, show_wpm, toggle_debug, 
+07/18/24 14:33:25: toggle_input_display, toggle_log_debug, toggle_server
+07/18/24 14:33:45: Saved Game
+07/18/24 14:33:45: Game saved and ending.
+
+
+== End: SessionLog_45491.81.txt.txt
+
+== Begin: SessionLog_45436.98.txt.txt
+05/24/24 18:25:21: Actions.txt not found. Starting with an empty actions map.
+05/24/24 18:27:37: Actions.txt not found. Starting with an empty actions map.
+05/24/24 18:28:12: Unknown command: list_action type '/list_commands' to see all commands
+05/24/24 18:28:17: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/24/24 18:28:17: list_actions, jump_planet(, save_macros, return_controller, 
+05/24/24 18:28:17: set_variable(, list_variables, list_clients, execute_action(, 
+05/24/24 18:28:17: game_end(, show_variable(, save_actions, enable_heartbeat, 
+05/24/24 18:28:17: toggle_debug, chat_bubble(, list_commands, set_my_permission(, 
+05/24/24 18:28:17: toggle_server, toggle_log_debug, level_up(, add_action(, show_lines(
+05/24/24 18:28:23: Connected gamepad: Xbox Wireless Controller
+05/24/24 18:30:49: ControllerType: 1
+05/24/24 18:30:58: [Jay Arnold] 
+
+== End: SessionLog_45436.98.txt.txt
+
+== Begin: SessionLog_45436.88.txt.txt
+05/24/24 16:09:04: Actions.txt not found. Starting with an empty actions map.
+05/24/24 16:09:22: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+05/24/24 16:09:22: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+05/24/24 16:09:22: ControllerType, Level
+
+== End: SessionLog_45436.88.txt.txt
+
+== Begin: SessionLog_45437.85.txt.txt
+05/25/24 15:19:54: Actions.txt not found. Starting with an empty actions map.
+05/25/24 15:22:32: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.85.txt.txt
+
+== Begin: SessionLog_45437.13.txt.txt
+05/24/24 22:11:10: Actions.txt not found. Starting with an empty actions map.
+05/24/24 22:11:33: Action 'MegaLevel' added successfully.
+05/24/24 22:11:35: [Jay Arnold] 
+05/24/24 22:14:31: Saved Game
+05/24/24 22:14:49: Saved Game
+05/24/24 22:15:40: Saved Game
+05/24/24 22:15:54: Saved Game
+05/24/24 22:17:30: Saved Game
+05/24/24 22:17:34: Saved Game
+
+== End: SessionLog_45437.13.txt.txt
+
+== Begin: SessionLog_45437.03.txt.txt
+05/24/24 19:36:29: Actions.txt not found. Starting with an empty actions map.
+05/24/24 19:42:03: Actions.txt not found. Starting with an empty actions map.
+05/24/24 19:45:32: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45437.03.txt.txt
+
+== Begin: SessionLog_45436.93.txt.txt
+05/24/24 17:13:11: Actions.txt not found. Starting with an empty actions map.
+05/24/24 17:13:41: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/24/24 17:13:41: list_actions, jump_planet(, save_macros, return_controller, 
+05/24/24 17:13:41: set_variable(, list_variables, list_clients, execute_action(, 
+05/24/24 17:13:41: game_end(, show_variable(, save_actions, enable_heartbeat, 
+05/24/24 17:13:41: toggle_debug, chat_bubble(, list_commands, set_my_permission(, 
+05/24/24 17:13:41: toggle_server, toggle_log_debug, level_up(, add_action(, show_lines(
+05/24/24 17:14:06: Connected gamepad: PS5 Controller
+05/24/24 17:18:26: Actions.txt not found. Starting with an empty actions map.
+05/24/24 17:18:41: Connected gamepad: PS5 Controller
+05/24/24 17:18:48: ControllerType: 2
+05/24/24 17:19:54: Macro1 set to 50
+05/24/24 17:20:20: Macro2 set to 75
+05/24/24 17:20:26: Macros saved to Macros.txt
+05/24/24 17:20:52: Unknown command:  type '/list_commands' to see all commands
+05/24/24 17:20:54: [Jay Arnold] fdgsfg
+05/24/24 17:21:21: Macro2 set to 50
+05/24/24 17:21:31: Macro1 set to 60
+05/24/24 17:21:38: Macro1 set to 75
+05/24/24 17:21:55: Macro2 set to 50
+05/24/24 17:21:59: Unknown command: set_variable(Macro2,45 type '/list_commands' to see all commands
+05/24/24 17:22:02: Macro2 set to 45
+05/24/24 17:22:07: Macro2 set to 40
+05/24/24 17:22:13: Macro2 set to 30
+05/24/24 17:22:26: Macro1 set to -60
+05/24/24 17:22:31: Macro1 set to -75
+05/24/24 17:22:34: Macro1 set to -85
+05/24/24 17:22:53: Macros saved to Macros.txt
+
+== End: SessionLog_45436.93.txt.txt
+
+== Begin: SessionLog_45465.73.txt.txt
+06/22/24 12:31:45: Actions loaded successfully from Actions.txt.
+06/22/24 12:31:45: Action 'Lvl100': Command = level_up, Parameters = [ 100 ]
+06/22/24 12:31:45: Action 'HelloWorld': Command = chat_bubble, Parameters = [ """Hello World!"" ]
+06/22/24 12:32:18: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+06/22/24 12:32:18: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+06/22/24 12:32:18: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+06/22/24 12:32:18: list_variables, return_controller, save_actions, save_game, 
+06/22/24 12:32:18: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+06/22/24 12:32:18: show_lines(, show_variable(, show_wpm, toggle_debug, 
+06/22/24 12:32:18: toggle_input_display, toggle_log_debug, toggle_server
+06/22/24 12:32:37: Level up initiated with goal: 50
+06/22/24 12:32:51: [Jay Arnold] hi
+06/22/24 12:32:56: [Jay Arnold] oerijfhbasdokfbasdkfbadsklfbsdl fdaskjf asdkfj asdkfn adsknf asdknbf
+ asdknf asdkfb asdknbf adsknf asdkj
+06/22/24 12:34:11: Action 'lvl200' added successfully.
+06/22/24 12:34:19: Executing action: level_up(200)
+06/22/24 12:34:19: Level up initiated with goal: 200
+06/22/24 12:34:31: Executing action: level_up(200)
+06/22/24 12:34:31: Level up initiated with goal: 200
+
+== End: SessionLog_45465.73.txt.txt
+
+== Begin: SessionLog_45491.77.txt.txt
+07/18/24 13:23:55: Actions loaded successfully from Actions.txt.
+07/18/24 13:23:55: Action 'Lvl100': Command = level_up, Parameters = [ 100 ]
+07/18/24 13:23:55: Action 'HelloWorld': Command = chat_bubble, Parameters = [ """Hello World!"" ]
+07/18/24 13:24:33: Action 'Lev1' added successfully.
+07/18/24 13:24:42: Executing action: level_up(100)
+07/18/24 13:24:42: Level up initiated with goal: 100
+
+== End: SessionLog_45491.77.txt.txt
+
+== Begin: SessionLog_45453.07.txt.txt
+06/09/24 20:43:51: Actions.txt not found. Starting with an empty actions map.
+
+== End: SessionLog_45453.07.txt.txt
 
 == Begin: SessionLog_45453.16.txt.txt
 06/09/24 22:53:39: Actions.txt not found. Starting with an empty actions map.
@@ -46,6 +1759,96 @@ HelloWorld,chat_bubble,[ ""Hello World!" ] // it appears to not have saved the s
 06/09/24 22:59:30: Game saved and ending.
 
 == End: SessionLog_45453.16.txt.txt
+
+== Begin: SessionLog_45438.11.txt.txt
+05/25/24 21:37:46: Actions.txt not found. Starting with an empty actions map.
+05/25/24 21:37:59: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 21:37:59: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 21:37:59: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 21:37:59: list_variables, return_controller, save_actions, save_game, 
+05/25/24 21:37:59: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 21:37:59: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 21:37:59: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 21:38:06: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 21:38:26: Gamepad input display is now enabled.
+05/25/24 21:38:41: Gamepad input display is now disabled.
+05/25/24 21:39:50: [Jay Arnold] i had the switch and ps5 both connected on accident
+05/25/24 21:40:11: [Jay Arnold] it didnt detect any controls from the switch remote this time. but thats
+ probably why
+05/25/24 21:40:20: [Jay Arnold] i turned off the ps5 and try again
+05/25/24 21:40:22: Gamepad input display is now enabled.
+05/25/24 21:40:28: [Jay Arnold] no effect
+05/25/24 21:40:30: Gamepad input display is now disabled.
+05/25/24 21:40:37: [Jay Arnold] ill try just the ps5 now
+05/25/24 21:40:46: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 21:40:54: No gamepad detected.
+05/25/24 21:41:22: Connected gamepad: PS5 Controller
+05/25/24 21:41:28: Gamepad input display is now enabled.
+
+== End: SessionLog_45438.11.txt.txt
+
+== Begin: SessionLog_45438.01.txt.txt
+05/25/24 19:11:00: Actions.txt not found. Starting with an empty actions map.
+05/25/24 19:11:14: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 19:11:14: list_actions, jump_planet(, save_macros, toggle_input_display, 
+05/25/24 19:11:14: return_controller, set_variable(, list_variables, list_clients, 
+05/25/24 19:11:14: execute_action(, game_end(, show_variable(, save_actions, 
+05/25/24 19:11:14: enable_heartbeat, toggle_debug, chat_bubble(, list_commands, 
+05/25/24 19:11:14: set_my_permission(, toggle_server, toggle_log_debug, level_up(, 
+05/25/24 19:11:14: add_action(, show_lines(
+05/25/24 19:11:21: Connected gamepad: PS5 Controller
+05/25/24 19:11:47: Gamepad input display is now enabled.
+05/25/24 19:17:06: Actions.txt not found. Starting with an empty actions map.
+05/25/24 19:17:20: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 19:17:20: list_actions, jump_planet(, save_macros, toggle_input_display, 
+05/25/24 19:17:20: return_controller, set_variable(, list_variables, list_clients, 
+05/25/24 19:17:20: execute_action(, game_end(, show_variable(, save_actions, 
+05/25/24 19:17:20: enable_heartbeat, toggle_debug, chat_bubble(, list_commands, 
+05/25/24 19:17:20: set_my_permission(, toggle_server, toggle_log_debug, level_up(, 
+05/25/24 19:17:20: add_action(, show_lines(
+05/25/24 19:18:04: Gamepad input display is now enabled.
+05/25/24 19:18:06: Gamepad button pressed: 32786
+05/25/24 19:18:06: Gamepad button pressed: 32785
+05/25/24 19:18:06: Gamepad button pressed: 32785
+05/25/24 19:18:18: Gamepad button pressed: 32784
+05/25/24 19:18:20: Gamepad button pressed: 32782
+05/25/24 19:18:20: Gamepad button pressed: 32784
+05/25/24 19:18:21: Gamepad button pressed: 32784
+05/25/24 19:18:21: Gamepad button pressed: 32782
+05/25/24 19:18:23: Gamepad button pressed: 32783
+05/25/24 19:18:23: Gamepad button pressed: 32781
+05/25/24 19:18:24: Gamepad button pressed: 32782
+05/25/24 19:18:24: Gamepad button pressed: 32782
+05/25/24 19:18:24: Gamepad button pressed: 32782
+05/25/24 19:18:25: Gamepad button pressed: 32784
+05/25/24 19:18:25: Gamepad button pressed: 32784
+05/25/24 19:18:27: Gamepad button pressed: 32780
+05/25/24 19:18:27: Gamepad button pressed: 32780
+05/25/24 19:18:31: Gamepad button pressed: 32780
+05/25/24 19:18:33: Gamepad button pressed: 32776
+05/25/24 19:18:33: Gamepad button pressed: 32775
+05/25/24 19:18:33: Gamepad button pressed: 32776
+05/25/24 19:18:34: Gamepad button pressed: 32776
+05/25/24 19:18:35: Gamepad button pressed: 32776
+05/25/24 19:18:36: Gamepad button pressed: 32776
+05/25/24 19:18:36: Gamepad button pressed: 32775
+05/25/24 19:18:36: Gamepad button pressed: 32775
+05/25/24 19:18:36: Gamepad button pressed: 32775
+05/25/24 19:18:38: Gamepad button pressed: 32776
+05/25/24 19:18:38: Gamepad button pressed: 32775
+05/25/24 19:18:39: Gamepad button pressed: 32776
+05/25/24 19:18:39: Gamepad button pressed: 32776
+
+== End: SessionLog_45438.01.txt.txt
+
+== Begin: SessionLog_45437.12.txt.txt
+05/24/24 21:51:33: Actions.txt not found. Starting with an empty actions map.
+05/24/24 21:58:53: Actions.txt not found. Starting with an empty actions map.
+05/24/24 22:05:39: Action 'MegaLevel' added successfully.
+05/24/24 22:05:52: Executing action: level_up(100)
+05/24/24 22:05:52: Level up initiated with goal: 100
+
+== End: SessionLog_45437.12.txt.txt
 
 == Begin: SessionLog_45453.16.txt.txt
 06/09/24 22:53:39: Actions.txt not found. Starting with an empty actions map.

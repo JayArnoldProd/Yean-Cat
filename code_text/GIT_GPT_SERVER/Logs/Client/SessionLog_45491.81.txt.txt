@@ -1,0 +1,24 @@
+07/18/24 14:24:59: Actions loaded successfully from Actions.txt.
+07/18/24 14:24:59: No actions found in `global.actionDetails`.
+07/18/24 14:25:34: Action 'Level100' added successfully.
+07/18/24 14:25:45: Executing action: level_up("100")
+
+//GAME CRASHES
+
+//try again to save the actions.txt before the crash to see more information.
+
+07/18/24 14:31:27: Actions loaded successfully from Actions.txt.
+07/18/24 14:31:27: No actions found in `global.actionDetails`.
+07/18/24 14:33:01: Action 'Level100' added successfully.
+07/18/24 14:33:07: Actions: Level100, 
+07/18/24 14:33:15: Actions saved successfully to Actions.txt.
+07/18/24 14:33:24: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+07/18/24 14:33:24: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+07/18/24 14:33:24: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+07/18/24 14:33:25: list_variables, return_controller, save_actions, save_game, 
+07/18/24 14:33:25: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+07/18/24 14:33:25: show_lines(, show_variable(, show_wpm, toggle_debug, 
+07/18/24 14:33:25: toggle_input_display, toggle_log_debug, toggle_server
+07/18/24 14:33:45: Saved Game
+07/18/24 14:33:45: Game saved and ending.
+

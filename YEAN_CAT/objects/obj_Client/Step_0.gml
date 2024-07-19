@@ -1,5 +1,10 @@
 /// Step Event of obj_Client
 
+//create mouse if it doesnt exist and using keyboard and mouse
+if !instance_exists(obj_Cursor) and (global.control_type!=1) { 
+	instance_create_depth(mouse_x,mouse_y,-1000000,obj_Cursor);
+}
+
 // Set current font and heartbeat rate
 global.heartbeatBPM = global.current_bpm;
 fnt_chat = master.font_array[fnt_chat_id, 1];

@@ -1,0 +1,104 @@
+05/25/24 23:04:03: Actions.txt not found. Starting with an empty actions map.
+05/25/24 23:05:19: Connected gamepad: PS5 Controller
+05/25/24 23:10:13: Actions.txt not found. Starting with an empty actions map.
+05/25/24 23:10:41: Connected gamepad: Xbox Wireless Controller
+05/25/24 23:10:50: [Jay Arnold] lets try with another controller and see if it works
+05/25/24 23:10:58: [Jay Arnold] i think i know where my issues are coming from.
+05/25/24 23:11:46: [Jay Arnold] i updated my mac os to the newest operating system and my 
+gamemaker as well. I noticed that there have been 1 new version of the
+ input extension since i last updated it, and theres even a beta for a 
+next version available
+05/25/24 23:12:28: [Jay Arnold] the xbox controller works ! it functions well, so that means theres 
+something wrong with the playstation functionality and possibly switch
+ controller aside from the xbox.
+05/25/24 23:13:01: ControllerType: 3
+05/25/24 23:13:17: [Jay Arnold] nice, even the button indicators are correct for xbox and every button
+ functions
+05/25/24 23:13:33: [Jay Arnold] ill turn on the toggle thing and press each button
+05/25/24 23:13:38: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 23:13:38: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 23:13:38: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 23:13:38: list_variables, return_controller, save_actions, save_game, 
+05/25/24 23:13:38: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 23:13:38: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 23:13:38: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 23:13:47: Gamepad input display is now enabled.
+05/25/24 23:13:53: Gamepad button pressed: 32769
+05/25/24 23:13:56: Gamepad button pressed: 32770
+05/25/24 23:13:57: Gamepad button pressed: 32772
+05/25/24 23:13:58: Gamepad button pressed: 32771
+05/25/24 23:13:59: Gamepad button pressed: 32774
+05/25/24 23:14:00: Gamepad button pressed: 32773
+05/25/24 23:14:01: Gamepad button pressed: 32776
+05/25/24 23:14:02: Gamepad button pressed: 32775
+05/25/24 23:14:02: Gamepad button pressed: 32776
+05/25/24 23:14:03: Gamepad button pressed: 32775
+05/25/24 23:14:03: Gamepad button pressed: 32775
+05/25/24 23:14:04: Gamepad button pressed: 32786
+05/25/24 23:14:05: Gamepad button pressed: 32785
+05/25/24 23:14:05: Gamepad button pressed: 32786
+05/25/24 23:14:06: Gamepad button pressed: 32785
+05/25/24 23:14:07: Gamepad button pressed: 32785
+05/25/24 23:14:07: Gamepad button pressed: 32785
+05/25/24 23:14:07: Gamepad button pressed: 32785
+05/25/24 23:14:07: Gamepad button pressed: 32786
+05/25/24 23:14:08: Gamepad button pressed: 32786
+05/25/24 23:14:08: Gamepad button pressed: 32786
+05/25/24 23:15:19: [Jay Arnold] some of the numbers are repeated. I believe the last ones were the 
+horizontal and vertical movement of the joystick. and theres another 
+value positive or negative that were not returning that indicates the 
+direction. I think!
+05/25/24 23:15:59: [Jay Arnold] i think its okay that we cant see this info. that was a good xbox test. ill
+ try swaping to ps5 without restarting the game. my button icons 
+should change. and we expect it to not function though.
+05/25/24 23:16:06: Connected gamepad: Xbox Wireless Controller
+05/25/24 23:16:21: No gamepad detected.
+05/25/24 23:16:42: [Jay Arnold] button icons are gone. good.
+05/25/24 23:17:50: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 23:18:22: [Jay Arnold] oops for some reason the switch controller connected
+05/25/24 23:18:30: [Jay Arnold] i disconnected it.
+05/25/24 23:18:33: No gamepad detected.
+05/25/24 23:19:11: Connected gamepad: PS5 Controller
+05/25/24 23:19:20: [Jay Arnold] cool the buttons changed
+05/25/24 23:19:22: Gamepad button pressed: 32786
+05/25/24 23:19:24: Gamepad button pressed: 32776
+05/25/24 23:19:24: Gamepad button pressed: 32775
+05/25/24 23:19:24: Gamepad button pressed: 32783
+05/25/24 23:19:24: Gamepad button pressed: 32782
+05/25/24 23:19:24: Gamepad button pressed: 32782
+05/25/24 23:19:24: Gamepad button pressed: 32783
+05/25/24 23:19:25: Gamepad button pressed: 32782
+05/25/24 23:19:25: Gamepad button pressed: 32784
+05/25/24 23:19:25: Gamepad button pressed: 32782
+05/25/24 23:19:25: Gamepad button pressed: 32784
+05/25/24 23:19:25: Gamepad button pressed: 32783
+05/25/24 23:19:25: Gamepad button pressed: 32780
+05/25/24 23:19:26: Gamepad button pressed: 32782
+05/25/24 23:19:30: Gamepad button pressed: 32781
+05/25/24 23:19:31: Gamepad button pressed: 32782
+05/25/24 23:19:40: [Jay Arnold] i can only scroll up and down with these buttons:
+05/25/24 23:19:42: Gamepad button pressed: 32781
+05/25/24 23:19:42: Gamepad button pressed: 32782
+05/25/24 23:20:04: [Jay Arnold] these buttons are not triggering the things they are supposed to but 
+were working fine on xbox:
+05/25/24 23:20:09: Gamepad button pressed: 32780
+05/25/24 23:20:12: Gamepad button pressed: 32776
+05/25/24 23:20:13: Gamepad button pressed: 32775
+05/25/24 23:20:17: Gamepad button pressed: 32776
+05/25/24 23:20:18: Gamepad button pressed: 32775
+05/25/24 23:20:19: Gamepad button pressed: 32780
+05/25/24 23:20:20: Gamepad button pressed: 32780
+05/25/24 23:20:21: Gamepad button pressed: 32780
+05/25/24 23:21:34: [Jay Arnold] 32780 is actually the only button that i could press that returned a 
+value and was a button that wasnt functioning. the other buttons i 
+pressed were not functioning and were not sending the message. the 
+32780 is the square button and normally it enables banishment of 
+choices in the levelup meu
+05/25/24 23:21:38: [Jay Arnold] menu. 
+05/25/24 23:22:46: [Jay Arnold] the triangle, circle, r1, and l1 buttons are doing anything at all. 
+Perhaps updating input will solve this. my os update is the only 
+explanation i can think of since you didnt (i think you didnt) modify any
+ code that would have changed the functionality. 
+05/25/24 23:22:50: [Jay Arnold] do you agree?
+05/25/24 23:22:56: Saved Game
+05/25/24 23:22:56: Game saved and ending.

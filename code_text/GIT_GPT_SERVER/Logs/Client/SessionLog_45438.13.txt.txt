@@ -1,0 +1,102 @@
+05/25/24 22:02:05: Actions.txt not found. Starting with an empty actions map.
+05/25/24 22:02:25: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 22:02:25: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 22:02:25: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 22:02:25: list_variables, return_controller, save_actions, save_game, 
+05/25/24 22:02:25: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 22:02:25: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 22:02:25: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 22:02:34: No gamepad detected.
+05/25/24 22:02:56: Connected gamepad: PS5 Controller
+05/25/24 22:03:08: Gamepad input display is now enabled.
+05/25/24 22:03:10: Gamepad button pressed: 32786
+05/25/24 22:03:10: Gamepad button pressed: 32786
+05/25/24 22:03:11: Gamepad button pressed: 32786
+05/25/24 22:03:11: Gamepad button pressed: 32786
+05/25/24 22:03:11: Gamepad button pressed: 32785
+05/25/24 22:03:13: Gamepad button pressed: 32781
+05/25/24 22:03:14: Gamepad button pressed: 32780
+05/25/24 22:03:14: Gamepad button pressed: 32782
+05/25/24 22:03:14: Gamepad button pressed: 32784
+05/25/24 22:03:15: Gamepad button pressed: 32781
+05/25/24 22:03:15: Gamepad button pressed: 32783
+05/25/24 22:03:17: Gamepad button pressed: 32776
+05/25/24 22:03:17: Gamepad button pressed: 32775
+05/25/24 22:03:18: Gamepad button pressed: 32776
+05/25/24 22:03:18: Gamepad button pressed: 32775
+05/25/24 22:03:18: Gamepad button pressed: 32776
+05/25/24 22:03:20: Gamepad button pressed: 32780
+05/25/24 22:03:21: Gamepad button pressed: 32780
+05/25/24 22:03:21: Gamepad button pressed: 32780
+05/25/24 22:04:08: [Jay Arnold] triangle, circle, x r1 and l1 are not sending gamepad button pressed 
+from what i can see, but i expect that they still function in my game 
+logic
+05/25/24 22:04:27: Gamepad button pressed: 32786
+05/25/24 22:04:27: Gamepad button pressed: 32786
+05/25/24 22:04:27: Gamepad button pressed: 32785
+05/25/24 22:04:27: Gamepad button pressed: 32786
+05/25/24 22:04:27: Gamepad button pressed: 32786
+05/25/24 22:04:28: Gamepad button pressed: 32786
+05/25/24 22:04:28: Gamepad button pressed: 32786
+05/25/24 22:04:28: Gamepad button pressed: 32786
+05/25/24 22:04:29: Gamepad button pressed: 32786
+05/25/24 22:04:30: Gamepad button pressed: 32782
+05/25/24 22:04:30: Gamepad button pressed: 32782
+05/25/24 22:04:31: Gamepad button pressed: 32782
+05/25/24 22:04:31: Gamepad button pressed: 32782
+05/25/24 22:04:31: Gamepad button pressed: 32786
+05/25/24 22:04:31: Gamepad button pressed: 32785
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32785
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32786
+05/25/24 22:04:32: Gamepad button pressed: 32785
+05/25/24 22:04:50: Gamepad button pressed: 32776
+05/25/24 22:04:51: Gamepad button pressed: 32780
+05/25/24 22:04:54: Gamepad button pressed: 32780
+05/25/24 22:04:55: Gamepad button pressed: 32776
+05/25/24 22:04:55: Gamepad button pressed: 32785
+05/25/24 22:04:55: Gamepad button pressed: 32786
+05/25/24 22:04:56: Gamepad button pressed: 32785
+05/25/24 22:04:56: Gamepad button pressed: 32786
+05/25/24 22:04:56: Gamepad button pressed: 32786
+05/25/24 22:04:57: Gamepad button pressed: 32783
+05/25/24 22:04:57: Gamepad button pressed: 32775
+05/25/24 22:04:57: Gamepad button pressed: 32776
+05/25/24 22:04:57: Gamepad button pressed: 32775
+05/25/24 22:04:57: Gamepad button pressed: 32783
+05/25/24 22:04:57: Gamepad button pressed: 32784
+05/25/24 22:04:59: Gamepad button pressed: 32786
+05/25/24 22:04:59: Gamepad button pressed: 32785
+05/25/24 22:04:59: Gamepad button pressed: 32786
+05/25/24 22:05:00: Gamepad button pressed: 32785
+05/25/24 22:05:00: Gamepad button pressed: 32785
+05/25/24 22:05:00: Gamepad button pressed: 32786
+05/25/24 22:05:00: Gamepad button pressed: 32785
+05/25/24 22:05:00: Gamepad button pressed: 32785
+05/25/24 22:05:00: Gamepad button pressed: 32786
+05/25/24 22:05:00: Gamepad button pressed: 32787
+05/25/24 22:05:01: Gamepad button pressed: 32780
+05/25/24 22:05:02: Gamepad button pressed: 32780
+05/25/24 22:05:02: Gamepad button pressed: 32780
+05/25/24 22:05:02: Gamepad button pressed: 32780
+05/25/24 22:05:02: Gamepad button pressed: 32780
+05/25/24 22:05:03: Gamepad button pressed: 32780
+05/25/24 22:05:03: Gamepad button pressed: 32780
+05/25/24 22:05:39: [Jay Arnold] i can only move up and down with the thumbstick and i think its 
+because it wasnt connecteed when the game started
+05/25/24 22:05:51: [Jay Arnold] i bet if i look up the ControllerType it will be 1
+05/25/24 22:05:59: ControllerType: 1
+05/25/24 22:06:02: [Jay Arnold] yes! i am right
+05/25/24 22:07:04: [Jay Arnold] i need to check for the controller type more than just when the game
+ starts. when do you think would be a good time? maybe theres a way
+ to check for type when it detects a new controller? for now this is a 1
+ player game and the input system is designed to be able to handle 
+multiple controllers
+05/25/24 22:07:50: [Jay Arnold] on one system. perhaps we will be able to utilize that in the future for
+ multiplayer on the same screen, but for now just keep that in mind 
+when you see input extention related code. the default player id is "0".
+05/25/24 22:08:08: Saved Game
+05/25/24 22:08:08: Game saved and ending.

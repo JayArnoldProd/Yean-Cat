@@ -1,0 +1,23 @@
+05/25/24 21:37:46: Actions.txt not found. Starting with an empty actions map.
+05/25/24 21:37:59: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 21:37:59: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 21:37:59: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 21:37:59: list_variables, return_controller, save_actions, save_game, 
+05/25/24 21:37:59: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 21:37:59: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 21:37:59: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 21:38:06: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 21:38:26: Gamepad input display is now enabled.
+05/25/24 21:38:41: Gamepad input display is now disabled.
+05/25/24 21:39:50: [Jay Arnold] i had the switch and ps5 both connected on accident
+05/25/24 21:40:11: [Jay Arnold] it didnt detect any controls from the switch remote this time. but thats
+ probably why
+05/25/24 21:40:20: [Jay Arnold] i turned off the ps5 and try again
+05/25/24 21:40:22: Gamepad input display is now enabled.
+05/25/24 21:40:28: [Jay Arnold] no effect
+05/25/24 21:40:30: Gamepad input display is now disabled.
+05/25/24 21:40:37: [Jay Arnold] ill try just the ps5 now
+05/25/24 21:40:46: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 21:40:54: No gamepad detected.
+05/25/24 21:41:22: Connected gamepad: PS5 Controller
+05/25/24 21:41:28: Gamepad input display is now enabled.

@@ -1,0 +1,31 @@
+05/24/24 15:48:24: Actions.txt not found. Starting with an empty actions map.
+05/24/24 15:48:47: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+05/24/24 15:48:47: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+05/24/24 15:48:47: ControllerType, Level
+05/24/24 15:48:52: Unknown command: show type '/list_commands' to see all commands
+05/24/24 15:57:10: Actions.txt not found. Starting with an empty actions map.
+//I typed /show_variable(ControllerType)
+05/24/24 16:02:07: Error: Variable 'ControllerType' does not exist.
+05/24/24 16:02:14: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+05/24/24 16:02:14: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+05/24/24 16:02:14: ControllerType, Level
+//you might need to consider that its a global variable. Each variable is assigned an owner (master/global/any object/etc).
+
+Here are my add variables
+
+add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
+add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
+add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 1000, [], [], "Social");
+add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro4", "macro4", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro5", "macro5", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro6", "macro6", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro7", "macro7", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro8", "macro8", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro9", "macro9", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro10", "macro10", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 99999999, [], [], "Global");

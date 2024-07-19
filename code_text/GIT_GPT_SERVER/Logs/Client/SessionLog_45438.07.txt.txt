@@ -1,0 +1,26 @@
+05/25/24 20:46:57: Actions.txt not found. Starting with an empty actions map.
+05/25/24 20:47:12: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/25/24 20:47:12: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/25/24 20:47:12: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/25/24 20:47:12: list_variables, return_controller, save_actions, save_game, 
+05/25/24 20:47:12: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/25/24 20:47:12: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/25/24 20:47:12: toggle_input_display, toggle_log_debug, toggle_server
+05/25/24 20:47:53: Connected gamepad: Nintendo Switch Pro Controller
+05/25/24 20:48:51: [Jay Arnold] i dont think thats right because the controller is off. but ill make sure
+ thats true before you try to fix anything about that
+05/25/24 20:49:25: ControllerType: 4
+05/25/24 20:49:52: Gamepad mapping: 030000007e0500000920000001000000,Nintendo Switch Pro Controller,platform:Mac OS X,
+05/25/24 20:54:18: Gamepad mapping: 030000007e0500000920000001000000,Nintendo Switch Pro Controller,platform:Mac OS X,
+05/25/24 20:54:40: Gamepad input display is now enabled.
+05/25/24 20:55:27: Gamepad input display is now disabled.
+05/25/24 20:56:03: Gamepad input display is now enabled.
+05/25/24 20:56:15: Gamepad input display is now disabled.
+05/25/24 20:57:41: [Jay Arnold] the switch pro controller is allowing me to move up and down in the 
+scroll of the chat box and up and down when selecting choices. This 
+means my switch is triggering the verbs that cause these actions. but 
+for some reason gamepad input display is not showing me anything in
+ the chat log when
+05/25/24 20:58:08: [Jay Arnold] i trigger an action successfully with the switch controller
+05/25/24 20:58:14: Saved Game
+05/25/24 20:58:14: Game saved and ending.

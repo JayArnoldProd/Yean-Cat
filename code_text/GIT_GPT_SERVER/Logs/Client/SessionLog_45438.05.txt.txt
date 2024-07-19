@@ -1,0 +1,18 @@
+05/25/24 20:13:41: Actions.txt not found. Starting with an empty actions map.
+05/25/24 20:14:12: [Jay Arnold] okay we will now test the attempt to list the commands 
+unalphabetically
+05/25/24 20:14:19: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/25/24 20:14:19: Commands: list_actions, jump_planet(, save_macros, 
+05/25/24 20:14:19: Commands: toggle_input_display, return_controller, set_variable(, 
+05/25/24 20:14:19: Commands: show_gamepad_mapping, list_variables, list_clients, 
+05/25/24 20:14:19: Commands: execute_action(, game_end(, show_variable(, save_actions, 
+05/25/24 20:14:19: Commands: enable_heartbeat, toggle_debug, chat_bubble(, 
+05/25/24 20:14:19: Commands: list_commands, set_my_permission(, toggle_server, 
+05/25/24 20:14:19: Commands: toggle_log_debug, level_up(, add_action(, show_lines(
+05/25/24 20:14:41: [Jay Arnold] not bad, though it has the word "Commands:" way too many times
+05/25/24 20:15:12: [Jay Arnold] i think the old code would only say "Commands: " once and it would 
+wrap appropriately within the bounds.
+05/25/24 20:15:25: [Jay Arnold] this is a good step forward. it doesnt crash
+05/25/24 20:16:02: [Jay Arnold] lets resolve both issues at the same time as they may be related.
+05/25/24 20:16:20: Saved Game
+05/25/24 20:16:20: Game saved and ending.

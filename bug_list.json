@@ -15,7 +15,7 @@
       "steps_to_reproduce": [
         "Step 1: Attempt to add an action using a command with multiple arguments.",
         "Step 2: If it saves, then attempt to execute it, if it doesnt save, that is a fail.",
-        "Step 3: Execute the action, and see Error: Owner object 'undefined' not found.",
+        "Step 3: Execute the action, and see Error: Owner object 'undefined' not found."
       ],
       "resolution": [
         "Expected fix: Ensure that multiple arguments are detected using commas within the brackets and that they are properly parsed into the command when using execute_action."
@@ -33,7 +33,8 @@
         "execute_command",
         "update_chat_input_visuals",
         "parse_data_types",
-        "parse_arguments"
+        "parse_arguments",
+        "execute_action"
       ]
     },
   {

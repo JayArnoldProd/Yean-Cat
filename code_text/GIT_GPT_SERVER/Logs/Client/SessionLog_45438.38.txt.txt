@@ -1,0 +1,48 @@
+05/26/24 04:00:07: Actions.txt not found. Starting with an empty actions map.
+05/26/24 04:00:30: Connected gamepad: PS5 Controller
+05/26/24 04:00:38: [Jay Arnold] i updated the input extension
+05/26/24 04:00:45: [Jay Arnold] lets see if ps5 works functionally now
+05/26/24 04:01:33: [Jay Arnold] well i can use the left thumbstick and the x button now
+05/26/24 04:01:40: [Jay Arnold] i think thats an improvement
+05/26/24 04:01:44: Commands: add_action(, chat_bubble(, disable_heartbeat, 
+05/26/24 04:01:44: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+05/26/24 04:01:44: jump_planet(, level_up(, list_actions, list_clients, list_commands, 
+05/26/24 04:01:44: list_variables, return_controller, save_actions, save_game, 
+05/26/24 04:01:44: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, 
+05/26/24 04:01:44: show_lines(, show_variable(, show_wpm, toggle_debug, 
+05/26/24 04:01:44: toggle_input_display, toggle_log_debug, toggle_server
+05/26/24 04:01:50: Gamepad input display is now enabled.
+05/26/24 04:01:54: Gamepad button pressed: 32775
+05/26/24 04:01:54: Gamepad button pressed: 32773
+05/26/24 04:01:55: Gamepad button pressed: 32786
+05/26/24 04:01:56: Gamepad button pressed: 32786
+05/26/24 04:01:56: Gamepad button pressed: 32786
+05/26/24 04:01:57: Gamepad button pressed: 32769
+05/26/24 04:01:58: Gamepad button pressed: 32785
+05/26/24 04:01:58: Gamepad button pressed: 32786
+05/26/24 04:01:59: Gamepad button pressed: 32785
+05/26/24 04:01:59: Gamepad button pressed: 32786
+05/26/24 04:02:01: Gamepad button pressed: 32771
+05/26/24 04:02:02: Gamepad button pressed: 32772
+05/26/24 04:02:02: Gamepad button pressed: 32770
+05/26/24 04:02:04: Gamepad button pressed: 32772
+05/26/24 04:02:04: Gamepad button pressed: 32770
+05/26/24 04:02:05: Gamepad button pressed: 32769
+05/26/24 04:02:29: Gamepad button pressed: 32771
+05/26/24 04:02:29: Gamepad button pressed: 32772
+05/26/24 04:02:30: Gamepad button pressed: 32770
+05/26/24 04:02:31: Gamepad button pressed: 32769
+05/26/24 04:02:33: Gamepad button pressed: 32770
+05/26/24 04:02:33: Gamepad button pressed: 32772
+05/26/24 04:02:34: Gamepad button pressed: 32771
+05/26/24 04:02:53: [Jay Arnold] the last 3 were buttons that werent triggering the verbs. 70 is circle, 72
+ is triangle 71 is square.
+05/26/24 04:02:55: Gamepad button pressed: 32773
+05/26/24 04:02:56: Gamepad button pressed: 32774
+05/26/24 04:03:06: [Jay Arnold] l1 is 73 and r2 is 74
+05/26/24 04:03:09: [Jay Arnold] good test
+05/26/24 04:03:32: [Jay Arnold] i wont test xbox right now because the controller cant be used by me
+ right now for unrelated reasons.
+05/26/24 04:03:46: [Jay Arnold] (my friend is using it for his other game)
+05/26/24 04:03:51: Saved Game
+05/26/24 04:03:51: Game saved and ending.

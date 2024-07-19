@@ -1,0 +1,28 @@
+05/24/24 17:13:11: Actions.txt not found. Starting with an empty actions map.
+05/24/24 17:13:41: Commands: disable_heartbeat, show_wpm, goto_planet(, save_game, 
+05/24/24 17:13:41: list_actions, jump_planet(, save_macros, return_controller, 
+05/24/24 17:13:41: set_variable(, list_variables, list_clients, execute_action(, 
+05/24/24 17:13:41: game_end(, show_variable(, save_actions, enable_heartbeat, 
+05/24/24 17:13:41: toggle_debug, chat_bubble(, list_commands, set_my_permission(, 
+05/24/24 17:13:41: toggle_server, toggle_log_debug, level_up(, add_action(, show_lines(
+05/24/24 17:14:06: Connected gamepad: PS5 Controller
+05/24/24 17:18:26: Actions.txt not found. Starting with an empty actions map.
+05/24/24 17:18:41: Connected gamepad: PS5 Controller
+05/24/24 17:18:48: ControllerType: 2
+05/24/24 17:19:54: Macro1 set to 50
+05/24/24 17:20:20: Macro2 set to 75
+05/24/24 17:20:26: Macros saved to Macros.txt
+05/24/24 17:20:52: Unknown command:  type '/list_commands' to see all commands
+05/24/24 17:20:54: [Jay Arnold] fdgsfg
+05/24/24 17:21:21: Macro2 set to 50
+05/24/24 17:21:31: Macro1 set to 60
+05/24/24 17:21:38: Macro1 set to 75
+05/24/24 17:21:55: Macro2 set to 50
+05/24/24 17:21:59: Unknown command: set_variable(Macro2,45 type '/list_commands' to see all commands
+05/24/24 17:22:02: Macro2 set to 45
+05/24/24 17:22:07: Macro2 set to 40
+05/24/24 17:22:13: Macro2 set to 30
+05/24/24 17:22:26: Macro1 set to -60
+05/24/24 17:22:31: Macro1 set to -75
+05/24/24 17:22:34: Macro1 set to -85
+05/24/24 17:22:53: Macros saved to Macros.txt
