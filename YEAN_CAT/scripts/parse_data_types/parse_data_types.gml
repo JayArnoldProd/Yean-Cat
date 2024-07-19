@@ -21,10 +21,7 @@ function parse_data_types(argumentsArray) {
     return parsedArray;
 }
 
-
-
-
-
+//old code
 //// Function to convert string arguments into their appropriate data types
 //function parse_data_types(arguments) {
 //    var parsedArguments = [];

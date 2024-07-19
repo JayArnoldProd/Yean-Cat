@@ -1,54 +1,7 @@
 GIT_GPT_SERVER
 ├── Logs
 │   ├── Client
-│   │   ├── SessionLog_45436.85.txt
-│   │   ├── SessionLog_45436.87.txt
-│   │   ├── SessionLog_45436.88.txt
-│   │   ├── SessionLog_45436.89.txt
-│   │   ├── SessionLog_45436.93.txt
-│   │   ├── SessionLog_45436.94.txt
-│   │   ├── SessionLog_45436.95.txt
-│   │   ├── SessionLog_45436.97.txt
-│   │   ├── SessionLog_45436.98.txt
-│   │   ├── SessionLog_45436.99.txt
-│   │   ├── SessionLog_45437.01.txt
-│   │   ├── SessionLog_45437.03.txt
-│   │   ├── SessionLog_45437.12.txt
-│   │   ├── SessionLog_45437.13.txt
-│   │   ├── SessionLog_45437.15.txt
-│   │   ├── SessionLog_45437.36.txt
-│   │   ├── SessionLog_45437.37.txt
-│   │   ├── SessionLog_45437.38.txt
-│   │   ├── SessionLog_45437.39.txt
-│   │   ├── SessionLog_45437.76.txt
-│   │   ├── SessionLog_45437.77.txt
-│   │   ├── SessionLog_45437.85.txt
-│   │   ├── SessionLog_45437.88.txt
-│   │   ├── SessionLog_45437.89.txt
-│   │   ├── SessionLog_45437.99.txt
-│   │   ├── SessionLog_45438.01.txt
-│   │   ├── SessionLog_45438.02.txt
-│   │   ├── SessionLog_45438.03.txt
-│   │   ├── SessionLog_45438.04.txt
-│   │   ├── SessionLog_45438.05.txt
-│   │   ├── SessionLog_45438.06.txt
-│   │   ├── SessionLog_45438.07.txt
-│   │   ├── SessionLog_45438.11.txt
-│   │   ├── SessionLog_45438.13.txt
-│   │   ├── SessionLog_45438.14.txt
-│   │   ├── SessionLog_45438.16.txt
-│   │   ├── SessionLog_45438.17.txt
-│   │   ├── SessionLog_45438.38.txt
-│   │   ├── SessionLog_45439.19.txt
-│   │   ├── SessionLog_45450.51.txt
-│   │   ├── SessionLog_45453.07.txt
-│   │   ├── SessionLog_45453.16.txt
-│   │   ├── SessionLog_45459.11.txt
-│   │   ├── SessionLog_45465.73.txt
-│   │   ├── SessionLog_45491.71.txt
-│   │   ├── SessionLog_45491.77.txt
-│   │   ├── SessionLog_45491.80.txt
-│   │   ├── SessionLog_45491.81.txt
+│   │   ├── SessionLog_45492.14.txt
 │   │   └── server_logs.json
 │   ├── GIT_GPT
 │   └── Server
@@ -117,4 +70,4 @@ GIT_GPT_SERVER
     ├── pinecone_operations.py
     └── sanatize_logs.py
 
-14 directories, 104 files
+14 directories, 57 files

@@ -5,20 +5,20 @@
       "source": "YEAN_CAT",
       "priority": "high",
       "status": "open",
-      "date_reported": "2024-06-16",
+      "date_reported": "2024-07-16",
       "reported_by": "Jay Arnold",
       "assigned_to": "Dev Team",
       "generation": "2",
       "related_logs": [
-        "SessionLog_45453.16"
+        "SessionLog_45492.14"
       ],
       "steps_to_reproduce": [
         "Step 1: Attempt to add an action using a command with multiple arguments.",
         "Step 2: If it saves, then attempt to execute it, if it doesnt save, that is a fail.",
-        "Step 3: Execute the action, and see Error: Owner object 'undefined' not found."
+        "Step 3: Execute the action. Executing is confirmed to work and loading works as well. saving or adding is the expected bug."
       ],
       "resolution": [
-        "Expected fix: Ensure that multiple arguments are detected using commas within the brackets and that they are properly parsed into the command when using execute_action."
+        "Expected fix: i believe that adding the action is not working correctly and therefore it isnt being saved correctly when using 2 or more arguments in an action."
       ],
       "related_features": [
         "No related features"
@@ -28,6 +28,7 @@
       ],
       "related_scripts": [
         "scr_add_action",
+        "save_actions",
         "scr_execute_action",
         "handleDebugMessage",
         "execute_command",

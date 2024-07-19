@@ -42,6 +42,45 @@ add_variable("Macro10", "macro10", 1, global, "real", -99999999, 99999999, [], [
 add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 99999999, [], [], "Global");
 == End: SessionLog_45436.87.txt.txt
 
+== Begin: SessionLog_45492.14.txt.txt
+07/18/24 22:06:51: Actions.txt not found. Starting with an empty actions map.
+07/18/24 22:08:21: Executing command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
+07/18/24 22:08:21: Processed command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
+07/18/24 22:08:21: Adding action: Hello, Command: chat_bubble, Parameters: ["Hello World!"
+07/18/24 22:08:21: Checking for command: chat_bubble(
+07/18/24 22:08:21: Parameters after processing: [ "Hello World!" ]
+07/18/24 22:08:21: Action 'Hello' added successfully.
+07/18/24 22:08:21: Actions saved successfully to Actions.txt.
+07/18/24 22:08:41: Executing command: add_action(Level100,level_up,[100])
+07/18/24 22:08:41: Processed command: add_action(Level100,level_up,[100])
+07/18/24 22:08:41: Adding action: Level100, Command: level_up, Parameters: [100]
+07/18/24 22:08:41: Checking for command: level_up(
+07/18/24 22:08:41: Parameters after processing: [ 100 ]
+07/18/24 22:08:41: Action 'Level100' added successfully.
+07/18/24 22:08:41: Actions saved successfully to Actions.txt. 
+//Actions.txt:
+Hello,chat_bubble,"Hello World!"
+Level100,level_up,100
+
+07/18/24 22:09:00: [Jay Arnold] not quite :/
+07/18/24 22:11:30: Executing command: chat_bubble("Hello World!","yeancat")
+07/18/24 22:11:30: Processed command: chat_bubble("Hello World!","yeancat")
+07/18/24 22:11:30: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
+07/18/24 22:11:57: [Jay Arnold] at least i can do that. but lets try and fix the add_action and find
+ out why its not saving multiple arguments!    I did a second test after manually changing the actions.txt to the desired result: Hello,chat_bubble,"Hello World!","yeancat"
+Level100,level_up,100  and then restarting the game and trying to execute the action! This should be useful information as well.  07/18/24 22:16:16: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/18/24 22:16:16: Loaded action: Level100, Command: level_up, Parameters: [ 100 ]
+07/18/24 22:16:16: Actions loaded successfully from Actions.txt.
+07/18/24 22:16:16: Action 'Hello': Command = chat_bubble, Parameters = [ "Hello World!","yeancat" ]
+07/18/24 22:16:16: Action 'Level100': Command = level_up, Parameters = [ 100 ]
+07/18/24 22:16:36: Executing command: execute_action(Hello)
+07/18/24 22:16:36: Processed command: execute_action(Hello)
+07/18/24 22:16:36: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
+07/18/24 22:16:59: [Jay Arnold] awesome! that worked! so the only thing that needs fixing is the 
+saving of the action or the adding of it!
+
+== End: SessionLog_45492.14.txt.txt
+
 == Begin: server_logs.json.txt
 {"SessionLog_45453.16.txt":"06/09/24 22:53:39: Actions.txt not found. Starting with an empty actions map.\n06/09/24 22:54:26: [Jay Arnold] Hello World!\n06/09/24 22:54:37: [Jay Arnold] I will now demonstrate how the add action is not working\n06/09/24 22:54:59: Action 'Lvl100' added successfully.\n06/09/24 22:55:08: Executing action: level_up(100)\n06/09/24 22:55:08: Level up initiated with goal: 100\n06/09/24 22:55:18: [Jay Arnold] see? that works beautifully\n06/09/24 22:55:22: Actions: Lvl100, \n06/09/24 22:55:37: [Jay Arnold] now what if i try /chat_bubble\n06/09/24 22:55:50: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'\n06/09/24 22:56:08: [Jay Arnold] the command works when executing normally, lets try and make it \ninto an action\n06/09/24 22:56:50: Action 'HelloWorld' added successfully.\n06/09/24 22:56:54: Actions: Lvl100, HelloWorld, \n06/09/24 22:56:58: Actions saved successfully to Actions.txt.\n06/09/24 22:57:15: [Jay Arnold] i will insert what the Actions.txt contains here:\n\nLvl100,level_up,[ 100 ]\nHelloWorld,chat_bubble,[ \"\"Hello World!\" ] // it appears to not have saved the second argument!\n\n06/09/24 22:57:39: Executing action: chat_bubble(\"Hello World!)\n06/09/24 22:57:39: Error: Owner object 'undefined' not found\n06/09/24 22:57:52: [Jay Arnold] See! an error!\n06/09/24 22:59:08: [Jay Arnold] I will now end the test. but first heres a list of all my commands i can\n use so far. We just need to fix this bug involving the actions and then\n we can make many cool systems that use our action system.\n06/09/24 22:59:15: Commands: add_action(, chat_bubble(, disable_heartbeat, \n06/09/24 22:59:15: enable_heartbeat, execute_action(, game_end(, goto_planet(, \n06/09/24 22:59:15: jump_planet(, level_up(, list_actions, list_clients, list_commands, \n06/09/24 22:59:15: list_variables, return_controller, save_actions, save_game, \n06/09/24 22:59:15: save_macros, set_my_permission(, set_variable(, show_gamepad_mapping, \n06/09/24 22:59:15: show_lines(, show_variable(, show_wpm, toggle_debug, \n06/09/24 22:59:15: toggle_input_display, toggle_log_debug, toggle_server\n06/09/24 22:59:30: Saved Game\n06/09/24 22:59:30: Game saved and ending.\n"}
 
