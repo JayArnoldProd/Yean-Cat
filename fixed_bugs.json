@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Action_Bug1",
+    "description": "In the in-game Dev Console, unable to save actions of commands that require more than one argument! My command add_action() can create and save an action for commands that require 0 or 1 arguments but not ones that require 2 or more. For example, /add_action(LVL100,level_up,[100]) will work, but /add_action(Hello,chat_bubble,[Hello World,yeancat]) does not work.",
+    "source": "YEAN_CAT",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-16",
+    "reported_by": "Jay Arnold",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45492.14"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Attempt to add an action using a command with multiple arguments.",
+      "Step 2: If it saves, then attempt to execute it, if it doesnt save, that is a fail.",
+      "Step 3: Execute the action. Executing is confirmed to work and loading works as well. saving or adding is the expected bug."
+    ],
+    "resolution": [
+      "Expected fix: i believe that adding the action is not working correctly and therefore it isnt being saved correctly when using 2 or more arguments in an action."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "scr_add_action",
+      "save_actions",
+      "scr_execute_action",
+      "handleDebugMessage",
+      "execute_command",
+      "update_chat_input_visuals",
+      "parse_data_types",
+      "parse_arguments",
+      "execute_action"
+    ]
+  }
+]

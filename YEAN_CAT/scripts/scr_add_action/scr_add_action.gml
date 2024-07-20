@@ -22,15 +22,18 @@ function scr_add_action(argument0, argument1, argument2) {
     // Ensure parameters is an array
     if (!is_array(parameters)) {
         parameters = [parameters];
+    } else if (array_length(parameters) == 1 && is_string(parameters[0])) {
+        // If it's a single string that looks like an array, split it
+        var paramString = string_replace_all(parameters[0], "[", "");
+        paramString = string_replace_all(paramString, "]", "");
+        parameters = string_split(paramString, ",");
     }
     
     // Process each parameter
     for (var i = 0; i < array_length(parameters); i++) {
         var param = parameters[i];
-        // Remove brackets and quotes if present
+        // Remove quotes if present
         if (is_string(param)) {
-            param = string_replace_all(param, "[", "");
-            param = string_replace_all(param, "]", "");
             param = string_replace_all(param, "\"", "");
             param = string_trim(param);
             // Convert to number if it's a valid number

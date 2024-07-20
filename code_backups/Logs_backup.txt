@@ -43,32 +43,7 @@ add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 999
 == End: SessionLog_45436.87.txt.txt
 
 == Begin: SessionLog_45492.14.txt.txt
-07/18/24 22:06:51: Actions.txt not found. Starting with an empty actions map.
-07/18/24 22:08:21: Executing command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
-07/18/24 22:08:21: Processed command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
-07/18/24 22:08:21: Adding action: Hello, Command: chat_bubble, Parameters: ["Hello World!"
-07/18/24 22:08:21: Checking for command: chat_bubble(
-07/18/24 22:08:21: Parameters after processing: [ "Hello World!" ]
-07/18/24 22:08:21: Action 'Hello' added successfully.
-07/18/24 22:08:21: Actions saved successfully to Actions.txt.
-07/18/24 22:08:41: Executing command: add_action(Level100,level_up,[100])
-07/18/24 22:08:41: Processed command: add_action(Level100,level_up,[100])
-07/18/24 22:08:41: Adding action: Level100, Command: level_up, Parameters: [100]
-07/18/24 22:08:41: Checking for command: level_up(
-07/18/24 22:08:41: Parameters after processing: [ 100 ]
-07/18/24 22:08:41: Action 'Level100' added successfully.
-07/18/24 22:08:41: Actions saved successfully to Actions.txt. 
-//Actions.txt:
-Hello,chat_bubble,"Hello World!"
-Level100,level_up,100
-
-07/18/24 22:09:00: [Jay Arnold] not quite :/
-07/18/24 22:11:30: Executing command: chat_bubble("Hello World!","yeancat")
-07/18/24 22:11:30: Processed command: chat_bubble("Hello World!","yeancat")
-07/18/24 22:11:30: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
-07/18/24 22:11:57: [Jay Arnold] at least i can do that. but lets try and fix the add_action and find
- out why its not saving multiple arguments!    I did a second test after manually changing the actions.txt to the desired result: Hello,chat_bubble,"Hello World!","yeancat"
-Level100,level_up,100  and then restarting the game and trying to execute the action! This should be useful information as well.  07/18/24 22:16:16: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/18/24 22:16:16: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
 07/18/24 22:16:16: Loaded action: Level100, Command: level_up, Parameters: [ 100 ]
 07/18/24 22:16:16: Actions loaded successfully from Actions.txt.
 07/18/24 22:16:16: Action 'Hello': Command = chat_bubble, Parameters = [ "Hello World!","yeancat" ]
@@ -244,6 +219,41 @@ for (var i = gp_face1; i < gp_axisrv; i++) {
 05/25/24 16:13:13: Actions.txt not found. Starting with an empty actions map.
 
 == End: SessionLog_45437.88.txt.txt
+
+== Begin: SessionLog_45492.33.txt.txt
+07/19/24 03:00:14: Actions.txt not found. Starting with an empty actions map.
+07/19/24 03:00:48: Executing command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
+07/19/24 03:00:48: Processed command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
+07/19/24 03:00:48: Adding action: Hello, Command: chat_bubble, Parameters: [ ""Hello World!"",""yeancat"" ]
+07/19/24 03:00:48: Checking for command: chat_bubble(
+07/19/24 03:00:48: Parameters after processing: [ "Hello World!","yeancat" ]
+07/19/24 03:00:48: Action 'Hello' added successfully.
+07/19/24 03:00:48: Actions saved successfully to Actions.txt.
+07/19/24 03:01:08: Executing command: add_action(Level100,level_up,[100])
+07/19/24 03:01:08: Processed command: add_action(Level100,level_up,[100])
+07/19/24 03:01:08: Adding action: Level100, Command: level_up, Parameters: [ "100" ]
+07/19/24 03:01:08: Checking for command: level_up(
+07/19/24 03:01:08: Parameters after processing: [ 100 ]
+07/19/24 03:01:08: Action 'Level100' added successfully.
+07/19/24 03:01:08: Actions saved successfully to Actions.txt.
+07/19/24 03:01:30: Executing command: execute_action(Hello)
+07/19/24 03:01:30: Processed command: execute_action(Hello)
+07/19/24 03:01:30: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
+07/19/24 03:01:33: [Jay Arnold] IT WORKS!
+07/19/24 03:02:00: [Jay Arnold] 
+/execute_action(Level100)
+07/19/24 03:02:08: Executing command: execute_action(Level100)
+07/19/24 03:02:08: Processed command: execute_action(Level100)
+07/19/24 03:02:08: Level up initiated with goal: 100
+07/19/24 03:02:21: [Jay Arnold] nice!
+07/19/24 03:02:57: [Jay Arnold] on to the next thing. i will mark this bug as resolved! it might come up
+ again as we test other commands with more and more arguments 
+and variable types but for now this is perfect!
+07/19/24 03:03:56: Executing command: execute_action(Hello)
+07/19/24 03:03:56: Processed command: execute_action(Hello)
+07/19/24 03:03:56: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
+
+== End: SessionLog_45492.33.txt.txt
 
 == Begin: SessionLog_45437.99.txt.txt
 05/25/24 18:43:50: Actions.txt not found. Starting with an empty actions map.
@@ -654,6 +664,18 @@ explanation i can think of since you didnt (i think you didnt) modify any
 05/25/24 03:38:10: Actions.txt not found. Starting with an empty actions map.
 
 == End: SessionLog_45437.36.txt.txt
+
+== Begin: SessionLog_45492.25.txt.txt
+07/19/24 00:58:15: Actions.txt not found. Starting with an empty actions map.
+07/19/24 00:58:34: Executing command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
+07/19/24 00:58:34: Processed command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
+07/19/24 00:58:34: Adding action: Hello, Command: chat_bubble, Parameters: ["Hello World!"
+07/19/24 00:58:34: Checking for command: chat_bubble(
+07/19/24 00:58:34: Parameters after processing: [ "[Hello World!" ]
+07/19/24 00:58:34: Action 'Hello' added successfully.
+07/19/24 00:58:34: Actions saved successfully to Actions.txt.
+
+== End: SessionLog_45492.25.txt.txt
 
 == Begin: SessionLog_45491.80.txt.txt
 07/18/24 14:19:11: Actions loaded successfully from Actions.txt.

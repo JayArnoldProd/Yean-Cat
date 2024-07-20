@@ -156,5 +156,54 @@
     "related_scripts": [
       "No related scripts"
     ]
+  },
+  {
+    "name": "Chat_Bubbles_with_Choices",
+    "description": "Implement customizable chat bubbles with 2-4 selectable choices, allowing for branching dialogues and multiple action triggers per choice.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-19",
+    "planned_by": "Jay Arnold",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "related_logs": [
+      "No related logs"
+    ],
+    "implementation_steps": [
+      "Step 1: Design the obj_chat_bubble_choice object based on existing obj_chat_bubble.",
+      "Step 2: Implement scr_choice_bubble script to handle choice creation and layout.",
+      "Step 3: Develop the /choice_bubble command parser.",
+      "Step 4: Implement action triggering system for choices.",
+      "Step 5: Create UI layout for 2-4 choices (2 rows if 3+ choices).",
+      "Step 6: Integrate with existing chat bubble system.",
+      "Step 7: Test with various scenarios (2-4 choices",
+      " multiple actions",
+      " branching)."
+    ],
+    "expected_outcome": [
+      "Expected outcome: A fully functional chat bubble system with clickable choices",
+      " supporting branching dialogues and multiple action triggers per choice."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "obj_chat_bubble",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "get_longest_word_width",
+      "drawTextWithOutline",
+      "scr_chat_bubble",
+      "scr_add_action",
+      "save_actions",
+      "scr_execute_action",
+      "handleDebugMessage",
+      "execute_command",
+      "update_chat_input_visuals",
+      "parse_data_types",
+      "parse_arguments"
+    ]
   }
 ]

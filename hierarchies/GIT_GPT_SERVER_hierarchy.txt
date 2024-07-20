@@ -2,6 +2,8 @@ GIT_GPT_SERVER
 ├── Logs
 │   ├── Client
 │   │   ├── SessionLog_45492.14.txt
+│   │   ├── SessionLog_45492.25.txt
+│   │   ├── SessionLog_45492.33.txt
 │   │   └── server_logs.json
 │   ├── GIT_GPT
 │   └── Server
@@ -45,6 +47,7 @@ GIT_GPT_SERVER
 │   ├── display_entry.sh
 │   ├── force_push.sh
 │   ├── gather_bug_information.sh
+│   ├── gather_feature_information.sh
 │   ├── generate_hierarchy.sh
 │   ├── get_config.py
 │   ├── last_words.sh
@@ -70,4 +73,4 @@ GIT_GPT_SERVER
     ├── pinecone_operations.py
     └── sanatize_logs.py
 
-14 directories, 57 files
+14 directories, 60 files

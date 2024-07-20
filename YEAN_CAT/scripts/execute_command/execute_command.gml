@@ -11,7 +11,27 @@ function execute_command(command) {
 
     handleDebugMessage("Processed command: " + command, true);
 
-    if (string_pos("execute_action(", command) == 1) {
+    if (string_pos("add_action(", command) == 1) {
+        var startParen = string_pos("(", command);
+        var endParen = string_last_pos(")", command);
+        if (startParen > 0 && endParen > startParen) {
+            var argsString = string_copy(command, startParen + 1, endParen - startParen - 1);
+            var args = string_split(argsString, ",");
+            if (array_length(args) >= 3) {
+                var actionName = string_trim(args[0]);
+                var actionCommand = string_trim(args[1]);
+                var actionParams = string_join_ext(",", args, 2);
+                actionParams = string_replace_all(actionParams, "[", "");
+                actionParams = string_replace_all(actionParams, "]", "");
+                var paramArray = string_split(actionParams, ",");
+                for (var i = 0; i < array_length(paramArray); i++) {
+                    paramArray[i] = string_trim(paramArray[i]);
+                }
+                scr_add_action(actionName, actionCommand, paramArray);
+                return;
+            }
+        }
+    } else if (string_pos("execute_action(", command) == 1) {
         var actionName = string_replace(command, "execute_action(", "");
         actionName = string_replace(actionName, ")", "");
         actionName = string_trim(actionName);
@@ -24,10 +44,10 @@ function execute_command(command) {
             handleDebugMessage("Action '" + actionName + "' not found.", true);
             return;
         }
-	} else {
+    } else {
         // Parse regular commands
         var startParenthesis = string_pos("(", command);
-        var endParenthesis = string_last_pos(")", command);
+        var endParenthesis = string_pos(")", command);
         
         if (startParenthesis > 0 && endParenthesis > startParenthesis) {
             commandName = string_trim(string_copy(command, 1, startParenthesis - 1));

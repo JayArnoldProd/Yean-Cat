@@ -1,29 +1,4 @@
-07/18/24 22:06:51: Actions.txt not found. Starting with an empty actions map.
-07/18/24 22:08:21: Executing command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
-07/18/24 22:08:21: Processed command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
-07/18/24 22:08:21: Adding action: Hello, Command: chat_bubble, Parameters: ["Hello World!"
-07/18/24 22:08:21: Checking for command: chat_bubble(
-07/18/24 22:08:21: Parameters after processing: [ "Hello World!" ]
-07/18/24 22:08:21: Action 'Hello' added successfully.
-07/18/24 22:08:21: Actions saved successfully to Actions.txt.
-07/18/24 22:08:41: Executing command: add_action(Level100,level_up,[100])
-07/18/24 22:08:41: Processed command: add_action(Level100,level_up,[100])
-07/18/24 22:08:41: Adding action: Level100, Command: level_up, Parameters: [100]
-07/18/24 22:08:41: Checking for command: level_up(
-07/18/24 22:08:41: Parameters after processing: [ 100 ]
-07/18/24 22:08:41: Action 'Level100' added successfully.
-07/18/24 22:08:41: Actions saved successfully to Actions.txt. 
-//Actions.txt:
-Hello,chat_bubble,"Hello World!"
-Level100,level_up,100
-
-07/18/24 22:09:00: [Jay Arnold] not quite :/
-07/18/24 22:11:30: Executing command: chat_bubble("Hello World!","yeancat")
-07/18/24 22:11:30: Processed command: chat_bubble("Hello World!","yeancat")
-07/18/24 22:11:30: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
-07/18/24 22:11:57: [Jay Arnold] at least i can do that. but lets try and fix the add_action and find
- out why its not saving multiple arguments!    I did a second test after manually changing the actions.txt to the desired result: Hello,chat_bubble,"Hello World!","yeancat"
-Level100,level_up,100  and then restarting the game and trying to execute the action! This should be useful information as well.  07/18/24 22:16:16: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/18/24 22:16:16: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
 07/18/24 22:16:16: Loaded action: Level100, Command: level_up, Parameters: [ 100 ]
 07/18/24 22:16:16: Actions loaded successfully from Actions.txt.
 07/18/24 22:16:16: Action 'Hello': Command = chat_bubble, Parameters = [ "Hello World!","yeancat" ]

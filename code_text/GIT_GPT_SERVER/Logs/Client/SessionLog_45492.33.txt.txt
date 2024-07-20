@@ -1,0 +1,31 @@
+07/19/24 03:00:14: Actions.txt not found. Starting with an empty actions map.
+07/19/24 03:00:48: Executing command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
+07/19/24 03:00:48: Processed command: add_action(Hello,chat_bubble,["Hello World!","yeancat"])
+07/19/24 03:00:48: Adding action: Hello, Command: chat_bubble, Parameters: [ ""Hello World!"",""yeancat"" ]
+07/19/24 03:00:48: Checking for command: chat_bubble(
+07/19/24 03:00:48: Parameters after processing: [ "Hello World!","yeancat" ]
+07/19/24 03:00:48: Action 'Hello' added successfully.
+07/19/24 03:00:48: Actions saved successfully to Actions.txt.
+07/19/24 03:01:08: Executing command: add_action(Level100,level_up,[100])
+07/19/24 03:01:08: Processed command: add_action(Level100,level_up,[100])
+07/19/24 03:01:08: Adding action: Level100, Command: level_up, Parameters: [ "100" ]
+07/19/24 03:01:08: Checking for command: level_up(
+07/19/24 03:01:08: Parameters after processing: [ 100 ]
+07/19/24 03:01:08: Action 'Level100' added successfully.
+07/19/24 03:01:08: Actions saved successfully to Actions.txt.
+07/19/24 03:01:30: Executing command: execute_action(Hello)
+07/19/24 03:01:30: Processed command: execute_action(Hello)
+07/19/24 03:01:30: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'
+07/19/24 03:01:33: [Jay Arnold] IT WORKS!
+07/19/24 03:02:00: [Jay Arnold] 
+/execute_action(Level100)
+07/19/24 03:02:08: Executing command: execute_action(Level100)
+07/19/24 03:02:08: Processed command: execute_action(Level100)
+07/19/24 03:02:08: Level up initiated with goal: 100
+07/19/24 03:02:21: [Jay Arnold] nice!
+07/19/24 03:02:57: [Jay Arnold] on to the next thing. i will mark this bug as resolved! it might come up
+ again as we test other commands with more and more arguments 
+and variable types but for now this is perfect!
+07/19/24 03:03:56: Executing command: execute_action(Hello)
+07/19/24 03:03:56: Processed command: execute_action(Hello)
+07/19/24 03:03:56: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'

@@ -1,42 +1,42 @@
 #!/bin/bash
 
-# Check if bug name is provided
+# Check if feature name is provided
 if [ "$#" -ne 1 ]; then
-    echo "Usage: $0 <bug_name>"
+    echo "Usage: $0 <feature_name>"
     exit 1
 fi
 
-BUG_NAME="$1"
-OUTPUT_DIR="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/Bug_Info"
-BUG_LIST_PATH="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/bug_list.json"
+FEATURE_NAME="$1"
+OUTPUT_DIR="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/Feature_Info"
+FEATURE_LIST_PATH="/Users/joshuaarnold/Documents/GitHub/Yean-Cat/planned_features.json"
 
 # Create output directory if it doesn't exist
 mkdir -p "$OUTPUT_DIR"
 
-# Read the bug list and extract information
-BUG_INFO=$(python3 << END
+# Read the feature list and extract information
+FEATURE_INFO=$(python3 << END
 import os
 import json
 import sys
 
-bug_name = "$BUG_NAME"
-bug_list_path = "$BUG_LIST_PATH"
+feature_name = "$FEATURE_NAME"
+feature_list_path = "$FEATURE_LIST_PATH"
 
-with open(bug_list_path, 'r') as file:
-    bug_list = json.load(file)
+with open(feature_list_path, 'r') as file:
+    feature_list = json.load(file)
 
-bug = next((bug for bug in bug_list if bug['name'] == bug_name), None)
-if not bug:
-    print(f"Error: Bug '{bug_name}' not found in {bug_list_path}")
+feature = next((feature for feature in feature_list if feature['name'] == feature_name), None)
+if not feature:
+    print(f"Error: Feature '{feature_name}' not found in {feature_list_path}")
     sys.exit(1)
 
-bug_description = bug['description']
-related_objects = bug['related_objects']
-related_scripts = bug['related_scripts']
-related_logs = bug['related_logs']
+feature_description = feature['description']
+related_objects = feature['related_objects']
+related_scripts = feature['related_scripts']
+related_logs = feature['related_logs']
 
-bug_info = f"Bug Name: {bug_name}\nDescription: {bug_description}\n\n"
-bug_info += "== Related Objects ==\n"
+feature_info = f"Feature Name: {feature_name}\nDescription: {feature_description}\n\n"
+feature_info += "== Related Objects ==\n"
 
 object_dirs = [
     "/Users/joshuaarnold/Documents/GitHub/Yean-Cat/YEAN_CAT/objects",
@@ -44,7 +44,7 @@ object_dirs = [
 ]
 
 for obj in related_objects:
-    bug_info += f"\nObject: {obj}\n"
+    feature_info += f"\nObject: {obj}\n"
     for object_dir in object_dirs:
         obj_path = f"{object_dir}/{obj}"
         if os.path.exists(obj_path):
@@ -53,10 +53,10 @@ for obj in related_objects:
                     file_path = os.path.join(obj_path, filename)
                     with open(file_path, 'r') as file:
                         code = file.read()
-                    bug_info += f"\nFile: {filename}\nCode:\n{code}\n"
+                    feature_info += f"\nFile: {filename}\nCode:\n{code}\n"
             break
 
-bug_info += "\n== Related Scripts ==\n"
+feature_info += "\n== Related Scripts ==\n"
 
 script_dirs = [
     "/Users/joshuaarnold/Documents/GitHub/Yean-Cat/YEAN_CAT/scripts",
@@ -73,13 +73,13 @@ for script in related_scripts:
                     file_path = os.path.join(script_subdir_path, filename)
                     with open(file_path, 'r') as file:
                         code = file.read()
-                    bug_info += f"\nScript: {script}\nFile: {filename}\nCode:\n{code}\n"
+                    feature_info += f"\nScript: {script}\nFile: {filename}\nCode:\n{code}\n"
                     found_script = True
             break
     if not found_script:
-        bug_info += f"\nScript: {script} not found in the expected directories.\n"
+        feature_info += f"\nScript: {script} not found in the expected directories.\n"
 
-bug_info += "\n== Related Logs ==\n"
+feature_info += "\n== Related Logs ==\n"
 
 log_dirs = [
     "/Users/joshuaarnold/Documents/GitHub/Yean-Cat/GIT_GPT_SERVER/Logs/Client",
@@ -93,21 +93,21 @@ for log in related_logs:
         if os.path.exists(log_path):
             with open(log_path, 'r') as file:
                 log_content = file.read()
-            bug_info += f"\nLog: {log}\nContent:\n{log_content}\n"
+            feature_info += f"\nLog: {log}\nContent:\n{log_content}\n"
             break
 
-output_path = os.path.join("$OUTPUT_DIR", f"bug_{bug_name}_information.txt")
+output_path = os.path.join("$OUTPUT_DIR", f"feature_{feature_name}_information.txt")
 with open(output_path, 'w') as output_file:
-    output_file.write(bug_info)
+    output_file.write(feature_info)
 
-print(f"Bug information saved to {output_path}")
+print(f"Feature information saved to {output_path}")
 END
 )
 
 # Check for errors
-if echo "$BUG_INFO" | grep -q "Error:"; then
-    echo "$BUG_INFO"
+if echo "$FEATURE_INFO" | grep -q "Error:"; then
+    echo "$FEATURE_INFO"
     exit 1
 fi
 
-echo "Bug information saved successfully."
+echo "Feature information saved successfully."

@@ -1,6 +1,7 @@
 .
 ├── Bug_Info
 ├── Documentation
+├── Feature_Info
 ├── GIT_GPT_SERVER
 ├── Last_Words
 ├── Procfile
@@ -13,6 +14,7 @@
 ├── code_backups
 ├── code_text
 ├── command_list.txt
+├── fixed_bugs.json
 ├── flask_pid.txt
 ├── hierarchies
 ├── package.json
@@ -25,4 +27,4 @@
 ├── server_command_list.txt
 └── server_script_list.txt
 
-12 directories, 14 files
+13 directories, 15 files
