@@ -1,0 +1,13 @@
+07/20/24 18:56:38: Loaded action: SaveGameNow, Command: goto_planet, Parameters: [ "Fantasia" ]
+07/20/24 18:56:38: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ 1 ]
+07/20/24 18:56:38: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/20/24 18:56:38: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/20/24 18:56:38: Loaded action: Level100, Command: level_up, Parameters: [ 100 ]
+07/20/24 18:56:38: Actions loaded successfully from Actions.txt.
+07/20/24 18:56:38: Action 'SaveGameNow': Command = goto_planet, Parameters = [ "Fantasia" ]
+07/20/24 18:56:38: Action 'LevelUpOnce': Command = level_up, Parameters = [ 1 ]
+07/20/24 18:56:38: Action 'Hello': Command = chat_bubble, Parameters = [ "Hello World!","yeancat" ]
+07/20/24 18:56:38: Action 'GotoEarth': Command = goto_planet, Parameters = [ "Earth" ]
+07/20/24 18:56:38: Action 'Level100': Command = level_up, Parameters = [ 100 ]
+07/20/24 19:06:46: Executing command: execute_action
+07/20/24 19:06:46: Processed command: execute_action

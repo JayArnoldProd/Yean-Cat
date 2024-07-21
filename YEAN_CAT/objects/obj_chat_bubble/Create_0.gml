@@ -1,5 +1,10 @@
 //CREATE EVENT of obj_chat_bubble
 
+// Add these variables to the existing Create event
+choices = [];
+choice_count = 0;
+selected_choice = -1;
+
 // Initialize default properties
 _text = "";
 line_count = 1;

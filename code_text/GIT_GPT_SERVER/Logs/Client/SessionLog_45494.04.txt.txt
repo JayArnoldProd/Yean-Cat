@@ -1,0 +1,29 @@
+07/20/24 20:04:38: Actions.txt not found. Starting with an empty actions map.
+07/20/24 20:05:15: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/20/24 20:05:15: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/20/24 20:05:15: Adding action: GotoEarth, Command: goto_planet, Parameters: [ ""Earth"" ]
+07/20/24 20:05:15: Checking for command: goto_planet(
+07/20/24 20:05:15: Parameters after processing: [ "Earth" ]
+07/20/24 20:05:15: Action 'GotoEarth' added successfully.
+07/20/24 20:05:15: Actions saved successfully to Actions.txt.
+07/20/24 20:05:27: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/20/24 20:05:27: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/20/24 20:05:27: Adding action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/20/24 20:05:27: Checking for command: level_up(
+07/20/24 20:05:27: Parameters after processing: [ 1 ]
+07/20/24 20:05:27: Action 'LevelUpOnce' added successfully.
+07/20/24 20:05:27: Actions saved successfully to Actions.txt.
+07/20/24 20:05:42: Executing command: add_action(SaveGameNow,save_game,[])
+07/20/24 20:05:42: Processed command: add_action(SaveGameNow,save_game,[])
+07/20/24 20:05:42: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/20/24 20:05:42: Checking for command: save_game(
+07/20/24 20:05:42: Command 'save_game' does not exist.
+07/20/24 20:05:47: Executing command: add_action(SaveGameNow,save_game)
+07/20/24 20:05:47: Processed command: add_action(SaveGameNow,save_game)
+07/20/24 20:05:47: Script not found for command: 
+07/20/24 20:06:02: Executing command: add_action(SaveGameNow,save_game,[])
+07/20/24 20:06:02: Processed command: add_action(SaveGameNow,save_game,[])
+07/20/24 20:06:02: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/20/24 20:06:02: Checking for command: save_game(
+07/20/24 20:06:02: Command 'save_game' does not exist.
+07/20/24 20:06:11: [Jay Arnold] typing /add_action(SaveGameNow,save_game,[]) does not work. 

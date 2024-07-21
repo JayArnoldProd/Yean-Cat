@@ -247,6 +247,52 @@ toggle_server
       "parse_data_types",
       "parse_arguments"
     ]
+  },
+  {
+    "name": "Custom_AI_Terminal_Assistant",
+    "description": "Train a GPT or Claude bot to assist populating the bug and feature list.",
+    "source": "System",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-19",
+    "planned_by": "Jay Arnold",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "related_logs": [
+      "No related logs"
+    ],
+    "implementation_steps": [
+      "Step 1: Just do it?"
+    ],
+    "expected_outcome": [
+      "Expected outcome: A chat bot that responds with concise well formatted and fully informed commands that streamline the process of compiling the information relevant case to case."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "master",
+      "obj_Client",
+      "yeancat",
+      "enemy",
+      "cancelledsign",
+      "obj_terrain",
+      "obj_boss",
+      "obj_controlhs",
+      "obj_backg"
+    ],
+    "related_scripts": [
+      "scr_add_action",
+      "save_actions",
+      "scr_execute_action",
+      "handleDebugMessage",
+      "execute_command",
+      "update_chat_input_visuals",
+      "parse_data_types",
+      "parse_arguments",
+      "scr_save_game",
+      "scr_load_game"
+    ]
   }
 ]
 

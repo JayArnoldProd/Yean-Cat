@@ -4,6 +4,15 @@ GIT_GPT_SERVER
 │   │   ├── SessionLog_45492.14.txt
 │   │   ├── SessionLog_45492.25.txt
 │   │   ├── SessionLog_45492.33.txt
+│   │   ├── SessionLog_45493.98.txt
+│   │   ├── SessionLog_45493.99.txt
+│   │   ├── SessionLog_45494.00.txt
+│   │   ├── SessionLog_45494.01.txt
+│   │   ├── SessionLog_45494.02.txt
+│   │   ├── SessionLog_45494.04.txt
+│   │   ├── SessionLog_45494.05.txt
+│   │   ├── SessionLog_45494.06.txt
+│   │   ├── SessionLog_45494.07.txt
 │   │   └── server_logs.json
 │   ├── GIT_GPT
 │   └── Server
@@ -73,4 +82,4 @@ GIT_GPT_SERVER
     ├── pinecone_operations.py
     └── sanatize_logs.py
 
-14 directories, 60 files
+14 directories, 69 files

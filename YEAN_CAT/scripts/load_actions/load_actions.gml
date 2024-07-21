@@ -25,8 +25,11 @@ function load_actions() {
             var param = string_trim(parts[i]);
             if (string_char_at(param, 1) == "\"" && string_char_at(param, string_length(param)) == "\"") {
                 param = string_copy(param, 2, string_length(param) - 2);
-            } else if (string_digits(param) == param) {
+            } else if (string_digits(param) == param && param != "") {
                 param = real(param);
+            } else if (param == "") {
+                // Skip empty parameters
+                continue;
             }
             array_push(parameters, param);
         }
@@ -42,7 +45,6 @@ function load_actions() {
     handleDebugMessage("Actions loaded successfully from Actions.txt.", true);
     debug_action_details();
 }
-
 
 
 

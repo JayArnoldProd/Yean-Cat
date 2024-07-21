@@ -56,7 +56,8 @@ add_command("show_variable(", 2, [["string"]], true);
 add_command("return_controller", 1, [[]], false);
 add_command("toggle_input_display", 1, [[]], false);
 add_command("show_gamepad_mapping", 1, [[]], false);
-
+add_command("chat_bubble_choices(", 1, [["string"], ["string"], ["string", "string"]], true);
+add_command("add_chat_bubble_action(", 2, [["string"], ["string"], ["string"], ["array"]], true);
 // Initialize global action details
 global.actionDetails = ds_map_create();
 

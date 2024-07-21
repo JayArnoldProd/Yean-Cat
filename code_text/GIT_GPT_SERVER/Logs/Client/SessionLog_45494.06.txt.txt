@@ -1,0 +1,50 @@
+07/20/24 20:23:30: Loaded action: SaveGameNow, Command: save_game, Parameters: [  ]
+07/20/24 20:23:30: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ 1 ]
+07/20/24 20:23:30: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/20/24 20:23:30: Actions loaded successfully from Actions.txt.
+07/20/24 20:23:30: Action 'SaveGameNow': Command = save_game, Parameters = [  ]
+07/20/24 20:23:30: Action 'LevelUpOnce': Command = level_up, Parameters = [ 1 ]
+07/20/24 20:23:30: Action 'GotoEarth': Command = goto_planet, Parameters = [ "Earth" ]
+07/20/24 20:23:49: Executing command: list_actions
+07/20/24 20:23:49: Processed command: list_actions
+07/20/24 20:23:49: Actions: SaveGameNow, LevelUpOnce, GotoEarth, 
+07/20/24 20:24:24: [Jay Arnold] okay it executes but /list_actions only turns green when i add a ( to it
+. since it is 0 arguments, it should turn green when i type the "s".
+07/20/24 20:24:32: Clipboard content is too long to paste!
+07/20/24 20:24:48: [Jay Arnold] lets add the choice bubble action /add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/20/24 20:24:51: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/20/24 20:24:51: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/20/24 20:24:51: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: [ ""What would you like to do?"",""yeancat"",""Go to Earth"",""GotoEarth"",""Level Up"",""LevelUpOnce"",""Save 
+Game"",""SaveGameNow"",""Cancel"","null" ]
+07/20/24 20:24:51: Checking for command: chat_bubble
+07/20/24 20:24:51: Parameters after processing: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel",undefined ]
+07/20/24 20:24:51: Action 'MainMenuChoices' added successfully.
+07/20/24 20:24:51: Actions saved successfully to Actions.txt.
+07/20/24 20:25:08: [Jay Arnold] okay it worked! but it stayed pink it didnt turn green. lets examine the
+ contents of Actions.text
+07/20/24 20:25:57: [Jay Arnold] ill paste it into the end of this log.
+07/20/24 20:26:07: [Jay Arnold] lets try and execute the action now
+07/20/24 20:26:10: Executing command: list_actions
+07/20/24 20:26:10: Processed command: list_actions
+07/20/24 20:26:10: Actions: SaveGameNow, MainMenuChoices, LevelUpOnce, GotoEarth, 
+07/20/24 20:26:24: Executing command: execute_action(MainMenuChoices)
+07/20/24 20:26:24: Processed command: execute_action(MainMenuChoices)
+07/20/24 20:26:24: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?'
+07/20/24 20:26:42: [Jay Arnold] it was solid red after i typed it in!
+07/20/24 20:26:56: [Jay Arnold] i didnt see any choices to click on and eventually the chat bubble 
+disappeared
+07/20/24 20:27:20: Executing command: execute_action(MainMenuChoices)
+07/20/24 20:27:20: Processed command: execute_action(MainMenuChoices)
+07/20/24 20:27:20: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?'
+
+//Actions.txt:
+SaveGameNow,save_game,
+MainMenuChoices,chat_bubble,"What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel",undefined
+LevelUpOnce,level_up,1
+GotoEarth,goto_planet,"Earth"
+

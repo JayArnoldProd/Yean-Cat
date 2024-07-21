@@ -1,4 +1,10 @@
-function scr_execute_action(actionName) {
+function scr_execute_action() {
+    if (argument_count == 0) {
+        handleDebugMessage("Error: No action name provided for execute_action", true);
+        return;
+    }
+
+    var actionName = argument[0];
     if (ds_map_exists(global.actionDetails, actionName)) {
         var actionData = ds_map_find_value(global.actionDetails, actionName);
         if (!ds_map_exists(actionData, "command") || !ds_map_exists(actionData, "parameters")) {

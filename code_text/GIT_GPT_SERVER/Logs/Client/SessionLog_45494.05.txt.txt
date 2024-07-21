@@ -1,0 +1,49 @@
+07/20/24 20:09:54: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ 1 ]
+07/20/24 20:09:54: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/20/24 20:09:54: Actions loaded successfully from Actions.txt.
+07/20/24 20:09:54: Action 'LevelUpOnce': Command = level_up, Parameters = [ 1 ]
+07/20/24 20:09:54: Action 'GotoEarth': Command = goto_planet, Parameters = [ "Earth" ]
+07/20/24 20:10:25: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/20/24 20:10:25: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/20/24 20:10:25: Adding action: GotoEarth, Command: goto_planet, Parameters: [ ""Earth"" ]
+07/20/24 20:10:25: Action 'GotoEarth' already exists.
+07/20/24 20:10:35: Executing command: add_action(SaveGameNow,save_game,[])
+07/20/24 20:10:35: Processed command: add_action(SaveGameNow,save_game,[])
+07/20/24 20:10:35: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/20/24 20:10:35: Checking for command: save_game(
+07/20/24 20:10:35: Command 'save_game' does not exist.
+07/20/24 20:10:40: Executing command: list_commands
+07/20/24 20:10:40: Processed command: list_commands
+07/20/24 20:10:40: Commands: add_action(, add_chat_bubble_action(, chat_bubble(, 
+07/20/24 20:10:40: chat_bubble_choices(, disable_heartbeat, enable_heartbeat, 
+07/20/24 20:10:40: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+07/20/24 20:10:40: list_actions, list_clients, list_commands, list_variables, 
+07/20/24 20:10:40: return_controller, save_actions, save_game, save_macros, 
+07/20/24 20:10:40: set_my_permission(, set_variable(, show_gamepad_mapping, show_lines(, 
+07/20/24 20:10:40: show_variable(, show_wpm, toggle_debug, toggle_input_display, 
+07/20/24 20:10:40: toggle_log_debug, toggle_server
+07/20/24 20:15:01: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ 1 ]
+07/20/24 20:15:01: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/20/24 20:15:01: Actions loaded successfully from Actions.txt.
+07/20/24 20:15:01: Action 'LevelUpOnce': Command = level_up, Parameters = [ 1 ]
+07/20/24 20:15:01: Action 'GotoEarth': Command = goto_planet, Parameters = [ "Earth" ]
+07/20/24 20:15:48: Executing command: add_action(SaveGameNow,save_game)
+07/20/24 20:15:48: Processed command: add_action(SaveGameNow,save_game)
+07/20/24 20:15:48: Script not found for command: 
+07/20/24 20:15:57: Executing command: add_action(SaveGameNow,save_game,[])
+07/20/24 20:15:57: Processed command: add_action(SaveGameNow,save_game,[])
+07/20/24 20:15:57: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/20/24 20:15:57: Checking for command: save_game
+07/20/24 20:15:57: Parameters after processing: [  ]
+07/20/24 20:15:57: Action 'SaveGameNow' added successfully.
+07/20/24 20:15:57: Actions saved successfully to Actions.txt.
+07/20/24 20:16:11: Executing command: execute_action(SaveGameNow)
+07/20/24 20:16:11: Processed command: execute_action(SaveGameNow)
+07/20/24 20:16:11: Saved Game
+07/20/24 20:17:28: [Jay Arnold] great the only problem is that the text is not changing color properly 
+like it used to. it should be pink when nothing valid is detected, but 
+aqua after the first ( if its a valid command or without it if its a 0 
+argument command it will turn green or red. red if invalid or permision
+ level is
+07/20/24 20:17:31: [Jay Arnold] not high enough,
+07/20/24 20:17:52: [Jay Arnold] green if you have the permission and also it is valid input.

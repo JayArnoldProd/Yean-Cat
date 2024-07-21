@@ -1,15 +1,19 @@
 function execute_command(command) {
     handleDebugMessage("Executing command: " + command, true);
 
-    var commandName = "";
-    var parameters = [];
-
     command = string_trim(command);
+    if (command == "") {
+        handleDebugMessage("Error: Empty command", true);
+        return;
+    }
+
     if (string_char_at(command, 1) == "/") {
         command = string_delete(command, 1, 1);
     }
-
     handleDebugMessage("Processed command: " + command, true);
+
+    var commandName = "";
+    var parameters = [];
 
     if (string_pos("add_action(", command) == 1) {
         var startParen = string_pos("(", command);
@@ -45,7 +49,6 @@ function execute_command(command) {
             return;
         }
     } else {
-        // Parse regular commands
         var startParenthesis = string_pos("(", command);
         var endParenthesis = string_pos(")", command);
         
@@ -54,7 +57,6 @@ function execute_command(command) {
             var paramString = string_copy(command, startParenthesis + 1, endParenthesis - startParenthesis - 1);
             parameters = string_split(paramString, ",");
             
-            // Trim and convert parameters
             for (var i = 0; i < array_length(parameters); i++) {
                 var param = string_trim(parameters[i]);
                 if (string_char_at(param, 1) == "\"" && string_char_at(param, string_length(param)) == "\"") {
@@ -64,14 +66,26 @@ function execute_command(command) {
                 }
                 parameters[i] = param;
             }
-        } else {
-            var parts = string_split(command, " ");
-            commandName = parts[0];
-            if (array_length(parts) > 1) {
-                for (var i = 1; i < array_length(parts); i++) {
-                    array_push(parameters, parts[i]);
+
+            if (commandName == "chat_bubble") {
+                var text = parameters[0];
+                var owner = parameters[1];
+                var choices = [];
+                
+                if (array_length(parameters) > 2 && is_array(parameters[2])) {
+                    var choicesArray = parameters[2];
+                    for (var i = 0; i < array_length(choicesArray); i++) {
+                        if (is_array(choicesArray[i]) && array_length(choicesArray[i]) == 2) {
+                            array_push(choices, choicesArray[i]);
+                        }
+                    }
                 }
+                
+                scr_chat_bubble(text, owner, choices);
+                return;
             }
+        } else {
+            commandName = command;
         }
     }
 

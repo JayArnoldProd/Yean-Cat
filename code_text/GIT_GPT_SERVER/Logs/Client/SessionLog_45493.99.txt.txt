@@ -1,0 +1,67 @@
+07/20/24 18:49:26: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/20/24 18:49:26: Loaded action: Level100, Command: level_up, Parameters: [ 100 ]
+07/20/24 18:49:26: Actions loaded successfully from Actions.txt.
+07/20/24 18:49:26: Action 'Hello': Command = chat_bubble, Parameters = [ "Hello World!","yeancat" ]
+07/20/24 18:49:26: Action 'Level100': Command = level_up, Parameters = [ 100 ]
+07/20/24 18:50:14: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/20/24 18:50:14: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/20/24 18:50:14: Adding action: GotoEarth, Command: goto_planet, Parameters: [ ""Earth"" ]
+07/20/24 18:50:14: Checking for command: goto_planet(
+07/20/24 18:50:14: Parameters after processing: [ "Earth" ]
+07/20/24 18:50:14: Action 'GotoEarth' added successfully.
+07/20/24 18:50:14: Actions saved successfully to Actions.txt.
+07/20/24 18:50:29: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/20/24 18:50:29: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/20/24 18:50:29: Adding action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/20/24 18:50:29: Checking for command: level_up(
+07/20/24 18:50:29: Parameters after processing: [ 1 ]
+07/20/24 18:50:29: Action 'LevelUpOnce' added successfully.
+07/20/24 18:50:29: Actions saved successfully to Actions.txt.
+07/20/24 18:50:32: Saved Game
+07/20/24 18:50:47: Executing command: add_action(SaveGameNow,save_game,[])
+07/20/24 18:50:47: Processed command: add_action(SaveGameNow,save_game,[])
+07/20/24 18:50:47: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/20/24 18:50:47: Checking for command: save_game(
+07/20/24 18:50:47: Command 'save_game' does not exist.
+07/20/24 18:51:03: Executing command: add_action(SaveGameNow,game_save,[])
+07/20/24 18:51:03: Processed command: add_action(SaveGameNow,game_save,[])
+07/20/24 18:51:03: Adding action: SaveGameNow, Command: game_save, Parameters: [ "" ]
+07/20/24 18:51:03: Checking for command: game_save(
+07/20/24 18:51:03: Command 'game_save' does not exist.
+07/20/24 18:51:06: Executing command: list_commands
+07/20/24 18:51:06: Processed command: list_commands
+07/20/24 18:51:06: Commands: add_action(, add_chat_bubble_action(, chat_bubble(, 
+07/20/24 18:51:06: chat_bubble_choices(, disable_heartbeat, enable_heartbeat, 
+07/20/24 18:51:06: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+07/20/24 18:51:06: list_actions, list_clients, list_commands, list_variables, 
+07/20/24 18:51:06: return_controller, save_actions, save_game, save_macros, 
+07/20/24 18:51:06: set_my_permission(, set_variable(, show_gamepad_mapping, show_lines(, 
+07/20/24 18:51:06: show_variable(, show_wpm, toggle_debug, toggle_input_display, 
+07/20/24 18:51:06: toggle_log_debug, toggle_server
+07/20/24 18:51:22: Executing command: add_action(SaveGameNow,save_game,[""])
+07/20/24 18:51:22: Processed command: add_action(SaveGameNow,save_game,[""])
+07/20/24 18:51:22: Adding action: SaveGameNow, Command: save_game, Parameters: [ """" ]
+07/20/24 18:51:22: Checking for command: save_game(
+07/20/24 18:51:22: Command 'save_game' does not exist.
+07/20/24 18:51:53: [Jay Arnold] it appears 0 argument commands do not work for actions. :/
+07/20/24 18:52:03: [Jay Arnold] ill make it simply level me up twice
+07/20/24 18:52:10: [Jay Arnold] or actually go to planet fantasia
+07/20/24 18:52:25: Executing command: add_action(SaveGameNow,goto_planet,["Fantasia"])
+07/20/24 18:52:25: Processed command: add_action(SaveGameNow,goto_planet,["Fantasia"])
+07/20/24 18:52:25: Adding action: SaveGameNow, Command: goto_planet, Parameters: [ ""Fantasia"" ]
+07/20/24 18:52:25: Checking for command: goto_planet(
+07/20/24 18:52:25: Parameters after processing: [ "Fantasia" ]
+07/20/24 18:52:25: Action 'SaveGameNow' added successfully.
+07/20/24 18:52:25: Actions saved successfully to Actions.txt.
+07/20/24 18:52:35: Executing command: execute_action(SaveGameNow)
+07/20/24 18:52:35: Processed command: execute_action(SaveGameNow)
+07/20/24 18:52:35: Teleported to Fantasia.
+07/20/24 18:52:39: [Jay Arnold] awesome.
+07/20/24 18:52:44: [Jay Arnold] lets test the next part
+07/20/24 18:53:04: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",""]]])
+07/20/24 18:53:04: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",""]]])
+07/20/24 18:53:04: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: [ ""What would you like to do?"",""yeancat"",""Go to Earth"",""GotoEarth"",""Level Up"",""LevelUpOnce"",""Save 
+Game"",""SaveGameNow"",""Cancel"","""" ]
+07/20/24 18:53:04: Checking for command: chat_bubble(

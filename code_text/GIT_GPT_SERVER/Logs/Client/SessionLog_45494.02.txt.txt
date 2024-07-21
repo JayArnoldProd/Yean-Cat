@@ -1,0 +1,63 @@
+07/20/24 19:26:15: Loaded action: SaveGameNow, Command: goto_planet, Parameters: [ "Fantasia" ]
+07/20/24 19:26:15: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce",""Save" ]
+07/20/24 19:26:15: Loaded action: Game", Command: "SaveGameNow", Parameters: [ "Cancel","undefined" ]
+07/20/24 19:26:15: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ 1 ]
+07/20/24 19:26:15: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/20/24 19:26:15: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/20/24 19:26:15: Loaded action: Level100, Command: level_up, Parameters: [ 100 ]
+07/20/24 19:26:15: Actions loaded successfully from Actions.txt.
+07/20/24 19:26:15: Action 'SaveGameNow': Command = goto_planet, Parameters = [ "Fantasia" ]
+07/20/24 19:26:15: Action 'MainMenuChoices': Command = chat_bubble, Parameters = [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce",""Save" ]
+07/20/24 19:26:15: Action 'LevelUpOnce': Command = level_up, Parameters = [ 1 ]
+07/20/24 19:26:15: Action 'Hello': Command = chat_bubble, Parameters = [ "Hello World!","yeancat" ]
+07/20/24 19:26:15: Action 'Game"': Command = "SaveGameNow", Parameters = [ "Cancel","undefined" ]
+07/20/24 19:26:15: Action 'GotoEarth': Command = goto_planet, Parameters = [ "Earth" ]
+07/20/24 19:26:15: Action 'Level100': Command = level_up, Parameters = [ 100 ]
+07/20/24 19:26:53: Executing command: list
+07/20/24 19:26:53: Processed command: list
+07/20/24 19:26:53: Script not found for command: list
+07/20/24 19:26:57: Executing command: list_actions
+07/20/24 19:26:57: Processed command: list_actions
+07/20/24 19:29:26: Actions.txt not found. Starting with an empty actions map.
+07/20/24 19:29:52: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/20/24 19:29:52: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/20/24 19:29:52: Adding action: GotoEarth, Command: goto_planet, Parameters: [ ""Earth"" ]
+07/20/24 19:29:52: Checking for command: goto_planet(
+07/20/24 19:29:52: Parameters after processing: [ "Earth" ]
+07/20/24 19:29:52: Action 'GotoEarth' added successfully.
+07/20/24 19:29:52: Actions saved successfully to Actions.txt.
+07/20/24 19:29:57: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/20/24 19:29:57: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/20/24 19:29:57: Adding action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/20/24 19:29:57: Checking for command: level_up(
+07/20/24 19:29:57: Parameters after processing: [ 1 ]
+07/20/24 19:29:57: Action 'LevelUpOnce' added successfully.
+07/20/24 19:29:57: Actions saved successfully to Actions.txt.
+07/20/24 19:30:03: Executing command: add_action(SaveGameNow,save_game,[])
+07/20/24 19:30:03: Processed command: add_action(SaveGameNow,save_game,[])
+07/20/24 19:30:03: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/20/24 19:30:03: Checking for command: save_game(
+07/20/24 19:30:03: Command 'save_game' does not exist.
+07/20/24 19:30:47: Executing command: list_commands
+07/20/24 19:30:47: Processed command: list_commands
+07/20/24 19:30:47: Commands: add_action(, add_chat_bubble_action(, chat_bubble(, 
+07/20/24 19:30:47: chat_bubble_choices(, disable_heartbeat, enable_heartbeat, 
+07/20/24 19:30:47: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+07/20/24 19:30:47: list_actions, list_clients, list_commands, list_variables, 
+07/20/24 19:30:47: return_controller, save_actions, save_game, save_macros, 
+07/20/24 19:30:47: set_my_permission(, set_variable(, show_gamepad_mapping, show_lines(, 
+07/20/24 19:30:47: show_variable(, show_wpm, toggle_debug, toggle_input_display, 
+07/20/24 19:30:47: toggle_log_debug, toggle_server
+07/20/24 19:32:27: Executing command: add_action(SaveGameNow,save_game)
+07/20/24 19:32:27: Processed command: add_action(SaveGameNow,save_game)
+07/20/24 19:32:27: Script not found for command: 
+07/20/24 19:34:02: Executing command: add_action(SaveGameNo
+07/20/24 19:34:02: Processed command: add_action(SaveGameNo
+07/20/24 19:34:02: Script not found for command: 
+
+
+Actions.txt:
+
+LevelUpOnce,level_up,1
+GotoEarth,goto_planet,"Earth"
+

@@ -1,0 +1,41 @@
+07/20/24 19:10:37: Loaded action: SaveGameNow, Command: goto_planet, Parameters: [ "Fantasia" ]
+07/20/24 19:10:37: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ 1 ]
+07/20/24 19:10:37: Loaded action: Hello, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/20/24 19:10:37: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/20/24 19:10:37: Loaded action: Level100, Command: level_up, Parameters: [ 100 ]
+07/20/24 19:10:37: Actions loaded successfully from Actions.txt.
+07/20/24 19:10:37: Action 'SaveGameNow': Command = goto_planet, Parameters = [ "Fantasia" ]
+07/20/24 19:10:37: Action 'LevelUpOnce': Command = level_up, Parameters = [ 1 ]
+07/20/24 19:10:37: Action 'Hello': Command = chat_bubble, Parameters = [ "Hello World!","yeancat" ]
+07/20/24 19:10:37: Action 'GotoEarth': Command = goto_planet, Parameters = [ "Earth" ]
+07/20/24 19:10:37: Action 'Level100': Command = level_up, Parameters = [ 100 ]
+07/20/24 19:10:53: Executing command: execute_action(SaveGameNow)
+07/20/24 19:10:53: Processed command: execute_action(SaveGameNow)
+07/20/24 19:10:53: Teleported to Fantasia.
+07/20/24 19:10:59: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/20/24 19:10:59: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/20/24 19:10:59: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: [ ""What would you like to do?"",""yeancat"",""Go to Earth"",""GotoEarth"",""Level Up"",""LevelUpOnce"",""Save 
+Game"",""SaveGameNow"",""Cancel"","null" ]
+07/20/24 19:10:59: Checking for command: chat_bubble(
+07/20/24 19:10:59: Parameters after processing: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel",undefined ]
+07/20/24 19:10:59: Action 'MainMenuChoices' added successfully.
+07/20/24 19:10:59: Actions saved successfully to Actions.txt.
+07/20/24 19:11:33: [Jay Arnold] okay it saved! but the text was highligheted red when it was 
+completed, indicating a possible bug in the text coloring function that 
+detects if the code is valid.
+07/20/24 19:12:13: [Jay Arnold] update_chat_input_visuals is the name of the related script i believe.
+if i didnt already provide it to you please request it from me.
+07/20/24 19:12:26: [Jay Arnold] lets now see if the chat bubble works with choices
+07/20/24 19:12:43: Executing command: list_actions
+07/20/24 19:12:43: Processed command: list_actions
+07/20/24 19:12:43: Actions: SaveGameNow, MainMenuChoices, LevelUpOnce, Hello, GotoEarth, Level100, 
+07/20/24 19:12:45: Executing command: execute_action(MainMenuChoices)
+07/20/24 19:12:45: Processed command: execute_action(MainMenuChoices)
+07/20/24 19:12:45: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?'
+07/20/24 19:13:11: [Jay Arnold] i see the chat bubble "What would you like to do?" and its staying up 
+but it dissapeared after some time.
+07/20/24 19:13:21: [Jay Arnold] i didnt see any choices available to click on :/
+07/20/24 19:13:29: [Jay Arnold] but it didnt crash! ill send you the log now.

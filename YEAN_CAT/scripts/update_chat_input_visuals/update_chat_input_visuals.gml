@@ -1,41 +1,44 @@
-// Function to update the color of the chatbox text based on command input
 function update_chat_input_visuals() {
     var inputText = string_trim(global.commandBuffer);
     var firstChar = string_char_at(inputText, 1);
-
+    
     if (inputText == "") {
         global.textColor = global.defaultTextColor;
-    } else if (firstChar == "/") {
-        if (string_length(inputText) == 1) {
-            global.textColor = c_white; // Initial '/' is white
+        return;
+    }
+    
+    if (firstChar != "/") {
+        global.textColor = global.defaultTextColor;
+        return;
+    }
+    
+    if (string_length(inputText) == 1) {
+        global.textColor = c_white;
+        return;
+    }
+    
+    var command = string_delete(inputText, 1, 1);
+    var hasPermission = check_permission_command(command);
+    var isZeroArgCommand = ds_map_exists(global.commandDetails, command) && !ds_map_exists(global.commandDetails, command + "(");
+    
+    if (isZeroArgCommand) {
+        global.textColor = hasPermission ? c_lime : c_red;
+    } else if (ds_map_exists(global.commandDetails, command + "(")) {
+        var openParenPos = string_pos("(", inputText);
+        if (openParenPos == 0) {
+            global.textColor = c_aqua;
         } else {
-            var commandEnd = string_pos(" ", inputText);
-            if (commandEnd == 0) commandEnd = string_length(inputText);
-            var argsStart = string_pos("(", inputText);
-            var argsEnd = string_pos(")", inputText);
-
-            // Adjust the commandEnd if "(" is part of the command
-            if (argsStart > 0 && argsStart < commandEnd) {
-                commandEnd = argsStart;
-            }
-            var command = string_copy(inputText, 2, commandEnd - 1);
-            var hasPermission = check_permission_command(command);
-
-            // Ensure the command is valid before changing the color based on arguments
-            if (ds_map_exists(global.commandDetails, command)) {
-                // Call handleCommandWithArgs to manage the text color based on command validation
-                global.textColor = handleCommandWithArgs(argsStart, argsEnd, command, hasPermission);
+            var closeParenPos = string_pos(")", inputText);
+            if (closeParenPos > openParenPos) {
+                global.textColor = hasPermission ? c_lime : c_red;
             } else {
-                // If the command is not valid, do not turn it aqua just for typing '('
-                global.textColor = c_pink;  // Set to pink as the command is not recognized
+                global.textColor = c_aqua;
             }
         }
     } else {
-        global.textColor = global.defaultTextColor;
+        global.textColor = c_pink;
     }
 }
-
-
 //// Function to update the color of the chatbox text based on command input
 //function update_chat_input_visuals() {
 //    var inputText = string_trim(global.commandBuffer);

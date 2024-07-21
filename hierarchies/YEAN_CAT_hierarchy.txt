@@ -3419,6 +3419,9 @@ YEAN_CAT
 │   ├── scr_add_action
 │   │   ├── scr_add_action.gml
 │   │   └── scr_add_action.yy
+│   ├── scr_add_chat_bubble_action
+│   │   ├── scr_add_chat_bubble_action.gml
+│   │   └── scr_add_chat_bubble_action.yy
 │   ├── scr_add_color
 │   │   ├── scr_add_color.gml
 │   │   └── scr_add_color.yy
@@ -3431,6 +3434,9 @@ YEAN_CAT
 │   ├── scr_chat_bubble
 │   │   ├── scr_chat_bubble.gml
 │   │   └── scr_chat_bubble.yy
+│   ├── scr_chat_bubble_choices
+│   │   ├── scr_chat_bubble_choices.gml
+│   │   └── scr_chat_bubble_choices.yy
 │   ├── scr_disable_heartbeat
 │   │   ├── scr_disable_heartbeat.gml
 │   │   └── scr_disable_heartbeat.yy
@@ -4919,6 +4925,18 @@ YEAN_CAT
     │   │   └── 99afd8f3-1cfb-400b-9fbd-d922ea1c4bbd
     │   │       └── 002da0e6-634d-4309-97c2-ca72a604a68c.png
     │   └── spr_chatbutton.yy
+    ├── spr_chatchoice1
+    │   ├── 42b4536c-902f-4e10-bb8c-c04f5e38b031.png
+    │   ├── 7fb29a7c-938e-4509-900d-d662c3bf9a36.png
+    │   ├── c9ce4357-33f4-42a7-8c86-bfa3efe22ce1.png
+    │   ├── layers
+    │   │   ├── 42b4536c-902f-4e10-bb8c-c04f5e38b031
+    │   │   │   └── 88ed8388-1d60-4dab-883d-3ec9f50c636c.png
+    │   │   ├── 7fb29a7c-938e-4509-900d-d662c3bf9a36
+    │   │   │   └── 88ed8388-1d60-4dab-883d-3ec9f50c636c.png
+    │   │   └── c9ce4357-33f4-42a7-8c86-bfa3efe22ce1
+    │   │       └── 88ed8388-1d60-4dab-883d-3ec9f50c636c.png
+    │   └── spr_chatchoice1.yy
     ├── spr_checkbox
     │   ├── 13ba36bc-30cd-479d-ba7c-085b356626ff.png
     │   ├── 4bbde49f-7b6d-49ef-b8ff-b0d253a3a622.png
@@ -7136,4 +7154,4 @@ YEAN_CAT
         │       └── 5fa31159-5939-4264-8a79-eb18bc428818.png
         └── sprlongchain.yy
 
-2302 directories, 4835 files
+2309 directories, 4846 files
