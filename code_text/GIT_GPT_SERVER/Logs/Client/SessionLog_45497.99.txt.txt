@@ -1,0 +1,126 @@
+07/24/24 18:50:59: Actions.txt not found. Starting with an empty actions map.
+07/24/24 18:50:59: [Client] Failed to reconnect to server. Will try again...
+07/24/24 18:51:18: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 18:51:18: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 18:51:18: Adding action: GotoEarth, Command: goto_planet, Raw Parameters: "[\"Earth\"]"
+07/24/24 18:51:18: Encoded Parameters: IltcIkVhcnRoXCJdIg==
+07/24/24 18:51:18: Checking for command: goto_planet
+07/24/24 18:51:18: Action 'GotoEarth' added successfully.
+07/24/24 18:51:18: Saving action: GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg== 
+07/24/24 18:51:18: Actions saved successfully to Actions.txt.
+07/24/24 18:51:22: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 18:51:22: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 18:51:22: Adding action: LevelUpOnce, Command: level_up, Raw Parameters: "[1]"
+07/24/24 18:51:22: Encoded Parameters: IlsxXSI=
+07/24/24 18:51:22: Checking for command: level_up
+07/24/24 18:51:22: Action 'LevelUpOnce' added successfully.
+07/24/24 18:51:22: Saving action: LevelUpOnce,level_up,IlsxXSI= 
+07/24/24 18:51:22: Saving action: GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg== 
+07/24/24 18:51:22: Actions saved successfully to Actions.txt.
+07/24/24 18:51:25: Executing command: add_action(SaveGameNow,save_game,[])
+07/24/24 18:51:25: Processed command: add_action(SaveGameNow,save_game,[])
+07/24/24 18:51:25: Adding action: SaveGameNow, Command: save_game, Raw Parameters: "[]"
+07/24/24 18:51:25: Encoded Parameters: IltdIg==
+07/24/24 18:51:25: Checking for command: save_game
+07/24/24 18:51:25: Action 'SaveGameNow' added successfully.
+07/24/24 18:51:25: Saving action: SaveGameNow,save_game,IltdIg== 
+07/24/24 18:51:25: Saving action: LevelUpOnce,level_up,IlsxXSI= 
+07/24/24 18:51:25: Saving action: GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg== 
+07/24/24 18:51:25: Actions saved successfully to Actions.txt.
+07/24/24 18:51:29: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 18:51:29: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 18:51:29: Adding action: MainMenuChoices, Command: chat_bubble, Raw Parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 18:51:29: Encoded Parameters: IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+07/24/24 18:51:29: Checking for command: chat_bubble
+07/24/24 18:51:29: Action 'MainMenuChoices' added successfully.
+07/24/24 18:51:29: Saving action: SaveGameNow,save_game,IltdIg== 
+07/24/24 18:51:29: Saving action: MainMenuChoices,chat_bubble,IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i 
+07/24/24 18:51:29: Saving action: LevelUpOnce,level_up,IlsxXSI= 
+07/24/24 18:51:29: Saving action: GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg== 
+07/24/24 18:51:29: Actions saved successfully to Actions.txt.
+07/24/24 18:51:34: Executing command: goto_planet(Fantasia)
+07/24/24 18:51:34: Processed command: goto_planet(Fantasia)
+07/24/24 18:51:34: Teleported to Fantasia.
+07/24/24 18:51:43: Executing command: execute_action(GotoEarth)
+07/24/24 18:51:43: Processed command: execute_action(GotoEarth)
+07/24/24 18:51:43: Successfully decoded parameters: "[\"Earth\"]"
+07/24/24 18:51:43: Executing action: GotoEarth
+07/24/24 18:51:43: Command: goto_planet
+07/24/24 18:51:43: Decoded Parameters: ["Earth"]
+07/24/24 18:51:43: Teleported to Earth.
+07/24/24 18:51:45: [Jay Arnold] good!
+07/24/24 18:51:45: Chat Bubble Created. Following 'yeancat' with text: ' good!'
+07/24/24 18:51:56: Executing command: execute_action(LevelUpOnce)
+07/24/24 18:51:56: Processed command: execute_action(LevelUpOnce)
+07/24/24 18:51:56: Successfully decoded parameters: "[1]"
+07/24/24 18:51:56: Executing action: LevelUpOnce
+07/24/24 18:51:56: Command: level_up
+07/24/24 18:51:56: Decoded Parameters: [1.0]
+07/24/24 18:51:56: Level up initiated with goal: 1
+07/24/24 18:52:22: Executing command: execute_action(SaveGameNow)
+07/24/24 18:52:22: Processed command: execute_action(SaveGameNow)
+07/24/24 18:52:22: Successfully decoded parameters: "[]"
+07/24/24 18:52:22: Executing action: SaveGameNow
+07/24/24 18:52:22: Command: save_game
+07/24/24 18:52:22: Decoded Parameters: []
+07/24/24 18:52:22: Saved Game
+07/24/24 18:52:27: Executing command: execute_action(MainMenuChoices)
+07/24/24 18:52:27: Processed command: execute_action(MainMenuChoices)
+07/24/24 18:52:27: Successfully decoded parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 18:52:27: Error decoding parameters: { longMessage : "ERROR in action number 1 of  Step Event0 for object obj_Client:   JSON parse error : unexpected end of data  at gml_Script_decode_action_parameters (line 6) -         return json_parse(parsed); // Parse the JSON string into an actual array ", script : "gml_Script_decode_action_parameters", line : 6, stacktrace : [ "gml_Script_decode_action_parameters (line 6)","gml_Script_execute_command (line 37) -             parameters = decode_action_parameters(encodedParams);","gml_Object_obj_Client_Step_0 (line 197) -             execute_command(string_trim(command));" ], message : "JSON parse error : unexpected end of data" }
+07/24/24 18:52:27: Executing action: MainMenuChoices
+07/24/24 18:52:27: Command: chat_bubble
+07/24/24 18:52:27: Decoded Parameters: []
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+DoAdd :1: undefined value
+ at gml_Script_scr_chat_bubble (line 30) -             handleDebugMessage("Error: Owner object '" + _ownerName + "' not found", true);
+
+Actions.txt:
+
+SaveGameNow,save_game,IltdIg==
+MainMenuChoices,chat_bubble,IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+LevelUpOnce,level_up,IlsxXSI=
+GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg==
+
+I believe we are getting closer?
+
+Detailed log:
+[Client] Appended clipboard content to command buffer: /execute_action(SaveGameNow)
+Date: 07/24/24 Time: 18:52:22 Msg: Executing command: execute_action(SaveGameNow)
+Date: 07/24/24 Time: 18:52:22 Msg: Processed command: execute_action(SaveGameNow)
+Date: 07/24/24 Time: 18:52:22 Msg: Successfully decoded parameters: "[]"
+Date: 07/24/24 Time: 18:52:22 Msg: Executing action: SaveGameNow
+Date: 07/24/24 Time: 18:52:22 Msg: Command: save_game
+Date: 07/24/24 Time: 18:52:22 Msg: Decoded Parameters: []
+Date: 07/24/24 Time: 18:52:22 Msg: Saved Game
+[Client] Processed command/chat and cleared buffer.
+Pause event has been registered for this frame
+Pause event has been unregistered
+[Client] Chat input activated.
+Input text: '/execute_action(MainMenuChoices)'
+Extracted command: 'execute_action'
+Checking permission for command: 'execute_action'
+Required level: 2, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: 'MainMenuChoices'
+Checking param: 'MainMenuChoices'
+All params valid
+Params: 'MainMenuChoices', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /execute_action(MainMenuChoices)
+Date: 07/24/24 Time: 18:52:27 Msg: Executing command: execute_action(MainMenuChoices)
+Date: 07/24/24 Time: 18:52:27 Msg: Processed command: execute_action(MainMenuChoices)
+Date: 07/24/24 Time: 18:52:27 Msg: Successfully decoded parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+Date: 07/24/24 Time: 18:52:27 Msg: Error decoding parameters: { longMessage : "ERROR in action number 1 of  Step Event0 for object obj_Client:   JSON parse error : unexpected end of data  at gml_Script_decode_action_parameters (line 6) -         return json_parse(parsed); // Parse the JSON string into an actual array ", script : "gml_Script_decode_action_parameters", line : 6, stacktrace : [ "gml_Script_decode_action_parameters (line 6)","gml_Script_execute_command (line 37) -             parameters = decode_action_parameters(encodedParams);","gml_Object_obj_Client_Step_0 (line 197) -             execute_command(string_trim(command));" ], message : "JSON parse error : unexpected end of data" }
+Date: 07/24/24 Time: 18:52:27 Msg: Executing action: MainMenuChoices
+Date: 07/24/24 Time: 18:52:27 Msg: Command: chat_bubble
+Date: 07/24/24 Time: 18:52:27 Msg: Decoded Parameters: []
+

@@ -2213,6 +2213,9 @@ YEAN_CAT
 │   ├── FriebaseREST_Firestore_urlUpdateMask
 │   │   ├── FriebaseREST_Firestore_urlUpdateMask.gml
 │   │   └── FriebaseREST_Firestore_urlUpdateMask.yy
+│   ├── LogToFile
+│   │   ├── LogToFile.gml
+│   │   └── LogToFile.yy
 │   ├── __input_axis_is_directional
 │   │   ├── __input_axis_is_directional.gml
 │   │   └── __input_axis_is_directional.yy
@@ -2507,6 +2510,9 @@ YEAN_CAT
 │   ├── __input_wrap_underflow
 │   │   ├── __input_wrap_underflow.gml
 │   │   └── __input_wrap_underflow.yy
+│   ├── action_exists
+│   │   ├── action_exists.gml
+│   │   └── action_exists.yy
 │   ├── add_command
 │   │   ├── add_command.gml
 │   │   └── add_command.yy
@@ -2528,9 +2534,21 @@ YEAN_CAT
 │   ├── are_arguments_valid
 │   │   ├── are_arguments_valid.gml
 │   │   └── are_arguments_valid.yy
+│   ├── are_brackets_balanced
+│   │   ├── are_brackets_balanced.gml
+│   │   └── are_brackets_balanced.yy
+│   ├── are_params_valid
+│   │   ├── are_params_valid.gml
+│   │   └── are_params_valid.yy
+│   ├── are_params_valid_with_quotes
+│   │   ├── are_params_valid_with_quotes.gml
+│   │   └── are_params_valid_with_quotes.yy
 │   ├── array_to_string
 │   │   ├── array_to_string.gml
 │   │   └── array_to_string.yy
+│   ├── array_to_string_robust
+│   │   ├── array_to_string_robust.gml
+│   │   └── array_to_string_robust.yy
 │   ├── calculateAngle
 │   │   ├── calculateAngle.gml
 │   │   └── calculateAngle.yy
@@ -2579,6 +2597,12 @@ YEAN_CAT
 │   ├── debug_action_details
 │   │   ├── debug_action_details.gml
 │   │   └── debug_action_details.yy
+│   ├── decode_action_parameters
+│   │   ├── decode_action_parameters.gml
+│   │   └── decode_action_parameters.yy
+│   ├── deserialize_parameters
+│   │   ├── deserialize_parameters.gml
+│   │   └── deserialize_parameters.yy
 │   ├── drawChatMessages
 │   │   ├── drawChatMessages.gml
 │   │   └── drawChatMessages.yy
@@ -2606,6 +2630,12 @@ YEAN_CAT
 │   ├── execute_command
 │   │   ├── execute_command.gml
 │   │   └── execute_command.yy
+│   ├── extract_action_name
+│   │   ├── extract_action_name.gml
+│   │   └── extract_action_name.yy
+│   ├── extract_action_name_with_quotes
+│   │   ├── extract_action_name_with_quotes.gml
+│   │   └── extract_action_name_with_quotes.yy
 │   ├── forceLineBreakAtMaxWidth
 │   │   ├── forceLineBreakAtMaxWidth.gml
 │   │   └── forceLineBreakAtMaxWidth.yy
@@ -3410,6 +3440,15 @@ YEAN_CAT
 │   ├── parse_data_types
 │   │   ├── parse_data_types.gml
 │   │   └── parse_data_types.yy
+│   ├── parse_nested_array
+│   │   ├── parse_nested_array.gml
+│   │   └── parse_nested_array.yy
+│   ├── parse_parameters
+│   │   ├── parse_parameters.gml
+│   │   └── parse_parameters.yy
+│   ├── parse_value
+│   │   ├── parse_value.gml
+│   │   └── parse_value.yy
 │   ├── player_data_needs_update
 │   │   ├── player_data_needs_update.gml
 │   │   └── player_data_needs_update.yy
@@ -3542,6 +3581,9 @@ YEAN_CAT
 │   ├── seconds_to_time
 │   │   ├── seconds_to_time.gml
 │   │   └── seconds_to_time.yy
+│   ├── serialize_parameters
+│   │   ├── serialize_parameters.gml
+│   │   └── serialize_parameters.yy
 │   ├── shortestAngularDirection
 │   │   ├── shortestAngularDirection.gml
 │   │   └── shortestAngularDirection.yy
@@ -3569,6 +3611,9 @@ YEAN_CAT
 │   ├── string_word_count
 │   │   ├── string_word_count.gml
 │   │   └── string_word_count.yy
+│   ├── string_wrap
+│   │   ├── string_wrap.gml
+│   │   └── string_wrap.yy
 │   ├── syncTimeWithServer
 │   │   ├── syncTimeWithServer.gml
 │   │   └── syncTimeWithServer.yy
@@ -3587,6 +3632,9 @@ YEAN_CAT
 │   ├── update_game_state
 │   │   ├── update_game_state.gml
 │   │   └── update_game_state.yy
+│   ├── wrap_chat_text
+│   │   ├── wrap_chat_text.gml
+│   │   └── wrap_chat_text.yy
 │   └── wrap_text
 │       ├── wrap_text.gml
 │       └── wrap_text.yy
@@ -7154,4 +7202,4 @@ YEAN_CAT
         │       └── 5fa31159-5939-4264-8a79-eb18bc428818.png
         └── sprlongchain.yy
 
-2309 directories, 4846 files
+2325 directories, 4878 files

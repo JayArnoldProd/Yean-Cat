@@ -1,0 +1,52 @@
+07/23/24 13:59:16: Actions.txt not found. Starting with an empty actions map.
+07/23/24 13:59:16: [Client] Failed to reconnect to server. Will try again...
+07/23/24 13:59:36: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 13:59:36: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 13:59:36: Adding action: GotoEarth, Command: goto_planet, Parameters: ["Earth"]
+07/23/24 13:59:36: Checking for command: goto_planet
+07/23/24 13:59:37: Action 'GotoEarth' added successfully.
+07/23/24 13:59:37: Parsed Parameters: [ "Earth" ]
+07/23/24 13:59:37: Actions saved successfully to Actions.txt.
+07/23/24 14:00:04: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/23/24 14:00:04: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/23/24 14:00:04: Adding action: LevelUpOnce, Command: level_up, Parameters: [1]
+07/23/24 14:00:04: Checking for command: level_up
+07/23/24 14:00:04: Action 'LevelUpOnce' added successfully.
+07/23/24 14:00:05: Parsed Parameters: [ "1" ]
+07/23/24 14:00:05: Actions saved successfully to Actions.txt.
+07/23/24 14:00:17: Executing command: add_action(SaveGameNow,save_game,[])
+07/23/24 14:00:17: Processed command: add_action(SaveGameNow,save_game,[])
+07/23/24 14:00:17: Adding action: SaveGameNow, Command: save_game, Parameters: []
+07/23/24 14:00:17: Checking for command: save_game
+07/23/24 14:00:17: Action 'SaveGameNow' added successfully.
+07/23/24 14:00:17: Parsed Parameters: [ "" ]
+07/23/24 14:00:17: Actions saved successfully to Actions.txt.
+07/23/24 14:00:48: [Jay Arnold] hello
+07/23/24 14:00:48: Chat Bubble Created with 0 choices
+07/23/24 14:01:03: [Jay Arnold] that was an empty hat bubble.
+07/23/24 14:01:03: Chat Bubble Created with 0 choices
+07/23/24 14:01:05: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow”],[“Cancel","null"]]])
+07/23/24 14:01:06: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow”],[“Cancel","null"]]])
+07/23/24 14:01:06: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"]
+07/23/24 14:01:06: Checking for command: chat_bubble
+07/23/24 14:01:06: Action 'MainMenuChoices' added successfully.
+07/23/24 14:01:06: Parsed Parameters: [ "What would you like to do?,yeancat,Go to Earth,GotoEarth" ]
+07/23/24 14:01:06: Actions saved successfully to Actions.txt.
+07/23/24 14:01:12: Executing command: execute_action(MainMenuChoices)
+07/23/24 14:01:12: Processed command: execute_action(MainMenuChoices)
+07/23/24 14:01:12: Executing action: MainMenuChoices
+07/23/24 14:01:12: Command: chat_bubble
+07/23/24 14:01:12: Parameters: [ "What would you like to do?,yeancat,Go to Earth,GotoEarth" ]
+07/23/24 14:01:12: Error: Not enough parameters for chat_bubble command
+
+Actions.txt
+SaveGameNow,save_game,[""]
+MainMenuChoices,chat_bubble,["What would you like to do?,yeancat,Go to Earth,GotoEarth"]
+LevelUpOnce,level_up,["1"]
+GotoEarth,goto_planet,["Earth"]
+
+
+It seems that the choices and actions are not properly parsed into the action. Also my plain messages aren't creating bubbles with text.
+

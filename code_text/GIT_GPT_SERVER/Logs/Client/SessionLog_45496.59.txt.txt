@@ -1,0 +1,42 @@
+07/23/24 09:03:22: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/23/24 09:03:22: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/23/24 09:03:22: Loaded action: Hello4, Command: chat_bubble, Parameters: [ "Hello World! This is Pink 
+Now","yeancat" ]
+07/23/24 09:03:23: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/23/24 09:03:23: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:03:23: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/23/24 09:03:23: Loaded action: Hello6, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:03:23: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/23/24 09:03:23: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/23/24 09:03:23: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/23/24 09:03:23: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:03:23: Loaded action: Hello7, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/23/24 09:03:23: Actions loaded successfully from Actions.txt.
+07/23/24 09:03:23: [Client] Failed to reconnect to server. Will try again...
+07/23/24 09:04:35: Executing command: chat_bubble("Hello World!","yeancat")
+07/23/24 09:04:35: Processed command: chat_bubble("Hello World!","yeancat")
+07/23/24 09:04:35: Chat Bubble Created. Following 'yeancat' with text: '"Hello World!"' and 0 choices
+07/23/24 09:05:54: Executing command: execute_action(MainMenuChoices)
+07/23/24 09:05:54: Processed command: execute_action(MainMenuChoices)
+07/23/24 09:05:54: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?' and 0 choices
+07/23/24 09:06:09: [Jay Arnold] that should have generated with 4 choices i think
+07/23/24 09:06:09: Chat Bubble Created. Following 'yeancat' with text: ' that should have generated with 4 choices i think' and 0 choices
+07/23/24 09:12:57: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/23/24 09:12:57: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/23/24 09:12:58: Loaded action: Hello4, Command: chat_bubble, Parameters: [ "Hello World! This is Pink 
+Now","yeancat" ]
+07/23/24 09:12:58: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/23/24 09:12:58: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:12:58: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/23/24 09:12:58: Loaded action: Hello6, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:12:58: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/23/24 09:12:58: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/23/24 09:12:58: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/23/24 09:12:58: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:12:58: Loaded action: Hello7, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/23/24 09:12:58: Actions loaded successfully from Actions.txt.
+07/23/24 09:12:58: [Client] Failed to reconnect to server. Will try again...
+07/23/24 09:13:23: Executing command: execute_action(MainMenuChoices)
+07/23/24 09:13:24: Processed command: execute_action(MainMenuChoices)

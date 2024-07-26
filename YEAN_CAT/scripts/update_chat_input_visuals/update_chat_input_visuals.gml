@@ -1,44 +1,67 @@
 function update_chat_input_visuals() {
     var inputText = string_trim(global.commandBuffer);
-    var firstChar = string_char_at(inputText, 1);
+    show_debug_message("Input text: '" + inputText + "'");
     
     if (inputText == "") {
         global.textColor = global.defaultTextColor;
+        show_debug_message("Empty input, setting default color");
         return;
     }
     
-    if (firstChar != "/") {
+    if (string_char_at(inputText, 1) != "/") {
         global.textColor = global.defaultTextColor;
+        show_debug_message("Not a command, setting default color");
         return;
     }
     
-    if (string_length(inputText) == 1) {
-        global.textColor = c_white;
-        return;
-    }
+    var commandEnd = string_pos("(", inputText);
+    if (commandEnd == 0) commandEnd = string_length(inputText) + 1;
     
-    var command = string_delete(inputText, 1, 1);
+    var command = string_copy(inputText, 2, commandEnd - 2);
+    show_debug_message("Extracted command: '" + command + "'");
+    
     var hasPermission = check_permission_command(command);
-    var isZeroArgCommand = ds_map_exists(global.commandDetails, command) && !ds_map_exists(global.commandDetails, command + "(");
+    var commandExists = ds_map_exists(global.commandDetails, command + "(") || ds_map_exists(global.commandDetails, command);
+    var requiresParentheses = ds_map_exists(global.commandDetails, command + "(");
     
-    if (isZeroArgCommand) {
-        global.textColor = hasPermission ? c_lime : c_red;
-    } else if (ds_map_exists(global.commandDetails, command + "(")) {
-        var openParenPos = string_pos("(", inputText);
+    show_debug_message("Command exists: " + string(commandExists) + ", Requires parentheses: " + string(requiresParentheses) + ", Has permission: " + string(hasPermission));
+    
+    if (!commandExists) {
+        global.textColor = c_pink;
+        show_debug_message("Command doesn't exist, setting color to pink");
+        return;
+    }
+    
+    if (!hasPermission) {
+        global.textColor = c_red;
+        show_debug_message("No permission, setting color to red");
+        return;
+    }
+    
+    var openParenPos = string_pos("(", inputText);
+    var closeParenPos = string_last_pos(")", inputText);
+    
+    if (requiresParentheses) {
         if (openParenPos == 0) {
             global.textColor = c_aqua;
+            show_debug_message("Parentheses required but not opened, setting color to aqua");
+        } else if (closeParenPos == 0 || !are_brackets_balanced(inputText)) {
+            global.textColor = c_yellow;
+            show_debug_message("Parentheses or brackets not properly closed, setting color to yellow");
         } else {
-            var closeParenPos = string_pos(")", inputText);
-            if (closeParenPos > openParenPos) {
-                global.textColor = hasPermission ? c_lime : c_red;
-            } else {
-                global.textColor = c_aqua;
-            }
+            var params = string_copy(inputText, openParenPos + 1, closeParenPos - openParenPos - 1);
+            var isValid = are_params_valid(params);
+            global.textColor = isValid ? c_lime : c_yellow;
+            show_debug_message("Params: '" + params + "', Is valid: " + string(isValid) + ", Setting color to " + (global.textColor == c_lime ? "green" : "yellow"));
         }
     } else {
-        global.textColor = c_pink;
+        global.textColor = c_lime;
+        show_debug_message("No parentheses needed, setting color to green");
     }
+    
+    show_debug_message("Final text color set to: " + (global.textColor == c_lime ? "green" : (global.textColor == c_red ? "red" : (global.textColor == c_yellow ? "yellow" : (global.textColor == c_aqua ? "aqua" : (global.textColor == c_pink ? "pink" : "unknown"))))));
 }
+
 //// Function to update the color of the chatbox text based on command input
 //function update_chat_input_visuals() {
 //    var inputText = string_trim(global.commandBuffer);

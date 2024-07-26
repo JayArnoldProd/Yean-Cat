@@ -1,0 +1,56 @@
+07/22/24 07:38:33: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 07:38:34: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 07:38:34: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 07:38:34: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:38:34: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 07:38:34: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 07:38:34: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 07:38:34: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 07:38:34: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:38:34: Actions loaded successfully from Actions.txt.
+07/22/24 07:38:34: [Client] Failed to reconnect to server. Will try again...
+07/22/24 07:40:46: Executing command: goto_planet(Fantasia)
+07/22/24 07:40:46: Processed command: goto_planet(Fantasia)
+07/22/24 07:40:46: Teleported to Fantasia.
+07/22/24 07:40:49: [Jay Arnold] nice that was green
+07/22/24 07:40:49: Chat Bubble Created. Following 'yeancat' with text: ' nice that was green' and 0 choices
+07/22/24 07:41:22: Executing command: add_action(Hello4,chat_bubble,["Hello World! This is Pink 
+Now","yeancat"])
+07/22/24 07:41:22: Processed command: add_action(Hello4,chat_bubble,["Hello World! This is Pink 
+Now","yeancat"])
+07/22/24 07:41:22: Adding action: Hello4, Command: chat_bubble, Parameters: [ ""Hello World! This is Pink 
+Now"",""yeancat"" ]
+07/22/24 07:41:22: Checking for command: chat_bubble
+07/22/24 07:41:22: Action 'Hello4' added successfully.
+07/22/24 07:41:22: Actions saved successfully to Actions.txt.
+07/22/24 07:41:37: [Jay Arnold] at least we fixed the bug you previously added, we still need to fix the
+ pink.
+07/22/24 07:41:37: Chat Bubble Created. Following 'yeancat' with text: ' at least we fixed the bug you previously added, we still need to fix the  pink.' and 0 choices
+07/22/24 07:47:22: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 07:47:22: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 07:47:23: Loaded action: Hello4, Command: chat_bubble, Parameters: [ "Hello World! This is Pink 
+Now","yeancat" ]
+07/22/24 07:47:23: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 07:47:23: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:47:23: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 07:47:23: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 07:47:23: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 07:47:23: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 07:47:23: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:47:23: Actions loaded successfully from Actions.txt.
+07/22/24 07:47:23: [Client] Failed to reconnect to server. Will try again...
+07/22/24 07:47:48: Executing command: goto_planet(Fantasia)
+07/22/24 07:47:48: Processed command: goto_planet(Fantasia)
+07/22/24 07:47:49: Teleported to Fantasia.
+07/22/24 07:47:52: [Jay Arnold] that was green, good
+07/22/24 07:47:52: Chat Bubble Created. Following 'yeancat' with text: ' that was green, good' and 0 choices
+07/22/24 07:48:16: Executing command: add_action(Hello6,chat_bubble,["Hello World","yeancat"])
+07/22/24 07:48:16: Processed command: add_action(Hello6,chat_bubble,["Hello World","yeancat"])
+07/22/24 07:48:16: Adding action: Hello6, Command: chat_bubble, Parameters: [ ""Hello World"",""yeancat"" ]
+07/22/24 07:48:16: Checking for command: chat_bubble
+07/22/24 07:48:16: Action 'Hello6' added successfully.
+07/22/24 07:48:16: Actions saved successfully to Actions.txt.
+07/22/24 07:48:20: [Jay Arnold] that was pink
+07/22/24 07:48:20: Chat Bubble Created. Following 'yeancat' with text: ' that was pink' and 0 choices

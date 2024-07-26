@@ -1,0 +1,27 @@
+07/22/24 07:16:57: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 07:16:57: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 07:16:57: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 07:16:57: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 07:16:57: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 07:16:58: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 07:16:58: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 07:16:58: Actions loaded successfully from Actions.txt.
+07/22/24 07:16:58: [Client] Failed to reconnect to server. Will try again...
+07/22/24 07:17:30: [Jay Arnold] hello
+07/22/24 07:17:30: Chat Bubble Created. Following 'yeancat' with text: ' hello' and 0 choices
+07/22/24 07:17:36: Executing command: level_up(100)
+07/22/24 07:17:36: Processed command: level_up(100)
+07/22/24 07:17:36: Level up initiated with goal: 100
+07/22/24 07:18:13: Executing command: add_action(HelloWorld2,chat_bubble,["Hello World","yeancat"])
+07/22/24 07:18:13: Processed command: add_action(HelloWorld2,chat_bubble,["Hello World","yeancat"])
+07/22/24 07:18:13: Adding action: HelloWorld2, Command: chat_bubble, Parameters: [ ""Hello World"",""yeancat"" ]
+07/22/24 07:18:14: Checking for command: chat_bubble
+07/22/24 07:18:14: Action 'HelloWorld2' added successfully.
+07/22/24 07:18:14: Actions saved successfully to Actions.txt.
+07/22/24 07:18:22: Executing command: execute_action(HelloWorld2)
+07/22/24 07:18:22: Processed command: execute_action(HelloWorld2)
+07/22/24 07:18:22: Chat Bubble Created. Following 'yeancat' with text: 'Hello World' and 0 choices
+07/22/24 07:18:45: [Jay Arnold] okay so when adding the action it turned pink after typing "W" and 
+never turned green after closing it. ill supply you the full log.
+07/22/24 07:18:45: Chat Bubble Created. Following 'yeancat' with text: ' okay so when adding the action it turned pink after typing "W" and  never turned green after closing it. ill supply you the full log.' and 0 choices

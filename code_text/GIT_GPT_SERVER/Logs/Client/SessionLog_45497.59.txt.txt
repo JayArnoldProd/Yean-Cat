@@ -1,0 +1,13 @@
+07/24/24 09:06:16: Actions.txt not found. Starting with an empty actions map.
+07/24/24 09:06:16: [Client] Failed to reconnect to server. Will try again...
+07/24/24 09:06:25: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 09:06:25: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 09:06:25: Adding action: GotoEarth, Command: goto_planet, Parameters: ["Earth"]
+07/24/24 09:06:26: Checking for command: goto_planet(
+07/24/24 09:06:26: Parameters after processing: [ "["Earth"]" ]
+07/24/24 09:06:26: Action 'GotoEarth' added successfully.
+07/24/24 09:06:26: Actions saved successfully to Actions.txt.
+
+GotoEarth,goto_planet,["["Earth"]"]
+07/24/24 09:09:47: Actions.txt not found. Starting with an empty actions map.
+07/24/24 09:09:48: [Client] Failed to reconnect to server. Will try again...

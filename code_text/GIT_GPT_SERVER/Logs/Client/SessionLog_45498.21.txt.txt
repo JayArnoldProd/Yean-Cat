@@ -1,0 +1,70 @@
+
+07/25/24 00:02:13: Actions.txt not found. Starting with an empty actions map.
+07/25/24 00:02:13: [Client] Failed to reconnect to server. Will try again...
+07/25/24 00:02:29: Executing command: goto_planet(Fantasia)
+07/25/24 00:02:29: Processed command: goto_planet(Fantasia)
+07/25/24 00:02:29: Teleported to Fantasia.
+07/25/24 00:02:35: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/25/24 00:02:35: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/25/24 00:02:35: Adding action: GotoEarth, Command: goto_planet, Raw Parameters: "Earth"
+07/25/24 00:02:35: Encoded Parameters: IkVhcnRoIg==
+07/25/24 00:02:35: Checking for command: goto_planet
+07/25/24 00:02:35: Action 'GotoEarth' added successfully.
+07/25/24 00:02:35: Saving action: GotoEarth|||goto_planet|||IkVhcnRoIg==
+07/25/24 00:02:35: Actions saved successfully to Actions.txt.
+07/25/24 00:02:41: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/25/24 00:02:41: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/25/24 00:02:41: Adding action: LevelUpOnce, Command: level_up, Raw Parameters: 1.0
+07/25/24 00:02:41: Encoded Parameters: MS4w
+07/25/24 00:02:41: Checking for command: level_up
+07/25/24 00:02:41: Action 'LevelUpOnce' added successfully.
+07/25/24 00:02:41: Saving action: LevelUpOnce|||level_up|||MS4w
+07/25/24 00:02:41: Saving action: GotoEarth|||goto_planet|||IkVhcnRoIg==
+07/25/24 00:02:41: Actions saved successfully to Actions.txt.
+07/25/24 00:02:48: Executing command: add_action(SaveGameNow,save_game,[])
+07/25/24 00:02:48: Processed command: add_action(SaveGameNow,save_game,[])
+
+Date: 07/25/24 Time: 00:02:41 Msg: Encoded Parameters: MS4w
+Date: 07/25/24 Time: 00:02:41 Msg: Checking for command: level_up
+Date: 07/25/24 Time: 00:02:41 Msg: Action 'LevelUpOnce' added successfully.
+Date: 07/25/24 Time: 00:02:41 Msg: Saving action: LevelUpOnce|||level_up|||MS4w
+Date: 07/25/24 Time: 00:02:41 Msg: Saving action: GotoEarth|||goto_planet|||IkVhcnRoIg==
+Date: 07/25/24 Time: 00:02:41 Msg: Actions saved successfully to Actions.txt.
+[Client] Processed command/chat and cleared buffer.
+Pause event has been registered for this frame
+Pause event has been unregistered
+[Client] Chat input activated.
+Input text: '/add_action(SaveGameNow,save_game,[])'
+Extracted command: 'add_action'
+Checking permission for command: 'add_action'
+Required level: 2, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: 'SaveGameNow,save_game,[]'
+Checking param: 'SaveGameNow'
+Checking param: 'save_game'
+Checking param: '[]'
+All params valid
+Params: 'SaveGameNow,save_game,[]', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /add_action(SaveGameNow,save_game,[])
+Date: 07/25/24 Time: 00:02:48 Msg: Executing command: add_action(SaveGameNow,save_game,[])
+Date: 07/25/24 Time: 00:02:48 Msg: Processed command: add_action(SaveGameNow,save_game,[])
+ERROR!!! :: ############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+
+JSON parse error : unexpected end of data
+ at gml_Script_execute_command (line 35) -             var actionParams = json_parse(actionParamsString);
+############################################################################################
+gml_Script_execute_command (line 35)
+gml_Object_obj_Client_Step_0 (line 197) -             execute_command(string_trim(command));
+
+Igor complete.
+elapsed time 00:01:58.3601640s for command "/Users/Shared/GameMakerStudio2/Cache/runtimes/runtime-2024.4.1.201/bin/igor/osx/arm64/Igor" -j=8  -options="/tmp/GameMakerStudio2/GMS2TEMP/build.bff" -v -- Mac Run started at 07/25/2024 00:00:59
+SUCCESS: Run Program Complete
+
+Actions.txt:
+

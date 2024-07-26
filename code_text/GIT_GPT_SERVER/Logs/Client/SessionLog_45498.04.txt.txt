@@ -1,0 +1,87 @@
+
+07/24/24 19:57:59: [Client] Failed to reconnect to server. Will try again...
+07/24/24 19:59:27: Actions.txt not found. Starting with an empty actions map.
+07/24/24 19:59:27: [Client] Failed to reconnect to server. Will try again...
+07/24/24 19:59:40: Executing command: goto_planet(Fantasia)
+07/24/24 19:59:40: Processed command: goto_planet(Fantasia)
+07/24/24 19:59:40: Teleported to Fantasia.
+07/24/24 19:59:44: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 19:59:44: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 19:59:44: Adding action: GotoEarth, Command: goto_planet, Raw Parameters: "[\"Earth\"]"
+07/24/24 19:59:44: Encoded Parameters: ##{{\##Earth\##}}##
+07/24/24 19:59:44: Checking for command: goto_planet
+07/24/24 19:59:44: Action 'GotoEarth' added successfully.
+07/24/24 19:59:44: Saving action: GotoEarth|||goto_planet|||##{{\##Earth\##}}##
+07/24/24 19:59:44: Actions saved successfully to Actions.txt.
+07/24/24 19:59:48: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 19:59:48: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 19:59:48: Adding action: LevelUpOnce, Command: level_up, Raw Parameters: "[1]"
+07/24/24 19:59:48: Encoded Parameters: ##{{1}}##
+07/24/24 19:59:48: Checking for command: level_up
+07/24/24 19:59:48: Action 'LevelUpOnce' added successfully.
+07/24/24 19:59:48: Saving action: LevelUpOnce|||level_up|||##{{1}}##
+07/24/24 19:59:48: Saving action: GotoEarth|||goto_planet|||##{{\##Earth\##}}##
+07/24/24 19:59:48: Actions saved successfully to Actions.txt.
+07/24/24 19:59:52: Executing command: add_action(SaveGameNow,save_game,[])
+07/24/24 19:59:52: Processed command: add_action(SaveGameNow,save_game,[])
+07/24/24 19:59:52: Adding action: SaveGameNow, Command: save_game, Raw Parameters: "[]"
+07/24/24 19:59:52: Encoded Parameters: ##{{}}##
+07/24/24 19:59:52: Checking for command: save_game
+07/24/24 19:59:52: Action 'SaveGameNow' added successfully.
+07/24/24 19:59:52: Saving action: SaveGameNow|||save_game|||##{{}}##
+07/24/24 19:59:52: Saving action: LevelUpOnce|||level_up|||##{{1}}##
+07/24/24 19:59:52: Saving action: GotoEarth|||goto_planet|||##{{\##Earth\##}}##
+07/24/24 19:59:52: Actions saved successfully to Actions.txt.
+07/24/24 19:59:56: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 19:59:56: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 19:59:56: Adding action: MainMenuChoices, Command: chat_bubble, Raw Parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 19:59:56: Encoded Parameters: ##{{\##What would you like to do?\##@@\##yeancat\##@@{{{{\##Go to Earth\##@@\##GotoEarth\##}}##
+07/24/24 19:59:57: Checking for command: chat_bubble
+07/24/24 19:59:57: Action 'MainMenuChoices' added successfully.
+07/24/24 19:59:57: Saving action: SaveGameNow|||save_game|||##{{}}##
+07/24/24 19:59:57: Saving action: MainMenuChoices|||chat_bubble|||##{{\##What would you like to do?\##@@\##yeancat\##@@{{{{\##Go to Earth\##@@\##GotoEarth\##}}##
+07/24/24 19:59:57: Saving action: LevelUpOnce|||level_up|||##{{1}}##
+07/24/24 19:59:57: Saving action: GotoEarth|||goto_planet|||##{{\##Earth\##}}##
+07/24/24 19:59:57: Actions saved successfully to Actions.txt.
+07/24/24 20:00:01: Executing command: execute_action(GotoEarth)
+07/24/24 20:00:01: Processed command: execute_action(GotoEarth)
+07/24/24 20:00:01: Successfully decoded parameters: "[\"Earth\"]"
+07/24/24 20:00:01: Executing action: GotoEarth
+07/24/24 20:00:01: Command: goto_planet
+07/24/24 20:00:01: Decoded Parameters: "[\"Earth\"]"
+07/24/24 20:00:01: Teleported to Earth.
+07/24/24 20:00:07: Executing command: chat_bubble(“Hello World!”,”yeancat”)
+07/24/24 20:00:07: Processed command: chat_bubble(“Hello World!”,”yeancat”)
+07/24/24 20:00:07: Raw chat_bubble parameters: “Hello World!”, ”yeancat”, []
+07/24/24 20:00:07: Creating chat bubble with text: “Hello World!”, owner: ”yeancat”, choices: []
+07/24/24 20:00:07: Error: Owner object '”yeancat”' not found
+07/24/24 20:00:12: [Jay Arnold] Hello World!
+07/24/24 20:00:12: Raw chat_bubble parameters:  Hello World!, yeancat, []
+07/24/24 20:00:12: Creating chat bubble with text:  Hello World!, owner: yeancat, choices: []
+07/24/24 20:00:12: Chat Bubble Created. Following 'yeancat' with text: ' Hello World!'
+07/24/24 20:00:23: Executing command: list_actions
+07/24/24 20:00:23: Processed command: list_actions
+07/24/24 20:00:23: Actions: SaveGameNow, MainMenuChoices, LevelUpOnce, GotoEarth, 
+07/24/24 20:00:25: Executing command: execute_action(MainMenuChoices)
+07/24/24 20:00:25: Processed command: execute_action(MainMenuChoices)
+07/24/24 20:00:25: Successfully decoded parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 20:00:25: Executing action: MainMenuChoices
+07/24/24 20:00:25: Command: chat_bubble
+07/24/24 20:00:25: Decoded Parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 20:00:25: Raw chat_bubble parameters: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"], undefined, []
+07/24/24 20:00:25: Error parsing chat_bubble parameters: { longMessage : "ERROR in action number 1 of  Step Event0 for object obj_Client:   JSON parse error : unexpected end of data  at gml_Script_scr_chat_bubble (line 11) -             var parsed = json_parse(_text); ", script : "gml_Script_scr_chat_bubble", line : 11, stacktrace : [ "gml_Script_scr_chat_bubble (line 11)","gml_Script_execute_command (line 48)","gml_Object_obj_Client_Step_0 (line 197) -             execute_command(string_trim(command));" ], message : "JSON parse error : unexpected end of data" }
+07/24/24 20:00:25: Creating chat bubble with text: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"], owner: undefined, choices: []
+07/24/24 20:00:25: Error: Owner object 'undefined' not found
+07/24/24 20:00:32: Executing command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+07/24/24 20:00:32: Processed command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+07/24/24 20:00:32: Raw chat_bubble parameters: "What would you like to do?", "yeancat", "[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 20:00:32: Creating chat bubble with text: "What would you like to do?", owner: "yeancat", choices: "[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 20:00:32: Error: Owner object '"yeancat"' not found
+
+SaveGameNow|||save_game|||##{{}}##
+MainMenuChoices|||chat_bubble|||##{{\##What would you like to do?\##@@\##yeancat\##@@{{{{\##Go to Earth\##@@\##GotoEarth\##}}##
+LevelUpOnce|||level_up|||##{{1}}##
+GotoEarth|||goto_planet|||##{{\##Earth\##}}##
+
+
+A few visible issues here

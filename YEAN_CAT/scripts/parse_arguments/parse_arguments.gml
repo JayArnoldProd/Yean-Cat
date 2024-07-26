@@ -1,41 +1,34 @@
 /// @function parse_arguments(argsString)
 /// @description Parses a string containing command arguments into an array
 function parse_arguments(argsString) {
-    var params = [];
-    var inString = false;
-    var inArray = false;
-    var currentParam = "";
-    var currentChar;
-
+    var args = [];
+    var depthh = 0;
+    var currentArg = "";
+    var inQuotes = false;
+    var bracketDepth = 0;
+    
     for (var i = 1; i <= string_length(argsString); i++) {
-        currentChar = string_char_at(argsString, i);
-
-        if (currentChar == "\"" && !inArray) {
-            inString = !inString; // Toggle string mode
-            currentParam += currentChar;
-        } else if (currentChar == "[" && !inString) {
-            inArray = true;
-            currentParam += currentChar;
-        } else if (currentChar == "]" && !inString) {
-            inArray = false;
-            currentParam += currentChar;
-        } else if (currentChar == "," && !inString && !inArray) {
-            params[array_length(params)] = string_trim(currentParam);
-            currentParam = "";
+        var char = string_char_at(argsString, i);
+        
+        if (char == "\"" && string_char_at(argsString, i - 1) != "\\") {
+            inQuotes = !inQuotes;
+        }
+        
+        if (!inQuotes) {
+            if (char == "[") bracketDepth++;
+            if (char == "]") bracketDepth--;
+            if (char == "(") depthh++;
+            if (char == ")") depthh--;
+        }
+        
+        if ((char == "," && depthh == 0 && bracketDepth == 0 && !inQuotes) || i == string_length(argsString)) {
+            if (i == string_length(argsString)) currentArg += char;
+            array_push(args, string_trim(currentArg));
+            currentArg = "";
         } else {
-            currentParam += currentChar;
+            currentArg += char;
         }
     }
-
-    if (string_length(currentParam) > 0) {
-        // Remove surrounding quotes if the entire parameter is a quoted string
-        if (string_length(currentParam) >= 2 && string_char_at(currentParam, 1) == "\"" && string_char_at(currentParam, string_length(currentParam)) == "\"") {
-            currentParam = string_delete(currentParam, string_length(currentParam), 1);
-            currentParam = string_delete(currentParam, 1, 1);
-        }
-
-        params[array_length(params)] = string_trim(currentParam);
-    }
-
-    return params;
+    
+    return args;
 }

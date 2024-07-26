@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"wrap_chat_text",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"wrap_chat_text",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

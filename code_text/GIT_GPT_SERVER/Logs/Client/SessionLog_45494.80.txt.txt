@@ -1,0 +1,46 @@
+07/21/24 14:06:50: Actions.txt not found. Starting with an empty actions map.
+07/21/24 14:06:51: [Client] Failed to reconnect to server. Will try again...
+07/21/24 14:08:13: [Jay Arnold] Hello
+07/21/24 14:08:13: Chat Bubble Created. Following 'yeancat' with text: ' Hello' and 0 choices
+07/21/24 14:08:36: Executing command: goto_planet(Fantasia)
+07/21/24 14:08:36: Processed command: goto_planet(Fantasia)
+07/21/24 14:08:36: Teleported to Fantasia.
+07/21/24 14:08:45: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/21/24 14:08:45: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/21/24 14:08:45: Adding action: GotoEarth, Command: goto_planet, Parameters: [ ""Earth"" ]
+07/21/24 14:08:46: Checking for command: goto_planet
+07/21/24 14:08:46: Action 'GotoEarth' added successfully.
+07/21/24 14:08:46: Actions saved successfully to Actions.txt.
+07/21/24 14:08:57: Executing command: execute_action(GotoEarth)
+07/21/24 14:08:58: Processed command: execute_action(GotoEarth)
+07/21/24 14:08:58: Teleported to Earth.
+07/21/24 14:09:22: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/21/24 14:09:22: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/21/24 14:09:22: Adding action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/21/24 14:09:22: Checking for command: level_up
+07/21/24 14:09:22: Action 'LevelUpOnce' added successfully.
+07/21/24 14:09:22: Actions saved successfully to Actions.txt.
+07/21/24 14:09:34: Executing command: execute_action(LevelUpOnce)
+07/21/24 14:09:34: Processed command: execute_action(LevelUpOnce)
+07/21/24 14:09:34: Level up initiated with goal: 1
+07/21/24 14:09:45: Executing command: level_up(100)
+07/21/24 14:09:46: Processed command: level_up(100)
+07/21/24 14:09:46: Level up initiated with goal: 100
+07/21/24 14:10:33: Executing command: add_action(SaveGameNow,save_game,[])
+07/21/24 14:10:33: Processed command: add_action(SaveGameNow,save_game,[])
+07/21/24 14:10:33: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/21/24 14:10:34: Checking for command: save_game
+07/21/24 14:10:34: Action 'SaveGameNow' added successfully.
+07/21/24 14:10:34: Actions saved successfully to Actions.txt.
+07/21/24 14:11:05: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/21/24 14:11:05: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/21/24 14:11:05: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: [ ""What would you like to do?"",""yeancat"",""Go to Earth"",""GotoEarth"",""Level Up"",""LevelUpOnce"",""Save 
+Game"",""SaveGameNow"",""Cancel"","null" ]
+07/21/24 14:11:05: Checking for command: chat_bubble
+07/21/24 14:11:06: Action 'MainMenuChoices' added successfully.
+07/21/24 14:11:06: Actions saved successfully to Actions.txt.
+07/21/24 14:11:18: Executing command: execute_action(MainMenuChoices)
+07/21/24 14:11:18: Processed command: execute_action(MainMenuChoices)
+07/21/24 14:11:19: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?' and 0 choices

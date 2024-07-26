@@ -12,21 +12,13 @@ function save_actions() {
         var command = actionData[? "command"];
         var parameters = actionData[? "parameters"];
         
-        var paramString = "";
-        for (var i = 0; i < array_length(parameters); i++) {
-            var param = parameters[i];
-            if (is_string(param)) {
-                paramString += "\"" + string_replace_all(param, "\"", "\\\"") + "\"";
-            } else {
-                paramString += string(param);
-            }
-            if (i < array_length(parameters) - 1) {
-                paramString += ",";
-            }
-        }
+        var paramString = json_stringify(parameters);
+        var encodedParams = base64_encode(paramString);
         
-        file_text_write_string(file, actionKey + "," + command + "," + paramString);
+        var line = actionKey + "|||" + command + "|||" + encodedParams;
+        file_text_write_string(file, line);
         file_text_writeln(file);
+        handleDebugMessage("Saving action: " + line, true);
         actionKey = ds_map_find_next(global.actionDetails, actionKey);
     }
     
@@ -34,54 +26,39 @@ function save_actions() {
     handleDebugMessage("Actions saved successfully to Actions.txt.", true);
 }
 
-//old code
-
-///// @function save_actions()
-///// @description Saves the global.actionDetails to Actions.txt
 //function save_actions() {
 //    if (ds_map_size(global.actionDetails) == 0) {
 //        handleDebugMessage("No actions to save.", true);
 //        return;
 //    }
-
+    
 //    var file = file_text_open_write("Actions.txt");
 //    var actionKey = ds_map_find_first(global.actionDetails);
-
-//    // Iterate over each action entry and save it in the desired format
-//    while (actionKey != undefined) {
+    
+//    while (!is_undefined(actionKey)) {
 //        var actionData = ds_map_find_value(global.actionDetails, actionKey);
 //        var command = actionData[? "command"];
 //        var parameters = actionData[? "parameters"];
-
-//        // Format the parameters correctly
-//        var paramsString = "[ ";
+        
+//        var paramString = "[";
 //        for (var i = 0; i < array_length(parameters); i++) {
-//            var param = parameters[i];
-
-//            // Convert param to the appropriate data type string
-//            if (is_real(param) || string_is_real(param)) {
-//                paramsString += string(real(param));
-//            } else if (is_string(param)) {
-//                paramsString += "\"" + string_trim(param) + "\"";
+//            if (is_string(parameters[i])) {
+//                paramString += "\"" + parameters[i] + "\"";
+//            } else {
+//                paramString += string(parameters[i]);
 //            }
-
 //            if (i < array_length(parameters) - 1) {
-//                paramsString += ", ";
+//                paramString += ",";
 //            }
 //        }
-//        paramsString += " ]";
-
-//        file_text_write_string(file, actionKey + "," + command + "," + paramsString);
+//        paramString += "]";
+        
+//        file_text_write_string(file, actionKey + "," + command + "," + paramString);
 //        file_text_writeln(file);
-
 //        actionKey = ds_map_find_next(global.actionDetails, actionKey);
 //    }
-
+    
 //    file_text_close(file);
 //    handleDebugMessage("Actions saved successfully to Actions.txt.", true);
 //}
-
-
-
-
 

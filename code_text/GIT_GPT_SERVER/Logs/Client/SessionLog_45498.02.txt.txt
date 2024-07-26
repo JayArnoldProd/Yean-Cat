@@ -1,0 +1,81 @@
+07/24/24 19:34:15: Actions.txt not found. Starting with an empty actions map.
+07/24/24 19:34:15: [Client] Failed to reconnect to server. Will try again...
+07/24/24 19:34:24: Executing command: goto_planet(Fantasia)
+07/24/24 19:34:24: Processed command: goto_planet(Fantasia)
+07/24/24 19:34:24: Teleported to Fantasia.
+07/24/24 19:34:28: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 19:34:28: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 19:34:28: Adding action: GotoEarth, Command: goto_planet, Raw Parameters: "[\"Earth\"]"
+07/24/24 19:34:28: Encoded Parameters: IltcIkVhcnRoXCJdIg==
+07/24/24 19:34:28: Checking for command: goto_planet
+07/24/24 19:34:28: Action 'GotoEarth' added successfully.
+07/24/24 19:34:28: Saving action: GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg==
+07/24/24 19:34:28: Actions saved successfully to Actions.txt.
+07/24/24 19:34:32: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 19:34:32: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 19:34:32: Adding action: LevelUpOnce, Command: level_up, Raw Parameters: "[1]"
+07/24/24 19:34:32: Encoded Parameters: IlsxXSI=
+07/24/24 19:34:32: Checking for command: level_up
+07/24/24 19:34:32: Action 'LevelUpOnce' added successfully.
+07/24/24 19:34:32: Saving action: LevelUpOnce,level_up,IlsxXSI=
+07/24/24 19:34:32: Saving action: GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg==
+07/24/24 19:34:32: Actions saved successfully to Actions.txt.
+07/24/24 19:34:36: Executing command: add_action(SaveGameNow,save_game,[])
+07/24/24 19:34:36: Processed command: add_action(SaveGameNow,save_game,[])
+07/24/24 19:34:36: Adding action: SaveGameNow, Command: save_game, Raw Parameters: "[]"
+07/24/24 19:34:36: Encoded Parameters: IltdIg==
+07/24/24 19:34:36: Checking for command: save_game
+07/24/24 19:34:36: Action 'SaveGameNow' added successfully.
+07/24/24 19:34:36: Saving action: SaveGameNow,save_game,IltdIg==
+07/24/24 19:34:36: Saving action: LevelUpOnce,level_up,IlsxXSI=
+07/24/24 19:34:36: Saving action: GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg==
+07/24/24 19:34:36: Actions saved successfully to Actions.txt.
+07/24/24 19:34:40: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 19:34:40: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 19:34:40: Adding action: MainMenuChoices, Command: chat_bubble, Raw Parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 19:34:40: Encoded Parameters: IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+07/24/24 19:34:40: Checking for command: chat_bubble
+07/24/24 19:34:40: Action 'MainMenuChoices' added successfully.
+07/24/24 19:34:40: Saving action: SaveGameNow,save_game,IltdIg==
+07/24/24 19:34:40: Saving action: MainMenuChoices,chat_bubble,IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+07/24/24 19:34:40: Saving action: LevelUpOnce,level_up,IlsxXSI=
+07/24/24 19:34:40: Saving action: GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg==
+07/24/24 19:34:40: Actions saved successfully to Actions.txt.
+07/24/24 19:34:43: Executing command: execute_action(GotoEarth)
+07/24/24 19:34:43: Processed command: execute_action(GotoEarth)
+07/24/24 19:34:43: Successfully decoded parameters: "[\"Earth\"]"
+07/24/24 19:34:43: Executing action: GotoEarth
+07/24/24 19:34:43: Command: goto_planet
+07/24/24 19:34:43: Decoded Parameters: "[\"Earth\"]"
+07/24/24 19:34:43: Teleported to Earth.
+07/24/24 19:34:47: Executing command: execute_action(LevelUpOnce)
+07/24/24 19:34:47: Processed command: execute_action(LevelUpOnce)
+07/24/24 19:34:47: Successfully decoded parameters: "[1]"
+07/24/24 19:34:47: Executing action: LevelUpOnce
+07/24/24 19:34:47: Command: level_up
+07/24/24 19:34:47: Decoded Parameters: "[1]"
+07/24/24 19:34:47: Level up initiated with goal: 1
+07/24/24 19:34:51: Executing command: execute_action(SaveGameNow)
+07/24/24 19:34:51: Processed command: execute_action(SaveGameNow)
+07/24/24 19:34:51: Successfully decoded parameters: "[]"
+07/24/24 19:34:51: Executing action: SaveGameNow
+07/24/24 19:34:51: Command: save_game
+07/24/24 19:34:51: Decoded Parameters: "[]"
+07/24/24 19:34:51: Saved Game
+07/24/24 19:34:55: Executing command: execute_action(MainMenuChoices)
+07/24/24 19:34:55: Processed command: execute_action(MainMenuChoices)
+07/24/24 19:34:55: Successfully decoded parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 19:34:55: Executing action: MainMenuChoices
+07/24/24 19:34:55: Command: chat_bubble
+07/24/24 19:34:55: Decoded Parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 19:34:55: Error parsing chat_bubble parameters: { longMessage : "ERROR in action number 1 of  Step Event0 for object obj_Client:   JSON parse error : unexpected end of data  at gml_Script_scr_chat_bubble (line 9) -             var parsed = json_parse(_text); ", script : "gml_Script_scr_chat_bubble", line : 9, stacktrace : [ "gml_Script_scr_chat_bubble (line 9)","gml_Script_execute_command (line 48)","gml_Object_obj_Client_Step_0 (line 197) -             execute_command(string_trim(command));" ], message : "JSON parse error : unexpected end of data" }
+07/24/24 19:34:55: Creating chat bubble with text: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"], owner: undefined, choices: null
+07/24/24 19:34:55: Error: Owner object 'undefined' not found
+
+Actions.txt:
+SaveGameNow,save_game,IltdIg==
+MainMenuChoices,chat_bubble,IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+LevelUpOnce,level_up,IlsxXSI=
+GotoEarth,goto_planet,IltcIkVhcnRoXCJdIg==
+
+Please find out why the data is ending. I believe it has something to do with the debugMessages containing \n but im not sure.

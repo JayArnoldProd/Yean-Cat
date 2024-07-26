@@ -1,0 +1,50 @@
+07/22/24 07:57:21: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 07:57:21: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 07:57:21: Loaded action: Hello4, Command: chat_bubble, Parameters: [ "Hello World! This is Pink 
+Now","yeancat" ]
+07/22/24 07:57:21: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 07:57:21: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:57:21: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 07:57:22: Loaded action: Hello6, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:57:22: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 07:57:22: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 07:57:22: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 07:57:22: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:57:22: Actions loaded successfully from Actions.txt.
+07/22/24 07:57:22: [Client] Failed to reconnect to server. Will try again...
+07/22/24 07:57:36: Executing command: goto_planet(Fantasia)
+07/22/24 07:57:36: Processed command: goto_planet(Fantasia)
+07/22/24 07:57:36: Teleported to Fantasia.
+07/22/24 07:57:39: [Jay Arnold] green, good.
+07/22/24 07:57:39: Chat Bubble Created. Following 'yeancat' with text: ' green, good.' and 0 choices
+07/22/24 07:57:52: Executing command: chat_bubble("Hello World","yeancat")
+07/22/24 07:57:52: Processed command: chat_bubble("Hello World","yeancat")
+07/22/24 07:57:52: Chat Bubble Created. Following 'yeancat' with text: 'Hello World' and 0 choices
+07/22/24 07:57:59: [Jay Arnold] that was pink, we still have an issue
+07/22/24 07:57:59: Chat Bubble Created. Following 'yeancat' with text: ' that was pink, we still have an issue' and 0 choices
+07/22/24 08:02:23: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 08:02:23: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 08:02:23: Loaded action: Hello4, Command: chat_bubble, Parameters: [ "Hello World! This is Pink 
+Now","yeancat" ]
+07/22/24 08:02:23: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 08:02:24: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:02:24: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 08:02:24: Loaded action: Hello6, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:02:24: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 08:02:24: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 08:02:24: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 08:02:24: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:02:24: Actions loaded successfully from Actions.txt.
+07/22/24 08:02:24: [Client] Failed to reconnect to server. Will try again...
+07/22/24 08:02:51: Executing command: goto_planet(Fantasia)
+07/22/24 08:02:51: Processed command: goto_planet(Fantasia)
+07/22/24 08:02:51: Teleported to Fantasia.
+07/22/24 08:02:55: [Jay Arnold] ookay still green
+07/22/24 08:02:55: Chat Bubble Created. Following 'yeancat' with text: ' ookay still green' and 0 choices
+07/22/24 08:03:13: Executing command: chat_bubble("Hello W
+07/22/24 08:03:13: Processed command: chat_bubble("Hello W
+07/22/24 08:03:13: Script not found for command: chat_bubble("Hello W
+07/22/24 08:03:19: [Jay Arnold] It turned pink at W
+07/22/24 08:03:19: Chat Bubble Created. Following 'yeancat' with text: ' It turned pink at W' and 0 choices

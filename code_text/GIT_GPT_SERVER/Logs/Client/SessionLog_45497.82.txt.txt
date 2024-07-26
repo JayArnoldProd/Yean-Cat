@@ -1,0 +1,20 @@
+07/24/24 14:47:11: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/24/24 14:47:11: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/24/24 14:47:11: Actions loaded successfully from Actions.txt.
+07/24/24 14:47:11: [Client] Failed to reconnect to server. Will try again...
+07/24/24 14:47:28: Executing command: add_action(SaveGameNow,save_game,[])
+07/24/24 14:47:28: Processed command: add_action(SaveGameNow,save_game,[])
+07/24/24 14:47:28: Adding action: SaveGameNow, Command: save_game, Parameters: []
+07/24/24 14:47:28: Checking for command: save_game
+07/24/24 14:47:28: Parameters after processing: [ "" ]
+07/24/24 14:47:28: Action 'SaveGameNow' added successfully.
+07/24/24 14:47:29: Actions saved successfully to Actions.txt.
+07/24/24 14:48:18: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 14:48:18: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 14:48:18: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"]
+07/24/24 14:48:18: Checking for command: chat_bubble
+07/24/24 14:48:18: Parameters after processing: [ "What would you like to do?,yeancat,[[Go to Earth,GotoEarth" ]
+07/24/24 14:48:18: Action 'MainMenuChoices' added successfully.
+07/24/24 14:48:18: Actions saved successfully to Actions.txt.

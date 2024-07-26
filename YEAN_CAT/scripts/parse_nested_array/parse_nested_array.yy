@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"parse_nested_array",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"parse_nested_array",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

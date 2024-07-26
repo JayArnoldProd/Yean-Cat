@@ -1,0 +1,33 @@
+07/22/24 07:23:30: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 07:23:30: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 07:23:30: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 07:23:30: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:23:30: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 07:23:30: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 07:23:30: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 07:23:30: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 07:23:30: Actions loaded successfully from Actions.txt.
+07/22/24 07:23:30: [Client] Failed to reconnect to server. Will try again...
+07/22/24 07:23:47: Executing command: goto_planet(Fantasia)
+07/22/24 07:23:47: Processed command: goto_planet(Fantasia)
+07/22/24 07:23:47: Teleported to Fantasia.
+07/22/24 07:23:57: [Jay Arnold] that was red now! it seems you added a bug
+07/22/24 07:23:57: Chat Bubble Created. Following 'yeancat' with text: ' that was red now! it seems you added a bug' and 0 choices
+07/22/24 07:24:29: Executing command: add_action(Hello3,chat_bubble,["Hello World","yeancat"])
+07/22/24 07:24:29: Processed command: add_action(Hello3,chat_bubble,["Hello World","yeancat"])
+07/22/24 07:24:29: Adding action: Hello3, Command: chat_bubble, Parameters: [ ""Hello World"",""yeancat"" ]
+07/22/24 07:24:29: Checking for command: chat_bubble
+07/22/24 07:24:29: Action 'Hello3' added successfully.
+07/22/24 07:24:29: Actions saved successfully to Actions.txt.
+07/22/24 07:24:38: [Jay Arnold] that was pink still. so youve only made it worse
+07/22/24 07:24:38: Chat Bubble Created. Following 'yeancat' with text: ' that was pink still. so youve only made it worse' and 0 choices
+07/22/24 07:24:48: Executing command: execute_action(Hello3)
+07/22/24 07:24:48: Processed command: execute_action(Hello3)
+07/22/24 07:24:48: Chat Bubble Created. Following 'yeancat' with text: 'Hello World' and 0 choices
+07/22/24 07:25:08: [Jay Arnold] that was red. lets fix this asap. assume i have added every fucntion 
+you mentioned as its own function.
+07/22/24 07:25:08: Chat Bubble Created. Following 'yeancat' with text: ' that was red. lets fix this asap. assume i have added every fucntion  you mentioned as its own function.' and 0 choices
+07/22/24 07:25:50: [Jay Arnold] after this test can you list off all of the relevant scripts to this current 
+feature implementation? also attempt to fix the bug as well.
+07/22/24 07:25:50: Chat Bubble Created. Following 'yeancat' with text: ' after this test can you list off all of the relevant scripts to this current  feature implementation? also attempt to fix the bug as well.' and 0 choices

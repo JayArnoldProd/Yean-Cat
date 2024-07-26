@@ -11,7 +11,7 @@ function load_actions() {
         file_text_readln(file);
         if (string_length(line) == 0) continue;
         
-        var parts = string_split(line, ",");
+        var parts = string_split(line, "|||", false, 3);
         if (array_length(parts) < 3) {
             handleDebugMessage("Error loading action. Malformed line: " + line, true);
             continue;
@@ -19,43 +19,18 @@ function load_actions() {
         
         var actionName = string_trim(parts[0]);
         var commandName = string_trim(parts[1]);
-        var parameters = [];
+        var encodedParams = parts[2];
         
-        for (var i = 2; i < array_length(parts); i++) {
-            var param = string_trim(parts[i]);
-            if (string_char_at(param, 1) == "\"" && string_char_at(param, string_length(param)) == "\"") {
-                param = string_copy(param, 2, string_length(param) - 2);
-            } else if (string_digits(param) == param && param != "") {
-                param = real(param);
-            } else if (param == "") {
-                // Skip empty parameters
-                continue;
-            }
-            array_push(parameters, param);
-        }
+        var decodedParams = base64_decode(encodedParams);
+        var parameters = json_parse(decodedParams);
         
-        var actionData = ds_map_create();
-        ds_map_add(actionData, "command", commandName);
-        ds_map_add(actionData, "parameters", parameters);
-        ds_map_add(global.actionDetails, actionName, actionData);
+        var actionEntry = ds_map_create();
+        ds_map_add(actionEntry, "command", commandName);
+        ds_map_add(actionEntry, "parameters", parameters);
+        ds_map_add(global.actionDetails, actionName, actionEntry);
         
-        handleDebugMessage("Loaded action: " + actionName + ", Command: " + commandName + ", Parameters: " + string(parameters), true);
+        handleDebugMessage("Loaded action: " + actionName + ", Command: " + commandName + ", Parameters: " + json_stringify(parameters), true);
     }
     file_text_close(file);
     handleDebugMessage("Actions loaded successfully from Actions.txt.", true);
-    debug_action_details();
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-

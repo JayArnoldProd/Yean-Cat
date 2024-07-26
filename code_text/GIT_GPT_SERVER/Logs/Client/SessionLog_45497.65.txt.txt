@@ -1,0 +1,36 @@
+07/24/24 10:30:05: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/24/24 10:30:06: Actions loaded successfully from Actions.txt.
+07/24/24 10:30:06: [Client] Failed to reconnect to server. Will try again...
+07/24/24 10:30:16: [Jay Arnold] okay
+07/24/24 10:30:16: Chat Bubble Created. Following 'yeancat' with text: ' okay'
+07/24/24 10:30:20: [Jay Arnold] hello world!
+07/24/24 10:30:20: Chat Bubble Created. Following 'yeancat' with text: ' hello world!'
+07/24/24 10:30:32: [Jay Arnold] i see a red dot at the top of the small chat bubble with no text in it
+07/24/24 10:30:32: Chat Bubble Created. Following 'yeancat' with text: ' i see a red dot at the top of the small chat bubble with no text in it'
+07/24/24 10:38:10: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/24/24 10:38:10: Actions loaded successfully from Actions.txt.
+07/24/24 10:38:10: [Client] Failed to reconnect to server. Will try again...
+07/24/24 10:38:20: [Jay Arnold] Hello World
+07/24/24 10:38:20: Chat Bubble Created. Following 'yeancat' with text: ' Hello World'
+07/24/24 10:41:52: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/24/24 10:41:53: Actions loaded successfully from Actions.txt.
+07/24/24 10:41:53: [Client] Failed to reconnect to server. Will try again...
+07/24/24 10:42:04: [Jay Arnold] Hello World!
+07/24/24 10:42:04: Chat Bubble Created. Following 'yeancat' with text: ' Hello World!'
+07/24/24 10:42:14: [Jay Arnold] Nice! that worked! lets see if it wraps now!
+07/24/24 10:42:14: Chat Bubble Created. Following 'yeancat' with text: ' Nice! that worked! lets see if it wraps now!'
+07/24/24 10:43:34: [Jay Arnold] It does wrap but not correctly. There are 4 lines of text, but the box 
+only stretched vertically to fit 3 lines. previously, my text would shrink
+ after a certain length of text or /n and the max width would increase 
+for each new line, to keep the ratio nice. I would rather wider than 
+taller.
+07/24/24 10:43:34: Chat Bubble Created. Following 'yeancat' with text: ' It does wrap but not correctly. There are 4 lines of text, but the box  only stretched vertically to fit 3 lines. previously, my text would shrink  after a certain length of text or /n and the max width would increase  for each new line, to keep the ratio nice. I would rather wider than  taller.'
+07/24/24 10:44:37: [Jay Arnold] that text was vertically one line too long, and didnt take advantage of 
+the width of the generated chat bubble size, it was about half as wide 
+(the text) as it should have been. that would have resulted in fewer 
+vertical lines as well.
+07/24/24 10:44:37: Chat Bubble Created. Following 'yeancat' with text: ' that text was vertically one line too long, and didnt take advantage of  the width of the generated chat bubble size, it was about half as wide  (the text) as it should have been. that would have resulted in fewer  vertical lines as well.'
+07/24/24 10:45:36: [Jay Arnold] We need to make sure that the chat text and chat bubble size are 
+elegantly linked , it seems the text is correctly shrinking, but there is 
+something off. ill provide a screen shot of this text in a chat bubble.
+07/24/24 10:45:36: Chat Bubble Created. Following 'yeancat' with text: ' We need to make sure that the chat text and chat bubble size are  elegantly linked , it seems the text is correctly shrinking, but there is  something off. ill provide a screen shot of this text in a chat bubble.'

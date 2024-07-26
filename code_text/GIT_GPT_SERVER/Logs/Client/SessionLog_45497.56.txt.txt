@@ -1,0 +1,100 @@
+07/24/24 08:28:08: Actions.txt not found. Starting with an empty actions map.
+07/24/24 08:28:08: [Client] Failed to reconnect to server. Will try again...
+07/24/24 08:28:26: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 08:28:26: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 08:28:26: Adding action: GotoEarth, Command: goto_planet, Parameters: ["Earth"]
+07/24/24 08:28:26: Checking for command: goto_planet
+07/24/24 08:28:26: Action 'GotoEarth' added successfully.
+07/24/24 08:28:26: Parsed Parameters: ["Earth"]
+07/24/24 08:28:26: Actions saved successfully to Actions.txt.
+
+GotoEarth,goto_planet,"[\"Earth\"]"
+
+It's still saving incorrectly, this time with "\" characters. 
+
+Here's the previous version of my code:
+
+function save_actions() {
+    if (ds_map_size(global.actionDetails) == 0) {
+        handleDebugMessage("No actions to save.", true);
+        return;
+    }
+    
+    var file = file_text_open_write("Actions.txt");
+    var actionKey = ds_map_find_first(global.actionDetails);
+    
+    while (!is_undefined(actionKey)) {
+        var actionData = ds_map_find_value(global.actionDetails, actionKey);
+        var command = actionData[? "command"];
+        var parameters = actionData[? "parameters"];
+        
+        var paramString = "";
+        for (var i = 0; i < array_length(parameters); i++) {
+            var param = parameters[i];
+            if (is_string(param)) {
+                paramString += "\"" + string_replace_all(param, "\"", "\\\"") + "\"";
+            } else {
+                paramString += string(param);
+            }
+            if (i < array_length(parameters) - 1) {
+                paramString += ",";
+            }
+        }
+        
+        file_text_write_string(file, actionKey + "," + command + "," + paramString);
+        file_text_writeln(file);
+        actionKey = ds_map_find_next(global.actionDetails, actionKey);
+    }
+    
+    file_text_close(file);
+    handleDebugMessage("Actions saved successfully to Actions.txt.", true);
+}
+
+function scr_add_action(argument0, argument1, argument2) {
+    var name = string(argument0);
+    var commandName = string(argument1);
+    var parameters = argument2;
+    
+    handleDebugMessage("Adding action: " + name + ", Command: " + commandName + ", Parameters: " + string(parameters), true);
+
+    if (ds_map_exists(global.actionDetails, name)) {
+        handleDebugMessage("Action '" + name + "' already exists.", true);
+        return;
+    }
+    
+    var commandDetailName = commandName + "(";
+    handleDebugMessage("Checking for command: " + commandDetailName, true);
+    if (!ds_map_exists(global.commandDetails, commandDetailName)) {
+        handleDebugMessage("Command '" + commandName + "' does not exist.", true);
+        return;
+    }
+    
+    if (!is_array(parameters)) {
+        parameters = [parameters];
+    } else if (array_length(parameters) == 1 && is_string(parameters[0])) {
+        var paramString = string_replace_all(parameters[0], "[", "");
+        paramString = string_replace_all(paramString, "]", "");
+        parameters = string_split(paramString, ",");
+    }
+    
+    // Special handling for chat_bubble command
+    if (commandName == "chat_bubble" && array_length(parameters) >= 3) {
+        var choices = [];
+        for (var i = 2; i < array_length(parameters); i += 2) {
+            array_push(choices, [parameters[i], parameters[i+1]]);
+        }
+        parameters = [parameters[0], parameters[1], choices];
+    }
+    
+    handleDebugMessage("Parameters after processing: " + string(parameters), true);
+    
+    var actionEntry = ds_map_create();
+    ds_map_add(actionEntry, "command", commandName);
+    ds_map_add(actionEntry, "parameters", parameters);
+    
+    ds_map_add(global.actionDetails, name, actionEntry);
+    
+    handleDebugMessage("Action '" + name + "' added successfully.", true);
+    
+    save_actions();
+}

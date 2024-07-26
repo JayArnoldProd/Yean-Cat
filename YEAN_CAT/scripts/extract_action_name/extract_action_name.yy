@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"extract_action_name",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"extract_action_name",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

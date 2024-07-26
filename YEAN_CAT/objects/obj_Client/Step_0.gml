@@ -30,12 +30,12 @@ if (!global.isConnected && global.reconnectTimer <= 0) {
     if (result >= 0) {
         global.isConnected = true;
         isServerRunning = true;
-        show_debug_message("[Client] Successfully reconnected to server.");
+        handleDebugMessage("[Client] Successfully reconnected to server.", true);
         global.reconnectTimer = global.reconnectInterval;
     } else {
         global.reconnectTimer = global.reconnectInterval;
         isServerRunning = false;
-        show_debug_message("[Client] Failed to reconnect to server. Will try again...");
+        handleDebugMessage("[Client] Failed to reconnect to server. Will try again...", true);
     }
 } else if (global.isConnected && global.reconnectTimer > 0) {
     global.reconnectTimer--;
@@ -55,30 +55,31 @@ if (ds_exists(async_load, ds_type_map)) {
 
                 switch (identifier) {
                     case global.IDENTIFIER_HEARTBEAT:
-                        show_debug_message("[Client] Heartbeat received from server.");
+                        handleDebugMessage("[Client] Heartbeat received from server.", true);
                         break;
                     
                     case global.IDENTIFIER_TEST_MESSAGE:
                         var msg = buffer_read(buffer, buffer_string);
-                        show_debug_message("[Client] Message from server: " + msg);
+                        handleDebugMessage("[Client] Message from server: " + msg, true);
                         break;
                 }
                 buffer_delete(buffer);
                 break;
 
             case network_type_connect:
-                show_debug_message("[Client] Connected to server.");
+                handleDebugMessage("[Client] Connected to server.", true);
                 break;
                 
             case network_type_disconnect:
                 global.isConnected = false;
-                show_debug_message("[Client] Disconnected from server. Attempting to identify cause...");
+                handleDebugMessage("[Client] Disconnected from server. Attempting to identify cause...", true);
                 break;
         }
     }
 } else {
-    show_debug_message("ERROR: Invalid ds_map reference in async event.");
+    //show_debug_message("ERROR: Invalid ds_map reference in async event.");
 }
+
 
 // Command input and execution logic
 if (input_check_pressed("chat") && !isActive) {
@@ -191,13 +192,14 @@ if (isActive) {
 
 // Check if Enter is pressed to process the command or chat message
 if (input_check_pressed("confirm")) {
-        if (string_char_at(global.commandBuffer, 1) == "/") {
-            var command = string_delete(global.commandBuffer, 1, 1);
-            execute_command(string_trim(command));
-        } else {
+    var trimmedCommand = string_trim(string_replace_all(global.commandBuffer, "\n", " "));
+    if (string_char_at(trimmedCommand, 1) == "/") {
+        var command = string_delete(trimmedCommand, 1, 1);
+        execute_command(string_trim(command));
+    } else {
             var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
             global.message_is_bubble = 1;
-            handleDebugMessage(chatMessage, true);
+            handleDebugMessage(chatMessage, false);
             global.message_is_bubble = 0;
         }
 
@@ -242,16 +244,22 @@ if (input_check_pressed("confirm")) {
     }
 }
 
-// Before calling drawChatMessages, ensure messages is a ds_list
-if (!ds_exists(global.debugMessages, ds_type_list)) {
-    show_debug_message("Error: debugMessages is not a valid ds_list.");
-    return;
-}
-
-if show_chatbox and ds_exists(global.debugMessages, ds_type_list) {
-var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false,global.c_chat2,global.c_chat1);
-// Ensure scrollIndex is within valid range
-scrollIndex = clamp(scrollIndex, 0, clamp(totalLines - global.max_visible_lines,0,999999));
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+    
+    // Check if a new message was added
+    if (ds_list_size(global.debugMessages) > 0 && 
+        ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {
+        // Scroll to the bottom when a new message is added
+        scrollIndex = max(0, totalLines - global.max_visible_lines);
+        global.lastAddedMessage = ""; // Reset the last added message
+    } else {
+        // Ensure scrollIndex is within valid range
+        scrollIndex = clamp(scrollIndex, 0, max(0, totalLines - global.max_visible_lines));
+    }
+    
+    // Draw the chat messages
+    drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
 }
 
 // Only process incoming data and send heartbeats if the server is running

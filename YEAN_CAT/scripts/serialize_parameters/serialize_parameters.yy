@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"serialize_parameters",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"serialize_parameters",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

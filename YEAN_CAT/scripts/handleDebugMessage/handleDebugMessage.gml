@@ -4,75 +4,50 @@
 /// @param {bool} isDebug - True if this is a debug message, false for essential messages
 function handleDebugMessage(msg, isDebug) {
     var safeMsg = is_string(msg) ? msg : "Undefined message content";
+    // Remove newlines from the message
+    safeMsg = string_replace_all(safeMsg, "\n", " ");
+    safeMsg = string_replace_all(safeMsg, "\r", "");
+    
     var currentDate = date_current_datetime();
     var formattedDate = date_date_string(currentDate);
     var formattedTime = date_time_string(currentDate);
     var logMsg = formattedDate + " " + formattedTime + ": " + safeMsg + "\n";
-
     show_debug_message("Date: " + formattedDate + " Time: " + formattedTime + " Msg: " + safeMsg);
-
-    // Function to handle file logging
-    function logToFile(filePath, message) {
-        var file;
-        if (file_exists(filePath)) {
-            file = file_text_open_append(filePath);
-        } else {
-            file = file_text_open_write(filePath);
-        }
-        file_text_write_string(file, message);
-        file_text_close(file);
-    }
-
+    
+    // Log to file
     logToFile(working_directory + global.sessionLogFileName, logMsg);
     logToFile(working_directory + global.masterLogFileName, logMsg);
-
-    // Update the chat system and possibly calculate WPM
-    if (isDebug && global.showDebugMessages) {
+    
+    // Always add messages to the debug messages list
+    if (ds_exists(global.debugMessages, ds_type_list)) {
         if (ds_list_size(global.debugMessages) >= global.maximumMessages) {
-            ds_list_delete(global.debugMessages, 0); // Keep the latest messages
+            ds_list_delete(global.debugMessages, 0);
         }
         ds_list_add(global.debugMessages, safeMsg);
-
-        // Before drawing chat messages, ensure messages is a valid ds_list
-        if (!ds_exists(global.debugMessages, ds_type_list)) {
-            show_debug_message("Error: debugMessages is not a valid ds_list.");
-            return;
-        }
-
-        var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
-        if (totalLines - obj_Client.scrollIndex > global.max_visible_lines) {
-            var totalLines_inRecentMessage = is_string(msg) ? countLinesInString(msg) : 1;
-            obj_Client.scrollIndex = totalLines; // Scroll to bottom when new message
-            obj_Client.scrollIndex -= (clamp(totalLines_inRecentMessage - 1, 0, 999999)); // Scroll back up number of lines in newest message (-1)
-        }
-        if (obj_Client.scrollIndex > totalLines) {
-            // Clamp scroll
-            obj_Client.scrollIndex = clamp(totalLines, 0, 99999);
-        }
-        draw_set_font(obj_Client.fnt_chat);
-        global.longestmessage = updateLongestMessage(global.debugMessages);
+        global.lastAddedMessage = safeMsg;
+    } else {
+        show_debug_message("ERROR: global.debugMessages is not a valid ds_list");
     }
-
-    // Create a chat bubble when no command is entered
-    if (isDebug = 1) and !(string_char_at(safeMsg,0) = "/") {
-        global.bubble_send_to_log = 0; // Don't send message to chat log
+    
+    // Create a chat bubble for non-debug messages that don't start with "/"
+    if (!isDebug && string_char_at(safeMsg, 1) != "/") {
         var cleanMsg = string_remove_between(safeMsg, "[", "]");
-        cleanMsg = string_replace_all(cleanMsg, "\n", " ");  // Remove existing line breaks
-		if global.message_is_bubble=1 {
-        scr_chat_bubble(cleanMsg, "yeancat");
-		}
-        global.bubble_send_to_log = 1; // Reset the variable
+        cleanMsg = string_replace_all(cleanMsg, "\n", " ");
+        scr_chat_bubble(cleanMsg, "yeancat", []); // Pass an empty array for choices
     }
-
+    
     // WPM Calculation Logic Integration
-    if (isDebug) {  // Assuming non-debug messages are chat messages
+    if (!isDebug) {
         var wordCount = string_word_count(safeMsg);
         var messageDetails = [currentDate, wordCount];
-        ds_list_add(global.chatLogs, messageDetails);
-        updateWPM();  // This would be a new function to handle WPM updates based on chatLogs
+        if (ds_exists(global.chatLogs, ds_type_list)) {
+            ds_list_add(global.chatLogs, messageDetails);
+            updateWPM();
+        } else {
+            show_debug_message("ERROR: global.chatLogs is not a valid ds_list");
+        }
     }
 }
-
 
 
 

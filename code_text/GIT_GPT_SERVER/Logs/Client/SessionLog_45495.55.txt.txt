@@ -1,0 +1,41 @@
+07/22/24 08:11:52: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 08:11:52: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:11:52: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 08:11:52: Loaded action: Hello6, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:11:52: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 08:11:52: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 08:11:53: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 08:11:53: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:11:53: Actions loaded successfully from Actions.txt.
+07/22/24 08:11:53: [Client] Failed to reconnect to server. Will try again...
+07/22/24 08:12:13: Executing command: chat_bubble("Hello World","yeancat")
+07/22/24 08:12:14: Processed command: chat_bubble("Hello World","yeancat")
+07/22/24 08:12:14: Chat Bubble Created. Following 'yeancat' with text: 'Hello World' and 0 choices
+07/22/24 08:12:18: [Jay Arnold] YAY! IT WORKED!
+07/22/24 08:12:18: Chat Bubble Created. Following 'yeancat' with text: ' YAY! IT WORKED!' and 0 choices
+07/22/24 08:12:45: Executing command: add_action(Hello7,chat_bubble,["Hello World!","yeancat"])
+07/22/24 08:12:45: Processed command: add_action(Hello7,chat_bubble,["Hello World!","yeancat"])
+07/22/24 08:12:45: Adding action: Hello7, Command: chat_bubble, Parameters: [ ""Hello World!"",""yeancat"" ]
+07/22/24 08:12:46: Checking for command: chat_bubble
+07/22/24 08:12:46: Action 'Hello7' added successfully.
+07/22/24 08:12:46: Actions saved successfully to Actions.txt.
+07/22/24 08:12:48: [Jay Arnold] brilliant
+07/22/24 08:12:48: Chat Bubble Created. Following 'yeancat' with text: ' brilliant' and 0 choices
+07/22/24 08:12:55: Executing command: execute_action(Hello7)
+07/22/24 08:12:55: Processed command: execute_action(Hello7)
+07/22/24 08:12:56: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!' and 0 choices
+07/22/24 08:13:50: Executing command: list_actions
+07/22/24 08:13:50: Processed command: list_actions
+07/22/24 08:13:50: Actions: SaveGameNow, LVL202, Hello4, MainMenuChoices, HelloWorld2, LevelUpOnce, Hello6, HelloWorld, Lvl50, GotoEarth, Hello3, Hello7, 
+07/22/24 08:14:03: Executing command: execute_action(MainMenuChoices)
+07/22/24 08:14:03: Processed command: execute_action(MainMenuChoices)
+07/22/24 08:14:03: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?' and 0 choices
+07/22/24 08:14:24: [Jay Arnold] okay now we need to fix the bug where choice bubbles are only being
+ created with 0 choices.
+07/22/24 08:14:24: Chat Bubble Created. Following 'yeancat' with text: ' okay now we need to fix the bug where choice bubbles are only being  created with 0 choices.' and 0 choices
+07/22/24 08:15:02: [Jay Arnold] great job! please in your next response just tell me which objects and
+ scripts you need to look at to fix this bug.
+07/22/24 08:15:03: Chat Bubble Created. Following 'yeancat' with text: ' great job! please in your next response just tell me which objects and  scripts you need to look at to fix this bug.' and 0 choices
+07/22/24 08:15:58: [Jay Arnold] this log is SessionLog_45495.55
+07/22/24 08:15:58: Chat Bubble Created. Following 'yeancat' with text: ' this log is SessionLog_45495.55' and 0 choices

@@ -1,4 +1,6 @@
+
 // obj_Client setup Create Event
+global.lastAddedMessage = "";
 global.sessionLogFileName = "SessionLog_" + string_replace_all(string(date_current_datetime()), ":", "-") + ".txt";
 global.masterLogFileName = "MasterLog.txt";
 global.logDebugMessagesToFile = true; // By default, log debug messages to the file
@@ -25,7 +27,7 @@ instance_create_depth(room_width/2,room_height/2,-1000000,obj_Cursor);
 // Global time offset initialized
 global.timeOffset = 0;
 global.inputDisplayEnabled = false;  // Initialize the variable at an appropriate place in your game startup code
-
+global.actions = ds_map_create();
 // Adding command details
 // Global initialization script or create event
 global.commandDetails = ds_map_create();
@@ -45,7 +47,7 @@ add_command("show_lines(", 0, [["real"]], true);
 add_command("set_variable(", 2, [["string"],["string","real"]],true)
 add_command("level_up(", 1, [["real"]], true);  // Command requires '(' visually and a real number argument
 add_command("show_wpm", 0, [[]], false);  // Does not require '(' visually, level 0 permission
-add_command("chat_bubble(", 1, [["string"],["string"]],true); // Chat bubble command
+add_command("chat_bubble(", 1, [["string"], ["string"], ["array"]], true);
 add_command("save_macros", 1, [[]], false);  // Add the command to save macros
 add_command("list_variables", 2, [[]], false);
 add_command("add_action(", 2, [["string"],["string"],["array"]],true);

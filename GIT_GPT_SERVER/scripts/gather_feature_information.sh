@@ -22,10 +22,22 @@ import sys
 feature_name = "$FEATURE_NAME"
 feature_list_path = "$FEATURE_LIST_PATH"
 
-with open(feature_list_path, 'r') as file:
-    feature_list = json.load(file)
+try:
+    with open(feature_list_path, 'r') as file:
+        feature_list = json.load(file)
+except json.JSONDecodeError as e:
+    print(f"JSON Decode Error: {str(e)}")
+    print(f"Error occurred near line {e.lineno}, column {e.colno}")
+    with open(feature_list_path, 'r') as file:
+        lines = file.readlines()
+    print("Surrounding context:")
+    start = max(0, e.lineno - 3)
+    end = min(len(lines), e.lineno + 2)
+    for i in range(start, end):
+        print(f"{i+1}: {lines[i].strip()}")
+    sys.exit(1)
 
-feature = next((feature for feature in feature_list if feature['name'] == feature_name), None)
+feature = next((f for f in feature_list if f['name'] == feature_name), None)
 if not feature:
     print(f"Error: Feature '{feature_name}' not found in {feature_list_path}")
     sys.exit(1)
@@ -69,7 +81,7 @@ for script in related_scripts:
         script_subdir_path = f"{script_dir}/{script}"
         if os.path.exists(script_subdir_path):
             for filename in os.listdir(script_subdir_path):
-                if filename.endswith(".gml") or filename.endswith(".yy"):
+                if filename.endswith(".gml"):  # Only include .gml files for scripts
                     file_path = os.path.join(script_subdir_path, filename)
                     with open(file_path, 'r') as file:
                         code = file.read()

@@ -1,0 +1,36 @@
+07/24/24 09:42:51: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/24/24 09:42:51: Actions loaded successfully from Actions.txt.
+07/24/24 09:42:51: [Client] Failed to reconnect to server. Will try again...
+07/24/24 09:43:02: Executing command: list_actions
+07/24/24 09:43:02: Processed command: list_actions
+07/24/24 09:43:02: Actions: GotoEarth, 
+07/24/24 09:43:10: Executing command: goto_planet(Fantasia)
+07/24/24 09:43:10: Processed command: goto_planet(Fantasia)
+07/24/24 09:43:10: Teleported to Fantasia.
+07/24/24 09:43:17: Executing command: execute_action(GotoEarth)
+07/24/24 09:43:18: Processed command: execute_action(GotoEarth)
+07/24/24 09:43:18: Executing action: GotoEarth
+07/24/24 09:43:18: Command: goto_planet
+07/24/24 09:43:18: Parameters: [ "Earth" ]
+07/24/24 09:43:18: Teleported to Earth.
+07/24/24 09:43:20: Executing command: list_commands
+07/24/24 09:43:20: Processed command: list_commands
+07/24/24 09:43:20: Commands: add_action(, add_chat_bubble_action(, chat_bubble(, 
+07/24/24 09:43:20: chat_bubble_choices(, disable_heartbeat, enable_heartbeat, 
+07/24/24 09:43:21: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+07/24/24 09:43:21: list_actions, list_clients, list_commands, list_variables, 
+07/24/24 09:43:21: return_controller, save_actions, save_game, save_macros, 
+07/24/24 09:43:21: set_my_permission(, set_variable(, show_gamepad_mapping, show_lines(, 
+07/24/24 09:43:21: show_variable(, show_wpm, toggle_debug, toggle_input_display, 
+07/24/24 09:43:21: toggle_log_debug, toggle_server
+07/24/24 09:43:25: Executing command: list_variables
+07/24/24 09:43:25: Processed command: list_variables
+07/24/24 09:43:25: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+07/24/24 09:43:25: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+07/24/24 09:43:25: ControllerType, Level
+07/24/24 09:43:32: [Jay Arnold] hello world!
+07/24/24 09:43:32: Chat Bubble Created with 0 choices
+07/24/24 09:43:47: [Jay Arnold] nice! the text appears now but the chat bubble is not scaled to the text
+07/24/24 09:43:47: Chat Bubble Created with 0 choices
+07/24/24 09:44:08: [Jay Arnold] Its also not wrapping like it used to.
+07/24/24 09:44:08: Chat Bubble Created with 0 choices

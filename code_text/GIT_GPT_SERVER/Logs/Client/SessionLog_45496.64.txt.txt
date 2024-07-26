@@ -1,0 +1,665 @@
+07/23/24 10:16:04: Actions.txt not found. Starting with an empty actions map.
+07/23/24 10:16:04: [Client] Failed to reconnect to server. Will try again...
+07/23/24 10:17:40: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 10:17:40: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 10:17:40: Adding action: GotoEarth,goto_planet,["Earth"]
+07/23/24 10:17:40: Checking for command: goto_planet
+07/23/24 10:17:40: Action 'GotoEarth' added successfully.
+07/23/24 10:17:40: Actions saved successfully to Actions.txt.
+07/23/24 10:17:47: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/23/24 10:17:47: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/23/24 10:17:47: Adding action: LevelUpOnce,level_up,[1]
+07/23/24 10:17:48: Checking for command: level_up
+07/23/24 10:17:48: Action 'LevelUpOnce' added successfully.
+07/23/24 10:17:48: Actions saved successfully to Actions.txt.
+07/23/24 10:17:56: Executing command: add_action(SaveGameNow,save_game,[])
+07/23/24 10:17:56: Processed command: add_action(SaveGameNow,save_game,[])
+07/23/24 10:17:56: Adding action: SaveGameNow,save_game,[]
+07/23/24 10:17:56: Checking for command: save_game
+07/23/24 10:17:57: Action 'SaveGameNow' added successfully.
+07/23/24 10:17:57: Actions saved successfully to Actions.txt.
+07/23/24 10:18:11: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow”],[“Cancel","null"]]])
+07/23/24 10:18:12: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow”],[“Cancel","null"]]])
+07/23/24 10:18:12: Adding action: MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"]
+07/23/24 10:18:12: Checking for command: chat_bubble
+07/23/24 10:18:12: Action 'MainMenuChoices' added successfully.
+07/23/24 10:18:12: Actions saved successfully to Actions.txt.
+
+SaveGameNow,save_game,[[]]
+MainMenuChoices,chat_bubble,[[What would you like to do?,yeancat,[[Go to Earth,GotoEarth]]
+LevelUpOnce,level_up,[[1]]
+GotoEarth,goto_planet,[[Earth]]
+
+07/23/24 10:20:43: [Jay Arnold] hello
+07/23/24 10:20:44: Chat Bubble Created with 0 choices
+07/23/24 10:20:55: [Jay Arnold] its not creating a bubble with text when i regularly type.
+07/23/24 10:20:56: Chat Bubble Created with 0 choices
+
+Date: 07/23/24 Time: 10:21:09 Msg: Executing command: chat_bubble("Hello World!","yeancat")
+Date: 07/23/24 Time: 10:21:09 Msg: Processed command: chat_bubble("Hello World!","yeancat")
+Date: 07/23/24 Time: 10:21:09 Msg: Executing chat_bubble with 0 choices
+Chat bubble initialized with 0 choices
+Date: 07/23/24 Time: 10:21:09 Msg: Chat Bubble Created with 0 choices
+[Client] Processed command/chat and cleared buffer.
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+[Client] Chat input activated.
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 't'
+Not a command, setting default color
+[Client] Appended character to command buffer: t
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'tb'
+Not a command, setting default color
+[Client] Appended character to command buffer: tb
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'tba'
+Not a command, setting default color
+[Client] Appended character to command buffer: tba
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'tbat'
+Not a command, setting default color
+[Client] Appended character to command buffer: tbat
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'tbat'
+Not a command, setting default color
+[Client] Appended character to command buffer: tbat 
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'tbat'
+Not a command, setting default color
+[Client] Updated command buffer after backspace: tbat
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'tba'
+Not a command, setting default color
+[Client] Updated command buffer after backspace: tba
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'tb'
+Not a command, setting default color
+[Client] Updated command buffer after backspace: tb
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 't'
+Not a command, setting default color
+[Client] Updated command buffer after backspace: t
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'th'
+Not a command, setting default color
+[Client] Appended character to command buffer: th
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'tha'
+Not a command, setting default color
+[Client] Appended character to command buffer: tha
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that'
+Not a command, setting default color
+[Client] Appended character to command buffer: that
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that'
+Not a command, setting default color
+[Client] Appended character to command buffer: that 
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that d'
+Not a command, setting default color
+[Client] Appended character to command buffer: that d
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that do'
+Not a command, setting default color
+[Client] Appended character to command buffer: that do
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doe'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doe
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that does'
+Not a command, setting default color
+[Client] Appended character to command buffer: that does
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesn'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesn
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt 
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt w'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt w
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt wo'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt wo
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt wor'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt wor
+Chat bubble step: 0 choices
+Input text: 'that doesnt work'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt work'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work 
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt work e'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work e
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt work ei'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work ei
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt work eit'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work eit
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt work eith'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work eith
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt work eithe'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work eithe
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt work either'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work either
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: 'that doesnt work either.'
+Not a command, setting default color
+[Client] Appended character to command buffer: that doesnt work either.
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Date: 07/23/24 Time: 10:21:17 Msg: [Jay Arnold] that doesnt work either.
+Chat bubble initialized with 0 choices
+Date: 07/23/24 Time: 10:21:17 Msg: Chat Bubble Created with 0 choices
+[Client] Processed command/chat and cleared buffer.
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+[Client] Chat input activated.
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Input text: '/execute_action(MainMenuChoices)'
+Extracted command: 'execute_action'
+Checking permission for command: 'execute_action'
+Required level: 2, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: 'MainMenuChoices'
+Checking param: 'MainMenuChoices'
+All params valid
+Params: 'MainMenuChoices', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /execute_action(MainMenuChoices)
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Chat bubble step: 0 choices
+Date: 07/23/24 Time: 10:21:20 Msg: Executing command: execute_action(MainMenuChoices)
+Date: 07/23/24 Time: 10:21:20 Msg: Processed command: execute_action(MainMenuChoices)
+Date: 07/23/24 Time: 10:21:20 Msg: Executing action: MainMenuChoices
+Date: 07/23/24 Time: 10:21:20 Msg: Command: chat_bubble
+Date: 07/23/24 Time: 10:21:20 Msg: Parameters: [ "[What would you like to do?,yeancat,[[Go to Earth,GotoEarth]" ]
+
+
+07/23/24 10:21:09: Executing command: chat_bubble("Hello World!","yeancat")
+07/23/24 10:21:09: Processed command: chat_bubble("Hello World!","yeancat")
+07/23/24 10:21:09: Executing chat_bubble with 0 choices
+07/23/24 10:21:09: Chat Bubble Created with 0 choices
+07/23/24 10:21:17: [Jay Arnold] that doesnt work either.
+07/23/24 10:21:17: Chat Bubble Created with 0 choices
+07/23/24 10:21:20: Executing command: execute_action(MainMenuChoices)
+07/23/24 10:21:20: Processed command: execute_action(MainMenuChoices)
+07/23/24 10:21:20: Executing action: MainMenuChoices
+07/23/24 10:21:20: Command: chat_bubble
+07/23/24 10:21:20: Parameters: [ "[What would you like to do?,yeancat,[[Go to Earth,GotoEarth]" ]
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+Push :: Execution Error - Variable Index [1] out of range [1] - -7.parameters(101493,1)
+ at gml_Script_execute_command (line 60) -         var owner = parameters[1];

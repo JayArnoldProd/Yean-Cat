@@ -3,7 +3,6 @@ function scr_execute_action() {
         handleDebugMessage("Error: No action name provided for execute_action", true);
         return;
     }
-
     var actionName = argument[0];
     if (ds_map_exists(global.actionDetails, actionName)) {
         var actionData = ds_map_find_value(global.actionDetails, actionName);
@@ -15,19 +14,27 @@ function scr_execute_action() {
         var command = ds_map_find_value(actionData, "command");
         var params = ds_map_find_value(actionData, "parameters");
         
+        // Check if the command requires parentheses
+        var requiresParentheses = ds_map_exists(global.commandDetails, command + "(");
+        
         // Construct the command string and execute it
-        var commandString = command + "(";
-        for (var i = 0; i < array_length(params); i++) {
-            if (is_string(params[i])) {
-                commandString += "\"" + string_replace_all(params[i], "\"", "\\\"") + "\"";
-            } else {
-                commandString += string(params[i]);
+        var commandString = command;
+        if (requiresParentheses) {
+            commandString += "(";
+            for (var i = 0; i < array_length(params); i++) {
+                if (is_string(params[i])) {
+                    commandString += "\"" + string_replace_all(params[i], "\"", "\\\"") + "\"";
+                } else {
+                    commandString += string(params[i]);
+                }
+                if (i < array_length(params) - 1) {
+                    commandString += ", ";
+                }
             }
-            if (i < array_length(params) - 1) {
-                commandString += ", ";
-            }
+            commandString += ")";
+        } else if (array_length(params) > 0) {
+            commandString += " " + string_join_ext(" ", params);
         }
-        commandString += ")";
         
         handleDebugMessage("Executing action: " + commandString, true);
         execute_command(commandString);

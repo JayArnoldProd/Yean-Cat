@@ -10,8 +10,16 @@ function appendAndWrap(char, currentBuffer, maxWidth) {
     var line = (lastNewline != -1) ? string_copy(tempBuffer, lastNewline + 2, string_length(tempBuffer) - lastNewline) : tempBuffer;
     var lineWidth = string_width(line);
 
+    // Don't wrap inside parentheses for command parameters
+    var openParenCount = string_count("(", line);
+    var closeParenCount = string_count(")", line);
+    
+    if (openParenCount > closeParenCount) {
+        return tempBuffer;
+    }
+
     // Handle space near maximum line width
-    if (char == " " && lineWidth >= maxWidth - string_width("w")) { // Assume 'w' as an average character width
+    if (char == " " && lineWidth >= maxWidth - string_width("w")) {
         return string_insert("\n", tempBuffer, string_length(tempBuffer));
     } else if (lineWidth > maxWidth) {
         // Insert newline at last space or force it if no space found
@@ -25,9 +33,6 @@ function appendAndWrap(char, currentBuffer, maxWidth) {
 
     return tempBuffer;
 }
-
-
-
 
 
 

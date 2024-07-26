@@ -1,0 +1,41 @@
+07/21/24 14:49:07: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/21/24 14:49:08: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/21/24 14:49:08: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/21/24 14:49:08: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/21/24 14:49:08: Actions loaded successfully from Actions.txt.
+07/21/24 14:49:09: [Client] Failed to reconnect to server. Will try again...
+07/21/24 14:49:32: Executing command: goto_planet(Fantasia)
+07/21/24 14:49:32: Processed command: goto_planet(Fantasia)
+07/21/24 14:49:33: Teleported to Fantasia.
+07/21/24 14:49:43: Executing command: add_action(SaveGameNow,save_game,[])
+07/21/24 14:49:43: Processed command: add_action(SaveGameNow,save_game,[])
+07/21/24 14:49:43: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/21/24 14:49:43: Action 'SaveGameNow' already exists.
+07/21/24 14:49:46: [Jay Arnold] that was red
+07/21/24 14:49:46: Chat Bubble Created. Following 'yeancat' with text: ' that was red' and 0 choices
+07/21/24 14:50:08: Executing command: add_action(LVL202,level_up,[202])
+07/21/24 14:50:08: Processed command: add_action(LVL202,level_up,[202])
+07/21/24 14:50:08: Adding action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/21/24 14:50:08: Checking for command: level_up
+07/21/24 14:50:08: Action 'LVL202' added successfully.
+07/21/24 14:50:08: Actions saved successfully to Actions.txt.
+07/21/24 14:50:11: [Jay Arnold] that was green
+07/21/24 14:50:12: Chat Bubble Created. Following 'yeancat' with text: ' that was green' and 0 choices
+07/21/24 14:50:22: [Jay Arnold] we are getting closer i think
+07/21/24 14:50:22: Chat Bubble Created. Following 'yeancat' with text: ' we are getting closer i think' and 0 choices
+07/21/24 14:50:27: Executing command: add_action(SaveGameNow,save_game,[])
+07/21/24 14:50:27: Processed command: add_action(SaveGameNow,save_game,[])
+07/21/24 14:50:27: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/21/24 14:50:27: Action 'SaveGameNow' already exists.
+07/21/24 14:50:35: [Jay Arnold] that is red though so not quite.
+07/21/24 14:50:35: Chat Bubble Created. Following 'yeancat' with text: ' that is red though so not quite.' and 0 choices
+07/21/24 14:50:44: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/21/24 14:50:44: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/21/24 14:50:44: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: [ ""What would you like to do?"",""yeancat"",""Go to Earth"",""GotoEarth"",""Level Up"",""LevelUpOnce"",""Save 
+Game"",""SaveGameNow"",""Cancel"","null" ]
+07/21/24 14:50:44: Action 'MainMenuChoices' already exists.
+07/21/24 14:50:58: [Jay Arnold] that was pink, likely as a result of the spaces it contains.
+07/21/24 14:50:58: Chat Bubble Created. Following 'yeancat' with text: ' that was pink, likely as a result of the spaces it contains.' and 0 choices

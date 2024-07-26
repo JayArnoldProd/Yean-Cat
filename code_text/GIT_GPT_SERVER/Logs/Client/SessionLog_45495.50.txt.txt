@@ -1,0 +1,48 @@
+07/22/24 07:07:02: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 07:07:02: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 07:07:02: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 07:07:02: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 07:07:02: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 07:07:02: Actions loaded successfully from Actions.txt.
+07/22/24 07:07:02: [Client] Failed to reconnect to server. Will try again...
+07/22/24 07:07:16: Executing command: goto_planet(Fantasia)
+07/22/24 07:07:16: Processed command: goto_planet(Fantasia)
+07/22/24 07:07:16: Teleported to Fantasia.
+07/22/24 07:07:20: [Jay Arnold] that was green, good
+07/22/24 07:07:20: Chat Bubble Created. Following 'yeancat' with text: ' that was green, good' and 0 choices
+07/22/24 07:07:36: Executing command: add_action(Lvl50,level_up,[50])
+07/22/24 07:07:36: Processed command: add_action(Lvl50,level_up,[50])
+07/22/24 07:07:36: Adding action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 07:07:36: Checking for command: level_up
+07/22/24 07:07:36: Action 'Lvl50' added successfully.
+07/22/24 07:07:36: Actions saved successfully to Actions.txt.
+07/22/24 07:07:41: [Jay Arnold] that was green! awesome!!!!
+07/22/24 07:07:41: Chat Bubble Created. Following 'yeancat' with text: ' that was green! awesome!!!!' and 0 choices
+07/22/24 07:07:54: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/22/24 07:07:54: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel",null]]])
+07/22/24 07:07:54: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: [ ""What would you like to do?"",""yeancat"",""Go to Earth"",""GotoEarth"",""Level Up"",""LevelUpOnce"",""Save 
+Game"",""SaveGameNow"",""Cancel"","null" ]
+07/22/24 07:07:54: Action 'MainMenuChoices' already exists.
+07/22/24 07:07:57: [Jay Arnold] that was pink
+07/22/24 07:07:57: Chat Bubble Created. Following 'yeancat' with text: ' that was pink' and 0 choices
+07/22/24 07:08:32: Executing command: add_action(HelloWorld,chat_bubble,["Hello World!","yeancat"])
+07/22/24 07:08:32: Processed command: add_action(HelloWorld,chat_bubble,["Hello World!","yeancat"])
+07/22/24 07:08:32: Adding action: HelloWorld, Command: chat_bubble, Parameters: [ ""Hello World!"",""yeancat"" ]
+07/22/24 07:08:32: Checking for command: chat_bubble
+07/22/24 07:08:32: Action 'HelloWorld' added successfully.
+07/22/24 07:08:32: Actions saved successfully to Actions.txt.
+07/22/24 07:08:56: [Jay Arnold] that was pink, due to the space character i typed after "Hello"
+07/22/24 07:08:56: Chat Bubble Created. Following 'yeancat' with text: ' that was pink, due to the space character i typed after "Hello"' and 0 choices
+07/22/24 07:09:04: Executing command: execute_action(HelloWorld)
+07/22/24 07:09:04: Processed command: execute_action(HelloWorld)
+07/22/24 07:09:04: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!' and 0 choices
+07/22/24 07:09:49: [Jay Arnold] that was green, it seems the only bug now is that it turns pink when i
+ type a space while inside a string inside an array for the parameters.
+07/22/24 07:09:49: Chat Bubble Created. Following 'yeancat' with text: ' that was green, it seems the only bug now is that it turns pink when i  type a space while inside a string inside an array for the parameters.' and 0 choices
+07/22/24 07:12:22: [Jay Arnold] dfkdsf kdjf d,mnsf asdm,nf ad,nmf a,dmnsf a,dmnsf ,dmsnf ,dmsnf 
+,dmsnaf ,dmnsf ,mdsnf ,sdamnf ,admsnf ,damsnf ad,smnf ,damsnf 
+d,amsnf a,dsmnf ,damsnf ,adsmnf d
+07/22/24 07:12:22: Chat Bubble Created. Following 'yeancat' with text: ' dfkdsf kdjf d,mnsf asdm,nf ad,nmf a,dmnsf a,dmnsf ,dmsnf ,dmsnf  ,dmsnaf ,dmnsf ,mdsnf ,sdamnf ,admsnf ,damsnf ad,smnf ,damsnf  d,amsnf a,dsmnf ,damsnf ,adsmnf d' and 0 choices

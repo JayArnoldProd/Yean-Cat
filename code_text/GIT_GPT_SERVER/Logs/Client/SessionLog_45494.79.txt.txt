@@ -1,0 +1,69 @@
+07/21/24 13:57:32: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/21/24 13:57:32: Loaded action: LVL300, Command: level_up, Parameters: [ "300" ]
+07/21/24 13:57:33: Loaded action: Lvl200, Command: level_up, Parameters: [ "200" ]
+07/21/24 13:57:33: Loaded action: "LVL100", Command: level_up, Parameters: [ "100" ]
+07/21/24 13:57:33: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/21/24 13:57:33: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/21/24 13:57:33: Loaded action: LVL500, Command: level_up, Parameters: [ "500" ]
+07/21/24 13:57:33: Loaded action: "Lvl200", Command: level_up, Parameters: [ "200" ]
+07/21/24 13:57:33: Loaded action: LVL400, Command: level_up, Parameters: [ "400" ]
+07/21/24 13:57:33: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/21/24 13:57:34: Actions loaded successfully from Actions.txt.
+07/21/24 13:57:34: [Client] Failed to reconnect to server. Will try again...
+07/21/24 13:57:46: [Jay Arnold] hello
+07/21/24 13:57:46: Chat Bubble Created. Following 'yeancat' with text: ' hello' and 0 choices
+07/21/24 13:57:52: [Jay Arnold] lets see about the coloring
+07/21/24 13:57:52: Chat Bubble Created. Following 'yeancat' with text: ' lets see about the coloring' and 0 choices
+07/21/24 13:58:01: Executing command: goto_planet(Fantasia)
+07/21/24 13:58:01: Processed command: goto_planet(Fantasia)
+07/21/24 13:58:02: Teleported to Fantasia.
+07/21/24 13:58:09: [Jay Arnold] that turned red but it should have been green
+07/21/24 13:58:09: Chat Bubble Created. Following 'yeancat' with text: ' that turned red but it should have been green' and 0 choices
+07/21/24 13:58:16: Executing command: list_commands
+07/21/24 13:58:16: Processed command: list_commands
+07/21/24 13:58:16: Commands: add_action(, add_chat_bubble_action(, chat_bubble(, 
+07/21/24 13:58:16: chat_bubble_choices(, disable_heartbeat, enable_heartbeat, 
+07/21/24 13:58:17: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+07/21/24 13:58:17: list_actions, list_clients, list_commands, list_variables, 
+07/21/24 13:58:17: return_controller, save_actions, save_game, save_macros, 
+07/21/24 13:58:17: set_my_permission(, set_variable(, show_gamepad_mapping, show_lines(, 
+07/21/24 13:58:17: show_variable(, show_wpm, toggle_debug, toggle_input_display, 
+07/21/24 13:58:17: toggle_log_debug, toggle_server
+07/21/24 13:58:24: [Jay Arnold] that one turned green like it should
+07/21/24 13:58:24: Chat Bubble Created. Following 'yeancat' with text: ' that one turned green like it should' and 0 choices
+07/21/24 13:58:31: Executing command: list_variables
+07/21/24 13:58:31: Processed command: list_variables
+07/21/24 13:58:31: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+07/21/24 13:58:31: Time, Macro5, Macro1, Macro9, Macro7, Macro3, CharacterLimit, 
+07/21/24 13:58:31: ControllerType, Level
+07/21/24 13:59:56: Executing command: add_action(University,goto_planet,["Universe City"])
+07/21/24 13:59:56: Processed command: add_action(University,goto_planet,["Universe City"])
+07/21/24 13:59:56: Adding action: University, Command: goto_planet, Parameters: [ ""Universe City"" ]
+07/21/24 13:59:56: Checking for command: goto_planet
+07/21/24 13:59:56: Action 'University' added successfully.
+07/21/24 13:59:56: Actions saved successfully to Actions.txt.
+07/21/24 14:00:04: [Jay Arnold] that was pink when it should have been green
+07/21/24 14:00:04: Chat Bubble Created. Following 'yeancat' with text: ' that was pink when it should have been green' and 0 choices
+07/21/24 14:00:13: [Jay Arnold] it turned pink after the space in Universe City
+07/21/24 14:00:14: Chat Bubble Created. Following 'yeancat' with text: ' it turned pink after the space in Universe City' and 0 choices
+07/21/24 14:00:20: Executing command: 
+07/21/24 14:00:20: Error: Empty command
+07/21/24 14:00:30: Executing command: execute_action(Universe City)
+07/21/24 14:00:30: Processed command: execute_action(Universe City)
+07/21/24 14:00:30: Action 'Universe City' not found.
+07/21/24 14:00:43: Executing command: execute_action("Universe City")
+07/21/24 14:00:43: Processed command: execute_action("Universe City")
+07/21/24 14:00:43: Action '"Universe City"' not found.
+07/21/24 14:00:56: Executing command: execute_action(University)
+07/21/24 14:00:57: Processed command: execute_action(University)
+07/21/24 14:00:57: Teleported to Universe City.
+07/21/24 14:01:08: [Jay Arnold] that turned red, but it worked!
+07/21/24 14:01:08: Chat Bubble Created. Following 'yeancat' with text: ' that turned red, but it worked!' and 0 choices
+07/21/24 14:01:13: [Jay Arnold] it needed to turn green.
+07/21/24 14:01:14: Chat Bubble Created. Following 'yeancat' with text: ' it needed to turn green.' and 0 choices
+07/21/24 14:01:31: Executing command: set_my_permission(3)
+07/21/24 14:01:31: Processed command: set_my_permission(3)
+07/21/24 14:01:31: Permission level set to Owner
+07/21/24 14:01:53: [Jay Arnold] lets fix the red text issue.
+07/21/24 14:01:53: Chat Bubble Created. Following 'yeancat' with text: ' lets fix the red text issue.' and 0 choices

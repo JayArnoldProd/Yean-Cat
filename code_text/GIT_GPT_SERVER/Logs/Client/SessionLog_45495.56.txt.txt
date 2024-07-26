@@ -1,0 +1,56 @@
+07/22/24 08:33:21: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 08:33:21: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 08:33:22: Loaded action: Hello4, Command: chat_bubble, Parameters: [ "Hello World! This is Pink 
+Now","yeancat" ]
+07/22/24 08:33:22: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 08:33:22: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:33:22: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 08:33:22: Loaded action: Hello6, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:33:22: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 08:33:22: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 08:33:22: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 08:33:22: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 08:33:22: Loaded action: Hello7, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 08:33:22: Actions loaded successfully from Actions.txt.
+07/22/24 08:33:23: [Client] Failed to reconnect to server. Will try again...
+07/22/24 08:33:43: Executing command: chat_bubble("Hello World","yeancat")
+07/22/24 08:33:43: Processed command: chat_bubble("Hello World","yeancat")
+07/22/24 08:33:43: Chat Bubble Created. Following 'yeancat' with text: '"Hello World"' and 0 choices
+07/22/24 08:33:55: Executing command: list_actions
+07/22/24 08:33:55: Processed command: list_actions
+07/22/24 08:33:55: Actions: SaveGameNow, LVL202, Hello4, MainMenuChoices, HelloWorld2, LevelUpOnce, Hello6, HelloWorld, Lvl50, GotoEarth, Hello3, Hello7, 
+07/22/24 08:34:30: Executing command: execute_action(MainMenuChoices)
+07/22/24 08:34:30: Processed command: execute_action(MainMenuChoices)
+07/22/24 08:34:30: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?' and 0 choices
+07/22/24 08:36:49: [Jay Arnold] okay i will send you the actions.txt along with this log. we should clear
+ actions.txt and do a reset and fully test the creation of a bubble with 
+various choices and connected actions created from scratch. When my
+ time resets at 12 pm this will be your last attempt to fix or perform a 
+test.
+07/22/24 08:36:49: Chat Bubble Created. Following 'yeancat' with text: ' okay i will send you the actions.txt along with this log. we should clear  actions.txt and do a reset and fully test the creation of a bubble with  various choices and connected actions created from scratch. When my  time resets at 12 pm this will be your last attempt to fix or perform a  test.' and 0 choices
+07/22/24 08:37:23: [Jay Arnold] hello world
+07/22/24 08:37:23: Chat Bubble Created. Following 'yeancat' with text: ' hello world' and 0 choices
+07/22/24 08:54:33: Saved Game
+07/22/24 08:54:46: Saved Game
+07/22/24 08:57:08: Executing command: level_up(500)
+07/22/24 08:57:08: Processed command: level_up(500)
+07/22/24 08:57:08: Level up initiated with goal: 500
+07/22/24 09:00:43: Executing command: level_up(500)
+07/22/24 09:00:43: Processed command: level_up(500)
+07/22/24 09:00:43: Level up initiated with goal: 500
+07/22/24 09:03:20: Saved Game
+07/22/24 09:03:32: Saved Game
+07/22/24 09:04:03: Executing command: execute_action(MainMenuChoices)
+07/22/24 09:04:03: Processed command: execute_action(MainMenuChoices)
+07/22/24 09:04:03: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?' and 0 choices
+07/22/24 09:04:08: [Jay Arnold] 
+07/22/24 09:04:08: Chat Bubble Created. Following 'yeancat' with text: ' ' and 0 choices
+07/22/24 09:04:11: [Jay Arnold] 
+07/22/24 09:04:11: Chat Bubble Created. Following 'yeancat' with text: ' ' and 0 choices
+07/22/24 09:04:14: [Jay Arnold] ...
+07/22/24 09:04:14: Chat Bubble Created. Following 'yeancat' with text: ' ...' and 0 choices
+07/22/24 09:04:20: [Jay Arnold] Hello
+07/22/24 09:04:20: Chat Bubble Created. Following 'yeancat' with text: ' Hello' and 0 choices
+07/22/24 09:04:30: [Jay Arnold] uWu
+07/22/24 09:04:30: Chat Bubble Created. Following 'yeancat' with text: ' uWu' and 0 choices

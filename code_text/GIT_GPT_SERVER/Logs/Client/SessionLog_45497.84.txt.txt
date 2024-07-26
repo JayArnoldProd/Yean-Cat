@@ -1,0 +1,40 @@
+
+07/24/24 15:08:40: Actions.txt not found. Starting with an empty actions map.
+07/24/24 15:08:41: [Client] Failed to reconnect to server. Will try again...
+07/24/24 15:09:15: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 15:09:15: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 15:09:15: Adding action: GotoEarth, Command: goto_planet, Parameters: "[\"Earth\"]"
+07/24/24 15:09:15: Checking for command: goto_planet
+07/24/24 15:09:15: Action 'GotoEarth' added successfully.
+07/24/24 15:09:16: Actions saved successfully to Actions.txt.
+07/24/24 15:09:20: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 15:09:20: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 15:09:20: Adding action: LevelUpOnce, Command: level_up, Parameters: "[1]"
+07/24/24 15:09:20: Checking for command: level_up
+07/24/24 15:09:20: Action 'LevelUpOnce' added successfully.
+07/24/24 15:09:20: Actions saved successfully to Actions.txt.
+07/24/24 15:09:24: Executing command: add_action(SaveGameNow,save_game,[])
+07/24/24 15:09:24: Processed command: add_action(SaveGameNow,save_game,[])
+07/24/24 15:09:25: Adding action: SaveGameNow, Command: save_game, Parameters: "[]"
+07/24/24 15:09:25: Checking for command: save_game
+07/24/24 15:09:25: Action 'SaveGameNow' added successfully.
+07/24/24 15:09:25: Actions saved successfully to Actions.txt.
+07/24/24 15:09:58: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 15:09:59: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 15:09:59: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 15:09:59: Checking for command: chat_bubble
+07/24/24 15:09:59: Action 'MainMenuChoices' added successfully.
+07/24/24 15:09:59: Actions saved successfully to Actions.txt.
+
+SaveGameNow,save_game,"[]"
+MainMenuChoices,chat_bubble,"["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"]"
+LevelUpOnce,level_up,"[1]"
+GotoEarth,goto_planet,"["Earth"]"
+
+We're getting closer, now I believe we just need to fix why the full action is not being saved for mainmenuchoices. I suspect that it has something to do with \n characters that are inserted into the command while typing it (for formatting the chat text input box). If these \n aren't being stripped before passing it as a command, it could perhaps be cutting off the creation of the action, thats my guess
+
+07/24/24 15:20:33: Executing command: list_actions
+07/24/24 15:20:33: Processed command: list_actions
+07/24/24 15:20:33: Actions: SaveGameNow, MainMenuChoices, LevelUpOnce, GotoEarth, 

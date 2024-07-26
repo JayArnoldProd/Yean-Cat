@@ -1,0 +1,1398 @@
+Bug Name: Command_Text_Color_Inconsistency
+Description: After implementing a fix for command text coloring, the issue has regressed. Commands are now inconsistently colored red or pink instead of the expected green for valid commands. This affects user experience and the ability to quickly validate command inputs.
+
+== Related Objects ==
+
+Object: obj_Client
+
+File: Step_0.gml
+Code:
+/// Step Event of obj_Client
+
+//create mouse if it doesnt exist and using keyboard and mouse
+if !instance_exists(obj_Cursor) and (global.control_type!=1) { 
+	instance_create_depth(mouse_x,mouse_y,-1000000,obj_Cursor);
+}
+
+// Set current font and heartbeat rate
+global.heartbeatBPM = global.current_bpm;
+fnt_chat = master.font_array[fnt_chat_id, 1];
+global.wrapWidth = 2350; // Adjusted wrap width
+
+//check for gamepad input
+check_gamepad_input()
+
+//randomly and probability skewed to bring shake_angle back to 0
+if abs(shake_angle)>.1 {
+	var invert = choose(-1,1)*(random(8)+92)/100
+	shake_angle=round(invert*shake_angle*100)/100
+} else {
+	if shake_angle!=0 {
+	shake_angle=0
+	keyboard_lastkey=vk_nokey
+	}
+}
+
+// Handle reconnection logic
+if (!global.isConnected && global.reconnectTimer <= 0) {
+    var result = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+    if (result >= 0) {
+        global.isConnected = true;
+        isServerRunning = true;
+        handleDebugMessage("[Client] Successfully reconnected to server.", true);
+        global.reconnectTimer = global.reconnectInterval;
+    } else {
+        global.reconnectTimer = global.reconnectInterval;
+        isServerRunning = false;
+        handleDebugMessage("[Client] Failed to reconnect to server. Will try again...", true);
+    }
+} else if (global.isConnected && global.reconnectTimer > 0) {
+    global.reconnectTimer--;
+}
+
+// Handle incoming network events safely
+if (ds_exists(async_load, ds_type_map)) {
+    var type = ds_map_find_value(async_load, "type");
+    var n_id = ds_map_find_value(async_load, "id");
+
+    if (n_id == global.client_socket) {
+        switch (type) {
+            case network_type_data:
+                var buffer = ds_map_find_value(async_load, "buffer");
+                buffer_seek(buffer, buffer_seek_start, 0);
+                var identifier = buffer_read(buffer, buffer_u8);
+
+                switch (identifier) {
+                    case global.IDENTIFIER_HEARTBEAT:
+                        handleDebugMessage("[Client] Heartbeat received from server.", true);
+                        break;
+                    
+                    case global.IDENTIFIER_TEST_MESSAGE:
+                        var msg = buffer_read(buffer, buffer_string);
+                        handleDebugMessage("[Client] Message from server: " + msg, true);
+                        break;
+                }
+                buffer_delete(buffer);
+                break;
+
+            case network_type_connect:
+                handleDebugMessage("[Client] Connected to server.", true);
+                break;
+                
+            case network_type_disconnect:
+                global.isConnected = false;
+                handleDebugMessage("[Client] Disconnected from server. Attempting to identify cause...", true);
+                break;
+        }
+    }
+} else {
+    //show_debug_message("ERROR: Invalid ds_map reference in async event.");
+}
+
+
+// Command input and execution logic
+if (input_check_pressed("chat") && !isActive) {
+    isActive = true;
+    global.commandBuffer = "";
+    keyboard_string = "";
+    show_debug_message("[Client] Chat input activated.");
+}
+
+// Toggle chat box with a specific key, e.g., Tab
+if (keyboard_check_pressed(vk_tab)) {
+    show_chatbox = !show_chatbox;
+    global.commandBuffer = "";  // Clear previous commands or texts
+    keyboard_string = "";
+    show_debug_message("[Client] Toggled chat box visibility: " + string(show_chatbox));
+}
+
+// Handle backspace and text input
+if (isActive) {
+// Handle backspace input
+    if (input_check("cancel") && string_length(global.commandBuffer) > 0) {
+        if (global.backspaceTimer == 0 || global.backspaceTimer >= global.backspaceDelay) {
+            var lastCharPosition = string_length(global.commandBuffer);
+
+            // Check if the last character is a newline
+            if (string_char_at(global.commandBuffer, lastCharPosition) == "\n") {
+                // Adjust the global.lastSpaceIndex if necessary
+                if (global.lastSpaceIndex >= lastCharPosition) {
+                    global.lastSpaceIndex = string_last_index_of(string_copy(global.commandBuffer, 1, lastCharPosition - 1), " ");
+                }
+            }
+
+            // Perform the character deletion
+            global.commandBuffer = string_delete(global.commandBuffer, lastCharPosition, 1);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Updated command buffer after backspace: " + global.commandBuffer);
+
+            // Clear the keyboard buffer to avoid unwanted characters
+            keyboard_string = "";
+
+            // Increase deletion speed
+            if (global.backspaceTimer == 0) {
+                global.backspaceTimer = 1;
+            } else {
+                global.backspaceTimer = global.backspaceSpeed;
+				if global.backspaceSpeed<14 {
+					global.backspaceSpeed+=1
+				}
+            }
+        } else {
+            global.backspaceTimer += 1;
+        }
+    } else {
+        global.backspaceTimer = 0; // Reset timer when backspace is released
+		global.backspaceSpeed=1
+    }
+	if string_length(global.commandBuffer)<global.character_limit {
+    var char = keyboard_string;
+	} else {
+		var char = "";
+		if keyboard_check_pressed(vk_anykey) {
+		if last_key_is_valid_character(keyboard_lastkey) {
+			//play sound to indicate char limit. 
+			var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
+			shake_angle=choose(-1,1)*random_range(.95,1.00)
+		}
+		}
+	}
+    // Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+    var pasting = false;
+    if (os_type == os_windows) {
+        if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    } else if (os_type == os_macosx) {
+        if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    }
+
+    // Handle pasting
+    if (pasting) {
+        if (clipboard_has_text()) {
+            var clip_string = clipboard_get_text();
+            if (string_length(clip_string) > 0 && string_length(clip_string) < 200) {
+                global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+                update_chat_input_visuals();
+                show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
+            } else {
+                handleDebugMessage("Clipboard content is too long to paste!", true);
+            }
+        }
+        pasting = false;
+    }
+
+    if (char != "") {
+        // Prevent typing if command is filled
+        if (!((global.textColor == c_lime || global.textColor == c_red) && slash_typed)) {
+            draw_set_font(fnt_chat);
+            global.commandBuffer = appendAndWrap(char, global.commandBuffer, global.wrapWidth);
+        }
+        update_chat_input_visuals();
+        keyboard_string = ""; // Clear the buffer after reading
+        show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
+    }
+
+// Check if Enter is pressed to process the command or chat message
+if (input_check_pressed("confirm")) {
+        if (string_char_at(global.commandBuffer, 1) == "/") {
+            var command = string_delete(global.commandBuffer, 1, 1);
+            execute_command(string_trim(command));
+        } else {
+            var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
+            global.message_is_bubble = 1;
+            handleDebugMessage(chatMessage, false);
+            global.message_is_bubble = 0;
+        }
+
+        // Add the command/message to the recall list
+        if (string_length(global.commandBuffer) > 0) {
+            ds_list_add(global.recall_list, global.commandBuffer);
+            if (ds_list_size(global.recall_list) > global.recall_max) {
+                ds_list_delete(global.recall_list, 0);  // Remove the oldest entry if exceeding the limit
+            }
+        }
+        global.recall_index = -1;
+        global.textColor = global.defaultTextColor;
+        global.commandBuffer = "";
+        isActive = false;
+        show_debug_message("[Client] Processed command/chat and cleared buffer.");
+}
+    // Navigate through the recall list using up and down arrows
+    if (keyboard_check_pressed(vk_up)) {
+        if (global.recall_index == -1) {
+            global.recall_index = ds_list_size(global.recall_list) - 1;
+        } else {
+            global.recall_index = max(0, global.recall_index - 1);
+        }
+
+        if (global.recall_index >= 0 && global.recall_index < ds_list_size(global.recall_list)) {
+            global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled previous command/chat: " + global.commandBuffer);
+        }
+    } else if (keyboard_check_pressed(vk_down)) {
+        if (global.recall_index != -1) {
+            global.recall_index = min(ds_list_size(global.recall_list) - 1, global.recall_index + 1);
+
+            if (global.recall_index < ds_list_size(global.recall_list)) {
+                global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            } else {
+                global.commandBuffer = "";
+            }
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled next command/chat: " + global.commandBuffer);
+        }
+    }
+}
+
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+    
+    // Check if a new message was added
+    if (ds_list_size(global.debugMessages) > 0 && 
+        ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {
+        // Scroll to the bottom when a new message is added
+        scrollIndex = max(0, totalLines - global.max_visible_lines);
+        global.lastAddedMessage = ""; // Reset the last added message
+    } else {
+        // Ensure scrollIndex is within valid range
+        scrollIndex = clamp(scrollIndex, 0, max(0, totalLines - global.max_visible_lines));
+    }
+    
+    // Draw the chat messages
+    drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+// Only process incoming data and send heartbeats if the server is running
+if (isServerRunning && sendHeartbeat && (current_time - global.lastHeartbeatTime >= broadcastInterval)) {
+    handleDebugMessage("Heartbeat sent to Server", true);
+    global.lastHeartbeatTime = current_time;
+}
+
+
+
+
+
+File: Other_68.gml
+Code:
+// Async Networking Event Handling for Client
+
+/// Revised Async Networking Event
+var type = ds_map_find_value(async_load, "type");
+var n_id = ds_map_find_value(async_load, "id");
+
+if (n_id == global.client_socket) {
+    switch (type) {
+        case network_type_connect:
+            show_debug_message("[Client] Connected to server.");
+            global.isConnected = true;
+            break;
+        case network_type_disconnect:
+            show_debug_message("[Client] Disconnected from server.");
+            global.isConnected = false;
+            break;
+        case network_type_data:
+            if (ds_map_exists(async_load, "buffer")) {
+                var buffer = ds_map_find_value(async_load, "buffer");
+                if (buffer != undefined) {
+                    buffer_seek(buffer, buffer_seek_start, 0);
+                    var identifier = buffer_read(buffer, buffer_u8);
+                    handleNetworkData(identifier, buffer);
+                } else {
+                    show_debug_message("ERROR: Buffer not found in data event.");
+                }
+            } else {
+                show_debug_message("ERROR: 'buffer' key does not exist in the async_load map.");
+            }
+            break;
+    }
+} else {
+    show_debug_message("ERROR: Invalid socket ID reference in async event.");
+}
+
+
+//// Async Networking Event of obj_Client
+
+//var type = ds_map_find_value(async_load, "type");
+//var n_id = ds_map_find_value(async_load, "id");
+
+//if (n_id == global.client_socket) {
+//    switch (type) {
+//        case network_type_data:
+//            var buffer = ds_map_find_value(async_load, "buffer");
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            var identifier = buffer_read(buffer, buffer_u8);
+
+//            switch (identifier) {
+//                case global.IDENTIFIER_HEARTBEAT:
+//                    // Handle heartbeat received from the server
+//                    show_debug_message("[Client] Heartbeat received from server.");
+//                    // Optionally, send back a confirmation or keep alive message
+//                    break;
+                
+//                case global.IDENTIFIER_UNIQUE_ID:
+//                    // This would be where the server confirms receipt of your unique ID
+//                    // Or any other custom logic for unique ID handling
+//                    var confirmationMessage = buffer_read(buffer, buffer_string);
+//                    show_debug_message("[Client] Server confirmed Unique ID: " + confirmationMessage);
+//                    break;
+                
+//                // Add more case handlers for different data types as needed
+//            }
+//            buffer_delete(buffer);
+//            break;
+
+//        case network_type_connect:
+//            // Immediately upon connection, send the unique ID to the server
+//            // This ensures server is aware of who just connected
+//            var buffer = buffer_create(256, buffer_grow, 1);
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+//            buffer_write(buffer, buffer_string, global.clientUniqueID);
+//            network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+//            show_debug_message("[Client] Sent unique ID to server: " + global.clientUniqueID);
+//            buffer_delete(buffer);
+//            break;
+            
+//        case network_type_disconnect:
+//            // Handle disconnection logic here, if needed
+//            global.isConnected = false; // Update the connection status
+//            show_debug_message("[Client] Disconnected from server.");
+//            break;
+//    }
+//}
+
+
+File: Destroy_0.gml
+Code:
+///Destroy Event for obj_Client
+if (global.isConnected) {
+    network_destroy(global.client_socket);
+}
+
+
+//// Clean up dynamic resources
+//if (ds_exists(clien, ds_type_map)) {
+//    ds_map_destroy(myDataStructure);
+//}
+
+// Optionally, inform the master object or handle game state changes
+// For example, transition to a different room or update the UI
+//event_perform_object(obj_Master, ev_Other, ev_user0); // Custom user event for cleanup in obj_Master
+
+
+File: Draw_0.gml
+Code:
+///Client Draw Code
+draw_set_font(fnt_chat);
+if show_chatbox=true {
+	var xx = 990;
+	var yy = 686; // Starting y position
+	var lm_cal=clamp(xx+(clamp(110-global.longestmessage,0,110))+1.65*(global.longestmessage-50)/3,xx+215,(display_get_gui_width()-10)/2+room_width/2)+10
+	var x1 = 980
+	var y1 = 686-20
+	var x2 = max(lm_cal,clamp(xx+(clamp(110-global.longestmessage,0,110))+1.65*(string_width(global.commandBuffer)-1)/3,xx+215,(display_get_gui_width())/2+room_width/2+50))
+	var y2 = _yy+100
+	//draw transparent background box for chatbox that adjusts to fit the longest message. will be later swapped for a scaled image background
+	draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);
+	draw_set_alpha(1);
+	var sca=.7
+	global.chat_line_height = 70 * sca + 5;
+// Set drawing properties
+draw_set_colour(c_ltgray);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_font(fnt_chat); 
+// Display server status
+var serverStatus = "Server Unable to Connect"; // Default message
+if (isServerRunning) {
+    serverStatus = "Server Online";
+	draw_set_colour(c_lime);
+} else {
+    serverStatus = "Server Stopped";
+	draw_set_colour(c_red);
+}
+
+if show_server_status=true {
+draw_text_transformed(xx, yy, serverStatus, sca, sca, 0);
+yy += 40; // Increment y position for next line
+}
+
+if connectedClients>0 {
+	draw_set_colour(c_aqua);
+} else {
+	draw_set_colour(c_ltgrey);
+}
+if show_server_status=true {
+	//we can keep drawing this section this way unless somehow your next response can condense it as well. but its  kind of fine as is, no issues here.
+draw_text_transformed(xx+3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx-3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx+3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx-3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_set_color(global.c_chat1);
+draw_text_transformed(xx, yy-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+yy += 50; // Increment y position for next 
+} else {
+	draw_set_color(global.c_chat1);
+	draw_text_transformed(xx+3, yy+3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx-3, yy+3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx+3, yy-3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx-3, yy-3-10, "Chat Box", sca, sca, 0);
+	draw_set_color(global.c_chat2);
+	draw_text_transformed(xx, yy-10, "Chat Box", sca, sca, 0);
+yy += 60; // Increment y position for next line
+}
+
+sca=.5
+
+if show_chatbox and ds_exists(global.debugMessages, ds_type_list) {
+    var startY = yy;
+    var maxLinesToShow = global.max_visible_lines;
+	// Before calling drawChatMessages, ensure messages is a ds_list
+if (!ds_exists(global.debugMessages, ds_type_list)) {
+    show_debug_message("Error: debugMessages is not a valid ds_list.");
+    return;
+}
+
+    var totalLines = drawChatMessages(global.debugMessages, 990, startY, maxLinesToShow, sca, false,global.c_chat2,global.c_chat1);
+
+    // Calculate the max index for scrolling based on the total number of lines
+    var maxScrollIndex = max(0, clamp(totalLines - maxLinesToShow,0,9999999));
+
+    // Scroll messages with keyboard or mouse wheel
+    if (input_check("up") || mouse_wheel_up()) {
+		if !(input_check("up") and isActive = true) { //disable scrolling from "W" when typing
+        scrollIndex = max(0, scrollIndex - 1);
+        show_debug_message("[Client] Scrolled up: Current scroll index is " + string(scrollIndex));
+		}
+    }
+    if (input_check("down") || mouse_wheel_down()) {
+		if !(input_check("down") and isActive = true) {//disable scrolling from "S" when typing
+        scrollIndex = min(maxScrollIndex, scrollIndex + 1);
+        show_debug_message("[Client] Scrolled down: Current scroll index is " + string(scrollIndex));
+		}
+    }
+
+    // Ensuring scrollIndex is always within the valid range
+    scrollIndex = clamp(scrollIndex, 0, maxScrollIndex);
+
+    // Redraw messages considering the scroll index
+	// Before calling drawChatMessages, ensure messages is a ds_list
+if (!ds_exists(global.debugMessages, ds_type_list)) {
+    show_debug_message("Error: debugMessages is not a valid ds_list.");
+    return;
+}
+
+    drawChatMessages(global.debugMessages, 990, yy , maxLinesToShow, sca, true,global.c_chat2,global.c_chat1);
+}
+
+yy=yy+clamp(totalLines-scrollIndex,0,global.max_visible_lines)*(global.chat_line_height*1.00)+5
+sca=.6
+_yy=yy-15
+ 
+if (isActive) {
+// Determine the number of line breaks in the command buffer
+var lineCount = array_length(string_split(global.commandBuffer, "\n"));
+
+// Calculate the new height based on the number of lines
+var lines = string_split(global.commandBuffer, "\n");
+var boxHeight = global.chat_line_height*1.05 * array_length(lines) + 2; // Calculate box height based on number of lines
+
+//chat input box drawing code 
+draw_set_color(c_black); // Set initial color to black (border)
+ 
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_white);  // border becomes white if command is being typed
+    }
+// Adjust the bottom y-coordinate of the rectangle to expand with each new line
+draw_rectangle(xx + 5, yy - 11, clamp(xx - 90 + 1.85 * (string_width(global.commandBuffer) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150 + 10, yy + boxHeight + 10, false);
+
+    draw_set_color(c_white);  // Set initial bg color to white when no '/' detected
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_black);  // Default bg color if command is being typed
+		slash_typed=true
+    } else {
+		slash_typed=false
+	}
+draw_rectangle(xx + 10, yy - 6, clamp(xx - 90 + 1.85 * (string_width(global.commandBuffer) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150, yy + boxHeight, false);
+//draw command buffer
+draw_set_color(global.c_chat2);
+	//we stay drawing these like this because theres no need for line handling here.
+
+	draw_set_color(merge_color(global.textColor,c_red,clamp(abs(shake_angle),0,1)));
+    draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, global.commandBuffer + "_", sca, sca, shake_angle*.25);  // Shoblinking cursor
+} else {
+	draw_set_color(merge_color(global.c_chat1,c_red,clamp(abs(shake_angle),0,1)));
+    draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, global.commandBuffer + "_", sca, sca, shake_angle*.25);  // Show blinking cursor
+}
+} else {
+	exit
+}
+
+
+// instance_exists(obj_levelup) {
+//if input_value() != undefined {
+//draw_set_color(c_red)
+//var dbug = ""
+//draw_text_transformed(room_width/2,room_height/2,string(global.choiceselect),3,3,0)
+//draw_text_transformed(room_width/2,room_height/2,dbug,3,3,0)
+//}
+
+////debug draw last key id
+//draw_set_color(c_black);
+//draw_text(room_width/2+2,room_height/2+2,keyboard_lastkey)
+//draw_text(room_width/2-2,room_height/2+2,keyboard_lastkey)
+//draw_text(room_width/2+2,room_height/2-2,keyboard_lastkey)
+//draw_text(room_width/2-2,room_height/2-2,keyboard_lastkey)
+//draw_set_color(c_white);
+//draw_text(room_width/2,room_height/2,keyboard_lastkey)
+
+File: Alarm_0.gml
+Code:
+// Alarm[0] Event
+var t_buffer = buffer_create(256, buffer_grow, 1);
+buffer_seek(t_buffer, buffer_seek_start, 0);
+buffer_write(t_buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+buffer_write(t_buffer, buffer_string, global.clientUniqueID);
+network_send_packet(global.client_socket, t_buffer, buffer_tell(t_buffer));
+buffer_delete(t_buffer);
+global.uniqueIDSent = true; // Ensure we don't resend the unique ID
+show_debug_message("[Client] Unique ID sent after delay: " + global.clientUniqueID);
+
+
+File: obj_Client.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_Client",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":68,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":5,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_Client",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "parentObjectId":null,
+  "persistent":true,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":null,
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+File: Other_5.gml
+Code:
+/// @description Insert description here
+//room end of obj_client
+show_chatbox=false
+
+File: Create_0.gml
+Code:
+
+// obj_Client setup Create Event
+global.lastAddedMessage = "";
+global.sessionLogFileName = "SessionLog_" + string_replace_all(string(date_current_datetime()), ":", "-") + ".txt";
+global.masterLogFileName = "MasterLog.txt";
+global.logDebugMessagesToFile = true; // By default, log debug messages to the file
+global.serverAddress = "127.0.0.1"; // Example server address
+// Initialize the data structure globally if not already initialized
+global.chatLogs=-1
+global.bubble_send_to_log=1
+global.message_is_bubble=0
+if (!ds_exists(global.chatLogs, ds_type_list)) {
+    global.chatLogs = ds_list_create();
+}
+time=0
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+global.lastWPMUpdateTime = 0; // Timestamp of the last WPM update
+global.WPMUpdateInterval = 5000; // Minimum time between updates in milliseconds (e.g., 5000ms = 5 seconds)
+lastUpdateTime = -1;
+updateInterval = 60; // Run every 60 seconds
+//input
+input_cursor_coord_space_set(INPUT_COORD_SPACE.ROOM, 0);
+//input_mouse_capture_set(true, 1);
+window_set_cursor(cr_none)
+instance_create_depth(room_width/2,room_height/2,-1000000,obj_Cursor);
+// Global time offset initialized
+global.timeOffset = 0;
+global.inputDisplayEnabled = false;  // Initialize the variable at an appropriate place in your game startup code
+global.actions = ds_map_create();
+// Adding command details
+// Global initialization script or create event
+global.commandDetails = ds_map_create();
+add_command("goto_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("jump_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("toggle_server", 3, [[]], false);  // Does not require '(' visually
+add_command("toggle_debug", 1, [[]], false);  // Does not require '(' visually
+add_command("list_clients", 1, [[]], false);  // Does not require '(' visually
+add_command("enable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("disable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("toggle_log_debug", 2, [[]], false);  // Does not require '(' visually
+add_command("set_my_permission(", 0, [["string", "real"]], true);
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+add_command("game_end(", 0, [["string", "real"]], true); 
+add_command("list_commands", 0, [[]], false); // No arguments, accessible at all permission levels
+add_command("show_lines(", 0, [["real"]], true);
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("level_up(", 1, [["real"]], true);  // Command requires '(' visually and a real number argument
+add_command("show_wpm", 0, [[]], false);  // Does not require '(' visually, level 0 permission
+add_command("chat_bubble(", 1, [["string"], ["string"]], true);
+add_command("save_macros", 1, [[]], false);  // Add the command to save macros
+add_command("list_variables", 2, [[]], false);
+add_command("add_action(", 2, [["string"],["string"],["array"]],true);
+add_command("save_actions", 2, [], false);
+add_command("list_actions", 2, [], false);
+add_command("execute_action(", 2, [["string"]], true);
+add_command("show_variable(", 2, [["string"]], true);
+add_command("return_controller", 1, [[]], false);
+add_command("toggle_input_display", 1, [[]], false);
+add_command("show_gamepad_mapping", 1, [[]], false);
+add_command("chat_bubble_choices(", 1, [["string"], ["string"], ["string", "string"]], true);
+add_command("add_chat_bubble_action(", 2, [["string"], ["string"], ["string"], ["array"]], true);
+// Initialize global action details
+global.actionDetails = ds_map_create();
+
+
+
+//add_command("spawn_boss(", 2, [["string"]], true);
+
+//0name //1health //2resistance0-1invincible /3/rate //4attackset //5damage //6moveset //7image //8appearance [0=character,1=boss] //9appearanceid
+//add_boss("Drake",6666666,.666,1,1,1,4,spr_boss1,1,0]
+
+// You can add new commands or modify existing ones easily with the `add_command` function.
+global.variableDetails = ds_map_create();
+add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
+add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
+add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 1000, [], [], "Social");
+add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro4", "macro4", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro5", "macro5", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro6", "macro6", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro7", "macro7", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro8", "macro8", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro9", "macro9", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro10", "macro10", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 99999999, [], [], "Global");
+global.debugCommand = "";
+//global.character_limit
+// Ensure commandBuffer is initialized
+global.commandBuffer = "";
+slash_typed=false //whether or not a command is being typed
+// Initialize a global variable for text color
+c_pink = make_color_hsv(0,58,255);
+global.defaultTextColor = c_black;
+global.textColor = global.defaultTextColor;
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+ // This will store the input from the user
+isActive = true;  // To check if command input is active
+sendHeartbeat = false; // Control sending of heartbeat messages
+_yy=0
+pasting=0;
+global.longestmessage=200;
+global.c_chat2=c_black
+global.c_chat1=c_white
+fnt_chat=Font4
+global.borderwidth=8 //bg width
+global.bg_alpha=.4 //bg alpha
+global.bg_color=c_black //background color
+global.o_color=c_white //outline color
+global.wrapWidth = 2350; // Adjust this value based on your chat box
+global.character_limit=300;//character limit for chat
+global.lastSpaceIndex = -1;
+
+//Other Variables
+global.showDebugMessages = true; // Enable debug messages by default
+global.maximumMessages=2000;
+maxDisplayMessages = 5; // Number of debug messages to display at once
+// Initialize max visible lines for the chat box
+global.max_visible_lines = maxDisplayMessages;  // You can adjust this number based on your needs
+
+global.debugMessages = ds_list_create();
+fnt_chat_id=0
+// Global settings for text wrapping
+global.chat_threshold = 2350;  // Threshold to start considering wrapping
+global.chat_text_limit = 2350; // Maximum pixel width of text before wrapping
+global.chat_line_height = 50; // Height of each line of text in pixels
+global.min_width = 110;  // Minimum width of the chat box
+global.max_width = 1000;  // Maximum width of the chat box, adjust according to your UI design
+// Adjust these values to tweak where the text wraps
+global.chat_threshold = global.chat_threshold * 1.66;  // Increase the threshold
+global.chat_text_limit = global.chat_text_limit * 1.66;  // Increase the width limit
+
+//Scrolling Variables
+scrollIndex = 0; // Initialize scroll position
+baseScrollSensitivity = 0.1; // Base sensitivity, how much the index changes initially per mouse wheel movement
+maxScrollSensitivity = 1.0; // Maximum sensitivity after continuous scrolling
+sensitivityIncrement = 0.05; // How much the sensitivity increases with continuous scrolling
+sensitivityDecrement = 0.01; // How much the sensitivity decreases when not scrolling
+global.scrollSensitivity = baseScrollSensitivity; // Current sensitivity, starts at base sensitivity
+global.isScrolling = false; // Tracks if the user is currently scrolling
+
+// Server Configuration
+show_server_status=false
+global.serverPort = "5555";
+global.maxClients = 4;
+global.heartbeatBPM = 115; // Beats per minute for the heartbeat
+global.lastHeartbeatTime = current_time; // Store the current time
+broadcastInterval = 60000 / global.heartbeatBPM; // Time between heartbeats in milliseconds
+
+global.clientUniqueID = ""; // Initialize to an empty string
+global.reconnectTimer = 0; // Time to attempt a reconnect
+global.reconnectInterval = 2000; // Interval between reconnect attempts
+global.isConnected = false; // Connection status
+global.IDENTIFIER_UNIQUE_ID = 2; // Ensure this matches server expectation
+global.uniqueIDSent = false; // Prevent re-sending
+
+// Initialize server state and structures
+isServerRunning = false;
+connectedClients = 0;
+
+// Generate or load the unique ID
+if (!file_exists(working_directory + "client_id.txt")) {
+    // For a new ID
+    global.clientUniqueID = string(irandom_range(100000, 999999));
+    var file = file_text_open_write(working_directory + "client_id.txt");
+    file_text_write_string(file, global.clientUniqueID);
+    file_text_close(file);
+} else {
+    // For an existing ID
+    var file = file_text_open_read(working_directory + "client_id.txt");
+    global.clientUniqueID = file_text_read_string(file);
+    file_text_close(file);
+}
+
+// Client Initialization and Connection
+global.client_socket = network_create_socket(network_socket_tcp);
+var status = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+if (status >= 0) {
+    // Successful connection
+    show_debug_message("[Client] Successfully connected and ID sent.");
+	isServerRunning = true;
+    var buffer = buffer_create(256, buffer_grow, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+    buffer_write(buffer, buffer_string, global.clientUniqueID);
+    network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+    buffer_delete(buffer);
+} else {
+    // Handle connection failure
+    show_debug_message("[Client] Connection failed.");
+}
+
+show_chatbox=false
+depth-=10; //ensure at top or front of view
+
+global.backspaceTimer = 0;
+global.backspaceDelay = 15; // Initial delay before rapid deletion
+global.backspaceSpeed = 1;  // Delay between rapid deletions
+
+global.recall_list = ds_list_create();  // List to store past messages and commands
+global.recall_max = 20;  // Maximum number of entries to remember
+global.recall_index = -1;  // Index for navigating through the recall list
+
+shake_angle=0 //angle to shake text when character limit reached.
+
+load_actions()
+
+
+Object: obj_Chat_Input
+
+== Related Scripts ==
+
+Script: update_chat_input_visuals
+File: update_chat_input_visuals.gml
+Code:
+function update_chat_input_visuals() {
+    var inputText = string_trim(global.commandBuffer);
+    show_debug_message("Input text: '" + inputText + "'");
+    
+    if (inputText == "") {
+        global.textColor = global.defaultTextColor;
+        show_debug_message("Empty input, setting default color");
+        return;
+    }
+    
+    if (string_char_at(inputText, 1) != "/") {
+        global.textColor = global.defaultTextColor;
+        show_debug_message("Not a command, setting default color");
+        return;
+    }
+    
+    var commandEnd = string_pos(" ", inputText);
+    if (commandEnd == 0) commandEnd = string_pos("(", inputText);
+    if (commandEnd == 0) commandEnd = string_length(inputText) + 1;
+    
+    var command = string_copy(inputText, 2, commandEnd - 2);
+    show_debug_message("Extracted command: '" + command + "'");
+    
+    var hasPermission = check_permission_command(command);
+    var commandExists = ds_map_exists(global.commandDetails, command + "(") || ds_map_exists(global.commandDetails, command);
+    var requiresParentheses = ds_map_exists(global.commandDetails, command + "(");
+    
+    show_debug_message("Command exists: " + string(commandExists) + ", Requires parentheses: " + string(requiresParentheses) + ", Has permission: " + string(hasPermission));
+    
+    if (!commandExists) {
+        global.textColor = c_pink;
+        show_debug_message("Command doesn't exist, setting color to pink");
+        return;
+    }
+    
+    var openParenPos = string_pos("(", inputText);
+    var closeParenPos = string_last_pos(")", inputText);
+    
+    if (requiresParentheses) {
+        if (openParenPos == 0) {
+            global.textColor = c_aqua;
+            show_debug_message("Parentheses required but not opened, setting color to aqua");
+        } else if (closeParenPos == 0 || !are_brackets_balanced(inputText)) {
+            global.textColor = c_yellow;
+            show_debug_message("Parentheses or brackets not properly closed, setting color to yellow");
+        } else {
+            var params = string_copy(inputText, openParenPos + 1, closeParenPos - openParenPos - 1);
+            var isValid = are_params_valid(params);
+            global.textColor = (hasPermission && isValid) ? c_lime : c_red;
+            show_debug_message("Params: '" + params + "', Is valid: " + string(isValid) + ", Has permission: " + string(hasPermission) + ", Setting color to " + (global.textColor == c_lime ? "green" : "red"));
+        }
+    } else {
+        global.textColor = hasPermission ? c_lime : c_red;
+        show_debug_message("No parentheses needed, has permission: " + string(hasPermission) + ", setting color to " + (global.textColor == c_lime ? "green" : "red"));
+    }
+    
+    show_debug_message("Final text color set to: " + (global.textColor == c_lime ? "green" : (global.textColor == c_red ? "red" : (global.textColor == c_yellow ? "yellow" : (global.textColor == c_aqua ? "aqua" : (global.textColor == c_pink ? "pink" : "unknown"))))));
+}
+
+//// Function to update the color of the chatbox text based on command input
+//function update_chat_input_visuals() {
+//    var inputText = string_trim(global.commandBuffer);
+//    var firstChar = string_char_at(inputText, 1);
+
+//    if (inputText == "") {
+//        global.textColor = global.defaultTextColor;
+//    } else if (firstChar == "/") {
+//        if (string_length(inputText) == 1) {
+//            global.textColor = c_white; // Initial '/' is white
+//        } else {
+//            var commandEnd = string_pos(" ", inputText);
+//            if (commandEnd == 0) commandEnd = string_length(inputText);
+//            var argsStart = string_pos("(", inputText);
+//            var argsEnd = string_pos(")", inputText);
+
+//            // Adjust the commandEnd if "(" is part of the command
+//            if (argsStart > 0 && argsStart < commandEnd) {
+//                commandEnd = argsStart;
+//            }
+//            var command = string_copy(inputText, 2, commandEnd - 1);
+//            var hasPermission = check_permission_command(command);
+
+//            // Ensure the command is valid before changing the color based on arguments
+//            if (ds_map_exists(global.commandDetails, command)) {
+//                // Call handleCommandWithArgs to manage the text color based on command validation
+//                global.textColor = handleCommandWithArgs(argsStart, argsEnd, command, hasPermission);
+//            } else {
+//                // If the command is not valid, do not turn it aqua just for typing '('
+//                global.textColor = c_pink;  // Set to pink as the command is not recognized
+//            }
+//        }
+//    } else {
+//        global.textColor = global.defaultTextColor;
+//    }
+//}
+
+
+
+//// Function to update the color of the chatbox text based on command input
+//function update_chat_input_visuals() {
+//    var inputText = string_trim(global.commandBuffer);
+//    var firstChar = string_char_at(inputText, 1);
+
+//    if (inputText == "") {
+//        global.textColor = global.defaultTextColor;
+//    } else if (firstChar == "/") {
+//        if (string_length(inputText) == 1) {
+//            global.textColor = c_white; // Initial '/' is white
+//        } else {
+//            var commandEnd = string_pos(" ", inputText);
+//            if (commandEnd == 0) commandEnd = string_length(inputText);
+//            var argsStart = string_pos("(", inputText);
+//            var argsEnd = string_pos(")", inputText);
+
+//            // Adjust the commandEnd if "(" is part of the command
+//            if (argsStart > 0 && argsStart < commandEnd) {
+//                commandEnd = argsStart;
+//            }
+//            var command = string_copy(inputText, 2, commandEnd - 1);
+//            var hasPermission = check_permission_command(command);
+
+//            // Ensure the command is valid before changing the color based on arguments
+//            if (ds_map_exists(global.commandDetails, command)) {
+//                // Extract and validate array arguments
+//                var argsString = string_copy(inputText, argsStart + 1, argsEnd - argsStart - 1);
+//                var isValidArray = true;
+
+//                if (string_pos("[", argsString) > 0 && string_pos("]", argsString) > 0) {
+//                    var arrayStart = string_pos("[", argsString);
+//                    var arrayEnd = string_pos("]", argsString);
+//                    var arrayString = string_copy(argsString, arrayStart + 1, arrayEnd - arrayStart - 1);
+//                    var arrayParams = string_split(arrayString, ",");
+
+//                    // Check if each element is a valid parameter
+//                    for (var i = 0; i < array_length(arrayParams); i++) {
+//                        if (string_trim(arrayParams[i]) == "") {
+//                            isValidArray = false;
+//                            break;
+//                        }
+//                    }
+//                }
+
+//                // Check if command parameters are valid
+//                if (isValidArray) {
+//                    global.textColor = handleCommandWithArgs(argsStart, argsEnd, command, hasPermission);
+//                } else {
+//                    global.textColor = c_pink; // Set to pink if the array is invalid
+//                }
+//            } else {
+//                global.textColor = c_pink;  // Set to pink if the command is not recognized
+//            }
+//        }
+//    } else {
+//        global.textColor = global.defaultTextColor;
+//    }
+//}
+
+
+
+//// Function to update the color of the chatbox text based on command input
+//function update_chat_input_visuals() {
+//    var inputText = string_trim(global.commandBuffer);
+//    var firstChar = string_char_at(inputText, 1);
+
+//    if (inputText == "") {
+//        global.textColor = global.defaultTextColor;
+//    } else if (firstChar == "/") {
+//        if (string_length(inputText) == 1) {
+//            global.textColor = c_white; // Initial '/' is white
+//        } else {
+//            var commandEnd = string_pos(" ", inputText);
+//            if (commandEnd == 0) commandEnd = string_length(inputText);
+//            var argsStart = string_pos("(", inputText);
+//            var argsEnd = string_pos(")", inputText);
+
+//            // Adjust the commandEnd if "(" is part of the command
+//            if (argsStart > 0 && argsStart < commandEnd) {
+//                commandEnd = argsStart;
+//            }
+//            var command = string_copy(inputText, 2, commandEnd - 1);
+//            var hasPermission = check_permission_command(command);
+
+//            // Ensure the command is valid before changing the color based on arguments
+//            if (ds_map_exists(global.commandDetails, command)) {
+//                // Extract and validate array arguments
+//                var argsString = string_copy(inputText, argsStart + 1, argsEnd - argsStart - 1);
+//                var isValidArray = true;
+
+//                if (string_pos("[", argsString) > 0 && string_pos("]", argsString) > 0) {
+//                    var arrayStart = string_pos("[", argsString);
+//                    var arrayEnd = string_pos("]", argsString);
+//                    var arrayString = string_copy(argsString, arrayStart + 1, arrayEnd - arrayStart - 1);
+//                    var arrayParams = string_split(arrayString, ",");
+
+//                    // Check if each element is a valid parameter
+//                    for (var i = 0; i < array_length(arrayParams); i++) {
+//                        if (string_trim(arrayParams[i]) == "") {
+//                            isValidArray = false;
+//                            break;
+//                        }
+//                    }
+//                }
+
+//                // Call `handleCommandWithArgs` to manage the text color based on command validation
+//                if (isValidArray) {
+//                    global.textColor = handleCommandWithArgs(argsStart, argsEnd, command, hasPermission);
+//                } else {
+//                    global.textColor = c_pink; // Set to pink if the array is invalid
+//                }
+//            } else {
+//                // If the command is not valid, do not turn it aqua just for typing '('
+//                global.textColor = c_pink;  // Set to pink as the command is not recognized
+//            }
+//        }
+//    } else {
+//        global.textColor = global.defaultTextColor;
+//    }
+//}
+
+
+
+
+
+
+
+
+
+
+Script: update_chat_input_visuals
+File: update_chat_input_visuals.yy
+Code:
+{
+  "$GMScript":"v1",
+  "%Name":"update_chat_input_visuals",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"update_chat_input_visuals",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
+
+Script: check_permission_command
+File: check_permission_command.yy
+Code:
+{
+  "$GMScript":"v1",
+  "%Name":"check_permission_command",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"check_permission_command",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
+
+Script: check_permission_command
+File: check_permission_command.gml
+Code:
+// Function to check if a player has permission to execute a command
+function check_permission_command(commandName) {
+    show_debug_message("Checking permission for command: '" + commandName + "'");
+    if (ds_map_exists(global.commandDetails, commandName) || ds_map_exists(global.commandDetails, commandName + "(")) {
+        var commandInfo = ds_map_find_value(global.commandDetails, commandName) ?? ds_map_find_value(global.commandDetails, commandName + "(");
+        var requiredLevel = commandInfo[? "requiredLevel"];
+        var hasPermission = (master.permissions >= requiredLevel);
+        show_debug_message("Required level: " + string(requiredLevel) + ", Player level: " + string(master.permissions) + ", Has permission: " + string(hasPermission));
+        return hasPermission;
+    } else {
+        show_debug_message("Command '" + commandName + "' not found in global.commandDetails");
+        return false;
+    }
+}
+
+Script: are_params_valid
+File: are_params_valid.yy
+Code:
+{
+  "$GMScript":"v1",
+  "%Name":"are_params_valid",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"are_params_valid",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
+
+Script: are_params_valid
+File: are_params_valid.gml
+Code:
+function are_params_valid(params) {
+    show_debug_message("Checking params: '" + params + "'");
+    var paramArray = parse_parameters(params);
+    for (var i = 0; i < array_length(paramArray); i++) {
+        var param = paramArray[i];
+        show_debug_message("Checking param: '" + string(param) + "'");
+        if (is_string(param)) {
+            if (string_trim(param) == "") {
+                show_debug_message("Empty param found, invalid");
+                return false;
+            }
+        } else if (is_array(param)) {
+            if (!are_params_valid(array_to_string(param))) {
+                show_debug_message("Invalid array contents");
+                return false;
+            }
+        }
+    }
+    show_debug_message("All params valid");
+    return true;
+}
+
+
+
+
+
+Script: action_exists
+File: action_exists.gml
+Code:
+function action_exists(actionName) {
+    if (!ds_exists(global.actions, ds_type_map)) {
+        show_debug_message("Error: global.actions is not a valid ds_map");
+        return false;
+    }
+    return ds_map_exists(global.actions, actionName);
+}
+
+
+
+Script: action_exists
+File: action_exists.yy
+Code:
+{
+  "$GMScript":"v1",
+  "%Name":"action_exists",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"action_exists",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
+
+Script: extract_action_name
+File: extract_action_name.yy
+Code:
+{
+  "$GMScript":"v1",
+  "%Name":"extract_action_name",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"extract_action_name",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
+
+Script: extract_action_name
+File: extract_action_name.gml
+Code:
+function extract_action_name(params) {
+    var firstComma = string_pos(",", params);
+    if (firstComma == 0) return params;
+    var actionName = string_copy(params, 1, firstComma - 1);
+    actionName = string_trim(actionName);
+    actionName = string_replace_all(actionName, "\"", "");  // Remove quotes
+    return actionName;
+}
+
+Script: parse_parameters
+File: parse_parameters.gml
+Code:
+function parse_parameters(params) {
+    var result = [];
+    var currentParam = "";
+    var inQuotes = false;
+    var bracketDepth = 0;
+    var parenDepth = 0;
+    
+    for (var i = 1; i <= string_length(params); i++) {
+        var char = string_char_at(params, i);
+        
+        if (char == "\"" && string_char_at(params, i - 1) != "\\") {
+            inQuotes = !inQuotes;
+            currentParam += char;
+        } else if (char == "[" && !inQuotes) {
+            bracketDepth++;
+            currentParam += char;
+        } else if (char == "]" && !inQuotes) {
+            bracketDepth--;
+            currentParam += char;
+        } else if (char == "(" && !inQuotes) {
+            parenDepth++;
+            currentParam += char;
+        } else if (char == ")" && !inQuotes) {
+            parenDepth--;
+            currentParam += char;
+        } else if (char == "," && !inQuotes && bracketDepth == 0 && parenDepth == 0) {
+            array_push(result, string_trim(currentParam));
+            currentParam = "";
+        } else {
+            currentParam += char;
+        }
+    }
+    
+    if (currentParam != "") {
+        array_push(result, string_trim(currentParam));
+    }
+    
+    return result;
+}
+
+Script: parse_parameters
+File: parse_parameters.yy
+Code:
+{
+  "$GMScript":"v1",
+  "%Name":"parse_parameters",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"parse_parameters",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
+
+Script: string_split not found in the expected directories.
+
+Script: add_action not found in the expected directories.
+
+Script: goto_planet not found in the expected directories.
+
+Script: execute_action not found in the expected directories.
+
+Script: are_brackets_balanced
+File: are_brackets_balanced.gml
+Code:
+function are_brackets_balanced(str) {
+    var stack = ds_stack_create();
+    for (var i = 1; i <= string_length(str); i++) {
+        var char = string_char_at(str, i);
+        if (char == "(" || char == "[" || char == "\"") {
+            ds_stack_push(stack, char);
+        } else if (char == ")" || char == "]" || char == "\"") {
+            if (ds_stack_empty(stack)) {
+                ds_stack_destroy(stack);
+                return false;
+            }
+            var top = ds_stack_pop(stack);
+            if ((char == ")" && top != "(") || (char == "]" && top != "[") || (char == "\"" && top != "\"")) {
+                ds_stack_destroy(stack);
+                return false;
+            }
+        }
+    }
+    var balanced = ds_stack_empty(stack);
+    ds_stack_destroy(stack);
+    return balanced;
+}
+
+Script: are_brackets_balanced
+File: are_brackets_balanced.yy
+Code:
+{
+  "$GMScript":"v1",
+  "%Name":"are_brackets_balanced",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"are_brackets_balanced",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}
+
+== Related Logs ==
+
+Log: SessionLog_45495.53
+Content:
+07/22/24 07:38:33: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 07:38:34: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 07:38:34: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 07:38:34: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:38:34: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 07:38:34: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 07:38:34: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 07:38:34: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 07:38:34: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:38:34: Actions loaded successfully from Actions.txt.
+07/22/24 07:38:34: [Client] Failed to reconnect to server. Will try again...
+07/22/24 07:40:46: Executing command: goto_planet(Fantasia)
+07/22/24 07:40:46: Processed command: goto_planet(Fantasia)
+07/22/24 07:40:46: Teleported to Fantasia.
+07/22/24 07:40:49: [Jay Arnold] nice that was green
+07/22/24 07:40:49: Chat Bubble Created. Following 'yeancat' with text: ' nice that was green' and 0 choices
+07/22/24 07:41:22: Executing command: add_action(Hello4,chat_bubble,["Hello World! This is Pink 
+Now","yeancat"])
+07/22/24 07:41:22: Processed command: add_action(Hello4,chat_bubble,["Hello World! This is Pink 
+Now","yeancat"])
+07/22/24 07:41:22: Adding action: Hello4, Command: chat_bubble, Parameters: [ ""Hello World! This is Pink 
+Now"",""yeancat"" ]
+07/22/24 07:41:22: Checking for command: chat_bubble
+07/22/24 07:41:22: Action 'Hello4' added successfully.
+07/22/24 07:41:22: Actions saved successfully to Actions.txt.
+07/22/24 07:41:37: [Jay Arnold] at least we fixed the bug you previously added, we still need to fix the
+ pink.
+07/22/24 07:41:37: Chat Bubble Created. Following 'yeancat' with text: ' at least we fixed the bug you previously added, we still need to fix the  pink.' and 0 choices
+07/22/24 07:47:22: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/22/24 07:47:22: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/22/24 07:47:23: Loaded action: Hello4, Command: chat_bubble, Parameters: [ "Hello World! This is Pink 
+Now","yeancat" ]
+07/22/24 07:47:23: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/22/24 07:47:23: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:47:23: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/22/24 07:47:23: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/22/24 07:47:23: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/22/24 07:47:23: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/22/24 07:47:23: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/22/24 07:47:23: Actions loaded successfully from Actions.txt.
+07/22/24 07:47:23: [Client] Failed to reconnect to server. Will try again...
+07/22/24 07:47:48: Executing command: goto_planet(Fantasia)
+07/22/24 07:47:48: Processed command: goto_planet(Fantasia)
+07/22/24 07:47:49: Teleported to Fantasia.
+07/22/24 07:47:52: [Jay Arnold] that was green, good
+07/22/24 07:47:52: Chat Bubble Created. Following 'yeancat' with text: ' that was green, good' and 0 choices
+07/22/24 07:48:16: Executing command: add_action(Hello6,chat_bubble,["Hello World","yeancat"])
+07/22/24 07:48:16: Processed command: add_action(Hello6,chat_bubble,["Hello World","yeancat"])
+07/22/24 07:48:16: Adding action: Hello6, Command: chat_bubble, Parameters: [ ""Hello World"",""yeancat"" ]
+07/22/24 07:48:16: Checking for command: chat_bubble
+07/22/24 07:48:16: Action 'Hello6' added successfully.
+07/22/24 07:48:16: Actions saved successfully to Actions.txt.
+07/22/24 07:48:20: [Jay Arnold] that was pink
+07/22/24 07:48:20: Chat Bubble Created. Following 'yeancat' with text: ' that was pink' and 0 choices
+

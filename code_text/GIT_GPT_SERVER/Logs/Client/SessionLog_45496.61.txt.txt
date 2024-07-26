@@ -1,0 +1,77 @@
+07/23/24 09:37:17: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/23/24 09:37:18: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/23/24 09:37:18: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/23/24 09:37:18: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:37:18: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/23/24 09:37:18: Loaded action: Hello6, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:37:18: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/23/24 09:37:18: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/23/24 09:37:18: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/23/24 09:37:18: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:37:19: Loaded action: Hello7, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/23/24 09:37:19: Actions loaded successfully from Actions.txt.
+07/23/24 09:37:19: [Client] Failed to reconnect to server. Will try again...
+07/23/24 09:41:00: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/23/24 09:41:00: Loaded action: LVL202, Command: level_up, Parameters: [ "202" ]
+07/23/24 09:41:00: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/23/24 09:41:00: Loaded action: HelloWorld2, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:41:00: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/23/24 09:41:01: Loaded action: Hello6, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:41:01: Loaded action: HelloWorld, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/23/24 09:41:01: Loaded action: Lvl50, Command: level_up, Parameters: [ "50" ]
+07/23/24 09:41:01: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/23/24 09:41:01: Loaded action: Hello3, Command: chat_bubble, Parameters: [ "Hello World","yeancat" ]
+07/23/24 09:41:01: Loaded action: Hello7, Command: chat_bubble, Parameters: [ "Hello World!","yeancat" ]
+07/23/24 09:41:01: Actions loaded successfully from Actions.txt.
+07/23/24 09:41:01: [Client] Failed to reconnect to server. Will try again...
+07/23/24 09:41:30: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 09:41:31: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 09:41:31: Adding action: GotoEarth, Command: goto_planet, Parameters: [ ""Earth"" ]
+07/23/24 09:41:31: Action 'GotoEarth' already exists.
+07/23/24 09:41:37: Executing command: list_actions
+07/23/24 09:41:37: Processed command: list_actions
+07/23/24 09:41:37: Actions: SaveGameNow, LVL202, MainMenuChoices, HelloWorld2, LevelUpOnce, Hello6, HelloWorld, Lvl50, GotoEarth, Hello3, Hello7, 
+07/23/24 09:43:20: Actions.txt not found. Starting with an empty actions map.
+07/23/24 09:43:20: [Client] Failed to reconnect to server. Will try again...
+07/23/24 09:43:38: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 09:43:38: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 09:43:39: Adding action: GotoEarth, Command: goto_planet, Parameters: [ ""Earth"" ]
+07/23/24 09:43:39: Checking for command: goto_planet
+07/23/24 09:43:39: Action 'GotoEarth' added successfully.
+07/23/24 09:43:39: Actions saved successfully to Actions.txt.
+07/23/24 09:43:46: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/23/24 09:43:46: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/23/24 09:43:46: Adding action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/23/24 09:43:46: Checking for command: level_up
+07/23/24 09:43:46: Action 'LevelUpOnce' added successfully.
+07/23/24 09:43:46: Actions saved successfully to Actions.txt.
+07/23/24 09:43:52: Executing command: add_action(SaveGameNow,save_game,[])
+07/23/24 09:43:52: Processed command: add_action(SaveGameNow,save_game,[])
+07/23/24 09:43:52: Adding action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/23/24 09:43:52: Checking for command: save_game
+07/23/24 09:43:52: Action 'SaveGameNow' added successfully.
+07/23/24 09:43:52: Actions saved successfully to Actions.txt.
+07/23/24 09:44:03: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null"])
+07/23/24 09:44:03: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null"])
+07/23/24 09:44:03: Adding action: MainMenuChoices, Command: chat_bubble, Parameters: [ ""What would you like to do?"",""yeancat"",""Go to Earth"",""GotoEarth"",""Level Up"",""LevelUpOnce"",""Save 
+Game"",""SaveGameNow"",""Cancel"",""null"" ]
+07/23/24 09:44:03: Checking for command: chat_bubble
+07/23/24 09:44:03: Action 'MainMenuChoices' added successfully.
+07/23/24 09:44:03: Actions saved successfully to Actions.txt.
+07/23/24 09:45:00: [Jay Arnold] it appears a \n character is embedded in the actions file specifically in
+after "Save " for MainMenuChoices
+07/23/24 09:45:00: Chat Bubble Created with 0 choices
+07/23/24 09:46:03: [Jay Arnold] also the format is wierd and i would rather nested arrays of paired 
+choice text and action names. also these messages im typing are not 
+creating a chat bubble with any text.
+07/23/24 09:46:03: Chat Bubble Created with 0 choices
+
+SaveGameNow,save_game,[""]
+MainMenuChoices,chat_bubble,["What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save \nGame","SaveGameNow","Cancel","null"]
+LevelUpOnce,level_up,["1"]
+GotoEarth,goto_planet,["Earth"]
+

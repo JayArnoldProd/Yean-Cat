@@ -1,0 +1,71 @@
+07/24/24 23:41:08: Actions.txt not found. Starting with an empty actions map.
+07/24/24 23:41:08: [Client] Failed to reconnect to server. Will try again...
+07/24/24 23:44:41: Executing command: goto_planet(Fantasia)
+07/24/24 23:44:41: Processed command: goto_planet(Fantasia)
+07/24/24 23:44:41: Teleported to Fantasia.
+07/24/24 23:44:48: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 23:44:48: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 23:44:48: Adding action: GotoEarth, Command: goto_planet, Raw Parameters: "[\"Earth\"]"
+07/24/24 23:44:48: Encoded Parameters: IltcIkVhcnRoXCJdIg==
+07/24/24 23:44:48: Checking for command: goto_planet
+07/24/24 23:44:48: Action 'GotoEarth' added successfully.
+07/24/24 23:44:48: Saving action: GotoEarth|||goto_planet|||IltcIkVhcnRoXCJdIg==
+07/24/24 23:44:48: Actions saved successfully to Actions.txt.
+07/24/24 23:44:53: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 23:44:53: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 23:44:53: Adding action: LevelUpOnce, Command: level_up, Raw Parameters: "[1]"
+07/24/24 23:44:53: Encoded Parameters: IlsxXSI=
+07/24/24 23:44:53: Checking for command: level_up
+07/24/24 23:44:53: Action 'LevelUpOnce' added successfully.
+07/24/24 23:44:53: Saving action: LevelUpOnce|||level_up|||IlsxXSI=
+07/24/24 23:44:53: Saving action: GotoEarth|||goto_planet|||IltcIkVhcnRoXCJdIg==
+07/24/24 23:44:53: Actions saved successfully to Actions.txt.
+07/24/24 23:45:00: Executing command: add_action(SaveGameNow,save_game,[])
+07/24/24 23:45:00: Processed command: add_action(SaveGameNow,save_game,[])
+07/24/24 23:45:00: Adding action: SaveGameNow, Command: save_game, Raw Parameters: "[]"
+07/24/24 23:45:00: Encoded Parameters: IltdIg==
+07/24/24 23:45:00: Checking for command: save_game
+07/24/24 23:45:00: Action 'SaveGameNow' added successfully.
+07/24/24 23:45:00: Saving action: SaveGameNow|||save_game|||IltdIg==
+07/24/24 23:45:00: Saving action: LevelUpOnce|||level_up|||IlsxXSI=
+07/24/24 23:45:00: Saving action: GotoEarth|||goto_planet|||IltcIkVhcnRoXCJdIg==
+07/24/24 23:45:00: Actions saved successfully to Actions.txt.
+07/24/24 23:45:09: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 23:45:09: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/24/24 23:45:09: Adding action: MainMenuChoices, Command: chat_bubble, Raw Parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 23:45:09: Encoded Parameters: IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+07/24/24 23:45:09: Checking for command: chat_bubble
+07/24/24 23:45:09: Action 'MainMenuChoices' added successfully.
+07/24/24 23:45:09: Saving action: SaveGameNow|||save_game|||IltdIg==
+07/24/24 23:45:09: Saving action: MainMenuChoices|||chat_bubble|||IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+07/24/24 23:45:09: Saving action: LevelUpOnce|||level_up|||IlsxXSI=
+07/24/24 23:45:09: Saving action: GotoEarth|||goto_planet|||IltcIkVhcnRoXCJdIg==
+07/24/24 23:45:09: Actions saved successfully to Actions.txt.
+07/24/24 23:45:19: Executing command: execute_action(GotoEarth)
+07/24/24 23:45:19: Processed command: execute_action(GotoEarth)
+07/24/24 23:45:19: Successfully decoded parameters: "[\"Earth\"]"
+07/24/24 23:45:19: Executing action: GotoEarth
+07/24/24 23:45:19: Command: goto_planet
+07/24/24 23:45:19: Decoded Parameters: "[\"Earth\"]"
+07/24/24 23:45:19: Teleported to Earth.
+07/24/24 23:45:27: Executing command: execute_action(MainMenuChoices)
+07/24/24 23:45:27: Processed command: execute_action(MainMenuChoices)
+07/24/24 23:45:27: Successfully decoded parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 23:45:27: Executing action: MainMenuChoices
+07/24/24 23:45:27: Command: chat_bubble
+07/24/24 23:45:27: Decoded Parameters: "[\"What would you like to do?\",\"yeancat\",[[\"Go to Earth\",\"GotoEarth\"]"
+07/24/24 23:45:27: Raw chat_bubble parameters: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"], undefined, []
+07/24/24 23:45:27: Creating chat bubble with text: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"], owner: undefined, choices: []
+07/24/24 23:45:27: Error: Owner object 'undefined' not found
+
+SaveGameNow|||save_game|||IltdIg==
+MainMenuChoices|||chat_bubble|||IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+LevelUpOnce|||level_up|||IlsxXSI=
+GotoEarth|||goto_planet|||IltcIkVhcnRoXCJdIg==
+
+07/24/24 23:54:07: Loaded action: SaveGameNow, Command: save_game, Parameters: IltdIg==
+07/24/24 23:54:07: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: IltcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0i
+07/24/24 23:54:07: Loaded action: LevelUpOnce, Command: level_up, Parameters: IlsxXSI=
+07/24/24 23:54:07: Loaded action: GotoEarth, Command: goto_planet, Parameters: IltcIkVhcnRoXCJdIg==
+07/24/24 23:54:07: Actions loaded successfully from Actions.txt.
+07/24/24 23:54:07: [Client] Failed to reconnect to server. Will try again...

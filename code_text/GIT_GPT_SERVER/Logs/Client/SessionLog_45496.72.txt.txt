@@ -1,0 +1,22 @@
+07/23/24 12:19:32: Actions.txt not found. Starting with an empty actions map.
+07/23/24 12:19:32: [Client] Failed to reconnect to server. Will try again...
+07/23/24 12:21:03: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 12:21:03: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 12:21:03: Adding action: GotoEarth, Command: goto_planet, Parameters: ["Earth"]
+07/23/24 12:21:04: Checking for command: goto_planet
+07/23/24 12:21:04: Action 'GotoEarth' added successfully.
+07/23/24 12:21:04: Parsed Parameters: [ "[Earth]" ]
+07/23/24 12:21:04: Actions saved successfully to Actions.txt.
+07/23/24 12:22:04: Executing command: execute_action(GotoEarth)
+07/23/24 12:22:04: Processed command: execute_action(GotoEarth)
+07/23/24 12:22:04: Executing action: GotoEarth
+07/23/24 12:22:04: Command: goto_planet
+07/23/24 12:22:04: Parameters: [ "[Earth]" ]
+07/23/24 12:22:04: Invalid Planet Name: [Earth]
+
+
+Actions.txt:
+GotoEarth,goto_planet,[[Earth]]
+
+
+Either it needs to correctly decrypt [Earth] to be just Earth or "Earth" or it needs to save it as just [Earth] or ["Earth"]

@@ -1,0 +1,40 @@
+07/24/24 11:39:55: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/24/24 11:39:56: Actions loaded successfully from Actions.txt.
+07/24/24 11:39:56: [Client] Failed to reconnect to server. Will try again...
+07/24/24 11:40:08: [Jay Arnold] Hello World
+07/24/24 11:40:08: Chat Bubble Created. Following 'yeancat' with text: ' Hello World'
+07/24/24 11:40:29: [Jay Arnold] Beautiful it looks good with my adjustments since i last ran out of 
+claude usage
+07/24/24 11:40:29: Chat Bubble Created. Following 'yeancat' with text: ' Beautiful it looks good with my adjustments since i last ran out of  claude usage'
+07/24/24 11:40:48: [Jay Arnold] its a bit too wide and the \n arent perfectly placed for example "i" was
+ just  visible on its own line.
+07/24/24 11:40:48: Chat Bubble Created. Following 'yeancat' with text: ' its a bit too wide and the \n arent perfectly placed for example "i" was  just  visible on its own line.'
+07/24/24 11:41:10: [Jay Arnold] but that can be improved i believe with manipulating the wrap text and
+ the max_width variable
+07/24/24 11:41:10: Chat Bubble Created. Following 'yeancat' with text: ' but that can be improved i believe with manipulating the wrap text and  the max_width variable'
+07/24/24 11:41:24: [Jay Arnold] we will now be moving on to the chat bubble choices
+07/24/24 11:41:24: Chat Bubble Created. Following 'yeancat' with text: ' we will now be moving on to the chat bubble choices'
+07/24/24 11:41:30: Executing command: list_actions
+07/24/24 11:41:30: Processed command: list_actions
+07/24/24 11:41:31: Actions: GotoEarth, 
+07/24/24 11:41:43: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 11:41:44: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/24/24 11:41:44: Adding action: LevelUpOnce, Command: level_up, Parameters: [1]
+07/24/24 11:41:44: Checking for command: level_up(
+07/24/24 11:41:44: Parameters after processing: [ "1" ]
+07/24/24 11:41:44: Action 'LevelUpOnce' added successfully.
+07/24/24 11:41:44: Actions saved successfully to Actions.txt.
+07/24/24 11:41:50: Executing command: add_action(SaveGameNow,save_game,[])
+07/24/24 11:41:50: Processed command: add_action(SaveGameNow,save_game,[])
+07/24/24 11:41:50: Adding action: SaveGameNow, Command: save_game, Parameters: []
+07/24/24 11:41:50: Checking for command: save_game(
+07/24/24 11:41:50: Command 'save_game' does not exist.
+07/24/24 11:41:56: Executing command: add_action(SaveGameNow,save_game,[])
+07/24/24 11:41:56: Processed command: add_action(SaveGameNow,save_game,[])
+07/24/24 11:41:56: Adding action: SaveGameNow, Command: save_game, Parameters: []
+07/24/24 11:41:56: Checking for command: save_game(
+07/24/24 11:41:56: Command 'save_game' does not exist.
+07/24/24 11:42:22: [Jay Arnold] ohh thats a shame, we will need to fix that. i believe i used to have 
+special handling or perhaps the new functionality isnt working for 0 
+argument commands
+07/24/24 11:42:22: Chat Bubble Created. Following 'yeancat' with text: ' ohh thats a shame, we will need to fix that. i believe i used to have  special handling or perhaps the new functionality isnt working for 0  argument commands'

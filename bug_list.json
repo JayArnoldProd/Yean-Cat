@@ -59,5 +59,242 @@
     "related_scripts": [
       "No related scripts"
     ]
+  },
+  {
+    "name": "Command_Text_Color_Inconsistency",
+    "description": "After implementing a fix for command text coloring, the issue has regressed. Commands are now inconsistently colored red or pink instead of the expected green for valid commands. This affects user experience and the ability to quickly validate command inputs.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-22",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45495.53"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Reproduce the issue by typing various commands (e.g.",
+      " goto_planet",
+      " add_action",
+      " execute_action).",
+      "Step 2: Analyze the update_chat_input_visuals function for incorrect color assignment.",
+      "Step 3: Review the are_params_valid function for proper parameter validation.",
+      "Step 4: Check the action_exists function and global.actions map initialization.",
+      "Step 5: Verify the check_permission_command function for correct permission checking.",
+      "Step 6: Implement more detailed logging in color determination process.",
+      "Step 7: Consider implementing a state machine for complex command parsing.",
+      "Step 8: Test the system with a variety of command types and parameter structures."
+    ],
+    "resolution": [
+      "Expected fix: Consistent and correct color coding of command text. Valid commands should appear green",
+      " while invalid or unauthorized commands should be red. Complex commands with quoted strings and nested parameters should be handled correctly."
+    ],
+    "related_features": [
+      "Command_Text_Coloring",
+      "User_Interface_Feedback"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_Chat_Input"
+    ],
+    "related_scripts": [
+      "update_chat_input_visuals",
+      "check_permission_command",
+      "are_params_valid",
+      "action_exists",
+      "extract_action_name",
+      "parse_parameters",
+      "string_split",
+      "add_action",
+      "goto_planet",
+      "execute_action",
+      "are_brackets_balanced"
+    ]
+  },
+  {
+    "name": "Chat_Bubble_Choices_Not_Displaying",
+    "description": "Chat bubbles are being created with 0 choices, even when choices are specified in the command. This affects the functionality of choice-based interactions, particularly in actions like MainMenuChoices.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-22",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45495.55"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Execute the MainMenuChoices action.",
+      "Step 2: Verify that the chat bubble appears without choices.",
+      "Step 3: Examine the scr_chat_bubble function for choice handling.",
+      "Step 4: Review the parse_arguments and parse_data_types functions for correct parameter parsing.",
+      "Step 5: Check the execute_action function for proper passing of choice parameters.",
+      "Step 6: Inspect the chat_bubble command implementation.",
+      "Step 7: Verify the scr_chat_bubble_choices function is being called correctly.",
+      "Step 8: Test with various chat bubble commands with different numbers of choices."
+    ],
+    "resolution": [
+      "Expected fix: Chat bubbles should correctly display all specified choices",
+      " allowing for interactive dialogue and menu options."
+    ],
+    "related_features": [
+      "Chat_Interaction",
+      "User_Interface",
+      "Action_Execution"
+    ],
+    "related_objects": [
+      "obj_chat_bubble",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "scr_chat_bubble",
+      "scr_add_action",
+      "scr_add_chat_bubble_action",
+      "parse_arguments",
+      "parse_data_types",
+      "scr_execute_action",
+      "execute_command",
+      "chat_bubble",
+      "scr_chat_bubble_choices",
+      "parse_nested_array"
+    ]
+  },
+  {
+    "name": "Chat_Bubbles_Appearing_Empty",
+    "description": "Chat bubbles are being created but appear empty. When a user types a message or when the system generates a chat bubble, the bubble appears visually, but it doesn't display any text. This occurs for both regular messages and potentially for chat bubbles with choices.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-24",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45497.60"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Start the game.",
+      "Step 2: Type a normal message in the chat (not a command starting with '/').",
+      "Step 3: Observe if a chat bubble appears.",
+      "Step 4: Check if the chat bubble contains the text typed.",
+      "Step 5: Try typing messages of different lengths.",
+      "Step 6: Create a chat bubble with choices using a command.",
+      "Step 7: Check obj_chat_bubble's Create",
+      " Step",
+      " and Draw events.",
+      "Step 8: Review scr_chat_bubble and handleDebugMessage functions.",
+      "Step 9: Examine obj_Client for chat-related functionality.",
+      "Step 10: Check Actions.txt file content after adding actions.",
+      "Step 11: Monitor debug output when creating and displaying chat bubbles.",
+      "Step 12: Look for any error messages in the console related to chat bubbles or text drawing."
+    ],
+    "resolution": [
+      "Expected fix: Chat bubbles should properly display the text of messages and show choices when applicable. The text should be visible for messages of various lengths."
+    ],
+    "related_features": [
+      "Chat_System",
+      "User_Interface",
+      "Text_Display"
+    ],
+    "related_objects": [
+      "obj_chat_bubble",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "scr_chat_bubble",
+      "handleDebugMessage",
+      "create_chat_bubble",
+      "draw_chat_bubble",
+      "process_chat_message"
+    ]
+  },
+  {
+    "name": "CLIENT_INSTANCE_COMMAND_ISSUE",
+    "description": "Client instance commands are not being processed correctly in the multiplayer mode.",
+    "source": "GAMEPLAY",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-24",
+    "reported_by": "Jay Arnold",
+    "assigned_to": "Dev Team",
+    "generation": "3",
+    "related_logs": [
+      "SessionLog_45497.91"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Identify the problematic commands.",
+      "Step 2: Investigate the command processing logic.",
+      "Step 3: Implement a fix for command handling.",
+      "Step 4: Test the fix in multiplayer mode."
+    ],
+    "resolution": [
+      "Expected fix: Commands should be processed correctly in the client instance during multiplayer."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "save_actions",
+      "scr_save_actions",
+      "scr_add_action",
+      "execute_command",
+      "load_actions",
+      "array_to_string_robust",
+      "handleDebugMessage",
+      "appendAndWrap",
+      "scr_chat_bubble"
+    ]
+  },
+  {
+    "name": "ACTIONS_ADD_SAVE_ISSUE",
+    "description": "Actions are not adding or saving properly. Single argument actions are not executed correctly.",
+    "source": "GAMEPLAY",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-24",
+    "reported_by": "Jay Arnold",
+    "assigned_to": "Dev Team",
+    "generation": "3",
+    "related_logs": [
+      "SessionLog_45498.21"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Identify the issue with adding and saving actions.",
+      "Step 2: Investigate the logic for handling single argument actions.",
+      "Step 3: Implement a fix for action handling and saving.",
+      "Step 4: Test the fix to ensure actions are processed correctly."
+    ],
+    "resolution": [
+      "Expected fix: Actions should add",
+      " save",
+      " and execute correctly",
+      " including single argument actions."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "save_actions",
+      "scr_save_actions",
+      "scr_add_action",
+      "execute_command",
+      "load_actions",
+      "array_to_string_robust",
+      "handleDebugMessage",
+      "appendAndWrap",
+      "scr_chat_bubble",
+      "parse_arguments",
+      "decode_action_parameters"
+    ]
   }
 ]

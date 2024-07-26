@@ -1,0 +1,33 @@
+07/21/24 13:40:04: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/21/24 13:40:04: Loaded action: LVL300, Command: level_up, Parameters: [ "300" ]
+07/21/24 13:40:04: Loaded action: Lvl200, Command: level_up, Parameters: [ "200" ]
+07/21/24 13:40:04: Loaded action: "LVL100", Command: level_up, Parameters: [ "100" ]
+07/21/24 13:40:04: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/21/24 13:40:05: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/21/24 13:40:05: Loaded action: LVL500, Command: level_up, Parameters: [ "500" ]
+07/21/24 13:40:05: Loaded action: "Lvl200", Command: level_up, Parameters: [ "200" ]
+07/21/24 13:40:05: Loaded action: LVL400, Command: level_up, Parameters: [ "400" ]
+07/21/24 13:40:05: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/21/24 13:40:05: Actions loaded successfully from Actions.txt.
+07/21/24 13:40:05: [Client] Failed to reconnect to server. Will try again...
+07/21/24 13:40:17: [Jay Arnold] hello
+07/21/24 13:40:18: Chat Bubble Created. Following 'yeancat' with text: ' hello' and 0 choices
+07/21/24 13:40:25: [Jay Arnold] this is perfect!!!
+07/21/24 13:40:25: Chat Bubble Created. Following 'yeancat' with text: ' this is perfect!!!' and 0 choices
+07/21/24 13:40:37: Executing command: goto_planet("Fantasia")
+07/21/24 13:40:37: Processed command: goto_planet("Fantasia")
+07/21/24 13:40:37: Teleported to Fantasia.
+07/21/24 13:40:43: Executing command: goto_planet(Fantasia)
+07/21/24 13:40:43: Processed command: goto_planet(Fantasia)
+07/21/24 13:40:43: Teleported to Fantasia.
+07/21/24 13:40:53: Executing command: list_actions
+07/21/24 13:40:53: Processed command: list_actions
+07/21/24 13:40:53: Actions: SaveGameNow, LVL300, Lvl200, "LVL100", MainMenuChoices, LevelUpOnce, LVL500, "Lvl200", LVL400, GotoEarth, 
+07/21/24 13:41:02: Executing command: goto_planet(Fantasia)
+07/21/24 13:41:02: Processed command: goto_planet(Fantasia)
+07/21/24 13:41:02: Teleported to Fantasia.
+07/21/24 13:41:55: [Jay Arnold] the next thing to tackle is the color coding issue with 
+update_chat_input_visuals. it needs to correctly turn green. this could
+ be due to bad logic, permission error, or anything else.
+07/21/24 13:41:55: Chat Bubble Created. Following 'yeancat' with text: ' the next thing to tackle is the color coding issue with  update_chat_input_visuals. it needs to correctly turn green. this could  be due to bad logic, permission error, or anything else.' and 0 choices

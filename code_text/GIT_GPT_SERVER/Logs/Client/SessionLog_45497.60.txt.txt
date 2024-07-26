@@ -1,0 +1,28 @@
+07/24/24 09:29:20: Actions.txt not found. Starting with an empty actions map.
+07/24/24 09:29:21: [Client] Failed to reconnect to server. Will try again...
+07/24/24 09:29:41: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 09:29:42: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/24/24 09:29:42: Adding action: GotoEarth, Command: goto_planet, Parameters: ["Earth"]
+07/24/24 09:29:42: Checking for command: goto_planet(
+07/24/24 09:29:42: Parameters after processing: [ "Earth" ]
+07/24/24 09:29:42: Action 'GotoEarth' added successfully.
+07/24/24 09:29:42: Actions saved successfully to Actions.txt.
+07/24/24 09:30:06: Executing command: goto_planet(Fantasia)
+07/24/24 09:30:07: Processed command: goto_planet(Fantasia)
+07/24/24 09:30:07: Teleported to Fantasia.
+07/24/24 09:30:09: Executing command: execute_action(GotoEarth)
+07/24/24 09:30:09: Processed command: execute_action(GotoEarth)
+07/24/24 09:30:09: Executing action: GotoEarth
+07/24/24 09:30:09: Command: goto_planet
+07/24/24 09:30:09: Parameters: [ "Earth" ]
+07/24/24 09:30:09: Teleported to Earth.
+07/24/24 09:30:12: [Jay Arnold] nice!!
+07/24/24 09:30:12: Chat Bubble Created with 0 choices
+07/24/24 09:30:34: [Jay Arnold] now lets fix the bug where chat bubbles are being created empty ^^^
+07/24/24 09:30:34: Chat Bubble Created with 0 choices
+
+Actions.txt
+GotoEarth,goto_planet,["Earth"]
+
+After we fix empty chat bubbles we can proceed to chat bubbles with choices.
+

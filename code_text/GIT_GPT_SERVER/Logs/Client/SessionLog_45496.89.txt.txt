@@ -1,0 +1,17 @@
+07/23/24 16:26:41: Actions.txt not found. Starting with an empty actions map.
+07/23/24 16:26:42: [Client] Failed to reconnect to server. Will try again...
+07/23/24 16:26:56: [Jay Arnold] hello
+07/23/24 16:26:56: Chat Bubble Created with 0 choices
+07/23/24 16:27:07: [Jay Arnold] still creating normal chat bubbles empty...
+07/23/24 16:27:07: Chat Bubble Created with 0 choices
+07/23/24 16:27:12: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 16:27:12: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 16:27:12: Adding action: GotoEarth, Command: goto_planet, Parameters: ["Earth"]
+07/23/24 16:27:12: Checking for command: goto_planet
+07/23/24 16:27:12: Action 'GotoEarth' added successfully.
+07/23/24 16:27:12: Parsed Parameters: [ "["Earth"]" ]
+07/23/24 16:27:12: Actions saved successfully to Actions.txt.
+
+GotoEarth,goto_planet,["[\"Earth\"]"]
+
+You have clearly broken it even more!

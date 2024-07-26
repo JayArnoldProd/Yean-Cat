@@ -1,0 +1,19 @@
+07/21/24 14:39:58: Loaded action: SaveGameNow, Command: save_game, Parameters: [ "" ]
+07/21/24 14:39:58: Loaded action: MainMenuChoices, Command: chat_bubble, Parameters: [ "What would you like to do?","yeancat","Go to Earth","GotoEarth","Level Up","LevelUpOnce","Save 
+Game","SaveGameNow","Cancel","null" ]
+07/21/24 14:39:59: Loaded action: LevelUpOnce, Command: level_up, Parameters: [ "1" ]
+07/21/24 14:39:59: Loaded action: GotoEarth, Command: goto_planet, Parameters: [ "Earth" ]
+07/21/24 14:39:59: Actions loaded successfully from Actions.txt.
+07/21/24 14:39:59: [Client] Failed to reconnect to server. Will try again...
+07/21/24 14:40:29: [Jay Arnold] hello
+07/21/24 14:40:30: Chat Bubble Created. Following 'yeancat' with text: ' hello' and 0 choices
+07/21/24 14:40:36: Executing command: goto_planet(Fantasia)
+07/21/24 14:40:36: Processed command: goto_planet(Fantasia)
+07/21/24 14:40:36: Teleported to Fantasia.
+07/21/24 14:40:41: [Jay Arnold] that was green, good
+07/21/24 14:40:41: Chat Bubble Created. Following 'yeancat' with text: ' that was green, good' and 0 choices
+07/21/24 14:40:58: Executing command: chat_bubble("Hello World","yeancat")
+07/21/24 14:40:58: Processed command: chat_bubble("Hello World","yeancat")
+07/21/24 14:40:58: Chat Bubble Created. Following 'yeancat' with text: 'Hello World' and 0 choices
+07/21/24 14:41:08: [Jay Arnold] that was pink when should be green
+07/21/24 14:41:08: Chat Bubble Created. Following 'yeancat' with text: ' that was pink when should be green' and 0 choices

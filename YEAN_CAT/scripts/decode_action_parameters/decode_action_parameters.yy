@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"decode_action_parameters",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"decode_action_parameters",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

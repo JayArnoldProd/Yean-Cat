@@ -1,0 +1,32 @@
+07/23/24 11:33:20: Actions.txt not found. Starting with an empty actions map.
+07/23/24 11:33:20: [Client] Failed to reconnect to server. Will try again...
+07/23/24 11:33:40: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 11:33:41: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/23/24 11:33:41: Adding action: GotoEarth, Command: goto_planet, Parameters: ["Earth"]
+07/23/24 11:33:41: Checking for command: goto_planet
+07/23/24 11:33:41: Action 'GotoEarth' added successfully.
+07/23/24 11:33:41: Parsed Parameters: [  ]
+07/23/24 11:33:41: Actions saved successfully to Actions.txt.
+07/23/24 11:33:47: Executing command: goto_planet(Fantasia)
+07/23/24 11:33:47: Processed command: goto_planet(Fantasia)
+07/23/24 11:33:47: Teleported to Fantasia.
+07/23/24 11:34:03: Executing command: execute_action(GotoEarth)
+07/23/24 11:34:03: Processed command: execute_action(GotoEarth)
+07/23/24 11:34:03: Executing action: GotoEarth
+07/23/24 11:34:03: Command: goto_planet
+07/23/24 11:34:03: Parameters: [  ]
+
+Actions.txt:
+GotoEarth,goto_planet,[]
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+DoAdd :1: undefined value
+ at gml_Script_scr_goto_planet (line 22) -             var mes = "Invalid Planet Name: " + _id;
+##########################################################

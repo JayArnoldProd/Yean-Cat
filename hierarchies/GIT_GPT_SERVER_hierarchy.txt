@@ -13,6 +13,62 @@ GIT_GPT_SERVER
 │   │   ├── SessionLog_45494.05.txt
 │   │   ├── SessionLog_45494.06.txt
 │   │   ├── SessionLog_45494.07.txt
+│   │   ├── SessionLog_45494.78.txt
+│   │   ├── SessionLog_45494.79.txt
+│   │   ├── SessionLog_45494.80.txt
+│   │   ├── SessionLog_45494.81.txt
+│   │   ├── SessionLog_45494.82.txt
+│   │   ├── SessionLog_45494.83.txt
+│   │   ├── SessionLog_45495.50.txt
+│   │   ├── SessionLog_45495.51.txt
+│   │   ├── SessionLog_45495.52.txt
+│   │   ├── SessionLog_45495.53.txt
+│   │   ├── SessionLog_45495.54.txt
+│   │   ├── SessionLog_45495.55.txt
+│   │   ├── SessionLog_45495.56.txt
+│   │   ├── SessionLog_45496.59.txt
+│   │   ├── SessionLog_45496.60.txt
+│   │   ├── SessionLog_45496.61.txt
+│   │   ├── SessionLog_45496.63.txt
+│   │   ├── SessionLog_45496.64.txt
+│   │   ├── SessionLog_45496.65.txt
+│   │   ├── SessionLog_45496.69.txt
+│   │   ├── SessionLog_45496.72.txt
+│   │   ├── SessionLog_45496.79.txt
+│   │   ├── SessionLog_45496.89.txt
+│   │   ├── SessionLog_45496.90.txt
+│   │   ├── SessionLog_45497.04.txt
+│   │   ├── SessionLog_45497.05.txt
+│   │   ├── SessionLog_45497.56.txt
+│   │   ├── SessionLog_45497.57.txt
+│   │   ├── SessionLog_45497.58.txt
+│   │   ├── SessionLog_45497.59.txt
+│   │   ├── SessionLog_45497.60.txt
+│   │   ├── SessionLog_45497.61.txt
+│   │   ├── SessionLog_45497.62.txt
+│   │   ├── SessionLog_45497.63.txt
+│   │   ├── SessionLog_45497.64.txt
+│   │   ├── SessionLog_45497.65.txt
+│   │   ├── SessionLog_45497.66.txt
+│   │   ├── SessionLog_45497.67.txt
+│   │   ├── SessionLog_45497.68.txt
+│   │   ├── SessionLog_45497.69.txt
+│   │   ├── SessionLog_45497.82.txt
+│   │   ├── SessionLog_45497.83.txt
+│   │   ├── SessionLog_45497.84.txt
+│   │   ├── SessionLog_45497.85.txt
+│   │   ├── SessionLog_45497.86.txt
+│   │   ├── SessionLog_45497.90.txt
+│   │   ├── SessionLog_45497.91.txt
+│   │   ├── SessionLog_45497.96.txt
+│   │   ├── SessionLog_45497.99.txt
+│   │   ├── SessionLog_45498.00.txt
+│   │   ├── SessionLog_45498.01.txt
+│   │   ├── SessionLog_45498.02.txt
+│   │   ├── SessionLog_45498.04.txt
+│   │   ├── SessionLog_45498.18.txt
+│   │   ├── SessionLog_45498.20.txt
+│   │   ├── SessionLog_45498.21.txt
 │   │   └── server_logs.json
 │   ├── GIT_GPT
 │   └── Server
@@ -82,4 +138,4 @@ GIT_GPT_SERVER
     ├── pinecone_operations.py
     └── sanatize_logs.py
 
-14 directories, 69 files
+14 directories, 125 files
