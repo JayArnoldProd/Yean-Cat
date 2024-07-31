@@ -2,5 +2,5 @@
 // https://help.yoyogames.com/hc/en-us/articles/360005277377 for more information
 function scr_disable_heartbeat(){
 sendHeartbeat = false;
-handleDebugMessage("Heartbeat disabled.", true);
+handleDebugMessage("Heartbeat disabled.", false);
 }

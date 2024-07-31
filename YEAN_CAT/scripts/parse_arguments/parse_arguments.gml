@@ -1,11 +1,10 @@
-/// @function parse_arguments(argsString)
-/// @description Parses a string containing command arguments into an array
 function parse_arguments(argsString) {
+    handleDebugMessage("Parsing arguments: " + argsString, true);
     var args = [];
-    var depthh = 0;
     var currentArg = "";
     var inQuotes = false;
     var bracketDepth = 0;
+    var arrayDepth = 0;
     
     for (var i = 1; i <= string_length(argsString); i++) {
         var char = string_char_at(argsString, i);
@@ -15,14 +14,13 @@ function parse_arguments(argsString) {
         }
         
         if (!inQuotes) {
-            if (char == "[") bracketDepth++;
-            if (char == "]") bracketDepth--;
-            if (char == "(") depthh++;
-            if (char == ")") depthh--;
+            if (char == "[") arrayDepth++;
+            if (char == "]") arrayDepth--;
+            if (char == "(") bracketDepth++;
+            if (char == ")") bracketDepth--;
         }
         
-        if ((char == "," && depthh == 0 && bracketDepth == 0 && !inQuotes) || i == string_length(argsString)) {
-            if (i == string_length(argsString)) currentArg += char;
+        if (char == "," && bracketDepth == 0 && arrayDepth == 0 && !inQuotes) {
             array_push(args, string_trim(currentArg));
             currentArg = "";
         } else {
@@ -30,5 +28,10 @@ function parse_arguments(argsString) {
         }
     }
     
+    if (currentArg != "") {
+        array_push(args, string_trim(currentArg));
+    }
+    
+    handleDebugMessage("Parsed arguments: " + json_stringify(args), true);
     return args;
 }

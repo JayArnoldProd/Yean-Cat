@@ -1,32 +1,42 @@
-// Function to wrap the entire text at once
-
-function wrap_chat_text(str, max_width) {
-    var text_wrapped = "";
-    var line_width = 0;
-    var word_array = string_split(str, " ");
-    var space_width = string_width(" ");
+function wrap_chat_text(text, width) {
+    var wrappedText = "";
+    var lines = string_split(text, global.intentionalLineBreak);
     
-    for (var i = 0; i < array_length(word_array); i++) {
-        var word = word_array[i];
-        var word_width = string_width(word);
+    for (var l = 0; l < array_length(lines); l++) {
+        var words = string_split(lines[l], " ");
+        var currentLine = "";
         
-        if (line_width + word_width > max_width) {
-            if (text_wrapped != "") {
-                text_wrapped += "\n";
+        for (var i = 0; i < array_length(words); i++) {
+            var word = words[i];
+            var testLine = currentLine == "" ? word : currentLine + " " + word;
+            
+            if (string_width(testLine) > width * 1.8) {  // Allow 20% more width before wrapping
+                if (currentLine != "") {
+                    wrappedText += currentLine + "\n";
+                    currentLine = "";
+                }
+                
+                // Handle long words
+                while (string_width(word) > width * 1.8) {
+                    var splitIndex = 1;
+                    while (string_width(string_copy(word, 1, splitIndex)) <= width * 1.8) {
+                        splitIndex++;
+                    }
+                    wrappedText += string_copy(word, 1, splitIndex - 1) + "\n";
+                    word = string_delete(word, 1, splitIndex - 1);
+                }
+                
+                currentLine = word;
+            } else {
+                currentLine = testLine;
             }
-            text_wrapped += word;
-            line_width = word_width;
-        } else {
-            if (text_wrapped != "") {
-                text_wrapped += " ";
-                line_width += space_width;
-            }
-            text_wrapped += word;
-            line_width += word_width;
+        }
+        
+        wrappedText += currentLine;
+        if (l < array_length(lines) - 1) {
+            wrappedText += global.intentionalLineBreak;
         }
     }
     
-    return text_wrapped;
+    return wrappedText;
 }
-
-

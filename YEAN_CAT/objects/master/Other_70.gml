@@ -1,6 +1,10 @@
 /// @description Insert description here
 // You can write your code in this editor
 // Early exit if there is no 'type' key defined
+if (!ds_exists(async_load, ds_type_map)) {
+    show_debug_message("async_load is not a valid ds_map");
+    exit;
+}
 if (!ds_map_exists(async_load, "type")) exit;
 
 // All the events triggered by the AdMob extension have a “type” key

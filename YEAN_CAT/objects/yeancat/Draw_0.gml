@@ -1,4 +1,4 @@
-///Draw Event of yeancat
+
 if instance_exists(obj_achievments) {
 	if obj_achievments.page=1 {
 		exit

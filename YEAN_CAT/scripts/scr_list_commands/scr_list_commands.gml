@@ -32,7 +32,7 @@ function scr_list_commands() {
 
         // Check if adding this command would exceed the line length
         if (string_length(currentLine) + string_length(command) > maxLineLength) {
-            handleDebugMessage(currentLine, true); // Send the current line
+            handleDebugMessage(currentLine, false); // Send the current line
             currentLine = command; // Start a new line with the current command
         } else {
             currentLine += command; // Add the command to the current line
@@ -41,7 +41,7 @@ function scr_list_commands() {
 
     // Send the final line, if it exists
     if (string_length(currentLine) > 0) {
-        handleDebugMessage(currentLine, true); // Send the final line
+        handleDebugMessage(currentLine, false); // Send the final line
     }
 
     ds_list_destroy(commands); // Clean up the list

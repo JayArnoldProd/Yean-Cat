@@ -1,0 +1,3067 @@
+Feature Name: Enhanced_NPC_and_Boss_Spawning_System_with_Action_Trigger
+Description: Implement a comprehensive system for spawning NPCs and bosses with improved functionality and bug fixes. Key components include:
+1. New scr_spawn_npc script mirroring the functionality of scr_spawn_boss
+2. Addition of action trigger parameter for NPCs
+3. Updating object reference system to include NPCs alongside bosses
+4. Fixing bug in action creation system
+5. Ensuring consistency in spawning behavior between NPCs and bosses
+
+== Related Objects ==
+
+Object: obj_npc
+
+File: Step_0.gml
+Code:
+/// @description Insert description here
+// You can write your code in this editor
+if (!is_hostile) {
+    // NPC behavior when not hostile
+    // For example, stand still or move slightly
+} else {
+    // Hostile behavior (similar to boss behavior)
+    // You can copy relevant parts from the obj_boss Step event
+}
+
+// Check for player interaction
+if (distance_to_object(obj_yeancat) < 32 && keyboard_check_pressed(vk_space)) {
+    if (action_trigger != "") {
+        // Execute the action trigger
+        execute_action(action_trigger);
+    }
+}
+
+File: obj_npc.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_npc",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_npc",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"NPC",
+    "path":"folders/Objects/NPC.yy",
+  },
+  "parentObjectId":null,
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_nyan2",
+    "path":"sprites/spr_nyan2/spr_nyan2.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+File: Create_0.gml
+Code:
+/// @description Insert description here
+// You can write your code in this editor
+namee = "";
+action_trigger = "";
+is_hostile = false;
+
+Object: obj_boss
+
+File: Step_0.gml
+Code:
+/// obj_boss step
+// You can write your code in this 
+if instance_exists(restar) {
+direction=point_direction(room_width/2,room_height/2,x,y)
+speed+=.1
+if x<0 or x>room_width or y<0 or y> room_width {
+	instance_destroy()
+}
+exit
+}
+if global.pause=1 {
+	exit
+}
+if fadeinmusic<100 {
+	fadeinmusic+=.3
+} else {
+	fadeinmusic=100
+}
+
+	if !audio_is_playing(music) {
+	if master.loop=0 {
+		music=audio_play_sound_on(music_emitter,master.character_music[bossid,0],0,0)
+		audio_sound_set_track_position(music,master.trackposition)
+	} else {
+		music=audio_play_sound_on(music_emitter,master.character_music[bossid,1],1,0)
+		audio_sound_set_track_position(music,master.trackposition)
+	}
+}
+
+var tn = (1+(1-abs(obj_terrain.systemposition-180)/180))
+var ttn = sqr(tn)
+var tttn = tn/2+.5
+moveset=[4,1,8,3,7,2,10,3,8,3]
+timebetweenset=[4*tn,2*tttn,3*tttn,6*ttn,2*tttn,1*tttn,4*ttn,3*tn,3*tttn,6*ttn]
+enemyset=[-1,-1,-1,-1,1,-1,-1,-1,0,-1]
+enemycountset=[0,0,0,0,2*tttn,0,0,0,3*tttn,0]
+laserset=[-1,-1,-1,bossid,-1,-1,-1,-1,-1,bossid]
+areaset=[-1,-1,-1,-1,-1,-1,bossid,-1,-1,-1]
+damageset=[2*tn,1*tn,1*tn,2*tn,3*tn,1*tn,4*tn,2*tn,1*tn,3*tn]
+attackspeedset=[4*ttn,2,2*tn,.5,2*tttn,1*tttn,.5,6*tttn,2*tttn,.5]
+projectileset=[bossid*3,-1,bossid*3+1,-1,-1,-1,-1,bossid*3+2,-1,-1]
+attackset=[2,1,2,5,3,0,6,2,3,5]
+laserobj=laserset[setlection]
+
+var xxx = x
+var yyy =y
+
+// Repel other bosses
+var repel_distance = 150; // Distance at which bosses start to repel each other
+var repel_strength = 0.5; // Strength of the repulsion
+
+with (obj_boss) {
+    if (id != other.id) { // Don't repel self
+        var dist = point_distance(x, y, other.x, other.y);
+        if (dist < repel_distance) {
+            var angle = point_direction(other.x, other.y, x, y);
+            var force = (repel_distance - dist) / repel_distance * repel_strength;
+            x += lengthdir_x(force, angle);
+            y += lengthdir_y(force, angle);
+        }
+    }
+}
+
+if dead=0 {
+	intensity=1+(1-abs(obj_terrain.systemposition-180)/180)*2
+	if instance_exists(yeancat) {
+	if timercount>0 {
+
+	timercount-=delta_time*global.room_speed_set/60
+} else {
+	setlection+=1
+	if setlection > 9 {
+		setlection=0
+	}
+	timerset=1000000*timebetweenset[setlection]
+	attacktype=attackset[setlection]
+	attackspeed=attackspeedset[setlection]
+	movetype=moveset[setlection]
+	projectile=projectileset[setlection]
+	damage=damageset[setlection]
+	enemyobj=enemyset[setlection]
+laserobj=laserset[setlection]
+areaobj=areaset[setlection]
+	enemycount=enemycountset[setlection]
+	timercount=timerset
+	attacktimer=1000000
+}
+if attacktimer>0 {
+	attacktimer-=(delta_time*global.room_speed_set/60)*attackspeed
+} else {
+	if movetype=2 {
+				xxx=room_width/2+(random(room_width/2)-room_width/4)*master.camscale
+			yyy=room_height/2+(random(room_height/2)-room_height/4)*master.camscale
+			if point_distance(xxx,yyy,yeancat.x,yeancat.y)<200 {
+				xxx=yeancat.x+lengthdir_x(200,point_direction(yeancat.x,yeancat.y,xxx,yyy))
+				yyy=yeancat.y+lengthdir_y(200,point_direction(yeancat.x,yeancat.y,xxx,yyy))
+			}
+		x=xxx
+		y=yyy
+}
+	attacktimer=1000000
+	//damage while touching
+	if attacktype=1  {
+		if place_meeting(x,y,yeancat) {
+			if missed=0 {
+	if grabbed=0 and frozen = 0 {
+if random(1000)>(master.champion*1000) {
+var ddd = (clamp(master.dondasblessing,1,1+999*round(1-(clamp(yeancat.healthh/yeancat.maxhealth,0,1)))))*damage*(1*(1-master.resistance))*(1-yeancat.oxyresistance)*(1-yeancat.stemresistance)
+yeancat.healthh-=ddd
+
+if master.heartbreak>0 {
+	var split=0
+	if instance_exists(yeancat) {
+	for (var _i=0; _i<instance_number(enemy);_i++) {
+				 var _inst = instance_find(enemy, _i);
+				 if point_distance(_inst.x,_inst.y,yeancat.x,yeancat.y)<(100*master.range*(1+(.05*master.passives[10,3])*master.einstein+master.lheartbreak)) {
+				split+=1
+				}
+			}
+	if split>0 {
+	with (enemy) {
+		
+		if point_distance(x,y,yeancat.x,yeancat.y)<(100*master.range*(1+(.05*master.passives[10,3])*master.einstein+master.lheartbreak)) {
+	
+		healthh-=ddd*master.heartbreak*yeancat.oxydamage*yeancat.stemdamage/split*(1*(1-resistance))
+		if master.faith > 0 {
+			yeancat.healthh+=(master.faith*ddd*master.heartbreak*yeancat.oxydamage*yeancat.stemdamage/split)*(1*(1-resistance))
+		}
+		}
+	}
+	
+	yeancat.breakheart=1
+	}
+	}
+}
+yeancat.redcount[0]=1
+var hur1 = master.charsounds[master.charselect,0]
+var hur2 = master.charsounds[master.charselect,1]
+var hur3 = master.charsounds[master.charselect,2]
+
+with (other) {
+var hit = round(random(2))
+var hurt = round(random(2))
+if hit = 0 {
+	hurtsnd2=audio_play_sound_on(s_emit,hurt1,0,0);
+}
+if hit = 1 {
+	hurtsnd2=audio_play_sound_on(s_emit,hurt2,0,0);
+}
+if hit = 2 {
+	hurtsnd2=audio_play_sound_on(s_emit,hurt3,0,0);
+}
+if hurt = 0{
+	hurtsnd=audio_play_sound_on(s_emit,hur1,0,0);
+}
+if hurt = 1 {
+	hurtsnd=audio_play_sound_on(s_emit,hur2,0,0);
+}
+if hurt = 2 {
+	hurtsnd=audio_play_sound_on(s_emit,hur3,0,0);
+}
+
+audio_sound_gain(hurtsnd,1*master.dialougevol*master.mastervol,0);
+audio_sound_gain(hurtsnd2,1*master.sfxvol*master.mastervol,0);
+}
+} else {
+	if grabbed=0 and frozen = 0{
+	yeancat.dodge=1;
+	missed=1
+	}
+}
+} 
+}
+		}
+	}
+	
+	//fire projectile
+	if attacktype=2  {
+		var projectilee = instance_create_layer(x,y,"projectiles",obj_bossprojectile1)
+		projectilee.pid=projectile
+		projectilee.damage=damage
+	}
+	//spawn enemy
+	dirmov=0
+	if attacktype=3  {
+		if enemyobj != -1 {
+			repeat (enemycount) {
+		var enem = instance_create_layer(x,y,"enemylayer",master.mobarray[enemyobj,0])
+		
+		if random_range(0,master.mobarray[enemyobj,7])<=1 {
+					dirmov=0
+					
+					if master.mobarray[enemyobj,10]=8 {
+						if master.mobarray[enemyobj,12]=0 {
+						dirmov=round(random_range(0,7))
+						} else {
+							if master.mobarray[enemyobj,12]=1 {
+								dirmov=round(random_range(0,1))
+							}
+							if master.mobarray[enemyobj,12]=2 {
+								dirmov=round(random_range(2,3))
+							}
+						}
+					} else {
+						dirmov=master.mobarray[enemyobj,10]
+					}
+		}
+			enem.movetype=dirmov
+				enem.spd=master.mobarray[enemyobj,5]*master.curse*(master.level+500)/500
+				enem.damage=master.mobarray[enemyobj,4]*master.curse*(master.lookingfortrouble+1)
+				enem.resistance=(1-(1-master.mobarray[enemyobj,3])/master.curse)/(1+(master.level-1)/500)/(master.lookingfortrouble+1)+(1*master.lookingfortrouble)/2
+				enem.sizee=master.mobarray[enemyobj,2]*(master.lookingfortrouble+10)/10
+				enem.xp=master.mobarray[enemyobj,6]
+				enem.dollar=(master.mobarray[enemyobj,8]*(master.level+500)/500)*(master.lookingfortrouble+2)/2
+				enem.healthh=(master.mobarray[enemyobj,9]*master.curse*(master.level+200)/200)*(master.lookingfortrouble+1)
+			}
+		}
+	}
+	//area blast
+	if attacktype=4  {
+		var blast = instance_create_layer(x,y,"blastfx",obj_bossarea1)
+		blast.areaid=areaobj
+		blast.damage=damage
+		blast.warning=0
+	}
+	//lazer with warning
+	if attacktype=5  {
+		var lasr = instance_create_layer(x,y,"blastfx",obj_bosslaser1)
+		lasr.laserid=laserobj
+		lasr.damage=damage
+		lasr.warning=1
+		lasr.attackspeed=attackspeed
+		lasr.owner=self
+	}
+	//area with warning
+	if attacktype=6  {
+		var blast = instance_create_layer(x,y,"blastfx",obj_bossarea1)
+		blast.areaid=areaobj
+		blast.damage=damage
+		blast.attackspeed=attackspeed
+		blast.warning=1
+		blast.owner=self
+	}
+	
+}
+}
+	
+	if instance_exists(yeancat) {
+		if yeancat.x>x {
+			facing=1
+		} else {
+			facing=-1
+		}
+	}
+anicount+=1
+
+if anicount>=5 {
+	anicount = 0
+}
+if col = c_red {
+	damtime-=1
+	if damtime<0 {
+		col=c_white
+		damtime=5
+	}
+}
+if col = c_silver {
+	damtime-=1
+	if damtime<0 {
+		col=c_white
+		damtime=5
+	}
+}
+if missed>0 {
+	col=make_color_hsv(color_get_hue(c_gray)*missed+color_get_hue(c_white)*(1-missed),color_get_saturation(c_gray)*missed+color_get_saturation(c_white)*(1-missed),color_get_value(c_gray)*missed+color_get_value(c_white)*(1-missed));
+	missed-=.01
+	if missed=0 {
+		col=c_ltgray
+	}
+	if grabbed=0 {
+	x-=missed*master.speedd/2*(global.room_speed_set/1000000*delta_time)
+	}
+} else {
+	if col=c_ltgray {
+		col=c_white
+		missed=0
+	}
+}
+
+//0=stand still
+//1=turn and charge at player every 'attackspeed' seconds
+//2=teleport to a random quadrant
+//3=orbit player
+//4=mirror player
+//5=jump towards player
+//6=burrow underground
+//7=move to random position
+//8=back away from player
+//9=vanish
+//10=slowly move toward player
+//11=spin in place
+//12=gravitate player
+//13=chaos
+//
+
+if instance_exists(yeancat) {
+	//stand still
+	if movetype=0 {
+		_hspeed=0
+		_vspeed=0
+		speed=0
+		movespeed=0
+	}
+	//1=turn and charge at player every 'attackspeed' seconds
+	if movetype=1 {
+		if attacktimer=1000000 {
+			xx=yeancat.x+lengthdir_x(point_distance(x,y,yeancat.x,yeancat.y),point_direction(x,y,yeancat.x,yeancat.y))*2/3
+			yy=yeancat.y+lengthdir_y(point_distance(x,y,yeancat.x,yeancat.y),point_direction(x,y,yeancat.x,yeancat.y))*2/3
+			movespeed=15*intensity
+		}
+	}
+	//teleport
+	if movetype=2 {
+		movespeed=20*intensity
+		if attacktimer=1000000 {
+			//when attack
+			xxx=room_width/2+(random(room_width/2)-room_width/4)*master.camscale
+			yyy=room_height/2+(random(room_height/2)-room_height/4)*master.camscale
+			if point_distance(xxx,yyy,yeancat.x,yeancat.y)<200 {
+				xxx=yeancat.x+lengthdir_x(200,point_direction(yeancat.x,yeancat.y,xxx,yyy))
+				yyy=yeancat.y+lengthdir_y(200,point_direction(yeancat.x,yeancat.y,xxx,yyy))
+			}
+			}
+		if attacktimer<=500000 {
+			if attacktimer>100000 {
+			xx=xxx
+			yy=yyy
+				
+			} else {
+				//time right before teleporting in
+			x=0
+			y=0
+		//make it spawn a flash
+		
+			}
+		}
+	}
+	//3=orbit player
+	if movetype=3 {
+		movespeed=15*intensity
+		orbitspeed=2*intensity
+		if attacktimer=1000000 {
+			orbitdir=point_direction(yeancat.x,yeancat.y,x,y)
+			orbitlength=orbitr
+		}
+		if orbitgrow=1 {
+			if orbitlength<orbitr+orbitosc {
+				orbitlength+=1
+			} else {
+				orbitgrow=-1
+			}
+		} else {
+			if orbitlength>orbitr-orbitosc {
+				orbitlength-=1
+			} else {
+				orbitgrow=1
+			}
+		}
+		orbitdir+=orbitspeed*(global.room_speed_set/1000000*delta_time)
+		xx=yeancat.x+lengthdir_x(orbitlength,orbitdir)
+		yy=yeancat.y+lengthdir_y(orbitlength,orbitdir)
+		
+	}
+	//mirror player
+	if movetype=4 {
+		
+		movespeed=10*intensity
+		xx=room_width-yeancat.x
+		yy=room_height-yeancat.y
+	}
+	//jump toward player
+	if movetype=5 {
+		if flying=1 {
+			movespeed=10*intensity
+			xx=yeancat.x 
+			yy=yeancat.y
+		} else {
+			jumptrigger=1
+			_hspeed=(yeancat.x-x)/5
+			
+		}
+	}
+	//6=burrow underground
+	if movetype=6 {
+	}
+	//7=move to random position
+if movetype=7 {
+	movespeed=15*intensity
+	xx=room_width/2+(random(room_width/2)-room_width/4)*master.camscale
+	yy=room_height/2+(random(room_height/2)-room_height/4)*master.camscale
+	}
+//8=back away from player
+if movetype=8 {
+	movespeed=5*intensity
+			xx=yeancat.x+lengthdir_x(clamp(point_distance(yeancat.x,yeancat.y,x,y)*1.5+100,0,800),point_direction(yeancat.x,yeancat.y,x,y))
+			yy=yeancat.y+lengthdir_y(clamp(point_distance(yeancat.x,yeancat.y,x,y)*1.5+100,0,800),point_direction(yeancat.x,yeancat.y,x,y))
+	}
+//9=vanish
+if movetype=9 {
+	x=0
+	y=0
+	xx=0
+	yy=0
+	}
+//10=slowly move toward player
+if movetype=10 {
+			movespeed=3*intensity
+			xx=yeancat.x 
+			yy=yeancat.y
+	}
+//11=spin in place
+if movetype=11 {
+	}
+//12=gravitate player
+if movetype=12 {
+	}
+//13=chaos
+if movetype=13 {
+	var phaseDuration = 200000; // Duration of each phase (1 or 0)
+    var phase = floor((1000000 - attacktimer) / phaseDuration) % 10;
+    var o = phase % 2
+	if o=1 {
+		movespeed=100
+		xx=room_width/2+(random(room_width/2)-room_width/4)*master.camscale
+		yy=room_height/2+(random(room_height/2)-room_height/4)*master.camscale
+			if attacktimer>500000 {
+			if point_distance(xxx,yyy,yeancat.x,yeancat.y)<200 {
+				xx=yeancat.x+lengthdir_x(200,point_direction(yeancat.x,yeancat.y,xxx,yyy))
+				yy=yeancat.y+lengthdir_y(200,point_direction(yeancat.x,yeancat.y,xxx,yyy))
+			}
+			}
+		
+	} else {
+		movespeed=30
+	}
+	}
+	
+	
+}
+if x!=xx {
+	x+=(xx-x)*movespeed/1000
+}
+if y!=yy {
+	y+=(yy-y)*movespeed/1000
+}
+if obj_terrain.systemposition<180 {
+if obj_terrain.systemposition>position {
+	obj_terrain.systemposition=position
+}
+} else {
+	if obj_terrain.systemposition<position {
+	obj_terrain.systemposition=position
+}
+}
+
+if dam != noone {
+	dam.targ=self
+	dam.x=(dam.x*1+x*2)/3
+	dam.y=(dam.y*1+y*2)/3
+}
+
+if healthh>maxhealth {
+	healthh=maxhealth
+}
+
+
+if healthh!=healthlast  and master.damagenumbers = 1 {
+	if dam=noone {
+	dam= instance_create_layer(x,y,"damage",obj_damage)
+	dam.targ=self
+	if crit=1 {
+		dam.crit=1
+		crit=0
+	}
+	dam.damage=healthlast-healthh
+	} else {
+		if sign(dam.damage) != sign(healthlast-healthh) {
+			dam.targ=noone
+			dam=noone
+			dam= instance_create_layer(x,y,"damage",obj_damage)
+			dam.targ=self
+			if crit=1 {
+		dam.crit=1
+		crit=0
+	}
+			dam.damage=healthlast-healthh
+		} else {
+		dam.damage+=healthlast-healthh
+			if crit=1 {
+		dam.crit=1
+		crit=0
+	}
+		}
+	}
+}
+
+healthlast=healthh
+if audio_is_playing(hurtsnd) {
+audio_sound_pitch(hurtsnd,1*(1-master.lower/1000)*global.room_speed_set/60)
+}
+if healthh<=0 {
+		if instance_exists(yeancat) {
+		if master.soundmanager[sndmanid,5]<1 {
+			if !audio_is_playing(speak) {
+				if dead=0 {
+		yeancat.responding=(sndmanid-1)*6+5
+		speak = audio_play_sound_on(s_emit,snd[5,master.charselect],0,0)
+		master.soundmanager[sndmanid,5]=round(5+random(5))
+				}
+			}
+	}
+	}
+	dead=1
+
+}
+
+if instance_exists(obj_terrain) and instance_exists(yeancat) {
+	var terrain=obj_terrain.terrain
+	var spacing=obj_terrain.spacing
+	var terrainheight=obj_terrain.terrainheight
+	bosspos=obj_terrain.playerpos+(x-yeancat.x)/2000
+	if flying=0 {
+	//if onground=1 {
+var clop=((600-obj_terrain.lowercloud)/600)
+var index1 = 1+floor((x+spacing*(sign(bosspos)*(abs(bosspos/spacing)-floor(abs(bosspos/spacing))))) / spacing);
+var index2 = 1+ceil((x+spacing*(sign(bosspos)*(abs(bosspos/spacing)-floor(abs(bosspos/spacing))))) / spacing);
+var fract = frac((x+spacing*(sign(bosspos)*(abs(bosspos/spacing)-floor(abs(bosspos/spacing))))) / spacing);
+if (index1 >= 0 && index2 < array_length(terrain)) {
+    var height1 = terrain[index1] * terrainheight;
+    var height2 = terrain[index2] * terrainheight;
+	if flying=0 {
+    boss_height_fromground = (y-spacing*.9+lerp(height1, height2, fract) - (y))*clop;
+	} else {
+		//boss_height_fromground=0
+	}
+	boss_angle_onground=point_direction(0,height1,spacing,height2)
+
+}
+
+ground_yvalue_belowboss=boss_height_fromground+y-_vspeed*(global.room_speed_set/1000000*delta_time)
+if ground_yvalue_belowboss<=0 {
+	y=yprevious
+	_vspeed=0
+}
+
+
+	var tarang=boss_angle_onground
+	var tarang2=point_direction(0,0,_hspeed*10,_vspeed*10)+90*abs(facing-1)
+if rotatebody!=(tarang * (1/(1+(boss_height_fromground+bossaltitude)/200))+ tarang2 * (1-1/(1+(boss_height_fromground+bossaltitude)/200))) {
+var _diff = angle_difference(tarang, rotatebody);
+var _diff2 = angle_difference(tarang2, rotatebody);
+
+rotatebody += (_diff * 0.5 * (1/(1+(boss_height_fromground+bossaltitude)/200))+_diff2 * 0.1 * (1-1/(1+(boss_height_fromground+bossaltitude)/200)))*(1/(1+(boss_height_fromground+bossaltitude)/20000))
+} else {
+	rotatebody=(tarang * (1/(1+(boss_height_fromground+bossaltitude)/200))+ tarang2 * (1-1/(1+(boss_height_fromground+bossaltitude)/200)))
+}
+	//}
+
+} else {
+	bossaltitude=40000
+	if facing=1 {
+		rotatebody=(rotatebody*59)/60
+	} else {
+		rotatebody=(rotatebody*59)/60
+	}
+	if rising=0 and bossaltitude>0 {
+	y+=(global.room_speed_set/1000000*delta_time)*_vspeed
+	}
+}
+	
+	if ((boss_height_fromground)-tallness+bossaltitude - _vspeed)<=0 {
+		if master.mainmenu=0 and flying=0 {
+		onground=1
+		canjump=1
+		jumpcount=jumptotal
+		_vspeed=0;
+		bossaltitude=0
+		y=ground_yvalue_belowboss-tallness
+		}
+	} else {
+		if boss_height_fromground-tallness+bossaltitude-_vspeed>3 {
+			//jumping=1
+		onground=0
+		} else {
+	jumping=0
+		}
+		if rising=0 {
+		y+=(global.room_speed_set/1000000*delta_time)*_vspeed
+			if bossaltitude>0 {
+			bossaltitude-=(global.room_speed_set/1000000*delta_time)*_vspeed
+			} else {
+				bossaltitude=0
+			}
+		} else {
+			//	if bossaltitude>=0 {
+			//bossaltitude-=(global.room_speed_set/1000000*delta_time)*_vspeed
+			//} else {
+			//	bossaltitude=0
+			//}
+
+		}
+	}
+if jumptrigger=1 {
+	if rising=-1 {	
+if canjump=1 {
+		_vspeed+=clamp(-((abs(clamp(power(abs(_hspeed),.5),-100,100))+15)*jumpheight),-75-(bossaltitude/4000),0)
+		if _vspeed>0 {
+			_vspeed=clamp(-((abs(clamp(power(abs(_hspeed),.5),-100,100))+15)*jumpheight),-75-(bossaltitude/4000),0)/(1+abs(_vspeed/25))
+		}
+		y+=(global.room_speed_set/1000000*delta_time)*_vspeed/2
+		rising=0
+		jumptrigger=0
+	}
+	}
+	if flying=0 {
+
+if canjump=1 {
+	_vspeed+=clamp(-((abs(clamp(power(abs(_hspeed),.5),-100,100))+15)*jumpheight),-75-(bossaltitude/4000),0)
+		if _vspeed>0 {
+			_vspeed=clamp(-((abs(clamp(power(abs(_hspeed),.5),-100,100))+15)*jumpheight),-75-(bossaltitude/4000),0)/(1+abs(_vspeed/25))
+		}
+	if !rising=1 and bossaltitude<0 {
+	y+=(global.room_speed_set/1000000*delta_time)*_vspeed/2
+	} else {
+			if bossaltitude>0 {
+			
+				rising=0
+			bossaltitude-=(global.room_speed_set/1000000*delta_time)*_vspeed
+			} else {
+				bossaltitude=0
+			}
+		}
+	jumping=1
+	jumpcount-=1
+	if jumpcount<=0 {
+		canjump=0
+		jumpcount=0
+	}
+	}
+}
+}
+if movingg=0 {
+	//moving in game
+	if positionplace!=0 {
+x+=(global.room_speed_set/1000000*delta_time)*_hspeed
+	} else {
+		//if positionplace=0 {
+			if master.mainmenu=1 {
+		x+=(global.room_speed_set/1000000*delta_time)*_hspeed/2
+			} else {
+				x+=(global.room_speed_set/1000000*delta_time)*_hspeed
+			}
+		//}
+	}
+} else {
+	bosspos+=(global.room_speed_set/1000000*delta_time)*master.horz*abs(_hspeed);
+}
+
+}
+
+
+
+//DEAD
+} else {
+	
+	//unlock
+	if master.characters[lookid,0]=0 {
+		master.characters[lookid,0]=1
+		//spawn notification
+					var noti= instance_create_layer(room_width/2,10,"uii",obj_notification)
+						//type is task
+						noti.typee=0
+						noti.desc2=master.characters[lookid,1]
+						//noti.reward=tasks[i,6]
+						noti.namee="Boss Defeated!"
+						noti.namee2=master.characters[lookid,1]
+						noti.desc=master.characters[lookid,1]+" Unlocked"
+						noti.image=master.characters[lookid,10]
+						noti.durationset=10
+						noti.duration=10*(1000000)
+						noti.imageind=lookid
+						noti.clickable=1
+						noti.relativeid=lookid
+				for (var tc=0; tc<array_length(master.tasks); tc++) {
+				if master.tasks[tc,6]=0 {
+					if master.tasks[tc,7]=lookid {
+						master.tasks[tc,5]=1
+						master.tasks[tc,3]=1
+						master.tasks[tc,2]=1
+					}
+					
+				}
+				}
+						
+						
+	}
+	if alphafade<1 {
+		alphafade=(alphafade*49+1.01)/50
+	} else {
+		alphafade=1
+	}
+	direction=point_direction(room_width/2,room_height/2,x,y)
+	speed+=.04
+	bodyangle+=clamp(2-speed,0,2)
+	c_cat=merge_color(c_white,c_black,alphafade)
+	scale*=1.01
+	if alphafade>=1 {
+		
+		if !audio_is_playing(speak) {
+			master.spaceboss[bossid,8]=0
+			instance_destroy()
+		}
+	}
+}
+var _bpm= global.target_bpm*(1-alphafade)*(1-master.lower/1000)*global.room_speed_set/60
+if audio_emitter_exists(music_emitter) {
+audio_emitter_position(music_emitter,x,y,0);
+audio_sound_gain(music,(1-alphafade)*(fadeinmusic/100)*master.musicvol*master.mastervol*.7,0)
+//audio_sound_pitch(music,(1-alphafade)*(1+(master.speedd-10)/300)*(1-master.lower/1000)*global.room_speed_set/60)
+audio_sound_pitch(music, _bpm * master.bossp);  // Adjust boss music pitch
+}
+//if healthh<=0 {
+//	master.spaceboss[bossid,8]=0;
+//	dead=1
+//	instance_destroy();
+//}
+if instance_exists(restar) {
+x+=sign(x-(room_width/2))*2
+y+=sign(y-(room_height/2))*2
+}
+
+File: Destroy_0.gml
+Code:
+/// @description Insert description here
+// You can write your code in this editor
+
+
+
+
+audio_emitter_free(music_emitter);
+
+File: obj_boss.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_boss",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"bullet","path":"objects/bullet/bullet.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"yeancat","path":"objects/yeancat/yeancat.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_boss",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"boss",
+    "path":"folders/Objects/boss.yy",
+  },
+  "parentObjectId":null,
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_boss1",
+    "path":"sprites/spr_boss1/spr_boss1.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+File: Draw_0.gml
+Code:
+///obj_boss draw
+// You can write your code in this editor
+//draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,bodyangle,col,1)
+draw_sprite_ext(spr_shadow,0,x-6*facing,y,.58*facing,.72,rotatebody,c_white,.85);
+draw_set_alpha(1)
+for (i=0 ; i<round(((abs(facing-1)*room_width/2)+(facing*x))/110); i+=1) {
+	if redcount[clamp(i,0,999999999)]=1 {
+		if (oxy)>0 {
+		draw_sprite_ext(master.characters[lookid,12],round(anicount)+1,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_maroon,(0.7 * sin(2 * pi * (time) / (40/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+2,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_black,(0.7 * sin(2 * pi * (time) / (39/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+3,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.7 * sin(2 * pi * (time) / (38/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+4,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_dkgrey,(0.7 * sin(2 * pi * (time) / (37/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+		}
+		draw_sprite_ext(master.characters[lookid,12],round(anicount),x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y,6*scale*facing,6*scale,rotatebody,c_red,(1-(i/42)-clamp(master.revani/clamp(i,1,99),0,99))*trailalph*(1-alphafade))
+		if (oxy)>0 {
+		draw_sprite_ext(master.characters[lookid,12],round(anicount)+4,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_maroon,(0.4 * sin(2 * pi * (time) / (37/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+3,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_black,(0.4 * sin(2 * pi * (time) / (38/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+2,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.4 * sin(2 * pi * (time) / (39/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+1,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_dkgrey,(0.4 * sin(2 * pi * (time) / (40/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+		}
+		
+	
+	} else {
+		if (oxy)>0 {
+		draw_sprite_ext(master.characters[lookid,12],round(anicount)+1,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.7 * sin(2 * pi * (time) / (40/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+2,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_green,(0.7 * sin(2 * pi * (time) / (39/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+3,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_yellow,(0.7 * sin(2 * pi * (time) / (38/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+4,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_blue,(0.7 * sin(2 * pi * (time) / (37/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+		}
+	draw_sprite_ext(master.characters[lookid,12],round(anicount),x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y,6*scale*facing,6*scale,rotatebody,c_cat,(1-(i/42)-clamp(master.revani/clamp(i,1,99),0,99))*trailalph*(1-alphafade))
+	if (oxy)>0 {
+		draw_sprite_ext(master.characters[lookid,12],round(anicount)+4,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.4 * sin(2 * pi * (time) / (37/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+3,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_green,(0.4 * sin(2 * pi * (time) / (38/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+2,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_yellow,(0.4 * sin(2 * pi * (time) / (39/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+	draw_sprite_ext(master.characters[lookid,12],round(anicount)+1,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_blue,(0.4 * sin(2 * pi * (time) / (40/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
+		}
+	}
+}
+if redcount[0]=1{
+	if (oxy)>0 {
+	draw_sprite_ext(master.characters[lookid,11],round(anicount)+4,x+(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7,y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (57 /(oxy*2+1))) + 0.9)*((9+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_maroon,(0.7 * sin(2 * pi * (time) / (40/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+3,x+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (58/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (59/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_black,(0.7 * sin(2 * pi * (time) / (39/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+2,x-(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (59/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (58/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.7 * sin(2 * pi * (time) / (38/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+1,x-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7,y-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (60/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (57/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_ltgray,(0.7 * sin(2 * pi * (time) / (37/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	}
+	draw_sprite_ext(master.characters[lookid,11],round(anicount),x,y,6*scale*facing,6*scale,rotatebody,c_red,1-alphafade)
+	if (oxy)>0 {
+	draw_sprite_ext(master.characters[lookid,11],round(anicount)+4,x+(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7,y-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (60 /(oxy+1))) + 0.9)*((9+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_maroon,(0.4 * sin(2 * pi * (time) / (37/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+3,x+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_black,(0.4 * sin(2 * pi * (time) / (38/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+2,x-(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.4 * sin(2 * pi * (time) / (39/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+1,x-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7,y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_ltgray,(0.4 * sin(2 * pi * (time) / (40/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	}
+} else {
+	if (oxy)>0 {
+	draw_sprite_ext(master.characters[lookid,11],round(anicount)+1,x+(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7,y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (57 /(oxy*2+1))) + 0.9)*((9+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.7 * sin(2 * pi * (time) / (40/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+2,x+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (58/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (59/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_green,(0.7 * sin(2 * pi * (time) / (39/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+3,x-(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (59/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (58/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_yellow,(0.7 * sin(2 * pi * (time) / (38/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+4,x-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7,y-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (60/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (57/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_blue,(0.7 * sin(2 * pi * (time) / (37/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	}
+	draw_sprite_ext(master.characters[lookid,11],round(anicount),x,y,6*scale*facing,6*scale,rotatebody,c_cat,1-alphafade)
+	if (oxy)>0 {
+	draw_sprite_ext(master.characters[lookid,11],round(anicount)+4,x+(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7,y-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (60 /(oxy+1))) + 0.9)*((9+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.4 * sin(2 * pi * (time) / (37/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+3,x+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_green,(0.4 * sin(2 * pi * (time) / (38/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+2,x-(0.5 * sin(2 * pi * (time) / 45) + 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 30) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_yellow,(0.4 * sin(2 * pi * (time) / (39/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+draw_sprite_ext(master.characters[lookid,11],round(anicount)+1,x-(0.5 * sin(2 * pi * (time) / 60) + 0.5)*13*((oxy+7))/7,y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7,6*scale*facing*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),6*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_blue,(0.4 * sin(2 * pi * (time) / (40/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	}
+	
+}
+
+if redcount[0]=1{
+	
+	draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing,y+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*20*scale,4*scale*50*facing/sprite_get_height(master.characters[lookid,10]),3*scale*50/sprite_get_height(master.characters[lookid,10]),rotatebody,c_red,1-alphafade)
+} else {
+	if (oxy)>0 {
+		draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing+(0.5 * sin(2 * pi * (time) / 60) - 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 15) - 0.5)*13*((oxy+7))/7,3*scale*facing*(0.2 * sin(2 * pi * (time) / (57/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),3*scale*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.7 * sin(2 * pi * (time) / (40/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing+(0.5 * sin(2 * pi * (time) / 45) - 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 30) - 0.5)*13*((oxy+7))/7,3*scale*facing*(0.2 * sin(2 * pi * (time) / (58/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),3*scale*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_green,(0.7 * sin(2 * pi * (time) / (39/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing+(0.5 * sin(2 * pi * (time) / 30) - 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 45) - 0.5)*13*((oxy+7))/7,3*scale*facing*(0.2 * sin(2 * pi * (time) / (59/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),3*scale*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_yellow,(0.7 * sin(2 * pi * (time) / (38/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing+(0.5 * sin(2 * pi * (time) / 15) - 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 60) - 0.5)*13*((oxy+7))/7,3*scale*facing*(0.2 * sin(2 * pi * (time) / (60/(oxy*2+1))) + 0.9)*((8+(oxy+1))/9),3*scale*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_blue,(0.7 * sin(2 * pi * (time) / (37/(oxy+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+		}
+	draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing,y+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*20*scale,4*scale*50*facing/sprite_get_height(master.characters[lookid,10]),3*scale*50/sprite_get_height(master.characters[lookid,10]),rotatebody,c_cat,1-alphafade)
+	if (oxy)>0 {
+		draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing+(0.5 * sin(2 * pi * (time) / 15) - 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 60) - 0.5)*13*((oxy+7))/7,3*scale*facing*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),3*scale*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_red,(0.4 * sin(2 * pi * (time) / (37/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing+(0.5 * sin(2 * pi * (time) / 30) - 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 45) - 0.5)*13*((oxy+7))/7,3*scale*facing*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),3*scale*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_green,(0.4 * sin(2 * pi * (time) / (38/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing+(0.5 * sin(2 * pi * (time) / 45) - 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 30) - 0.5)*13*((oxy+7))/7,3*scale*facing*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (58/(oxy+1))) + 0.9)*((8+(oxy+1))/9),3*scale*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (59/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_yellow,(0.4 * sin(2 * pi * (time) / (39/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+	draw_sprite_ext(master.characters[lookid,10],0,x+(8*scale+(0.5 * sin(2 * pi * round(anicount) / 5) + 0.5)*5*scale)*facing+(0.5 * sin(2 * pi * (time) / 60) - 0.5)*13*((oxy+7))/7,y+(0.5 * sin(2 * pi * (time) / 15) - 0.5)*13*((oxy+7))/7,3*scale*facing*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (57/(oxy+1))) + 0.9)*((8+(oxy+1))/9),3*scale*50/sprite_get_height(master.characters[lookid,10])*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_blue,(0.4 * sin(2 * pi * (time) / (40/(oxy*+1))) + 0.0)*(clamp(power(oxy/5,.3),0,1-alphafade)));
+		}
+	}
+
+
+
+
+
+
+
+if dead=0 {
+	var e = 2.71828; // Base of the natural logarithm
+    var k = 10000;
+    var a = -100 / (logn(e, k + 1000) - logn(e, k + 1000000))
+    var b = 100 * logn(e, k + 1000) / (logn(e, k + 1000) - logn(e, k + 1000000))
+	var barw = (a * logn(e, y + k) + b)*2
+draw_healthbar(x-150-barw,y-280-barw/10,x+150+barw,y-220+barw/10,100*healthh/maxhealth,c_black,c_red,c_lime,0,1,1)
+draw_set_halign(fa_center)
+draw_set_valign(fa_middle)
+draw_set_font(Font1)
+draw_set_alpha(1)
+draw_set_color(c_black)
+draw_text(x+2,y-250+2,string(ceil(healthh))+"/"+string(maxhealth))
+draw_text(x-2,y-250+2,string(ceil(healthh))+"/"+string(maxhealth))
+draw_text(x+2,y-250-2,string(ceil(healthh))+"/"+string(maxhealth))
+draw_text(x-2,y-250-2,string(ceil(healthh))+"/"+string(maxhealth))
+draw_set_color(c_white)
+draw_text(x,y-250,string(ceil(healthh))+"/"+string(maxhealth))
+}
+//draw_set_alpha(1);
+//draw_set_color(c_white);
+//draw_text(x,y-100,string(movetype));
+
+File: Other_0.gml
+Code:
+/// @description Insert description here
+// You can write your code in this editor
+
+
+
+
+if x<-3000 or x>room_width+3000 or y<-3000 or y>room_height+3000 {
+	instance_destroy();
+}
+
+if instance_exists(restar) {
+	instance_destroy();
+}
+
+File: Collision_yeancat.gml
+Code:
+/// @description Insert description here
+// You can write your code in this editor
+//damage while touching
+if global.pause=1 {
+	exit
+}
+if attacktype=1  {
+	
+	if instance_exists(yeancat) and dead=0 {
+if other.invincible=0 {
+
+if missed=0 {
+	if grabbed=0 and frozen = 0 {
+if random(1000)>(master.champion*1000) {
+var ddd = (clamp(master.dondasblessing,1,1+999*round(1-(clamp(yeancat.healthh/yeancat.maxhealth,0,1)))))*damage*(1*(1-master.resistance))*(1-yeancat.oxyresistance)*(1-yeancat.stemresistance)
+other.healthh-=ddd
+
+if master.heartbreak>0 {
+	var split=0
+	if instance_exists(yeancat) {
+	for (var _i=0; _i<instance_number(enemy);_i++) {
+				 var _inst = instance_find(enemy, _i);
+				 if point_distance(_inst.x,_inst.y,yeancat.x,yeancat.y)<(100*master.range*(1+(.05*master.passives[10,3])*master.einstein+master.lheartbreak)) {
+				split+=1
+				}
+			}
+	if split>0 {
+	with (enemy) {
+		
+		if point_distance(x,y,yeancat.x,yeancat.y)<(100*master.range*(1+(.05*master.passives[10,3])*master.einstein+master.lheartbreak)) {
+	
+		healthh-=ddd*master.heartbreak*yeancat.oxydamage*yeancat.stemdamage/split*(1*(1-resistance))
+		if master.faith > 0 {
+			yeancat.healthh+=(master.faith*ddd*master.heartbreak*yeancat.oxydamage*yeancat.stemdamage/split)*(1*(1-resistance))
+		}
+		}
+	}
+	
+	yeancat.breakheart=1
+	}
+	}
+}
+other.redcount[0]=1
+var hur1 = master.charsounds[master.charselect,0]
+var hur2 = master.charsounds[master.charselect,1]
+var hur3 = master.charsounds[master.charselect,2]
+
+with (other) {
+var hit = round(random(2))
+var hurt = round(random(2))
+if hit = 0 {
+	hurtsnd2=audio_play_sound_on(s_emit,hurt1,0,0);
+}
+if hit = 1 {
+	hurtsnd2=audio_play_sound_on(s_emit,hurt2,0,0);
+}
+if hit = 2 {
+	hurtsnd2=audio_play_sound_on(s_emit,hurt3,0,0);
+}
+if hurt = 0{
+	hurtsnd=audio_play_sound_on(s_emit,hur1,0,0);
+}
+if hurt = 1 {
+	hurtsnd=audio_play_sound_on(s_emit,hur2,0,0);
+}
+if hurt = 2 {
+	hurtsnd=audio_play_sound_on(s_emit,hur3,0,0);
+}
+
+audio_sound_gain(hurtsnd,1*master.dialougevol*master.mastervol,0);
+audio_sound_gain(hurtsnd2,1*master.sfxvol*master.mastervol,0);
+}
+} else {
+	if grabbed=0 and frozen = 0{
+	yeancat.dodge=1;
+	missed=1
+	}
+}
+} 
+}
+}
+}
+		
+}
+
+File: Create_0.gml
+Code:
+/// obj_boss Create
+// You can write your code in this 
+music=audio_play_sound(nothingsound,0,0);
+moose=0
+music_emitter = audio_emitter_create();
+fadeinmusic=0
+repel_distance = random_range(100, 200);
+dead=0
+bossid=0
+grav=0
+position= 0
+movespeed=10
+orbitdir=0
+orbitgrow=1
+orbitr=400
+orbitlength=orbitr
+orbitosc=100
+orbitspeed=1
+intensity=1
+namee = ""
+healthh = 500
+resistance = 0
+damage = 1
+attackspeed =1
+setlection=0
+
+//move type 
+movetype =0
+//0=stand still
+//1=turn and charge at player every 'attackspeed' seconds
+//2=teleport to a random quadrant
+//3=orbit player
+//4=mirror player
+//5=jump towards player
+//6=burrow underground
+//7=move to random position
+//8=back away from player
+//9=vanish
+//10=slowly move toward player
+//11=spin in place
+//12=gravitate player
+//13=chaos
+//
+moveset=[4,1,8,3,7,2,10,8,3,3]
+timebetweenset=[2,3,4,3,2,1,2,3,4,3]
+enemyset=[-1,-1,-1,50,-1,-1,-1,-1,0,-1]
+enemycountset=[0,0,0,3,0,0,0,0,5,0]
+laserset=[-1,-1,-1,0,-1,-1,0,-1,-1,0]
+areaset=[-1,-1,-1,-1,-1,-1,0,-1,-1,-1]
+damageset=[2,1,1,2,3,1,4,2,1,3]
+attackspeedset=[4,2,6,3,4,4,2,8,4,3]
+projectile=0
+projectileset=[0,-1,1,-1,-1,2,-1,3,-1,-1]
+attackset=[2,1,2,5,3,2,6,2,3,5]
+jumptotal=1
+jumpcount=jumptotal
+//attack type 
+//0= none
+//1=  damage while touching
+//2= fire a projectile every 'attackspeed' seconds
+//3= spawn an enemy every 'attackspeed' seconds
+//4= area
+//5= fire a lazer every 'attackspeed' seconds with a warning indicator
+//6=area with warning indicator
+attacktimer=1000000
+enemycount=enemycountset[0]
+enemyobj=enemyset[0]
+laserobj=laserset[0]
+areaobj=areaset[0]
+damage=damageset[0]
+projectile_obj=projectileset[0]
+attacktype =attackset[0]
+timerset=1000000*timebetweenset[0]
+timercount=1000000*timebetweenset[0]
+dirmov=0
+oxy=0
+rotatebody=0
+anicount=0
+time=0
+flying=0
+positionplace=0
+tallness=0
+jumptrigger=0
+movingg=0
+boss_height_fromground=0
+bosspos=0
+boss_angle_onground=0
+bossaltitude=0
+rising=0
+facing=1
+trailalph=1
+//bosstype 0=character 1=boss
+bosstype=0
+lookid=0
+
+
+
+
+bodyangle=0
+enemyid=1
+sizee=1
+frozen=0
+resistance=0
+crit=0
+missed=0
+spd=1
+xp=1
+dollar=0
+grabbed=-1
+image_speed=0
+frame=0
+rateset=4
+rate=rateset
+anicount=0
+alphafade=0
+scale=.65+(1-abs(obj_terrain.systemposition-180)/180)/2
+image_xscale=scale
+image_yscale=scale
+healthh=500
+maxhealth=500
+healthlast=healthh
+dam=noone
+col=c_white
+damtime=5
+
+dead=0
+alph=1
+s_emit= audio_emitter_create();
+audio_max_distance_to_be_heard = 2000;
+audio_starts_to_drop_at = 0;
+
+audio_falloff_set_model(audio_falloff_linear_distance);
+audio_emitter_position(s_emit,x,y,0);
+audio_emitter_falloff(s_emit,audio_starts_to_drop_at,audio_max_distance_to_be_heard, 1);
+sndmanid=30
+suchit=0
+//spawn
+//random
+//closetodeath
+//proximity
+//successfulhit
+//death
+snd=[
+[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
+[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
+[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
+[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
+[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
+[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound]
+]
+speak=audio_play_sound(nothingsound,0,0);
+draw=true
+hurtsnd=audio_play_sound(nothingsound,0,0);
+
+hurtsnd2=audio_play_sound(nothingsound,0,0);
+xx=x
+yy=y
+oblivious=0;
+strafemax=(random(3)-1.5)
+if strafemax>-.1 and strafemax<.1 {
+	strafemax*=7.5
+}
+yrand=(random(3)-1.5)
+strafemult=(random(5)+5)/75
+strafetime=1
+strafeosc=random(2)-1
+time=0+360*strafeosc
+randomtime=(.075+random(14)/200)
+strafe=strafemax*(0.5 * sin(2 * pi * strafetime / 5))*strafemult
+
+varispeed=.8+random(.4)
+_vspeed=0
+_hspeed=0
+damaged=0
+redcount[0]=0
+redcount[1]=0
+redcount[2]=0
+redcount[3]=0
+redcount[4]=0
+redcount[5]=0
+redcount[6]=0
+redcount[7]=0
+redcount[8]=0
+redcount[9]=0
+redcount[10]=0
+redcount[11]=0
+redcount[12]=0
+redcount[13]=0
+redcount[14]=0
+redcount[15]=0
+redcount[16]=0
+redcount[17]=0
+redcount[18]=0
+redcount[19]=0
+redcount[20]=0
+redcount[21]=0
+redcount[22]=0
+redcount[23]=0
+redcount[24]=0
+redcount[25]=0
+redcount[26]=0
+redcount[27]=0
+redcount[28]=0
+redcount[29]=0
+redcount[30]=0
+redcount[31]=0
+redcount[32]=0
+redcount[33]=0
+redcount[34]=0
+redcount[35]=0
+redcount[36]=0
+redcount[37]=0
+redcount[38]=0
+redcount[39]=0
+redcount[40]=0
+redcount[41]=0
+redcount[42]=0
+redcount[43]=0
+redcount[44]=0
+redcount[45]=0
+redcount[46]=0
+redcount[47]=0
+redcount[48]=0
+redcount[49]=0
+redcount[50]=0
+redcount[51]=0
+
+c_cat=c_white
+
+File: Collision_bullet.gml
+Code:
+
+/// @description Insert description here
+// You can write your code in this editor
+
+
+if dead=0 {
+if instance_exists(yeancat) {
+	if random(100)<master.criticalchance*100 {
+healthh-=master.lyricism*(clamp(master.dondasblessing,1,1+999*round(1-(clamp(yeancat.healthh/yeancat.maxhealth,0,1)))))*(1*(1-resistance)*yeancat.def+ceil(1*(1-resistance))*(master.criticalamount))*master.damage*yeancat.oxydamage*yeancat.stemdamage;
+	if yeancat.healthh<yeancat.maxhealth-1 {
+	yeancat.healthh+=master.lyricism*(clamp(master.dondasblessing,1,1+999*round(1-(clamp(yeancat.healthh/yeancat.maxhealth,0,1)))))*clamp(master.faith*(1*(1-resistance)*yeancat.def+ceil(1*(1-resistance))*(master.criticalamount))*master.damage*yeancat.oxydamage*yeancat.stemdamage,0,999999999);
+	}
+	crit=1
+	} else {
+		healthh-=master.lyricism*(clamp(master.dondasblessing,1,1+999*round(1-(clamp(yeancat.healthh/yeancat.maxhealth,0,1)))))*1*((1-resistance)*yeancat.def+ceil(1*(1-resistance)))*yeancat.oxydamage*yeancat.stemdamage
+	if yeancat.healthh<yeancat.maxhealth-1 {
+	yeancat.healthh+=master.lyricism*(clamp(master.dondasblessing,1,1+999*round(1-(clamp(yeancat.healthh/yeancat.maxhealth,0,1)))))*clamp(master.faith*(1*(1-resistance)*yeancat.def+ceil(1*(1-resistance)))*yeancat.oxydamage*yeancat.stemdamage,0,99999999)
+	}
+	}
+}
+if resistance<1 {
+col=c_red
+with (other) {
+instance_destroy()
+}
+} else {
+col=c_silver
+other.move_bounce_all(0);
+}
+}
+
+
+File: Other_10.gml
+Code:
+/// @description Insert description here
+// You can write your code in this editor
+// Add object references
+add_object_reference(namee, id);
+
+Object: obj_Client
+
+File: Step_0.gml
+Code:
+/// Step Event of obj_Client
+
+//create mouse if it doesnt exist and using keyboard and mouse
+if !instance_exists(obj_Cursor) and (global.control_type!=1) { 
+	instance_create_depth(mouse_x,mouse_y,-1000000,obj_Cursor);
+}
+
+// Set current font and heartbeat rate
+global.heartbeatBPM = global.current_bpm;
+fnt_chat = master.font_array[fnt_chat_id, 1];
+global.wrapWidth = 1700; // Adjusted wrap width
+
+//check for gamepad input
+check_gamepad_input()
+
+//randomly and probability skewed to bring shake_angle back to 0
+if abs(shake_angle)>.1 {
+	var invert = choose(-1,1)*(random(8)+92)/100
+	shake_angle=round(invert*shake_angle*100)/100
+} else {
+	if shake_angle!=0 {
+	shake_angle=0
+	keyboard_lastkey=vk_nokey
+	}
+}
+
+// Handle reconnection logic
+if (!global.isConnected && global.reconnectTimer <= 0) {
+    var result = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+    if (result >= 0) {
+        global.isConnected = true;
+        isServerRunning = true;
+        handleDebugMessage("[Client] Successfully reconnected to server.", true);
+        global.reconnectTimer = global.reconnectInterval;
+    } else {
+        global.reconnectTimer = global.reconnectInterval;
+        isServerRunning = false;
+        handleDebugMessage("[Client] Failed to reconnect to server. Will try again...", true);
+    }
+} else if (global.isConnected && global.reconnectTimer > 0) {
+    global.reconnectTimer--;
+}
+
+// Handle incoming network events safely
+if (ds_exists(async_load, ds_type_map)) {
+    var type = ds_map_find_value(async_load, "type");
+    var n_id = ds_map_find_value(async_load, "id");
+
+    if (n_id == global.client_socket) {
+        switch (type) {
+            case network_type_data:
+                var buffer = ds_map_find_value(async_load, "buffer");
+                buffer_seek(buffer, buffer_seek_start, 0);
+                var identifier = buffer_read(buffer, buffer_u8);
+
+                switch (identifier) {
+                    case global.IDENTIFIER_HEARTBEAT:
+                        handleDebugMessage("[Client] Heartbeat received from server.", true);
+                        break;
+                    
+                    case global.IDENTIFIER_TEST_MESSAGE:
+                        var msg = buffer_read(buffer, buffer_string);
+                        handleDebugMessage("[Client] Message from server: " + msg, true);
+                        break;
+                }
+                buffer_delete(buffer);
+                break;
+
+            case network_type_connect:
+                handleDebugMessage("[Client] Connected to server.", true);
+                break;
+                
+            case network_type_disconnect:
+                global.isConnected = false;
+                handleDebugMessage("[Client] Disconnected from server. Attempting to identify cause...", true);
+                break;
+        }
+    }
+} else {
+    //show_debug_message("ERROR: Invalid ds_map reference in async event.");
+}
+
+
+// Command input and execution logic
+if (input_check_pressed("chat") && !isActive) {
+    isActive = true;
+    global.commandBuffer = "";
+    keyboard_string = "";
+    show_debug_message("[Client] Chat input activated.");
+}
+
+// Toggle chat box with a specific key, e.g., Tab
+if (keyboard_check_pressed(vk_tab)) {
+    show_chatbox = !show_chatbox;
+    global.commandBuffer = "";  // Clear previous commands or texts
+    keyboard_string = "";
+    show_debug_message("[Client] Toggled chat box visibility: " + string(show_chatbox));
+}
+
+// Handle backspace and text input
+if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var total_lines = array_length(lines);
+    global.input_scroll_offset = max(0, total_lines - global.max_visible_lines);
+    
+    // Adjust scroll offset based on total lines
+    if (total_lines > global.max_visible_lines) {
+        global.input_scroll_offset = total_lines - global.max_visible_lines;
+    } else {
+        global.input_scroll_offset = 0;
+    }
+
+// Handle backspace input
+    if (input_check("cancel") && string_length(global.commandBuffer) > 0) {
+        if (global.backspaceTimer == 0 || global.backspaceTimer >= global.backspaceDelay) {
+            var lastCharPosition = string_length(global.commandBuffer);
+
+            // Check if the last character is a newline
+            if (string_char_at(global.commandBuffer, lastCharPosition) == "\n") {
+                // Adjust the global.lastSpaceIndex if necessary
+                if (global.lastSpaceIndex >= lastCharPosition) {
+                    global.lastSpaceIndex = string_last_index_of(string_copy(global.commandBuffer, 1, lastCharPosition - 1), " ");
+                }
+            }
+
+            // Perform the character deletion
+            global.commandBuffer = string_delete(global.commandBuffer, lastCharPosition, 1);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Updated command buffer after backspace: " + global.commandBuffer);
+
+            // Clear the keyboard buffer to avoid unwanted characters
+            keyboard_string = "";
+
+            // Increase deletion speed
+            if (global.backspaceTimer == 0) {
+                global.backspaceTimer = 1;
+            } else {
+                global.backspaceTimer = global.backspaceSpeed;
+				if global.backspaceSpeed<14 {
+					global.backspaceSpeed+=1
+				}
+            }
+        } else {
+            global.backspaceTimer += 1;
+        }
+    } else {
+        global.backspaceTimer = 0; // Reset timer when backspace is released
+		global.backspaceSpeed=1
+    }
+	
+	// Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+    var pasting = false;
+    if (os_type == os_windows) {
+        if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    } else if (os_type == os_macosx) {
+        if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    }
+	
+	if string_length(global.commandBuffer) < global.character_limit {
+    var char = keyboard_string;
+        var space_pressed = keyboard_check_pressed(vk_space);
+        
+        if (char != "" || space_pressed) {
+            if (!pasting) {
+                if (space_pressed) {
+                    global.commandBuffer += " ";
+                    show_debug_message("[Client] Space added to command buffer");
+                } else {
+                    global.commandBuffer += char;
+                }
+                keyboard_string = ""; // Clear the keyboard buffer after reading
+                update_chat_input_visuals();
+                show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
+            }
+        }
+	} else {
+    var char = "";
+    if keyboard_check_pressed(vk_anykey) {
+        if last_key_is_valid_character(keyboard_lastkey) {
+            //play sound to indicate char limit. 
+            var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
+            shake_angle = choose(-1,1) * random_range(.95,1.00)
+        }
+    }
+}
+
+// Debug: Check for space key press
+    if (keyboard_check_pressed(vk_space)) {
+        show_debug_message("[Client] Space key pressed");
+    }
+
+    // Debug: Check keyboard_string content
+    if (keyboard_string != "") {
+        show_debug_message("[Client] keyboard_string content: " + keyboard_string);
+    }
+
+// Handle pasting
+// In the Step event of obj_Client
+if (pasting) {
+    if (clipboard_has_text()) {
+        var clip_string = clipboard_get_text();
+        if (string_length(clip_string) > 0 && string_length(clip_string) < global.character_limit) {
+            // Replace regular line breaks with intentional line breaks
+            clip_string = string_replace_all(clip_string, "\n", global.intentionalLineBreak);
+            clip_string = string_replace_all(clip_string, "\r", "");
+            
+            global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
+        } else {
+            handleDebugMessage("Clipboard content is too long to paste!", false);
+        }
+    }
+    pasting = false;
+}
+
+// Check if Enter is pressed to process the command or chat message
+if (input_check_pressed("confirm")) {
+	if (keyboard_check(vk_shift)) {
+            // Shift+Enter: Add a new line
+            global.commandBuffer += global.intentionalLineBreak;
+            update_chat_input_visuals();
+        } else {
+        if (string_char_at(global.commandBuffer, 1) == "/") {
+            execute_multiple_commands(global.commandBuffer);
+            global.textColor = global.defaultTextColor;
+            isActive = false;
+        } else {
+            var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
+            global.message_is_bubble = 1;
+            handleDebugMessage(chatMessage, -1);
+            global.message_is_bubble = 0;
+        }
+
+        // Add the command/message to the recall list
+        if (string_length(global.commandBuffer) > 0) {
+            ds_list_add(global.recall_list, global.commandBuffer);
+            if (ds_list_size(global.recall_list) > global.recall_max) {
+                ds_list_delete(global.recall_list, 0);  // Remove the oldest entry if exceeding the limit
+            }
+        }
+        global.recall_index = -1;
+        global.textColor = global.defaultTextColor;
+        global.commandBuffer = "";
+        isActive = false;
+        show_debug_message("[Client] Processed command/chat and cleared buffer.");
+}
+}
+    // Navigate through the recall list using up and down arrows
+    if (keyboard_check_pressed(vk_up)) {
+        if (global.recall_index == -1) {
+            global.recall_index = ds_list_size(global.recall_list) - 1;
+        } else {
+            global.recall_index = max(0, global.recall_index - 1);
+        }
+
+        if (global.recall_index >= 0 && global.recall_index < ds_list_size(global.recall_list)) {
+            global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled previous command/chat: " + global.commandBuffer);
+        }
+    } else if (keyboard_check_pressed(vk_down)) {
+        if (global.recall_index != -1) {
+            global.recall_index = min(ds_list_size(global.recall_list) - 1, global.recall_index + 1);
+
+            if (global.recall_index < ds_list_size(global.recall_list)) {
+                global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            } else {
+                global.commandBuffer = "";
+            }
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled next command/chat: " + global.commandBuffer);
+        }
+    }
+}
+
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+	global.longestmessage = updateLongestMessage(global.debugMessages);
+    var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    // Check if a new message was added
+    if (ds_list_size(global.debugMessages) > 0 && 
+        ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {
+        // Scroll to the bottom when a new message is added
+        scrollIndex = max(0, totalLines - global.max_visible_lines);
+        global.lastAddedMessage = ""; // Reset the last added message
+    } else {
+        // Ensure scrollIndex is within valid range
+        scrollIndex = clamp(scrollIndex, 0, max(0, totalLines - global.max_visible_lines));
+    }
+    
+    // Draw the chat messages
+    drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+// Only process incoming data and send heartbeats if the server is running
+if (isServerRunning && sendHeartbeat && (current_time - global.lastHeartbeatTime >= broadcastInterval)) {
+    handleDebugMessage("Heartbeat sent to Server", true);
+    global.lastHeartbeatTime = current_time;
+}
+
+
+
+
+
+File: Other_68.gml
+Code:
+// Async Networking Event Handling for Client
+
+/// Revised Async Networking Event
+var type = ds_map_find_value(async_load, "type");
+var n_id = ds_map_find_value(async_load, "id");
+
+if (n_id == global.client_socket) {
+    switch (type) {
+        case network_type_connect:
+            show_debug_message("[Client] Connected to server.");
+            global.isConnected = true;
+            break;
+        case network_type_disconnect:
+            show_debug_message("[Client] Disconnected from server.");
+            global.isConnected = false;
+            break;
+        case network_type_data:
+            if (ds_map_exists(async_load, "buffer")) {
+                var buffer = ds_map_find_value(async_load, "buffer");
+                if (buffer != undefined) {
+                    buffer_seek(buffer, buffer_seek_start, 0);
+                    var identifier = buffer_read(buffer, buffer_u8);
+                    handleNetworkData(identifier, buffer);
+                } else {
+                    show_debug_message("ERROR: Buffer not found in data event.");
+                }
+            } else {
+                show_debug_message("ERROR: 'buffer' key does not exist in the async_load map.");
+            }
+            break;
+    }
+} else {
+    show_debug_message("ERROR: Invalid socket ID reference in async event.");
+}
+
+
+//// Async Networking Event of obj_Client
+
+//var type = ds_map_find_value(async_load, "type");
+//var n_id = ds_map_find_value(async_load, "id");
+
+//if (n_id == global.client_socket) {
+//    switch (type) {
+//        case network_type_data:
+//            var buffer = ds_map_find_value(async_load, "buffer");
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            var identifier = buffer_read(buffer, buffer_u8);
+
+//            switch (identifier) {
+//                case global.IDENTIFIER_HEARTBEAT:
+//                    // Handle heartbeat received from the server
+//                    show_debug_message("[Client] Heartbeat received from server.");
+//                    // Optionally, send back a confirmation or keep alive message
+//                    break;
+                
+//                case global.IDENTIFIER_UNIQUE_ID:
+//                    // This would be where the server confirms receipt of your unique ID
+//                    // Or any other custom logic for unique ID handling
+//                    var confirmationMessage = buffer_read(buffer, buffer_string);
+//                    show_debug_message("[Client] Server confirmed Unique ID: " + confirmationMessage);
+//                    break;
+                
+//                // Add more case handlers for different data types as needed
+//            }
+//            buffer_delete(buffer);
+//            break;
+
+//        case network_type_connect:
+//            // Immediately upon connection, send the unique ID to the server
+//            // This ensures server is aware of who just connected
+//            var buffer = buffer_create(256, buffer_grow, 1);
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+//            buffer_write(buffer, buffer_string, global.clientUniqueID);
+//            network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+//            show_debug_message("[Client] Sent unique ID to server: " + global.clientUniqueID);
+//            buffer_delete(buffer);
+//            break;
+            
+//        case network_type_disconnect:
+//            // Handle disconnection logic here, if needed
+//            global.isConnected = false; // Update the connection status
+//            show_debug_message("[Client] Disconnected from server.");
+//            break;
+//    }
+//}
+
+
+File: Destroy_0.gml
+Code:
+///Destroy Event for obj_Client
+if (global.isConnected) {
+    network_destroy(global.client_socket);
+}
+
+
+//// Clean up dynamic resources
+//if (ds_exists(clien, ds_type_map)) {
+//    ds_map_destroy(myDataStructure);
+//}
+
+// Optionally, inform the master object or handle game state changes
+// For example, transition to a different room or update the UI
+//event_perform_object(obj_Master, ev_Other, ev_user0); // Custom user event for cleanup in obj_Master
+
+
+File: Draw_0.gml
+Code:
+///Client Draw Code
+draw_set_font(fnt_chat);
+if show_chatbox=true {
+    var xx = 990;
+    var yy = 686; // Starting y position
+    var lm_cal=clamp(xx+(clamp(110-global.longestmessage,0,110))+1.7*(global.longestmessage-51)/3,xx+215,(display_get_gui_width()-10)/2+room_width/2)+10
+    var x1 = 980
+    var y1 = 686-20
+    var x2 = max(lm_cal, clamp(xx + (clamp(110 - global.longestmessage, 0, 110)) + 1.7 * (string_width(global.commandBuffer) - 1) / 3, xx + 230, (display_get_gui_width() - 10) / 2 + room_width / 2 + 50));
+    var y2 = _yy+100
+    
+    // Draw transparent background box for chatbox
+    draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);
+    draw_set_alpha(1);
+    var sca=.7
+    global.chat_line_height = 70 * sca + 5;
+    
+    // Set drawing properties
+    draw_set_colour(c_ltgray);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_font(fnt_chat); 
+    
+    // Display server status
+    var serverStatus = "Server Unable to Connect"; // Default message
+    if (isServerRunning) {
+        serverStatus = "Server Online";
+        draw_set_colour(c_lime);
+    } else {
+        serverStatus = "Server Stopped";
+        draw_set_colour(c_red);
+    }
+
+    if show_server_status=true {
+        draw_text_transformed(xx, yy, serverStatus, sca, sca, 0);
+        yy += 40; // Increment y position for next line
+    }
+
+    if connectedClients>0 {
+        draw_set_colour(c_aqua);
+    } else {
+        draw_set_colour(c_ltgrey);
+    }
+    if show_server_status=true {
+        draw_text_transformed(xx+3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx-3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx+3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx-3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_set_color(global.c_chat1);
+        draw_text_transformed(xx, yy-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        yy += 50; // Increment y position for next 
+    } else {
+        draw_set_color(global.c_chat1);
+        draw_text_transformed(xx+3, yy+3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx-3, yy+3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx+3, yy-3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx-3, yy-3-10, "Chat Box", sca, sca, 0);
+        draw_set_color(global.c_chat2);
+        draw_text_transformed(xx, yy-10, "Chat Box", sca, sca, 0);
+        yy += 60; // Increment y position for next line
+    }
+
+    sca=.5
+
+    if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    global.longestmessage = updateLongestMessage(global.debugMessages);
+    var totalLines = drawChatMessages(global.debugMessages, 990, yy, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    var maxScrollIndex = max(0, totalLines - global.max_visible_lines);
+
+    var wheel = mouse_wheel_down() - mouse_wheel_up();
+    if (wheel != 0) {
+        global.isScrolling = true;
+        scrollIndex = clamp(scrollIndex - wheel, 0, maxScrollIndex);
+        global.scrollResetTimer = 60; // Reset timer when scrolling
+    }
+
+    if (global.scrollResetTimer > 0) {
+        global.scrollResetTimer--;
+        if (global.scrollResetTimer == 0) {
+            global.isScrolling = false;
+        }
+    }
+
+    // Auto-scroll to bottom if not manually scrolling
+    //if (!global.isScrolling) {
+    //    scrollIndex = maxScrollIndex;
+    //}
+
+    drawChatMessages(global.debugMessages, 990, yy, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+    yy=yy+clamp(totalLines-scrollIndex,0,global.max_visible_lines)*(global.chat_line_height*1.00)+5
+    sca=.6
+    _yy=yy-15
+    
+    if global.commandBuffer != "" {
+        displayText = string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n");
+    } else {
+        displayText = ""
+    }
+    
+if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var totalLines = array_length(lines);
+    var maxInputLines = 25; // Maximum number of lines in the input box
+    var visibleLines = min(totalLines, maxInputLines);
+    
+    // Calculate the new height based on the number of visible lines
+    var boxHeight = global.chat_line_height * visibleLines + 2;
+    
+    // Calculate the scroll offset for the input box
+    var inputScrollOffset = max(0, totalLines - maxInputLines);
+    
+    // Count actual lines in the chat history
+    var actualChatLines = 0;
+    for (var i = 0; i < ds_list_size(global.debugMessages); i++) {
+        var message = ds_list_find_value(global.debugMessages, i);
+        actualChatLines += string_count("\n", message) + 1;
+    }
+    
+    // Calculate when to start expanding upward
+    var expandUpwardThreshold = max(15 - clamp(actualChatLines, 0, global.max_visible_lines), 2);
+    
+    // Adjust the y position of the input box
+    var inputBoxY = yy;
+    if (totalLines > expandUpwardThreshold) {
+        inputBoxY -= global.chat_line_height * (totalLines - expandUpwardThreshold);
+    }
+    inputBoxY = max(inputBoxY, global.chat_line_height); // Ensure it doesn't go above the top of the screen
+    
+    // Draw chat input box
+    draw_set_color(c_black);
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_white);
+    }
+    draw_rectangle(xx + 5, inputBoxY - 11, clamp(xx - 90 + 1.88 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150 + 10, inputBoxY + boxHeight + 10, false);
+
+    draw_set_color(c_white);
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_black);
+        slash_typed = true;
+    } else {
+        slash_typed = false;
+    }
+    draw_rectangle(xx + 10, inputBoxY - 6, clamp(xx - 90 + 1.88 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150, inputBoxY + boxHeight, false);
+
+    // Draw visible lines of text
+    draw_set_color(merge_color(global.textColor, c_red, clamp(abs(shake_angle), 0, 1)));
+    for (var i = 0; i < visibleLines; i++) {
+        var lineIndex = i + inputScrollOffset;
+        if (lineIndex < totalLines) {
+            var lineText = lines[lineIndex];
+            draw_text_transformed(xx + 20 + shake_angle * 7, inputBoxY - shake_angle * 7 + i * global.chat_line_height, lineText, sca, sca, shake_angle * .25);
+        }
+    }
+    
+    // Draw cursor
+    var cursorY = inputBoxY - shake_angle * 7 + (visibleLines - 1) * global.chat_line_height;
+    draw_text_transformed(xx + 20 + shake_angle * 7 + string_width(lines[totalLines - 1]) * sca, cursorY, "_", sca, sca, shake_angle * .25);
+} else {
+        // Draw "Press 'T' to Type" prompt
+        draw_set_color(c_white);
+        draw_set_alpha(0.7);
+        draw_text_transformed(xx + 20, yy, "Press 'T' to Type", sca*.7, sca*.7, shake_angle*.25);
+        draw_set_alpha(1);
+    }
+} else {
+    exit
+}
+
+File: Alarm_0.gml
+Code:
+// Alarm[0] Event
+var t_buffer = buffer_create(256, buffer_grow, 1);
+buffer_seek(t_buffer, buffer_seek_start, 0);
+buffer_write(t_buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+buffer_write(t_buffer, buffer_string, global.clientUniqueID);
+network_send_packet(global.client_socket, t_buffer, buffer_tell(t_buffer));
+buffer_delete(t_buffer);
+global.uniqueIDSent = true; // Ensure we don't resend the unique ID
+show_debug_message("[Client] Unique ID sent after delay: " + global.clientUniqueID);
+
+
+File: obj_Client.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_Client",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":68,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":5,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_Client",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "parentObjectId":null,
+  "persistent":true,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":null,
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+File: Other_5.gml
+Code:
+/// @description Insert description here
+//room end of obj_client
+show_chatbox=false
+
+File: Create_0.gml
+Code:
+
+// obj_Client Create Event
+global.currentTarget = yeancat; // Default to the player
+global.intentionalLineBreak = "|";
+global.lastAddedMessage = "";
+global.sessionLogFileName = "SessionLog_" + string_replace_all(string(date_current_datetime()), ":", "-") + ".txt";
+global.masterLogFileName = "MasterLog.txt";
+global.logDebugMessagesToFile = false; // By default, log debug messages to the file
+global.serverAddress = "127.0.0.1"; // Example server address
+// Initialize the data structure globally if not already initialized
+global.chatLogs=-1
+global.bubble_send_to_log=1
+global.message_is_bubble=0
+if (!ds_exists(global.chatLogs, ds_type_list)) {
+    global.chatLogs = ds_list_create();
+}
+time=0
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+global.lastWPMUpdateTime = 0; // Timestamp of the last WPM update
+global.WPMUpdateInterval = 5000; // Minimum time between updates in milliseconds (e.g., 5000ms = 5 seconds)
+lastUpdateTime = -1;
+updateInterval = 60; // Run every 60 seconds
+//input
+input_cursor_coord_space_set(INPUT_COORD_SPACE.ROOM, 0);
+//input_mouse_capture_set(true, 1);
+window_set_cursor(cr_none)
+instance_create_depth(room_width/2,room_height/2,-1000000,obj_Cursor);
+// Global time offset initialized
+global.timeOffset = 0;
+global.inputDisplayEnabled = false;  // Initialize the variable at an appropriate place in your game startup code
+global.actions = ds_map_create();
+// Adding command details
+// Global initialization script or create event
+global.commandDetails = ds_map_create();
+add_command("goto_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("jump_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("toggle_server", 3, [[]], false);  // Does not require '(' visually
+add_command("toggle_debug", 1, [[]], false);  // Does not require '(' visually
+add_command("list_clients", 1, [[]], false);  // Does not require '(' visually
+add_command("enable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("disable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("toggle_log_debug", 2, [[]], false);  // Does not require '(' visually
+add_command("set_my_permission(", 0, [["string", "real"]], true);
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+add_command("game_end(", 0, [["string", "real"]], true); 
+add_command("list_commands", 0, [[]], false); // No arguments, accessible at all permission levels
+add_command("show_lines(", 0, [["real"]], true);
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("level_up(", 1, [["real"]], true);  // Command requires '(' visually and a real number argument
+add_command("show_wpm", 0, [[]], false);  // Does not require '(' visually, level 0 permission
+add_command("chat_bubble(", 1, [["string"], ["array"]], true);
+add_command("save_macros", 1, [[]], false);  // Add the command to save macros
+add_command("list_variables", 2, [[]], false);
+add_command("add_action(", 2, [["string"],["string"],["array"]],true);
+add_command("save_actions", 2, [], false);
+add_command("list_actions", 2, [], false);
+add_command("execute_action(", 2, [["string"]], true);
+add_command("show_variable(", 2, [["string"]], true);
+add_command("return_controller", 1, [[]], false);
+add_command("toggle_input_display", 1, [[]], false);
+add_command("show_gamepad_mapping", 1, [[]], false);
+add_command("add_action_group(", 2, [["string"], ["array"]], true);
+add_command("list_action_groups", 2, [[]], false);
+add_command("delete_action(", 2, [["string"]], true);
+add_command("delete_actions(", 2, [["array"]], true);
+add_command("list_objects", 0, [[]], false);
+add_command("set_target(", 2, [["string", "real"]], true);
+add_command("set_spawn_npc(", 2, [["string"], ["real"], ["real"], ["string"], ["string"]], true);
+add_command("spawn_npc(", 2, [["real"], ["real"], ["real"]], true);
+add_command("spawn_boss", 2, [["real"], ["real"], ["real"], ["string"]], false);
+// Initialize global action details
+global.actionDetails = ds_map_create();
+
+global.object_references = ds_map_create();
+//add_object_reference("NewBoss", specific object unique id or general object name);
+
+//add_command("spawn_boss(", 2, [["string"]], true);
+
+//0name //1health //2resistance0-1invincible /3/rate //4attackset //5damage //6moveset //7image //8appearance [0=character,1=boss] //9appearanceid
+//add_boss("Drake",6666666,.666,1,1,1,4,spr_boss1,1,0]
+
+// You can add new commands or modify existing ones easily with the `add_command` function.
+global.variableDetails = ds_map_create();
+add_variable("SpawnEnemies", "spawnenemies", 1, master, "bool", 0, 1, [], [], "Player");
+add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("Password", "password", 1, master, "string", 1, 100000, [], [], "Player");
+add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
+add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
+add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 2000, [], [], "Social");
+add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro4", "macro4", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro5", "macro5", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro6", "macro6", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro7", "macro7", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro8", "macro8", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro9", "macro9", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro10", "macro10", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 99999999, [], [], "Global");
+global.debugCommand = "";
+//global.character_limit
+// Ensure commandBuffer is initialized
+global.commandBuffer = "";
+slash_typed=false //whether or not a command is being typed
+// Initialize a global variable for text color
+c_pink = make_color_hsv(0,58,255);
+global.defaultTextColor = c_black;
+global.textColor = global.defaultTextColor;
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+ // This will store the input from the user
+isActive = true;  // To check if command input is active
+sendHeartbeat = false; // Control sending of heartbeat messages
+_yy=0
+pasting=0;
+global.longestmessage=0;
+global.c_chat2=c_black
+global.c_chat1=c_white
+fnt_chat=Font4
+global.borderwidth=8 //bg width
+global.bg_alpha=.4 //bg alpha
+global.bg_color=c_black //background color
+global.o_color=c_white //outline color
+global.wrapWidth = 1700; // Adjust this value based on your chat box
+global.character_limit=2000;//character limit for chat//this will be shorter for players
+global.lastSpaceIndex = -1;
+displayText=""
+//Other Variables
+global.showDebugMessages = true; // Enable debug messages by default
+global.maximumMessages=2000;
+maxDisplayMessages = 6; // Number of debug messages to display at once
+// Initialize max visible lines for the chat box
+global.max_visible_lines = maxDisplayMessages;  // You can adjust this number based on your needs
+// Add these to the Create event of obj_Client
+global.input_scroll_offset = 0;  // Offset for scrolling the input box
+global.debugMessages = ds_list_create();
+fnt_chat_id=0
+// Global settings for text wrapping
+global.chat_threshold = 1750;  // Threshold to start considering wrapping
+global.chat_text_limit = 1800; // Maximum pixel width of text before wrapping
+global.chat_line_height = 50; // Height of each line of text in pixels
+global.min_width = 110;  // Minimum width of the chat box
+global.max_width = 1000;  // Maximum width of the chat box, adjust according to your UI design
+// Adjust these values to tweak where the text wraps
+global.chat_threshold = global.chat_threshold * 1.3;  // Increase the threshold
+global.chat_text_limit = global.chat_text_limit * 1.3;  // Increase the width limit
+
+//Scrolling Variables
+scrollIndex = 0; // Initialize scroll position
+baseScrollSensitivity = 0.1; // Base sensitivity, how much the index changes initially per mouse wheel movement
+maxScrollSensitivity = 1.0; // Maximum sensitivity after continuous scrolling
+sensitivityIncrement = 0.05; // How much the sensitivity increases with continuous scrolling
+sensitivityDecrement = 0.01; // How much the sensitivity decreases when not scrolling
+global.scrollSensitivity = baseScrollSensitivity; // Current sensitivity, starts at base sensitivity
+global.isScrolling = false; // Tracks if the user is currently scrolling
+global.scrollResetTimer = 0;
+// Server Configuration
+show_server_status=false
+global.serverPort = "5555";
+global.maxClients = 4;
+global.heartbeatBPM = 115; // Beats per minute for the heartbeat
+global.lastHeartbeatTime = current_time; // Store the current time
+broadcastInterval = 60000 / global.heartbeatBPM; // Time between heartbeats in milliseconds
+
+global.clientUniqueID = ""; // Initialize to an empty string
+global.reconnectTimer = 0; // Time to attempt a reconnect
+global.reconnectInterval = 2000; // Interval between reconnect attempts
+global.isConnected = false; // Connection status
+global.IDENTIFIER_UNIQUE_ID = 2; // Ensure this matches server expectation
+global.uniqueIDSent = false; // Prevent re-sending
+
+// Initialize server state and structures
+isServerRunning = false;
+connectedClients = 0;
+
+// Generate or load the unique ID
+if (!file_exists(working_directory + "client_id.txt")) {
+    // For a new ID
+    global.clientUniqueID = string(irandom_range(100000, 999999));
+    var file = file_text_open_write(working_directory + "client_id.txt");
+    file_text_write_string(file, global.clientUniqueID);
+    file_text_close(file);
+} else {
+    // For an existing ID
+    var file = file_text_open_read(working_directory + "client_id.txt");
+    global.clientUniqueID = file_text_read_string(file);
+    file_text_close(file);
+}
+
+// Client Initialization and Connection
+global.client_socket = network_create_socket(network_socket_tcp);
+var status = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+if (status >= 0) {
+    // Successful connection
+    show_debug_message("[Client] Successfully connected and ID sent.");
+	isServerRunning = true;
+    var buffer = buffer_create(256, buffer_grow, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+    buffer_write(buffer, buffer_string, global.clientUniqueID);
+    network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+    buffer_delete(buffer);
+} else {
+    // Handle connection failure
+    show_debug_message("[Client] Connection failed.");
+}
+
+show_chatbox=false
+depth-=10; //ensure at top or front of view
+
+global.backspaceTimer = 0;
+global.backspaceDelay = 15; // Initial delay before rapid deletion
+global.backspaceSpeed = 1;  // Delay between rapid deletions
+
+global.recall_list = ds_list_create();  // List to store past messages and commands
+global.recall_max = 20;  // Maximum number of entries to remember
+global.recall_index = -1;  // Index for navigating through the recall list
+
+shake_angle=0 //angle to shake text when character limit reached.
+
+load_actions()
+
+
+== Related Scripts ==
+
+Script: scr_spawn_npc
+File: scr_spawn_npc.gml
+Code:
+/// @function scr_spawn_npc(name, x, y, optional_object_reference, optional_action_trigger)
+/// @param {string} name - The name of the NPC
+/// @param {real} x - The x coordinate (relative to the reference object)
+/// @param {real} y - The y coordinate (relative to the reference object)
+/// @param {string} [optional_object_reference="Center"] - The reference object for positioning
+/// @param {string} [optional_action_trigger=""] - The action or action group to trigger when interacting
+function scr_spawn_npc(name, x, y, optional_object_reference = "Center", optional_action_trigger = "") {
+    var spawn_x, spawn_y;
+    
+    // Determine spawn position
+    if (optional_object_reference == "Center") {
+        spawn_x = room_width / 2 + x;
+        spawn_y = room_height / 2 + y;
+    } else if (optional_object_reference == "Player") {
+        spawn_x = yeancat.x + x;
+        spawn_y = yeancat.y + y;
+    } else {
+        var ref_obj = asset_get_index(optional_object_reference);
+        if (ref_obj != -1) {
+            spawn_x = ref_obj.x + x;
+            spawn_y = ref_obj.y + y;
+        } else {
+            spawn_x = room_width / 2 + x;
+            spawn_y = room_height / 2 + y;
+        }
+    }
+    
+    // Create the NPC
+    var npc = instance_create_layer(spawn_x, spawn_y, "Instances", obj_npc);
+    npc.name = name;
+    npc.action_trigger = optional_action_trigger;
+    
+    // Additional NPC setup can be done here
+    
+    return npc;
+}
+
+
+
+Script: scr_spawn_boss
+File: scr_spawn_boss.gml
+Code:
+/// @function scr_spawn_boss(boss_id, x, y, relative_to)
+/// @description Spawns a boss at the specified position relative to a reference point
+/// @param {real} boss_id The ID of the boss in the spaceboss array
+/// @param {real} x The x coordinate relative to the reference point
+/// @param {real} y The y coordinate relative to the reference point
+/// @param {string} relative_to The reference point ("Center", "Player", "Target", or object name)
+function scr_spawn_boss() {
+    var boss_id, x_pos, y_pos;
+    
+    if (argument_count == 1 && is_array(argument[0])) {
+        // This is from an action execution
+        var params = argument[0];
+        boss_id = params[0];
+        x_pos = params[1];
+        y_pos = params[2];
+    } else if (argument_count == 3) {
+        // This is from a direct command
+        boss_id = argument[0];
+        x_pos = argument[1];
+        y_pos = argument[2];
+    } else {
+        handleDebugMessage("Invalid parameters for spawn_boss", true);
+        return;
+    }
+
+    var relative_to = "Target"; // Default to Target if not specified
+    var spawn_x, spawn_y
+    
+    var ref_obj = get_object_reference(relative_to);
+if (ref_obj != noone && instance_exists(ref_obj)) {
+    spawn_x = ref_obj.x + x_pos;
+    spawn_y = ref_obj.y + y_pos;
+} else {
+    spawn_x = room_width / 2 + x_pos;
+    spawn_y = room_height / 2 + y_pos;
+}
+    
+    // Check if the boss_id is valid
+    if (boss_id >= 0 && boss_id < array_length(master.spaceboss)) {
+        // Check if the "boss" layer exists, if not create it
+        var layer_id = layer_get_id("boss");
+        if (layer_id == -1) {
+            layer_id = layer_create(0, "boss");
+        }
+        
+        // Find a suitable spawn position
+        var attempts = 0;
+        var max_attempts = 10;
+        var min_distance = 200; // Minimum distance between bosses
+        
+        while (attempts < max_attempts) {
+            var is_valid_position = true;
+            
+            // Check distance from other bosses
+            with (obj_boss) {
+                if (point_distance(x, y, spawn_x, spawn_y) < min_distance) {
+                    is_valid_position = false;
+                    break;
+                }
+            }
+            
+            if (is_valid_position) {
+                break;
+            } else {
+                // Adjust spawn position randomly
+                spawn_x += random_range(-100, 100);
+                spawn_y += random_range(-100, 100);
+                attempts++;
+            }
+        }
+        
+        var boss = instance_create_layer(spawn_x, spawn_y, layer_id, obj_boss);
+        
+        with (boss) {
+            bossid = master.spaceboss[boss_id, 12];
+            position = master.spaceboss[boss_id, 0];
+            namee = master.spaceboss[boss_id, 1];
+            healthh = master.spaceboss[boss_id, 2];
+            maxhealth = master.spaceboss[boss_id, 2];
+            resistance = master.spaceboss[boss_id, 3];
+            damage = master.spaceboss[boss_id, 6];
+            attackspeed = master.spaceboss[boss_id, 4];
+            attacktype = master.spaceboss[boss_id, 5];
+            movetype = master.spaceboss[boss_id, 7];
+            sprite_index = master.spaceboss[boss_id, 9];
+            bosstype = master.spaceboss[boss_id, 11];
+            lookid = master.spaceboss[boss_id, 12];
+            flying = 1;
+            bossaltitude = 40000;
+            
+            event_perform(ev_other, ev_user0);
+        }
+		boss.min_distance = random_range(150, 250);
+        
+        // Add the boss reference using your existing function
+        var ref_name = add_object_reference(boss.namee, boss);
+        if (ref_name != "") {
+            handleDebugMessage("Added boss reference: " + ref_name + " -> " + object_get_name(boss.object_index), true);
+        }
+        handleDebugMessage("Boss spawned successfully: " + string(boss_id) + " at position (" + string(spawn_x) + ", " + string(spawn_y) + ") relative to " + relative_to, true);
+        return boss; // Return the spawned boss instance
+    } else {
+        handleDebugMessage("Invalid boss_id: " + string(boss_id), true);
+        return noone;
+    }
+}
+
+Script: scr_add_action
+File: scr_add_action.gml
+Code:
+function scr_add_action(actionName, fullActionCommand, actionParams) {
+    var parts = string_split(fullActionCommand, ".");
+    if (array_length(parts) != 2) {
+        handleDebugMessage("Invalid action command format. Expected 'Object.command'", true);
+        return;
+    }
+    
+    var targetObject = parts[0];
+    var actionCommand = parts[1];
+
+    var actionData = {
+        targetObject: targetObject,
+        command: actionCommand,
+        parameters: json_parse(actionParams)
+    };
+
+    var encodedCommand = base64_encode(json_stringify(actionData));
+
+    ds_map_set(global.actionDetails, actionName, encodedCommand);
+
+    handleDebugMessage("Action '" + actionName + "' added/updated successfully.", false);
+    
+    save_actions();
+}
+
+Script: scr_execute_action
+File: scr_execute_action.gml
+Code:
+function scr_execute_action(actionName) {
+    if (ds_map_exists(global.actionDetails, actionName)) {
+        var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
+        var decodedData = json_parse(base64_decode(encodedCommand));
+        
+        if (is_struct(decodedData) && variable_struct_exists(decodedData, "command")) {
+            var targetObj = decodedData.targetObject;
+            var cmdName = decodedData.command;
+            var params = decodedData.parameters;
+            
+            var targetInstance = get_object_reference(targetObj);
+            if (targetInstance != noone) {
+                with (targetInstance) {
+                    var script = asset_get_index("scr_" + cmdName);
+                    if (script_exists(script)) {
+                        script_execute(script, params);
+                    } else {
+                        handleDebugMessage("Script not found: " + cmdName, true);
+                    }
+                }
+            } else {
+                handleDebugMessage("Target object not found: " + targetObj, true);
+            }
+        } else {
+            handleDebugMessage("Invalid action data for: " + actionName, true);
+        }
+    } else {
+        handleDebugMessage("Action '" + actionName + "' not found.", true);
+    }
+}
+
+Script: get_object_reference
+File: get_object_reference.gml
+Code:
+function get_object_reference(name) {
+    if (ds_map_exists(global.object_references, name)) {
+        var obj = global.object_references[? name];
+        return instance_exists(obj) ? obj : noone;
+    }
+    
+    switch(name) {
+        case "Player": return instance_exists(yeancat) ? yeancat : noone;
+        case "Target": return instance_exists(global.currentTarget) ? global.currentTarget : (instance_exists(yeancat) ? yeancat : noone);
+        case "Center": return {x: room_width/2, y: room_height/2};
+		case "Boss": 
+            // Return the first found boss instance
+            with (obj_boss) {
+                return id;
+            }
+            return noone;
+        default: 
+            // Check if the name matches any boss name
+            for (var i = 0; i < array_length(master.spaceboss); i++) {
+                if (master.spaceboss[i,1] == name) {
+                    with (obj_boss) {
+                        if (namee == name) return id;
+                    }
+                    break;
+                }
+            }
+            return noone;
+    }
+}
+
+Script: add_object_reference
+File: add_object_reference.gml
+Code:
+function add_object_reference(name, object) {
+    if (instance_exists(object)) {
+        var obj_index = object.object_index;
+        
+        if (obj_index == obj_boss) {
+            var formatted_name = format_boss_name(name);
+            var boss_number = instance_number(obj_boss);
+            var unique_name = formatted_name + string(boss_number);
+            
+            // Combine the formatted name and Boss_ reference
+            global.object_references[? unique_name] = object;
+            
+            return unique_name;
+        } else {
+            global.object_references[? name] = object;
+            return name;
+        }
+    }
+    return "";
+}
+
+Script: list_actions not found in the expected directories.
+
+Script: list_action_groups not found in the expected directories.
+
+== Related Logs ==
+
+Log: SessionLog_45504.03
+Content:
+07/30/24 19:51:07: Raw command: list_actions
+07/30/24 19:51:07: Cleaned command: list_actions
+07/30/24 19:51:07: Command Name: list_actions
+07/30/24 19:51:07: Target Object: yeancat
+07/30/24 19:51:07: Parameters: []
+07/30/24 19:51:07: Actions: ArtifactOutcome, BattleChoice, BattleOutcome, 
+07/30/24 19:51:07: DiplomaticChoice, DisableEnemySpawns, EnableEnemySpawns, 
+07/30/24 19:51:07: EngageCombat, EnterPortal, ExplorationChoice, GotoDivineDomain, 
+07/30/24 19:51:07: GotoEarth, GotoFantasia, GotoGhostTown, GotoKingsKingdom, 
+07/30/24 19:51:07: GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, GotoTheEndonda, 
+07/30/24 19:51:07: GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+07/30/24 19:51:07: GotoVulturesValley, GotoYetopia, InvestigateSignals, LevelUpOnce, 
+07/30/24 19:51:07: LevelUpThree, OfferTrade, PortalOutcome, PurchaseArtifacts, 
+07/30/24 19:51:07: SaveGameNow, SetLevelFive, SpaceAdventureStart, SpawnBoss0, 
+07/30/24 19:51:07: SpawnBoss1, SpawnBoss10, SpawnBoss11, SpawnBoss12, SpawnBoss13, 
+07/30/24 19:51:07: SpawnBoss2, SpawnBoss3, SpawnBoss4, SpawnBoss5, SpawnBoss6, 
+07/30/24 19:51:07: SpawnBoss7, SpawnBoss8, SpawnBoss9, StartBattle, StartExploration, 
+07/30/24 19:51:07: StartPeaceMission, TreatyOutcome, VisitMarket
+07/30/24 19:51:15: Raw command: execute_action(SpaceAdventureStart)
+07/30/24 19:51:15: Cleaned command: execute_action(SpaceAdventureStart)
+07/30/24 19:51:15: Executing action/group: SpaceAdventureStart
+07/30/24 19:51:15: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/30/24 19:51:15: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 19:51:15: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 19:51:15: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/30/24 19:51:15: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 19:51:15: Command Name: chat_bubble
+07/30/24 19:51:15: Target Object: Target
+07/30/24 19:51:15: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 19:51:15: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/30/24 19:51:15: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your
+path:'. Number of choices: 3
+07/30/24 19:51:17: Raw command: execute_action(StartExploration)
+07/30/24 19:51:17: Cleaned command: execute_action(StartExploration)
+07/30/24 19:51:17: Executing action/group: StartExploration
+07/30/24 19:51:17: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/30/24 19:51:17: Raw command: execute_action("SpaceExploration")
+07/30/24 19:51:17: Cleaned command: execute_action("SpaceExploration")
+07/30/24 19:51:17: Executing action/group: SpaceExploration
+07/30/24 19:51:17: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/30/24 19:51:17: Raw command: execute_action(GotoUniverseCity)
+07/30/24 19:51:17: Cleaned command: execute_action(GotoUniverseCity)
+07/30/24 19:51:17: Executing action/group: GotoUniverseCity
+07/30/24 19:51:17: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+07/30/24 19:51:17: Raw command: goto_planet("Universe City")
+07/30/24 19:51:17: Cleaned command: goto_planet("Universe City")
+07/30/24 19:51:17: Parsing arguments: "Universe City"
+07/30/24 19:51:17: Parsed arguments: ["\"Universe City\""]
+07/30/24 19:51:17: Command Name: goto_planet
+07/30/24 19:51:17: Target Object: yeancat
+07/30/24 19:51:17: Parameters: ["\"Universe City\""]
+07/30/24 19:51:17: Teleported to Universe City.
+07/30/24 19:51:17: Raw command: execute_action(ExplorationChoice)
+07/30/24 19:51:17: Cleaned command: execute_action(ExplorationChoice)
+07/30/24 19:51:17: Executing action/group: ExplorationChoice
+07/30/24 19:51:17: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"Target"}
+07/30/24 19:51:17: Raw command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/30/24 19:51:17: Cleaned command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/30/24 19:51:17: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/30/24 19:51:17: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/30/24 19:51:17: Command Name: chat_bubble
+07/30/24 19:51:17: Target Object: Target
+07/30/24 19:51:17: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/30/24 19:51:17: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: Target, Choices: []
+07/30/24 19:51:17: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+07/30/24 19:51:25: Raw command: add_action(LevelUpOnce,level_up,[1])
+07/30/24 19:51:25: Cleaned command: add_action(LevelUpOnce,level_up,[1])
+07/30/24 19:51:25: Detected add_action command
+07/30/24 19:51:25: Arguments string: LevelUpOnce,level_up,[1]
+07/30/24 19:51:25: Parsing arguments: LevelUpOnce,level_up,[1]
+07/30/24 19:51:25: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+07/30/24 19:51:25: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+07/30/24 19:51:25: Action Name: LevelUpOnce
+07/30/24 19:51:25: Full Action Command: level_up
+07/30/24 19:51:25: Action Params: [1]
+07/30/24 19:51:25: Target Object: yeancat
+07/30/24 19:51:25: Action Command: level_up
+07/30/24 19:51:25: Invalid action command format. Expected 'Object.command'
+07/30/24 19:51:48: [Jay Arnold] for some reason i cant add actions for certain things
+07/30/24 19:51:48: Creating chat bubble: " for some reason i cant add actions for certain things", Owner: yeancat, Choices: []
+07/30/24 19:51:48: Chat Bubble Created. Following 'yeancat' with text: 'for some reason i cant add actions for certain things'. Number of choices: 0
+07/30/24 19:51:54: Raw command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+07/30/24 19:51:54: Cleaned command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+07/30/24 19:51:54: Detected add_action command
+07/30/24 19:51:54: Arguments string: GotoYetopia,goto_planet,["Yetopia"]
+07/30/24 19:51:54: Parsing arguments: GotoYetopia,goto_planet,["Yetopia"]
+07/30/24 19:51:54: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+07/30/24 19:51:54: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+07/30/24 19:51:54: Action Name: GotoYetopia
+07/30/24 19:51:54: Full Action Command: goto_planet
+07/30/24 19:51:55: Action Params: ["Yetopia"]
+07/30/24 19:51:55: Target Object: yeancat
+07/30/24 19:51:55: Action Command: goto_planet
+07/30/24 19:51:55: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:10: Raw command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal",
+"EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+07/30/24 19:52:11: Cleaned command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+07/30/24 19:52:11: Detected add_action command
+07/30/24 19:52:11: Arguments string: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+07/30/24 19:52:11: Parsing arguments: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+07/30/24 19:52:11: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+07/30/24 19:52:11: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+07/30/24 19:52:11: Action Name: InvestigateSignals
+07/30/24 19:52:11: Full Action Command: Target.chat_bubble
+07/30/24 19:52:11: Action Params: ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+07/30/24 19:52:11: Target Object: Target
+07/30/24 19:52:11: Action Command: chat_bubble
+07/30/24 19:52:11: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:30: [Jay Arnold] actually a lot of things arent adding actions. the currently existing actions are loading and exxecuting though
+07/30/24 19:52:30: Creating chat bubble: " actually a lot of things arent adding actions. the currently existing actions are loading and exxecuting though", Owner: yeancat, Choices: []
+07/30/24 19:52:30: Chat Bubble Created. Following 'yeancat' with text: 'actually a lot of things arent adding actions. the currently existing actions are
+loading and exxecuting though'. Number of choices: 0
+07/30/24 19:52:45: Raw command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+07/30/24 19:52:45: Cleaned command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+07/30/24 19:52:45: Detected add_action command
+07/30/24 19:52:45: Arguments string: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+07/30/24 19:52:45: Parsing arguments: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+07/30/24 19:52:45: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+07/30/24 19:52:45: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+07/30/24 19:52:45: Action Name: SpawnBoss0
+07/30/24 19:52:45: Full Action Command: Target.spawn_boss
+07/30/24 19:52:45: Action Params: [0, 0, -500]
+07/30/24 19:52:45: Target Object: Target
+07/30/24 19:52:45: Action Command: spawn_boss
+07/30/24 19:52:45: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:45: Raw command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+07/30/24 19:52:45: Cleaned command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+07/30/24 19:52:45: Detected add_action command
+07/30/24 19:52:45: Arguments string: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+07/30/24 19:52:45: Parsing arguments: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+07/30/24 19:52:45: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+07/30/24 19:52:45: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+07/30/24 19:52:45: Action Name: SpawnBoss1
+07/30/24 19:52:45: Full Action Command: Target.spawn_boss
+07/30/24 19:52:45: Action Params: [1, 353, -353]
+07/30/24 19:52:45: Target Object: Target
+07/30/24 19:52:45: Action Command: spawn_boss
+07/30/24 19:52:45: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:45: Raw command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+07/30/24 19:52:45: Cleaned command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+07/30/24 19:52:45: Detected add_action command
+07/30/24 19:52:45: Arguments string: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+07/30/24 19:52:45: Parsing arguments: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+07/30/24 19:52:45: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+07/30/24 19:52:45: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+07/30/24 19:52:45: Action Name: SpawnBoss3
+07/30/24 19:52:45: Full Action Command: Target.spawn_boss
+07/30/24 19:52:45: Action Params: [3, 353, 353]
+07/30/24 19:52:45: Target Object: Target
+07/30/24 19:52:46: Action Command: spawn_boss
+07/30/24 19:52:46: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:46: Raw command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+07/30/24 19:52:46: Cleaned command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+07/30/24 19:52:46: Detected add_action command
+07/30/24 19:52:46: Arguments string: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+07/30/24 19:52:46: Parsing arguments: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+07/30/24 19:52:46: Action Name: SpawnBoss4
+07/30/24 19:52:46: Full Action Command: Target.spawn_boss
+07/30/24 19:52:46: Action Params: [4, 0, 500]
+07/30/24 19:52:46: Target Object: Target
+07/30/24 19:52:46: Action Command: spawn_boss
+07/30/24 19:52:46: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:46: Raw command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+07/30/24 19:52:46: Cleaned command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+07/30/24 19:52:46: Detected add_action command
+07/30/24 19:52:46: Arguments string: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+07/30/24 19:52:46: Parsing arguments: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+07/30/24 19:52:46: Action Name: SpawnBoss5
+07/30/24 19:52:46: Full Action Command: Target.spawn_boss
+07/30/24 19:52:46: Action Params: [5, -353, 353]
+07/30/24 19:52:46: Target Object: Target
+07/30/24 19:52:46: Action Command: spawn_boss
+07/30/24 19:52:46: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:46: Raw command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+07/30/24 19:52:46: Cleaned command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+07/30/24 19:52:46: Detected add_action command
+07/30/24 19:52:46: Arguments string: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+07/30/24 19:52:46: Parsing arguments: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+07/30/24 19:52:46: Action Name: SpawnBoss6
+07/30/24 19:52:46: Full Action Command: Target.spawn_boss
+07/30/24 19:52:46: Action Params: [6, -500, 0]
+07/30/24 19:52:46: Target Object: Target
+07/30/24 19:52:46: Action Command: spawn_boss
+07/30/24 19:52:46: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:46: Raw command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+07/30/24 19:52:46: Cleaned command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+07/30/24 19:52:46: Detected add_action command
+07/30/24 19:52:46: Arguments string: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+07/30/24 19:52:46: Parsing arguments: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+07/30/24 19:52:46: Action Name: SpawnBoss7
+07/30/24 19:52:46: Full Action Command: Target.spawn_boss
+07/30/24 19:52:46: Action Params: [7, -353, -353]
+07/30/24 19:52:46: Target Object: Target
+07/30/24 19:52:46: Action Command: spawn_boss
+07/30/24 19:52:46: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:46: Raw command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+07/30/24 19:52:46: Cleaned command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+07/30/24 19:52:46: Detected add_action command
+07/30/24 19:52:46: Arguments string: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+07/30/24 19:52:46: Parsing arguments: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+07/30/24 19:52:46: Action Name: SpawnBoss8
+07/30/24 19:52:46: Full Action Command: Target.spawn_boss
+07/30/24 19:52:46: Action Params: [8, 0, -400]
+07/30/24 19:52:46: Target Object: Target
+07/30/24 19:52:46: Action Command: spawn_boss
+07/30/24 19:52:46: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:46: Raw command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+07/30/24 19:52:46: Cleaned command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+07/30/24 19:52:46: Detected add_action command
+07/30/24 19:52:46: Arguments string: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+07/30/24 19:52:46: Parsing arguments: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+07/30/24 19:52:46: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+07/30/24 19:52:46: Action Name: SpawnBoss9
+07/30/24 19:52:46: Full Action Command: Target.spawn_boss
+07/30/24 19:52:46: Action Params: [9, 283, -283]
+07/30/24 19:52:47: Target Object: Target
+07/30/24 19:52:47: Action Command: spawn_boss
+07/30/24 19:52:47: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:47: Raw command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+07/30/24 19:52:47: Cleaned command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+07/30/24 19:52:47: Detected add_action command
+07/30/24 19:52:47: Arguments string: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+07/30/24 19:52:47: Parsing arguments: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+07/30/24 19:52:47: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+07/30/24 19:52:47: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+07/30/24 19:52:47: Action Name: SpawnBoss10
+07/30/24 19:52:47: Full Action Command: Target.spawn_boss
+07/30/24 19:52:47: Action Params: [10, 400, 0]
+07/30/24 19:52:47: Target Object: Target
+07/30/24 19:52:47: Action Command: spawn_boss
+07/30/24 19:52:47: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:47: Raw command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+07/30/24 19:52:47: Cleaned command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+07/30/24 19:52:47: Detected add_action command
+07/30/24 19:52:47: Arguments string: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+07/30/24 19:52:47: Parsing arguments: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+07/30/24 19:52:47: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+07/30/24 19:52:47: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+07/30/24 19:52:47: Action Name: SpawnBoss11
+07/30/24 19:52:47: Full Action Command: Target.spawn_boss
+07/30/24 19:52:47: Action Params: [11, 283, 283]
+07/30/24 19:52:47: Target Object: Target
+07/30/24 19:52:47: Action Command: spawn_boss
+07/30/24 19:52:47: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:47: Raw command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+07/30/24 19:52:47: Cleaned command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+07/30/24 19:52:47: Detected add_action command
+07/30/24 19:52:47: Arguments string: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+07/30/24 19:52:47: Parsing arguments: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+07/30/24 19:52:47: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+07/30/24 19:52:47: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+07/30/24 19:52:47: Action Name: SpawnBoss12
+07/30/24 19:52:47: Full Action Command: Target.spawn_boss
+07/30/24 19:52:47: Action Params: [12, 0, 400]
+07/30/24 19:52:47: Target Object: Target
+07/30/24 19:52:47: Action Command: spawn_boss
+07/30/24 19:52:47: Invalid action command format. Expected 'Object.command'
+07/30/24 19:52:47: Raw command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+07/30/24 19:52:47: Cleaned command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+07/30/24 19:52:47: Detected add_action command
+07/30/24 19:52:47: Arguments string: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+07/30/24 19:52:47: Parsing arguments: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+07/30/24 19:52:47: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+07/30/24 19:52:47: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+07/30/24 19:52:47: Action Name: SpawnBoss13
+07/30/24 19:52:47: Full Action Command: Target.spawn_boss
+07/30/24 19:52:47: Action Params: [13, -283, 283]
+07/30/24 19:52:47: Target Object: Target
+07/30/24 19:52:47: Action Command: spawn_boss
+07/30/24 19:52:47: Invalid action command format. Expected 'Object.command'
+07/30/24 19:53:04: Raw command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5",
+"SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+07/30/24 19:53:04: Cleaned command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+07/30/24 19:53:04: Parsing arguments: SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"]
+07/30/24 19:53:04: Parsed arguments: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+07/30/24 19:53:04: Command Name: add_action_group
+07/30/24 19:53:04: Target Object: yeancat
+07/30/24 19:53:04: Parameters: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+07/30/24 19:53:04: Action group 'SpawnBossCircle' added successfully.
+07/30/24 19:53:04: Actions and action groups saved successfully to Actions.txt.
+07/30/24 19:53:11: Raw command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+07/30/24 19:53:11: Cleaned command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+07/30/24 19:53:11: Detected add_action command
+07/30/24 19:53:11: Arguments string: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+07/30/24 19:53:11: Parsing arguments: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+07/30/24 19:53:11: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+07/30/24 19:53:12: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+07/30/24 19:53:12: Action Name: SpawnBoss13
+07/30/24 19:53:12: Full Action Command: Target.spawn_boss
+07/30/24 19:53:12: Action Params: [13, -283, 283]
+07/30/24 19:53:12: Target Object: Target
+07/30/24 19:53:12: Action Command: spawn_boss
+07/30/24 19:53:12: Invalid action command format. Expected 'Object.command'
+07/30/24 19:53:17: Raw command: set_target(Player)
+07/30/24 19:53:17: Cleaned command: set_target(Player)
+07/30/24 19:53:17: Parsing arguments: Player
+07/30/24 19:53:17: Parsed arguments: ["Player"]
+07/30/24 19:53:17: Command Name: set_target
+07/30/24 19:53:17: Target Object: yeancat
+07/30/24 19:53:17: Parameters: ["Player"]
+07/30/24 19:53:17: Target set to Player (yeancat)
+07/30/24 19:53:17: Raw command: execute_action(SpawnBossCircle)
+07/30/24 19:53:17: Cleaned command: execute_action(SpawnBossCircle)
+07/30/24 19:53:17: Executing action/group: SpawnBossCircle
+07/30/24 19:53:17: Decoded Data: {"type":"action_group","actions":["SpawnBoss0","SpawnBoss1","SpawnBoss2","SpawnBoss3","SpawnBoss4","SpawnBoss5","SpawnBoss6","SpawnBoss7","SpawnBoss8","SpawnBoss9","SpawnBoss10","SpawnBoss11","SpawnBoss12","SpawnBoss13"]}
+07/30/24 19:53:17: Raw command: execute_action(SpawnBoss0)
+07/30/24 19:53:17: Cleaned command: execute_action(SpawnBoss0)
+07/30/24 19:53:17: Executing action/group: SpawnBoss0
+07/30/24 19:53:17: Decoded Data: {"command":"spawn_boss","parameters":[0.0,0.0,-500.0],"targetObject":"Target"}
+07/30/24 19:53:17: Raw command: Target.spawn_boss([0.0,0.0,-500.0])
+07/30/24 19:53:17: Cleaned command: Target.spawn_boss([0.0,0.0,-500.0])
+07/30/24 19:53:17: Parsing arguments: [0.0,0.0,-500.0]
+07/30/24 19:53:17: Parsed arguments: ["[0.0,0.0,-500.0]"]
+07/30/24 19:53:17: Command Name: spawn_boss
+07/30/24 19:53:17: Target Object: Target
+07/30/24 19:53:17: Parameters: ["[0.0,0.0,-500.0]"]
+07/30/24 19:53:17: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:17: Added boss reference: Futurtle1 -> obj_boss
+07/30/24 19:53:17: Boss spawned successfully: 0 at position (1920.07, 514.93) relative to Target
+07/30/24 19:53:17: Raw command: execute_action(SpawnBoss1)
+07/30/24 19:53:17: Cleaned command: execute_action(SpawnBoss1)
+07/30/24 19:53:17: Executing action/group: SpawnBoss1
+07/30/24 19:53:17: Decoded Data: {"command":"spawn_boss","parameters":[1.0,353.0,-353.0],"targetObject":"Target"}
+07/30/24 19:53:17: Raw command: Target.spawn_boss([1.0,353.0,-353.0])
+07/30/24 19:53:17: Cleaned command: Target.spawn_boss([1.0,353.0,-353.0])
+07/30/24 19:53:18: Parsing arguments: [1.0,353.0,-353.0]
+07/30/24 19:53:18: Parsed arguments: ["[1.0,353.0,-353.0]"]
+07/30/24 19:53:18: Command Name: spawn_boss
+07/30/24 19:53:18: Target Object: Target
+07/30/24 19:53:18: Parameters: ["[1.0,353.0,-353.0]"]
+07/30/24 19:53:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:18: Added boss reference: TravisSquawk2 -> obj_boss
+07/30/24 19:53:18: Boss spawned successfully: 1 at position (2273.07, 661.93) relative to Target
+07/30/24 19:53:18: Raw command: execute_action(SpawnBoss2)
+07/30/24 19:53:18: Cleaned command: execute_action(SpawnBoss2)
+07/30/24 19:53:18: Executing action/group: SpawnBoss2
+07/30/24 19:53:18: Decoded Data: {"command":"spawn_boss","parameters":[[2.0,500.0,0.0,"Target"]],"targetObject":"yeancat"}
+07/30/24 19:53:18: Raw command: spawn_boss([[2.0,500.0,0.0,"Target"]])
+07/30/24 19:53:18: Cleaned command: spawn_boss([[2.0,500.0,0.0,"Target"]])
+07/30/24 19:53:18: Parsing arguments: [[2.0,500.0,0.0,"Target"]]
+07/30/24 19:53:18: Parsed arguments: ["[[2.0,500.0,0.0,\"Target\"]]"]
+07/30/24 19:53:18: Command Name: spawn_boss
+07/30/24 19:53:18: Target Object: yeancat
+07/30/24 19:53:18: Parameters: ["[[2.0,500.0,0.0,\"Target\"]]"]
+07/30/24 19:53:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:18: Added boss reference: Peacocky693 -> obj_boss
+07/30/24 19:53:18: Boss spawned successfully: 2 at position (2420.07, 1014.93) relative to Target
+07/30/24 19:53:18: Raw command: execute_action(SpawnBoss3)
+07/30/24 19:53:18: Cleaned command: execute_action(SpawnBoss3)
+07/30/24 19:53:18: Executing action/group: SpawnBoss3
+07/30/24 19:53:18: Decoded Data: {"command":"spawn_boss","parameters":[3.0,353.0,353.0],"targetObject":"Target"}
+07/30/24 19:53:18: Raw command: Target.spawn_boss([3.0,353.0,353.0])
+07/30/24 19:53:18: Cleaned command: Target.spawn_boss([3.0,353.0,353.0])
+07/30/24 19:53:18: Parsing arguments: [3.0,353.0,353.0]
+07/30/24 19:53:18: Parsed arguments: ["[3.0,353.0,353.0]"]
+07/30/24 19:53:18: Command Name: spawn_boss
+07/30/24 19:53:18: Target Object: Target
+07/30/24 19:53:18: Parameters: ["[3.0,353.0,353.0]"]
+07/30/24 19:53:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:18: Added boss reference: Rehino4 -> obj_boss
+07/30/24 19:53:18: Boss spawned successfully: 3 at position (2273.07, 1367.93) relative to Target
+07/30/24 19:53:18: Raw command: execute_action(SpawnBoss4)
+07/30/24 19:53:18: Cleaned command: execute_action(SpawnBoss4)
+07/30/24 19:53:18: Executing action/group: SpawnBoss4
+07/30/24 19:53:18: Decoded Data: {"command":"spawn_boss","parameters":[4.0,0.0,500.0],"targetObject":"Target"}
+07/30/24 19:53:18: Raw command: Target.spawn_boss([4.0,0.0,500.0])
+07/30/24 19:53:18: Cleaned command: Target.spawn_boss([4.0,0.0,500.0])
+07/30/24 19:53:18: Parsing arguments: [4.0,0.0,500.0]
+07/30/24 19:53:18: Parsed arguments: ["[4.0,0.0,500.0]"]
+07/30/24 19:53:18: Command Name: spawn_boss
+07/30/24 19:53:18: Target Object: Target
+07/30/24 19:53:18: Parameters: ["[4.0,0.0,500.0]"]
+07/30/24 19:53:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:18: Added boss reference: 22Salamander5 -> obj_boss
+07/30/24 19:53:18: Boss spawned successfully: 4 at position (1920.07, 1514.93) relative to Target
+07/30/24 19:53:18: Raw command: execute_action(SpawnBoss5)
+07/30/24 19:53:18: Cleaned command: execute_action(SpawnBoss5)
+07/30/24 19:53:18: Executing action/group: SpawnBoss5
+07/30/24 19:53:18: Decoded Data: {"command":"spawn_boss","parameters":[5.0,-353.0,353.0],"targetObject":"Target"}
+07/30/24 19:53:18: Raw command: Target.spawn_boss([5.0,-353.0,353.0])
+07/30/24 19:53:18: Cleaned command: Target.spawn_boss([5.0,-353.0,353.0])
+07/30/24 19:53:18: Parsing arguments: [5.0,-353.0,353.0]
+07/30/24 19:53:18: Parsed arguments: ["[5.0,-353.0,353.0]"]
+07/30/24 19:53:18: Command Name: spawn_boss
+07/30/24 19:53:18: Target Object: Target
+07/30/24 19:53:18: Parameters: ["[5.0,-353.0,353.0]"]
+07/30/24 19:53:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:18: Added boss reference: SquidCudi6 -> obj_boss
+07/30/24 19:53:18: Boss spawned successfully: 5 at position (1567.07, 1367.93) relative to Target
+07/30/24 19:53:18: Raw command: execute_action(SpawnBoss6)
+07/30/24 19:53:18: Cleaned command: execute_action(SpawnBoss6)
+07/30/24 19:53:18: Executing action/group: SpawnBoss6
+07/30/24 19:53:18: Decoded Data: {"command":"spawn_boss","parameters":[6.0,-500.0,0.0],"targetObject":"Target"}
+07/30/24 19:53:18: Raw command: Target.spawn_boss([6.0,-500.0,0.0])
+07/30/24 19:53:18: Cleaned command: Target.spawn_boss([6.0,-500.0,0.0])
+07/30/24 19:53:18: Parsing arguments: [6.0,-500.0,0.0]
+07/30/24 19:53:19: Parsed arguments: ["[6.0,-500.0,0.0]"]
+07/30/24 19:53:19: Command Name: spawn_boss
+07/30/24 19:53:19: Target Object: Target
+07/30/24 19:53:19: Parameters: ["[6.0,-500.0,0.0]"]
+07/30/24 19:53:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:19: Added boss reference: Dracoon7 -> obj_boss
+07/30/24 19:53:19: Boss spawned successfully: 6 at position (1420.07, 1014.93) relative to Target
+07/30/24 19:53:19: Raw command: execute_action(SpawnBoss7)
+07/30/24 19:53:19: Cleaned command: execute_action(SpawnBoss7)
+07/30/24 19:53:19: Executing action/group: SpawnBoss7
+07/30/24 19:53:19: Decoded Data: {"command":"spawn_boss","parameters":[7.0,-353.0,-353.0],"targetObject":"Target"}
+07/30/24 19:53:19: Raw command: Target.spawn_boss([7.0,-353.0,-353.0])
+07/30/24 19:53:19: Cleaned command: Target.spawn_boss([7.0,-353.0,-353.0])
+07/30/24 19:53:19: Parsing arguments: [7.0,-353.0,-353.0]
+07/30/24 19:53:19: Parsed arguments: ["[7.0,-353.0,-353.0]"]
+07/30/24 19:53:19: Command Name: spawn_boss
+07/30/24 19:53:19: Target Object: Target
+07/30/24 19:53:19: Parameters: ["[7.0,-353.0,-353.0]"]
+07/30/24 19:53:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:19: Added boss reference: KidBoo8 -> obj_boss
+07/30/24 19:53:19: Boss spawned successfully: 7 at position (1567.07, 661.93) relative to Target
+07/30/24 19:53:19: Raw command: execute_action(SpawnBoss8)
+07/30/24 19:53:19: Cleaned command: execute_action(SpawnBoss8)
+07/30/24 19:53:19: Executing action/group: SpawnBoss8
+07/30/24 19:53:19: Decoded Data: {"command":"spawn_boss","parameters":[8.0,0.0,-400.0],"targetObject":"Target"}
+07/30/24 19:53:19: Raw command: Target.spawn_boss([8.0,0.0,-400.0])
+07/30/24 19:53:19: Cleaned command: Target.spawn_boss([8.0,0.0,-400.0])
+07/30/24 19:53:19: Parsing arguments: [8.0,0.0,-400.0]
+07/30/24 19:53:19: Parsed arguments: ["[8.0,0.0,-400.0]"]
+07/30/24 19:53:19: Command Name: spawn_boss
+07/30/24 19:53:19: Target Object: Target
+07/30/24 19:53:19: Parameters: ["[8.0,0.0,-400.0]"]
+07/30/24 19:53:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:19: Added boss reference: LilSheep9 -> obj_boss
+07/30/24 19:53:19: Boss spawned successfully: 8 at position (2106.35, 359.71) relative to Target
+07/30/24 19:53:19: Raw command: execute_action(SpawnBoss9)
+07/30/24 19:53:19: Cleaned command: execute_action(SpawnBoss9)
+07/30/24 19:53:19: Executing action/group: SpawnBoss9
+07/30/24 19:53:19: Decoded Data: {"command":"spawn_boss","parameters":[9.0,283.0,-283.0],"targetObject":"Target"}
+07/30/24 19:53:19: Raw command: Target.spawn_boss([9.0,283.0,-283.0])
+07/30/24 19:53:19: Cleaned command: Target.spawn_boss([9.0,283.0,-283.0])
+07/30/24 19:53:19: Parsing arguments: [9.0,283.0,-283.0]
+07/30/24 19:53:19: Parsed arguments: ["[9.0,283.0,-283.0]"]
+07/30/24 19:53:19: Command Name: spawn_boss
+07/30/24 19:53:19: Target Object: Target
+07/30/24 19:53:19: Parameters: ["[9.0,283.0,-283.0]"]
+07/30/24 19:53:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:19: Added boss reference: Emunem10 -> obj_boss
+07/30/24 19:53:19: Boss spawned successfully: 9 at position (2072.38, 682.22) relative to Target
+07/30/24 19:53:19: Raw command: execute_action(SpawnBoss10)
+07/30/24 19:53:19: Cleaned command: execute_action(SpawnBoss10)
+07/30/24 19:53:19: Executing action/group: SpawnBoss10
+07/30/24 19:53:19: Decoded Data: {"command":"spawn_boss","parameters":[10.0,400.0,0.0],"targetObject":"Target"}
+07/30/24 19:53:19: Raw command: Target.spawn_boss([10.0,400.0,0.0])
+07/30/24 19:53:19: Cleaned command: Target.spawn_boss([10.0,400.0,0.0])
+07/30/24 19:53:19: Parsing arguments: [10.0,400.0,0.0]
+07/30/24 19:53:19: Parsed arguments: ["[10.0,400.0,0.0]"]
+07/30/24 19:53:19: Command Name: spawn_boss
+07/30/24 19:53:19: Target Object: Target
+07/30/24 19:53:19: Parameters: ["[10.0,400.0,0.0]"]
+07/30/24 19:53:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:19: Added boss reference: LilHump11 -> obj_boss
+07/30/24 19:53:19: Boss spawned successfully: 10 at position (2531.38, 1196.75) relative to Target
+07/30/24 19:53:19: Raw command: execute_action(SpawnBoss11)
+07/30/24 19:53:19: Cleaned command: execute_action(SpawnBoss11)
+07/30/24 19:53:19: Executing action/group: SpawnBoss11
+07/30/24 19:53:19: Decoded Data: {"command":"spawn_boss","parameters":[11.0,283.0,283.0],"targetObject":"Target"}
+07/30/24 19:53:19: Raw command: Target.spawn_boss([11.0,283.0,283.0])
+07/30/24 19:53:19: Cleaned command: Target.spawn_boss([11.0,283.0,283.0])
+07/30/24 19:53:19: Parsing arguments: [11.0,283.0,283.0]
+07/30/24 19:53:19: Parsed arguments: ["[11.0,283.0,283.0]"]
+07/30/24 19:53:19: Command Name: spawn_boss
+07/30/24 19:53:19: Target Object: Target
+07/30/24 19:53:19: Parameters: ["[11.0,283.0,283.0]"]
+07/30/24 19:53:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:19: Added boss reference: BeeYonce12 -> obj_boss
+07/30/24 19:53:19: Boss spawned successfully: 11 at position (2474.17, 1396.36) relative to Target
+07/30/24 19:53:19: Raw command: execute_action(SpawnBoss12)
+07/30/24 19:53:19: Cleaned command: execute_action(SpawnBoss12)
+07/30/24 19:53:19: Executing action/group: SpawnBoss12
+07/30/24 19:53:19: Decoded Data: {"command":"spawn_boss","parameters":[12.0,0.0,400.0],"targetObject":"Target"}
+07/30/24 19:53:20: Raw command: Target.spawn_boss([12.0,0.0,400.0])
+07/30/24 19:53:20: Cleaned command: Target.spawn_boss([12.0,0.0,400.0])
+07/30/24 19:53:20: Parsing arguments: [12.0,0.0,400.0]
+07/30/24 19:53:20: Parsed arguments: ["[12.0,0.0,400.0]"]
+07/30/24 19:53:20: Command Name: spawn_boss
+07/30/24 19:53:20: Target Object: Target
+07/30/24 19:53:20: Parameters: ["[12.0,0.0,400.0]"]
+07/30/24 19:53:20: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:20: Added boss reference: KimChameleon13 -> obj_boss
+07/30/24 19:53:20: Boss spawned successfully: 12 at position (1812.41, 1321.42) relative to Target
+07/30/24 19:53:20: Raw command: execute_action(SpawnBoss13)
+07/30/24 19:53:20: Cleaned command: execute_action(SpawnBoss13)
+07/30/24 19:53:20: Executing action/group: SpawnBoss13
+07/30/24 19:53:20: Decoded Data: {"command":"spawn_boss","parameters":[13.0,-283.0,283.0],"targetObject":"Target"}
+07/30/24 19:53:20: Raw command: Target.spawn_boss([13.0,-283.0,283.0])
+07/30/24 19:53:20: Cleaned command: Target.spawn_boss([13.0,-283.0,283.0])
+07/30/24 19:53:20: Parsing arguments: [13.0,-283.0,283.0]
+07/30/24 19:53:20: Parsed arguments: ["[13.0,-283.0,283.0]"]
+07/30/24 19:53:20: Command Name: spawn_boss
+07/30/24 19:53:20: Target Object: Target
+07/30/24 19:53:20: Parameters: ["[13.0,-283.0,283.0]"]
+07/30/24 19:53:20: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 19:53:20: Added boss reference: TaylorSwan14 -> obj_boss
+07/30/24 19:53:20: Boss spawned successfully: 13 at position (1643.25, 1182.31) relative to Target
+07/30/24 19:53:35: [Jay Arnold] the bosses spawned but not being able to create and overrite the actions is not good
+07/30/24 19:53:35: Creating chat bubble: " the bosses spawned but not being able to create and overrite the actions is not good", Owner: yeancat, Choices: []
+07/30/24 19:53:35: Chat Bubble Created. Following 'yeancat' with text: 'the bosses spawned but not being able to create and overrite the actions is not
+good'. Number of choices: 0
+

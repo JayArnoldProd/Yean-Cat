@@ -1,0 +1,2552 @@
+Bug Name: Chat_Bubbles_Display_Line_Character
+Description: Chat bubbles are displaying the Line character instead of line breaking.
+
+== Related Objects ==
+
+Object: obj_client
+
+File: Step_0.gml
+Code:
+/// Step Event of obj_Client
+
+//create mouse if it doesnt exist and using keyboard and mouse
+if !instance_exists(obj_Cursor) and (global.control_type!=1) { 
+	instance_create_depth(mouse_x,mouse_y,-1000000,obj_Cursor);
+}
+
+// Set current font and heartbeat rate
+global.heartbeatBPM = global.current_bpm;
+fnt_chat = master.font_array[fnt_chat_id, 1];
+global.wrapWidth = 2350; // Adjusted wrap width
+
+//check for gamepad input
+check_gamepad_input()
+
+//randomly and probability skewed to bring shake_angle back to 0
+if abs(shake_angle)>.1 {
+	var invert = choose(-1,1)*(random(8)+92)/100
+	shake_angle=round(invert*shake_angle*100)/100
+} else {
+	if shake_angle!=0 {
+	shake_angle=0
+	keyboard_lastkey=vk_nokey
+	}
+}
+
+// Handle reconnection logic
+if (!global.isConnected && global.reconnectTimer <= 0) {
+    var result = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+    if (result >= 0) {
+        global.isConnected = true;
+        isServerRunning = true;
+        handleDebugMessage("[Client] Successfully reconnected to server.", true);
+        global.reconnectTimer = global.reconnectInterval;
+    } else {
+        global.reconnectTimer = global.reconnectInterval;
+        isServerRunning = false;
+        handleDebugMessage("[Client] Failed to reconnect to server. Will try again...", true);
+    }
+} else if (global.isConnected && global.reconnectTimer > 0) {
+    global.reconnectTimer--;
+}
+
+// Handle incoming network events safely
+if (ds_exists(async_load, ds_type_map)) {
+    var type = ds_map_find_value(async_load, "type");
+    var n_id = ds_map_find_value(async_load, "id");
+
+    if (n_id == global.client_socket) {
+        switch (type) {
+            case network_type_data:
+                var buffer = ds_map_find_value(async_load, "buffer");
+                buffer_seek(buffer, buffer_seek_start, 0);
+                var identifier = buffer_read(buffer, buffer_u8);
+
+                switch (identifier) {
+                    case global.IDENTIFIER_HEARTBEAT:
+                        handleDebugMessage("[Client] Heartbeat received from server.", true);
+                        break;
+                    
+                    case global.IDENTIFIER_TEST_MESSAGE:
+                        var msg = buffer_read(buffer, buffer_string);
+                        handleDebugMessage("[Client] Message from server: " + msg, true);
+                        break;
+                }
+                buffer_delete(buffer);
+                break;
+
+            case network_type_connect:
+                handleDebugMessage("[Client] Connected to server.", true);
+                break;
+                
+            case network_type_disconnect:
+                global.isConnected = false;
+                handleDebugMessage("[Client] Disconnected from server. Attempting to identify cause...", true);
+                break;
+        }
+    }
+} else {
+    //show_debug_message("ERROR: Invalid ds_map reference in async event.");
+}
+
+
+// Command input and execution logic
+if (input_check_pressed("chat") && !isActive) {
+    isActive = true;
+    global.commandBuffer = "";
+    keyboard_string = "";
+    show_debug_message("[Client] Chat input activated.");
+}
+
+// Toggle chat box with a specific key, e.g., Tab
+if (keyboard_check_pressed(vk_tab)) {
+    show_chatbox = !show_chatbox;
+    global.commandBuffer = "";  // Clear previous commands or texts
+    keyboard_string = "";
+    show_debug_message("[Client] Toggled chat box visibility: " + string(show_chatbox));
+}
+
+// Handle backspace and text input
+if (isActive) {
+// Handle backspace input
+    if (input_check("cancel") && string_length(global.commandBuffer) > 0) {
+        if (global.backspaceTimer == 0 || global.backspaceTimer >= global.backspaceDelay) {
+            var lastCharPosition = string_length(global.commandBuffer);
+
+            // Check if the last character is a newline
+            if (string_char_at(global.commandBuffer, lastCharPosition) == "\n") {
+                // Adjust the global.lastSpaceIndex if necessary
+                if (global.lastSpaceIndex >= lastCharPosition) {
+                    global.lastSpaceIndex = string_last_index_of(string_copy(global.commandBuffer, 1, lastCharPosition - 1), " ");
+                }
+            }
+
+            // Perform the character deletion
+            global.commandBuffer = string_delete(global.commandBuffer, lastCharPosition, 1);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Updated command buffer after backspace: " + global.commandBuffer);
+
+            // Clear the keyboard buffer to avoid unwanted characters
+            keyboard_string = "";
+
+            // Increase deletion speed
+            if (global.backspaceTimer == 0) {
+                global.backspaceTimer = 1;
+            } else {
+                global.backspaceTimer = global.backspaceSpeed;
+				if global.backspaceSpeed<14 {
+					global.backspaceSpeed+=1
+				}
+            }
+        } else {
+            global.backspaceTimer += 1;
+        }
+    } else {
+        global.backspaceTimer = 0; // Reset timer when backspace is released
+		global.backspaceSpeed=1
+    }
+	
+	// Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+    var pasting = false;
+    if (os_type == os_windows) {
+        if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    } else if (os_type == os_macosx) {
+        if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    }
+	
+	if string_length(global.commandBuffer) < global.character_limit {
+        var char = keyboard_string;
+        if (char != "") {
+			if pasting=false {
+            global.commandBuffer += char;
+            keyboard_string = ""; // Clear the keyboard buffer after reading
+            update_chat_input_visuals();
+            show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
+			}
+		}
+    } else {
+        var char = "";
+        if keyboard_check_pressed(vk_anykey) {
+            if last_key_is_valid_character(keyboard_lastkey) {
+                //play sound to indicate char limit. 
+                var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
+                shake_angle = choose(-1,1) * random_range(.95,1.00)
+            }
+        }
+    }
+
+// Handle pasting
+if (pasting) {
+    if (clipboard_has_text()) {
+        var clip_string = clipboard_get_text();
+        if (string_length(clip_string) > 0 && string_length(clip_string) < global.character_limit) {
+            // Replace regular line breaks with intentional line breaks
+            clip_string = string_replace_all(clip_string, "\n", global.intentionalLineBreak);
+            clip_string = string_replace_all(clip_string, "\r", "");
+            
+            // Use appendAndWrap function, but preserve intentional line breaks
+            var wrapped_lines = string_split(clip_string, global.intentionalLineBreak);
+            var wrapped_result = "";
+            for (var i = 0; i < array_length(wrapped_lines); i++) {
+                wrapped_result += appendAndWrap(wrapped_lines[i], "", global.wrapWidth);
+                if (i < array_length(wrapped_lines) - 1) {
+                    wrapped_result += global.intentionalLineBreak;
+                }
+            }
+            
+            global.commandBuffer += wrapped_result;
+            update_chat_input_visuals();
+            show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
+        } else {
+            handleDebugMessage("Clipboard content is too long to paste!", false);
+        }
+    }
+    pasting = false;
+}
+
+// Check if Enter is pressed to process the command or chat message
+if (input_check_pressed("confirm")) {
+	if (keyboard_check(vk_shift)) {
+            // Shift+Enter: Add a new line
+            global.commandBuffer += global.intentionalLineBreak;
+            update_chat_input_visuals();
+        } else {
+        if (string_char_at(global.commandBuffer, 1) == "/") {
+            execute_multiple_commands(global.commandBuffer);
+            global.textColor = global.defaultTextColor;
+            global.commandBuffer = "";
+            isActive = false;
+        } else {
+            var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
+            global.message_is_bubble = 1;
+            handleDebugMessage(chatMessage, -1);
+            global.message_is_bubble = 0;
+        }
+
+        // Add the command/message to the recall list
+        if (string_length(global.commandBuffer) > 0) {
+            ds_list_add(global.recall_list, global.commandBuffer);
+            if (ds_list_size(global.recall_list) > global.recall_max) {
+                ds_list_delete(global.recall_list, 0);  // Remove the oldest entry if exceeding the limit
+            }
+        }
+        global.recall_index = -1;
+        global.textColor = global.defaultTextColor;
+        global.commandBuffer = "";
+        isActive = false;
+        show_debug_message("[Client] Processed command/chat and cleared buffer.");
+}
+}
+    // Navigate through the recall list using up and down arrows
+    if (keyboard_check_pressed(vk_up)) {
+        if (global.recall_index == -1) {
+            global.recall_index = ds_list_size(global.recall_list) - 1;
+        } else {
+            global.recall_index = max(0, global.recall_index - 1);
+        }
+
+        if (global.recall_index >= 0 && global.recall_index < ds_list_size(global.recall_list)) {
+            global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled previous command/chat: " + global.commandBuffer);
+        }
+    } else if (keyboard_check_pressed(vk_down)) {
+        if (global.recall_index != -1) {
+            global.recall_index = min(ds_list_size(global.recall_list) - 1, global.recall_index + 1);
+
+            if (global.recall_index < ds_list_size(global.recall_list)) {
+                global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            } else {
+                global.commandBuffer = "";
+            }
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled next command/chat: " + global.commandBuffer);
+        }
+    }
+}
+
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    // Check if a new message was added
+    if (ds_list_size(global.debugMessages) > 0 && 
+        ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {
+        // Scroll to the bottom when a new message is added
+        scrollIndex = max(0, totalLines - global.max_visible_lines);
+        global.lastAddedMessage = ""; // Reset the last added message
+    } else {
+        // Ensure scrollIndex is within valid range
+        scrollIndex = clamp(scrollIndex, 0, max(0, totalLines - global.max_visible_lines));
+    }
+    
+    // Draw the chat messages
+    drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+// Only process incoming data and send heartbeats if the server is running
+if (isServerRunning && sendHeartbeat && (current_time - global.lastHeartbeatTime >= broadcastInterval)) {
+    handleDebugMessage("Heartbeat sent to Server", true);
+    global.lastHeartbeatTime = current_time;
+}
+
+
+
+
+
+File: Other_68.gml
+Code:
+// Async Networking Event Handling for Client
+
+/// Revised Async Networking Event
+var type = ds_map_find_value(async_load, "type");
+var n_id = ds_map_find_value(async_load, "id");
+
+if (n_id == global.client_socket) {
+    switch (type) {
+        case network_type_connect:
+            show_debug_message("[Client] Connected to server.");
+            global.isConnected = true;
+            break;
+        case network_type_disconnect:
+            show_debug_message("[Client] Disconnected from server.");
+            global.isConnected = false;
+            break;
+        case network_type_data:
+            if (ds_map_exists(async_load, "buffer")) {
+                var buffer = ds_map_find_value(async_load, "buffer");
+                if (buffer != undefined) {
+                    buffer_seek(buffer, buffer_seek_start, 0);
+                    var identifier = buffer_read(buffer, buffer_u8);
+                    handleNetworkData(identifier, buffer);
+                } else {
+                    show_debug_message("ERROR: Buffer not found in data event.");
+                }
+            } else {
+                show_debug_message("ERROR: 'buffer' key does not exist in the async_load map.");
+            }
+            break;
+    }
+} else {
+    show_debug_message("ERROR: Invalid socket ID reference in async event.");
+}
+
+
+//// Async Networking Event of obj_Client
+
+//var type = ds_map_find_value(async_load, "type");
+//var n_id = ds_map_find_value(async_load, "id");
+
+//if (n_id == global.client_socket) {
+//    switch (type) {
+//        case network_type_data:
+//            var buffer = ds_map_find_value(async_load, "buffer");
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            var identifier = buffer_read(buffer, buffer_u8);
+
+//            switch (identifier) {
+//                case global.IDENTIFIER_HEARTBEAT:
+//                    // Handle heartbeat received from the server
+//                    show_debug_message("[Client] Heartbeat received from server.");
+//                    // Optionally, send back a confirmation or keep alive message
+//                    break;
+                
+//                case global.IDENTIFIER_UNIQUE_ID:
+//                    // This would be where the server confirms receipt of your unique ID
+//                    // Or any other custom logic for unique ID handling
+//                    var confirmationMessage = buffer_read(buffer, buffer_string);
+//                    show_debug_message("[Client] Server confirmed Unique ID: " + confirmationMessage);
+//                    break;
+                
+//                // Add more case handlers for different data types as needed
+//            }
+//            buffer_delete(buffer);
+//            break;
+
+//        case network_type_connect:
+//            // Immediately upon connection, send the unique ID to the server
+//            // This ensures server is aware of who just connected
+//            var buffer = buffer_create(256, buffer_grow, 1);
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+//            buffer_write(buffer, buffer_string, global.clientUniqueID);
+//            network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+//            show_debug_message("[Client] Sent unique ID to server: " + global.clientUniqueID);
+//            buffer_delete(buffer);
+//            break;
+            
+//        case network_type_disconnect:
+//            // Handle disconnection logic here, if needed
+//            global.isConnected = false; // Update the connection status
+//            show_debug_message("[Client] Disconnected from server.");
+//            break;
+//    }
+//}
+
+
+File: Destroy_0.gml
+Code:
+///Destroy Event for obj_Client
+if (global.isConnected) {
+    network_destroy(global.client_socket);
+}
+
+
+//// Clean up dynamic resources
+//if (ds_exists(clien, ds_type_map)) {
+//    ds_map_destroy(myDataStructure);
+//}
+
+// Optionally, inform the master object or handle game state changes
+// For example, transition to a different room or update the UI
+//event_perform_object(obj_Master, ev_Other, ev_user0); // Custom user event for cleanup in obj_Master
+
+
+File: Draw_0.gml
+Code:
+///Client Draw Code
+draw_set_font(fnt_chat);
+if show_chatbox=true {
+	var xx = 990;
+	var yy = 686; // Starting y position
+	var lm_cal=clamp(xx+(clamp(110-global.longestmessage,0,110))+1.65*(global.longestmessage-50)/3,xx+215,(display_get_gui_width()-10)/2+room_width/2)+10
+	var x1 = 980
+	var y1 = 686-20
+	var x2 = max(lm_cal,clamp(xx+(clamp(110-global.longestmessage,0,110))+1.65*(string_width(global.commandBuffer)-1)/3,xx+215,(display_get_gui_width())/2+room_width/2+50))
+	var y2 = _yy+100
+	//draw transparent background box for chatbox that adjusts to fit the longest message. will be later swapped for a scaled image background
+	draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);
+	draw_set_alpha(1);
+	var sca=.7
+	global.chat_line_height = 70 * sca + 5;
+// Set drawing properties
+draw_set_colour(c_ltgray);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_font(fnt_chat); 
+// Display server status
+var serverStatus = "Server Unable to Connect"; // Default message
+if (isServerRunning) {
+    serverStatus = "Server Online";
+	draw_set_colour(c_lime);
+} else {
+    serverStatus = "Server Stopped";
+	draw_set_colour(c_red);
+}
+
+if show_server_status=true {
+draw_text_transformed(xx, yy, serverStatus, sca, sca, 0);
+yy += 40; // Increment y position for next line
+}
+
+if connectedClients>0 {
+	draw_set_colour(c_aqua);
+} else {
+	draw_set_colour(c_ltgrey);
+}
+if show_server_status=true {
+	//we can keep drawing this section this way unless somehow your next response can condense it as well. but its  kind of fine as is, no issues here.
+draw_text_transformed(xx+3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx-3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx+3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx-3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_set_color(global.c_chat1);
+draw_text_transformed(xx, yy-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+yy += 50; // Increment y position for next 
+} else {
+	draw_set_color(global.c_chat1);
+	draw_text_transformed(xx+3, yy+3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx-3, yy+3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx+3, yy-3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx-3, yy-3-10, "Chat Box", sca, sca, 0);
+	draw_set_color(global.c_chat2);
+	draw_text_transformed(xx, yy-10, "Chat Box", sca, sca, 0);
+yy += 60; // Increment y position for next line
+}
+
+sca=.5
+
+if show_chatbox and ds_exists(global.debugMessages, ds_type_list) {
+    var startY = yy;
+    var maxLinesToShow = global.max_visible_lines;
+	// Before calling drawChatMessages, ensure messages is a ds_list
+if (!ds_exists(global.debugMessages, ds_type_list)) {
+    show_debug_message("Error: debugMessages is not a valid ds_list.");
+    return;
+}
+
+    var totalLines = drawChatMessages(global.debugMessages, 990, startY, maxLinesToShow, sca, false,global.c_chat2,global.c_chat1);
+
+    // Calculate the max index for scrolling based on the total number of lines
+    var maxScrollIndex = max(0, clamp(totalLines - maxLinesToShow,0,9999999));
+
+    // Scroll messages with keyboard or mouse wheel
+    if (input_check("up") || mouse_wheel_up()) {
+		if !(input_check("up") and isActive = true) { //disable scrolling from "W" when typing
+        scrollIndex = max(0, scrollIndex - 1);
+        show_debug_message("[Client] Scrolled up: Current scroll index is " + string(scrollIndex));
+		}
+    }
+    if (input_check("down") || mouse_wheel_down()) {
+		if !(input_check("down") and isActive = true) {//disable scrolling from "S" when typing
+        scrollIndex = min(maxScrollIndex, scrollIndex + 1);
+        show_debug_message("[Client] Scrolled down: Current scroll index is " + string(scrollIndex));
+		}
+    }
+
+    // Ensuring scrollIndex is always within the valid range
+    scrollIndex = clamp(scrollIndex, 0, maxScrollIndex);
+
+    // Redraw messages considering the scroll index
+	// Before calling drawChatMessages, ensure messages is a ds_list
+if (!ds_exists(global.debugMessages, ds_type_list)) {
+    show_debug_message("Error: debugMessages is not a valid ds_list.");
+    return;
+}
+
+    drawChatMessages(global.debugMessages, 990, yy , maxLinesToShow, sca, true,global.c_chat2,global.c_chat1);
+}
+
+yy=yy+clamp(totalLines-scrollIndex,0,global.max_visible_lines)*(global.chat_line_height*1.00)+5
+sca=.6
+_yy=yy-15
+if global.commandBuffer != "" {
+displayText = string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n");
+} else {
+displayText = ""
+}
+if (isActive) {
+// Determine the number of line breaks in the command buffer
+var lineCount = array_length(string_split(global.commandBuffer, "\n"));
+
+// Calculate the new height based on the number of lines
+var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+var boxHeight = global.chat_line_height*1.05 * array_length(lines) + 2; // Calculate box height based on number of lines
+
+//chat input box drawing code 
+draw_set_color(c_black); // Set initial color to black (border)
+ 
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_white);  // border becomes white if command is being typed
+    }
+// Adjust the bottom y-coordinate of the rectangle to expand with each new line
+draw_rectangle(xx + 5, yy - 11, clamp(xx - 90 + 1.85 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150 + 10, yy + boxHeight + 10, false);
+
+    draw_set_color(c_white);  // Set initial bg color to white when no '/' detected
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_black);  // Default bg color if command is being typed
+		slash_typed=true
+    } else {
+		slash_typed=false
+	}
+draw_rectangle(xx + 10, yy - 6, clamp(xx - 90 + 1.85 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150, yy + boxHeight, false);
+//draw command buffer
+draw_set_color(global.c_chat2);
+	//we stay drawing these like this because theres no need for line handling here.
+
+	draw_set_color(merge_color(global.textColor,c_red,clamp(abs(shake_angle),0,1)));
+    draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, displayText + "_", sca, sca, shake_angle*.25);  // Shoblinking cursor
+} else {
+	draw_set_color(merge_color(global.c_chat1,c_red,clamp(abs(shake_angle),0,1)));
+    draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, displayText + "_", sca, sca, shake_angle*.25);  // Show blinking cursor
+}
+} else {
+	exit
+}
+
+File: Alarm_0.gml
+Code:
+// Alarm[0] Event
+var t_buffer = buffer_create(256, buffer_grow, 1);
+buffer_seek(t_buffer, buffer_seek_start, 0);
+buffer_write(t_buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+buffer_write(t_buffer, buffer_string, global.clientUniqueID);
+network_send_packet(global.client_socket, t_buffer, buffer_tell(t_buffer));
+buffer_delete(t_buffer);
+global.uniqueIDSent = true; // Ensure we don't resend the unique ID
+show_debug_message("[Client] Unique ID sent after delay: " + global.clientUniqueID);
+
+
+File: obj_Client.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_Client",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":68,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":5,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_Client",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "parentObjectId":null,
+  "persistent":true,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":null,
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+File: Other_5.gml
+Code:
+/// @description Insert description here
+//room end of obj_client
+show_chatbox=false
+
+File: Create_0.gml
+Code:
+
+// obj_Client setup Create Event
+global.intentionalLineBreak = "|";
+global.lastAddedMessage = "";
+global.sessionLogFileName = "SessionLog_" + string_replace_all(string(date_current_datetime()), ":", "-") + ".txt";
+global.masterLogFileName = "MasterLog.txt";
+global.logDebugMessagesToFile = false; // By default, log debug messages to the file
+global.serverAddress = "127.0.0.1"; // Example server address
+// Initialize the data structure globally if not already initialized
+global.chatLogs=-1
+global.bubble_send_to_log=1
+global.message_is_bubble=0
+if (!ds_exists(global.chatLogs, ds_type_list)) {
+    global.chatLogs = ds_list_create();
+}
+time=0
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+global.lastWPMUpdateTime = 0; // Timestamp of the last WPM update
+global.WPMUpdateInterval = 5000; // Minimum time between updates in milliseconds (e.g., 5000ms = 5 seconds)
+lastUpdateTime = -1;
+updateInterval = 60; // Run every 60 seconds
+//input
+input_cursor_coord_space_set(INPUT_COORD_SPACE.ROOM, 0);
+//input_mouse_capture_set(true, 1);
+window_set_cursor(cr_none)
+instance_create_depth(room_width/2,room_height/2,-1000000,obj_Cursor);
+// Global time offset initialized
+global.timeOffset = 0;
+global.inputDisplayEnabled = false;  // Initialize the variable at an appropriate place in your game startup code
+global.actions = ds_map_create();
+// Adding command details
+// Global initialization script or create event
+global.commandDetails = ds_map_create();
+add_command("goto_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("jump_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("toggle_server", 3, [[]], false);  // Does not require '(' visually
+add_command("toggle_debug", 1, [[]], false);  // Does not require '(' visually
+add_command("list_clients", 1, [[]], false);  // Does not require '(' visually
+add_command("enable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("disable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("toggle_log_debug", 2, [[]], false);  // Does not require '(' visually
+add_command("set_my_permission(", 0, [["string", "real"]], true);
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+add_command("game_end(", 0, [["string", "real"]], true); 
+add_command("list_commands", 0, [[]], false); // No arguments, accessible at all permission levels
+add_command("show_lines(", 0, [["real"]], true);
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("level_up(", 1, [["real"]], true);  // Command requires '(' visually and a real number argument
+add_command("show_wpm", 0, [[]], false);  // Does not require '(' visually, level 0 permission
+add_command("chat_bubble(", 1, [["string"], ["string"], ["array"]], true);
+add_command("save_macros", 1, [[]], false);  // Add the command to save macros
+add_command("list_variables", 2, [[]], false);
+add_command("add_action(", 2, [["string"],["string"],["array"]],true);
+add_command("save_actions", 2, [], false);
+add_command("list_actions", 2, [], false);
+add_command("execute_action(", 2, [["string"]], true);
+add_command("show_variable(", 2, [["string"]], true);
+add_command("return_controller", 1, [[]], false);
+add_command("toggle_input_display", 1, [[]], false);
+add_command("show_gamepad_mapping", 1, [[]], false);
+
+// Initialize global action details
+global.actionDetails = ds_map_create();
+
+
+
+//add_command("spawn_boss(", 2, [["string"]], true);
+
+//0name //1health //2resistance0-1invincible /3/rate //4attackset //5damage //6moveset //7image //8appearance [0=character,1=boss] //9appearanceid
+//add_boss("Drake",6666666,.666,1,1,1,4,spr_boss1,1,0]
+
+// You can add new commands or modify existing ones easily with the `add_command` function.
+global.variableDetails = ds_map_create();
+add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("Password", "password", 1, master, "string", 1, 100000, [], [], "Player");
+add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
+add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
+add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 1000, [], [], "Social");
+add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro4", "macro4", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro5", "macro5", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro6", "macro6", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro7", "macro7", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro8", "macro8", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro9", "macro9", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro10", "macro10", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 99999999, [], [], "Global");
+global.debugCommand = "";
+//global.character_limit
+// Ensure commandBuffer is initialized
+global.commandBuffer = "";
+slash_typed=false //whether or not a command is being typed
+// Initialize a global variable for text color
+c_pink = make_color_hsv(0,58,255);
+global.defaultTextColor = c_black;
+global.textColor = global.defaultTextColor;
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+ // This will store the input from the user
+isActive = true;  // To check if command input is active
+sendHeartbeat = false; // Control sending of heartbeat messages
+_yy=0
+pasting=0;
+global.longestmessage=0;
+global.c_chat2=c_black
+global.c_chat1=c_white
+fnt_chat=Font4
+global.borderwidth=8 //bg width
+global.bg_alpha=.4 //bg alpha
+global.bg_color=c_black //background color
+global.o_color=c_white //outline color
+global.wrapWidth = 2350; // Adjust this value based on your chat box
+global.character_limit=500;//character limit for chat
+global.lastSpaceIndex = -1;
+displayText=""
+//Other Variables
+global.showDebugMessages = true; // Enable debug messages by default
+global.maximumMessages=2000;
+maxDisplayMessages = 9; // Number of debug messages to display at once
+// Initialize max visible lines for the chat box
+global.max_visible_lines = maxDisplayMessages;  // You can adjust this number based on your needs
+
+global.debugMessages = ds_list_create();
+fnt_chat_id=0
+// Global settings for text wrapping
+global.chat_threshold = 2350;  // Threshold to start considering wrapping
+global.chat_text_limit = 2350; // Maximum pixel width of text before wrapping
+global.chat_line_height = 50; // Height of each line of text in pixels
+global.min_width = 110;  // Minimum width of the chat box
+global.max_width = 1000;  // Maximum width of the chat box, adjust according to your UI design
+// Adjust these values to tweak where the text wraps
+global.chat_threshold = global.chat_threshold * 1.66;  // Increase the threshold
+global.chat_text_limit = global.chat_text_limit * 1.66;  // Increase the width limit
+
+//Scrolling Variables
+scrollIndex = 0; // Initialize scroll position
+baseScrollSensitivity = 0.1; // Base sensitivity, how much the index changes initially per mouse wheel movement
+maxScrollSensitivity = 1.0; // Maximum sensitivity after continuous scrolling
+sensitivityIncrement = 0.05; // How much the sensitivity increases with continuous scrolling
+sensitivityDecrement = 0.01; // How much the sensitivity decreases when not scrolling
+global.scrollSensitivity = baseScrollSensitivity; // Current sensitivity, starts at base sensitivity
+global.isScrolling = false; // Tracks if the user is currently scrolling
+
+// Server Configuration
+show_server_status=false
+global.serverPort = "5555";
+global.maxClients = 4;
+global.heartbeatBPM = 115; // Beats per minute for the heartbeat
+global.lastHeartbeatTime = current_time; // Store the current time
+broadcastInterval = 60000 / global.heartbeatBPM; // Time between heartbeats in milliseconds
+
+global.clientUniqueID = ""; // Initialize to an empty string
+global.reconnectTimer = 0; // Time to attempt a reconnect
+global.reconnectInterval = 2000; // Interval between reconnect attempts
+global.isConnected = false; // Connection status
+global.IDENTIFIER_UNIQUE_ID = 2; // Ensure this matches server expectation
+global.uniqueIDSent = false; // Prevent re-sending
+
+// Initialize server state and structures
+isServerRunning = false;
+connectedClients = 0;
+
+// Generate or load the unique ID
+if (!file_exists(working_directory + "client_id.txt")) {
+    // For a new ID
+    global.clientUniqueID = string(irandom_range(100000, 999999));
+    var file = file_text_open_write(working_directory + "client_id.txt");
+    file_text_write_string(file, global.clientUniqueID);
+    file_text_close(file);
+} else {
+    // For an existing ID
+    var file = file_text_open_read(working_directory + "client_id.txt");
+    global.clientUniqueID = file_text_read_string(file);
+    file_text_close(file);
+}
+
+// Client Initialization and Connection
+global.client_socket = network_create_socket(network_socket_tcp);
+var status = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+if (status >= 0) {
+    // Successful connection
+    show_debug_message("[Client] Successfully connected and ID sent.");
+	isServerRunning = true;
+    var buffer = buffer_create(256, buffer_grow, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+    buffer_write(buffer, buffer_string, global.clientUniqueID);
+    network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+    buffer_delete(buffer);
+} else {
+    // Handle connection failure
+    show_debug_message("[Client] Connection failed.");
+}
+
+show_chatbox=false
+depth-=10; //ensure at top or front of view
+
+global.backspaceTimer = 0;
+global.backspaceDelay = 15; // Initial delay before rapid deletion
+global.backspaceSpeed = 1;  // Delay between rapid deletions
+
+global.recall_list = ds_list_create();  // List to store past messages and commands
+global.recall_max = 20;  // Maximum number of entries to remember
+global.recall_index = -1;  // Index for navigating through the recall list
+
+shake_angle=0 //angle to shake text when character limit reached.
+
+load_actions()
+
+
+Object: obj_chat_bubble
+
+File: Step_0.gml
+Code:
+// obj_chat_bubble Step Event
+if (owner != noone) {
+    x = owner.x;
+    y = owner.y - 60;
+}
+
+if (wrapped == 0) {
+    draw_set_font(text_font);
+    var text_length = string_length(text);
+    var longestWordWidth = get_longest_word_width(text, text_font, 1);
+    
+    // Adjust max_width based on text length
+    max_width = clamp(500 + text_length * 2, min_width, 1500);
+    
+    // Calculate initial text scale
+    text_scale = min(clamp(1 - text_length / 500, 0.5, 1), clamp(1.5 - longestWordWidth / 1000, 0.5, 1));
+    
+    // Wrap text
+    wrapped_text = wrap_chat_text(text, max_width - 2 * padding);
+    
+    // Count lines and adjust scale if needed
+    line_count = string_count("\n", wrapped_text) + 1;
+    if (line_count > 5) {
+        text_scale *= (5 / line_count);
+        wrapped_text = wrap_chat_text(text, (max_width - 2 * padding) / text_scale);
+        line_count = string_count("\n", wrapped_text) + 1;
+    }
+    
+    // Calculate bubble dimensions
+    scale_x = clamp(string_width_ext(wrapped_text, -1, max_width - 2 * padding) * text_scale + 6 * padding, min_width, max_width);
+    real_scale_y = clamp(string_height_ext(wrapped_text, -1, max_width - 2 * padding) * text_scale + 4 * padding, min_height - 120, max_height - 120);
+    
+    scale_y = real_scale_y + 120;
+    wrapped = 1;
+}
+
+// Calculate top_middle_x and top_middle_y
+top_middle_x = x - (sprite_get_xoffset(sprite_index) - 250) * scale_x / 500;
+top_middle_y = y - sprite_get_yoffset(sprite_index) - real_scale_y - 60;
+
+// obj_chat_bubble Step Event
+if (timer_enabled) {
+    lifetime++;
+    if (lifetime >= duration) {
+        instance_destroy();
+    }
+}
+
+
+File: Destroy_0.gml
+Code:
+// obj_chat_bubble Destroy Event
+if (ds_exists(hover_progress, ds_type_map)) {
+    ds_map_destroy(hover_progress);
+}
+if (ds_exists(hover_scale, ds_type_map)) {
+    ds_map_destroy(hover_scale);
+}
+
+File: Draw_0.gml
+Code:
+// obj_chat_bubble Draw Event
+// At the beginning of the Draw Event, add these variables if they're not already defined:
+if (!variable_instance_exists(id, "text_color")) {
+    _text_color = c_black;  // Default text color
+}
+if (!variable_instance_exists(id, "text_color_outline")) {
+    text_color_outline = c_white;  // Default outline color
+}
+if (!variable_instance_exists(id, "text_scale")) {
+    text_scale = 1;  // Default text scale
+}
+if (!variable_instance_exists(id, "outline_size")) {
+    outline_size = 1;  // Default outline size
+}
+if (!variable_instance_exists(id, "padding")) {
+    padding = 10;  // Default padding
+}
+if (!variable_instance_exists(id, "max_width")) {
+    max_width = 500;  // Default max width
+}
+
+// Define sprite variables (you can set these in the Create event)
+if (!variable_instance_exists(id, "main_bubble_sprite")) {
+    main_bubble_sprite = spr_chatbubble1;
+}
+if (!variable_instance_exists(id, "choice_bubble_sprite")) {
+    choice_bubble_sprite = main_bubble_sprite; // Use the same sprite for choices
+}
+var tail_sprite_index = 0;
+var middle_sprite_index = 1;
+var top_sprite_index = 2;
+
+var bottom_y = y;
+var top_y = y - real_scale_y;
+var middle_height = clamp(scale_y - 240, 0, max_height - 120);
+var middle_y = y - sprite_get_yoffset(main_bubble_sprite) - (120 - sprite_get_yoffset(main_bubble_sprite)) * middle_height / 120;
+
+// Draw main chat bubble
+draw_sprite_ext(main_bubble_sprite, tail_sprite_index, x, bottom_y, scale_x / 500, 1, 0, c_white, 1);
+draw_sprite_ext(main_bubble_sprite, middle_sprite_index, x, middle_y, scale_x / 500, middle_height / 120, 0, c_white, 1);
+draw_sprite_ext(main_bubble_sprite, top_sprite_index, x, top_y, scale_x / 500, 1, 0, c_white, 1);
+
+// Draw message text
+draw_set_font(text_font);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+drawTextWithOutline(top_middle_x, top_middle_y + padding + 130, wrapped_text, text_scale, outline_size, text_color_outline, _text_color, max_width - 2 * padding);
+
+// Calculate choice layout variables
+// Calculate choice layout variables
+if (array_length(choices) > 0) {
+    var choice_padding = 20;
+    var choice_width = 450;
+    var choice_height = 100;
+    choices_per_row = min(2, array_length(choices));
+    var rows = ceil(array_length(choices) / choices_per_row);
+    
+    var total_width = (choice_width + choice_padding) * choices_per_row - choice_padding;
+    var start_x = x - total_width / 2;
+    var start_y = bottom_y + 40;  // Position choices below the main bubble
+
+    // Draw choices
+    for (var i = 0; i < array_length(choices); i++) {
+        var row = i div choices_per_row;
+        var col = i mod choices_per_row;
+        var choice_x = start_x + col * (choice_width + choice_padding);
+        var choice_y = start_y + row * (choice_height + choice_padding);
+
+        var choice_middle_height = 0; //this should be set above 0 if there is more than 1 line in a choice.
+        var choice_top_y = choice_y-60;
+        var choice_bottom_y = choice_y + choice_middle_height+60;
+        var choice_middle_y = choice_y+0;
+
+        var is_hovering = point_in_rectangle(mouse_x, mouse_y, choice_x, choice_y, choice_x + choice_width, choice_bottom_y);
+        
+        var alpha = 0.5;
+        var color = c_white;
+        var scale = 1;
+
+        // Smooth hover animation
+        if (ds_exists(hover_progress, ds_type_map) && ds_exists(hover_scale, ds_type_map)) {
+            if (!ds_map_exists(hover_progress, i)) ds_map_add(hover_progress, i, 0);
+            if (!ds_map_exists(hover_scale, i)) ds_map_add(hover_scale, i, 1);
+
+            if (is_hovering) {
+                hover_progress[? i] = min(hover_progress[? i] + 1/30, 1);
+                hover_scale[? i] = min(hover_scale[? i] + 0.05/30, 1.05);
+            } else {
+                hover_progress[? i] = max(hover_progress[? i] - 1/30, 0);
+                hover_scale[? i] = max(hover_scale[? i] - 0.05/30, 1);
+            }
+            
+            alpha = lerp(0.5, 1, hover_progress[? i]);
+            color = merge_color(c_white, c_ltgray, hover_progress[? i]);
+            scale = hover_scale[? i];
+        }
+			
+        // Check for mouse click
+        if (is_hovering && mouse_check_button_pressed(mb_left)) {
+            if (choices[i][1] != "null") {
+                handle_choice_selection(choices[i][1]);  // Pass the action name to the new function
+            } else {
+                // Handle "null" action (e.g., close the chat bubble)
+                instance_destroy();
+            }
+        }
+
+        // Draw choice bubble
+        var choice_scale_x = choice_width / 500 * scale;
+        var choice_scale_y = scale;
+        draw_sprite_ext(choice_bubble_sprite, tail_sprite_index, choice_x + choice_width/2, choice_bottom_y, choice_scale_x, choice_scale_y, 0, color, alpha);
+        draw_sprite_ext(choice_bubble_sprite, middle_sprite_index, choice_x + choice_width/2, choice_middle_y, choice_scale_x, choice_middle_height / 120 * choice_scale_y, 0, color, alpha);
+        draw_sprite_ext(choice_bubble_sprite, top_sprite_index, choice_x + choice_width/2, choice_top_y, choice_scale_x, choice_scale_y, 0, color, alpha);
+
+        // Draw choice text
+        var choice_text = choices[i][0];
+        draw_set_halign(fa_center);
+        draw_set_valign(fa_middle);
+        
+        var text_color = is_hovering ? c_white : c_black;
+        var outline_color = is_hovering ? c_black : c_white;
+        
+        drawTextWithOutline(choice_x + choice_width / 2, choice_y + choice_middle_height / 2, choice_text, 0.8 * scale, 1, outline_color, text_color, choice_width - 20);
+    }
+}
+
+// Debug: draw bounding box
+if (show_bounds) {
+    draw_set_color(c_red);
+    draw_rectangle(top_middle_x - scale_x/2, top_middle_y + 130, top_middle_x + scale_x/2, bottom_y, true);
+}
+
+File: Create_0.gml
+Code:
+// obj_chat_bubble Create Event
+
+hover_progress = ds_map_create();
+hover_scale = ds_map_create();
+_text_color = c_black;
+choices_per_row = 2;
+text_color_outline = c_white;
+text_scale = 1;
+outline_size = 2;
+padding = 15;
+text = "";
+wrapped_text = "";
+line_count = 1;
+owner = noone;
+choices = [];
+max_width = 500;
+max_height = 800;
+min_width = 200;
+min_height = 240;
+top_middle_x = 0;
+top_middle_y = 0;
+
+scale_y = min_height;
+scale_x = min_width;
+real_scale_y = min_height - 120;
+duration = 1000;
+lifetime = 0;
+main_bubble_sprite = spr_chatbubble1;
+choice_bubble_sprite = spr_chatchoice1;
+text_font = Font_Default;
+wrapped = 0;
+show_bounds = false;
+
+// Set up timer
+if (array_length(choices) > 0) {
+    has_choices = true;
+    timer_enabled = false;
+} else {
+    has_choices = false;
+    timer_enabled = true;
+}
+
+// Ensure that only one chat bubble exists per owner
+if (owner != noone) {
+    with (obj_chat_bubble) {
+        if (id != other.id && owner == other.owner) {
+            instance_destroy();
+        }
+    }
+}
+
+File: obj_chat_bubble.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_chat_bubble",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_chat_bubble",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"ui",
+    "path":"folders/Objects/ui.yy",
+  },
+  "parentObjectId":null,
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_chatbubble1",
+    "path":"sprites/spr_chatbubble1/spr_chatbubble1.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+== Related Scripts ==
+
+Script: execute_command
+File: execute_command.gml
+Code:
+function execute_command(command) {
+	
+        handleDebugMessage("Executing command: " + command, true);
+    command = string_trim(string_replace_all(command, "\n", " "));
+    command = string_replace_all(command, global.intentionalLineBreak, " ");
+    if (command == "") {
+        handleDebugMessage("Error: Empty command", true);
+        return;
+    }
+
+    var fullCommand = command;
+    var openParenIndex = string_pos("(", command);
+    var closeParenIndex = string_last_pos(")", command);
+    var commandName = "";
+    var parameters = [];
+    
+    if (string_pos("add_action(", command) == 1) {
+        var startParen = string_pos("(", command);
+        var endParen = string_last_pos(")", command);
+        if (startParen > 0 && endParen > startParen) {
+            var argsString = string_copy(command, startParen + 1, endParen - startParen - 1);
+            var args = parse_arguments(argsString);
+            if (array_length(args) >= 3) {
+                var actionName = string_trim_lr(args[0]);
+                var actionCommand = string_trim_lr(args[1]);
+                var actionParams = "";
+                for (var i = 2; i < array_length(args); i++) {
+                    actionParams += args[i];
+                    if (i < array_length(args) - 1) actionParams += ",";
+                }
+                actionParams = string_trim_lr(actionParams);
+                scr_add_action(actionName, actionCommand, actionParams);
+            } else {
+                handleDebugMessage("Invalid number of arguments for add_action", true);
+            }
+        }
+        return;
+    } else if (string_pos("execute_action(", command) == 1) {
+        var actionName = string_replace(command, "execute_action(", "");
+        actionName = string_replace(actionName, ")", "");
+        actionName = string_trim(actionName);
+        
+        handleDebugMessage("execute_action - Action Name: " + actionName, true);
+        
+        if (ds_map_exists(global.actionDetails, actionName)) {
+            var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
+            var decodedData = json_parse(base64_decode(encodedCommand));
+            
+            handleDebugMessage("Executing action: " + actionName, true);
+            handleDebugMessage("Decoded Command: " + json_stringify(decodedData), true);
+            
+            var cmdName = decodedData.command;
+            var params = decodedData.parameters;
+            
+            // Execute the command with the parsed parameters
+            var scriptName = "scr_" + cmdName;
+            if (script_exists(asset_get_index(scriptName))) {
+                if (is_array(params)) {
+                    script_execute_ext(asset_get_index(scriptName), params);
+                } else {
+                    script_execute(asset_get_index(scriptName), params);
+                }
+            } else {
+                handleDebugMessage("Script not found for command: " + cmdName, true);
+            }
+        } else {
+            handleDebugMessage("Action '" + actionName + "' not found.", true);
+        }
+        return;
+    } else if (openParenIndex > 0 && closeParenIndex > openParenIndex) {
+        commandName = string_trim_lr(string_copy(command, 1, openParenIndex - 1));
+        var paramString = string_copy(command, openParenIndex + 1, closeParenIndex - openParenIndex - 1);
+        parameters = parse_arguments(paramString);
+    } else {
+        commandName = command;
+    }
+    
+    if (commandName == "chat_bubble") {
+        if (array_length(parameters) >= 2) {
+            var text = string_replace_all(parameters[0], "\"", "");
+            var owner = string_replace_all(parameters[1], "\"", "");
+            var choices = (array_length(parameters) > 2) ? json_parse(parameters[2]) : [];
+            
+            scr_chat_bubble(text, owner, choices);
+        } else {
+            handleDebugMessage("Invalid number of arguments for chat_bubble", true);
+        }
+        return;
+    }
+    
+    var scriptName = "scr_" + commandName;
+    if (script_exists(asset_get_index(scriptName))) {
+        if (is_array(parameters) && array_length(parameters) > 0) {
+            script_execute_ext(asset_get_index(scriptName), parameters);
+        } else {
+            script_execute(asset_get_index(scriptName));
+        }
+    } else {
+        handleDebugMessage("Script not found for command: " + commandName, true);
+    }
+}
+
+Script: scr_execute_command not found in the expected directories.
+
+Script: handleDebugMessage
+File: handleDebugMessage.gml
+Code:
+/// @function handleDebugMessage(msg, isDebug)
+/// @description Logs messages to the debug console and files, and manages chat display
+/// @param {string} msg - The message to log
+/// @param {bool} isDebug - True if this is a debug message, false for essential messages
+function handleDebugMessage(msg, isDebug) {
+    var safeMsg = is_string(msg) ? msg : "Undefined message content";
+    // Remove newlines from the message
+    safeMsg = string_replace_all(safeMsg, "\n", " ");
+    safeMsg = string_replace_all(safeMsg, "\r", "");
+    
+    var currentDate = date_current_datetime();
+    var formattedDate = date_date_string(currentDate);
+    var formattedTime = date_time_string(currentDate);
+    var logMsg = formattedDate + " " + formattedTime + ": " + safeMsg + "\n";
+    show_debug_message("Date: " + formattedDate + " Time: " + formattedTime + " Msg: " + safeMsg);
+    
+    // Log to file
+    logToFile(working_directory + global.sessionLogFileName, logMsg);
+    logToFile(working_directory + global.masterLogFileName, logMsg);
+    
+    // Always add messages to the debug messages list
+	if (isDebug=true && global.logDebugMessagesToFile) || (isDebug<=0) {
+    if (ds_exists(global.debugMessages, ds_type_list)) {
+        if (ds_list_size(global.debugMessages) >= global.maximumMessages) {
+            ds_list_delete(global.debugMessages, 0);
+        }
+        ds_list_add(global.debugMessages, safeMsg);
+        global.lastAddedMessage = safeMsg;
+    } else {
+        show_debug_message("ERROR: global.debugMessages is not a valid ds_list");
+    }
+	}
+    // Create a chat bubble for non-debug messages that don't start with "/"
+    if (isDebug = -1 && string_char_at(safeMsg, 1) != "/"){
+        var cleanMsg = string_remove_between(safeMsg, "[", "]");
+        cleanMsg = string_replace_all(cleanMsg, "\n", " ");
+        scr_chat_bubble(cleanMsg, "yeancat", []); // Pass an empty array for choices
+    }
+    
+    // WPM Calculation Logic Integration
+    if (!isDebug) {
+        var wordCount = string_word_count(safeMsg);
+        var messageDetails = [currentDate, wordCount];
+        if (ds_exists(global.chatLogs, ds_type_list)) {
+            ds_list_add(global.chatLogs, messageDetails);
+            updateWPM();
+        } else {
+            show_debug_message("ERROR: global.chatLogs is not a valid ds_list");
+        }
+    }
+}
+
+Script: scr_chat_bubble
+File: scr_chat_bubble.gml
+Code:
+/// @function scr_chat_bubble(Text, owner, [choices])
+/// @param {string} _text - The text to show in the chat bubble
+/// @param {string} _ownerName - The owner object name it will follow
+/// @param {array} [_choices] - Optional array of choices, each choice is an array [text, actionName]
+function scr_chat_bubble(text, ownerName, choices) {
+    handleDebugMessage("Creating chat bubble: " + string(text) + ", Owner: " + string(ownerName) + ", Choices: " + json_stringify(choices), true);
+    
+    var _owner = asset_get_index(ownerName);
+    if (!object_exists(_owner)) {
+        _owner = noone;
+        handleDebugMessage("Owner object not found, using noone", true);
+    }
+
+    var ownerInstance = (_owner != noone) ? instance_find(_owner, 0) : noone;
+    if (ownerInstance == noone) {
+        ownerInstance = {x: room_width/2, y: room_height/2};
+        handleDebugMessage("Owner instance not found, using default position", true);
+    }
+
+    // Destroy existing chat bubbles with the same owner
+    with (obj_chat_bubble) {
+        if (owner == ownerInstance) {
+            instance_destroy();
+        }
+    }
+
+    var bubble = instance_create_layer(ownerInstance.x, ownerInstance.y - 60, "uii", obj_chat_bubble);
+    with (bubble) {
+        self.text = text;
+        self.owner = ownerInstance;
+        self.choices = is_array(choices) ? choices : [];
+    }
+
+    handleDebugMessage("Chat Bubble Created. Following '" + string(ownerName) + "' with text: '" + string(text) + "'. Number of choices: " + string(array_length(choices)), true);
+}
+
+Script: execute_multiple_commands
+File: execute_multiple_commands.gml
+Code:
+function execute_multiple_commands(commands) {
+    var commandList = string_split(commands, global.intentionalLineBreak);
+    for (var i = 0; i < array_length(commandList); i++) {
+        var command = string_trim(commandList[i]);
+        if (string_starts_with(command, "/")) {
+            command = string_delete(command, 1, 1);
+            execute_command(command);
+        } else if (command != "") {
+            // Handle non-command text (e.g., chat messages)
+            var chatMessage = "[" + master.playername + "] " + command;
+            global.message_is_bubble = 1;
+            handleDebugMessage(chatMessage, -1);
+            global.message_is_bubble = 0;
+        }
+    }
+}
+
+Script: scr_add_action
+File: scr_add_action.gml
+Code:
+function scr_add_action(actionName, actionCommand, actionParams) {
+    handleDebugMessage("scr_add_action - Raw inputs:", true);
+    handleDebugMessage("Name: " + actionName, true);
+    handleDebugMessage("Command: " + actionCommand, true);
+    handleDebugMessage("Parameters: " + actionParams, true);
+
+    // Parse the parameters
+    var params = json_parse(actionParams);
+
+    // Remove any extra spaces from string parameters
+    for (var i = 0; i < array_length(params); i++) {
+        if (is_string(params[i])) {
+            params[i] = string_trim(params[i]);
+        }
+    }
+
+    // Create the action data structure
+    var actionData = {
+        command: actionCommand,
+        parameters: params
+    };
+
+    // Encode the command for storage
+    var encodedCommand = base64_encode(json_stringify(actionData));
+
+    // Store the action
+    ds_map_set(global.actionDetails, actionName, encodedCommand);
+
+    handleDebugMessage("Action '" + actionName + "' added/updated successfully.", false);
+    handleDebugMessage("Encoded Command: " + encodedCommand, true);
+
+    // Save actions to file
+    save_actions();
+}
+
+Script: update_chat_input_visuals
+File: update_chat_input_visuals.gml
+Code:
+function update_chat_input_visuals() {
+    var inputLines = string_split(global.commandBuffer, global.intentionalLineBreak);
+    var finalColor = global.defaultTextColor;
+    var hasError = false;
+
+    for (var i = 0; i < array_length(inputLines); i++) {
+        var inputText = string_trim(inputLines[i]);
+        var lineColor = global.defaultTextColor;
+        
+        if (string_starts_with(inputText, "/")) {
+            var commandEnd = string_pos("(", inputText);
+            if (commandEnd == 0) commandEnd = string_length(inputText) + 1;
+            var command = string_copy(inputText, 2, commandEnd - 2);
+            
+            var hasPermission = check_permission_command(command);
+            var commandExists = ds_map_exists(global.commandDetails, command + "(") || ds_map_exists(global.commandDetails, command);
+            var requiresParentheses = ds_map_exists(global.commandDetails, command + "(");
+            
+            if (!commandExists) {
+                lineColor = c_pink;
+            } else if (!hasPermission) {
+                lineColor = c_red;
+                hasError = true;
+            } else {
+                var openParenPos = string_pos("(", inputText);
+                var closeParenPos = string_last_pos(")", inputText);
+                
+                if (requiresParentheses) {
+                    if (openParenPos == 0) {
+                        lineColor = c_aqua;
+                    } else if (closeParenPos == 0 || !are_brackets_balanced(inputText)) {
+                        lineColor = c_yellow;
+                    } else {
+                        var params = string_copy(inputText, openParenPos + 1, closeParenPos - openParenPos - 1);
+                        var isValid = are_params_valid(params);
+                        lineColor = isValid ? c_lime : c_yellow;
+                    }
+                } else {
+                    lineColor = c_lime;
+                }
+            }
+        }
+        
+        if (lineColor != global.defaultTextColor) {
+            finalColor = lineColor;
+        }
+        
+        if (lineColor == c_red) {
+            hasError = true;
+            break;
+        }
+    }
+    
+    global.textColor = hasError ? c_red : finalColor;
+}
+
+Script: drawChatMessages
+File: drawChatMessages.gml
+Code:
+/// @description Draws chat messages within given bounds and manages outlines
+/// @param {ds_list} messages - The list of messages to draw
+/// @param {real} x - The x-coordinate for drawing messages
+/// @param {real} startY - The starting y-coordinate for drawing messages
+/// @param {real} maxLinesToShow - The max number of lines to show in the chat box
+/// @param {real} sca - Scale for text
+/// @param {boolean} visible_ - does it draw the chat message?
+/// @param {color} col1 - Outline color
+/// @param {color} col2 - Text color
+/// @returns {int} total number of lines in all messages
+function drawChatMessages(messages, x, startY, maxLinesToShow, sca, visible_, col1, col2) {
+    var currentY = startY;
+    var totalHeight = 0;
+    var maxWidth = room_width - x - 20;
+    var totalMessages = ds_list_size(messages);
+    var startIndex = max(0, min(scrollIndex, totalMessages - maxLinesToShow));
+
+    // First pass: calculate total height for visible messages
+    for (var i = 0; i < maxLinesToShow && (i + startIndex) < totalMessages; i++) {
+        var message = messages[| i + startIndex];
+        var messageHeight = string_height_ext(message, -1, maxWidth) * sca;
+        totalHeight += messageHeight + 5; // 5 pixels padding between messages
+    }
+
+    // Draw messages
+    if (visible_) {
+        for (var i = 0; i < maxLinesToShow && (i + startIndex) < totalMessages; i++) {
+            var message = messages[| i + startIndex];
+            // Replace intentional line breaks with actual line breaks for display
+            message = string_replace_all(message, global.intentionalLineBreak, "\n");
+            drawTextWithOutline(x, currentY, message, sca, 2, col1, col2, maxWidth);
+            currentY += string_height_ext(message, -1, maxWidth) * sca + 5;
+        }
+    }
+
+    return totalMessages;
+}
+
+
+
+
+
+
+Script: last_key_is_valid_character
+File: last_key_is_valid_character.gml
+Code:
+/// @function last_key_is_valid_character(key)
+/// @param {string} key - The last character entered
+/// @desc Checks if the last key is a valid character for chat input
+/// @return {bool} - True if the key is valid, false otherwise
+function last_key_is_valid_character(key) {
+    // Define a string of valid characters (letters, numbers, special characters)
+    var validCharacters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!@#$%^&*()-_`~ ";
+	var validKeys = [
+		191, // "/" and “?”
+		188, // "," and “<”
+		190, // "." and “>”
+		220, // "\" and “|”
+		219, // "[" and “{”
+		221, // "]" and “}”
+		186, // ";" and “:”
+		222, // "'" and “””
+		24 // "=" and “+”
+	];
+    // Define a list of invalid keys
+    var invalidKeys = [
+        vk_left, vk_right, vk_up, vk_down, vk_delete, vk_shift, vk_tab,
+        vk_capslock, vk_escape, vk_home, vk_end, vk_pageup, vk_pagedown,
+        vk_control, vk_alt, vk_menu, vk_pause, 92, 91
+    ];
+
+    // Check if the key is in the list of invalid keys
+    for (var i = 0; i < array_length(invalidKeys); i++) {
+        if (keyboard_lastkey == invalidKeys[i]) {
+            return false;
+        }
+    }
+
+    // Check if the key is in the list of valid characters
+	for (var i = 0; i < array_length(validKeys); i++) {
+        if (keyboard_lastkey == validKeys[i]) {
+            return true;
+        }
+    }
+	
+    if (string_pos(chr(key), validCharacters) > 0) {
+        return true;
+    }
+
+    return false;
+}
+
+
+Script: string_trim_left
+File: string_trim_left.gml
+Code:
+function string_trim_left(str) {
+    var len = string_length(str);
+    var pos = 1;
+    while (pos <= len && ord(string_char_at(str, pos)) <= 32) {
+        pos++;
+    }
+    return string_copy(str, pos, len - pos + 1);
+}
+
+Script: string_trim_right
+File: string_trim_right.gml
+Code:
+/// @function string_trim_right(str, chars)
+/// @description Trims specified characters from the right end of a string
+function string_trim_right(str) {
+    var len = string_length(str);
+    while (len > 0 && ord(string_char_at(str, len)) <= 32) {
+        len--;
+    }
+    return string_copy(str, 1, len);
+}
+
+Script: string_trim_lr
+File: string_trim_lr.gml
+Code:
+function string_trim_lr(str) {
+    return string_trim_left(string_trim_right(str));
+}
+
+Script: string_wrap
+File: string_wrap.gml
+Code:
+function string_wrap(str, max_width) {
+    var text_wrapped = "";
+    var space_pos = -1;
+    var line_width = 0;
+    var str_len = string_length(str);
+    
+    for (var i = 1; i <= str_len; i++) {
+        var char = string_char_at(str, i);
+        var char_width = string_width(char);
+        
+        if (char == " ") space_pos = i;
+        
+        if (line_width + char_width > max_width) {
+            if (space_pos != -1) {
+                text_wrapped += string_copy(str, 1, space_pos - 1) + "\n";
+                str = string_delete(str, 1, space_pos);
+                line_width = 0;
+                i = 0;
+                str_len = string_length(str);
+                space_pos = -1;
+            } else {
+                text_wrapped += string_copy(str, 1, i - 1) + "\n";
+                str = string_delete(str, 1, i - 1);
+                line_width = 0;
+                i = 0;
+                str_len = string_length(str);
+            }
+        } else {
+            line_width += char_width;
+        }
+    }
+    
+    text_wrapped += str;
+    return text_wrapped;
+}
+
+Script: array_to_string
+File: array_to_string.gml
+Code:
+// Helper function to convert array to string, including nested arrays
+function array_to_string(arr) {
+    var result = "[";
+    for (var i = 0; i < array_length(arr); i++) {
+        if (is_array(arr[i])) {
+            result += array_to_string(arr[i]);
+        } else if (is_string(arr[i])) {
+            result += "\"" + string(arr[i]) + "\"";
+        } else {
+            result += string(arr[i]);
+        }
+        if (i < array_length(arr) - 1) result += ",";
+    }
+    result += "]";
+    return result;
+}
+
+Script: string_last_index_of
+File: string_last_index_of.gml
+Code:
+/// @description Finds the last occurrence of a substring in a string
+/// @param text The full string to search within
+/// @param substring The substring to find
+function string_last_index_of(text, substring) {
+    var lastPos = -1;
+    var currentPos = string_pos(substring, text);
+
+    while (currentPos > 0) {
+        lastPos = currentPos;
+        currentPos = string_pos(substring, string_copy(text, currentPos + string_length(substring), string_length(text)));
+        if (currentPos > 0) {
+            currentPos += lastPos + string_length(substring) - 1;
+        }
+    }
+
+    return lastPos;
+}
+
+
+Script: check_permission_command
+File: check_permission_command.gml
+Code:
+// Function to check if a player has permission to execute a command
+function check_permission_command(commandName) {
+    show_debug_message("Checking permission for command: '" + commandName + "'");
+    if (ds_map_exists(global.commandDetails, commandName) || ds_map_exists(global.commandDetails, commandName + "(")) {
+        var commandInfo = ds_map_find_value(global.commandDetails, commandName) ?? ds_map_find_value(global.commandDetails, commandName + "(");
+        var requiredLevel = commandInfo[? "requiredLevel"];
+        var hasPermission = (master.permissions >= requiredLevel);
+        show_debug_message("Required level: " + string(requiredLevel) + ", Player level: " + string(master.permissions) + ", Has permission: " + string(hasPermission));
+        return hasPermission;
+    } else {
+        show_debug_message("Command '" + commandName + "' not found in global.commandDetails");
+        return false;
+    }
+}
+
+Script: are_brackets_balanced
+File: are_brackets_balanced.gml
+Code:
+function are_brackets_balanced(str) {
+    var stack = ds_stack_create();
+    var in_string = false;
+    for (var i = 1; i <= string_length(str); i++) {
+        var char = string_char_at(str, i);
+        if (char == "\"" && string_char_at(str, i - 1) != "\\") {
+            in_string = !in_string;
+        }
+        if (!in_string) {
+            if (char == "(" || char == "[") {
+                ds_stack_push(stack, char);
+            } else if (char == ")" || char == "]") {
+                if (ds_stack_empty(stack)) {
+                    ds_stack_destroy(stack);
+                    return false;
+                }
+                var top = ds_stack_pop(stack);
+                if ((char == ")" && top != "(") || (char == "]" && top != "[")) {
+                    ds_stack_destroy(stack);
+                    return false;
+                }
+            }
+        }
+    }
+    var balanced = ds_stack_empty(stack);
+    ds_stack_destroy(stack);
+    return balanced;
+}
+
+Script: are_params_valid
+File: are_params_valid.gml
+Code:
+function are_params_valid(params) {
+    show_debug_message("Checking params: '" + params + "'");
+    var paramArray = parse_parameters(params);
+    for (var i = 0; i < array_length(paramArray); i++) {
+        var param = paramArray[i];
+        show_debug_message("Checking param: '" + string(param) + "'");
+        if (is_string(param)) {
+            if (string_trim(param) == "") {
+                show_debug_message("Empty param found, invalid");
+                return false;
+            }
+        } else if (is_array(param)) {
+            if (!are_params_valid(array_to_string(param))) {
+                show_debug_message("Invalid array contents");
+                return false;
+            }
+        }
+    }
+    show_debug_message("All params valid");
+    return true;
+}
+
+Script: parse_arguments
+File: parse_arguments.gml
+Code:
+function parse_arguments(argsString) {
+    var args = [];
+    var currentArg = "";
+    var inQuotes = false;
+    var bracketDepth = 0;
+    var arrayDepth = 0;
+    
+    for (var i = 1; i <= string_length(argsString); i++) {
+        var char = string_char_at(argsString, i);
+        
+        if (char == "\"" && string_char_at(argsString, i - 1) != "\\") {
+            inQuotes = !inQuotes;
+        }
+        
+        if (!inQuotes) {
+            if (char == "[") arrayDepth++;
+            if (char == "]") arrayDepth--;
+            if (char == "(") bracketDepth++;
+            if (char == ")") bracketDepth--;
+        }
+        
+        if (char == "," && bracketDepth == 0 && arrayDepth == 0 && !inQuotes) {
+            array_push(args, string_trim(currentArg));
+            currentArg = "";
+        } else {
+            currentArg += char;
+        }
+    }
+    
+    if (currentArg != "") {
+        array_push(args, string_trim(currentArg));
+    }
+    
+    return args;
+}
+
+Script: save_actions
+File: save_actions.gml
+Code:
+function save_actions() {
+    if (ds_map_size(global.actionDetails) == 0) {
+        handleDebugMessage("No actions to save.", true);
+        return;
+    }
+    
+    var file = file_text_open_write("Actions.txt");
+    var actionKey = ds_map_find_first(global.actionDetails);
+    
+    while (!is_undefined(actionKey)) {
+        var encodedCommand = ds_map_find_value(global.actionDetails, actionKey);
+        var line = actionKey + "|||" + encodedCommand;
+        file_text_write_string(file, line);
+        file_text_writeln(file);
+        handleDebugMessage("Saving action: " + line, true);
+        actionKey = ds_map_find_next(global.actionDetails, actionKey);
+    }
+    
+    file_text_close(file);
+    handleDebugMessage("Actions saved successfully to Actions.txt.", true);
+}
+
+== Related Logs ==
+
+Log: SessionLog_45501.97
+Content:
+07/28/24 18:10:21: Loaded action: SaveGameNow, Encoded Command: eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:10:21: Loaded action: MoreChoices3, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:10:21: Loaded action: GotoKingsKingdom, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:10:21: Loaded action: MainMenuChoices2, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:10:21: Loaded action: MoreChoices1, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:10:21: Loaded action: GotoDivineDomain, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:10:21: Loaded action: GotoTheEndonda, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:10:21: Loaded action: GotoUniverseCity, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:10:21: Loaded action: GotoLandOfLucy, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:10:21: Loaded action: GotoPlaceOfPablo, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:10:21: Loaded action: GotoTheIcyHeart, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:10:21: Loaded action: GotoGhostTown, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:10:21: Loaded action: MainMenuChoices, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:10:21: Loaded action: LevelUpOnce, Encoded Command: eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:10:21: Loaded action: GotoTheGoldMines, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:10:21: Loaded action: MoreChoices2, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:10:21: Loaded action: MoreChoices4, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:10:21: Loaded action: GotoVulturesValley, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:10:21: Loaded action: GotoEarth, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:10:21: Loaded action: GotoStormySands, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:10:21: Loaded action: GotoFantasia, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:10:21: Loaded action: GotoYetopia, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:10:21: Actions loaded successfully from Actions.txt.
+07/28/24 18:10:21: [Client] Failed to reconnect to server. Will try again...
+07/28/24 18:11:05: [Jay Arnold] Hello now i can type!
+07/28/24 18:11:05: Creating chat bubble:  Hello now i can type!, Owner: yeancat, Choices: []
+07/28/24 18:11:05: Chat Bubble Created. Following 'yeancat' with text: ' Hello now i can type!'. Number of choices: 0
+07/28/24 18:11:10: [Jay Arnold] And i can|line break!
+07/28/24 18:11:10: Creating chat bubble:  And i can|line break!, Owner: yeancat, Choices: []
+07/28/24 18:11:10: Chat Bubble Created. Following 'yeancat' with text: ' And i can|line break!'. Number of choices: 0
+07/28/24 18:11:14: [Jay Arnold] fantastic
+07/28/24 18:11:14: Creating chat bubble:  fantastic, Owner: yeancat, Choices: []
+07/28/24 18:11:14: Chat Bubble Created. Following 'yeancat' with text: ' fantastic'. Number of choices: 0
+07/28/24 18:11:24: [Jay Arnold] v/add_action(GotoDivineDomain,goto_planet,["Divine Domain"])|/add_action(GotoYetopia,goto_planet,["Yetopia"])|/add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])|/add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])|/add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+07/28/24 18:11:24: Creating chat bubble:  v/add_action(GotoDivineDomain,goto_planet,)|/add_action(GotoYetopia,goto_planet,)|/add_action(GotoKingsKingdom,goto_planet,)|/add_action(GotoTheIcyHeart,goto_planet,)|/add_action(GotoTheGoldMines,goto_planet,), Owner: yeancat, Choices: []
+07/28/24 18:11:24: Chat Bubble Created. Following 'yeancat' with text: ' v/add_action(GotoDivineDomain,goto_planet,)|/add_action(GotoYetopia,goto_planet,)|/add_action(GotoKingsKingdom,goto_planet,)|/add_action(GotoTheIcyHeart,goto_planet,)|/add_action(GotoTheGoldMines,goto_planet,)'. Number of choices: 0
+07/28/24 18:11:29: [Jay Arnold] v/add_action(GotoDivineDomain,goto_planet,["Divine Domain"])|/add_action(GotoYetopia,goto_planet,["Yetopia"])|/add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])|/add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])|/add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+07/28/24 18:11:29: Creating chat bubble:  v/add_action(GotoDivineDomain,goto_planet,)|/add_action(GotoYetopia,goto_planet,)|/add_action(GotoKingsKingdom,goto_planet,)|/add_action(GotoTheIcyHeart,goto_planet,)|/add_action(GotoTheGoldMines,goto_planet,), Owner: yeancat, Choices: []
+07/28/24 18:11:29: Chat Bubble Created. Following 'yeancat' with text: ' v/add_action(GotoDivineDomain,goto_planet,)|/add_action(GotoYetopia,goto_planet,)|/add_action(GotoKingsKingdom,goto_planet,)|/add_action(GotoTheIcyHeart,goto_planet,)|/add_action(GotoTheGoldMines,goto_planet,)'. Number of choices: 0
+07/28/24 18:11:33: [Jay Arnold] v/add_action(GotoDivineDomain,goto_planet,["Divine Domain"])|/add_action(GotoYetopia,goto_planet,["Yetopia"])|/add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])|/add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])|/add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+07/28/24 18:11:33: Creating chat bubble:  v/add_action(GotoDivineDomain,goto_planet,)|/add_action(GotoYetopia,goto_planet,)|/add_action(GotoKingsKingdom,goto_planet,)|/add_action(GotoTheIcyHeart,goto_planet,)|/add_action(GotoTheGoldMines,goto_planet,), Owner: yeancat, Choices: []
+07/28/24 18:11:33: Chat Bubble Created. Following 'yeancat' with text: ' v/add_action(GotoDivineDomain,goto_planet,)|/add_action(GotoYetopia,goto_planet,)|/add_action(GotoKingsKingdom,goto_planet,)|/add_action(GotoTheIcyHeart,goto_planet,)|/add_action(GotoTheGoldMines,goto_planet,)'. Number of choices: 0
+07/28/24 18:14:16: Loaded action: SaveGameNow, Encoded Command: eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:14:16: Loaded action: MoreChoices3, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:14:16: Loaded action: GotoKingsKingdom, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:14:16: Loaded action: MainMenuChoices2, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:14:16: Loaded action: MoreChoices1, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:14:16: Loaded action: GotoDivineDomain, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:14:16: Loaded action: GotoTheEndonda, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:14:16: Loaded action: GotoUniverseCity, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:14:16: Loaded action: GotoLandOfLucy, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:14:16: Loaded action: GotoPlaceOfPablo, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:14:16: Loaded action: GotoTheIcyHeart, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:14:16: Loaded action: GotoGhostTown, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:14:16: Loaded action: MainMenuChoices, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:14:16: Loaded action: LevelUpOnce, Encoded Command: eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:14:16: Loaded action: GotoTheGoldMines, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:14:16: Loaded action: MoreChoices2, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:14:16: Loaded action: MoreChoices4, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:14:16: Loaded action: GotoVulturesValley, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:14:16: Loaded action: GotoEarth, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:14:16: Loaded action: GotoStormySands, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:14:16: Loaded action: GotoFantasia, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:14:16: Loaded action: GotoYetopia, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:14:16: Actions loaded successfully from Actions.txt.
+07/28/24 18:14:16: [Client] Failed to reconnect to server. Will try again...
+07/28/24 18:14:53: [Jay Arnold] Hello|World!
+07/28/24 18:14:53: Creating chat bubble:  Hello|World!, Owner: yeancat, Choices: []
+07/28/24 18:14:53: Chat Bubble Created. Following 'yeancat' with text: ' Hello|World!'. Number of choices: 0
+07/28/24 18:14:55: Clipboard content is too long to paste!
+07/28/24 18:15:02: Clipboard content is too long to paste!
+07/28/24 18:15:02: [Jay Arnold] v
+07/28/24 18:15:02: Creating chat bubble:  v, Owner: yeancat, Choices: []
+07/28/24 18:15:02: Chat Bubble Created. Following 'yeancat' with text: ' v'. Number of choices: 0
+07/28/24 18:18:40: Loaded action: SaveGameNow, Encoded Command: eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:18:40: Loaded action: MoreChoices3, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:18:40: Loaded action: GotoKingsKingdom, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:18:40: Loaded action: MainMenuChoices2, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:18:40: Loaded action: MoreChoices1, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:18:40: Loaded action: GotoDivineDomain, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:18:40: Loaded action: GotoTheEndonda, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:18:40: Loaded action: GotoUniverseCity, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:18:40: Loaded action: GotoLandOfLucy, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:18:40: Loaded action: GotoPlaceOfPablo, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:18:40: Loaded action: GotoTheIcyHeart, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:18:40: Loaded action: GotoGhostTown, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:18:40: Loaded action: MainMenuChoices, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:18:40: Loaded action: LevelUpOnce, Encoded Command: eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:18:40: Loaded action: GotoTheGoldMines, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:18:40: Loaded action: MoreChoices2, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:18:40: Loaded action: MoreChoices4, Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:18:40: Loaded action: GotoVulturesValley, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:18:40: Loaded action: GotoEarth, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:18:40: Loaded action: GotoStormySands, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:18:40: Loaded action: GotoFantasia, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:18:40: Loaded action: GotoYetopia, Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:18:40: Actions loaded successfully from Actions.txt.
+07/28/24 18:18:40: [Client] Failed to reconnect to server. Will try again...
+07/28/24 18:18:50: [Jay Arnold] Hello|World!
+07/28/24 18:18:50: Creating chat bubble:  Hello|World!, Owner: yeancat, Choices: []
+07/28/24 18:18:50: Chat Bubble Created. Following 'yeancat' with text: ' Hello|World!'. Number of choices: 0
+07/28/24 18:18:54: Executing command: / Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+07/28/24 18:18:54: Script not found for command: / Detect pasting via Ctrl+V
+07/28/24 18:18:54: [Jay Arnold] var pasting = false;
+07/28/24 18:18:54: Creating chat bubble:  var pasting = false;, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' var pasting = false;'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] if (os_type == os_windows) {
+07/28/24 18:18:54: Creating chat bubble:  if (os_type == os_windows) {, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' if (os_type == os_windows) {'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
+07/28/24 18:18:54: Creating chat bubble:  if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] pasting = true;
+07/28/24 18:18:54: Creating chat bubble:  pasting = true;, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' pasting = true;'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] keyboard_string=""
+07/28/24 18:18:54: Creating chat bubble:  keyboard_string="", Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' keyboard_string=""'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] char = ""
+07/28/24 18:18:54: Creating chat bubble:  char = "", Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' char = ""'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] }
+07/28/24 18:18:54: Creating chat bubble:  }, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' }'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] } else if (os_type == os_macosx) {
+07/28/24 18:18:54: Creating chat bubble:  } else if (os_type == os_macosx) {, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' } else if (os_type == os_macosx) {'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {
+07/28/24 18:18:54: Creating chat bubble:  if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] pasting = true;
+07/28/24 18:18:54: Creating chat bubble:  pasting = true;, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' pasting = true;'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] keyboard_string=""
+07/28/24 18:18:54: Creating chat bubble:  keyboard_string="", Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' keyboard_string=""'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] char = ""
+07/28/24 18:18:54: Creating chat bubble:  char = "", Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' char = ""'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] }
+07/28/24 18:18:54: Creating chat bubble:  }, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' }'. Number of choices: 0
+07/28/24 18:18:54: [Jay Arnold] }
+07/28/24 18:18:54: Creating chat bubble:  }, Owner: yeancat, Choices: []
+07/28/24 18:18:54: Chat Bubble Created. Following 'yeancat' with text: ' }'. Number of choices: 0
+07/28/24 18:19:06: Executing command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+07/28/24 18:19:07: scr_add_action - Raw inputs:
+07/28/24 18:19:07: Name: GotoDivineDomain
+07/28/24 18:19:07: Command: goto_planet
+07/28/24 18:19:07: Parameters: ["Divine Domain"]
+07/28/24 18:19:07: Action 'GotoDivineDomain' added/updated successfully.
+07/28/24 18:19:07: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:07: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:07: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:07: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:07: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:07: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:07: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:07: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:07: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:07: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:07: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:07: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:07: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:07: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:07: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:07: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:07: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:07: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:07: Actions saved successfully to Actions.txt.
+07/28/24 18:19:07: Executing command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+07/28/24 18:19:07: scr_add_action - Raw inputs:
+07/28/24 18:19:07: Name: GotoYetopia
+07/28/24 18:19:07: Command: goto_planet
+07/28/24 18:19:07: Parameters: ["Yetopia"]
+07/28/24 18:19:07: Action 'GotoYetopia' added/updated successfully.
+07/28/24 18:19:07: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:07: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:07: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:07: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:07: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:07: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:07: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:07: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:07: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:07: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:07: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:07: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:07: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:07: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:07: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:07: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:07: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:07: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:07: Actions saved successfully to Actions.txt.
+07/28/24 18:19:07: Executing command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+07/28/24 18:19:07: scr_add_action - Raw inputs:
+07/28/24 18:19:07: Name: GotoKingsKingdom
+07/28/24 18:19:07: Command: goto_planet
+07/28/24 18:19:07: Parameters: ["Kings Kingdom"]
+07/28/24 18:19:07: Action 'GotoKingsKingdom' added/updated successfully.
+07/28/24 18:19:07: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:07: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:07: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:07: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:07: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:07: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:07: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:07: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:07: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:07: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:07: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:07: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:07: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:07: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:07: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:07: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:07: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:07: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:07: Actions saved successfully to Actions.txt.
+07/28/24 18:19:07: Executing command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+07/28/24 18:19:07: scr_add_action - Raw inputs:
+07/28/24 18:19:07: Name: GotoTheIcyHeart
+07/28/24 18:19:07: Command: goto_planet
+07/28/24 18:19:07: Parameters: ["The Icy Heart"]
+07/28/24 18:19:07: Action 'GotoTheIcyHeart' added/updated successfully.
+07/28/24 18:19:07: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:07: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:07: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:07: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:07: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:07: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:07: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:07: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:07: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:07: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:07: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:07: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:07: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:07: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:07: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:07: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:07: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:08: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:08: Actions saved successfully to Actions.txt.
+07/28/24 18:19:08: Executing command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+07/28/24 18:19:08: scr_add_action - Raw inputs:
+07/28/24 18:19:08: Name: GotoTheGoldMines
+07/28/24 18:19:08: Command: goto_planet
+07/28/24 18:19:08: Parameters: ["The Gold Mines"]
+07/28/24 18:19:08: Action 'GotoTheGoldMines' added/updated successfully.
+07/28/24 18:19:08: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:08: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:08: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:08: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:08: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:08: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:08: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:08: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:08: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:08: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:08: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:08: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:08: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:08: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:08: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:08: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:08: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:08: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:08: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:08: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:08: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:08: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:08: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:08: Actions saved successfully to Actions.txt.
+07/28/24 18:19:17: Clipboard content is too long to paste!
+07/28/24 18:19:23: Clipboard content is too long to paste!
+07/28/24 18:19:38: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save Game","SaveGameNow"],["Cancel","null"]]])
+07/28/24 18:19:38: scr_add_action - Raw inputs:
+07/28/24 18:19:38: Name: MainMenuChoices
+07/28/24 18:19:38: Command: chat_bubble
+07/28/24 18:19:38: Parameters: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save Game","SaveGameNow"],["Cancel","null"]]]
+07/28/24 18:19:38: Action 'MainMenuChoices' added/updated successfully.
+07/28/24 18:19:39: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:39: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:39: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:39: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:39: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:39: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:39: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:39: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:39: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:39: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:39: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:39: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:39: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:39: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:39: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:39: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:39: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:39: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:39: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:39: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:39: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:39: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:39: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:39: Actions saved successfully to Actions.txt.
+07/28/24 18:19:39: Executing command: add_action(MainMenuChoices2,chat_bubble,["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]])
+07/28/24 18:19:39: scr_add_action - Raw inputs:
+07/28/24 18:19:39: Name: MainMenuChoices2
+07/28/24 18:19:39: Command: chat_bubble
+07/28/24 18:19:39: Parameters: ["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]
+07/28/24 18:19:39: Action 'MainMenuChoices2' added/updated successfully.
+07/28/24 18:19:39: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:39: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:39: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:39: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:39: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:39: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:39: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:39: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:39: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:39: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:39: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:39: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:39: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:39: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:39: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:39: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:39: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:39: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:39: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:39: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:39: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:39: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:39: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:39: Actions saved successfully to Actions.txt.
+07/28/24 18:19:44: Executing command: add_action(MoreChoices1,chat_bubble,["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]])
+07/28/24 18:19:44: scr_add_action - Raw inputs:
+07/28/24 18:19:44: Name: MoreChoices1
+07/28/24 18:19:44: Command: chat_bubble
+07/28/24 18:19:44: Parameters: ["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]]
+07/28/24 18:19:44: Action 'MoreChoices1' added/updated successfully.
+07/28/24 18:19:44: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:44: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:44: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:44: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:44: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:44: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:44: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:44: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:44: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:44: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:44: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:44: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:44: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:44: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:44: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:44: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:44: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:44: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:45: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:45: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:45: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:45: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:45: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:45: Actions saved successfully to Actions.txt.
+07/28/24 18:19:45: Executing command: add_action(MoreChoices2,chat_bubble,["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/28/24 18:19:45: scr_add_action - Raw inputs:
+07/28/24 18:19:45: Name: MoreChoices2
+07/28/24 18:19:45: Command: chat_bubble
+07/28/24 18:19:45: Parameters: ["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]]
+07/28/24 18:19:45: Action 'MoreChoices2' added/updated successfully.
+07/28/24 18:19:45: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:45: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:45: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:45: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:45: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:45: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:45: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:45: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:45: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:45: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:45: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:45: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:45: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:45: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:45: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:45: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:45: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:45: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:45: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:45: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:45: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:45: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:45: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:45: Actions saved successfully to Actions.txt.
+07/28/24 18:19:54: Executing command: add_action(MoreChoices3,chat_bubble,["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]])
+07/28/24 18:19:54: scr_add_action - Raw inputs:
+07/28/24 18:19:54: Name: MoreChoices3
+07/28/24 18:19:54: Command: chat_bubble
+07/28/24 18:19:54: Parameters: ["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]]
+07/28/24 18:19:54: Action 'MoreChoices3' added/updated successfully.
+07/28/24 18:19:54: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:54: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:54: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:54: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:54: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:54: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:54: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:54: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:54: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:54: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:54: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:54: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:54: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:54: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:54: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:54: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:54: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:54: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:54: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:54: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:54: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:54: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:54: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:54: Actions saved successfully to Actions.txt.
+07/28/24 18:19:54: Executing command: add_action(MoreChoices4,chat_bubble,["Where would you like to go?","yeancat",[["The Icy Heart","GotoTheIcyHeart"],["The Gold Mines","GotoTheGoldMines"],["Cancel","null"]]])
+07/28/24 18:19:54: scr_add_action - Raw inputs:
+07/28/24 18:19:54: Name: MoreChoices4
+07/28/24 18:19:54: Command: chat_bubble
+07/28/24 18:19:55: Parameters: ["Where would you like to go?","yeancat",[["The Icy Heart","GotoTheIcyHeart"],["The Gold Mines","GotoTheGoldMines"],["Cancel","null"]]]
+07/28/24 18:19:55: Action 'MoreChoices4' added/updated successfully.
+07/28/24 18:19:55: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:55: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:19:55: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:19:55: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:19:55: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:19:55: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:19:55: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:19:55: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:19:55: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:19:55: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:19:55: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:19:55: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:19:55: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:19:55: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:19:55: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:19:55: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:19:55: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:19:55: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:19:55: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:19:55: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:19:55: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:19:55: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:19:55: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:19:55: Actions saved successfully to Actions.txt.
+07/28/24 18:19:59: Clipboard content is too long to paste!
+07/28/24 18:20:06: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/28/24 18:20:06: scr_add_action - Raw inputs:
+07/28/24 18:20:06: Name: GotoEarth
+07/28/24 18:20:06: Command: goto_planet
+07/28/24 18:20:06: Parameters: ["Earth"]
+07/28/24 18:20:06: Action 'GotoEarth' added/updated successfully.
+07/28/24 18:20:06: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:20:06: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:20:06: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:20:06: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:20:06: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:20:06: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:20:06: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:20:06: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:20:06: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:20:06: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:20:06: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:20:06: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:20:06: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:20:06: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:20:06: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:20:06: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:20:06: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:20:06: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:20:06: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:20:06: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:20:06: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:20:06: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:20:06: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:20:06: Actions saved successfully to Actions.txt.
+07/28/24 18:20:06: Executing command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+07/28/24 18:20:06: scr_add_action - Raw inputs:
+07/28/24 18:20:06: Name: GotoUniverseCity
+07/28/24 18:20:06: Command: goto_planet
+07/28/24 18:20:06: Parameters: ["Universe City"]
+07/28/24 18:20:06: Action 'GotoUniverseCity' added/updated successfully.
+07/28/24 18:20:06: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:20:06: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:20:06: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:20:06: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:20:06: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:20:06: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:20:06: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:20:06: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:20:06: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:20:06: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:20:06: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:20:06: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:20:06: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:20:06: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:20:06: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:20:06: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:20:06: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:20:06: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:20:06: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:20:06: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:20:06: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:20:06: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:20:06: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:20:06: Actions saved successfully to Actions.txt.
+07/28/24 18:20:06: Executing command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+07/28/24 18:20:06: scr_add_action - Raw inputs:
+07/28/24 18:20:06: Name: GotoFantasia
+07/28/24 18:20:06: Command: goto_planet
+07/28/24 18:20:06: Parameters: ["Fantasia"]
+07/28/24 18:20:06: Action 'GotoFantasia' added/updated successfully.
+07/28/24 18:20:06: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:20:06: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:20:06: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:20:06: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:20:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:20:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:20:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:20:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:20:07: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:20:07: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:20:07: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:20:07: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:20:07: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:20:07: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:20:07: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:20:07: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:20:07: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:20:07: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:20:07: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:20:07: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:20:07: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:20:07: Actions saved successfully to Actions.txt.
+07/28/24 18:20:07: Executing command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+07/28/24 18:20:07: scr_add_action - Raw inputs:
+07/28/24 18:20:07: Name: GotoLandOfLucy
+07/28/24 18:20:07: Command: goto_planet
+07/28/24 18:20:07: Parameters: ["Land of Lucy"]
+07/28/24 18:20:07: Action 'GotoLandOfLucy' added/updated successfully.
+07/28/24 18:20:07: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:20:07: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:20:07: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:20:07: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:20:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:20:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:20:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:20:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:20:07: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:20:07: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:20:07: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:20:07: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:20:07: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:20:07: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:20:07: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:20:07: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:20:07: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:20:07: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:20:07: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:20:07: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:20:07: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:20:07: Actions saved successfully to Actions.txt.
+07/28/24 18:20:07: Executing command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+07/28/24 18:20:07: scr_add_action - Raw inputs:
+07/28/24 18:20:07: Name: GotoPlaceOfPablo
+07/28/24 18:20:07: Command: goto_planet
+07/28/24 18:20:07: Parameters: ["Place of Pablo"]
+07/28/24 18:20:07: Action 'GotoPlaceOfPablo' added/updated successfully.
+07/28/24 18:20:07: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:20:07: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:20:07: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:20:07: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:20:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:20:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:20:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:20:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:20:07: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:20:07: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:20:07: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:20:07: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:20:07: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:20:07: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:20:07: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:20:07: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:20:07: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:20:07: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:20:07: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:20:07: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:20:07: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:20:07: Actions saved successfully to Actions.txt.
+07/28/24 18:20:07: Executing command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+07/28/24 18:20:07: scr_add_action - Raw inputs:
+07/28/24 18:20:07: Name: GotoGhostTown
+07/28/24 18:20:07: Command: goto_planet
+07/28/24 18:20:07: Parameters: ["Ghost Town"]
+07/28/24 18:20:07: Action 'GotoGhostTown' added/updated successfully.
+07/28/24 18:20:07: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:20:07: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:20:07: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:20:07: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:20:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:20:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:20:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:20:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:20:07: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:20:07: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:20:07: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:20:07: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:20:07: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:20:07: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:20:07: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:20:07: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:20:07: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:20:07: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:20:07: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:20:07: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:20:07: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:20:07: Actions saved successfully to Actions.txt.
+07/28/24 18:20:07: Executing command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+07/28/24 18:20:07: scr_add_action - Raw inputs:
+07/28/24 18:20:07: Name: GotoVulturesValley
+07/28/24 18:20:07: Command: goto_planet
+07/28/24 18:20:07: Parameters: ["Vultures Valley"]
+07/28/24 18:20:07: Action 'GotoVulturesValley' added/updated successfully.
+07/28/24 18:20:07: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:20:07: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 18:20:07: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 18:20:07: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 18:20:07: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 18:20:07: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 18:20:07: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 18:20:07: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 18:20:07: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 18:20:08: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 18:20:08: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 18:20:08: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 18:20:08: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 18:20:08: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 18:20:08: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 18:20:08: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 18:20:08: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 18:20:08: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 18:20:08: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 18:20:08: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 18:20:08: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 18:20:08: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 18:20:08: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 18:20:08: Actions saved successfully to Actions.txt.
+07/28/24 18:20:29: Executing command: execute_action(MainMenuChoices2)
+07/28/24 18:20:29: execute_action - Action Name: MainMenuChoices2
+07/28/24 18:20:29: Executing action: MainMenuChoices2
+07/28/24 18:20:29: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]}
+07/28/24 18:20:29: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/28/24 18:20:29: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 18:20:35: Executing command: execute_action(GotoEarth)
+07/28/24 18:20:35: execute_action - Action Name: GotoEarth
+07/28/24 18:20:35: Executing action: GotoEarth
+07/28/24 18:20:35: Decoded Command: {"command":"goto_planet","parameters":["Earth"]}
+07/28/24 18:20:35: Teleported to Earth.
+07/28/24 18:20:43: Executing command: execute_action(MainMenuChoices2)
+07/28/24 18:20:43: execute_action - Action Name: MainMenuChoices2
+07/28/24 18:20:43: Executing action: MainMenuChoices2
+07/28/24 18:20:43: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]}
+07/28/24 18:20:43: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/28/24 18:20:43: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 18:20:52: Executing command: execute_action(MoreChoices1)
+07/28/24 18:20:52: execute_action - Action Name: MoreChoices1
+07/28/24 18:20:52: Executing action: MoreChoices1
+07/28/24 18:20:52: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]]}
+07/28/24 18:20:52: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]
+07/28/24 18:20:52: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 18:20:53: Executing command: execute_action(MoreChoices2)
+07/28/24 18:20:53: execute_action - Action Name: MoreChoices2
+07/28/24 18:20:53: Executing action: MoreChoices2
+07/28/24 18:20:53: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]]}
+07/28/24 18:20:53: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]
+07/28/24 18:20:53: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 18:20:57: Executing command: execute_action(GotoVulturesValley)
+07/28/24 18:20:57: execute_action - Action Name: GotoVulturesValley
+07/28/24 18:20:57: Executing action: GotoVulturesValley
+07/28/24 18:20:57: Decoded Command: {"command":"goto_planet","parameters":["Vultures Valley"]}
+07/28/24 18:20:57: Teleported to Vultures Valley.
+07/28/24 18:21:14: [Jay Arnold] Hello|World!
+07/28/24 18:21:14: Creating chat bubble:  Hello|World!, Owner: yeancat, Choices: []
+07/28/24 18:21:14: Chat Bubble Created. Following 'yeancat' with text: ' Hello|World!'. Number of choices: 0
+07/28/24 18:21:17: [Jay Arnold] Hello|World!
+07/28/24 18:21:17: Creating chat bubble:  Hello|World!, Owner: yeancat, Choices: []
+07/28/24 18:21:17: Chat Bubble Created. Following 'yeancat' with text: ' Hello|World!'. Number of choices: 0
+07/28/24 18:21:25: [Jay Arnold] Hello|World!
+07/28/24 18:21:25: Creating chat bubble:  Hello|World!, Owner: yeancat, Choices: []
+07/28/24 18:21:25: Chat Bubble Created. Following 'yeancat' with text: ' Hello|World!'. Number of choices: 0
+07/28/24 18:21:32: [Jay Arnold] Hello|World!
+07/28/24 18:21:32: Creating chat bubble:  Hello|World!, Owner: yeancat, Choices: []
+07/28/24 18:21:32: Chat Bubble Created. Following 'yeancat' with text: ' Hello|World!'. Number of choices: 0
+07/28/24 18:22:01: [Jay Arnold] There are small issues. my chat bubbles are displaying the Line character instead of line breaking
+07/28/24 18:22:01: Creating chat bubble:  There are small issues. my chat bubbles are displaying the Line character instead of line breaking, Owner: yeancat, Choices: []
+07/28/24 18:22:01: Chat Bubble Created. Following 'yeancat' with text: ' There are small issues. my chat bubbles are displaying the Line character instead of line breaking'. Number of choices: 0
+07/28/24 18:23:35: [Jay Arnold] also my unintentional line breaking is not working as i can type here and it continues it should have broken after the word continues. its till going|the only way to line break now is to manually line break! we need the \n line breaks to occur |at the proper place and make sure these are being removed so that they dont interfere with|commands and actions. (it should already do that)
+07/28/24 18:23:35: Creating chat bubble:  also my unintentional line breaking is not working as i can type here and it continues it should have broken after the word continues. its till going|the only way to line break now is to manually line break! we need the \n line breaks to occur |at the proper place and make sure these are being removed so that they dont interfere with|commands and actions. (it should already do that), Owner: yeancat, Choices: []
+07/28/24 18:23:35: Chat Bubble Created. Following 'yeancat' with text: ' also my unintentional line breaking is not working as i can type here and it continues it should have broken after the word continues. its till going|the only way to line break now is to manually line break! we need the \n line breaks to occur |at the proper place and make sure these are being removed so that they dont interfere with|commands and actions. (it should already do that)'. Number of choices: 0
+07/28/24 18:23:56: [Jay Arnold] also i cant recall past commands, only normal messages (when pressing up or down arrow key)
+07/28/24 18:23:56: Creating chat bubble:  also i cant recall past commands, only normal messages (when pressing up or down arrow key), Owner: yeancat, Choices: []
+07/28/24 18:23:56: Chat Bubble Created. Following 'yeancat' with text: ' also i cant recall past commands, only normal messages (when pressing up or down arrow key)'. Number of choices: 0
+

@@ -1,0 +1,156 @@
+07/29/24 19:13:40: Loaded action/group: SaveGameNow
+07/29/24 19:13:40: Loaded action/group: GotoKingsKingdom
+07/29/24 19:13:40: Loaded action/group: EnterPortal
+07/29/24 19:13:40: Loaded action/group: PurchaseArtifacts
+07/29/24 19:13:40: Loaded action/group: BattleOutcome
+07/29/24 19:13:40: Loaded action/group: VisitMarket
+07/29/24 19:13:40: Loaded action/group: GotoDivineDomain
+07/29/24 19:13:40: Loaded action/group: GotoTheEndonda
+07/29/24 19:13:40: Loaded action/group: GotoUniverseCity
+07/29/24 19:13:40: Loaded action/group: GotoLandOfLucy
+07/29/24 19:13:40: Loaded action/group: GotoPlaceOfPablo
+07/29/24 19:13:40: Loaded action/group: InvestigateSignals
+07/29/24 19:13:40: Loaded action/group: OfferTrade
+07/29/24 19:13:40: Loaded action/group: DisableEnemySpawns
+07/29/24 19:13:40: Loaded action/group: BattleSequence
+07/29/24 19:13:40: Loaded action/group: StartBattle
+07/29/24 19:13:40: Loaded action/group: GotoTheIcyHeart
+07/29/24 19:13:40: Loaded action/group: EngageCombat
+07/29/24 19:13:40: Loaded action/group: GotoGhostTown
+07/29/24 19:13:40: Loaded action/group: StartExploration
+07/29/24 19:13:40: Loaded action/group: SetLevelFive
+07/29/24 19:13:40: Loaded action/group: LevelUpThree
+07/29/24 19:13:40: Loaded action/group: LevelUpOnce
+07/29/24 19:13:40: Loaded action/group: GotoTheGoldMines
+07/29/24 19:13:40: Loaded action/group: StartPeaceMission
+07/29/24 19:13:40: Loaded action/group: DiplomaticChoice
+07/29/24 19:13:40: Loaded action/group: TreatyOutcome
+07/29/24 19:13:40: Loaded action/group: ExplorationChoice
+07/29/24 19:13:40: Loaded action/group: BattleChoice
+07/29/24 19:13:40: Loaded action/group: ArtifactMystery
+07/29/24 19:13:40: Loaded action/group: PortalOutcome
+07/29/24 19:13:40: Loaded action/group: PeacefulMission
+07/29/24 19:13:40: Loaded action/group: SpaceAdventureStart
+07/29/24 19:13:40: Loaded action/group: PortalAdventure
+07/29/24 19:13:40: Loaded action/group: EnableEnemySpawns
+07/29/24 19:13:40: Loaded action/group: GotoVulturesValley
+07/29/24 19:13:40: Loaded action/group: GotoEarth
+07/29/24 19:13:40: Loaded action/group: GotoStormySands
+07/29/24 19:13:40: Loaded action/group: SpaceExploration
+07/29/24 19:13:40: Loaded action/group: GotoFantasia
+07/29/24 19:13:40: Loaded action/group: GotoYetopia
+07/29/24 19:13:41: Loaded action/group: ArtifactOutcome
+07/29/24 19:13:41: Loaded action/group: EpicBattle
+07/29/24 19:13:41: Loaded action/group: PeaceTreaty
+07/29/24 19:13:41: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 19:13:41: [Client] Failed to reconnect to server. Will try again...
+07/29/24 19:15:34: [Jay Arnold] hello world
+07/29/24 19:15:34: Creating chat bubble: " hello world", Owner: yeancat, Choices: []
+07/29/24 19:15:34: Chat Bubble Created. Following 'yeancat' with text: 'hello world'. Number of choices: 0
+07/29/24 19:15:42: [Jay Arnold] okay its at the correct spot but it is black
+07/29/24 19:15:42: Creating chat bubble: " okay its at the correct spot but it is black", Owner: yeancat, Choices: []
+07/29/24 19:15:42: Chat Bubble Created. Following 'yeancat' with text: 'okay its at the correct spot but it is black'. Number of choices: 0
+07/29/24 19:15:44: [Jay Arnold] not its white
+07/29/24 19:15:44: Creating chat bubble: " not its white", Owner: yeancat, Choices: []
+07/29/24 19:15:44: Chat Bubble Created. Following 'yeancat' with text: 'not its white'. Number of choices: 0
+07/29/24 19:16:33: [Jay Arnold] okay we have this looking good so far lets see what happens when i type a long message will it eventually wrapp the text? yeah but much too long. it should have wrapped after "type a long" or here >|
+07/29/24 19:16:33: Creating chat bubble: " okay we have this looking good so far lets see what happens when i type a long message will it eventually wrapp the text? yeah but much too long. it should have wrapped after \"type a long\" or here >|", Owner: yeancat, Choices: []
+07/29/24 19:16:33: Chat Bubble Created. Following 'yeancat' with text: 'okay we have this looking good so far lets see what happens when i type a long message will it eventually wrapp the text? yeah but much too long. it should have wrapped after "type a long" or here >|'. Number of choices: 0
+07/29/24 19:16:46: [Jay Arnold] i see multiple lines in the chat box! very good
+07/29/24 19:16:46: Creating chat bubble: " i see multiple lines in the chat box! very good", Owner: yeancat, Choices: []
+07/29/24 19:16:46: Chat Bubble Created. Following 'yeancat' with text: 'i see multiple lines in the chat box! very good'. Number of choices: 0
+07/29/24 19:16:59: [Jay Arnold] the black and white alternating messages in chat is hard to read
+07/29/24 19:16:59: Creating chat bubble: " the black and white alternating messages in chat is hard to read", Owner: yeancat, Choices: []
+07/29/24 19:16:59: Chat Bubble Created. Following 'yeancat' with text: 'the black and white alternating messages in chat is hard to read'. Number of choices: 0
+07/29/24 19:17:11: [Jay Arnold] lets make sure that is fixed
+07/29/24 19:17:11: Creating chat bubble: " lets make sure that is fixed", Owner: yeancat, Choices: []
+07/29/24 19:17:11: Chat Bubble Created. Following 'yeancat' with text: 'lets make sure that is fixed'. Number of choices: 0
+07/29/24 19:17:27: [Jay Arnold] 
+07/29/24 19:17:27: Creating chat bubble: " ", Owner: yeancat, Choices: []
+07/29/24 19:17:27: Chat Bubble Created. Following 'yeancat' with text: ''. Number of choices: 0
+07/29/24 19:17:33: [Jay Arnold] i cant scroll still!
+07/29/24 19:17:33: Creating chat bubble: " i cant scroll still!", Owner: yeancat, Choices: []
+07/29/24 19:17:33: Chat Bubble Created. Following 'yeancat' with text: 'i cant scroll still!'. Number of choices: 0
+07/29/24 19:17:42: [Jay Arnold] but the layout is perfect it seems
+07/29/24 19:17:42: Creating chat bubble: " but the layout is perfect it seems", Owner: yeancat, Choices: []
+07/29/24 19:17:42: Chat Bubble Created. Following 'yeancat' with text: 'but the layout is perfect it seems'. Number of choices: 0
+07/29/24 19:17:49: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 19:17:49: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 19:17:49: Executing action/group: SpaceAdventureStart
+07/29/24 19:17:49: Decoded Data: {"targetObject":"Target","command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/29/24 19:17:49: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 19:17:49: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 19:17:49: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 19:17:49: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 19:17:49: Command Name: chat_bubble
+07/29/24 19:17:49: Target Object: Target
+07/29/24 19:17:49: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 19:17:49: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/29/24 19:17:49: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/29/24 19:17:52: Raw command: execute_action(StartExploration)
+07/29/24 19:17:52: Cleaned command: execute_action(StartExploration)
+07/29/24 19:17:52: Executing action/group: StartExploration
+07/29/24 19:17:52: Decoded Data: {"targetObject":"yeancat","command":"execute_action","parameters":"SpaceExploration"}
+07/29/24 19:17:52: Raw command: execute_action("SpaceExploration")
+07/29/24 19:17:52: Cleaned command: execute_action("SpaceExploration")
+07/29/24 19:17:52: Executing action/group: SpaceExploration
+07/29/24 19:17:52: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/29/24 19:17:52: Raw command: execute_action(GotoUniverseCity)
+07/29/24 19:17:52: Cleaned command: execute_action(GotoUniverseCity)
+07/29/24 19:17:52: Executing action/group: GotoUniverseCity
+07/29/24 19:17:52: Decoded Data: {"targetObject":"yeancat","command":"goto_planet","parameters":"Universe City"}
+07/29/24 19:17:52: Raw command: goto_planet("Universe City")
+07/29/24 19:17:52: Cleaned command: goto_planet("Universe City")
+07/29/24 19:17:52: Parsing arguments: "Universe City"
+07/29/24 19:17:52: Parsed arguments: ["\"Universe City\""]
+07/29/24 19:17:52: Command Name: goto_planet
+07/29/24 19:17:52: Target Object: yeancat
+07/29/24 19:17:52: Parameters: ["\"Universe City\""]
+07/29/24 19:17:52: Teleported to Universe City.
+07/29/24 19:17:52: Raw command: execute_action(ExplorationChoice)
+07/29/24 19:17:52: Cleaned command: execute_action(ExplorationChoice)
+07/29/24 19:17:52: Executing action/group: ExplorationChoice
+07/29/24 19:17:52: Decoded Data: {"targetObject":"Target","command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]}
+07/29/24 19:17:52: Raw command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/29/24 19:17:52: Cleaned command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/29/24 19:17:52: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/29/24 19:17:52: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/29/24 19:17:52: Command Name: chat_bubble
+07/29/24 19:17:52: Target Object: Target
+07/29/24 19:17:52: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/29/24 19:17:52: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: Target, Choices: []
+07/29/24 19:17:52: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move?'. Number of choices: 3
+07/29/24 19:17:54: Raw command: execute_action(InvestigateSignals)
+07/29/24 19:17:54: Cleaned command: execute_action(InvestigateSignals)
+07/29/24 19:17:55: Executing action/group: InvestigateSignals
+07/29/24 19:17:55: Decoded Data: {"targetObject":"Target","command":"chat_bubble","parameters":["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]]}
+07/29/24 19:17:55: Raw command: Target.chat_bubble(["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]])
+07/29/24 19:17:55: Cleaned command: Target.chat_bubble(["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]])
+07/29/24 19:17:55: Parsing arguments: ["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]]
+07/29/24 19:17:55: Parsed arguments: ["[\"The signals lead you to a hidden portal. Do you enter?\",[[\"Enter the portal\",\"EnterPortal\"],[\"Report back to HQ\",\"ReportToHQ\"]]]"]
+07/29/24 19:17:55: Command Name: chat_bubble
+07/29/24 19:17:55: Target Object: Target
+07/29/24 19:17:55: Parameters: ["[\"The signals lead you to a hidden portal. Do you enter?\",[[\"Enter the portal\",\"EnterPortal\"],[\"Report back to HQ\",\"ReportToHQ\"]]]"]
+07/29/24 19:17:55: Creating chat bubble: ["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]], Owner: Target, Choices: []
+07/29/24 19:17:55: Chat Bubble Created. Following 'yeancat' with text: 'The signals lead you to a hidden portal. Do you enter?'. Number of choices: 2
+07/29/24 19:17:56: Raw command: execute_action(ReportToHQ)
+07/29/24 19:17:56: Cleaned command: execute_action(ReportToHQ)
+07/29/24 19:17:56: Action/group 'ReportToHQ' not found.
+07/29/24 19:18:04: Added boss reference: Futurtle1 -> obj_boss
+07/29/24 19:18:08: Raw command: show_lines(11)
+07/29/24 19:18:08: Cleaned command: show_lines(11)
+07/29/24 19:18:08: Parsing arguments: 11
+07/29/24 19:18:08: Parsed arguments: ["11"]
+07/29/24 19:18:08: Command Name: show_lines
+07/29/24 19:18:08: Target Object: yeancat
+07/29/24 19:18:08: Parameters: ["11"]
+07/29/24 19:18:08: Display set to show 11 lines.
+07/29/24 19:18:15: [Jay Arnold] it even scales with the line count change
+07/29/24 19:18:15: Creating chat bubble: " it even scales with the line count change", Owner: yeancat, Choices: []
+07/29/24 19:18:15: Chat Bubble Created. Following 'yeancat' with text: 'it even scales with the line count change'. Number of choices: 0
+07/29/24 19:18:28: [Jay Arnold] 3 things to fix i believe
+07/29/24 19:18:28: Creating chat bubble: " 3 things to fix i believe", Owner: yeancat, Choices: []
+07/29/24 19:18:28: Chat Bubble Created. Following 'yeancat' with text: '3 things to fix i believe'. Number of choices: 0
+07/29/24 19:19:06: [Jay Arnold] the black and white issue. the text not wrapping naturally soon enough (easy tweak)|and not being able to scroll. everything else is beautiful!
+07/29/24 19:19:06: Creating chat bubble: " the black and white issue. the text not wrapping naturally soon enough (easy tweak)|and not being able to scroll. everything else is beautiful!", Owner: yeancat, Choices: []
+07/29/24 19:19:06: Chat Bubble Created. Following 'yeancat' with text: 'the black and white issue. the text not wrapping naturally soon enough (easy tweak)|and not being able to scroll. everything else is beautiful!'. Number of choices: 0

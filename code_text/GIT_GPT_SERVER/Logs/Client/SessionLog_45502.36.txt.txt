@@ -1,0 +1,244 @@
+07/29/24 03:34:06: Loaded action/group: SaveGameNow
+07/29/24 03:34:06: Loaded action/group: GotoKingsKingdom
+07/29/24 03:34:06: Loaded action/group: EnterPortal
+07/29/24 03:34:06: Loaded action/group: PurchaseArtifacts
+07/29/24 03:34:06: Loaded action/group: BattleOutcome
+07/29/24 03:34:06: Loaded action/group: VisitMarket
+07/29/24 03:34:06: Loaded action/group: GotoDivineDomain
+07/29/24 03:34:06: Loaded action/group: GotoTheEndonda
+07/29/24 03:34:06: Loaded action/group: GotoUniverseCity
+07/29/24 03:34:06: Loaded action/group: GotoLandOfLucy
+07/29/24 03:34:06: Loaded action/group: GotoPlaceOfPablo
+07/29/24 03:34:06: Loaded action/group: InvestigateSignals
+07/29/24 03:34:06: Loaded action/group: OfferTrade
+07/29/24 03:34:06: Loaded action/group: DisableEnemySpawns
+07/29/24 03:34:06: Loaded action/group: BattleSequence
+07/29/24 03:34:06: Loaded action/group: StartBattle
+07/29/24 03:34:06: Loaded action/group: GotoTheIcyHeart
+07/29/24 03:34:06: Loaded action/group: EngageCombat
+07/29/24 03:34:06: Loaded action/group: GotoGhostTown
+07/29/24 03:34:06: Loaded action/group: StartExploration
+07/29/24 03:34:06: Loaded action/group: SetLevelFive
+07/29/24 03:34:06: Loaded action/group: LevelUpThree
+07/29/24 03:34:06: Loaded action/group: LevelUpOnce
+07/29/24 03:34:06: Loaded action/group: GotoTheGoldMines
+07/29/24 03:34:06: Loaded action/group: StartPeaceMission
+07/29/24 03:34:06: Loaded action/group: Hello
+07/29/24 03:34:06: Loaded action/group: DiplomaticChoice
+07/29/24 03:34:06: Loaded action/group: TreatyOutcome
+07/29/24 03:34:06: Loaded action/group: ExplorationChoice
+07/29/24 03:34:06: Loaded action/group: BattleChoice
+07/29/24 03:34:06: Loaded action/group: ArtifactMystery
+07/29/24 03:34:06: Loaded action/group: PortalOutcome
+07/29/24 03:34:06: Loaded action/group: PeacefulMission
+07/29/24 03:34:06: Loaded action/group: SpaceAdventureStart
+07/29/24 03:34:06: Loaded action/group: PortalAdventure
+07/29/24 03:34:06: Loaded action/group: EnableEnemySpawns
+07/29/24 03:34:06: Loaded action/group: GotoVulturesValley
+07/29/24 03:34:06: Loaded action/group: GotoEarth
+07/29/24 03:34:06: Loaded action/group: GotoStormySands
+07/29/24 03:34:06: Loaded action/group: SpaceExploration
+07/29/24 03:34:06: Loaded action/group: GotoFantasia
+07/29/24 03:34:06: Loaded action/group: GotoYetopia
+07/29/24 03:34:06: Loaded action/group: ArtifactOutcome
+07/29/24 03:34:06: Loaded action/group: EpicBattle
+07/29/24 03:34:06: Loaded action/group: PeaceTreaty
+07/29/24 03:34:06: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 03:34:06: [Client] Failed to reconnect to server. Will try again...
+07/29/24 03:34:22: Clipboard content is too long to paste!
+07/29/24 03:34:28: Raw command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 03:34:28: Executing command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 03:34:28: Script not found for command: chat_bubble,["Hello World"])
+07/29/24 03:34:31: Raw command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 03:34:31: Executing command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 03:34:31: Script not found for command: chat_bubble,["Hello World"])
+07/29/24 03:38:15: Loaded action/group: SaveGameNow
+07/29/24 03:38:15: Loaded action/group: GotoKingsKingdom
+07/29/24 03:38:15: Loaded action/group: EnterPortal
+07/29/24 03:38:15: Loaded action/group: PurchaseArtifacts
+07/29/24 03:38:15: Loaded action/group: BattleOutcome
+07/29/24 03:38:15: Loaded action/group: VisitMarket
+07/29/24 03:38:15: Loaded action/group: GotoDivineDomain
+07/29/24 03:38:15: Loaded action/group: GotoTheEndonda
+07/29/24 03:38:15: Loaded action/group: GotoUniverseCity
+07/29/24 03:38:15: Loaded action/group: GotoLandOfLucy
+07/29/24 03:38:15: Loaded action/group: GotoPlaceOfPablo
+07/29/24 03:38:15: Loaded action/group: InvestigateSignals
+07/29/24 03:38:15: Loaded action/group: OfferTrade
+07/29/24 03:38:15: Loaded action/group: DisableEnemySpawns
+07/29/24 03:38:15: Loaded action/group: BattleSequence
+07/29/24 03:38:15: Loaded action/group: StartBattle
+07/29/24 03:38:15: Loaded action/group: GotoTheIcyHeart
+07/29/24 03:38:15: Loaded action/group: EngageCombat
+07/29/24 03:38:15: Loaded action/group: GotoGhostTown
+07/29/24 03:38:15: Loaded action/group: StartExploration
+07/29/24 03:38:15: Loaded action/group: SetLevelFive
+07/29/24 03:38:15: Loaded action/group: LevelUpThree
+07/29/24 03:38:15: Loaded action/group: LevelUpOnce
+07/29/24 03:38:15: Loaded action/group: GotoTheGoldMines
+07/29/24 03:38:15: Loaded action/group: StartPeaceMission
+07/29/24 03:38:15: Loaded action/group: Hello
+07/29/24 03:38:15: Loaded action/group: DiplomaticChoice
+07/29/24 03:38:15: Loaded action/group: TreatyOutcome
+07/29/24 03:38:15: Loaded action/group: ExplorationChoice
+07/29/24 03:38:15: Loaded action/group: BattleChoice
+07/29/24 03:38:15: Loaded action/group: ArtifactMystery
+07/29/24 03:38:15: Loaded action/group: PortalOutcome
+07/29/24 03:38:15: Loaded action/group: PeacefulMission
+07/29/24 03:38:15: Loaded action/group: SpaceAdventureStart
+07/29/24 03:38:15: Loaded action/group: PortalAdventure
+07/29/24 03:38:15: Loaded action/group: EnableEnemySpawns
+07/29/24 03:38:15: Loaded action/group: GotoVulturesValley
+07/29/24 03:38:15: Loaded action/group: GotoEarth
+07/29/24 03:38:15: Loaded action/group: GotoStormySands
+07/29/24 03:38:15: Loaded action/group: SpaceExploration
+07/29/24 03:38:15: Loaded action/group: GotoFantasia
+07/29/24 03:38:15: Loaded action/group: GotoYetopia
+07/29/24 03:38:15: Loaded action/group: ArtifactOutcome
+07/29/24 03:38:15: Loaded action/group: EpicBattle
+07/29/24 03:38:15: Loaded action/group: PeaceTreaty
+07/29/24 03:38:15: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 03:38:15: [Client] Failed to reconnect to server. Will try again...
+07/29/24 03:38:24: Raw command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 03:38:24: Cleaned command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 03:38:24: Detected add_action command
+07/29/24 03:38:24: Start paren: 11, End paren: 52
+07/29/24 03:38:24: Arguments string: Hello,Player.chat_bubble,["Hello World"]
+07/29/24 03:38:24: Parsing arguments: Hello,Player.chat_bubble,["Hello World"]
+07/29/24 03:38:24: Parsed arguments: ["Hello","Player.chat_bubble","[\"Hello World\"]"]
+07/29/24 03:38:24: Parsed arguments: ["Hello","Player.chat_bubble","[\"Hello World\"]"]
+07/29/24 03:38:24: Action Name: Hello
+07/29/24 03:38:24: Full Action Command: Player.chat_bubble
+07/29/24 03:38:24: Action Params: ["Hello World"]
+07/29/24 03:38:24: Target Object: Player
+07/29/24 03:38:24: Action Command: chat_bubble
+07/29/24 03:38:24: scr_add_action called with:
+07/29/24 03:38:24: Action Name: Hello
+07/29/24 03:38:24: Action Command: chat_bubble
+07/29/24 03:38:24: Action Params: ["Hello World"]
+07/29/24 03:38:24: Target Object: Player
+07/29/24 03:38:24: Action 'Hello' added/updated successfully.
+07/29/24 03:38:24: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIkhlbGxvIFdvcmxkIl0sInRhcmdldE9iamVjdCI6IlBsYXllciJ9
+07/29/24 03:38:24: Actions and action groups saved successfully to Actions.txt.
+07/29/24 03:38:38: Raw command: execute_action(Hello)
+07/29/24 03:38:38: Cleaned command: execute_action(Hello)
+07/29/24 03:38:38: Executing action: Hello
+07/29/24 03:38:38: Decoded Command: {"command":"chat_bubble","parameters":["Hello World"],"targetObject":"Player"}
+07/29/24 03:38:38: Raw command: Player.chat_bubble(["Hello World"])
+07/29/24 03:38:38: Cleaned command: Player.chat_bubble(["Hello World"])
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+Variable <unknown_object>.openParenIndex(101557, -2147483648) not set before reading it.
+ at gml_Script_execute_command (line 63) -     } else if (openParenIndex > 0 && closeParenIndex > openParenIndex) {
+############################################################################################
+gml_Script_execute_command (line 63)
+gml_Script_scr_execute_action (line 17) -             execute_command(fullCmd);
+gml_Script_execute_command (line 61) -         scr_execute_action(actionName);
+gml_Script_execute_multiple_commands (line 7) -             execute_command(command);
+gml_Object_obj_Client_Step_0 (line 222) -             execute_multiple_commands(global.commandBuffer);
+07/29/24 03:42:20: Loaded action/group: SaveGameNow
+07/29/24 03:42:20: Loaded action/group: GotoKingsKingdom
+07/29/24 03:42:20: Loaded action/group: EnterPortal
+07/29/24 03:42:20: Loaded action/group: PurchaseArtifacts
+07/29/24 03:42:20: Loaded action/group: BattleOutcome
+07/29/24 03:42:20: Loaded action/group: VisitMarket
+07/29/24 03:42:21: Loaded action/group: GotoDivineDomain
+07/29/24 03:42:21: Loaded action/group: GotoTheEndonda
+07/29/24 03:42:21: Loaded action/group: GotoUniverseCity
+07/29/24 03:42:21: Loaded action/group: GotoLandOfLucy
+07/29/24 03:42:21: Loaded action/group: GotoPlaceOfPablo
+07/29/24 03:42:21: Loaded action/group: InvestigateSignals
+07/29/24 03:42:21: Loaded action/group: OfferTrade
+07/29/24 03:42:21: Loaded action/group: DisableEnemySpawns
+07/29/24 03:42:21: Loaded action/group: BattleSequence
+07/29/24 03:42:21: Loaded action/group: StartBattle
+07/29/24 03:42:21: Loaded action/group: GotoTheIcyHeart
+07/29/24 03:42:21: Loaded action/group: EngageCombat
+07/29/24 03:42:21: Loaded action/group: GotoGhostTown
+07/29/24 03:42:21: Loaded action/group: StartExploration
+07/29/24 03:42:21: Loaded action/group: SetLevelFive
+07/29/24 03:42:21: Loaded action/group: LevelUpThree
+07/29/24 03:42:21: Loaded action/group: LevelUpOnce
+07/29/24 03:42:21: Loaded action/group: GotoTheGoldMines
+07/29/24 03:42:21: Loaded action/group: StartPeaceMission
+07/29/24 03:42:21: Loaded action/group: Hello
+07/29/24 03:42:21: Loaded action/group: DiplomaticChoice
+07/29/24 03:42:21: Loaded action/group: TreatyOutcome
+07/29/24 03:42:21: Loaded action/group: ExplorationChoice
+07/29/24 03:42:21: Loaded action/group: BattleChoice
+07/29/24 03:42:21: Loaded action/group: ArtifactMystery
+07/29/24 03:42:21: Loaded action/group: PortalOutcome
+07/29/24 03:42:21: Loaded action/group: PeacefulMission
+07/29/24 03:42:21: Loaded action/group: SpaceAdventureStart
+07/29/24 03:42:21: Loaded action/group: PortalAdventure
+07/29/24 03:42:21: Loaded action/group: EnableEnemySpawns
+07/29/24 03:42:21: Loaded action/group: GotoVulturesValley
+07/29/24 03:42:21: Loaded action/group: GotoEarth
+07/29/24 03:42:21: Loaded action/group: GotoStormySands
+07/29/24 03:42:21: Loaded action/group: SpaceExploration
+07/29/24 03:42:21: Loaded action/group: GotoFantasia
+07/29/24 03:42:21: Loaded action/group: GotoYetopia
+07/29/24 03:42:21: Loaded action/group: ArtifactOutcome
+07/29/24 03:42:21: Loaded action/group: EpicBattle
+07/29/24 03:42:21: Loaded action/group: PeaceTreaty
+07/29/24 03:42:21: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 03:42:21: [Client] Failed to reconnect to server. Will try again...
+07/29/24 03:43:17: Raw command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 03:43:17: Cleaned command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 03:43:17: Detected add_action command
+07/29/24 03:43:17: Arguments string: Hello,Player.chat_bubble,["Hello World"]
+07/29/24 03:43:17: Parsing arguments: Hello,Player.chat_bubble,["Hello World"]
+07/29/24 03:43:17: Parsed arguments: ["Hello","Player.chat_bubble","[\"Hello World\"]"]
+07/29/24 03:43:17: Parsed arguments: ["Hello","Player.chat_bubble","[\"Hello World\"]"]
+07/29/24 03:43:17: Action Name: Hello
+07/29/24 03:43:17: Full Action Command: Player.chat_bubble
+07/29/24 03:43:17: Action Params: ["Hello World"]
+07/29/24 03:43:17: Target Object: Player
+07/29/24 03:43:17: Action Command: chat_bubble
+07/29/24 03:43:17: scr_add_action called with:
+07/29/24 03:43:17: Action Name: Hello
+07/29/24 03:43:17: Action Command: chat_bubble
+07/29/24 03:43:17: Action Params: ["Hello World"]
+07/29/24 03:43:17: Target Object: Player
+07/29/24 03:43:17: Action 'Hello' added/updated successfully.
+07/29/24 03:43:17: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIkhlbGxvIFdvcmxkIl0sInRhcmdldE9iamVjdCI6IlBsYXllciJ9
+07/29/24 03:43:17: Actions and action groups saved successfully to Actions.txt.
+07/29/24 03:43:22: Raw command: execute_action(Hello)
+07/29/24 03:43:22: Cleaned command: execute_action(Hello)
+07/29/24 03:43:22: Executing action: Hello
+07/29/24 03:43:22: Decoded Command: {"command":"chat_bubble","parameters":["Hello World"],"targetObject":"Player"}
+07/29/24 03:43:22: Raw command: Player.chat_bubble(["Hello World"])
+07/29/24 03:43:22: Cleaned command: Player.chat_bubble(["Hello World"])
+07/29/24 03:43:22: Parsing arguments: ["Hello World"]
+07/29/24 03:43:22: Parsed arguments: ["[\"Hello World\"]"]
+07/29/24 03:43:22: Command Name: chat_bubble
+07/29/24 03:43:22: Target Object: Player
+07/29/24 03:43:22: Parameters: ["[\"Hello World\"]"]
+07/29/24 03:43:22: Creating chat bubble: [Hello World], Owner: Player, Choices: []
+07/29/24 03:43:22: Owner object not found, using noone
+07/29/24 03:43:22: Owner instance not found, using default position
+07/29/24 03:43:22: Chat Bubble Created. Following 'Player' with text: '[Hello World]'. Number of choices: 0
+07/29/24 03:43:33: [Jay Arnold] it didnt crash but it didnt make the chat bubble
+07/29/24 03:43:33: Creating chat bubble:  it didnt crash but it didnt make the chat bubble, Owner: yeancat, Choices: []
+07/29/24 03:43:33: Chat Bubble Created. Following 'yeancat' with text: ' it didnt crash but it didnt make the chat bubble'. Number of choices: 0
+07/29/24 03:43:51: Raw command: Player.chat_bubble("Hello World!")
+07/29/24 03:43:51: Cleaned command: Player.chat_bubble("Hello World!")
+07/29/24 03:43:51: Parsing arguments: "Hello World!"
+07/29/24 03:43:51: Parsed arguments: ["\"Hello World!\""]
+07/29/24 03:43:51: Command Name: chat_bubble
+07/29/24 03:43:51: Target Object: Player
+07/29/24 03:43:51: Parameters: ["\"Hello World!\""]
+07/29/24 03:43:51: Creating chat bubble: Hello World!, Owner: Player, Choices: []
+07/29/24 03:43:51: Owner object not found, using noone
+07/29/24 03:43:51: Owner instance not found, using default position
+07/29/24 03:43:51: Chat Bubble Created. Following 'Player' with text: 'Hello World!'. Number of choices: 0
+07/29/24 03:43:59: [Jay Arnold] that didnt work either.
+07/29/24 03:43:59: Creating chat bubble:  that didnt work either., Owner: yeancat, Choices: []
+07/29/24 03:43:59: Chat Bubble Created. Following 'yeancat' with text: ' that didnt work either.'. Number of choices: 0

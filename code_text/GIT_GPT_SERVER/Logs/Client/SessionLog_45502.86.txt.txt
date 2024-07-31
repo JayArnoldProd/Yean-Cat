@@ -1,0 +1,305 @@
+07/29/24 15:39:08: Loaded action/group: SaveGameNow
+07/29/24 15:39:08: Loaded action/group: GotoKingsKingdom
+07/29/24 15:39:08: Loaded action/group: EnterPortal
+07/29/24 15:39:08: Loaded action/group: PurchaseArtifacts
+07/29/24 15:39:08: Loaded action/group: BattleOutcome
+07/29/24 15:39:08: Loaded action/group: VisitMarket
+07/29/24 15:39:08: Loaded action/group: GotoDivineDomain
+07/29/24 15:39:08: Loaded action/group: GotoTheEndonda
+07/29/24 15:39:08: Loaded action/group: GotoUniverseCity
+07/29/24 15:39:08: Loaded action/group: GotoLandOfLucy
+07/29/24 15:39:08: Loaded action/group: GotoPlaceOfPablo
+07/29/24 15:39:08: Loaded action/group: InvestigateSignals
+07/29/24 15:39:08: Loaded action/group: OfferTrade
+07/29/24 15:39:08: Loaded action/group: DisableEnemySpawns
+07/29/24 15:39:08: Loaded action/group: BattleSequence
+07/29/24 15:39:08: Loaded action/group: StartBattle
+07/29/24 15:39:08: Loaded action/group: GotoTheIcyHeart
+07/29/24 15:39:08: Loaded action/group: EngageCombat
+07/29/24 15:39:08: Loaded action/group: GotoGhostTown
+07/29/24 15:39:08: Loaded action/group: StartExploration
+07/29/24 15:39:08: Loaded action/group: SetLevelFive
+07/29/24 15:39:08: Loaded action/group: LevelUpThree
+07/29/24 15:39:08: Loaded action/group: LevelUpOnce
+07/29/24 15:39:08: Loaded action/group: GotoTheGoldMines
+07/29/24 15:39:08: Loaded action/group: StartPeaceMission
+07/29/24 15:39:08: Loaded action/group: DiplomaticChoice
+07/29/24 15:39:08: Loaded action/group: TreatyOutcome
+07/29/24 15:39:08: Loaded action/group: ExplorationChoice
+07/29/24 15:39:08: Loaded action/group: BattleChoice
+07/29/24 15:39:08: Loaded action/group: ArtifactMystery
+07/29/24 15:39:08: Loaded action/group: PortalOutcome
+07/29/24 15:39:08: Loaded action/group: PeacefulMission
+07/29/24 15:39:08: Loaded action/group: SpaceAdventureStart
+07/29/24 15:39:08: Loaded action/group: PortalAdventure
+07/29/24 15:39:08: Loaded action/group: EnableEnemySpawns
+07/29/24 15:39:08: Loaded action/group: GotoVulturesValley
+07/29/24 15:39:08: Loaded action/group: GotoEarth
+07/29/24 15:39:08: Loaded action/group: GotoStormySands
+07/29/24 15:39:08: Loaded action/group: SpaceExploration
+07/29/24 15:39:08: Loaded action/group: GotoFantasia
+07/29/24 15:39:08: Loaded action/group: GotoYetopia
+07/29/24 15:39:08: Loaded action/group: ArtifactOutcome
+07/29/24 15:39:08: Loaded action/group: EpicBattle
+07/29/24 15:39:08: Loaded action/group: PeaceTreaty
+07/29/24 15:39:08: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 15:39:08: [Client] Failed to reconnect to server. Will try again...
+07/29/24 15:39:22: Raw command: add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+07/29/24 15:39:22: Cleaned command: add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+07/29/24 15:39:22: Detected add_action command
+07/29/24 15:39:22: Arguments string: ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+07/29/24 15:39:22: Parsing arguments: ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+07/29/24 15:39:22: Parsed arguments: ["ExplorationChoice","Target.chat_bubble","[\"You've arrived at Universe City. What's your next move?\", [[\"Investigate strange signals\", \"InvestigateSignals\"], [\"Visit the local market\", \"VisitMarket\"], [\"Return to base\", \"ReturnToBase\"]]]"]
+07/29/24 15:39:22: Parsed arguments: ["ExplorationChoice","Target.chat_bubble","[\"You've arrived at Universe City. What's your next move?\", [[\"Investigate strange signals\", \"InvestigateSignals\"], [\"Visit the local market\", \"VisitMarket\"], [\"Return to base\", \"ReturnToBase\"]]]"]
+07/29/24 15:39:22: Action Name: ExplorationChoice
+07/29/24 15:39:22: Full Action Command: Target.chat_bubble
+07/29/24 15:39:22: Action Params: ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+07/29/24 15:39:22: Target Object: Target
+07/29/24 15:39:22: Action Command: chat_bubble
+07/29/24 15:39:22: scr_add_action called with:
+07/29/24 15:39:22: Action Name: ExplorationChoice
+07/29/24 15:39:22: Action Command: chat_bubble
+07/29/24 15:39:22: Action Params: ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+07/29/24 15:39:22: Target Object: Target
+07/29/24 15:39:22: Action 'ExplorationChoice' added/updated successfully.
+07/29/24 15:39:22: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIllvdSd2ZSBhcnJpdmVkIGF0IFVuaXZlcnNlIENpdHkuIFdoYXQncyB5b3VyIG5leHQgbW92ZT8iLFtbIkludmVzdGlnYXRlIHN0cmFuZ2Ugc2lnbmFscyIsIkludmVzdGlnYXRlU2lnbmFscyJdLFsiVmlzaXQgdGhlIGxvY2FsIG1hcmtldCIsIlZpc2l0TWFya2V0Il0sWyJSZXR1cm4gdG8gYmFzZSIsIlJldHVyblRvQmFzZSJdXV0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+07/29/24 15:39:22: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:22: Raw command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+07/29/24 15:39:22: Cleaned command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+07/29/24 15:39:23: Detected add_action command
+07/29/24 15:39:23: Arguments string: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+07/29/24 15:39:23: Parsing arguments: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+07/29/24 15:39:23: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+07/29/24 15:39:23: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+07/29/24 15:39:23: Action Name: InvestigateSignals
+07/29/24 15:39:23: Full Action Command: Target.chat_bubble
+07/29/24 15:39:23: Action Params: ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+07/29/24 15:39:23: Target Object: Target
+07/29/24 15:39:23: Action Command: chat_bubble
+07/29/24 15:39:23: scr_add_action called with:
+07/29/24 15:39:23: Action Name: InvestigateSignals
+07/29/24 15:39:23: Action Command: chat_bubble
+07/29/24 15:39:23: Action Params: ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+07/29/24 15:39:23: Target Object: Target
+07/29/24 15:39:23: Action 'InvestigateSignals' added/updated successfully.
+07/29/24 15:39:23: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIlRoZSBzaWduYWxzIGxlYWQgeW91IHRvIGEgaGlkZGVuIHBvcnRhbC4gRG8geW91IGVudGVyPyIsW1siRW50ZXIgdGhlIHBvcnRhbCIsIkVudGVyUG9ydGFsIl0sWyJSZXBvcnQgYmFjayB0byBIUSIsIlJlcG9ydFRvSFEiXV1dLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+07/29/24 15:39:23: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:23: Raw command: add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+07/29/24 15:39:23: Cleaned command: add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+07/29/24 15:39:23: Detected add_action command
+07/29/24 15:39:23: Arguments string: VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+07/29/24 15:39:23: Parsing arguments: VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+07/29/24 15:39:23: Parsed arguments: ["VisitMarket","Target.chat_bubble","[\"You find rare artifacts in the market. What do you do?\", [[\"Purchase artifacts\", \"PurchaseArtifacts\"], [\"Investigate seller\", \"InvestigateSeller\"]]]"]
+07/29/24 15:39:23: Parsed arguments: ["VisitMarket","Target.chat_bubble","[\"You find rare artifacts in the market. What do you do?\", [[\"Purchase artifacts\", \"PurchaseArtifacts\"], [\"Investigate seller\", \"InvestigateSeller\"]]]"]
+07/29/24 15:39:23: Action Name: VisitMarket
+07/29/24 15:39:23: Full Action Command: Target.chat_bubble
+07/29/24 15:39:23: Action Params: ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+07/29/24 15:39:23: Target Object: Target
+07/29/24 15:39:23: Action Command: chat_bubble
+07/29/24 15:39:23: scr_add_action called with:
+07/29/24 15:39:23: Action Name: VisitMarket
+07/29/24 15:39:23: Action Command: chat_bubble
+07/29/24 15:39:23: Action Params: ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+07/29/24 15:39:23: Target Object: Target
+07/29/24 15:39:23: Action 'VisitMarket' added/updated successfully.
+07/29/24 15:39:23: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIllvdSBmaW5kIHJhcmUgYXJ0aWZhY3RzIGluIHRoZSBtYXJrZXQuIFdoYXQgZG8geW91IGRvPyIsW1siUHVyY2hhc2UgYXJ0aWZhY3RzIiwiUHVyY2hhc2VBcnRpZmFjdHMiXSxbIkludmVzdGlnYXRlIHNlbGxlciIsIkludmVzdGlnYXRlU2VsbGVyIl1dXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+07/29/24 15:39:23: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:23: Raw command: add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+07/29/24 15:39:23: Cleaned command: add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+07/29/24 15:39:23: Detected add_action command
+07/29/24 15:39:23: Arguments string: BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+07/29/24 15:39:23: Parsing arguments: BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+07/29/24 15:39:23: Parsed arguments: ["BattleChoice","Target.chat_bubble","[\"Enemies approaching! What's your strategy?\", [[\"Engage in combat\", \"EngageCombat\"], [\"Attempt diplomacy\", \"AttemptDiplomacy\"], [\"Retreat\", \"StrategicRetreat\"]]]"]
+07/29/24 15:39:23: Parsed arguments: ["BattleChoice","Target.chat_bubble","[\"Enemies approaching! What's your strategy?\", [[\"Engage in combat\", \"EngageCombat\"], [\"Attempt diplomacy\", \"AttemptDiplomacy\"], [\"Retreat\", \"StrategicRetreat\"]]]"]
+07/29/24 15:39:23: Action Name: BattleChoice
+07/29/24 15:39:23: Full Action Command: Target.chat_bubble
+07/29/24 15:39:23: Action Params: ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+07/29/24 15:39:23: Target Object: Target
+07/29/24 15:39:23: Action Command: chat_bubble
+07/29/24 15:39:23: scr_add_action called with:
+07/29/24 15:39:23: Action Name: BattleChoice
+07/29/24 15:39:23: Action Command: chat_bubble
+07/29/24 15:39:23: Action Params: ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+07/29/24 15:39:23: Target Object: Target
+07/29/24 15:39:23: Action 'BattleChoice' added/updated successfully.
+07/29/24 15:39:23: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIkVuZW1pZXMgYXBwcm9hY2hpbmchIFdoYXQncyB5b3VyIHN0cmF0ZWd5PyIsW1siRW5nYWdlIGluIGNvbWJhdCIsIkVuZ2FnZUNvbWJhdCJdLFsiQXR0ZW1wdCBkaXBsb21hY3kiLCJBdHRlbXB0RGlwbG9tYWN5Il0sWyJSZXRyZWF0IiwiU3RyYXRlZ2ljUmV0cmVhdCJdXV0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+07/29/24 15:39:23: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:30: Raw command: add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+07/29/24 15:39:30: Cleaned command: add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+07/29/24 15:39:30: Detected add_action command
+07/29/24 15:39:30: Arguments string: DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+07/29/24 15:39:30: Parsing arguments: DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+07/29/24 15:39:30: Parsed arguments: ["DiplomaticChoice","Target.chat_bubble","[\"You're in Divine Domain for a peace mission. How do you proceed?\", [[\"Offer trade deal\", \"OfferTrade\"], [\"Share technology\", \"ShareTechnology\"], [\"Request alliance\", \"RequestAlliance\"]]]"]
+07/29/24 15:39:30: Parsed arguments: ["DiplomaticChoice","Target.chat_bubble","[\"You're in Divine Domain for a peace mission. How do you proceed?\", [[\"Offer trade deal\", \"OfferTrade\"], [\"Share technology\", \"ShareTechnology\"], [\"Request alliance\", \"RequestAlliance\"]]]"]
+07/29/24 15:39:30: Action Name: DiplomaticChoice
+07/29/24 15:39:30: Full Action Command: Target.chat_bubble
+07/29/24 15:39:30: Action Params: ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+07/29/24 15:39:30: Target Object: Target
+07/29/24 15:39:30: Action Command: chat_bubble
+07/29/24 15:39:30: scr_add_action called with:
+07/29/24 15:39:30: Action Name: DiplomaticChoice
+07/29/24 15:39:30: Action Command: chat_bubble
+07/29/24 15:39:30: Action Params: ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+07/29/24 15:39:30: Target Object: Target
+07/29/24 15:39:30: Action 'DiplomaticChoice' added/updated successfully.
+07/29/24 15:39:30: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIllvdSdyZSBpbiBEaXZpbmUgRG9tYWluIGZvciBhIHBlYWNlIG1pc3Npb24uIEhvdyBkbyB5b3UgcHJvY2VlZD8iLFtbIk9mZmVyIHRyYWRlIGRlYWwiLCJPZmZlclRyYWRlIl0sWyJTaGFyZSB0ZWNobm9sb2d5IiwiU2hhcmVUZWNobm9sb2d5Il0sWyJSZXF1ZXN0IGFsbGlhbmNlIiwiUmVxdWVzdEFsbGlhbmNlIl1dXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+07/29/24 15:39:30: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:43: Raw command: add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+07/29/24 15:39:43: Cleaned command: add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+07/29/24 15:39:43: Detected add_action command
+07/29/24 15:39:43: Arguments string: PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+07/29/24 15:39:43: Parsing arguments: PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+07/29/24 15:39:43: Parsed arguments: ["PortalOutcome","Target.chat_bubble","[\"You've discovered an ancient civilization! What's your approach?\", [[\"Study their technology\", \"StudyTech\"], [\"Establish communication\", \"Communicate\"], [\"Return home with findings\", \"ReturnWithFindings\"]]]"]
+07/29/24 15:39:43: Parsed arguments: ["PortalOutcome","Target.chat_bubble","[\"You've discovered an ancient civilization! What's your approach?\", [[\"Study their technology\", \"StudyTech\"], [\"Establish communication\", \"Communicate\"], [\"Return home with findings\", \"ReturnWithFindings\"]]]"]
+07/29/24 15:39:43: Action Name: PortalOutcome
+07/29/24 15:39:43: Full Action Command: Target.chat_bubble
+07/29/24 15:39:43: Action Params: ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+07/29/24 15:39:43: Target Object: Target
+07/29/24 15:39:43: Action Command: chat_bubble
+07/29/24 15:39:43: scr_add_action called with:
+07/29/24 15:39:43: Action Name: PortalOutcome
+07/29/24 15:39:43: Action Command: chat_bubble
+07/29/24 15:39:43: Action Params: ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+07/29/24 15:39:43: Target Object: Target
+07/29/24 15:39:43: Action 'PortalOutcome' added/updated successfully.
+07/29/24 15:39:43: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIllvdSd2ZSBkaXNjb3ZlcmVkIGFuIGFuY2llbnQgY2l2aWxpemF0aW9uISBXaGF0J3MgeW91ciBhcHByb2FjaD8iLFtbIlN0dWR5IHRoZWlyIHRlY2hub2xvZ3kiLCJTdHVkeVRlY2giXSxbIkVzdGFibGlzaCBjb21tdW5pY2F0aW9uIiwiQ29tbXVuaWNhdGUiXSxbIlJldHVybiBob21lIHdpdGggZmluZGluZ3MiLCJSZXR1cm5XaXRoRmluZGluZ3MiXV1dLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+07/29/24 15:39:43: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:43: Raw command: add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+07/29/24 15:39:43: Cleaned command: add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+07/29/24 15:39:43: Detected add_action command
+07/29/24 15:39:43: Arguments string: ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+07/29/24 15:39:43: Parsing arguments: ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+07/29/24 15:39:43: Parsed arguments: ["ArtifactOutcome","Target.chat_bubble","[\"The artifacts have awakened ancient guardians! Your move?\", [[\"Fight the guardians\", \"FightGuardians\"], [\"Try to deactivate artifacts\", \"DeactivateArtifacts\"], [\"Escape with artifacts\", \"EscapeWithArtifacts\"]]]"]
+07/29/24 15:39:43: Parsed arguments: ["ArtifactOutcome","Target.chat_bubble","[\"The artifacts have awakened ancient guardians! Your move?\", [[\"Fight the guardians\", \"FightGuardians\"], [\"Try to deactivate artifacts\", \"DeactivateArtifacts\"], [\"Escape with artifacts\", \"EscapeWithArtifacts\"]]]"]
+07/29/24 15:39:43: Action Name: ArtifactOutcome
+07/29/24 15:39:43: Full Action Command: Target.chat_bubble
+07/29/24 15:39:43: Action Params: ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+07/29/24 15:39:43: Target Object: Target
+07/29/24 15:39:43: Action Command: chat_bubble
+07/29/24 15:39:43: scr_add_action called with:
+07/29/24 15:39:43: Action Name: ArtifactOutcome
+07/29/24 15:39:43: Action Command: chat_bubble
+07/29/24 15:39:43: Action Params: ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+07/29/24 15:39:43: Target Object: Target
+07/29/24 15:39:43: Action 'ArtifactOutcome' added/updated successfully.
+07/29/24 15:39:43: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIlRoZSBhcnRpZmFjdHMgaGF2ZSBhd2FrZW5lZCBhbmNpZW50IGd1YXJkaWFucyEgWW91ciBtb3ZlPyIsW1siRmlnaHQgdGhlIGd1YXJkaWFucyIsIkZpZ2h0R3VhcmRpYW5zIl0sWyJUcnkgdG8gZGVhY3RpdmF0ZSBhcnRpZmFjdHMiLCJEZWFjdGl2YXRlQXJ0aWZhY3RzIl0sWyJFc2NhcGUgd2l0aCBhcnRpZmFjdHMiLCJFc2NhcGVXaXRoQXJ0aWZhY3RzIl1dXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+07/29/24 15:39:43: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:48: Raw command: add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+07/29/24 15:39:48: Cleaned command: add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+07/29/24 15:39:48: Detected add_action command
+07/29/24 15:39:48: Arguments string: BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+07/29/24 15:39:48: Parsing arguments: BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+07/29/24 15:39:48: Parsed arguments: ["BattleOutcome","Target.chat_bubble","[\"Victory! The enemy forces are retreating. Next steps?\", [[\"Pursue and capture\", \"PursueEnemy\"], [\"Secure the area\", \"SecureArea\"], [\"Call for reinforcements\", \"CallReinforcements\"]]]"]
+07/29/24 15:39:48: Parsed arguments: ["BattleOutcome","Target.chat_bubble","[\"Victory! The enemy forces are retreating. Next steps?\", [[\"Pursue and capture\", \"PursueEnemy\"], [\"Secure the area\", \"SecureArea\"], [\"Call for reinforcements\", \"CallReinforcements\"]]]"]
+07/29/24 15:39:48: Action Name: BattleOutcome
+07/29/24 15:39:48: Full Action Command: Target.chat_bubble
+07/29/24 15:39:48: Action Params: ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+07/29/24 15:39:48: Target Object: Target
+07/29/24 15:39:48: Action Command: chat_bubble
+07/29/24 15:39:48: scr_add_action called with:
+07/29/24 15:39:48: Action Name: BattleOutcome
+07/29/24 15:39:48: Action Command: chat_bubble
+07/29/24 15:39:48: Action Params: ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+07/29/24 15:39:48: Target Object: Target
+07/29/24 15:39:48: Action 'BattleOutcome' added/updated successfully.
+07/29/24 15:39:48: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIlZpY3RvcnkhIFRoZSBlbmVteSBmb3JjZXMgYXJlIHJldHJlYXRpbmcuIE5leHQgc3RlcHM/IixbWyJQdXJzdWUgYW5kIGNhcHR1cmUiLCJQdXJzdWVFbmVteSJdLFsiU2VjdXJlIHRoZSBhcmVhIiwiU2VjdXJlQXJlYSJdLFsiQ2FsbCBmb3IgcmVpbmZvcmNlbWVudHMiLCJDYWxsUmVpbmZvcmNlbWVudHMiXV1dLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+07/29/24 15:39:48: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:48: Raw command: add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+07/29/24 15:39:48: Cleaned command: add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+07/29/24 15:39:48: Detected add_action command
+07/29/24 15:39:48: Arguments string: TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+07/29/24 15:39:48: Parsing arguments: TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+07/29/24 15:39:48: Parsed arguments: ["TreatyOutcome","Target.chat_bubble","[\"The peace treaty is ready. Final decisions:\", [[\"Sign the treaty\", \"SignTreaty\"], [\"Propose amendments\", \"ProposeAmendments\"], [\"Reject and return to negotiations\", \"RenegotiateTreaty\"]]]"]
+07/29/24 15:39:48: Parsed arguments: ["TreatyOutcome","Target.chat_bubble","[\"The peace treaty is ready. Final decisions:\", [[\"Sign the treaty\", \"SignTreaty\"], [\"Propose amendments\", \"ProposeAmendments\"], [\"Reject and return to negotiations\", \"RenegotiateTreaty\"]]]"]
+07/29/24 15:39:48: Action Name: TreatyOutcome
+07/29/24 15:39:48: Full Action Command: Target.chat_bubble
+07/29/24 15:39:48: Action Params: ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+07/29/24 15:39:48: Target Object: Target
+07/29/24 15:39:48: Action Command: chat_bubble
+07/29/24 15:39:48: scr_add_action called with:
+07/29/24 15:39:48: Action Name: TreatyOutcome
+07/29/24 15:39:48: Action Command: chat_bubble
+07/29/24 15:39:48: Action Params: ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+07/29/24 15:39:48: Target Object: Target
+07/29/24 15:39:48: Action 'TreatyOutcome' added/updated successfully.
+07/29/24 15:39:48: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIlRoZSBwZWFjZSB0cmVhdHkgaXMgcmVhZHkuIEZpbmFsIGRlY2lzaW9uczoiLFtbIlNpZ24gdGhlIHRyZWF0eSIsIlNpZ25UcmVhdHkiXSxbIlByb3Bvc2UgYW1lbmRtZW50cyIsIlByb3Bvc2VBbWVuZG1lbnRzIl0sWyJSZWplY3QgYW5kIHJldHVybiB0byBuZWdvdGlhdGlvbnMiLCJSZW5lZ290aWF0ZVRyZWF0eSJdXV0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+07/29/24 15:39:48: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:39:56: Raw command: add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+07/29/24 15:39:56: Cleaned command: add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+07/29/24 15:39:56: Detected add_action command
+07/29/24 15:39:56: Arguments string: SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+07/29/24 15:39:56: Parsing arguments: SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+07/29/24 15:39:56: Parsed arguments: ["SpaceAdventureStart","Target.chat_bubble","[\"Welcome to the Space Adventure! Choose your path:\", [[\"Explore the universe\", \"StartExploration\"], [\"Engage in battle\", \"StartBattle\"], [\"Embark on a peace mission\", \"StartPeaceMission\"]]]"]
+07/29/24 15:39:56: Parsed arguments: ["SpaceAdventureStart","Target.chat_bubble","[\"Welcome to the Space Adventure! Choose your path:\", [[\"Explore the universe\", \"StartExploration\"], [\"Engage in battle\", \"StartBattle\"], [\"Embark on a peace mission\", \"StartPeaceMission\"]]]"]
+07/29/24 15:39:56: Action Name: SpaceAdventureStart
+07/29/24 15:39:56: Full Action Command: Target.chat_bubble
+07/29/24 15:39:56: Action Params: ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+07/29/24 15:39:56: Target Object: Target
+07/29/24 15:39:56: Action Command: chat_bubble
+07/29/24 15:39:56: scr_add_action called with:
+07/29/24 15:39:56: Action Name: SpaceAdventureStart
+07/29/24 15:39:56: Action Command: chat_bubble
+07/29/24 15:39:56: Action Params: ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+07/29/24 15:39:56: Target Object: Target
+07/29/24 15:39:56: Action 'SpaceAdventureStart' added/updated successfully.
+07/29/24 15:39:56: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldlbGNvbWUgdG8gdGhlIFNwYWNlIEFkdmVudHVyZSEgQ2hvb3NlIHlvdXIgcGF0aDoiLFtbIkV4cGxvcmUgdGhlIHVuaXZlcnNlIiwiU3RhcnRFeHBsb3JhdGlvbiJdLFsiRW5nYWdlIGluIGJhdHRsZSIsIlN0YXJ0QmF0dGxlIl0sWyJFbWJhcmsgb24gYSBwZWFjZSBtaXNzaW9uIiwiU3RhcnRQZWFjZU1pc3Npb24iXV1dLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+07/29/24 15:39:56: Actions and action groups saved successfully to Actions.txt.
+07/29/24 15:40:05: Raw command: set_target(Player)
+07/29/24 15:40:05: Cleaned command: set_target(Player)
+07/29/24 15:40:05: Parsing arguments: Player
+07/29/24 15:40:05: Parsed arguments: ["Player"]
+07/29/24 15:40:05: Command Name: set_target
+07/29/24 15:40:05: Target Object: yeancat
+07/29/24 15:40:05: Parameters: ["Player"]
+07/29/24 15:40:09: Raw command: list_objects
+07/29/24 15:40:09: Cleaned command: list_objects
+07/29/24 15:40:09: Command Name: list_objects
+07/29/24 15:40:09: Target Object: yeancat
+07/29/24 15:40:09: Parameters: []
+07/29/24 15:43:54: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 15:43:54: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 15:43:54: Executing action/group: SpaceAdventureStart
+07/29/24 15:43:54: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/29/24 15:43:54: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 15:43:54: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 15:43:54: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 15:43:54: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 15:43:54: Command Name: chat_bubble
+07/29/24 15:43:54: Target Object: Target
+07/29/24 15:43:54: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 15:43:54: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/29/24 15:43:54: Chat Bubble Created. Following 'obj_Client' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/29/24 15:44:00: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 15:44:00: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 15:44:00: Executing action/group: SpaceAdventureStart
+07/29/24 15:44:00: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/29/24 15:44:00: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 15:44:00: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 15:44:00: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 15:44:00: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 15:44:00: Command Name: chat_bubble
+07/29/24 15:44:00: Target Object: Target
+07/29/24 15:44:00: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 15:44:00: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/29/24 15:44:00: Chat Bubble Created. Following 'obj_Client' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+
+It followed obj_Client but we are trying to get it to follow the player by setting the target to the player.
+
+/// @function scr_set_target(target)
+/// @param {string/real} target - Instance ID or reference name of the target
+function scr_set_target(target) {
+    if (is_string(target)) {
+        var obj = get_object_reference(target);
+        if (obj != noone) {
+            global.currentTarget = obj;
+            return "Target set to " + target;
+        } else {
+            return "Invalid target reference: " + target;
+        }
+    } else if (instance_exists(target)) {
+        global.currentTarget = target;
+        return "Target set to instance " + string(target);
+    } else {
+        return "Invalid target instance ID: " + string(target);
+    }
+}

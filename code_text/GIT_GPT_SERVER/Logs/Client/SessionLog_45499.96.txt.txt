@@ -1,0 +1,237 @@
+07/26/24 18:08:35: Actions.txt not found. Starting with an empty actions map.
+07/26/24 18:08:35: [Client] Failed to reconnect to server. Will try again...
+07/26/24 18:08:55: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/26/24 18:08:55: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/26/24 18:08:55: Adding action: GotoEarth, Command: goto_planet, Raw Parameters: "Earth"
+07/26/24 18:08:55: Encoded Parameters: IkVhcnRoIg==
+07/26/24 18:08:55: Checking for command: goto_planet
+07/26/24 18:08:55: Action 'GotoEarth' added successfully.
+07/26/24 18:08:55: Saving action: GotoEarth|||goto_planet|||IklrVmhjblJvSWc9PSI=
+07/26/24 18:08:55: Actions saved successfully to Actions.txt.
+07/26/24 18:08:59: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/26/24 18:08:59: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/26/24 18:08:59: Adding action: LevelUpOnce, Command: level_up, Raw Parameters: 1.0
+07/26/24 18:08:59: Encoded Parameters: MS4w
+07/26/24 18:08:59: Checking for command: level_up
+07/26/24 18:08:59: Action 'LevelUpOnce' added successfully.
+07/26/24 18:08:59: Saving action: LevelUpOnce|||level_up|||Ik1TNHci
+07/26/24 18:08:59: Saving action: GotoEarth|||goto_planet|||IklrVmhjblJvSWc9PSI=
+07/26/24 18:08:59: Actions saved successfully to Actions.txt.
+07/26/24 18:09:03: Executing command: add_action(SaveGameNow,save_game,[])
+07/26/24 18:09:03: Processed command: add_action(SaveGameNow,save_game,[])
+07/26/24 18:09:03: Adding action: SaveGameNow, Command: save_game, Raw Parameters: []
+07/26/24 18:09:03: Encoded Parameters: W10=
+07/26/24 18:09:03: Checking for command: save_game
+07/26/24 18:09:03: Action 'SaveGameNow' added successfully.
+07/26/24 18:09:03: Saving action: SaveGameNow|||save_game|||IlcxMD0i
+07/26/24 18:09:03: Saving action: LevelUpOnce|||level_up|||Ik1TNHci
+07/26/24 18:09:03: Saving action: GotoEarth|||goto_planet|||IklrVmhjblJvSWc9PSI=
+07/26/24 18:09:03: Actions saved successfully to Actions.txt.
+07/26/24 18:09:07: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/26/24 18:09:07: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/26/24 18:09:07: Adding action: MainMenuChoices, Command: chat_bubble, Raw Parameters: "What would you like to do?"
+07/26/24 18:09:07: Encoded Parameters: IldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/Ig==
+07/26/24 18:09:07: Checking for command: chat_bubble
+07/26/24 18:09:07: Action 'MainMenuChoices' added successfully.
+07/26/24 18:09:07: Saving action: SaveGameNow|||save_game|||IlcxMD0i
+07/26/24 18:09:07: Saving action: MainMenuChoices|||chat_bubble|||IklsZG9ZWFFnZDI5MWJHUWdlVzkxSUd4cGEyVWdkRzhnWkc4XC9JZz09Ig==
+07/26/24 18:09:07: Saving action: LevelUpOnce|||level_up|||Ik1TNHci
+07/26/24 18:09:07: Saving action: GotoEarth|||goto_planet|||IklrVmhjblJvSWc9PSI=
+07/26/24 18:09:07: Actions saved successfully to Actions.txt.
+07/26/24 18:09:15: Executing command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+07/26/24 18:09:15: Processed command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+07/26/24 18:09:15: Creating chat bubble: "What would you like to do?", Owner: "yeancat", Choices: "[[\"Go to Earth\",\"GotoEarth\"],[\"Level  Up\",\"LevelUpOnce\"]]"
+07/26/24 18:09:15: Owner object not found, using yeancat
+07/26/24 18:09:15: Chat Bubble Created. Following '"yeancat"' with text: '"What would you like to do?"'. Number of choices: 2
+07/26/24 18:09:21: Executing command: execute_action(MainMenuChoices)
+07/26/24 18:09:21: Processed command: execute_action(MainMenuChoices)
+07/26/24 18:09:21: Successfully decoded parameters: "What would you like to do?"
+07/26/24 18:09:21: Executing action: MainMenuChoices
+07/26/24 18:09:21: Command: chat_bubble
+07/26/24 18:09:21: Decoded Parameters: "What would you like to do?"
+07/26/24 18:09:21: Error: Not enough parameters for chat_bubble action
+07/26/24 18:09:25: [Jay Arnold] same bug!
+07/26/24 18:09:25: Creating chat bubble:  same bug!, Owner: yeancat, Choices: []
+07/26/24 18:09:25: Chat Bubble Created. Following 'yeancat' with text: ' same bug!'. Number of choices: 0
+
+Checking for player update or addition
+Updating existing player data for ID: 4532758
+https://firestore.googleapis.com/v1/projects/yean-cat/databases/(default)/documents/highscores/dBYOEoyuOzP0O4qc3WSF/?updateMask.fieldPaths=u_last_version_played&updateMask.fieldPaths=u_last_time_online&updateMask.fieldPaths=u_messages&updateMask.fieldPaths=u_levelender_killcount&updateMask.fieldPaths=u_enemy_killcount&updateMask.fieldPaths=strongestcharacter&updateMask.fieldPaths=u_disconnected&updateMask.fieldPaths=u_banned&updateMask.fieldPaths=u_invisible&updateMask.fieldPaths=longestgame&updateMask.fieldPaths=u_donda_3_unlocked&updateMask.fieldPaths=strongestlevel&updateMask.fieldPaths=u_datebanned&updateMask.fieldPaths=u_password&updateMask.fieldPaths=u_character_id&updateMask.fieldPaths=kills&updateMask.fieldPaths=mostkills&updateMask.fieldPaths=u_planet_on&updateMask.fieldPaths=playernumber&updateMask.fieldPaths=tw_dollars&updateMask.fieldPaths=playerid&updateMask.fieldPaths=named&updateMask.fieldPaths=u_name_text&updateMask.fieldPaths=u_ind_boss_kills&updateMask.fieldPaths=u_theme_song&updateMask.fiel
+dPaths=u_custom_look&updateMask.fieldPaths=email&updateMask.fieldPaths=playtime&updateMask.fieldPaths=combinedlevel&updateMask.fieldPaths=u_character_levels&updateMask.fieldPaths=id&updateMask.fieldPaths=u_game_progress&updateMask.fieldPaths=u_tasks_completed&updateMask.fieldPaths=u_friends_list&updateMask.fieldPaths=u_timesbanned&updateMask.fieldPaths=u_login_message&updateMask.fieldPaths=u_clan_info&updateMask.fieldPaths=v_permissions&updateMask.fieldPaths=u_collectibles_unlocked&updateMask.fieldPaths=highestlevel&updateMask.fieldPaths=lversion&updateMask.fieldPaths=u_planet_log&updateMask.fieldPaths=u_boss_killcount&updateMask.fieldPaths=u_friend_count
+Update Response: dBYOEoyuOzP0O4qc3WSF
+Pause event has been registered for this frame
+Pause event has been unregistered
+Input: Hotswapping on keyboard press
+Input: Setting player 0 profile to "keyboard_and_mouse"
+[Client] Toggled chat box visibility: 1
+Extracted command: 'add_action'
+Checking permission for command: 'add_action'
+Required level: 2, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: 'GotoEarth,goto_planet,["Earth"]'
+Checking param: 'GotoEarth'
+Checking param: 'goto_planet'
+Checking param: '[""Earth""]'
+All params valid
+Params: 'GotoEarth,goto_planet,["Earth"]', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /add_action(GotoEarth,goto_planet,["Earth"])
+Date: 07/26/24 Time: 18:08:55 Msg: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+Date: 07/26/24 Time: 18:08:55 Msg: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+Date: 07/26/24 Time: 18:08:55 Msg: Adding action: GotoEarth, Command: goto_planet, Raw Parameters: "Earth"
+Date: 07/26/24 Time: 18:08:55 Msg: Encoded Parameters: IkVhcnRoIg==
+Date: 07/26/24 Time: 18:08:55 Msg: Checking for command: goto_planet
+Date: 07/26/24 Time: 18:08:55 Msg: Action 'GotoEarth' added successfully.
+Date: 07/26/24 Time: 18:08:55 Msg: Saving action: GotoEarth|||goto_planet|||IklrVmhjblJvSWc9PSI=
+Date: 07/26/24 Time: 18:08:55 Msg: Actions saved successfully to Actions.txt.
+[Client] Processed command/chat and cleared buffer.
+Pause event has been registered for this frame
+Pause event has been unregistered
+[Client] Chat input activated.
+Extracted command: 'add_action'
+Checking permission for command: 'add_action'
+Required level: 2, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: 'LevelUpOnce,level_up,[1]'
+Checking param: 'LevelUpOnce'
+Checking param: 'level_up'
+Checking param: '[1]'
+All params valid
+Params: 'LevelUpOnce,level_up,[1]', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /add_action(LevelUpOnce,level_up,[1])
+Date: 07/26/24 Time: 18:08:59 Msg: Executing command: add_action(LevelUpOnce,level_up,[1])
+Date: 07/26/24 Time: 18:08:59 Msg: Processed command: add_action(LevelUpOnce,level_up,[1])
+Date: 07/26/24 Time: 18:08:59 Msg: Adding action: LevelUpOnce, Command: level_up, Raw Parameters: 1.0
+Date: 07/26/24 Time: 18:08:59 Msg: Encoded Parameters: MS4w
+Date: 07/26/24 Time: 18:08:59 Msg: Checking for command: level_up
+Date: 07/26/24 Time: 18:08:59 Msg: Action 'LevelUpOnce' added successfully.
+Date: 07/26/24 Time: 18:08:59 Msg: Saving action: LevelUpOnce|||level_up|||Ik1TNHci
+Date: 07/26/24 Time: 18:08:59 Msg: Saving action: GotoEarth|||goto_planet|||IklrVmhjblJvSWc9PSI=
+Date: 07/26/24 Time: 18:08:59 Msg: Actions saved successfully to Actions.txt.
+[Client] Processed command/chat and cleared buffer.
+Pause event has been registered for this frame
+Pause event has been unregistered
+[Client] Chat input activated.
+Extracted command: 'add_action'
+Checking permission for command: 'add_action'
+Required level: 2, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: 'SaveGameNow,save_game,[]'
+Checking param: 'SaveGameNow'
+Checking param: 'save_game'
+Checking param: '[]'
+All params valid
+Params: 'SaveGameNow,save_game,[]', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /add_action(SaveGameNow,save_game,[])
+Date: 07/26/24 Time: 18:09:03 Msg: Executing command: add_action(SaveGameNow,save_game,[])
+Date: 07/26/24 Time: 18:09:03 Msg: Processed command: add_action(SaveGameNow,save_game,[])
+Date: 07/26/24 Time: 18:09:03 Msg: Adding action: SaveGameNow, Command: save_game, Raw Parameters: []
+Date: 07/26/24 Time: 18:09:03 Msg: Encoded Parameters: W10=
+Date: 07/26/24 Time: 18:09:03 Msg: Checking for command: save_game
+Date: 07/26/24 Time: 18:09:03 Msg: Action 'SaveGameNow' added successfully.
+Date: 07/26/24 Time: 18:09:03 Msg: Saving action: SaveGameNow|||save_game|||IlcxMD0i
+Date: 07/26/24 Time: 18:09:03 Msg: Saving action: LevelUpOnce|||level_up|||Ik1TNHci
+Date: 07/26/24 Time: 18:09:03 Msg: Saving action: GotoEarth|||goto_planet|||IklrVmhjblJvSWc9PSI=
+Date: 07/26/24 Time: 18:09:03 Msg: Actions saved successfully to Actions.txt.
+[Client] Processed command/chat and cleared buffer.
+Pause event has been registered for this frame
+Pause event has been unregistered
+[Client] Chat input activated.
+Extracted command: 'add_action'
+Checking permission for command: 'add_action'
+Required level: 2, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: 'MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel","null"]]]'
+Checking param: 'MainMenuChoices'
+Checking param: 'chat_bubble'
+Checking param: '[""What would you like to do?"",""yeancat"",[[""Go to Earth"",""GotoEarth""],[""Level Up"",""LevelUpOnce""],[""Save 
+Game"",""SaveGameNow""],[""Cancel"",""null""]]]'
+All params valid
+Params: 'MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel","null"]]]', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save 
+Game","SaveGameNow"],["Cancel","null"]]])
+Date: 07/26/24 Time: 18:09:07 Msg: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+Date: 07/26/24 Time: 18:09:07 Msg: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+Date: 07/26/24 Time: 18:09:07 Msg: Adding action: MainMenuChoices, Command: chat_bubble, Raw Parameters: "What would you like to do?"
+Date: 07/26/24 Time: 18:09:07 Msg: Encoded Parameters: IldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/Ig==
+Date: 07/26/24 Time: 18:09:07 Msg: Checking for command: chat_bubble
+Date: 07/26/24 Time: 18:09:07 Msg: Action 'MainMenuChoices' added successfully.
+Date: 07/26/24 Time: 18:09:07 Msg: Saving action: SaveGameNow|||save_game|||IlcxMD0i
+Date: 07/26/24 Time: 18:09:07 Msg: Saving action: MainMenuChoices|||chat_bubble|||IklsZG9ZWFFnZDI5MWJHUWdlVzkxSUd4cGEyVWdkRzhnWkc4XC9JZz09Ig==
+Date: 07/26/24 Time: 18:09:07 Msg: Saving action: LevelUpOnce|||level_up|||Ik1TNHci
+Date: 07/26/24 Time: 18:09:07 Msg: Saving action: GotoEarth|||goto_planet|||IklrVmhjblJvSWc9PSI=
+Date: 07/26/24 Time: 18:09:07 Msg: Actions saved successfully to Actions.txt.
+[Client] Processed command/chat and cleared buffer.
+Pause event has been registered for this frame
+Pause event has been unregistered
+[Client] Chat input activated.
+Extracted command: 'chat_bubble'
+Checking permission for command: 'chat_bubble'
+Required level: 1, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: '"What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level 
+Up","LevelUpOnce"]]'
+Checking param: '""What would you like to do?""'
+Checking param: '""yeancat""'
+Checking param: '[[""Go to Earth"",""GotoEarth""],[""Level 
+Up"",""LevelUpOnce""]]'
+All params valid
+Params: '"What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level 
+Up","LevelUpOnce"]]', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level 
+Up","LevelUpOnce"]])
+Date: 07/26/24 Time: 18:09:15 Msg: Executing command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+Date: 07/26/24 Time: 18:09:15 Msg: Processed command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+Date: 07/26/24 Time: 18:09:15 Msg: Creating chat bubble: "What would you like to do?", Owner: "yeancat", Choices: "[[\"Go to Earth\",\"GotoEarth\"],[\"Level  Up\",\"LevelUpOnce\"]]"
+Date: 07/26/24 Time: 18:09:15 Msg: Owner object not found, using yeancat
+Date: 07/26/24 Time: 18:09:15 Msg: Chat Bubble Created. Following '"yeancat"' with text: '"What would you like to do?"'. Number of choices: 2
+[Client] Processed command/chat and cleared buffer.
+Drawing chat bubble. Text: '"What would you like to do?"'
+Wrapped text: ''
+Text position: 0, 15
+Text color: 4210752, Outline color: 0
+Text scale: 1
+Max width: 500
+Pause event has been registered for this frame
+Pause event has been unregistered
+[Client] Chat input activated.
+Extracted command: 'execute_action'
+Checking permission for command: 'execute_action'
+Required level: 2, Player level: 3, Has permission: 1
+Command exists: 1, Requires parentheses: 1, Has permission: 1
+Checking params: 'MainMenuChoices'
+Checking param: 'MainMenuChoices'
+All params valid
+Params: 'MainMenuChoices', Is valid: 1, Setting color to green
+Final text color set to: green
+[Client] Appended clipboard content to command buffer: /execute_action(MainMenuChoices)
+Date: 07/26/24 Time: 18:09:21 Msg: Executing command: execute_action(MainMenuChoices)
+Date: 07/26/24 Time: 18:09:21 Msg: Processed command: execute_action(MainMenuChoices)
+Date: 07/26/24 Time: 18:09:21 Msg: Successfully decoded parameters: "What would you like to do?"
+Date: 07/26/24 Time: 18:09:21 Msg: Executing action: MainMenuChoices
+Date: 07/26/24 Time: 18:09:21 Msg: Command: chat_bubble
+Date: 07/26/24 Time: 18:09:21 Msg: Decoded Parameters: "What would you like to do?"
+Date: 07/26/24 Time: 18:09:21 Msg: Error: Not enough parameters for chat_bubble action
+[Client] Processed command/chat and cleared buffer.
+[Client] Chat input activated.
+Date: 07/26/24 Time: 18:09:25 Msg: [Jay Arnold] same bug!
+Date: 07/26/24 Time: 18:09:25 Msg: Creating chat bubble:  same bug!, Owner: yeancat, Choices: []
+Date: 07/26/24 Time: 18:09:25 Msg: Chat Bubble Created. Following 'yeancat' with text: ' same bug!'. Number of choices: 0
+[Client] Processed command/chat and cleared buffer.
+Drawing chat bubble. Text: ' same bug!'
+Wrapped text: ''
+Text position: 0, 15
+Text color: 4210752, Outline color: 0
+Text scale: 1
+Max width: 500
+Attempting to set gamepadcount to 0
+Script_Free called with 1400 and global 497
+Igor complete.
+elapsed time 00:02:13.4220610s for command "/Users/Shared/GameMakerStudio2/Cache/runtimes/runtime-2024.4.1.201/bin/igor/osx/arm64/Igor" -j=8  -options="/tmp/GameMakerStudio2/GMS2TEMP/build.bff" -v -- Mac Run started at 07/26/2024 18:07:15
+SUCCESS: Run Program Complete

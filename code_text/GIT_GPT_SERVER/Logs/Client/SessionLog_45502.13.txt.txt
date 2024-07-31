@@ -1,0 +1,74 @@
+07/28/24 22:05:54: Loaded action/group: SaveGameNow
+07/28/24 22:05:54: Loaded action/group: MoreChoices3
+07/28/24 22:05:54: Loaded action/group: GotoKingsKingdom
+07/28/24 22:05:54: Loaded action/group: MainMenuChoices2
+07/28/24 22:05:54: Loaded action/group: MoreChoices1
+07/28/24 22:05:54: Loaded action/group: GotoDivineDomain
+07/28/24 22:05:54: Loaded action/group: GotoTheEndonda
+07/28/24 22:05:54: Loaded action/group: GotoUniverseCity
+07/28/24 22:05:54: Loaded action/group: GotoLandOfLucy
+07/28/24 22:05:54: Loaded action/group: GotoPlaceOfPablo
+07/28/24 22:05:54: Loaded action/group: GotoTheIcyHeart
+07/28/24 22:05:54: Loaded action/group: GotoGhostTown
+07/28/24 22:05:54: Loaded action/group: MainMenuChoices
+07/28/24 22:05:54: Loaded action/group: LevelUpOnce
+07/28/24 22:05:54: Loaded action/group: GotoTheGoldMines
+07/28/24 22:05:54: Loaded action/group: MoreChoices2
+07/28/24 22:05:54: Loaded action/group: MoreChoices4
+07/28/24 22:05:55: Loaded action/group: GotoVulturesValley
+07/28/24 22:05:55: Loaded action/group: GotoEarth
+07/28/24 22:05:55: Loaded action/group: GotoStormySands
+07/28/24 22:05:55: Loaded action/group: GotoFantasia
+07/28/24 22:05:55: Loaded action/group: GotoYetopia
+07/28/24 22:05:55: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 22:05:55: [Client] Failed to reconnect to server. Will try again...
+07/28/24 22:06:14: Executing command: list_variables
+07/28/24 22:06:14: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+07/28/24 22:06:14: Password, Time, Macro5, Macro1, SpawnEnemies, Macro9, Macro7, Macro3, 
+07/28/24 22:06:14: CharacterLimit, ControllerType, Level
+07/28/24 22:06:33: Executing command: set_variable(SpawnEnemies,1)
+07/28/24 22:06:33: Error: Value out of bounds (0 to 1)
+07/28/24 22:06:48: Executing command: set_variable("SpawnEnemies",1)
+07/28/24 22:06:48: Error: Variable '"SpawnEnemies"' not found in details map.
+07/28/24 22:06:54: Executing command: set_variable("SpawnEnemies",true)
+07/28/24 22:06:54: Error: Variable '"SpawnEnemies"' not found in details map.
+07/28/24 22:07:02: Executing command: set_variable(Time,500)
+07/28/24 22:07:02: Time set to 500
+07/28/24 22:12:04: Loaded action/group: SaveGameNow
+07/28/24 22:12:04: Loaded action/group: MoreChoices3
+07/28/24 22:12:04: Loaded action/group: GotoKingsKingdom
+07/28/24 22:12:04: Loaded action/group: MainMenuChoices2
+07/28/24 22:12:04: Loaded action/group: MoreChoices1
+07/28/24 22:12:04: Loaded action/group: GotoDivineDomain
+07/28/24 22:12:04: Loaded action/group: GotoTheEndonda
+07/28/24 22:12:04: Loaded action/group: GotoUniverseCity
+07/28/24 22:12:04: Loaded action/group: GotoLandOfLucy
+07/28/24 22:12:04: Loaded action/group: GotoPlaceOfPablo
+07/28/24 22:12:04: Loaded action/group: GotoTheIcyHeart
+07/28/24 22:12:04: Loaded action/group: GotoGhostTown
+07/28/24 22:12:04: Loaded action/group: MainMenuChoices
+07/28/24 22:12:04: Loaded action/group: LevelUpOnce
+07/28/24 22:12:04: Loaded action/group: GotoTheGoldMines
+07/28/24 22:12:04: Loaded action/group: MoreChoices2
+07/28/24 22:12:04: Loaded action/group: MoreChoices4
+07/28/24 22:12:04: Loaded action/group: GotoVulturesValley
+07/28/24 22:12:04: Loaded action/group: GotoEarth
+07/28/24 22:12:04: Loaded action/group: GotoStormySands
+07/28/24 22:12:04: Loaded action/group: GotoFantasia
+07/28/24 22:12:04: Loaded action/group: GotoYetopia
+07/28/24 22:12:04: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 22:12:04: [Client] Failed to reconnect to server. Will try again...
+07/28/24 22:12:18: Executing command: list_variables
+07/28/24 22:12:18: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+07/28/24 22:12:18: Password, Time, Macro5, Macro1, SpawnEnemies, Macro9, Macro7, Macro3, 
+07/28/24 22:12:18: CharacterLimit, ControllerType, Level
+07/28/24 22:12:28: Executing command: set_variable(SpawnEnemies,1)
+07/28/24 22:12:28: SpawnEnemies set to 1
+07/28/24 22:12:33: Executing command: set_variable(SpawnEnemies,false)
+07/28/24 22:12:33: SpawnEnemies set to 0
+07/28/24 22:12:44: [Jay Arnold] 
+07/28/24 22:12:44: Creating chat bubble:  , Owner: yeancat, Choices: []
+07/28/24 22:12:44: Chat Bubble Created. Following 'yeancat' with text: ' '. Number of choices: 0
+07/28/24 22:12:47: [Jay Arnold] hello world!
+07/28/24 22:12:47: Creating chat bubble:  hello world!, Owner: yeancat, Choices: []
+07/28/24 22:12:47: Chat Bubble Created. Following 'yeancat' with text: ' hello world!'. Number of choices: 0

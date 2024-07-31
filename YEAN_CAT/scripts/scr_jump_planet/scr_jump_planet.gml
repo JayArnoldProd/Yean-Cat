@@ -14,7 +14,7 @@ if obj_terrain.planet<13 {
 	} else {
 		p_name=obj_terrain.planet_names[obj_terrain.planet,3]
 	}
-	handleDebugMessage("Jumped 1 Planet Right. Welcome to "+p_name, true)
+	handleDebugMessage("Jumped 1 Planet Right. Welcome to "+p_name, false)
 } else {
 	obj_terrain.planet=0
 	obj_terrain2.planet=obj_terrain.planet
@@ -24,7 +24,7 @@ if obj_terrain.planet<13 {
 	} else {
 		p_name=obj_terrain.planet_names[obj_terrain.planet,3]
 	}
-	handleDebugMessage("Jumped 1 Planet Right. Welcome to "+p_name, true)
+	handleDebugMessage("Jumped 1 Planet Right. Welcome to "+p_name, false)
 }
 } else {
 //move 1 planet counterclockwise
@@ -38,7 +38,7 @@ if obj_terrain.planet>0 {
 	} else {
 		p_name=obj_terrain.planet_names[obj_terrain.planet,3]
 	}
-	handleDebugMessage("Jumped 1 Planet Left. Welcome to "+p_name, true)
+	handleDebugMessage("Jumped 1 Planet Left. Welcome to "+p_name, false)
 } else {
 	obj_terrain.planet=13
 	obj_terrain2.planet=obj_terrain.planet
@@ -49,10 +49,10 @@ if obj_terrain.planet>0 {
 		p_name=obj_terrain.planet_names[obj_terrain.planet,3]
 	}
 
-	handleDebugMessage("Jumped 1 Planet Left. Welcome to "+p_name, true)
+	handleDebugMessage("Jumped 1 Planet Left. Welcome to "+p_name, false)
 }
 } else {
-	handleDebugMessage("Invalid Direction. (Try: r/l,right/left,clockwise/counterclockwise,cw/ccw,1/-1)", true)
+	handleDebugMessage("Invalid Direction. (Try: r/l,right/left,clockwise/counterclockwise,cw/ccw,1/-1)", false)
 	}
 }
 }

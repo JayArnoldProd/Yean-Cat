@@ -1,9 +1,11 @@
 
-// obj_Client setup Create Event
+// obj_Client Create Event
+global.currentTarget = yeancat; // Default to the player
+global.intentionalLineBreak = "|";
 global.lastAddedMessage = "";
 global.sessionLogFileName = "SessionLog_" + string_replace_all(string(date_current_datetime()), ":", "-") + ".txt";
 global.masterLogFileName = "MasterLog.txt";
-global.logDebugMessagesToFile = true; // By default, log debug messages to the file
+global.logDebugMessagesToFile = false; // By default, log debug messages to the file
 global.serverAddress = "127.0.0.1"; // Example server address
 // Initialize the data structure globally if not already initialized
 global.chatLogs=-1
@@ -47,7 +49,7 @@ add_command("show_lines(", 0, [["real"]], true);
 add_command("set_variable(", 2, [["string"],["string","real"]],true)
 add_command("level_up(", 1, [["real"]], true);  // Command requires '(' visually and a real number argument
 add_command("show_wpm", 0, [[]], false);  // Does not require '(' visually, level 0 permission
-add_command("chat_bubble(", 1, [["string"], ["string"], ["array"]], true);
+add_command("chat_bubble(", 1, [["string"], ["array"]], true);
 add_command("save_macros", 1, [[]], false);  // Add the command to save macros
 add_command("list_variables", 2, [[]], false);
 add_command("add_action(", 2, [["string"],["string"],["array"]],true);
@@ -58,12 +60,21 @@ add_command("show_variable(", 2, [["string"]], true);
 add_command("return_controller", 1, [[]], false);
 add_command("toggle_input_display", 1, [[]], false);
 add_command("show_gamepad_mapping", 1, [[]], false);
-add_command("chat_bubble_choices(", 1, [["string"], ["string"], ["string", "string"]], true);
-add_command("add_chat_bubble_action(", 2, [["string"], ["string"], ["string"], ["array"]], true);
+add_command("add_action_group(", 2, [["string"], ["array"]], true);
+add_command("list_action_groups", 2, [[]], false);
+add_command("delete_action(", 2, [["string"]], true);
+add_command("delete_actions(", 2, [["array"]], true);
+add_command("list_objects", 0, [[]], false);
+add_command("set_target(", 2, [["string", "real"]], true);
+add_command("set_spawn_npc(", 2, [["string"], ["real"], ["real"], ["string"], ["string"]], true);
+add_command("spawn_npc(", 2, [["string"], ["real"], ["real"], ["real"], ["string"]], true);
+add_command("spawn_boss(", 2, [["real"], ["real"], ["real"], ["string"]], true);
+add_command("camera_target(", 2, [["real"], ["real"]], true);
 // Initialize global action details
 global.actionDetails = ds_map_create();
 
-
+global.object_references = ds_map_create();
+//add_object_reference("NewBoss", specific object unique id or general object name);
 
 //add_command("spawn_boss(", 2, [["string"]], true);
 
@@ -72,11 +83,14 @@ global.actionDetails = ds_map_create();
 
 // You can add new commands or modify existing ones easily with the `add_command` function.
 global.variableDetails = ds_map_create();
+add_variable("Zoom", "camera_zoom", 1,global, "real", 1, 3, [], [], "Player");
+add_variable("SpawnEnemies", "spawnenemies", 1, master, "bool", 0, 1, [], [], "Player");
 add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("Password", "password", 1, master, "string", 1, 100000, [], [], "Player");
 add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
 add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
 add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
-add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 1000, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 2000, [], [], "Social");
 add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
 add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
 add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
@@ -104,7 +118,7 @@ isActive = true;  // To check if command input is active
 sendHeartbeat = false; // Control sending of heartbeat messages
 _yy=0
 pasting=0;
-global.longestmessage=200;
+global.longestmessage=0;
 global.c_chat2=c_black
 global.c_chat1=c_white
 fnt_chat=Font4
@@ -112,28 +126,29 @@ global.borderwidth=8 //bg width
 global.bg_alpha=.4 //bg alpha
 global.bg_color=c_black //background color
 global.o_color=c_white //outline color
-global.wrapWidth = 2350; // Adjust this value based on your chat box
-global.character_limit=300;//character limit for chat
+global.wrapWidth = 1700; // Adjust this value based on your chat box
+global.character_limit=2000;//character limit for chat//this will be shorter for players
 global.lastSpaceIndex = -1;
-
+displayText=""
 //Other Variables
 global.showDebugMessages = true; // Enable debug messages by default
 global.maximumMessages=2000;
-maxDisplayMessages = 5; // Number of debug messages to display at once
+maxDisplayMessages = 6; // Number of debug messages to display at once
 // Initialize max visible lines for the chat box
 global.max_visible_lines = maxDisplayMessages;  // You can adjust this number based on your needs
-
+// Add these to the Create event of obj_Client
+global.input_scroll_offset = 0;  // Offset for scrolling the input box
 global.debugMessages = ds_list_create();
 fnt_chat_id=0
 // Global settings for text wrapping
-global.chat_threshold = 2350;  // Threshold to start considering wrapping
-global.chat_text_limit = 2350; // Maximum pixel width of text before wrapping
+global.chat_threshold = 1600;  // Threshold to start considering wrapping
+global.chat_text_limit = 1750; // Maximum pixel width of text before wrapping
 global.chat_line_height = 50; // Height of each line of text in pixels
 global.min_width = 110;  // Minimum width of the chat box
 global.max_width = 1000;  // Maximum width of the chat box, adjust according to your UI design
 // Adjust these values to tweak where the text wraps
-global.chat_threshold = global.chat_threshold * 1.66;  // Increase the threshold
-global.chat_text_limit = global.chat_text_limit * 1.66;  // Increase the width limit
+global.chat_threshold = global.chat_threshold * 1.3;  // Increase the threshold
+global.chat_text_limit = global.chat_text_limit * 1.3;  // Increase the width limit
 
 //Scrolling Variables
 scrollIndex = 0; // Initialize scroll position
@@ -143,7 +158,7 @@ sensitivityIncrement = 0.05; // How much the sensitivity increases with continuo
 sensitivityDecrement = 0.01; // How much the sensitivity decreases when not scrolling
 global.scrollSensitivity = baseScrollSensitivity; // Current sensitivity, starts at base sensitivity
 global.isScrolling = false; // Tracks if the user is currently scrolling
-
+global.scrollResetTimer = 0;
 // Server Configuration
 show_server_status=false
 global.serverPort = "5555";

@@ -1,0 +1,21 @@
+
+07/28/24 17:25:21: Actions loaded successfully from Actions.txt.
+07/28/24 17:25:22: [Client] Failed to reconnect to server. Will try again...
+07/28/24 17:25:36: [Jay Arnold] Hello|World!
+07/28/24 17:25:36: Creating chat bubble:  Hello|World!, Owner: yeancat, Choices: []
+07/28/24 17:25:36: Chat Bubble Created. Following 'yeancat' with text: ' Hello|World!'. Number of choices: 0
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of Draw Event
+for object obj_Client:
+
+local variable displayText(103536) not set before reading it.
+ at gml_Object_obj_Client_Draw_0 (line 142) -     draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, displayText + "_", sca, sca, shake_angle*.25);  // Show blinking cursor
+############################################################################################
+gml_Object_obj_Client_Draw_0 (line 142)
+
+It crashed!, also my white text input box background did not grow vertically with the | character like it does with \n. The | worked and was visually interpreted as a \n but the chat box did not respond to it and it crashed.

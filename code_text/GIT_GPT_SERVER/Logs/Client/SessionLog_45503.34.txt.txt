@@ -1,0 +1,214 @@
+
+07/30/24 03:09:30: Raw command: execute_action(FightGuardians)
+07/30/24 03:09:30: Cleaned command: execute_action(FightGuardians)
+07/30/24 03:09:30: Action/group 'FightGuardians' not found.
+07/30/24 03:09:49: Raw command: list_commands
+07/30/24 03:09:49: Cleaned command: list_commands
+07/30/24 03:09:49: Command Name: list_commands
+07/30/24 03:09:49: Target Object: yeancat
+07/30/24 03:09:49: Parameters: []
+07/30/24 03:09:49: Commands: add_action(, add_action_group(, chat_bubble(, 
+07/30/24 03:09:49: delete_action(, delete_actions(, disable_heartbeat, enable_heartbeat, 
+07/30/24 03:09:49: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+07/30/24 03:09:49: list_action_groups, list_actions, list_clients, list_commands, 
+07/30/24 03:09:49: list_objects, list_variables, return_controller, save_actions, 
+07/30/24 03:09:49: save_game, save_macros, set_my_permission(, set_target(, 
+07/30/24 03:09:49: set_variable(, show_gamepad_mapping, show_lines(, show_variable(, 
+07/30/24 03:09:49: show_wpm, toggle_debug, toggle_input_display, toggle_log_debug, 
+07/30/24 03:09:49: toggle_server
+07/30/24 03:10:37: Raw command: list_actions
+07/30/24 03:10:37: Cleaned command: list_actions
+07/30/24 03:10:37: Command Name: list_actions
+07/30/24 03:10:37: Target Object: yeancat
+07/30/24 03:10:37: Parameters: []
+07/30/24 03:10:37: Actions: SaveGameNow, GotoKingsKingdom, EnterPortal, PurchaseArtifacts, BattleOutcome, VisitMarket, GotoDivineDomain, GotoTheEndonda, GotoUniverseCity, GotoLandOfLucy, GotoPlaceOfPablo, InvestigateSignals, OfferTrade, DisableEnemySpawns, BattleSequence, StartBattle, GotoTheIcyHeart, EngageCombat, GotoGhostTown, StartExploration, SetLevelFive, LevelUpThree, LevelUpOnce, GotoTheGoldMines, StartPeaceMission, DiplomaticChoice, TreatyOutcome, ExplorationChoice, BattleChoice, ArtifactMystery, PortalOutcome, PeacefulMission, SpaceAdventureStart, PortalAdventure, EnableEnemySpawns, GotoVulturesValley, GotoEarth, GotoStormySands, SpaceExploration, GotoFantasia, AG1, GotoYetopia, ArtifactOutcome, EpicBattle, PeaceTreaty,
+07/30/24 03:10:49: Raw command: list_action_groups
+07/30/24 03:10:49: Cleaned command: list_action_groups
+07/30/24 03:10:49: Command Name: list_action_groups
+07/30/24 03:10:49: Target Object: yeancat
+07/30/24 03:10:49: Parameters: []
+07/30/24 03:10:49: Action Groups: BattleSequence, ArtifactMystery, PeacefulMission, PortalAdventure, SpaceExploration, AG1, EpicBattle, PeaceTreaty
+07/30/24 03:11:08: Raw command: list_variables
+07/30/24 03:11:08: Cleaned command: list_variables
+07/30/24 03:11:08: Command Name: list_variables
+07/30/24 03:11:08: Target Object: yeancat
+07/30/24 03:11:08: Parameters: []
+07/30/24 03:11:08: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+07/30/24 03:11:08: Password, Time, Macro5, Macro1, SpawnEnemies, Macro9, Macro7, Macro3, 
+07/30/24 03:11:08: CharacterLimit, ControllerType, Level
+07/30/24 03:12:13: [Jay Arnold] when listing the actions it appears to not line break! same with action groups
+07/30/24 03:12:13: Creating chat bubble: " when listing the actions it appears to not line break! same with action groups", Owner: yeancat, Choices: []
+07/30/24 03:12:13: Chat Bubble Created. Following 'yeancat' with text: 'when listing the actions it appears to not line break! same
+with action groups'. Number of choices: 0
+
+/// @function scr_list_commands()
+/// @description Lists available commands based on the client's permission level and sorts them alphabetically
+function scr_list_commands() {
+    if (!ds_exists(global.commandDetails, ds_type_map)) {
+        handleDebugMessage("Command details not initialized.", true);
+        return;
+    }
+
+    var commands = ds_list_create();
+    var key = ds_map_find_first(global.commandDetails);
+
+    // Collect all commands the client has permission to execute
+    while (key != undefined) {
+        var cmdEntry = ds_map_find_value(global.commandDetails, key);
+        var requiredLevel = ds_map_find_value(cmdEntry, "requiredLevel");
+        if (master.permissions >= requiredLevel) {
+            ds_list_add(commands, key);
+        }
+        key = ds_map_find_next(global.commandDetails, key);
+    }
+
+    // Sort the commands alphabetically
+    ds_list_sort(commands, true);
+
+    // Format and output the commands
+    var commandsList = "Commands: ";
+    var currentLine = commandsList;
+    var maxLineLength = 70; // Maximum characters per line
+
+    for (var i = 0; i < ds_list_size(commands); i++) {
+        var command = ds_list_find_value(commands, i) + (i < ds_list_size(commands) - 1 ? ", " : "");
+
+        // Check if adding this command would exceed the line length
+        if (string_length(currentLine) + string_length(command) > maxLineLength) {
+            handleDebugMessage(currentLine, false); // Send the current line
+            currentLine = command; // Start a new line with the current command
+        } else {
+            currentLine += command; // Add the command to the current line
+        }
+    }
+
+    // Send the final line, if it exists
+    if (string_length(currentLine) > 0) {
+        handleDebugMessage(currentLine, false); // Send the final line
+    }
+
+    ds_list_destroy(commands); // Clean up the list
+}
+
+
+function scr_list_action_groups() {
+    var groupCount = 0;
+    var groupList = "";
+    
+    var key = ds_map_find_first(global.actionDetails);
+    while (!is_undefined(key)) {
+        var encodedData = ds_map_find_value(global.actionDetails, key);
+        var decodedData = json_parse(base64_decode(encodedData));
+        
+        if (is_struct(decodedData) && variable_struct_exists(decodedData, "type") && decodedData.type == "action_group") {
+            groupList += key + ", ";
+            groupCount++;
+        }
+        
+        key = ds_map_find_next(global.actionDetails, key);
+    }
+    
+    if (groupCount > 0) {
+        groupList = string_delete(groupList, string_length(groupList) - 1, 2);
+        handleDebugMessage("Action Groups: " + groupList, false);
+    } else {
+        handleDebugMessage("No action groups found.", false);
+    }
+}
+
+/// @function scr_list_actions()
+/// @description Lists all saved actions
+function scr_list_actions() {
+    if (ds_map_size(global.actionDetails) == 0) {
+        handleDebugMessage("No actions found.", false);
+        return;
+    }
+
+    var message = "Actions: ";
+    var keys = ds_map_keys_to_array(global.actionDetails);
+
+    for (var i = 0; i < array_length(keys); i++) {
+        message += keys[i] + ", ";
+    }
+
+    // Remove trailing comma and space
+    message = string_trim_right(message, ", ");
+
+    handleDebugMessage(message, false);
+}
+
+07/30/24 03:16:23: Loaded action/group: SaveGameNow
+07/30/24 03:16:23: Loaded action/group: GotoKingsKingdom
+07/30/24 03:16:23: Loaded action/group: EnterPortal
+07/30/24 03:16:23: Loaded action/group: PurchaseArtifacts
+07/30/24 03:16:23: Loaded action/group: BattleOutcome
+07/30/24 03:16:23: Loaded action/group: VisitMarket
+07/30/24 03:16:23: Loaded action/group: GotoDivineDomain
+07/30/24 03:16:23: Loaded action/group: GotoTheEndonda
+07/30/24 03:16:23: Loaded action/group: GotoUniverseCity
+07/30/24 03:16:23: Loaded action/group: GotoLandOfLucy
+07/30/24 03:16:23: Loaded action/group: GotoPlaceOfPablo
+07/30/24 03:16:23: Loaded action/group: InvestigateSignals
+07/30/24 03:16:23: Loaded action/group: OfferTrade
+07/30/24 03:16:23: Loaded action/group: DisableEnemySpawns
+07/30/24 03:16:23: Loaded action/group: BattleSequence
+07/30/24 03:16:23: Loaded action/group: StartBattle
+07/30/24 03:16:23: Loaded action/group: GotoTheIcyHeart
+07/30/24 03:16:23: Loaded action/group: EngageCombat
+07/30/24 03:16:24: Loaded action/group: GotoGhostTown
+07/30/24 03:16:24: Loaded action/group: StartExploration
+07/30/24 03:16:24: Loaded action/group: SetLevelFive
+07/30/24 03:16:24: Loaded action/group: LevelUpThree
+07/30/24 03:16:24: Loaded action/group: LevelUpOnce
+07/30/24 03:16:24: Loaded action/group: GotoTheGoldMines
+07/30/24 03:16:24: Loaded action/group: StartPeaceMission
+07/30/24 03:16:24: Loaded action/group: DiplomaticChoice
+07/30/24 03:16:24: Loaded action/group: TreatyOutcome
+07/30/24 03:16:24: Loaded action/group: ExplorationChoice
+07/30/24 03:16:24: Loaded action/group: BattleChoice
+07/30/24 03:16:24: Loaded action/group: ArtifactMystery
+07/30/24 03:16:24: Loaded action/group: PortalOutcome
+07/30/24 03:16:24: Loaded action/group: PeacefulMission
+07/30/24 03:16:24: Loaded action/group: SpaceAdventureStart
+07/30/24 03:16:24: Loaded action/group: PortalAdventure
+07/30/24 03:16:24: Loaded action/group: EnableEnemySpawns
+07/30/24 03:16:24: Loaded action/group: GotoVulturesValley
+07/30/24 03:16:24: Loaded action/group: GotoEarth
+07/30/24 03:16:24: Loaded action/group: GotoStormySands
+07/30/24 03:16:24: Loaded action/group: SpaceExploration
+07/30/24 03:16:24: Loaded action/group: GotoFantasia
+07/30/24 03:16:24: Loaded action/group: AG1
+07/30/24 03:16:24: Loaded action/group: GotoYetopia
+07/30/24 03:16:24: Loaded action/group: ArtifactOutcome
+07/30/24 03:16:24: Loaded action/group: EpicBattle
+07/30/24 03:16:24: Loaded action/group: PeaceTreaty
+07/30/24 03:16:24: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 03:16:24: [Client] Failed to reconnect to server. Will try again...
+07/30/24 03:17:04: Raw command: list_actions
+07/30/24 03:17:04: Cleaned command: list_actions
+07/30/24 03:17:04: Command Name: list_actions
+07/30/24 03:17:04: Target Object: yeancat
+07/30/24 03:17:04: Parameters: []
+07/30/24 03:17:04: Actions: AG1, ArtifactMystery, ArtifactOutcome, BattleChoice, 
+07/30/24 03:17:04: BattleOutcome, BattleSequence, DiplomaticChoice, DisableEnemySpawns, 
+07/30/24 03:17:04: EnableEnemySpawns, EngageCombat, EnterPortal, EpicBattle, 
+07/30/24 03:17:04: ExplorationChoice, GotoDivineDomain, GotoEarth, GotoFantasia, 
+07/30/24 03:17:04: GotoGhostTown, GotoKingsKingdom, GotoLandOfLucy, GotoPlaceOfPablo, 
+07/30/24 03:17:04: GotoStormySands, GotoTheEndonda, GotoTheGoldMines, GotoTheIcyHeart, 
+07/30/24 03:17:04: GotoUniverseCity, GotoVulturesValley, GotoYetopia, 
+07/30/24 03:17:04: InvestigateSignals, LevelUpOnce, LevelUpThree, OfferTrade, 
+07/30/24 03:17:04: PeaceTreaty, PeacefulMission, PortalAdventure, PortalOutcome, 
+07/30/24 03:17:04: PurchaseArtifacts, SaveGameNow, SetLevelFive, SpaceAdventureStart, 
+07/30/24 03:17:04: SpaceExploration, StartBattle, StartExploration, StartPeaceMission, 
+07/30/24 03:17:04: TreatyOutcome, VisitMarket
+07/30/24 03:17:12: Raw command: list_action_groups
+07/30/24 03:17:12: Cleaned command: list_action_groups
+07/30/24 03:17:12: Command Name: list_action_groups
+07/30/24 03:17:12: Target Object: yeancat
+07/30/24 03:17:13: Parameters: []
+07/30/24 03:17:13: Action Groups: AG1, ArtifactMystery, BattleSequence, EpicBattle, 
+07/30/24 03:17:13: PeaceTreaty, PeacefulMission, PortalAdventure, SpaceExploration
+07/30/24 03:17:34: [Jay Arnold] nice! but i would not like to list the action groups inside the actions list.
+07/30/24 03:17:34: Creating chat bubble: " nice! but i would not like to list the action groups inside the actions list.", Owner: yeancat, Choices: []
+07/30/24 03:17:34: Chat Bubble Created. Following 'yeancat' with text: 'nice! but i would not like to list the action
+groups inside the actions list.'. Number of choices: 0

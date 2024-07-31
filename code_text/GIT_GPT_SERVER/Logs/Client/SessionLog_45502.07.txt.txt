@@ -1,0 +1,86 @@
+07/28/24 20:36:18: Loaded action/group: SaveGameNow
+07/28/24 20:36:18: Loaded action/group: MoreChoices3
+07/28/24 20:36:18: Loaded action/group: GotoKingsKingdom
+07/28/24 20:36:18: Loaded action/group: MainMenuChoices2
+07/28/24 20:36:18: Loaded action/group: MoreChoices1
+07/28/24 20:36:18: Loaded action/group: GotoDivineDomain
+07/28/24 20:36:18: Loaded action/group: GotoTheEndonda
+07/28/24 20:36:18: Loaded action/group: GotoUniverseCity
+07/28/24 20:36:18: Loaded action/group: GotoLandOfLucy
+07/28/24 20:36:18: Loaded action/group: GotoPlaceOfPablo
+07/28/24 20:36:18: Loaded action/group: GotoTheIcyHeart
+07/28/24 20:36:18: Loaded action/group: GotoGhostTown
+07/28/24 20:36:18: Loaded action/group: MainMenuChoices
+07/28/24 20:36:18: Loaded action/group: LevelUpOnce
+07/28/24 20:36:18: Loaded action/group: GotoTheGoldMines
+07/28/24 20:36:18: Loaded action/group: MoreChoices2
+07/28/24 20:36:18: Loaded action/group: MoreChoices4
+07/28/24 20:36:18: Loaded action/group: GotoVulturesValley
+07/28/24 20:36:18: Loaded action/group: GotoEarth
+07/28/24 20:36:18: Loaded action/group: GotoStormySands
+07/28/24 20:36:18: Loaded action/group: GotoFantasia
+07/28/24 20:36:18: Loaded action/group: GotoYetopia
+07/28/24 20:36:18: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 20:36:18: [Client] Failed to reconnect to server. Will try again...
+07/28/24 20:36:50: Executing command: add_action_group(TpMenu,["GotoDivineDomain","SaveGameNow", - "MainMenuChoices2"])
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+JSON parse error : number expected
+ at gml_Script_execute_command (line 47) -                 var actionList = json_parse(args[1]);
+##########################################################
+
+It crashed because I pressed enter, the presence of a dash (im not sure why it's being created) is the issue. I tried pasting /add_action_group(TpMenu,["GotoDivineDomain","SaveGameNow","MainMenuChoices2"]) (without spaces) to see if that had been fixed and tested to see what happens if pressed enter and it crashed. We need to make sure the system doesnt crash when it's invalid and also keep it from becoming invalid when pasting in various formats. I will test again by pasting it with the spaces (/add_action_group(TpMenu,[ "GotoDivineDomain", "SaveGameNow", "MainMenuChoices2"]))
+
+07/28/24 20:40:13: Loaded action/group: SaveGameNow
+07/28/24 20:40:13: Loaded action/group: MoreChoices3
+07/28/24 20:40:13: Loaded action/group: GotoKingsKingdom
+07/28/24 20:40:13: Loaded action/group: MainMenuChoices2
+07/28/24 20:40:13: Loaded action/group: MoreChoices1
+07/28/24 20:40:13: Loaded action/group: GotoDivineDomain
+07/28/24 20:40:13: Loaded action/group: GotoTheEndonda
+07/28/24 20:40:13: Loaded action/group: GotoUniverseCity
+07/28/24 20:40:13: Loaded action/group: GotoLandOfLucy
+07/28/24 20:40:13: Loaded action/group: GotoPlaceOfPablo
+07/28/24 20:40:13: Loaded action/group: GotoTheIcyHeart
+07/28/24 20:40:13: Loaded action/group: GotoGhostTown
+07/28/24 20:40:13: Loaded action/group: MainMenuChoices
+07/28/24 20:40:13: Loaded action/group: LevelUpOnce
+07/28/24 20:40:13: Loaded action/group: GotoTheGoldMines
+07/28/24 20:40:13: Loaded action/group: MoreChoices2
+07/28/24 20:40:13: Loaded action/group: MoreChoices4
+07/28/24 20:40:14: Loaded action/group: GotoVulturesValley
+07/28/24 20:40:14: Loaded action/group: GotoEarth
+07/28/24 20:40:14: Loaded action/group: GotoStormySands
+07/28/24 20:40:14: Loaded action/group: GotoFantasia
+07/28/24 20:40:14: Loaded action/group: GotoYetopia
+07/28/24 20:40:14: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 20:40:14: [Client] Failed to reconnect to server. Will try again...
+07/28/24 20:40:29: Executing command: add_action_group(TpMenu,[ "GotoDivineDomain", "SaveGameNow", "MainMenuChoices2"])
+07/28/24 20:40:29: Action group 'TpMenu' added successfully.
+07/28/24 20:40:29: Actions and action groups saved successfully to Actions.txt.
+07/28/24 20:40:34: Executing command: list_action_groups
+07/28/24 20:40:34: Action Groups: TpMenu
+07/28/24 20:40:40: Executing command: execute_action(TpMenu)
+07/28/24 20:40:40: execute_action - Action Name: TpMenu
+07/28/24 20:40:40: Executing action: TpMenu
+07/28/24 20:40:40: Decoded Command: {"type":"action_group","actions":["GotoDivineDomain","SaveGameNow","MainMenuChoices2"]}
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+Variable <unknown_object>.command(100400, -2147483648) not set before reading it.
+ at gml_Script_execute_command (line 68) -             var cmdName = decodedData.command;
+
+Interesting! It seems the group is created! But we have a second issue! I will say this is progress!

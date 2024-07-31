@@ -1,0 +1,68 @@
+07/29/24 23:34:49: Loaded action/group: SaveGameNow
+07/29/24 23:34:49: Loaded action/group: GotoKingsKingdom
+07/29/24 23:34:49: Loaded action/group: EnterPortal
+07/29/24 23:34:49: Loaded action/group: PurchaseArtifacts
+07/29/24 23:34:49: Loaded action/group: BattleOutcome
+07/29/24 23:34:49: Loaded action/group: VisitMarket
+07/29/24 23:34:49: Loaded action/group: GotoDivineDomain
+07/29/24 23:34:49: Loaded action/group: GotoTheEndonda
+07/29/24 23:34:49: Loaded action/group: GotoUniverseCity
+07/29/24 23:34:49: Loaded action/group: GotoLandOfLucy
+07/29/24 23:34:50: Loaded action/group: GotoPlaceOfPablo
+07/29/24 23:34:50: Loaded action/group: InvestigateSignals
+07/29/24 23:34:50: Loaded action/group: OfferTrade
+07/29/24 23:34:50: Loaded action/group: DisableEnemySpawns
+07/29/24 23:34:50: Loaded action/group: BattleSequence
+07/29/24 23:34:50: Loaded action/group: StartBattle
+07/29/24 23:34:50: Loaded action/group: GotoTheIcyHeart
+07/29/24 23:34:50: Loaded action/group: EngageCombat
+07/29/24 23:34:50: Loaded action/group: GotoGhostTown
+07/29/24 23:34:50: Loaded action/group: StartExploration
+07/29/24 23:34:50: Loaded action/group: SetLevelFive
+07/29/24 23:34:50: Loaded action/group: LevelUpThree
+07/29/24 23:34:50: Loaded action/group: LevelUpOnce
+07/29/24 23:34:50: Loaded action/group: GotoTheGoldMines
+07/29/24 23:34:50: Loaded action/group: StartPeaceMission
+07/29/24 23:34:50: Loaded action/group: DiplomaticChoice
+07/29/24 23:34:50: Loaded action/group: TreatyOutcome
+07/29/24 23:34:50: Loaded action/group: ExplorationChoice
+07/29/24 23:34:50: Loaded action/group: BattleChoice
+07/29/24 23:34:50: Loaded action/group: ArtifactMystery
+07/29/24 23:34:50: Loaded action/group: PortalOutcome
+07/29/24 23:34:50: Loaded action/group: PeacefulMission
+07/29/24 23:34:50: Loaded action/group: SpaceAdventureStart
+07/29/24 23:34:50: Loaded action/group: PortalAdventure
+07/29/24 23:34:50: Loaded action/group: EnableEnemySpawns
+07/29/24 23:34:50: Loaded action/group: GotoVulturesValley
+07/29/24 23:34:50: Loaded action/group: GotoEarth
+07/29/24 23:34:50: Loaded action/group: GotoStormySands
+07/29/24 23:34:50: Loaded action/group: SpaceExploration
+07/29/24 23:34:50: Loaded action/group: GotoFantasia
+07/29/24 23:34:50: Loaded action/group: AG1
+07/29/24 23:34:50: Loaded action/group: GotoYetopia
+07/29/24 23:34:50: Loaded action/group: ArtifactOutcome
+07/29/24 23:34:50: Loaded action/group: EpicBattle
+07/29/24 23:34:50: Loaded action/group: PeaceTreaty
+07/29/24 23:34:50: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 23:34:50: [Client] Failed to reconnect to server. Will try again...
+07/29/24 23:35:08: [Jay Arnold] hello now the chat input box is one line too high
+07/29/24 23:35:08: Creating chat bubble: " hello now the chat input box is one line too high", Owner: yeancat, Choices: []
+07/29/24 23:35:08: Chat Bubble Created. Following 'yeancat' with text: 'hello now the chat input box is one line too high'. Number of choices: 0
+07/29/24 23:35:14: [Jay Arnold] its still only one line too high
+07/29/24 23:35:14: Creating chat bubble: " its still only one line too high", Owner: yeancat, Choices: []
+07/29/24 23:35:14: Chat Bubble Created. Following 'yeancat' with text: 'its still only one line too high'. Number of choices: 0
+07/29/24 23:35:22: [Jay Arnold] okay so we just need to bring it down one
+07/29/24 23:35:22: Creating chat bubble: " okay so we just need to bring it down one", Owner: yeancat, Choices: []
+07/29/24 23:35:22: Chat Bubble Created. Following 'yeancat' with text: 'okay so we just need to bring it down one'. Number of choices: 0
+07/29/24 23:36:02: [Jay Arnold] so far thats the only issue i can see. the text was wrapping very far here in the last test lets see! oh it wrapped very nicely this time lets keep going and see what it does the second time. perfection
+07/29/24 23:36:02: Creating chat bubble: " so far thats the only issue i can see. the text was wrapping very far here in the last test lets see! oh it wrapped very nicely this time lets keep going and see what it does the second time. perfection", Owner: yeancat, Choices: []
+07/29/24 23:36:02: Chat Bubble Created. Following 'yeancat' with text: 'so far thats the only issue i can see. the text was wrapping very far here in the last test lets see! oh it wrapped very nicely this time lets keep going and see what it does the second time. perfection'. Number of choices: 0
+07/29/24 23:37:11: [Jay Arnold] okay lets type another long message and make sure the text wrapping is still working as expected. nice! its still good, i think it should wrap just a little bit sooner like 5% just to give it some room because a tiny bit of the text goes off the chat input box edge one time
+07/29/24 23:37:11: Creating chat bubble: " okay lets type another long message and make sure the text wrapping is still working as expected. nice! its still good, i think it should wrap just a little bit sooner like 5% just to give it some room because a tiny bit of the text goes off the chat input box edge one time", Owner: yeancat, Choices: []
+07/29/24 23:37:11: Chat Bubble Created. Following 'yeancat' with text: 'okay lets type another long message and make sure the text wrapping is still working as expected. nice! its still good, i think it should wrap just a little bit sooner like 5% just to give it some room because a tiny bit of the text goes off the chat input box edge one time'. Number of choices: 0
+07/29/24 23:37:22: [Jay Arnold] in the chat box itself it is wrapping well though
+07/29/24 23:37:22: Creating chat bubble: " in the chat box itself it is wrapping well though", Owner: yeancat, Choices: []
+07/29/24 23:37:22: Chat Bubble Created. Following 'yeancat' with text: 'in the chat box itself it is wrapping well though'. Number of choices: 0
+07/29/24 23:39:44: [Jay Arnold] i will now type many lines||lines and lines|||oh no! now it is expanding in the wrong direction!||it should be expanding downward not up|||||||this is more like i said, how it should have no limit! but rather|the idea was that once it reached a certain size (depending on max visible lines) the box should start  expanding upward instead of downward.|||that was good progress, lets see how much closer we can get to the intended behavior
+07/29/24 23:39:44: Creating chat bubble: " i will now type many lines||lines and lines|||oh no! now it is expanding in the wrong direction!||it should be expanding downward not up|||||||this is more like i said, how it should have no limit! but rather|the idea was that once it reached a certain size (depending on max visible lines) the box should start  expanding upward instead of downward.|||that was good progress, lets see how much closer we can get to the intended behavior", Owner: yeancat, Choices: []
+07/29/24 23:39:44: Chat Bubble Created. Following 'yeancat' with text: 'i will now type many lines||lines and lines|||oh no! now it is expanding in the wrong direction!||it should be expanding downward not up|||||||this is more like i said, how it should have no limit! but rather|the idea was that once it reached a certain size (depending on max visible lines) the box should start  expanding upward instead of downward.|||that was good progress, lets see how much closer we can get to the intended behavior'. Number of choices: 0

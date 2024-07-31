@@ -259,7 +259,7 @@ for (var i=0; i<array_length(master.clan_info); i ++) {
 
 	}
 
-handleDebugMessage("Saved Game", true);
+handleDebugMessage("Saved Game", false);
 
 var save_string = json_encode(save_data);
 	ds_map_destroy(save_data);

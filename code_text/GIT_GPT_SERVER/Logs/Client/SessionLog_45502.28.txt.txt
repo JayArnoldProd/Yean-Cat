@@ -1,0 +1,64 @@
+07/29/24 01:36:56: Loaded action/group: SaveGameNow
+07/29/24 01:36:56: Loaded action/group: GotoKingsKingdom
+07/29/24 01:36:56: Loaded action/group: EnterPortal
+07/29/24 01:36:56: Loaded action/group: PurchaseArtifacts
+07/29/24 01:36:56: Loaded action/group: BattleOutcome
+07/29/24 01:36:56: Loaded action/group: VisitMarket
+07/29/24 01:36:56: Loaded action/group: GotoDivineDomain
+07/29/24 01:36:56: Loaded action/group: GotoTheEndonda
+07/29/24 01:36:56: Loaded action/group: GotoUniverseCity
+07/29/24 01:36:56: Loaded action/group: GotoLandOfLucy
+07/29/24 01:36:56: Loaded action/group: GotoPlaceOfPablo
+07/29/24 01:36:56: Loaded action/group: InvestigateSignals
+07/29/24 01:36:56: Loaded action/group: OfferTrade
+07/29/24 01:36:56: Loaded action/group: DisableEnemySpawns
+07/29/24 01:36:56: Loaded action/group: BattleSequence
+07/29/24 01:36:56: Loaded action/group: StartBattle
+07/29/24 01:36:56: Loaded action/group: GotoTheIcyHeart
+07/29/24 01:36:56: Loaded action/group: EngageCombat
+07/29/24 01:36:56: Loaded action/group: GotoGhostTown
+07/29/24 01:36:56: Loaded action/group: StartExploration
+07/29/24 01:36:56: Loaded action/group: SetLevelFive
+07/29/24 01:36:56: Loaded action/group: LevelUpThree
+07/29/24 01:36:56: Loaded action/group: LevelUpOnce
+07/29/24 01:36:56: Loaded action/group: GotoTheGoldMines
+07/29/24 01:36:56: Loaded action/group: StartPeaceMission
+07/29/24 01:36:56: Loaded action/group: DiplomaticChoice
+07/29/24 01:36:56: Loaded action/group: TreatyOutcome
+07/29/24 01:36:56: Loaded action/group: ExplorationChoice
+07/29/24 01:36:56: Loaded action/group: BattleChoice
+07/29/24 01:36:56: Loaded action/group: ArtifactMystery
+07/29/24 01:36:56: Loaded action/group: PortalOutcome
+07/29/24 01:36:56: Loaded action/group: PeacefulMission
+07/29/24 01:36:56: Loaded action/group: SpaceAdventureStart
+07/29/24 01:36:56: Loaded action/group: PortalAdventure
+07/29/24 01:36:56: Loaded action/group: EnableEnemySpawns
+07/29/24 01:36:56: Loaded action/group: GotoVulturesValley
+07/29/24 01:36:56: Loaded action/group: GotoEarth
+07/29/24 01:36:56: Loaded action/group: GotoStormySands
+07/29/24 01:36:56: Loaded action/group: SpaceExploration
+07/29/24 01:36:56: Loaded action/group: GotoFantasia
+07/29/24 01:36:56: Loaded action/group: GotoYetopia
+07/29/24 01:36:56: Loaded action/group: ArtifactOutcome
+07/29/24 01:36:56: Loaded action/group: EpicBattle
+07/29/24 01:36:56: Loaded action/group: PeaceTreaty
+07/29/24 01:36:56: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 01:36:56: [Client] Failed to reconnect to server. Will try again...
+07/29/24 01:38:24: [Jay Arnold] hello! currently we create chat bubbles like this: /chat_bubble("Hello World!","yeancat")|however i would like to instead be able to declare target objects for commands with a universal format
+07/29/24 01:38:24: Creating chat bubble:  hello! currently we create chat bubbles like this: /chat_bubble("Hello World!","yeancat")|however i would like to instead be able to declare target objects for commands with a universal format, Owner: yeancat, Choices: []
+07/29/24 01:38:24: Chat Bubble Created. Following 'yeancat' with text: ' hello! currently we create chat bubbles like this: /chat_bubble("Hello World!","yeancat")|however i would like to instead be able to declare target objects for commands with a universal format'. Number of choices: 0
+07/29/24 01:38:57: [Jay Arnold] i would like to be able to type it like this: /Player.chat_bubble("Hello World!")
+07/29/24 01:38:57: Creating chat bubble:  i would like to be able to type it like this: /Player.chat_bubble("Hello World!"), Owner: yeancat, Choices: []
+07/29/24 01:38:57: Chat Bubble Created. Following 'yeancat' with text: ' i would like to be able to type it like this: /Player.chat_bubble("Hello World!")'. Number of choices: 0
+07/29/24 01:39:29: [Jay Arnold] "Player" translating to the previous "yeancat" (without changing the name of the object, |we create an enumerator of sorts.
+07/29/24 01:39:29: Creating chat bubble:  "Player" translating to the previous "yeancat" (without changing the name of the object, |we create an enumerator of sorts., Owner: yeancat, Choices: []
+07/29/24 01:39:29: Chat Bubble Created. Following 'yeancat' with text: ' "Player" translating to the previous "yeancat" (without changing the name of the object, |we create an enumerator of sorts.'. Number of choices: 0
+07/29/24 01:39:50: [Jay Arnold] the same should apply for creating the action
+07/29/24 01:39:50: Creating chat bubble:  the same should apply for creating the action, Owner: yeancat, Choices: []
+07/29/24 01:39:50: Chat Bubble Created. Following 'yeancat' with text: ' the same should apply for creating the action'. Number of choices: 0
+07/29/24 01:42:09: [Jay Arnold] it would then become: /add_action(Hello,chat_bubble,["Hello World"])|then /Player.execute_action(Hello)|or /add_action(Hello,Player.chat_bubble,["Hello World"])|and /execute_action(Hello)||both should work and also it should work inside chat bubbles.
+07/29/24 01:42:09: Creating chat bubble:  it would then become: /add_action(Hello,chat_bubble,)|then /Player.execute_action(Hello)|or /add_action(Hello,Player.chat_bubble,)|and /execute_action(Hello)||both should work and also it should work inside chat bubbles., Owner: yeancat, Choices: []
+07/29/24 01:42:09: Chat Bubble Created. Following 'yeancat' with text: ' it would then become: /add_action(Hello,chat_bubble,)|then /Player.execute_action(Hello)|or /add_action(Hello,Player.chat_bubble,)|and /execute_action(Hello)||both should work and also it should work inside chat bubbles.'. Number of choices: 0
+07/29/24 01:44:57: [Jay Arnold] i would be able to type|this: /add_action(MainMenuChoices2,chat_bubble,["Where would you like to go?",[["Earth",GotoEarth], ["Universe City",GotoUniverseCity], ["Fantasia",GotoFantasia], ["More",Player.MoreChoices1]]])|/Player.execute_action(MainMenuChoices2)
+07/29/24 01:44:57: Creating chat bubble:  i would be able to type|this: /add_action(MainMenuChoices2,chat_bubble,, , , ]])|/Player.execute_action(MainMenuChoices2), Owner: yeancat, Choices: []
+07/29/24 01:44:57: Chat Bubble Created. Following 'yeancat' with text: ' i would be able to type|this: /add_action(MainMenuChoices2,chat_bubble,, , , ]])|/Player.execute_action(MainMenuChoices2)'. Number of choices: 0

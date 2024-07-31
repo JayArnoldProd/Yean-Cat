@@ -17,9 +17,9 @@ function scr_set_my_permission(newPermission) {
         var actualPermission = ds_map_find_value(permissionValues, string(newPermission));
         master.permissions = actualPermission;
         var levelNames = ["Player", "Moderator", "Developer", "Owner"];
-        handleDebugMessage("Permission level set to " + levelNames[actualPermission], true);
+        handleDebugMessage("Permission level set to " + levelNames[actualPermission], false);
     } else {
-        handleDebugMessage("Invalid permission level: " + newPermission, true);
+        handleDebugMessage("Invalid permission level: " + newPermission, false);
     }
     ds_map_destroy(permissionValues);
 }

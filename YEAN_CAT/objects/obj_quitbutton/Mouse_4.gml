@@ -23,7 +23,9 @@ obj_pausemenu.falling=-1
 	audio_group_set_gain(agVocals,0,0);
 }
 		}
+		instance_destroy(obj_chat_bubble);
 		instance_destroy(yeancat);
+		
 		//if instance_exists(obj_terrain) {
 		//	with (obj_terrain) {
 		//		instance_destroy()

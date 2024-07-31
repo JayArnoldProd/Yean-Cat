@@ -1040,6 +1040,7 @@ YEAN_CAT
 │   │   ├── Destroy_0.gml
 │   │   ├── Draw_0.gml
 │   │   ├── Other_0.gml
+│   │   ├── Other_10.gml
 │   │   ├── Step_0.gml
 │   │   └── obj_boss.yy
 │   ├── obj_bossarea1
@@ -1074,6 +1075,10 @@ YEAN_CAT
 │   │   ├── Mouse_7.gml
 │   │   ├── Step_0.gml
 │   │   └── obj_buyupgrade.yy
+│   ├── obj_camera
+│   │   ├── Create_0.gml
+│   │   ├── Step_0.gml
+│   │   └── obj_camera.yy
 │   ├── obj_cellphone
 │   │   ├── Create_0.gml
 │   │   ├── Destroy_0.gml
@@ -1094,6 +1099,7 @@ YEAN_CAT
 │   │   └── obj_chakra.yy
 │   ├── obj_chat_bubble
 │   │   ├── Create_0.gml
+│   │   ├── Destroy_0.gml
 │   │   ├── Draw_0.gml
 │   │   ├── Step_0.gml
 │   │   └── obj_chat_bubble.yy
@@ -1441,6 +1447,13 @@ YEAN_CAT
 │   │   ├── Draw_0.gml
 │   │   ├── Step_0.gml
 │   │   └── obj_notification.yy
+│   ├── obj_npc
+│   │   ├── Create_0.gml
+│   │   ├── Destroy_0.gml
+│   │   ├── Draw_0.gml
+│   │   ├── Other_10.gml
+│   │   ├── Step_0.gml
+│   │   └── obj_npc.yy
 │   ├── obj_options
 │   │   ├── Alarm_0.gml
 │   │   ├── Create_0.gml
@@ -2516,6 +2529,9 @@ YEAN_CAT
 │   ├── add_command
 │   │   ├── add_command.gml
 │   │   └── add_command.yy
+│   ├── add_object_reference
+│   │   ├── add_object_reference.gml
+│   │   └── add_object_reference.yy
 │   ├── add_variable
 │   │   ├── add_variable.gml
 │   │   └── add_variable.yy
@@ -2630,6 +2646,12 @@ YEAN_CAT
 │   ├── execute_command
 │   │   ├── execute_command.gml
 │   │   └── execute_command.yy
+│   ├── execute_decoded
+│   │   ├── execute_decoded.gml
+│   │   └── execute_decoded.yy
+│   ├── execute_multiple_commands
+│   │   ├── execute_multiple_commands.gml
+│   │   └── execute_multiple_commands.yy
 │   ├── extract_action_name
 │   │   ├── extract_action_name.gml
 │   │   └── extract_action_name.yy
@@ -2642,6 +2664,9 @@ YEAN_CAT
 │   ├── formatChatInput
 │   │   ├── formatChatInput.gml
 │   │   └── formatChatInput.yy
+│   ├── format_boss_name
+│   │   ├── format_boss_name.gml
+│   │   └── format_boss_name.yy
 │   ├── getMessageHeight
 │   │   ├── getMessageHeight.gml
 │   │   └── getMessageHeight.yy
@@ -2651,6 +2676,9 @@ YEAN_CAT
 │   ├── get_longest_word_width
 │   │   ├── get_longest_word_width.gml
 │   │   └── get_longest_word_width.yy
+│   ├── get_object_reference
+│   │   ├── get_object_reference.gml
+│   │   └── get_object_reference.yy
 │   ├── handleCommandWithArgs
 │   │   ├── handleCommandWithArgs.gml
 │   │   └── handleCommandWithArgs.yy
@@ -2660,6 +2688,9 @@ YEAN_CAT
 │   ├── handleNetworkData
 │   │   ├── handleNetworkData.gml
 │   │   └── handleNetworkData.yy
+│   ├── handle_choice_selection
+│   │   ├── handle_choice_selection.gml
+│   │   └── handle_choice_selection.yy
 │   ├── input_accessibility_global_cooldown_get
 │   │   ├── input_accessibility_global_cooldown_get.gml
 │   │   └── input_accessibility_global_cooldown_get.yy
@@ -3458,9 +3489,9 @@ YEAN_CAT
 │   ├── scr_add_action
 │   │   ├── scr_add_action.gml
 │   │   └── scr_add_action.yy
-│   ├── scr_add_chat_bubble_action
-│   │   ├── scr_add_chat_bubble_action.gml
-│   │   └── scr_add_chat_bubble_action.yy
+│   ├── scr_add_action_group
+│   │   ├── scr_add_action_group.gml
+│   │   └── scr_add_action_group.yy
 │   ├── scr_add_color
 │   │   ├── scr_add_color.gml
 │   │   └── scr_add_color.yy
@@ -3470,12 +3501,18 @@ YEAN_CAT
 │   ├── scr_calculate_spent
 │   │   ├── scr_calculate_spent.gml
 │   │   └── scr_calculate_spent.yy
+│   ├── scr_camera_target
+│   │   ├── scr_camera_target.gml
+│   │   └── scr_camera_target.yy
 │   ├── scr_chat_bubble
 │   │   ├── scr_chat_bubble.gml
 │   │   └── scr_chat_bubble.yy
-│   ├── scr_chat_bubble_choices
-│   │   ├── scr_chat_bubble_choices.gml
-│   │   └── scr_chat_bubble_choices.yy
+│   ├── scr_delete_action
+│   │   ├── scr_delete_action.gml
+│   │   └── scr_delete_action.yy
+│   ├── scr_delete_actions
+│   │   ├── scr_delete_actions.gml
+│   │   └── scr_delete_actions.yy
 │   ├── scr_disable_heartbeat
 │   │   ├── scr_disable_heartbeat.gml
 │   │   └── scr_disable_heartbeat.yy
@@ -3497,6 +3534,9 @@ YEAN_CAT
 │   ├── scr_level_up
 │   │   ├── scr_level_up.gml
 │   │   └── scr_level_up.yy
+│   ├── scr_list_action_groups
+│   │   ├── scr_list_action_groups.gml
+│   │   └── scr_list_action_groups.yy
 │   ├── scr_list_actions
 │   │   ├── scr_list_actions.gml
 │   │   └── scr_list_actions.yy
@@ -3509,6 +3549,9 @@ YEAN_CAT
 │   ├── scr_list_commands
 │   │   ├── scr_list_commands.gml
 │   │   └── scr_list_commands.yy
+│   ├── scr_list_objects
+│   │   ├── scr_list_objects.gml
+│   │   └── scr_list_objects.yy
 │   ├── scr_list_variables
 │   │   ├── scr_list_variables.gml
 │   │   └── scr_list_variables.yy
@@ -3545,6 +3588,12 @@ YEAN_CAT
 │   ├── scr_set_my_permission
 │   │   ├── scr_set_my_permission.gml
 │   │   └── scr_set_my_permission.yy
+│   ├── scr_set_spawn_npc
+│   │   ├── scr_set_spawn_npc.gml
+│   │   └── scr_set_spawn_npc.yy
+│   ├── scr_set_target
+│   │   ├── scr_set_target.gml
+│   │   └── scr_set_target.yy
 │   ├── scr_set_variable
 │   │   ├── scr_set_variable.gml
 │   │   └── scr_set_variable.yy
@@ -3563,6 +3612,12 @@ YEAN_CAT
 │   ├── scr_slider_cluster
 │   │   ├── scr_slider_cluster.gml
 │   │   └── scr_slider_cluster.yy
+│   ├── scr_spawn_boss
+│   │   ├── scr_spawn_boss.gml
+│   │   └── scr_spawn_boss.yy
+│   ├── scr_spawn_npc
+│   │   ├── scr_spawn_npc.gml
+│   │   └── scr_spawn_npc.yy
 │   ├── scr_toggle_debug
 │   │   ├── scr_toggle_debug.gml
 │   │   └── scr_toggle_debug.yy
@@ -3605,6 +3660,12 @@ YEAN_CAT
 │   ├── string_remove_between
 │   │   ├── string_remove_between.gml
 │   │   └── string_remove_between.yy
+│   ├── string_trim_left
+│   │   ├── string_trim_left.gml
+│   │   └── string_trim_left.yy
+│   ├── string_trim_lr
+│   │   ├── string_trim_lr.gml
+│   │   └── string_trim_lr.yy
 │   ├── string_trim_right
 │   │   ├── string_trim_right.gml
 │   │   └── string_trim_right.yy
@@ -7202,4 +7263,4 @@ YEAN_CAT
         │       └── 5fa31159-5939-4264-8a79-eb18bc428818.png
         └── sprlongchain.yy
 
-2325 directories, 4878 files
+2343 directories, 4921 files

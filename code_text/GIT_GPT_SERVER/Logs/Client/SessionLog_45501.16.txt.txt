@@ -1,0 +1,424 @@
+07/27/24 22:45:32: Loaded action: SaveGameNow, Encoded Command: InNhdmVfZ2FtZShbXSki
+07/27/24 22:45:32: Loaded action: MoreChoices3, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmcncyAgS2luZ2RvbVwiLFwiR290b0tpbmdzS2luZ2RvbVwiXSxbXCJNb3JlXCIsXCJNb3JlQ2hvaWNlczRcIl1dXSki
+07/27/24 22:45:32: Loaded action: GotoKingsKingdom, Encoded Command: ImdvdG9fcGxhbmV0KFtcIktpbmdzIEtpbmdkb21cIl0pIg==
+07/27/24 22:45:32: Loaded action: MainMenuChoices2, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJFYXJ0aFwiLFwiR290b0VhcnRoXCJdLFtcIlVuaXZlcnNlICBDaXR5XCIsXCJHb3RvVW5pdmVyc2VDaXR5XCJdLFtcIkZhbnRhc2lhXCIsXCJHb3RvRmFudGFzaWFcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMxXCJdXV0pIg==
+07/27/24 22:45:32: Loaded action: MoreChoices1, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJMYW5kIG9mIEx1Y3lcIixcIkdvdG9MYW5kT2ZMdWN5XCJdLFtcIlBsYWNlIG9mIFBhYmxvXCIsXCJHb3RvUGxhY2VPZlBhYmxvXCJdLFtcIkdob3N0ICBUb3duXCIsXCJHb3RvR2hvc3RUb3duXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzMlwiXV1dKSI=
+07/27/24 22:45:32: Loaded action: GotoDivineDomain, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkRpdmluZSBEb21haW5cIl0pIg==
+07/27/24 22:45:32: Loaded action: GotoTheEndonda, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlRoZSBFbmRvbmRhXCJdKSI=
+07/27/24 22:45:32: Loaded action: GotoUniverseCity, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlVuaXZlcnNlIENpdHlcIl0pIg==
+07/27/24 22:45:32: Loaded action: GotoLandOfLucy, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkxhbmQgb2YgTHVjeVwiXSki
+07/27/24 22:45:32: Loaded action: GotoPlaceOfPablo, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlBsYWNlIG9mIFBhYmxvXCJdKSI=
+07/27/24 22:45:32: Loaded action: GotoTheIcyHeart, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlRoZSBJY3kgSGVhcnRcIl0pIg==
+07/27/24 22:45:32: Loaded action: GotoGhostTown, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkdob3N0IFRvd25cIl0pIg==
+07/27/24 22:45:32: Loaded action: MainMenuChoices, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:45:32: Loaded action: LevelUpOnce, Encoded Command: ImxldmVsX3VwKFsxXSki
+07/27/24 22:45:32: Loaded action: GotoTheGoldMines, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlRoZSBHb2xkIE1pbmVzXCJdKSI=
+07/27/24 22:45:32: Loaded action: MoreChoices2, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcycgVmFsbGV5XCIsXCJHb3RvVnVsdHVyZXNWYWxsZXlcIl0sW1wiVGhlIEVuZG9uZGFcIixcIkdvdG9UaGVFbmRvbmRhXCJdLFtcIlN0b3JteSAgU2FuZHNcIixcIkdvdG9TdG9ybXlTYW5kc1wiXSxbXCJNb3JlXCIsXCJNb3JlQ2hvaWNlczNcIl1dXSki
+07/27/24 22:45:32: Loaded action: MoreChoices4, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJUaGUgSWN5IEhlYXJ0XCIsXCJHb3RvVGhlSWN5SGVhcnRcIl0sW1wiVGhlIEdvbGQgIE1pbmVzXCIsXCJHb3RvVGhlR29sZE1pbmVzXCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:45:32: Loaded action: GotoVulturesValley, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:45:32: Loaded action: GotoEarth, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 22:45:32: Loaded action: GotoStormySands, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlN0b3JteSBTYW5kc1wiXSki
+07/27/24 22:45:32: Loaded action: GotoFantasia, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkZhbnRhc2lhXCJdKSI=
+07/27/24 22:45:32: Loaded action: GotoYetopia, Encoded Command: ImdvdG9fcGxhbmV0KFtcIllldG9waWFcIl0pIg==
+07/27/24 22:45:32: Actions loaded successfully from Actions.txt.
+07/27/24 22:45:32: [Client] Failed to reconnect to server. Will try again...
+07/27/24 22:45:43: Executing command: add_action(MoreChoices2,chat_bubble,["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/27/24 22:45:43: Processed command: add_action(MoreChoices2,chat_bubble,["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/27/24 22:45:43: scr_add_action - Raw inputs:
+07/27/24 22:45:43: Name: MoreChoices2
+07/27/24 22:45:43: Command: chat_bubble
+07/27/24 22:45:43: Parameters: ["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]]
+07/27/24 22:45:43: Action 'MoreChoices2' added/updated successfully.
+07/27/24 22:45:43: Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcyBWYWxsZXlcIixcIkdvdG9WdWx0dXJlc1ZhbGxleVwiXSxbXCJUaGUgRW5kb25kYVwiLFwiR290b1RoZUVuZG9uZGFcIl0sW1wiU3Rvcm15IFNhbmRzXCIsXCJHb3RvU3Rvcm15U2FuZHNcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMzXCJdXV0pIg==
+07/27/24 22:45:43: Saving action: SaveGameNow|||InNhdmVfZ2FtZShbXSki
+07/27/24 22:45:43: Saving action: MoreChoices3|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmcncyAgS2luZ2RvbVwiLFwiR290b0tpbmdzS2luZ2RvbVwiXSxbXCJNb3JlXCIsXCJNb3JlQ2hvaWNlczRcIl1dXSki
+07/27/24 22:45:43: Saving action: GotoKingsKingdom|||ImdvdG9fcGxhbmV0KFtcIktpbmdzIEtpbmdkb21cIl0pIg==
+07/27/24 22:45:43: Saving action: MainMenuChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJFYXJ0aFwiLFwiR290b0VhcnRoXCJdLFtcIlVuaXZlcnNlICBDaXR5XCIsXCJHb3RvVW5pdmVyc2VDaXR5XCJdLFtcIkZhbnRhc2lhXCIsXCJHb3RvRmFudGFzaWFcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMxXCJdXV0pIg==
+07/27/24 22:45:43: Saving action: MoreChoices1|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJMYW5kIG9mIEx1Y3lcIixcIkdvdG9MYW5kT2ZMdWN5XCJdLFtcIlBsYWNlIG9mIFBhYmxvXCIsXCJHb3RvUGxhY2VPZlBhYmxvXCJdLFtcIkdob3N0ICBUb3duXCIsXCJHb3RvR2hvc3RUb3duXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzMlwiXV1dKSI=
+07/27/24 22:45:43: Saving action: GotoDivineDomain|||ImdvdG9fcGxhbmV0KFtcIkRpdmluZSBEb21haW5cIl0pIg==
+07/27/24 22:45:43: Saving action: GotoTheEndonda|||ImdvdG9fcGxhbmV0KFtcIlRoZSBFbmRvbmRhXCJdKSI=
+07/27/24 22:45:43: Saving action: GotoUniverseCity|||ImdvdG9fcGxhbmV0KFtcIlVuaXZlcnNlIENpdHlcIl0pIg==
+07/27/24 22:45:43: Saving action: GotoLandOfLucy|||ImdvdG9fcGxhbmV0KFtcIkxhbmQgb2YgTHVjeVwiXSki
+07/27/24 22:45:43: Saving action: GotoPlaceOfPablo|||ImdvdG9fcGxhbmV0KFtcIlBsYWNlIG9mIFBhYmxvXCJdKSI=
+07/27/24 22:45:43: Saving action: GotoTheIcyHeart|||ImdvdG9fcGxhbmV0KFtcIlRoZSBJY3kgSGVhcnRcIl0pIg==
+07/27/24 22:45:43: Saving action: GotoGhostTown|||ImdvdG9fcGxhbmV0KFtcIkdob3N0IFRvd25cIl0pIg==
+07/27/24 22:45:43: Saving action: MainMenuChoices|||ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:45:43: Saving action: LevelUpOnce|||ImxldmVsX3VwKFsxXSki
+07/27/24 22:45:43: Saving action: GotoTheGoldMines|||ImdvdG9fcGxhbmV0KFtcIlRoZSBHb2xkIE1pbmVzXCJdKSI=
+07/27/24 22:45:43: Saving action: MoreChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcyBWYWxsZXlcIixcIkdvdG9WdWx0dXJlc1ZhbGxleVwiXSxbXCJUaGUgRW5kb25kYVwiLFwiR290b1RoZUVuZG9uZGFcIl0sW1wiU3Rvcm15IFNhbmRzXCIsXCJHb3RvU3Rvcm15U2FuZHNcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMzXCJdXV0pIg==
+07/27/24 22:45:43: Saving action: MoreChoices4|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJUaGUgSWN5IEhlYXJ0XCIsXCJHb3RvVGhlSWN5SGVhcnRcIl0sW1wiVGhlIEdvbGQgIE1pbmVzXCIsXCJHb3RvVGhlR29sZE1pbmVzXCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:45:43: Saving action: GotoVulturesValley|||ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:45:43: Saving action: GotoEarth|||ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 22:45:44: Saving action: GotoStormySands|||ImdvdG9fcGxhbmV0KFtcIlN0b3JteSBTYW5kc1wiXSki
+07/27/24 22:45:44: Saving action: GotoFantasia|||ImdvdG9fcGxhbmV0KFtcIkZhbnRhc2lhXCJdKSI=
+07/27/24 22:45:44: Saving action: GotoYetopia|||ImdvdG9fcGxhbmV0KFtcIllldG9waWFcIl0pIg==
+07/27/24 22:45:44: Actions saved successfully to Actions.txt.
+07/27/24 22:45:51: Executing command: add_action(MoreChoices3,chat_bubble,["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings  Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]])
+07/27/24 22:45:51: Processed command: add_action(MoreChoices3,chat_bubble,["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings  Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]])
+07/27/24 22:45:51: scr_add_action - Raw inputs:
+07/27/24 22:45:51: Name: MoreChoices3
+07/27/24 22:45:51: Command: chat_bubble
+07/27/24 22:45:51: Parameters: ["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings  Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]]
+07/27/24 22:45:51: Action 'MoreChoices3' added/updated successfully.
+07/27/24 22:45:51: Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmdzICBLaW5nZG9tXCIsXCJHb3RvS2luZ3NLaW5nZG9tXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzNFwiXV1dKSI=
+07/27/24 22:45:51: Saving action: SaveGameNow|||InNhdmVfZ2FtZShbXSki
+07/27/24 22:45:51: Saving action: MoreChoices3|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmdzICBLaW5nZG9tXCIsXCJHb3RvS2luZ3NLaW5nZG9tXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzNFwiXV1dKSI=
+07/27/24 22:45:51: Saving action: GotoKingsKingdom|||ImdvdG9fcGxhbmV0KFtcIktpbmdzIEtpbmdkb21cIl0pIg==
+07/27/24 22:45:51: Saving action: MainMenuChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJFYXJ0aFwiLFwiR290b0VhcnRoXCJdLFtcIlVuaXZlcnNlICBDaXR5XCIsXCJHb3RvVW5pdmVyc2VDaXR5XCJdLFtcIkZhbnRhc2lhXCIsXCJHb3RvRmFudGFzaWFcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMxXCJdXV0pIg==
+07/27/24 22:45:51: Saving action: MoreChoices1|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJMYW5kIG9mIEx1Y3lcIixcIkdvdG9MYW5kT2ZMdWN5XCJdLFtcIlBsYWNlIG9mIFBhYmxvXCIsXCJHb3RvUGxhY2VPZlBhYmxvXCJdLFtcIkdob3N0ICBUb3duXCIsXCJHb3RvR2hvc3RUb3duXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzMlwiXV1dKSI=
+07/27/24 22:45:51: Saving action: GotoDivineDomain|||ImdvdG9fcGxhbmV0KFtcIkRpdmluZSBEb21haW5cIl0pIg==
+07/27/24 22:45:51: Saving action: GotoTheEndonda|||ImdvdG9fcGxhbmV0KFtcIlRoZSBFbmRvbmRhXCJdKSI=
+07/27/24 22:45:51: Saving action: GotoUniverseCity|||ImdvdG9fcGxhbmV0KFtcIlVuaXZlcnNlIENpdHlcIl0pIg==
+07/27/24 22:45:51: Saving action: GotoLandOfLucy|||ImdvdG9fcGxhbmV0KFtcIkxhbmQgb2YgTHVjeVwiXSki
+07/27/24 22:45:51: Saving action: GotoPlaceOfPablo|||ImdvdG9fcGxhbmV0KFtcIlBsYWNlIG9mIFBhYmxvXCJdKSI=
+07/27/24 22:45:51: Saving action: GotoTheIcyHeart|||ImdvdG9fcGxhbmV0KFtcIlRoZSBJY3kgSGVhcnRcIl0pIg==
+07/27/24 22:45:51: Saving action: GotoGhostTown|||ImdvdG9fcGxhbmV0KFtcIkdob3N0IFRvd25cIl0pIg==
+07/27/24 22:45:51: Saving action: MainMenuChoices|||ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:45:51: Saving action: LevelUpOnce|||ImxldmVsX3VwKFsxXSki
+07/27/24 22:45:51: Saving action: GotoTheGoldMines|||ImdvdG9fcGxhbmV0KFtcIlRoZSBHb2xkIE1pbmVzXCJdKSI=
+07/27/24 22:45:51: Saving action: MoreChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcyBWYWxsZXlcIixcIkdvdG9WdWx0dXJlc1ZhbGxleVwiXSxbXCJUaGUgRW5kb25kYVwiLFwiR290b1RoZUVuZG9uZGFcIl0sW1wiU3Rvcm15IFNhbmRzXCIsXCJHb3RvU3Rvcm15U2FuZHNcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMzXCJdXV0pIg==
+07/27/24 22:45:51: Saving action: MoreChoices4|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJUaGUgSWN5IEhlYXJ0XCIsXCJHb3RvVGhlSWN5SGVhcnRcIl0sW1wiVGhlIEdvbGQgIE1pbmVzXCIsXCJHb3RvVGhlR29sZE1pbmVzXCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:45:51: Saving action: GotoVulturesValley|||ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:45:51: Saving action: GotoEarth|||ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 22:45:51: Saving action: GotoStormySands|||ImdvdG9fcGxhbmV0KFtcIlN0b3JteSBTYW5kc1wiXSki
+07/27/24 22:45:51: Saving action: GotoFantasia|||ImdvdG9fcGxhbmV0KFtcIkZhbnRhc2lhXCJdKSI=
+07/27/24 22:45:51: Saving action: GotoYetopia|||ImdvdG9fcGxhbmV0KFtcIllldG9waWFcIl0pIg==
+07/27/24 22:45:51: Actions saved successfully to Actions.txt.
+07/27/24 22:46:08: Executing command: execute_action(MainMenuChoices2)
+07/27/24 22:46:08: Processed command: execute_action(MainMenuChoices2)
+07/27/24 22:46:08: execute_action - Action Name: MainMenuChoices2
+07/27/24 22:46:08: Executing action: MainMenuChoices2
+07/27/24 22:46:08: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]])
+07/27/24 22:46:08: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/27/24 22:46:08: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:46:11: Executing command: execute_action(MoreChoices1)
+07/27/24 22:46:11: Processed command: execute_action(MoreChoices1)
+07/27/24 22:46:11: execute_action - Action Name: MoreChoices1
+07/27/24 22:46:11: Executing action: MoreChoices1
+07/27/24 22:46:11: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]])
+07/27/24 22:46:11: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]
+07/27/24 22:46:11: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:46:13: Executing command: execute_action(MoreChoices2)
+07/27/24 22:46:13: Processed command: execute_action(MoreChoices2)
+07/27/24 22:46:13: execute_action - Action Name: MoreChoices2
+07/27/24 22:46:13: Executing action: MoreChoices2
+07/27/24 22:46:13: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/27/24 22:46:13: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]
+07/27/24 22:46:13: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:46:14: Executing command: execute_action(GotoVulturesValley)
+07/27/24 22:46:14: Processed command: execute_action(GotoVulturesValley)
+07/27/24 22:46:14: execute_action - Action Name: GotoVulturesValley
+07/27/24 22:46:14: Executing action: GotoVulturesValley
+07/27/24 22:46:14: Decoded Command: goto_planet(["Vultures  Valley"])
+07/27/24 22:50:54: Loaded action: SaveGameNow, Encoded Command: InNhdmVfZ2FtZShbXSki
+07/27/24 22:50:54: Loaded action: MoreChoices3, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmdzICBLaW5nZG9tXCIsXCJHb3RvS2luZ3NLaW5nZG9tXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzNFwiXV1dKSI=
+07/27/24 22:50:54: Loaded action: GotoKingsKingdom, Encoded Command: ImdvdG9fcGxhbmV0KFtcIktpbmdzIEtpbmdkb21cIl0pIg==
+07/27/24 22:50:54: Loaded action: MainMenuChoices2, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJFYXJ0aFwiLFwiR290b0VhcnRoXCJdLFtcIlVuaXZlcnNlICBDaXR5XCIsXCJHb3RvVW5pdmVyc2VDaXR5XCJdLFtcIkZhbnRhc2lhXCIsXCJHb3RvRmFudGFzaWFcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMxXCJdXV0pIg==
+07/27/24 22:50:54: Loaded action: MoreChoices1, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJMYW5kIG9mIEx1Y3lcIixcIkdvdG9MYW5kT2ZMdWN5XCJdLFtcIlBsYWNlIG9mIFBhYmxvXCIsXCJHb3RvUGxhY2VPZlBhYmxvXCJdLFtcIkdob3N0ICBUb3duXCIsXCJHb3RvR2hvc3RUb3duXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzMlwiXV1dKSI=
+07/27/24 22:50:54: Loaded action: GotoDivineDomain, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkRpdmluZSBEb21haW5cIl0pIg==
+07/27/24 22:50:54: Loaded action: GotoTheEndonda, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlRoZSBFbmRvbmRhXCJdKSI=
+07/27/24 22:50:54: Loaded action: GotoUniverseCity, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlVuaXZlcnNlIENpdHlcIl0pIg==
+07/27/24 22:50:54: Loaded action: GotoLandOfLucy, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkxhbmQgb2YgTHVjeVwiXSki
+07/27/24 22:50:54: Loaded action: GotoPlaceOfPablo, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlBsYWNlIG9mIFBhYmxvXCJdKSI=
+07/27/24 22:50:54: Loaded action: GotoTheIcyHeart, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlRoZSBJY3kgSGVhcnRcIl0pIg==
+07/27/24 22:50:54: Loaded action: GotoGhostTown, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkdob3N0IFRvd25cIl0pIg==
+07/27/24 22:50:54: Loaded action: MainMenuChoices, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:50:54: Loaded action: LevelUpOnce, Encoded Command: ImxldmVsX3VwKFsxXSki
+07/27/24 22:50:54: Loaded action: GotoTheGoldMines, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlRoZSBHb2xkIE1pbmVzXCJdKSI=
+07/27/24 22:50:54: Loaded action: MoreChoices2, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcyBWYWxsZXlcIixcIkdvdG9WdWx0dXJlc1ZhbGxleVwiXSxbXCJUaGUgRW5kb25kYVwiLFwiR290b1RoZUVuZG9uZGFcIl0sW1wiU3Rvcm15IFNhbmRzXCIsXCJHb3RvU3Rvcm15U2FuZHNcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMzXCJdXV0pIg==
+07/27/24 22:50:54: Loaded action: MoreChoices4, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJUaGUgSWN5IEhlYXJ0XCIsXCJHb3RvVGhlSWN5SGVhcnRcIl0sW1wiVGhlIEdvbGQgIE1pbmVzXCIsXCJHb3RvVGhlR29sZE1pbmVzXCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:50:54: Loaded action: GotoVulturesValley, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:50:54: Loaded action: GotoEarth, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 22:50:54: Loaded action: GotoStormySands, Encoded Command: ImdvdG9fcGxhbmV0KFtcIlN0b3JteSBTYW5kc1wiXSki
+07/27/24 22:50:54: Loaded action: GotoFantasia, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkZhbnRhc2lhXCJdKSI=
+07/27/24 22:50:54: Loaded action: GotoYetopia, Encoded Command: ImdvdG9fcGxhbmV0KFtcIllldG9waWFcIl0pIg==
+07/27/24 22:50:54: Actions loaded successfully from Actions.txt.
+07/27/24 22:50:54: [Client] Failed to reconnect to server. Will try again...
+07/27/24 22:51:17: Executing command: execute_action(GotoVulturesValley)
+07/27/24 22:51:17: Processed command: execute_action(GotoVulturesValley)
+07/27/24 22:51:17: execute_action - Action Name: GotoVulturesValley
+07/27/24 22:51:17: Executing action: GotoVulturesValley
+07/27/24 22:51:17: Decoded Command: goto_planet(["Vultures  Valley"])
+07/27/24 22:51:17: Invalid Planet Name: Vultures  Valley
+07/27/24 22:51:32: Executing command: goto_planet(Vultures Valley)
+07/27/24 22:51:32: Processed command: goto_planet(Vultures Valley)
+07/27/24 22:51:32: Teleported to Vultures Valley.
+07/27/24 22:52:00: Executing command: add_action(GotoVulturesValley,goto_planet,["Vultures  Valley"])
+07/27/24 22:52:00: Processed command: add_action(GotoVulturesValley,goto_planet,["Vultures  Valley"])
+07/27/24 22:52:00: scr_add_action - Raw inputs:
+07/27/24 22:52:00: Name: GotoVulturesValley
+07/27/24 22:52:00: Command: goto_planet
+07/27/24 22:52:00: Parameters: ["Vultures  Valley"]
+07/27/24 22:52:00: Action 'GotoVulturesValley' added/updated successfully.
+07/27/24 22:52:00: Encoded Command: ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:52:00: Saving action: SaveGameNow|||InNhdmVfZ2FtZShbXSki
+07/27/24 22:52:00: Saving action: MoreChoices3|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmdzICBLaW5nZG9tXCIsXCJHb3RvS2luZ3NLaW5nZG9tXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzNFwiXV1dKSI=
+07/27/24 22:52:00: Saving action: GotoKingsKingdom|||ImdvdG9fcGxhbmV0KFtcIktpbmdzIEtpbmdkb21cIl0pIg==
+07/27/24 22:52:00: Saving action: MainMenuChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJFYXJ0aFwiLFwiR290b0VhcnRoXCJdLFtcIlVuaXZlcnNlICBDaXR5XCIsXCJHb3RvVW5pdmVyc2VDaXR5XCJdLFtcIkZhbnRhc2lhXCIsXCJHb3RvRmFudGFzaWFcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMxXCJdXV0pIg==
+07/27/24 22:52:00: Saving action: MoreChoices1|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJMYW5kIG9mIEx1Y3lcIixcIkdvdG9MYW5kT2ZMdWN5XCJdLFtcIlBsYWNlIG9mIFBhYmxvXCIsXCJHb3RvUGxhY2VPZlBhYmxvXCJdLFtcIkdob3N0ICBUb3duXCIsXCJHb3RvR2hvc3RUb3duXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzMlwiXV1dKSI=
+07/27/24 22:52:00: Saving action: GotoDivineDomain|||ImdvdG9fcGxhbmV0KFtcIkRpdmluZSBEb21haW5cIl0pIg==
+07/27/24 22:52:00: Saving action: GotoTheEndonda|||ImdvdG9fcGxhbmV0KFtcIlRoZSBFbmRvbmRhXCJdKSI=
+07/27/24 22:52:00: Saving action: GotoUniverseCity|||ImdvdG9fcGxhbmV0KFtcIlVuaXZlcnNlIENpdHlcIl0pIg==
+07/27/24 22:52:00: Saving action: GotoLandOfLucy|||ImdvdG9fcGxhbmV0KFtcIkxhbmQgb2YgTHVjeVwiXSki
+07/27/24 22:52:00: Saving action: GotoPlaceOfPablo|||ImdvdG9fcGxhbmV0KFtcIlBsYWNlIG9mIFBhYmxvXCJdKSI=
+07/27/24 22:52:00: Saving action: GotoTheIcyHeart|||ImdvdG9fcGxhbmV0KFtcIlRoZSBJY3kgSGVhcnRcIl0pIg==
+07/27/24 22:52:00: Saving action: GotoGhostTown|||ImdvdG9fcGxhbmV0KFtcIkdob3N0IFRvd25cIl0pIg==
+07/27/24 22:52:00: Saving action: MainMenuChoices|||ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:52:00: Saving action: LevelUpOnce|||ImxldmVsX3VwKFsxXSki
+07/27/24 22:52:00: Saving action: GotoTheGoldMines|||ImdvdG9fcGxhbmV0KFtcIlRoZSBHb2xkIE1pbmVzXCJdKSI=
+07/27/24 22:52:00: Saving action: MoreChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcyBWYWxsZXlcIixcIkdvdG9WdWx0dXJlc1ZhbGxleVwiXSxbXCJUaGUgRW5kb25kYVwiLFwiR290b1RoZUVuZG9uZGFcIl0sW1wiU3Rvcm15IFNhbmRzXCIsXCJHb3RvU3Rvcm15U2FuZHNcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMzXCJdXV0pIg==
+07/27/24 22:52:00: Saving action: MoreChoices4|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJUaGUgSWN5IEhlYXJ0XCIsXCJHb3RvVGhlSWN5SGVhcnRcIl0sW1wiVGhlIEdvbGQgIE1pbmVzXCIsXCJHb3RvVGhlR29sZE1pbmVzXCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:52:00: Saving action: GotoVulturesValley|||ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:52:00: Saving action: GotoEarth|||ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 22:52:00: Saving action: GotoStormySands|||ImdvdG9fcGxhbmV0KFtcIlN0b3JteSBTYW5kc1wiXSki
+07/27/24 22:52:00: Saving action: GotoFantasia|||ImdvdG9fcGxhbmV0KFtcIkZhbnRhc2lhXCJdKSI=
+07/27/24 22:52:00: Saving action: GotoYetopia|||ImdvdG9fcGxhbmV0KFtcIllldG9waWFcIl0pIg==
+07/27/24 22:52:00: Actions saved successfully to Actions.txt.
+07/27/24 22:52:03: Executing command: execute_action(GotoVulturesValley)
+07/27/24 22:52:03: Processed command: execute_action(GotoVulturesValley)
+07/27/24 22:52:03: execute_action - Action Name: GotoVulturesValley
+07/27/24 22:52:03: Executing action: GotoVulturesValley
+07/27/24 22:52:03: Decoded Command: goto_planet(["Vultures  Valley"])
+07/27/24 22:52:04: Invalid Planet Name: Vultures  Valley
+07/27/24 22:52:10: Executing command: goto_planet(Vultures Valley)
+07/27/24 22:52:10: Processed command: goto_planet(Vultures Valley)
+07/27/24 22:52:10: Teleported to Vultures Valley.
+07/27/24 22:52:26: [Jay Arnold] it seems an extra space character is adde to this planet name  somewhere
+07/27/24 22:52:26: Creating chat bubble:  it seems an extra space character is adde to this planet name  somewhere, Owner: yeancat, Choices: []
+07/27/24 22:52:26: Chat Bubble Created. Following 'yeancat' with text: ' it seems an extra space character is adde to this planet name  somewhere'. Number of choices: 0
+07/27/24 22:52:49: Executing command: execute_action(GotoKingsKingdom)
+07/27/24 22:52:49: Processed command: execute_action(GotoKingsKingdom)
+07/27/24 22:52:49: execute_action - Action Name: GotoKingsKingdom
+07/27/24 22:52:49: Executing action: GotoKingsKingdom
+07/27/24 22:52:49: Decoded Command: goto_planet(["Kings Kingdom"])
+07/27/24 22:52:49: Teleported to Kings Kingdom.
+07/27/24 22:53:18: Executing command: add_action(GotoVulturesValley,goto_planet,["VulturesValley"] )
+07/27/24 22:53:18: Processed command: add_action(GotoVulturesValley,goto_planet,["VulturesValley"] )
+07/27/24 22:53:18: scr_add_action - Raw inputs:
+07/27/24 22:53:18: Name: GotoVulturesValley
+07/27/24 22:53:18: Command: goto_planet
+07/27/24 22:53:18: Parameters: ["VulturesValley"]
+07/27/24 22:53:18: Action 'GotoVulturesValley' added/updated successfully.
+07/27/24 22:53:18: Encoded Command: ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzVmFsbGV5XCJdKSI=
+07/27/24 22:53:18: Saving action: SaveGameNow|||InNhdmVfZ2FtZShbXSki
+07/27/24 22:53:18: Saving action: MoreChoices3|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmdzICBLaW5nZG9tXCIsXCJHb3RvS2luZ3NLaW5nZG9tXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzNFwiXV1dKSI=
+07/27/24 22:53:18: Saving action: GotoKingsKingdom|||ImdvdG9fcGxhbmV0KFtcIktpbmdzIEtpbmdkb21cIl0pIg==
+07/27/24 22:53:18: Saving action: MainMenuChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJFYXJ0aFwiLFwiR290b0VhcnRoXCJdLFtcIlVuaXZlcnNlICBDaXR5XCIsXCJHb3RvVW5pdmVyc2VDaXR5XCJdLFtcIkZhbnRhc2lhXCIsXCJHb3RvRmFudGFzaWFcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMxXCJdXV0pIg==
+07/27/24 22:53:18: Saving action: MoreChoices1|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJMYW5kIG9mIEx1Y3lcIixcIkdvdG9MYW5kT2ZMdWN5XCJdLFtcIlBsYWNlIG9mIFBhYmxvXCIsXCJHb3RvUGxhY2VPZlBhYmxvXCJdLFtcIkdob3N0ICBUb3duXCIsXCJHb3RvR2hvc3RUb3duXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzMlwiXV1dKSI=
+07/27/24 22:53:18: Saving action: GotoDivineDomain|||ImdvdG9fcGxhbmV0KFtcIkRpdmluZSBEb21haW5cIl0pIg==
+07/27/24 22:53:18: Saving action: GotoTheEndonda|||ImdvdG9fcGxhbmV0KFtcIlRoZSBFbmRvbmRhXCJdKSI=
+07/27/24 22:53:19: Saving action: GotoUniverseCity|||ImdvdG9fcGxhbmV0KFtcIlVuaXZlcnNlIENpdHlcIl0pIg==
+07/27/24 22:53:19: Saving action: GotoLandOfLucy|||ImdvdG9fcGxhbmV0KFtcIkxhbmQgb2YgTHVjeVwiXSki
+07/27/24 22:53:19: Saving action: GotoPlaceOfPablo|||ImdvdG9fcGxhbmV0KFtcIlBsYWNlIG9mIFBhYmxvXCJdKSI=
+07/27/24 22:53:19: Saving action: GotoTheIcyHeart|||ImdvdG9fcGxhbmV0KFtcIlRoZSBJY3kgSGVhcnRcIl0pIg==
+07/27/24 22:53:19: Saving action: GotoGhostTown|||ImdvdG9fcGxhbmV0KFtcIkdob3N0IFRvd25cIl0pIg==
+07/27/24 22:53:19: Saving action: MainMenuChoices|||ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:53:19: Saving action: LevelUpOnce|||ImxldmVsX3VwKFsxXSki
+07/27/24 22:53:19: Saving action: GotoTheGoldMines|||ImdvdG9fcGxhbmV0KFtcIlRoZSBHb2xkIE1pbmVzXCJdKSI=
+07/27/24 22:53:19: Saving action: MoreChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcyBWYWxsZXlcIixcIkdvdG9WdWx0dXJlc1ZhbGxleVwiXSxbXCJUaGUgRW5kb25kYVwiLFwiR290b1RoZUVuZG9uZGFcIl0sW1wiU3Rvcm15IFNhbmRzXCIsXCJHb3RvU3Rvcm15U2FuZHNcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMzXCJdXV0pIg==
+07/27/24 22:53:19: Saving action: MoreChoices4|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJUaGUgSWN5IEhlYXJ0XCIsXCJHb3RvVGhlSWN5SGVhcnRcIl0sW1wiVGhlIEdvbGQgIE1pbmVzXCIsXCJHb3RvVGhlR29sZE1pbmVzXCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:53:19: Saving action: GotoVulturesValley|||ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzVmFsbGV5XCJdKSI=
+07/27/24 22:53:19: Saving action: GotoEarth|||ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 22:53:19: Saving action: GotoStormySands|||ImdvdG9fcGxhbmV0KFtcIlN0b3JteSBTYW5kc1wiXSki
+07/27/24 22:53:19: Saving action: GotoFantasia|||ImdvdG9fcGxhbmV0KFtcIkZhbnRhc2lhXCJdKSI=
+07/27/24 22:53:19: Saving action: GotoYetopia|||ImdvdG9fcGxhbmV0KFtcIllldG9waWFcIl0pIg==
+07/27/24 22:53:19: Actions saved successfully to Actions.txt.
+07/27/24 22:53:22: Executing command: execute_action(GotoVulturesValley)
+07/27/24 22:53:22: Processed command: execute_action(GotoVulturesValley)
+07/27/24 22:53:22: execute_action - Action Name: GotoVulturesValley
+07/27/24 22:53:22: Executing action: GotoVulturesValley
+07/27/24 22:53:22: Decoded Command: goto_planet(["VulturesValley"])
+07/27/24 22:53:22: Invalid Planet Name: VulturesValley
+07/27/24 22:53:30: Executing command: add_action(GotoVulturesValley,goto_planet,["Vultures  Valley"])
+07/27/24 22:53:30: Processed command: add_action(GotoVulturesValley,goto_planet,["Vultures  Valley"])
+07/27/24 22:53:30: scr_add_action - Raw inputs:
+07/27/24 22:53:30: Name: GotoVulturesValley
+07/27/24 22:53:30: Command: goto_planet
+07/27/24 22:53:30: Parameters: ["Vultures  Valley"]
+07/27/24 22:53:30: Action 'GotoVulturesValley' added/updated successfully.
+07/27/24 22:53:30: Encoded Command: ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:53:30: Saving action: SaveGameNow|||InNhdmVfZ2FtZShbXSki
+07/27/24 22:53:30: Saving action: MoreChoices3|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmdzICBLaW5nZG9tXCIsXCJHb3RvS2luZ3NLaW5nZG9tXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzNFwiXV1dKSI=
+07/27/24 22:53:30: Saving action: GotoKingsKingdom|||ImdvdG9fcGxhbmV0KFtcIktpbmdzIEtpbmdkb21cIl0pIg==
+07/27/24 22:53:30: Saving action: MainMenuChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJFYXJ0aFwiLFwiR290b0VhcnRoXCJdLFtcIlVuaXZlcnNlICBDaXR5XCIsXCJHb3RvVW5pdmVyc2VDaXR5XCJdLFtcIkZhbnRhc2lhXCIsXCJHb3RvRmFudGFzaWFcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMxXCJdXV0pIg==
+07/27/24 22:53:30: Saving action: MoreChoices1|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJMYW5kIG9mIEx1Y3lcIixcIkdvdG9MYW5kT2ZMdWN5XCJdLFtcIlBsYWNlIG9mIFBhYmxvXCIsXCJHb3RvUGxhY2VPZlBhYmxvXCJdLFtcIkdob3N0ICBUb3duXCIsXCJHb3RvR2hvc3RUb3duXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzMlwiXV1dKSI=
+07/27/24 22:53:30: Saving action: GotoDivineDomain|||ImdvdG9fcGxhbmV0KFtcIkRpdmluZSBEb21haW5cIl0pIg==
+07/27/24 22:53:30: Saving action: GotoTheEndonda|||ImdvdG9fcGxhbmV0KFtcIlRoZSBFbmRvbmRhXCJdKSI=
+07/27/24 22:53:30: Saving action: GotoUniverseCity|||ImdvdG9fcGxhbmV0KFtcIlVuaXZlcnNlIENpdHlcIl0pIg==
+07/27/24 22:53:31: Saving action: GotoLandOfLucy|||ImdvdG9fcGxhbmV0KFtcIkxhbmQgb2YgTHVjeVwiXSki
+07/27/24 22:53:31: Saving action: GotoPlaceOfPablo|||ImdvdG9fcGxhbmV0KFtcIlBsYWNlIG9mIFBhYmxvXCJdKSI=
+07/27/24 22:53:31: Saving action: GotoTheIcyHeart|||ImdvdG9fcGxhbmV0KFtcIlRoZSBJY3kgSGVhcnRcIl0pIg==
+07/27/24 22:53:31: Saving action: GotoGhostTown|||ImdvdG9fcGxhbmV0KFtcIkdob3N0IFRvd25cIl0pIg==
+07/27/24 22:53:31: Saving action: MainMenuChoices|||ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:53:31: Saving action: LevelUpOnce|||ImxldmVsX3VwKFsxXSki
+07/27/24 22:53:31: Saving action: GotoTheGoldMines|||ImdvdG9fcGxhbmV0KFtcIlRoZSBHb2xkIE1pbmVzXCJdKSI=
+07/27/24 22:53:31: Saving action: MoreChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcyBWYWxsZXlcIixcIkdvdG9WdWx0dXJlc1ZhbGxleVwiXSxbXCJUaGUgRW5kb25kYVwiLFwiR290b1RoZUVuZG9uZGFcIl0sW1wiU3Rvcm15IFNhbmRzXCIsXCJHb3RvU3Rvcm15U2FuZHNcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMzXCJdXV0pIg==
+07/27/24 22:53:31: Saving action: MoreChoices4|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJUaGUgSWN5IEhlYXJ0XCIsXCJHb3RvVGhlSWN5SGVhcnRcIl0sW1wiVGhlIEdvbGQgIE1pbmVzXCIsXCJHb3RvVGhlR29sZE1pbmVzXCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:53:31: Saving action: GotoVulturesValley|||ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:53:31: Saving action: GotoEarth|||ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 22:53:31: Saving action: GotoStormySands|||ImdvdG9fcGxhbmV0KFtcIlN0b3JteSBTYW5kc1wiXSki
+07/27/24 22:53:31: Saving action: GotoFantasia|||ImdvdG9fcGxhbmV0KFtcIkZhbnRhc2lhXCJdKSI=
+07/27/24 22:53:31: Saving action: GotoYetopia|||ImdvdG9fcGxhbmV0KFtcIllldG9waWFcIl0pIg==
+07/27/24 22:53:31: Actions saved successfully to Actions.txt.
+07/27/24 22:53:37: Executing command: add_action(GotoVulturesValley,goto_planet,["Vultures  Valley"])
+07/27/24 22:53:37: Processed command: add_action(GotoVulturesValley,goto_planet,["Vultures  Valley"])
+07/27/24 22:53:37: scr_add_action - Raw inputs:
+07/27/24 22:53:37: Name: GotoVulturesValley
+07/27/24 22:53:37: Command: goto_planet
+07/27/24 22:53:38: Parameters: ["Vultures  Valley"]
+07/27/24 22:53:38: Action 'GotoVulturesValley' added/updated successfully.
+07/27/24 22:53:38: Encoded Command: ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:53:38: Saving action: SaveGameNow|||InNhdmVfZ2FtZShbXSki
+07/27/24 22:53:38: Saving action: MoreChoices3|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJEaXZpbmUgRG9tYWluXCIsXCJHb3RvRGl2aW5lRG9tYWluXCJdLFtcIllldG9waWFcIixcIkdvdG9ZZXRvcGlhXCJdLFtcIktpbmdzICBLaW5nZG9tXCIsXCJHb3RvS2luZ3NLaW5nZG9tXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzNFwiXV1dKSI=
+07/27/24 22:53:38: Saving action: GotoKingsKingdom|||ImdvdG9fcGxhbmV0KFtcIktpbmdzIEtpbmdkb21cIl0pIg==
+07/27/24 22:53:38: Saving action: MainMenuChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJFYXJ0aFwiLFwiR290b0VhcnRoXCJdLFtcIlVuaXZlcnNlICBDaXR5XCIsXCJHb3RvVW5pdmVyc2VDaXR5XCJdLFtcIkZhbnRhc2lhXCIsXCJHb3RvRmFudGFzaWFcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMxXCJdXV0pIg==
+07/27/24 22:53:38: Saving action: MoreChoices1|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJMYW5kIG9mIEx1Y3lcIixcIkdvdG9MYW5kT2ZMdWN5XCJdLFtcIlBsYWNlIG9mIFBhYmxvXCIsXCJHb3RvUGxhY2VPZlBhYmxvXCJdLFtcIkdob3N0ICBUb3duXCIsXCJHb3RvR2hvc3RUb3duXCJdLFtcIk1vcmVcIixcIk1vcmVDaG9pY2VzMlwiXV1dKSI=
+07/27/24 22:53:38: Saving action: GotoDivineDomain|||ImdvdG9fcGxhbmV0KFtcIkRpdmluZSBEb21haW5cIl0pIg==
+07/27/24 22:53:38: Saving action: GotoTheEndonda|||ImdvdG9fcGxhbmV0KFtcIlRoZSBFbmRvbmRhXCJdKSI=
+07/27/24 22:53:38: Saving action: GotoUniverseCity|||ImdvdG9fcGxhbmV0KFtcIlVuaXZlcnNlIENpdHlcIl0pIg==
+07/27/24 22:53:38: Saving action: GotoLandOfLucy|||ImdvdG9fcGxhbmV0KFtcIkxhbmQgb2YgTHVjeVwiXSki
+07/27/24 22:53:38: Saving action: GotoPlaceOfPablo|||ImdvdG9fcGxhbmV0KFtcIlBsYWNlIG9mIFBhYmxvXCJdKSI=
+07/27/24 22:53:38: Saving action: GotoTheIcyHeart|||ImdvdG9fcGxhbmV0KFtcIlRoZSBJY3kgSGVhcnRcIl0pIg==
+07/27/24 22:53:38: Saving action: GotoGhostTown|||ImdvdG9fcGxhbmV0KFtcIkdob3N0IFRvd25cIl0pIg==
+07/27/24 22:53:38: Saving action: MainMenuChoices|||ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:53:38: Saving action: LevelUpOnce|||ImxldmVsX3VwKFsxXSki
+07/27/24 22:53:38: Saving action: GotoTheGoldMines|||ImdvdG9fcGxhbmV0KFtcIlRoZSBHb2xkIE1pbmVzXCJdKSI=
+07/27/24 22:53:38: Saving action: MoreChoices2|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJWdWx0dXJlcyBWYWxsZXlcIixcIkdvdG9WdWx0dXJlc1ZhbGxleVwiXSxbXCJUaGUgRW5kb25kYVwiLFwiR290b1RoZUVuZG9uZGFcIl0sW1wiU3Rvcm15IFNhbmRzXCIsXCJHb3RvU3Rvcm15U2FuZHNcIl0sW1wiTW9yZVwiLFwiTW9yZUNob2ljZXMzXCJdXV0pIg==
+07/27/24 22:53:38: Saving action: MoreChoices4|||ImNoYXRfYnViYmxlKFtcIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvP1wiLFwieWVhbmNhdFwiLFtbXCJUaGUgSWN5IEhlYXJ0XCIsXCJHb3RvVGhlSWN5SGVhcnRcIl0sW1wiVGhlIEdvbGQgIE1pbmVzXCIsXCJHb3RvVGhlR29sZE1pbmVzXCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 22:53:38: Saving action: GotoVulturesValley|||ImdvdG9fcGxhbmV0KFtcIlZ1bHR1cmVzICBWYWxsZXlcIl0pIg==
+07/27/24 22:53:38: Saving action: GotoEarth|||ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 22:53:38: Saving action: GotoStormySands|||ImdvdG9fcGxhbmV0KFtcIlN0b3JteSBTYW5kc1wiXSki
+07/27/24 22:53:38: Saving action: GotoFantasia|||ImdvdG9fcGxhbmV0KFtcIkZhbnRhc2lhXCJdKSI=
+07/27/24 22:53:38: Saving action: GotoYetopia|||ImdvdG9fcGxhbmV0KFtcIllldG9waWFcIl0pIg==
+07/27/24 22:53:38: Actions saved successfully to Actions.txt.
+07/27/24 22:54:06: [Jay Arnold] an extra space character is added because of text wrapping in my  debugCommand i believe'
+07/27/24 22:54:06: Creating chat bubble:  an extra space character is added because of text wrapping in my  debugCommand i believe', Owner: yeancat, Choices: []
+07/27/24 22:54:06: Chat Bubble Created. Following 'yeancat' with text: ' an extra space character is added because of text wrapping in my  debugCommand i believe''. Number of choices: 0
+07/27/24 22:54:21: Executing command: execute_action(MainMenuChoices2)
+07/27/24 22:54:21: Processed command: execute_action(MainMenuChoices2)
+07/27/24 22:54:21: execute_action - Action Name: MainMenuChoices2
+07/27/24 22:54:21: Executing action: MainMenuChoices2
+07/27/24 22:54:21: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]])
+07/27/24 22:54:21: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/27/24 22:54:21: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:25: Executing command: execute_action(MoreChoices1)
+07/27/24 22:54:25: Processed command: execute_action(MoreChoices1)
+07/27/24 22:54:25: execute_action - Action Name: MoreChoices1
+07/27/24 22:54:25: Executing action: MoreChoices1
+07/27/24 22:54:25: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]])
+07/27/24 22:54:25: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]
+07/27/24 22:54:25: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:27: Executing command: execute_action(GotoPlaceOfPablo)
+07/27/24 22:54:27: Processed command: execute_action(GotoPlaceOfPablo)
+07/27/24 22:54:28: execute_action - Action Name: GotoPlaceOfPablo
+07/27/24 22:54:28: Executing action: GotoPlaceOfPablo
+07/27/24 22:54:28: Decoded Command: goto_planet(["Place of Pablo"])
+07/27/24 22:54:28: Teleported to Place of Pablo.
+07/27/24 22:54:31: Executing command: execute_action(MainMenuChoices2)
+07/27/24 22:54:31: Processed command: execute_action(MainMenuChoices2)
+07/27/24 22:54:31: execute_action - Action Name: MainMenuChoices2
+07/27/24 22:54:31: Executing action: MainMenuChoices2
+07/27/24 22:54:31: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]])
+07/27/24 22:54:31: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/27/24 22:54:31: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:33: Executing command: execute_action(MoreChoices1)
+07/27/24 22:54:33: Processed command: execute_action(MoreChoices1)
+07/27/24 22:54:33: execute_action - Action Name: MoreChoices1
+07/27/24 22:54:33: Executing action: MoreChoices1
+07/27/24 22:54:33: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]])
+07/27/24 22:54:33: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]
+07/27/24 22:54:33: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:34: Executing command: execute_action(MoreChoices2)
+07/27/24 22:54:34: Processed command: execute_action(MoreChoices2)
+07/27/24 22:54:34: execute_action - Action Name: MoreChoices2
+07/27/24 22:54:34: Executing action: MoreChoices2
+07/27/24 22:54:34: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/27/24 22:54:34: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]
+07/27/24 22:54:34: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:40: Executing command: execute_action(MoreChoices3)
+07/27/24 22:54:40: Processed command: execute_action(MoreChoices3)
+07/27/24 22:54:40: execute_action - Action Name: MoreChoices3
+07/27/24 22:54:40: Executing action: MoreChoices3
+07/27/24 22:54:40: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings  Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]])
+07/27/24 22:54:40: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings  Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]
+07/27/24 22:54:40: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:42: Executing command: execute_action(GotoDivineDomain)
+07/27/24 22:54:42: Processed command: execute_action(GotoDivineDomain)
+07/27/24 22:54:42: execute_action - Action Name: GotoDivineDomain
+07/27/24 22:54:42: Executing action: GotoDivineDomain
+07/27/24 22:54:42: Decoded Command: goto_planet(["Divine Domain"])
+07/27/24 22:54:42: Teleported to Divine Domain.
+07/27/24 22:54:48: Executing command: execute_action(MainMenuChoices2)
+07/27/24 22:54:48: Processed command: execute_action(MainMenuChoices2)
+07/27/24 22:54:48: execute_action - Action Name: MainMenuChoices2
+07/27/24 22:54:48: Executing action: MainMenuChoices2
+07/27/24 22:54:48: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]])
+07/27/24 22:54:48: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/27/24 22:54:48: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:50: Executing command: execute_action(GotoUniverseCity)
+07/27/24 22:54:50: Processed command: execute_action(GotoUniverseCity)
+07/27/24 22:54:50: execute_action - Action Name: GotoUniverseCity
+07/27/24 22:54:50: Executing action: GotoUniverseCity
+07/27/24 22:54:50: Decoded Command: goto_planet(["Universe City"])
+07/27/24 22:54:50: Teleported to Universe City.
+07/27/24 22:54:54: Executing command: execute_action(MainMenuChoices2)
+07/27/24 22:54:54: Processed command: execute_action(MainMenuChoices2)
+07/27/24 22:54:54: execute_action - Action Name: MainMenuChoices2
+07/27/24 22:54:54: Executing action: MainMenuChoices2
+07/27/24 22:54:54: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]])
+07/27/24 22:54:54: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/27/24 22:54:54: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:55: Executing command: execute_action(MoreChoices1)
+07/27/24 22:54:55: Processed command: execute_action(MoreChoices1)
+07/27/24 22:54:55: execute_action - Action Name: MoreChoices1
+07/27/24 22:54:55: Executing action: MoreChoices1
+07/27/24 22:54:55: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]])
+07/27/24 22:54:55: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]
+07/27/24 22:54:55: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:55: Executing command: execute_action(MoreChoices2)
+07/27/24 22:54:55: Processed command: execute_action(MoreChoices2)
+07/27/24 22:54:55: execute_action - Action Name: MoreChoices2
+07/27/24 22:54:55: Executing action: MoreChoices2
+07/27/24 22:54:56: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/27/24 22:54:56: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]
+07/27/24 22:54:56: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:57: Executing command: execute_action(MoreChoices3)
+07/27/24 22:54:57: Processed command: execute_action(MoreChoices3)
+07/27/24 22:54:57: execute_action - Action Name: MoreChoices3
+07/27/24 22:54:57: Executing action: MoreChoices3
+07/27/24 22:54:57: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings  Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]])
+07/27/24 22:54:57: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings  Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]
+07/27/24 22:54:57: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:54:59: Executing command: execute_action(GotoKingsKingdom)
+07/27/24 22:54:59: Processed command: execute_action(GotoKingsKingdom)
+07/27/24 22:54:59: execute_action - Action Name: GotoKingsKingdom
+07/27/24 22:54:59: Executing action: GotoKingsKingdom
+07/27/24 22:54:59: Decoded Command: goto_planet(["Kings Kingdom"])
+07/27/24 22:54:59: Teleported to Kings Kingdom.
+07/27/24 22:55:03: Executing command: execute_action(MainMenuChoices2)
+07/27/24 22:55:03: Processed command: execute_action(MainMenuChoices2)
+07/27/24 22:55:03: execute_action - Action Name: MainMenuChoices2
+07/27/24 22:55:03: Executing action: MainMenuChoices2
+07/27/24 22:55:03: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]])
+07/27/24 22:55:03: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe  City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/27/24 22:55:03: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:55:04: Executing command: execute_action(MoreChoices1)
+07/27/24 22:55:04: Processed command: execute_action(MoreChoices1)
+07/27/24 22:55:04: execute_action - Action Name: MoreChoices1
+07/27/24 22:55:04: Executing action: MoreChoices1
+07/27/24 22:55:04: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]])
+07/27/24 22:55:04: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost  Town","GotoGhostTown"],["More","MoreChoices2"]]
+07/27/24 22:55:04: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:55:06: Executing command: execute_action(MoreChoices2)
+07/27/24 22:55:06: Processed command: execute_action(MoreChoices2)
+07/27/24 22:55:06: execute_action - Action Name: MoreChoices2
+07/27/24 22:55:06: Executing action: MoreChoices2
+07/27/24 22:55:06: Decoded Command: chat_bubble(["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/27/24 22:55:06: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]
+07/27/24 22:55:06: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/27/24 22:55:08: Executing command: execute_action(GotoVulturesValley)
+07/27/24 22:55:08: Processed command: execute_action(GotoVulturesValley)
+07/27/24 22:55:08: execute_action - Action Name: GotoVulturesValley
+07/27/24 22:55:08: Executing action: GotoVulturesValley
+07/27/24 22:55:08: Decoded Command: goto_planet(["Vultures  Valley"])
+07/27/24 22:55:08: Invalid Planet Name: Vultures  Valley

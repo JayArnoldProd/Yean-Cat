@@ -1,5 +1,5 @@
-/// DRAW of obj_terrain
-//
+
+
 if master.devmode=1 {
 	if keyboard_check(vk_space) {
 		exit
@@ -90,7 +90,7 @@ for (var iii=0; iii<array_length(terrain); iii++) {
 		cslide=0
 	}
 
-	for (var tt=0; tt<ceil(terrainheight*(-terrain[clamp(iii,0,array_length(terrain)-1)]+maxfun)/(1000*gscale))+1; tt+=1) {
+	for (var tt=0; tt<ceil(terrainheight*(-terrain[clamp(iii,0,array_length(terrain)-1)]+maxfun)/(1000*gscale))*(.25+power(global.camera_zoom,1.5))+1; tt+=1) {
 	if (iii+xoffset) % 2=0 {
 	draw_sprite_ext(spr_dirt,(cslide+4+tt*2) mod 4,_xx,_yy+225*gscale+yoff*500+1000*tt*gscale,flip*2.1*gscale,2.1*gscale,0,c_white,1)
 	} else {
@@ -106,7 +106,7 @@ for (var iii=0; iii<array_length(terrain); iii++) {
 //draw_text(spacing*sign(-playerpos)*(abs(playerpos/spacing)-floor(abs(playerpos/spacing)))-spacing+x-room_width/2+room_width*(i/partcount),y+terrain[i]*terrainheight+100,"h: "+string(sign(-playerpos)*(abs(playerpos/spacing)-floor(abs(playerpos/spacing)))));
 }
 if instance_exists(yeancat) {
-	draw_sprite_ext(spr_darkgradient,0,x,yyy+350,3.85*master.camscale,master.camscale*(2-clamp(yeancat.y+100-room_height/2,0,900)/600),0,c_white,(1-1/(1+clamp(yeancat.y-room_height/4-500,0,2000)/200)))
+	draw_sprite_ext(spr_darkgradient,0,obj_camera.target_x,yyy+350*power(global.camera_zoom,2)+(obj_camera.target_y-room_height/2),3.85*power(global.camera_zoom,2),power(global.camera_zoom,2)*(2-clamp(yeancat.y+100-room_height/2,0,900)/600),0,c_white,(1-1/(1+clamp(yeancat.y-room_height/4-500,0,2000)/200)))
 
 	//draw_text(yeancat.x,yeancat.y-500,"onground: "+string(yeancat.onground));
 	//draw_text(yeancat.x,yeancat.y-400,"jumpheight: "+string(yeancat.jumpheight));
@@ -115,4 +115,3 @@ if instance_exists(yeancat) {
 	//draw_text(yeancat.x,yeancat.y-600,"canjump: "+string(yeancat.canjump));
 
 }
-

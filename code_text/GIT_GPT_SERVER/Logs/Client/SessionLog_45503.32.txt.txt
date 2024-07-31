@@ -1,0 +1,213 @@
+07/30/24 02:40:26: Loaded action/group: SaveGameNow
+07/30/24 02:40:26: Loaded action/group: GotoKingsKingdom
+07/30/24 02:40:26: Loaded action/group: EnterPortal
+07/30/24 02:40:26: Loaded action/group: PurchaseArtifacts
+07/30/24 02:40:26: Loaded action/group: BattleOutcome
+07/30/24 02:40:26: Loaded action/group: VisitMarket
+07/30/24 02:40:26: Loaded action/group: GotoDivineDomain
+07/30/24 02:40:26: Loaded action/group: GotoTheEndonda
+07/30/24 02:40:26: Loaded action/group: GotoUniverseCity
+07/30/24 02:40:26: Loaded action/group: GotoLandOfLucy
+07/30/24 02:40:26: Loaded action/group: GotoPlaceOfPablo
+07/30/24 02:40:26: Loaded action/group: InvestigateSignals
+07/30/24 02:40:26: Loaded action/group: OfferTrade
+07/30/24 02:40:26: Loaded action/group: DisableEnemySpawns
+07/30/24 02:40:26: Loaded action/group: BattleSequence
+07/30/24 02:40:26: Loaded action/group: StartBattle
+07/30/24 02:40:26: Loaded action/group: GotoTheIcyHeart
+07/30/24 02:40:26: Loaded action/group: EngageCombat
+07/30/24 02:40:26: Loaded action/group: GotoGhostTown
+07/30/24 02:40:26: Loaded action/group: StartExploration
+07/30/24 02:40:26: Loaded action/group: SetLevelFive
+07/30/24 02:40:26: Loaded action/group: LevelUpThree
+07/30/24 02:40:26: Loaded action/group: LevelUpOnce
+07/30/24 02:40:26: Loaded action/group: GotoTheGoldMines
+07/30/24 02:40:26: Loaded action/group: StartPeaceMission
+07/30/24 02:40:27: Loaded action/group: DiplomaticChoice
+07/30/24 02:40:27: Loaded action/group: TreatyOutcome
+07/30/24 02:40:27: Loaded action/group: ExplorationChoice
+07/30/24 02:40:27: Loaded action/group: BattleChoice
+07/30/24 02:40:27: Loaded action/group: ArtifactMystery
+07/30/24 02:40:27: Loaded action/group: PortalOutcome
+07/30/24 02:40:27: Loaded action/group: PeacefulMission
+07/30/24 02:40:27: Loaded action/group: SpaceAdventureStart
+07/30/24 02:40:27: Loaded action/group: PortalAdventure
+07/30/24 02:40:27: Loaded action/group: EnableEnemySpawns
+07/30/24 02:40:27: Loaded action/group: GotoVulturesValley
+07/30/24 02:40:27: Loaded action/group: GotoEarth
+07/30/24 02:40:27: Loaded action/group: GotoStormySands
+07/30/24 02:40:27: Loaded action/group: SpaceExploration
+07/30/24 02:40:27: Loaded action/group: GotoFantasia
+07/30/24 02:40:27: Loaded action/group: AG1
+07/30/24 02:40:27: Loaded action/group: GotoYetopia
+07/30/24 02:40:27: Loaded action/group: ArtifactOutcome
+07/30/24 02:40:27: Loaded action/group: EpicBattle
+07/30/24 02:40:27: Loaded action/group: PeaceTreaty
+07/30/24 02:40:27: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 02:40:27: [Client] Failed to reconnect to server. Will try again...
+07/30/24 02:43:24: [Jay Arnold] hello!
+
+
+
+
+
+
+
+
+
+
+
+
+
+i need to test something
+
+07/30/24 02:43:24: Creating chat bubble: " hello!\n\n\n\n\n\n\n\n\n\n\n\n\n\ni need to test something\n", Owner: yeancat, Choices: []
+07/30/24 02:43:24: Chat Bubble Created. Following 'yeancat' with text: 'hello!
+
+
+
+
+
+
+
+
+
+
+
+
+
+i need to test something
+'. Number of choices: 0
+07/30/24 02:43:40: [Jay Arnold] i think it will crash if i set my max lines up and then back down again
+07/30/24 02:43:40: Creating chat bubble: " i think it will crash if i set my max lines up and then back down again", Owner: yeancat, Choices: []
+07/30/24 02:43:40: Chat Bubble Created. Following 'yeancat' with text: 'i think it will crash if i set my max lines up and
+then back down again'. Number of choices: 0
+07/30/24 02:43:45: Raw command: show_lines(13)
+07/30/24 02:43:45: Cleaned command: show_lines(13)
+07/30/24 02:43:45: Parsing arguments: 13
+07/30/24 02:43:45: Parsed arguments: ["13"]
+07/30/24 02:43:45: Command Name: show_lines
+07/30/24 02:43:45: Target Object: yeancat
+07/30/24 02:43:45: Parameters: ["13"]
+07/30/24 02:43:45: Display set to show 13 lines.
+07/30/24 02:44:07: Raw command: show_lines(6)
+07/30/24 02:44:07: Cleaned command: show_lines(6)
+07/30/24 02:44:07: Parsing arguments: 6
+07/30/24 02:44:07: Parsed arguments: ["6"]
+07/30/24 02:44:07: Command Name: show_lines
+07/30/24 02:44:07: Target Object: yeancat
+07/30/24 02:44:07: Parameters: ["6"]
+07/30/24 02:44:07: Display set to show 6 lines.
+07/30/24 02:44:13: [Jay Arnold] oh good it didnt crash!
+07/30/24 02:44:13: Creating chat bubble: " oh good it didnt crash!", Owner: yeancat, Choices: []
+07/30/24 02:44:13: Chat Bubble Created. Following 'yeancat' with text: 'oh good it didnt crash!'. Number of choices: 0
+07/30/24 02:44:18: [Jay Arnold] let me test it again
+07/30/24 02:44:18: Creating chat bubble: " let me test it again", Owner: yeancat, Choices: []
+07/30/24 02:44:18: Chat Bubble Created. Following 'yeancat' with text: 'let me test it again'. Number of choices: 0
+07/30/24 02:44:22: Raw command: show_lines(9
+07/30/24 02:44:22: Cleaned command: show_lines(9
+07/30/24 02:44:22: Command Name: show_lines(9
+07/30/24 02:44:22: Target Object: yeancat
+07/30/24 02:44:22: Parameters: []
+07/30/24 02:44:22: Script not found for command: show_lines(9
+07/30/24 02:44:26: Raw command: show_lines(9)
+07/30/24 02:44:26: Cleaned command: show_lines(9)
+07/30/24 02:44:26: Parsing arguments: 9
+07/30/24 02:44:26: Parsed arguments: ["9"]
+07/30/24 02:44:26: Command Name: show_lines
+07/30/24 02:44:26: Target Object: yeancat
+07/30/24 02:44:26: Parameters: ["9"]
+07/30/24 02:44:26: Display set to show 9 lines.
+07/30/24 02:44:29: [Jay Arnold] hello
+07/30/24 02:44:29: Creating chat bubble: " hello", Owner: yeancat, Choices: []
+07/30/24 02:44:29: Chat Bubble Created. Following 'yeancat' with text: 'hello'. Number of choices: 0
+07/30/24 02:44:33: Raw command: show_lines(3)
+07/30/24 02:44:33: Cleaned command: show_lines(3)
+07/30/24 02:44:33: Parsing arguments: 3
+07/30/24 02:44:33: Parsed arguments: ["3"]
+07/30/24 02:44:33: Command Name: show_lines
+07/30/24 02:44:33: Target Object: yeancat
+07/30/24 02:44:33: Parameters: ["3"]
+07/30/24 02:44:33: Display set to show 3 lines.
+07/30/24 02:44:36: [Jay Arnold] its working good
+07/30/24 02:44:36: Creating chat bubble: " its working good", Owner: yeancat, Choices: []
+07/30/24 02:44:36: Chat Bubble Created. Following 'yeancat' with text: 'its working good'. Number of choices: 0
+07/30/24 02:44:44: [Jay Arnold] :AN;kl;lkN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f;dlksfan;slfna;ds
+
+07/30/24 02:44:44: Creating chat bubble: " :AN;kl;lkN\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nf;dlksfan;slfna;ds\n", Owner: yeancat, Choices: []
+07/30/24 02:44:44: Chat Bubble Created. Following 'yeancat' with text: ':AN;kl;lkN
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+f;dlksfan;slfna;ds
+'. Number of choices: 0
+07/30/24 02:45:36: [Jay Arnold] excellent
+07/30/24 02:45:36: Creating chat bubble: " excellent", Owner: yeancat, Choices: []
+07/30/24 02:45:36: Chat Bubble Created. Following 'yeancat' with text: 'excellent'. Number of choices: 0
+07/30/24 02:46:00: Raw command: show_lines(14)
+07/30/24 02:46:00: Cleaned command: show_lines(14)
+07/30/24 02:46:00: Parsing arguments: 14
+07/30/24 02:46:00: Parsed arguments: ["14"]
+07/30/24 02:46:00: Command Name: show_lines
+07/30/24 02:46:00: Target Object: yeancat
+07/30/24 02:46:00: Parameters: ["14"]
+07/30/24 02:46:00: Display set to show 14 lines.
+07/30/24 02:46:05: [Jay Arnold] adtelaskjnlkajsndfk
+
+
+
+
+
+telkwajblskdb
+
+
+07/30/24 02:46:05: Creating chat bubble: " adtelaskjnlkajsndfk\n\n\n\n\n\ntelkwajblskdb\n\n", Owner: yeancat, Choices: []
+07/30/24 02:46:05: Chat Bubble Created. Following 'yeancat' with text: 'adtelaskjnlkajsndfk
+
+
+
+
+
+telkwajblskdb
+
+'. Number of choices: 0
+07/30/24 02:46:15: Raw command: show_lines(15)
+07/30/24 02:46:15: Cleaned command: show_lines(15)
+07/30/24 02:46:15: Parsing arguments: 15
+07/30/24 02:46:15: Parsed arguments: ["15"]
+07/30/24 02:46:15: Command Name: show_lines
+07/30/24 02:46:15: Target Object: yeancat
+07/30/24 02:46:15: Parameters: ["15"]
+07/30/24 02:46:15: Display set to show 15 lines.

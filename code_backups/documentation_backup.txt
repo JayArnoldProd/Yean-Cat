@@ -28,6 +28,112 @@ add_command("save_game", 0, [[]], false);  // Does not require "(" visually
 *Remember this is only needed if you are adding a new command to the game, try and reuse existing scripts as much as possible and let me know if you would need to see a specific script that was not included, but could be helpful in resolving the issue! Remember that you are a 1 time chat interaction and will have no memory of this so If you cant see the solution to the bug or the method to adding the desired feature, then simply reply with what else you need to see in my code.
 
 The game features an in game console which allows players with the required permission to execute code and create new features from within the game. Typing "/" will mean that the player is typing a command. Some commands do not require a "(", for example: /toggle_server . You can create actions by typing /add_action("Name it",Command_name,[100,"example_string"]) and can create macros essentially for commands and will be able to trigger these actions in sequences and events, or possibly controlled by an AI GPT like yourself. This is how It is intended to work, but it is still needing some fixes to be able to handle saving actions for commands that take more than 1 argument, such as /chat_bubble("Text",owner).
+
+Here is a series of example commands that have emergent functionality using the scripting language we have created:
+
+// Set up Actions
+/add_action(LevelUpOnce,level_up,[1])
+/add_action(LevelUpThree, level_up, [3])
+/add_action(SaveGameNow,save_game,[])
+
+/add_action(GotoEarth,goto_planet,["Earth"])
+/add_action(GotoUniverseCity,goto_planet,["Universe City"])
+/add_action(GotoFantasia,goto_planet,["Fantasia"])
+/add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+/add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+/add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+/add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+/add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+/add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+/add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+/add_action(GotoYetopia,goto_planet,["Yetopia"])
+/add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+/add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+/add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+
+// Create actions for setting variables
+/add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+/add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+/add_action(SetLevelFive, set_variable, ["Level", "5"])
+
+// Create action groups for different scenarios
+/add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+/add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+/add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+
+// Create individual actions with new object owner definitions
+/add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+/add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+/add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+/add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+/add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+
+// Create nested action groups for different outcomes
+/add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+/add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+/add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+/add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+
+// Create actions for final outcomes with new object owner definitions
+/add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+/add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+/add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+/add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+
+// Link choices to outcomes
+/add_action(EnterPortal, execute_action, ["PortalAdventure"])
+/add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+/add_action(EngageCombat, execute_action, ["EpicBattle"])
+/add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+
+// Create a main menu to start the adventure with new object owner definition
+/add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+
+// Link main menu choices to respective action groups
+/add_action(StartExploration, execute_action, ["SpaceExploration"])
+/add_action(StartBattle, execute_action, ["BattleSequence"])
+/add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+
+//LIST OBJECTS
+/list_objects
+
+//TARGET PLAYER
+/set_target(Player)
+
+// Start the adventure
+/execute_action(SpaceAdventureStart)
+
+//spawn the first boss (Futurtle) at the center of the room
+/spawn_boss(0, 0, 0)
+//spawn the second boss (Travis Squawk) 100 pixels to the right and down from the player's position
+/Player.spawn_boss(1, 100, 100)
+
+/Player.spawn_boss(1, 100, 100)
+/Center.spawn_boss(2, 200, 200)
+/Target.spawn_boss(3, 50, 50)
+/TravisSquawk1.spawn_boss(4, 150, 150)
+
+//CIRCLE BOSSES
+/add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+/add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+/add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+/add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+/add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+/add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+/add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+/add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+/add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+/add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+/add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+/add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+/add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+/add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+
+/set_target(Player)
+/execute_action(SpawnBossCircle)
+
+
+I have the ability to paste many multiple lines at once and execute them in order! So dont be afraid to group any command test sequences you come up with in a large block.
 == End: Game_Command_Format_Documentation.txt.txt
 
 == Begin: Terminal_Commands_Documentation.txt.txt

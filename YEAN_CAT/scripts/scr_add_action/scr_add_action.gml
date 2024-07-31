@@ -1,85 +1,26 @@
-function scr_add_action(argument0, argument1, argument2) {
-    var name = string(argument0);
-    var commandName = string(argument1);
-    var parameters = argument2;
+function scr_add_action(actionName, fullActionCommand, actionParams) {
+    var parts = string_split(fullActionCommand, ".");
+    var targetObject, actionCommand;
     
-    handleDebugMessage("Adding action: " + name + ", Command: " + commandName + ", Raw Parameters: " + json_stringify(parameters), true);
-    
-    if (ds_map_exists(global.actionDetails, name)) {
-        handleDebugMessage("Action '" + name + "' already exists.", true);
-        return;
+    if (array_length(parts) == 2) {
+        targetObject = parts[0];
+        actionCommand = parts[1];
+    } else {
+        targetObject = "Target";  // Default to Target if no object specified
+        actionCommand = fullActionCommand;
     }
-    
-    var commandDetailName = commandName;
-    var commandDetailNameWithParentheses = commandName + "(";
-    handleDebugMessage("Checking for command: " + commandName, true);
-    if (!ds_map_exists(global.commandDetails, commandDetailName) && !ds_map_exists(global.commandDetails, commandDetailNameWithParentheses)) {
-        handleDebugMessage("Command '" + commandName + "' does not exist.", true);
-        return;
-    }
-    
-    // Use the correct command detail name for further processing
-    if (ds_map_exists(global.commandDetails, commandDetailNameWithParentheses)) {
-        commandDetailName = commandDetailNameWithParentheses;
-    }
-    
-    var actionEntry = ds_map_create();
-    ds_map_add(actionEntry, "command", commandName);
-    
-    // Ensure parameters is always an array
-    if (!is_array(parameters)) {
-        parameters = [parameters];
-    }
-    
-    var encodedParams = base64_encode(json_stringify(parameters));
-    ds_map_add(actionEntry, "parameters", encodedParams);
-    
-    ds_map_add(global.actionDetails, name, actionEntry);
-    
-    handleDebugMessage("Action '" + name + "' added successfully.", true);
+
+    var actionData = {
+        targetObject: targetObject,
+        command: actionCommand,
+        parameters: json_parse(actionParams)
+    };
+
+    var encodedCommand = base64_encode(json_stringify(actionData));
+
+    ds_map_set(global.actionDetails, actionName, encodedCommand);
+
+    handleDebugMessage("Action '" + actionName + "' added/updated successfully.", false);
     
     save_actions();
 }
-
-//function scr_add_action(argument0, argument1, argument2) {
-//    var name = string(argument0);
-//    var commandName = string(argument1);
-//    var parameters = argument2;
-    
-//    // Convert the parameters to a JSON string
-//    var param_string = json_stringify(parameters);
-    
-//    // Use base64 encoding to preserve all characters
-//    var encoded_params = base64_encode(param_string);
-    
-//    handleDebugMessage("Adding action: " + name + ", Command: " + commandName + ", Raw Parameters: " + param_string, true);
-//    handleDebugMessage("Encoded Parameters: " + encoded_params, true);
-    
-//    if (ds_map_exists(global.actionDetails, name)) {
-//        handleDebugMessage("Action '" + name + "' already exists.", true);
-//        return;
-//    }
-    
-//    var commandDetailName = commandName;
-//    var commandDetailNameWithParentheses = commandName + "(";
-//    handleDebugMessage("Checking for command: " + commandName, true);
-//    if (!ds_map_exists(global.commandDetails, commandDetailName) && !ds_map_exists(global.commandDetails, commandDetailNameWithParentheses)) {
-//        handleDebugMessage("Command '" + commandName + "' does not exist.", true);
-//        return;
-//    }
-    
-//    // Use the correct command detail name for further processing
-//    if (ds_map_exists(global.commandDetails, commandDetailNameWithParentheses)) {
-//        commandDetailName = commandDetailNameWithParentheses;
-//    }
-    
-//    var actionEntry = ds_map_create();
-//    ds_map_add(actionEntry, "command", commandName);
-//    ds_map_add(actionEntry, "parameters", encoded_params);
-    
-//    ds_map_add(global.actionDetails, name, actionEntry);
-    
-//    handleDebugMessage("Action '" + name + "' added successfully.", true);
-    
-//    save_actions();
-//}

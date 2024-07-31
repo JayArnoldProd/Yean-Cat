@@ -35,12 +35,12 @@ planet_names=[
 ["Land of Lucy",-1,"",""],
 ["Place of Pablo",-1,"",""],
 ["Ghost Town",-1,"",""],
-["Vultures' Valley",-1,"",""],
+["Vultures Valley",-1,"",""],
 ["The Endonda",-1,"",""],
 ["Stormy Sands",-1,"",""],
 ["Divine Domain",-1,"",""],
 ["Yetopia",-1,"",""],
-["King's Kingdom",-1,"",""],
+["Kings Kingdom",-1,"",""],
 ["The Icy Heart",-1,"",""],
 ["The Gold Mines",-1,"",""]
 ]

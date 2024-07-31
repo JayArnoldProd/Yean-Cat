@@ -1,55 +1,30 @@
-function scr_execute_action() {
-    if (argument_count == 0) {
-        handleDebugMessage("Error: No action name provided for execute_action", true);
-        return;
-    }
-    var actionName = argument[0];
+function scr_execute_action(actionName) {
     if (ds_map_exists(global.actionDetails, actionName)) {
-        var actionData = ds_map_find_value(global.actionDetails, actionName);
-        if (!ds_map_exists(actionData, "command") || !ds_map_exists(actionData, "parameters")) {
-            handleDebugMessage("Error: Invalid action format for '" + actionName + "'.", true);
-            return;
-        }
+        var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
+        var decodedData = json_parse(base64_decode(encodedCommand));
         
-        var command = ds_map_find_value(actionData, "command");
-        var params = ds_map_find_value(actionData, "parameters");
-        
-        // Check if the command requires parentheses
-        var requiresParentheses = ds_map_exists(global.commandDetails, command + "(");
-        
-        // Construct the command string and execute it
-        var commandString = command;
-        if (requiresParentheses) {
-            commandString += "(";
-            for (var i = 0; i < array_length(params); i++) {
-                if (is_string(params[i])) {
-                    commandString += "\"" + string_replace_all(params[i], "\"", "\\\"") + "\"";
-                } else {
-                    commandString += string(params[i]);
+        if (is_struct(decodedData) && variable_struct_exists(decodedData, "command")) {
+            var targetObj = decodedData.targetObject;
+            var cmdName = decodedData.command;
+            var params = decodedData.parameters;
+            
+            var targetInstance = get_object_reference(targetObj);
+            if (targetInstance != noone) {
+                with (targetInstance) {
+                    var script = asset_get_index("scr_" + cmdName);
+                    if (script_exists(script)) {
+                        script_execute(script, params);
+                    } else {
+                        handleDebugMessage("Script not found: " + cmdName, true);
+                    }
                 }
-                if (i < array_length(params) - 1) {
-                    commandString += ", ";
-                }
+            } else {
+                handleDebugMessage("Target object not found: " + targetObj, true);
             }
-            commandString += ")";
-        } else if (array_length(params) > 0) {
-            commandString += " " + string_join_ext(" ", params);
+        } else {
+            handleDebugMessage("Invalid action data for: " + actionName, true);
         }
-        
-        handleDebugMessage("Executing action: " + commandString, true);
-        execute_command(commandString);
     } else {
         handleDebugMessage("Action '" + actionName + "' not found.", true);
     }
 }
-
-
-
-
-
-
-
-
-
-
-

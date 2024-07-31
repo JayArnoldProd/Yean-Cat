@@ -1,0 +1,216 @@
+
+07/29/24 04:37:39: Loaded action/group: SaveGameNow
+07/29/24 04:37:39: Loaded action/group: GotoKingsKingdom
+07/29/24 04:37:39: Loaded action/group: EnterPortal
+07/29/24 04:37:39: Loaded action/group: PurchaseArtifacts
+07/29/24 04:37:39: Loaded action/group: BattleOutcome
+07/29/24 04:37:39: Loaded action/group: VisitMarket
+07/29/24 04:37:39: Loaded action/group: GotoDivineDomain
+07/29/24 04:37:39: Loaded action/group: GotoTheEndonda
+07/29/24 04:37:39: Loaded action/group: GotoUniverseCity
+07/29/24 04:37:39: Loaded action/group: GotoLandOfLucy
+07/29/24 04:37:39: Loaded action/group: GotoPlaceOfPablo
+07/29/24 04:37:39: Loaded action/group: InvestigateSignals
+07/29/24 04:37:39: Loaded action/group: OfferTrade
+07/29/24 04:37:39: Loaded action/group: DisableEnemySpawns
+07/29/24 04:37:39: Loaded action/group: StartBattle
+07/29/24 04:37:39: Loaded action/group: GotoTheIcyHeart
+07/29/24 04:37:39: Loaded action/group: EngageCombat
+07/29/24 04:37:39: Loaded action/group: GotoGhostTown
+07/29/24 04:37:39: Loaded action/group: StartExploration
+07/29/24 04:37:39: Loaded action/group: SetLevelFive
+07/29/24 04:37:39: Loaded action/group: LevelUpThree
+07/29/24 04:37:39: Loaded action/group: LevelUpOnce
+07/29/24 04:37:39: Loaded action/group: GotoTheGoldMines
+07/29/24 04:37:39: Loaded action/group: StartPeaceMission
+07/29/24 04:37:39: Loaded action/group: DiplomaticChoice
+07/29/24 04:37:39: Loaded action/group: TreatyOutcome
+07/29/24 04:37:39: Loaded action/group: ExplorationChoice
+07/29/24 04:37:40: Loaded action/group: BattleChoice
+07/29/24 04:37:40: Loaded action/group: PortalOutcome
+07/29/24 04:37:40: Loaded action/group: SpaceAdventureStart
+07/29/24 04:37:40: Loaded action/group: EnableEnemySpawns
+07/29/24 04:37:40: Loaded action/group: GotoVulturesValley
+07/29/24 04:37:40: Loaded action/group: GotoEarth
+07/29/24 04:37:40: Loaded action/group: GotoStormySands
+07/29/24 04:37:40: Loaded action/group: GotoFantasia
+07/29/24 04:37:40: Loaded action/group: GotoYetopia
+07/29/24 04:37:40: Loaded action/group: ArtifactOutcome
+07/29/24 04:37:40: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 04:37:40: [Client] Failed to reconnect to server. Will try again...
+07/29/24 04:37:49: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 04:37:49: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 04:37:49: Executing action: SpaceAdventureStart
+07/29/24 04:37:49: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Player"}
+07/29/24 04:37:49: Raw command: Player.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 04:37:49: Cleaned command: Player.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 04:37:49: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 04:37:49: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 04:37:49: Command Name: chat_bubble
+07/29/24 04:37:49: Target Object: Player
+07/29/24 04:37:49: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 04:37:49: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Player, Choices: []
+07/29/24 04:37:49: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/29/24 04:37:52: Raw command: execute_action(StartExploration)
+07/29/24 04:37:52: Cleaned command: execute_action(StartExploration)
+07/29/24 04:37:52: Executing action: StartExploration
+07/29/24 04:37:52: Decoded Command: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/29/24 04:37:52: Raw command: execute_action("SpaceExploration")
+07/29/24 04:37:52: Cleaned command: execute_action("SpaceExploration")
+07/29/24 04:37:52: Action '"SpaceExploration"' not found.
+07/29/24 04:37:58: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 04:37:58: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 04:37:58: Executing action: SpaceAdventureStart
+07/29/24 04:37:58: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Player"}
+07/29/24 04:37:58: Raw command: Player.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 04:37:58: Cleaned command: Player.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 04:37:58: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 04:37:58: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 04:37:58: Command Name: chat_bubble
+07/29/24 04:37:58: Target Object: Player
+07/29/24 04:37:58: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 04:37:58: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Player, Choices: []
+07/29/24 04:37:58: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/29/24 04:38:00: Raw command: execute_action(StartBattle)
+07/29/24 04:38:00: Cleaned command: execute_action(StartBattle)
+07/29/24 04:38:00: Executing action: StartBattle
+07/29/24 04:38:00: Decoded Command: {"command":"execute_action","parameters":"BattleSequence","targetObject":"yeancat"}
+07/29/24 04:38:00: Raw command: execute_action("BattleSequence")
+07/29/24 04:38:00: Cleaned command: execute_action("BattleSequence")
+07/29/24 04:38:00: Action '"BattleSequence"' not found.
+07/29/24 04:38:08: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 04:38:08: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 04:38:08: Executing action: SpaceAdventureStart
+07/29/24 04:38:08: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Player"}
+07/29/24 04:38:08: Raw command: Player.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 04:38:08: Cleaned command: Player.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 04:38:08: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 04:38:08: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 04:38:08: Command Name: chat_bubble
+07/29/24 04:38:08: Target Object: Player
+07/29/24 04:38:08: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 04:38:08: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Player, Choices: []
+07/29/24 04:38:08: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/29/24 04:38:10: Raw command: execute_action(StartExploration)
+07/29/24 04:38:10: Cleaned command: execute_action(StartExploration)
+07/29/24 04:38:10: Executing action: StartExploration
+07/29/24 04:38:10: Decoded Command: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/29/24 04:38:10: Raw command: execute_action("SpaceExploration")
+07/29/24 04:38:10: Cleaned command: execute_action("SpaceExploration")
+07/29/24 04:38:10: Action '"SpaceExploration"' not found.
+07/29/24 04:38:16: Raw command: list_actions
+07/29/24 04:38:16: Cleaned command: list_actions
+07/29/24 04:38:16: Command Name: list_actions
+07/29/24 04:38:16: Target Object: yeancat
+07/29/24 04:38:16: Parameters: []
+07/29/24 04:38:16: Actions: SaveGameNow, GotoKingsKingdom, EnterPortal, PurchaseArtifacts, BattleOutcome, VisitMarket, GotoDivineDomain, GotoTheEndonda, GotoUniverseCity, GotoLandOfLucy, GotoPlaceOfPablo, InvestigateSignals, OfferTrade, DisableEnemySpawns, StartBattle, GotoTheIcyHeart, EngageCombat, GotoGhostTown, StartExploration, SetLevelFive, LevelUpThree, LevelUpOnce, GotoTheGoldMines, StartPeaceMission, DiplomaticChoice, TreatyOutcome, ExplorationChoice, BattleChoice, PortalOutcome, SpaceAdventureStart, EnableEnemySpawns, GotoVulturesValley, GotoEarth, GotoStormySands, GotoFantasia, GotoYetopia, ArtifactOutcome,
+07/29/24 04:38:24: Raw command: list_action_groups
+07/29/24 04:38:24: Cleaned command: list_action_groups
+07/29/24 04:38:24: Command Name: list_action_groups
+07/29/24 04:38:24: Target Object: yeancat
+07/29/24 04:38:24: Parameters: []
+07/29/24 04:38:24: No action groups found.
+07/29/24 04:38:45: Raw command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+07/29/24 04:38:45: Cleaned command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+07/29/24 04:38:45: Parsing arguments: PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"]
+07/29/24 04:38:45: Parsed arguments: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+07/29/24 04:38:45: Command Name: add_action_group
+07/29/24 04:38:45: Target Object: yeancat
+07/29/24 04:38:45: Parameters: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+07/29/24 04:38:45: Invalid parameters for add_action_group
+07/29/24 04:38:45: Raw command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+07/29/24 04:38:45: Cleaned command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+07/29/24 04:38:45: Parsing arguments: ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"]
+07/29/24 04:38:45: Parsed arguments: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+07/29/24 04:38:45: Command Name: add_action_group
+07/29/24 04:38:45: Target Object: yeancat
+07/29/24 04:38:45: Parameters: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+07/29/24 04:38:45: Invalid parameters for add_action_group
+07/29/24 04:38:45: Raw command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+07/29/24 04:38:45: Cleaned command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+07/29/24 04:38:45: Parsing arguments: EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"]
+07/29/24 04:38:45: Parsed arguments: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+07/29/24 04:38:46: Command Name: add_action_group
+07/29/24 04:38:46: Target Object: yeancat
+07/29/24 04:38:46: Parameters: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+07/29/24 04:38:46: Invalid parameters for add_action_group
+07/29/24 04:38:46: Raw command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+07/29/24 04:38:46: Cleaned command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+07/29/24 04:38:46: Parsing arguments: PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"]
+07/29/24 04:38:46: Parsed arguments: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+07/29/24 04:38:46: Command Name: add_action_group
+07/29/24 04:38:46: Target Object: yeancat
+07/29/24 04:38:46: Parameters: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+07/29/24 04:38:46: Invalid parameters for add_action_group
+07/29/24 04:38:51: Raw command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+07/29/24 04:38:51: Cleaned command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+07/29/24 04:38:51: Parsing arguments: PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"]
+07/29/24 04:38:51: Parsed arguments: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+07/29/24 04:38:51: Command Name: add_action_group
+07/29/24 04:38:51: Target Object: yeancat
+07/29/24 04:38:51: Parameters: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+07/29/24 04:38:51: Invalid parameters for add_action_group
+07/29/24 04:38:51: Raw command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+07/29/24 04:38:51: Cleaned command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+07/29/24 04:38:51: Parsing arguments: ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"]
+07/29/24 04:38:51: Parsed arguments: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+07/29/24 04:38:51: Command Name: add_action_group
+07/29/24 04:38:51: Target Object: yeancat
+07/29/24 04:38:51: Parameters: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+07/29/24 04:38:51: Invalid parameters for add_action_group
+07/29/24 04:38:51: Raw command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+07/29/24 04:38:51: Cleaned command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+07/29/24 04:38:51: Parsing arguments: EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"]
+07/29/24 04:38:51: Parsed arguments: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+07/29/24 04:38:51: Command Name: add_action_group
+07/29/24 04:38:51: Target Object: yeancat
+07/29/24 04:38:51: Parameters: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+07/29/24 04:38:51: Invalid parameters for add_action_group
+07/29/24 04:38:51: Raw command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+07/29/24 04:38:51: Cleaned command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+07/29/24 04:38:51: Parsing arguments: PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"]
+07/29/24 04:38:51: Parsed arguments: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+07/29/24 04:38:51: Command Name: add_action_group
+07/29/24 04:38:51: Target Object: yeancat
+07/29/24 04:38:51: Parameters: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+07/29/24 04:38:51: Invalid parameters for add_action_group
+07/29/24 04:39:01: [Jay Arnold] the action groups dont seem to be working!
+07/29/24 04:39:01: Creating chat bubble: " the action groups dont seem to be working!", Owner: yeancat, Choices: []
+07/29/24 04:39:01: Chat Bubble Created. Following 'yeancat' with text: ' the action groups dont seem to be working!'. Number of choices: 0
+07/29/24 04:39:06: Raw command: list_action_groups
+07/29/24 04:39:06: Cleaned command: list_action_groups
+07/29/24 04:39:06: Command Name: list_action_groups
+07/29/24 04:39:06: Target Object: yeancat
+07/29/24 04:39:06: Parameters: []
+07/29/24 04:39:06: No action groups found.
+
+Action groups are important and need to be fixed. Action groups are just an array of actions that are executed in order when the name is passed into execute_action just like normal actions.
+
+/// @function scr_add_action_group(groupName, actionList)
+/// @param {string} groupName - The name of the action group
+/// @param {array} actionList - An array of action names to be executed in order
+function scr_add_action_group(groupName, actionList) {
+    if (!is_string(groupName) || !is_array(actionList)) {
+        handleDebugMessage("Invalid parameters for add_action_group", true);
+        return;
+    }
+
+    // Create a data structure to hold the action group information
+    var groupData = {
+        type: "action_group",
+        actions: actionList
+    };
+
+    // Encode the group data
+    var encodedGroupData = base64_encode(json_stringify(groupData));
+
+    // Store the action group
+    ds_map_set(global.actionDetails, groupName, encodedGroupData);
+
+    handleDebugMessage("Action group '" + groupName + "' added successfully.", false);
+    
+    // Save the updated actions (including the new action group)
+    save_actions();
+}
+
+I feel like fixing this is the key to fixing our chat bubble choices and getting them to trigger the actions and action groups.

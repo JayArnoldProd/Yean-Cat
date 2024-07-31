@@ -1,0 +1,169 @@
+
+07/30/24 03:28:41: Loaded action/group: SaveGameNow
+07/30/24 03:28:41: Loaded action/group: GotoKingsKingdom
+07/30/24 03:28:41: Loaded action/group: EnterPortal
+07/30/24 03:28:41: Loaded action/group: PurchaseArtifacts
+07/30/24 03:28:41: Loaded action/group: BattleOutcome
+07/30/24 03:28:41: Loaded action/group: VisitMarket
+07/30/24 03:28:41: Loaded action/group: GotoDivineDomain
+07/30/24 03:28:41: Loaded action/group: GotoTheEndonda
+07/30/24 03:28:41: Loaded action/group: GotoUniverseCity
+07/30/24 03:28:41: Loaded action/group: GotoLandOfLucy
+07/30/24 03:28:41: Loaded action/group: GotoPlaceOfPablo
+07/30/24 03:28:41: Loaded action/group: InvestigateSignals
+07/30/24 03:28:41: Loaded action/group: OfferTrade
+07/30/24 03:28:41: Loaded action/group: DisableEnemySpawns
+07/30/24 03:28:41: Loaded action/group: BattleSequence
+07/30/24 03:28:41: Loaded action/group: StartBattle
+07/30/24 03:28:41: Loaded action/group: GotoTheIcyHeart
+07/30/24 03:28:41: Loaded action/group: EngageCombat
+07/30/24 03:28:41: Loaded action/group: GotoGhostTown
+07/30/24 03:28:41: Loaded action/group: StartExploration
+07/30/24 03:28:41: Loaded action/group: SetLevelFive
+07/30/24 03:28:41: Loaded action/group: LevelUpThree
+07/30/24 03:28:41: Loaded action/group: LevelUpOnce
+07/30/24 03:28:41: Loaded action/group: GotoTheGoldMines
+07/30/24 03:28:41: Loaded action/group: StartPeaceMission
+07/30/24 03:28:41: Loaded action/group: DiplomaticChoice
+07/30/24 03:28:42: Loaded action/group: TreatyOutcome
+07/30/24 03:28:42: Loaded action/group: ExplorationChoice
+07/30/24 03:28:42: Loaded action/group: BattleChoice
+07/30/24 03:28:42: Loaded action/group: ArtifactMystery
+07/30/24 03:28:42: Loaded action/group: PortalOutcome
+07/30/24 03:28:42: Loaded action/group: PeacefulMission
+07/30/24 03:28:42: Loaded action/group: SpaceAdventureStart
+07/30/24 03:28:42: Loaded action/group: PortalAdventure
+07/30/24 03:28:42: Loaded action/group: EnableEnemySpawns
+07/30/24 03:28:42: Loaded action/group: GotoVulturesValley
+07/30/24 03:28:42: Loaded action/group: GotoEarth
+07/30/24 03:28:42: Loaded action/group: GotoStormySands
+07/30/24 03:28:42: Loaded action/group: SpaceExploration
+07/30/24 03:28:42: Loaded action/group: GotoFantasia
+07/30/24 03:28:42: Loaded action/group: AG1
+07/30/24 03:28:42: Loaded action/group: GotoYetopia
+07/30/24 03:28:42: Loaded action/group: ArtifactOutcome
+07/30/24 03:28:42: Loaded action/group: EpicBattle
+07/30/24 03:28:42: Loaded action/group: PeaceTreaty
+07/30/24 03:28:42: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 03:28:42: [Client] Failed to reconnect to server. Will try again...
+07/30/24 03:28:55: [Jay Arnold] hello world!
+07/30/24 03:28:55: Creating chat bubble: " hello world!", Owner: yeancat, Choices: []
+07/30/24 03:28:55: Chat Bubble Created. Following 'yeancat' with text: 'hello world!'. Number of choices: 0
+07/30/24 03:29:06: [Jay Arnold] i would like to discuss the next planned feature.
+07/30/24 03:29:06: Creating chat bubble: " i would like to discuss the next planned feature.", Owner: yeancat, Choices: []
+07/30/24 03:29:06: Chat Bubble Created. Following 'yeancat' with text: 'i would like to discuss the next planned
+feature.'. Number of choices: 0
+07/30/24 03:29:53: [Jay Arnold] i would like to be able to spawn npcs and bosses with commands as well as specify
+their position relative to a defined object or by default the x,y of the center of
+the room.
+07/30/24 03:29:53: Creating chat bubble: " i would like to be able to spawn npcs and bosses with commands as well as specify\ntheir position relative to a defined object or by default the x,y of the center of\nthe room.", Owner: yeancat, Choices: []
+07/30/24 03:29:53: Chat Bubble Created. Following 'yeancat' with text: 'i would like to be able to spawn npcs and
+bosses with commands as well as specify
+their position relative to a defined object or
+by default the x,y of the center of
+the room.'. Number of choices: 0
+07/30/24 03:30:43: Raw command: spawn_npc("Name",x,y,optional_object_reference)
+07/30/24 03:30:43: Cleaned command: spawn_npc("Name",x,y,optional_object_reference)
+07/30/24 03:30:43: Parsing arguments: "Name",x,y,optional_object_reference
+07/30/24 03:30:43: Parsed arguments: ["\"Name\"","x","y","optional_object_reference"]
+07/30/24 03:30:43: Command Name: spawn_npc
+07/30/24 03:30:43: Target Object: yeancat
+07/30/24 03:30:43: Parameters: ["\"Name\"","x","y","optional_object_reference"]
+07/30/24 03:30:43: Script not found for command: spawn_npc
+07/30/24 03:31:38: [Jay Arnold] t typing
+/spawn_npc("Name",x,y,optional_object_reference,optional_action_trigger)
+07/30/24 03:31:38: Creating chat bubble: " t typing\n\/spawn_npc(\"Name\",x,y,optional_object_reference,optional_action_trigger)", Owner: yeancat, Choices: []
+07/30/24 03:31:38: Chat Bubble Created. Following 'yeancat' with text: 't
+typing
+/spawn_npc("Name",x,y,optional_object_refere
+nce,optional_action_trigger)'. Number of choices: 0
+07/30/24 03:33:47: [Jay Arnold] the action trigger could be an action or action group and when pressing confirm
+while touching the npc it would set the target to the npc and then trigger the
+action. the reference "Center" as default value (meaning
+room_width/2,room_height/2) you could also pass "Player" or any object
+reference and the x and y spawn of the npc would be relative to the x and y of
+the object passed. (-/+)
+07/30/24 03:33:47: Creating chat bubble: " the action trigger could be an action or action group and when pressing confirm\nwhile touching the npc it would set the target to the npc and then trigger the\naction. the reference \"Center\" as default value (meaning\nroom_width\/2,room_height\/2) you could also pass \"Player\" or any object\nreference and the x and y spawn of the npc would be relative to the x and y of\nthe object passed. (-\/+)", Owner: yeancat, Choices: []
+07/30/24 03:33:47: Chat Bubble Created. Following 'yeancat' with text: 'the action trigger could be an action or action
+group and when pressing confirm
+while touching the npc it would set the target
+to the npc and then trigger the
+action. the reference "Center" as default
+value (meaning
+room_width/2,room_height/2) you could also
+pass "Player" or any object
+reference and the x and y spawn of the npc
+would be relative to the x and y of
+the object passed. (-/+)'. Number of choices: 0
+07/30/24 03:34:31: [Jay Arnold] we would also add /spawn_boss(...
+and eventually /spawn_enemy(... and expand them to accept additional
+parameters potentially an array with other modifiable properties.
+07/30/24 03:34:31: Creating chat bubble: " we would also add \/spawn_boss(...\nand eventually \/spawn_enemy(... and expand them to accept additional\nparameters potentially an array with other modifiable properties.", Owner: yeancat, Choices: []
+07/30/24 03:34:31: Chat Bubble Created. Following 'yeancat' with text: 'we would also add /spawn_boss(...
+and eventually /spawn_enemy(... and expand
+them to accept additional
+parameters potentially an array with other
+modifiable properties.'. Number of choices: 0
+07/30/24 03:35:17: [Jay Arnold] the goal would be to also have a
+/set_spawn_npc("name",x,y,optional_object_reference)
+07/30/24 03:35:17: Creating chat bubble: " the goal would be to also have a\n\/set_spawn_npc(\"name\",x,y,optional_object_reference)", Owner: yeancat, Choices: []
+07/30/24 03:35:17: Chat Bubble Created. Following 'yeancat' with text: 'the goal would be to also have
+a
+/set_spawn_npc("name",x,y,optional_object_re
+ference)'. Number of choices: 0
+07/30/24 03:35:33: [Jay Arnold] oh and an optional object trigger action
+07/30/24 03:35:33: Creating chat bubble: " oh and an optional object trigger action", Owner: yeancat, Choices: []
+07/30/24 03:35:33: Chat Bubble Created. Following 'yeancat' with text: 'oh and an optional object trigger action'. Number of choices: 0
+07/30/24 03:35:50: [Jay Arnold] the difference here is the default object reference will be the "Player" or
+yeancat
+07/30/24 03:35:50: Creating chat bubble: " the difference here is the default object reference will be the \"Player\" or\nyeancat", Owner: yeancat, Choices: []
+07/30/24 03:35:50: Chat Bubble Created. Following 'yeancat' with text: 'the difference here is the default object
+reference will be the "Player" or
+yeancat'. Number of choices: 0
+07/30/24 03:36:13: [Jay Arnold] and x and y will be optional too, defaulting to 0 if not typed.
+07/30/24 03:36:13: Creating chat bubble: " and x and y will be optional too, defaulting to 0 if not typed.", Owner: yeancat, Choices: []
+07/30/24 03:36:13: Chat Bubble Created. Following 'yeancat' with text: 'and x and y will be optional too, defaulting to
+0 if not typed.'. Number of choices: 0
+07/30/24 03:36:57: [Jay Arnold] meaning you could /set_spawn_npc("Name") and it would set a spawn location for
+that npc exactly where the player is in the game world (planet and in space)
+but it wouldnt have an action trigger.
+07/30/24 03:36:57: Creating chat bubble: " meaning you could \/set_spawn_npc(\"Name\") and it would set a spawn location for\nthat npc exactly where the player is in the game world (planet and in space)\nbut it wouldnt have an action trigger.", Owner: yeancat, Choices: []
+07/30/24 03:36:57: Chat Bubble Created. Following 'yeancat' with text: 'meaning you could /set_spawn_npc("Name") and
+it would set a spawn location for
+that npc exactly where the player is in the
+game world (planet and in space)
+but it wouldnt have an action trigger.'. Number of choices: 0
+07/30/24 03:38:10: [Jay Arnold] further along this would be server synced and i could as a developer, visit the
+various places and place npcs in real time for other players to interact with
+(would require action syncing and more server functionality)
+07/30/24 03:38:10: Creating chat bubble: " further along this would be server synced and i could as a developer, visit the\nvarious places and place npcs in real time for other players to interact with\n(would require action syncing and more server functionality)", Owner: yeancat, Choices: []
+07/30/24 03:38:10: Chat Bubble Created. Following 'yeancat' with text: 'further along this would be server synced and
+i could as a developer, visit the
+various places and place npcs in real time for
+other players to interact with
+(would require action syncing and more server
+functionality)'. Number of choices: 0
+07/30/24 03:38:21: [Jay Arnold] lets work on the next feature we need!
+07/30/24 03:38:21: Creating chat bubble: " lets work on the next feature we need!", Owner: yeancat, Choices: []
+07/30/24 03:38:21: Chat Bubble Created. Following 'yeancat' with text: 'lets work on the next feature we need!'. Number of choices: 0
+07/30/24 03:39:52: [Jay Arnold] i have a object that is empty, obj_npc.
+i would like npcs to be able to behave like bosses do and vice versa. a npc is
+essentially a non hostile boss. so that way we could turn an npc hostile and then
+it becomes a threat.
+07/30/24 03:39:52: Creating chat bubble: " i have a object that is empty, obj_npc.\ni would like npcs to be able to behave like bosses do and vice versa. a npc is\nessentially a non hostile boss. so that way we could turn an npc hostile and then\nit becomes a threat.", Owner: yeancat, Choices: []
+07/30/24 03:39:52: Chat Bubble Created. Following 'yeancat' with text: 'i have a object that is empty, obj_npc.
+i would like npcs to be able to behave like
+bosses do and vice versa. a npc is
+essentially a non hostile boss. so that way we
+could turn an npc hostile and then
+it becomes a threat.'. Number of choices: 0
+07/30/24 03:41:06: [Jay Arnold] it shouldnt be flying around trying to attack the player by default and should
+rest on the terrain with no ai to start. but if we switch it to hostile it will begin
+to attack either the player or the enemies depending on if it is a friend or foe.
+07/30/24 03:41:06: Creating chat bubble: " it shouldnt be flying around trying to attack the player by default and should\nrest on the terrain with no ai to start. but if we switch it to hostile it will begin\nto attack either the player or the enemies depending on if it is a friend or foe.", Owner: yeancat, Choices: []
+07/30/24 03:41:06: Chat Bubble Created. Following 'yeancat' with text: 'it shouldnt be flying around trying to attack
+the player by default and should
+rest on the terrain with no ai to start. but if
+we switch it to hostile it will begin
+to attack either the player or the enemies
+depending on if it is a friend or foe.'. Number of choices: 0

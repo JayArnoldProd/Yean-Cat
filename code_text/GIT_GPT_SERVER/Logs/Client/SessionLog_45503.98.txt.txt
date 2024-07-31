@@ -1,0 +1,972 @@
+07/30/24 18:25:12: Loaded action/group: SaveGameNow
+07/30/24 18:25:12: Loaded action/group: GotoKingsKingdom
+07/30/24 18:25:12: Loaded action/group: EnterPortal
+07/30/24 18:25:12: Loaded action/group: PurchaseArtifacts
+07/30/24 18:25:12: Loaded action/group: BattleOutcome
+07/30/24 18:25:12: Loaded action/group: VisitMarket
+07/30/24 18:25:12: Loaded action/group: GotoDivineDomain
+07/30/24 18:25:12: Loaded action/group: GotoTheEndonda
+07/30/24 18:25:12: Loaded action/group: GotoUniverseCity
+07/30/24 18:25:12: Loaded action/group: GotoLandOfLucy
+07/30/24 18:25:12: Loaded action/group: GotoPlaceOfPablo
+07/30/24 18:25:12: Loaded action/group: InvestigateSignals
+07/30/24 18:25:12: Loaded action/group: OfferTrade
+07/30/24 18:25:12: Loaded action/group: DisableEnemySpawns
+07/30/24 18:25:12: Loaded action/group: BattleSequence
+07/30/24 18:25:12: Loaded action/group: StartBattle
+07/30/24 18:25:12: Loaded action/group: SpawnBoss4
+07/30/24 18:25:12: Loaded action/group: SpawnBossCircle
+07/30/24 18:25:12: Loaded action/group: GotoTheIcyHeart
+07/30/24 18:25:12: Loaded action/group: EngageCombat
+07/30/24 18:25:12: Loaded action/group: GotoGhostTown
+07/30/24 18:25:12: Loaded action/group: SpawnBoss0
+07/30/24 18:25:12: Loaded action/group: SpawnBoss13
+07/30/24 18:25:12: Loaded action/group: StartExploration
+07/30/24 18:25:12: Loaded action/group: SpawnBoss8
+07/30/24 18:25:12: Loaded action/group: SpawnBoss6
+07/30/24 18:25:12: Loaded action/group: SetLevelFive
+07/30/24 18:25:12: Loaded action/group: LevelUpThree
+07/30/24 18:25:12: Loaded action/group: LevelUpOnce
+07/30/24 18:25:12: Loaded action/group: GotoTheGoldMines
+07/30/24 18:25:13: Loaded action/group: SpawnBoss11
+07/30/24 18:25:13: Loaded action/group: StartPeaceMission
+07/30/24 18:25:13: Loaded action/group: SpawnBoss2
+07/30/24 18:25:13: Loaded action/group: DiplomaticChoice
+07/30/24 18:25:13: Loaded action/group: TreatyOutcome
+07/30/24 18:25:13: Loaded action/group: ExplorationChoice
+07/30/24 18:25:13: Loaded action/group: BattleChoice
+07/30/24 18:25:13: Loaded action/group: ArtifactMystery
+07/30/24 18:25:13: Loaded action/group: PortalOutcome
+07/30/24 18:25:13: Loaded action/group: PeacefulMission
+07/30/24 18:25:13: Loaded action/group: SpaceAdventureStart
+07/30/24 18:25:13: Loaded action/group: PortalAdventure
+07/30/24 18:25:13: Loaded action/group: EnableEnemySpawns
+07/30/24 18:25:13: Loaded action/group: GotoVulturesValley
+07/30/24 18:25:13: Loaded action/group: GotoEarth
+07/30/24 18:25:13: Loaded action/group: SpawnBoss1
+07/30/24 18:25:13: Loaded action/group: GotoStormySands
+07/30/24 18:25:13: Loaded action/group: SpawnBoss12
+07/30/24 18:25:13: Loaded action/group: SpaceExploration
+07/30/24 18:25:13: Loaded action/group: GotoFantasia
+07/30/24 18:25:13: Loaded action/group: SpawnBoss5
+07/30/24 18:25:13: Loaded action/group: AG1
+07/30/24 18:25:13: Loaded action/group: SpawnBoss10
+07/30/24 18:25:13: Loaded action/group: GotoYetopia
+07/30/24 18:25:13: Loaded action/group: SpawnBoss3
+07/30/24 18:25:13: Loaded action/group: ArtifactOutcome
+07/30/24 18:25:13: Loaded action/group: EpicBattle
+07/30/24 18:25:13: Loaded action/group: SpawnBoss7
+07/30/24 18:25:13: Loaded action/group: SpawnBoss9
+07/30/24 18:25:13: Loaded action/group: PeaceTreaty
+07/30/24 18:25:13: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 18:25:13: [Client] Failed to reconnect to server. Will try again...
+07/30/24 18:25:52: Raw command: execute_action(SpaceAdventureStart)
+07/30/24 18:25:52: Cleaned command: execute_action(SpaceAdventureStart)
+07/30/24 18:25:52: Executing action/group: SpaceAdventureStart
+07/30/24 18:25:52: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/30/24 18:25:52: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 18:25:52: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 18:25:52: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/30/24 18:25:52: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 18:25:52: Command Name: chat_bubble
+07/30/24 18:25:52: Target Object: Target
+07/30/24 18:25:52: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 18:25:52: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/30/24 18:25:52: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your
+path:'. Number of choices: 3
+07/30/24 18:25:56: Raw command: execute_action(StartExploration)
+07/30/24 18:25:56: Cleaned command: execute_action(StartExploration)
+07/30/24 18:25:56: Executing action/group: StartExploration
+07/30/24 18:25:56: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/30/24 18:25:56: Raw command: execute_action("SpaceExploration")
+07/30/24 18:25:56: Cleaned command: execute_action("SpaceExploration")
+07/30/24 18:25:56: Executing action/group: SpaceExploration
+07/30/24 18:25:56: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/30/24 18:25:56: Raw command: execute_action(GotoUniverseCity)
+07/30/24 18:25:56: Cleaned command: execute_action(GotoUniverseCity)
+07/30/24 18:25:56: Executing action/group: GotoUniverseCity
+07/30/24 18:25:56: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+07/30/24 18:25:56: Raw command: goto_planet("Universe City")
+07/30/24 18:25:56: Cleaned command: goto_planet("Universe City")
+07/30/24 18:25:56: Parsing arguments: "Universe City"
+07/30/24 18:25:56: Parsed arguments: ["\"Universe City\""]
+07/30/24 18:25:56: Command Name: goto_planet
+07/30/24 18:25:56: Target Object: yeancat
+07/30/24 18:25:56: Parameters: ["\"Universe City\""]
+07/30/24 18:25:56: Teleported to Universe City.
+07/30/24 18:25:56: Raw command: execute_action(ExplorationChoice)
+07/30/24 18:25:56: Cleaned command: execute_action(ExplorationChoice)
+07/30/24 18:25:56: Executing action/group: ExplorationChoice
+07/30/24 18:25:56: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"Target"}
+07/30/24 18:25:56: Raw command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/30/24 18:25:56: Cleaned command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/30/24 18:25:56: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/30/24 18:25:56: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/30/24 18:25:56: Command Name: chat_bubble
+07/30/24 18:25:56: Target Object: Target
+07/30/24 18:25:56: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/30/24 18:25:56: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: Target, Choices: []
+07/30/24 18:25:56: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+07/30/24 18:26:10: Raw command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3",
+"SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9",
+"SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+07/30/24 18:26:10: Cleaned command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+07/30/24 18:26:10: Parsing arguments: SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"]
+07/30/24 18:26:10: Parsed arguments: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+07/30/24 18:26:10: Command Name: add_action_group
+07/30/24 18:26:10: Target Object: yeancat
+07/30/24 18:26:10: Parameters: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+07/30/24 18:26:10: Action group 'SpawnBossCircle' added successfully.
+07/30/24 18:26:10: Actions and action groups saved successfully to Actions.txt.
+07/30/24 18:26:17: Raw command: set_target(Player)
+07/30/24 18:26:17: Cleaned command: set_target(Player)
+07/30/24 18:26:17: Parsing arguments: Player
+07/30/24 18:26:17: Parsed arguments: ["Player"]
+07/30/24 18:26:17: Command Name: set_target
+07/30/24 18:26:17: Target Object: yeancat
+07/30/24 18:26:17: Parameters: ["Player"]
+07/30/24 18:26:17: Target set to Player (yeancat)
+07/30/24 18:26:17: Raw command: execute_action(SpawnBossCircle)
+07/30/24 18:26:17: Cleaned command: execute_action(SpawnBossCircle)
+07/30/24 18:26:17: Executing action/group: SpawnBossCircle
+07/30/24 18:26:17: Decoded Data: {"type":"action_group","actions":["SpawnBoss0","SpawnBoss1","SpawnBoss2","SpawnBoss3","SpawnBoss4","SpawnBoss5","SpawnBoss6","SpawnBoss7","SpawnBoss8","SpawnBoss9","SpawnBoss10","SpawnBoss11","SpawnBoss12","SpawnBoss13"]}
+07/30/24 18:26:17: Raw command: execute_action(SpawnBoss0)
+07/30/24 18:26:17: Cleaned command: execute_action(SpawnBoss0)
+07/30/24 18:26:18: Executing action/group: SpawnBoss0
+07/30/24 18:26:18: Decoded Data: {"command":"spawn_boss","parameters":[0.0,0.0,-500.0],"targetObject":"Target"}
+07/30/24 18:26:18: Raw command: Target.spawn_boss([0.0,0.0,-500.0])
+07/30/24 18:26:18: Cleaned command: Target.spawn_boss([0.0,0.0,-500.0])
+07/30/24 18:26:18: Parsing arguments: [0.0,0.0,-500.0]
+07/30/24 18:26:18: Parsed arguments: ["[0.0,0.0,-500.0]"]
+07/30/24 18:26:18: Command Name: spawn_boss
+07/30/24 18:26:18: Target Object: Target
+07/30/24 18:26:18: Parameters: ["[0.0,0.0,-500.0]"]
+07/30/24 18:26:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:18: Added boss reference: Futurtle2 -> obj_boss
+07/30/24 18:26:18: Boss spawned successfully: 0 at position (1420.31, 850.88) relative to Target
+07/30/24 18:26:18: Raw command: execute_action(SpawnBoss1)
+07/30/24 18:26:18: Cleaned command: execute_action(SpawnBoss1)
+07/30/24 18:26:18: Executing action/group: SpawnBoss1
+07/30/24 18:26:18: Decoded Data: {"command":"spawn_boss","parameters":[1.0,353.0,-353.0],"targetObject":"Target"}
+07/30/24 18:26:18: Raw command: Target.spawn_boss([1.0,353.0,-353.0])
+07/30/24 18:26:18: Cleaned command: Target.spawn_boss([1.0,353.0,-353.0])
+07/30/24 18:26:18: Parsing arguments: [1.0,353.0,-353.0]
+07/30/24 18:26:18: Parsed arguments: ["[1.0,353.0,-353.0]"]
+07/30/24 18:26:18: Command Name: spawn_boss
+07/30/24 18:26:18: Target Object: Target
+07/30/24 18:26:18: Parameters: ["[1.0,353.0,-353.0]"]
+07/30/24 18:26:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:18: Added boss reference: TravisSquawk3 -> obj_boss
+07/30/24 18:26:18: Boss spawned successfully: 1 at position (1773.31, 997.88) relative to Target
+07/30/24 18:26:18: Raw command: execute_action(SpawnBoss2)
+07/30/24 18:26:18: Cleaned command: execute_action(SpawnBoss2)
+07/30/24 18:26:18: Executing action/group: SpawnBoss2
+07/30/24 18:26:18: Decoded Data: {"command":"spawn_boss","parameters":[[2.0,500.0,0.0,"Target"]],"targetObject":"yeancat"}
+07/30/24 18:26:18: Raw command: spawn_boss([[2.0,500.0,0.0,"Target"]])
+07/30/24 18:26:18: Cleaned command: spawn_boss([[2.0,500.0,0.0,"Target"]])
+07/30/24 18:26:18: Parsing arguments: [[2.0,500.0,0.0,"Target"]]
+07/30/24 18:26:18: Parsed arguments: ["[[2.0,500.0,0.0,\"Target\"]]"]
+07/30/24 18:26:18: Command Name: spawn_boss
+07/30/24 18:26:18: Target Object: yeancat
+07/30/24 18:26:18: Parameters: ["[[2.0,500.0,0.0,\"Target\"]]"]
+07/30/24 18:26:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:18: Added boss reference: Peacocky694 -> obj_boss
+07/30/24 18:26:18: Boss spawned successfully: 2 at position (1920.31, 1350.88) relative to Target
+07/30/24 18:26:18: Raw command: execute_action(SpawnBoss3)
+07/30/24 18:26:18: Cleaned command: execute_action(SpawnBoss3)
+07/30/24 18:26:18: Executing action/group: SpawnBoss3
+07/30/24 18:26:18: Decoded Data: {"command":"spawn_boss","parameters":[3.0,353.0,353.0],"targetObject":"Target"}
+07/30/24 18:26:18: Raw command: Target.spawn_boss([3.0,353.0,353.0])
+07/30/24 18:26:18: Cleaned command: Target.spawn_boss([3.0,353.0,353.0])
+07/30/24 18:26:18: Parsing arguments: [3.0,353.0,353.0]
+07/30/24 18:26:18: Parsed arguments: ["[3.0,353.0,353.0]"]
+07/30/24 18:26:18: Command Name: spawn_boss
+07/30/24 18:26:18: Target Object: Target
+07/30/24 18:26:18: Parameters: ["[3.0,353.0,353.0]"]
+07/30/24 18:26:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:18: Added boss reference: Rehino5 -> obj_boss
+07/30/24 18:26:18: Boss spawned successfully: 3 at position (1773.31, 1703.88) relative to Target
+07/30/24 18:26:18: Raw command: execute_action(SpawnBoss4)
+07/30/24 18:26:18: Cleaned command: execute_action(SpawnBoss4)
+07/30/24 18:26:18: Executing action/group: SpawnBoss4
+07/30/24 18:26:18: Decoded Data: {"command":"spawn_boss","parameters":[4.0,0.0,500.0],"targetObject":"Target"}
+07/30/24 18:26:18: Raw command: Target.spawn_boss([4.0,0.0,500.0])
+07/30/24 18:26:18: Cleaned command: Target.spawn_boss([4.0,0.0,500.0])
+07/30/24 18:26:18: Parsing arguments: [4.0,0.0,500.0]
+07/30/24 18:26:18: Parsed arguments: ["[4.0,0.0,500.0]"]
+07/30/24 18:26:18: Command Name: spawn_boss
+07/30/24 18:26:18: Target Object: Target
+07/30/24 18:26:18: Parameters: ["[4.0,0.0,500.0]"]
+07/30/24 18:26:18: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:18: Added boss reference: 22Salamander6 -> obj_boss
+07/30/24 18:26:19: Boss spawned successfully: 4 at position (1420.31, 1850.88) relative to Target
+07/30/24 18:26:19: Raw command: execute_action(SpawnBoss5)
+07/30/24 18:26:19: Cleaned command: execute_action(SpawnBoss5)
+07/30/24 18:26:19: Executing action/group: SpawnBoss5
+07/30/24 18:26:19: Decoded Data: {"command":"spawn_boss","parameters":[5.0,-353.0,353.0],"targetObject":"Target"}
+07/30/24 18:26:19: Raw command: Target.spawn_boss([5.0,-353.0,353.0])
+07/30/24 18:26:19: Cleaned command: Target.spawn_boss([5.0,-353.0,353.0])
+07/30/24 18:26:19: Parsing arguments: [5.0,-353.0,353.0]
+07/30/24 18:26:19: Parsed arguments: ["[5.0,-353.0,353.0]"]
+07/30/24 18:26:19: Command Name: spawn_boss
+07/30/24 18:26:19: Target Object: Target
+07/30/24 18:26:19: Parameters: ["[5.0,-353.0,353.0]"]
+07/30/24 18:26:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:19: Added boss reference: SquidCudi7 -> obj_boss
+07/30/24 18:26:19: Boss spawned successfully: 5 at position (1067.31, 1703.88) relative to Target
+07/30/24 18:26:19: Raw command: execute_action(SpawnBoss6)
+07/30/24 18:26:19: Cleaned command: execute_action(SpawnBoss6)
+07/30/24 18:26:19: Executing action/group: SpawnBoss6
+07/30/24 18:26:19: Decoded Data: {"command":"spawn_boss","parameters":[6.0,-500.0,0.0],"targetObject":"Target"}
+07/30/24 18:26:19: Raw command: Target.spawn_boss([6.0,-500.0,0.0])
+07/30/24 18:26:19: Cleaned command: Target.spawn_boss([6.0,-500.0,0.0])
+07/30/24 18:26:19: Parsing arguments: [6.0,-500.0,0.0]
+07/30/24 18:26:19: Parsed arguments: ["[6.0,-500.0,0.0]"]
+07/30/24 18:26:19: Command Name: spawn_boss
+07/30/24 18:26:19: Target Object: Target
+07/30/24 18:26:19: Parameters: ["[6.0,-500.0,0.0]"]
+07/30/24 18:26:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:19: Added boss reference: Dracoon8 -> obj_boss
+07/30/24 18:26:19: Boss spawned successfully: 6 at position (920.31, 1350.88) relative to Target
+07/30/24 18:26:19: Raw command: execute_action(SpawnBoss7)
+07/30/24 18:26:19: Cleaned command: execute_action(SpawnBoss7)
+07/30/24 18:26:19: Executing action/group: SpawnBoss7
+07/30/24 18:26:19: Decoded Data: {"command":"spawn_boss","parameters":[7.0,-353.0,-353.0],"targetObject":"Target"}
+07/30/24 18:26:19: Raw command: Target.spawn_boss([7.0,-353.0,-353.0])
+07/30/24 18:26:19: Cleaned command: Target.spawn_boss([7.0,-353.0,-353.0])
+07/30/24 18:26:19: Parsing arguments: [7.0,-353.0,-353.0]
+07/30/24 18:26:19: Parsed arguments: ["[7.0,-353.0,-353.0]"]
+07/30/24 18:26:19: Command Name: spawn_boss
+07/30/24 18:26:19: Target Object: Target
+07/30/24 18:26:19: Parameters: ["[7.0,-353.0,-353.0]"]
+07/30/24 18:26:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:19: Added boss reference: KidBoo9 -> obj_boss
+07/30/24 18:26:19: Boss spawned successfully: 7 at position (1067.31, 997.88) relative to Target
+07/30/24 18:26:19: Raw command: execute_action(SpawnBoss8)
+07/30/24 18:26:19: Cleaned command: execute_action(SpawnBoss8)
+07/30/24 18:26:19: Executing action/group: SpawnBoss8
+07/30/24 18:26:19: Decoded Data: {"command":"spawn_boss","parameters":[8.0,0.0,-400.0],"targetObject":"Target"}
+07/30/24 18:26:19: Raw command: Target.spawn_boss([8.0,0.0,-400.0])
+07/30/24 18:26:19: Cleaned command: Target.spawn_boss([8.0,0.0,-400.0])
+07/30/24 18:26:19: Parsing arguments: [8.0,0.0,-400.0]
+07/30/24 18:26:19: Parsed arguments: ["[8.0,0.0,-400.0]"]
+07/30/24 18:26:19: Command Name: spawn_boss
+07/30/24 18:26:19: Target Object: Target
+07/30/24 18:26:19: Parameters: ["[8.0,0.0,-400.0]"]
+07/30/24 18:26:19: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:19: Added boss reference: LilSheep10 -> obj_boss
+07/30/24 18:26:19: Boss spawned successfully: 8 at position (1218.27, 839.15) relative to Target
+07/30/24 18:26:19: Raw command: execute_action(SpawnBoss9)
+07/30/24 18:26:19: Cleaned command: execute_action(SpawnBoss9)
+07/30/24 18:26:19: Executing action/group: SpawnBoss9
+07/30/24 18:26:19: Decoded Data: {"command":"spawn_boss","parameters":[9.0,283.0,-283.0],"targetObject":"Target"}
+07/30/24 18:26:19: Raw command: Target.spawn_boss([9.0,283.0,-283.0])
+07/30/24 18:26:19: Cleaned command: Target.spawn_boss([9.0,283.0,-283.0])
+07/30/24 18:26:20: Parsing arguments: [9.0,283.0,-283.0]
+07/30/24 18:26:20: Parsed arguments: ["[9.0,283.0,-283.0]"]
+07/30/24 18:26:20: Command Name: spawn_boss
+07/30/24 18:26:20: Target Object: Target
+07/30/24 18:26:20: Parameters: ["[9.0,283.0,-283.0]"]
+07/30/24 18:26:20: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:20: Added boss reference: Emunem11 -> obj_boss
+07/30/24 18:26:20: Boss spawned successfully: 9 at position (1734.72, 1200.38) relative to Target
+07/30/24 18:26:20: Raw command: execute_action(SpawnBoss10)
+07/30/24 18:26:20: Cleaned command: execute_action(SpawnBoss10)
+07/30/24 18:26:20: Executing action/group: SpawnBoss10
+07/30/24 18:26:20: Decoded Data: {"command":"spawn_boss","parameters":[10.0,400.0,0.0],"targetObject":"Target"}
+07/30/24 18:26:20: Raw command: Target.spawn_boss([10.0,400.0,0.0])
+07/30/24 18:26:20: Cleaned command: Target.spawn_boss([10.0,400.0,0.0])
+07/30/24 18:26:20: Parsing arguments: [10.0,400.0,0.0]
+07/30/24 18:26:20: Parsed arguments: ["[10.0,400.0,0.0]"]
+07/30/24 18:26:20: Command Name: spawn_boss
+07/30/24 18:26:20: Target Object: Target
+07/30/24 18:26:20: Parameters: ["[10.0,400.0,0.0]"]
+07/30/24 18:26:20: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:20: Added boss reference: LilHump12 -> obj_boss
+07/30/24 18:26:20: Boss spawned successfully: 10 at position (1815.76, 1109.86) relative to Target
+07/30/24 18:26:20: Raw command: execute_action(SpawnBoss11)
+07/30/24 18:26:20: Cleaned command: execute_action(SpawnBoss11)
+07/30/24 18:26:20: Executing action/group: SpawnBoss11
+07/30/24 18:26:20: Decoded Data: {"command":"spawn_boss","parameters":[11.0,283.0,283.0],"targetObject":"Target"}
+07/30/24 18:26:20: Raw command: Target.spawn_boss([11.0,283.0,283.0])
+07/30/24 18:26:20: Cleaned command: Target.spawn_boss([11.0,283.0,283.0])
+07/30/24 18:26:20: Parsing arguments: [11.0,283.0,283.0]
+07/30/24 18:26:20: Parsed arguments: ["[11.0,283.0,283.0]"]
+07/30/24 18:26:20: Command Name: spawn_boss
+07/30/24 18:26:20: Target Object: Target
+07/30/24 18:26:20: Parameters: ["[11.0,283.0,283.0]"]
+07/30/24 18:26:20: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:20: Added boss reference: BeeYonce13 -> obj_boss
+07/30/24 18:26:20: Boss spawned successfully: 11 at position (1766.04, 1682.67) relative to Target
+07/30/24 18:26:20: Raw command: execute_action(SpawnBoss12)
+07/30/24 18:26:20: Cleaned command: execute_action(SpawnBoss12)
+07/30/24 18:26:20: Executing action/group: SpawnBoss12
+07/30/24 18:26:20: Decoded Data: {"command":"spawn_boss","parameters":[12.0,0.0,400.0],"targetObject":"Target"}
+07/30/24 18:26:20: Raw command: Target.spawn_boss([12.0,0.0,400.0])
+07/30/24 18:26:20: Cleaned command: Target.spawn_boss([12.0,0.0,400.0])
+07/30/24 18:26:20: Parsing arguments: [12.0,0.0,400.0]
+07/30/24 18:26:20: Parsed arguments: ["[12.0,0.0,400.0]"]
+07/30/24 18:26:20: Command Name: spawn_boss
+07/30/24 18:26:20: Target Object: Target
+07/30/24 18:26:20: Parameters: ["[12.0,0.0,400.0]"]
+07/30/24 18:26:20: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:20: Added boss reference: KimChameleon14 -> obj_boss
+07/30/24 18:26:20: Boss spawned successfully: 12 at position (1395.62, 1600.49) relative to Target
+07/30/24 18:26:21: Raw command: execute_action(SpawnBoss13)
+07/30/24 18:26:21: Cleaned command: execute_action(SpawnBoss13)
+07/30/24 18:26:21: Executing action/group: SpawnBoss13
+07/30/24 18:26:21: Decoded Data: {"command":"spawn_boss","parameters":[13.0,-283.0,283.0],"targetObject":"Target"}
+07/30/24 18:26:21: Raw command: Target.spawn_boss([13.0,-283.0,283.0])
+07/30/24 18:26:21: Cleaned command: Target.spawn_boss([13.0,-283.0,283.0])
+07/30/24 18:26:21: Parsing arguments: [13.0,-283.0,283.0]
+07/30/24 18:26:21: Parsed arguments: ["[13.0,-283.0,283.0]"]
+07/30/24 18:26:21: Command Name: spawn_boss
+07/30/24 18:26:21: Target Object: Target
+07/30/24 18:26:21: Parameters: ["[13.0,-283.0,283.0]"]
+07/30/24 18:26:21: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:26:21: Added boss reference: TaylorSwan15 -> obj_boss
+07/30/24 18:26:21: Boss spawned successfully: 13 at position (1156.90, 1467.92) relative to Target
+07/30/24 18:26:58: Raw command: execute_action(ReturnToBase)
+07/30/24 18:26:58: Cleaned command: execute_action(ReturnToBase)
+07/30/24 18:26:58: Action/group 'ReturnToBase' not found.
+07/30/24 18:27:21: Saved Game
+07/30/24 18:27:24: Saved Game
+07/30/24 18:29:28: Loaded action/group: SaveGameNow
+07/30/24 18:29:28: Loaded action/group: GotoKingsKingdom
+07/30/24 18:29:28: Loaded action/group: EnterPortal
+07/30/24 18:29:29: Loaded action/group: PurchaseArtifacts
+07/30/24 18:29:29: Loaded action/group: BattleOutcome
+07/30/24 18:29:29: Loaded action/group: VisitMarket
+07/30/24 18:29:29: Loaded action/group: GotoDivineDomain
+07/30/24 18:29:29: Loaded action/group: GotoTheEndonda
+07/30/24 18:29:29: Loaded action/group: GotoUniverseCity
+07/30/24 18:29:29: Loaded action/group: GotoLandOfLucy
+07/30/24 18:29:29: Loaded action/group: GotoPlaceOfPablo
+07/30/24 18:29:29: Loaded action/group: InvestigateSignals
+07/30/24 18:29:29: Loaded action/group: OfferTrade
+07/30/24 18:29:29: Loaded action/group: DisableEnemySpawns
+07/30/24 18:29:29: Loaded action/group: BattleSequence
+07/30/24 18:29:29: Loaded action/group: StartBattle
+07/30/24 18:29:29: Loaded action/group: SpawnBoss4
+07/30/24 18:29:29: Loaded action/group: SpawnBossCircle
+07/30/24 18:29:29: Loaded action/group: GotoTheIcyHeart
+07/30/24 18:29:29: Loaded action/group: EngageCombat
+07/30/24 18:29:29: Loaded action/group: GotoGhostTown
+07/30/24 18:29:29: Loaded action/group: SpawnBoss0
+07/30/24 18:29:30: Loaded action/group: SpawnBoss13
+07/30/24 18:29:30: Loaded action/group: StartExploration
+07/30/24 18:29:30: Loaded action/group: SpawnBoss8
+07/30/24 18:29:30: Loaded action/group: SpawnBoss6
+07/30/24 18:29:30: Loaded action/group: SetLevelFive
+07/30/24 18:29:30: Loaded action/group: LevelUpThree
+07/30/24 18:29:30: Loaded action/group: LevelUpOnce
+07/30/24 18:29:30: Loaded action/group: GotoTheGoldMines
+07/30/24 18:29:30: Loaded action/group: SpawnBoss11
+07/30/24 18:29:30: Loaded action/group: StartPeaceMission
+07/30/24 18:29:30: Loaded action/group: SpawnBoss2
+07/30/24 18:29:30: Loaded action/group: DiplomaticChoice
+07/30/24 18:29:30: Loaded action/group: TreatyOutcome
+07/30/24 18:29:30: Loaded action/group: ExplorationChoice
+07/30/24 18:29:30: Loaded action/group: BattleChoice
+07/30/24 18:29:30: Loaded action/group: ArtifactMystery
+07/30/24 18:29:30: Loaded action/group: PortalOutcome
+07/30/24 18:29:30: Loaded action/group: PeacefulMission
+07/30/24 18:29:30: Loaded action/group: SpaceAdventureStart
+07/30/24 18:29:30: Loaded action/group: PortalAdventure
+07/30/24 18:29:30: Loaded action/group: EnableEnemySpawns
+07/30/24 18:29:30: Loaded action/group: GotoVulturesValley
+07/30/24 18:29:30: Loaded action/group: GotoEarth
+07/30/24 18:29:30: Loaded action/group: SpawnBoss1
+07/30/24 18:29:30: Loaded action/group: GotoStormySands
+07/30/24 18:29:30: Loaded action/group: SpawnBoss12
+07/30/24 18:29:30: Loaded action/group: SpaceExploration
+07/30/24 18:29:30: Loaded action/group: GotoFantasia
+07/30/24 18:29:30: Loaded action/group: SpawnBoss5
+07/30/24 18:29:30: Loaded action/group: AG1
+07/30/24 18:29:30: Loaded action/group: SpawnBoss10
+07/30/24 18:29:30: Loaded action/group: GotoYetopia
+07/30/24 18:29:30: Loaded action/group: SpawnBoss3
+07/30/24 18:29:30: Loaded action/group: ArtifactOutcome
+07/30/24 18:29:30: Loaded action/group: EpicBattle
+07/30/24 18:29:30: Loaded action/group: SpawnBoss7
+07/30/24 18:29:30: Loaded action/group: SpawnBoss9
+07/30/24 18:29:30: Loaded action/group: PeaceTreaty
+07/30/24 18:29:30: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 18:29:30: [Client] Failed to reconnect to server. Will try again...
+07/30/24 18:30:03: [Jay Arnold] Hello
+World!
+07/30/24 18:30:03: Creating chat bubble: " Hello\nWorld!", Owner: yeancat, Choices: []
+07/30/24 18:30:03: Chat Bubble Created. Following 'yeancat' with text: 'Hello
+World!'. Number of choices: 0
+07/30/24 18:30:30: Raw command: execute_action(MainMenuChoices)
+07/30/24 18:30:30: Cleaned command: execute_action(MainMenuChoices)
+07/30/24 18:30:30: Action/group 'MainMenuChoices' not found.
+07/30/24 18:30:33: Raw command: list_actions
+07/30/24 18:30:33: Cleaned command: list_actions
+07/30/24 18:30:33: Command Name: list_actions
+07/30/24 18:30:33: Target Object: yeancat
+07/30/24 18:30:33: Parameters: []
+07/30/24 18:30:33: Actions: ArtifactOutcome, BattleChoice, BattleOutcome, 
+07/30/24 18:30:33: DiplomaticChoice, DisableEnemySpawns, EnableEnemySpawns, 
+07/30/24 18:30:33: EngageCombat, EnterPortal, ExplorationChoice, GotoDivineDomain, 
+07/30/24 18:30:33: GotoEarth, GotoFantasia, GotoGhostTown, GotoKingsKingdom, 
+07/30/24 18:30:33: GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, GotoTheEndonda, 
+07/30/24 18:30:33: GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+07/30/24 18:30:33: GotoVulturesValley, GotoYetopia, InvestigateSignals, LevelUpOnce, 
+07/30/24 18:30:33: LevelUpThree, OfferTrade, PortalOutcome, PurchaseArtifacts, 
+07/30/24 18:30:33: SaveGameNow, SetLevelFive, SpaceAdventureStart, SpawnBoss0, 
+07/30/24 18:30:33: SpawnBoss1, SpawnBoss10, SpawnBoss11, SpawnBoss12, SpawnBoss13, 
+07/30/24 18:30:33: SpawnBoss2, SpawnBoss3, SpawnBoss4, SpawnBoss5, SpawnBoss6, 
+07/30/24 18:30:33: SpawnBoss7, SpawnBoss8, SpawnBoss9, StartBattle, StartExploration, 
+07/30/24 18:30:33: StartPeaceMission, TreatyOutcome, VisitMarket
+07/30/24 18:30:56: Raw command: execute_action(SpaceAdventureStart)
+07/30/24 18:30:56: Cleaned command: execute_action(SpaceAdventureStart)
+07/30/24 18:30:56: Executing action/group: SpaceAdventureStart
+07/30/24 18:30:56: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/30/24 18:30:56: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 18:30:56: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 18:30:56: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/30/24 18:30:56: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 18:30:56: Command Name: chat_bubble
+07/30/24 18:30:56: Target Object: Target
+07/30/24 18:30:56: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 18:30:56: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/30/24 18:30:56: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/30/24 18:31:03: Raw command: show_lines(13)
+07/30/24 18:31:03: Cleaned command: show_lines(13)
+07/30/24 18:31:03: Parsing arguments: 13
+07/30/24 18:31:03: Parsed arguments: ["13"]
+07/30/24 18:31:03: Command Name: show_lines
+07/30/24 18:31:03: Target Object: yeancat
+07/30/24 18:31:03: Parameters: ["13"]
+07/30/24 18:31:03: Display set to show 13 lines.
+07/30/24 18:31:16: Raw command: execute_action(StartExploration)
+07/30/24 18:31:16: Cleaned command: execute_action(StartExploration)
+07/30/24 18:31:16: Executing action/group: StartExploration
+07/30/24 18:31:16: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/30/24 18:31:16: Raw command: execute_action("SpaceExploration")
+07/30/24 18:31:16: Cleaned command: execute_action("SpaceExploration")
+07/30/24 18:31:16: Executing action/group: SpaceExploration
+07/30/24 18:31:16: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/30/24 18:31:16: Raw command: execute_action(GotoUniverseCity)
+07/30/24 18:31:16: Cleaned command: execute_action(GotoUniverseCity)
+07/30/24 18:31:16: Executing action/group: GotoUniverseCity
+07/30/24 18:31:16: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+07/30/24 18:31:16: Raw command: goto_planet("Universe City")
+07/30/24 18:31:16: Cleaned command: goto_planet("Universe City")
+07/30/24 18:31:16: Parsing arguments: "Universe City"
+07/30/24 18:31:16: Parsed arguments: ["\"Universe City\""]
+07/30/24 18:31:16: Command Name: goto_planet
+07/30/24 18:31:16: Target Object: yeancat
+07/30/24 18:31:16: Parameters: ["\"Universe City\""]
+07/30/24 18:31:16: Teleported to Universe City.
+07/30/24 18:31:16: Raw command: execute_action(ExplorationChoice)
+07/30/24 18:31:16: Cleaned command: execute_action(ExplorationChoice)
+07/30/24 18:31:16: Executing action/group: ExplorationChoice
+07/30/24 18:31:16: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"Target"}
+07/30/24 18:31:16: Raw command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/30/24 18:31:16: Cleaned command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/30/24 18:31:16: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/30/24 18:31:16: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/30/24 18:31:17: Command Name: chat_bubble
+07/30/24 18:31:17: Target Object: Target
+07/30/24 18:31:17: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/30/24 18:31:17: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: Target, Choices: []
+07/30/24 18:31:17: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+07/30/24 18:31:19: Raw command: execute_action(ReturnToBase)
+07/30/24 18:31:19: Cleaned command: execute_action(ReturnToBase)
+07/30/24 18:31:19: Action/group 'ReturnToBase' not found.
+07/30/24 18:32:30: Raw command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+07/30/24 18:32:30: Cleaned command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+07/30/24 18:32:30: Detected add_action command
+07/30/24 18:32:30: Arguments string: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+07/30/24 18:32:30: Parsing arguments: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+07/30/24 18:32:30: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+07/30/24 18:32:30: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+07/30/24 18:32:30: Action Name: SpawnBoss0
+07/30/24 18:32:30: Full Action Command: Target.spawn_boss
+07/30/24 18:32:30: Action Params: [0, 0, -500]
+07/30/24 18:32:30: Target Object: Target
+07/30/24 18:32:30: Action Command: spawn_boss
+07/30/24 18:32:30: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:30: Raw command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+07/30/24 18:32:30: Cleaned command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+07/30/24 18:32:30: Detected add_action command
+07/30/24 18:32:30: Arguments string: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+07/30/24 18:32:30: Parsing arguments: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+07/30/24 18:32:30: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+07/30/24 18:32:30: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+07/30/24 18:32:30: Action Name: SpawnBoss1
+07/30/24 18:32:30: Full Action Command: Target.spawn_boss
+07/30/24 18:32:30: Action Params: [1, 353, -353]
+07/30/24 18:32:30: Target Object: Target
+07/30/24 18:32:30: Action Command: spawn_boss
+07/30/24 18:32:30: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:30: Raw command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+07/30/24 18:32:30: Cleaned command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+07/30/24 18:32:30: Detected add_action command
+07/30/24 18:32:30: Arguments string: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+07/30/24 18:32:30: Parsing arguments: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+07/30/24 18:32:30: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+07/30/24 18:32:30: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+07/30/24 18:32:30: Action Name: SpawnBoss3
+07/30/24 18:32:30: Full Action Command: Target.spawn_boss
+07/30/24 18:32:30: Action Params: [3, 353, 353]
+07/30/24 18:32:30: Target Object: Target
+07/30/24 18:32:30: Action Command: spawn_boss
+07/30/24 18:32:30: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:30: Raw command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+07/30/24 18:32:30: Cleaned command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+07/30/24 18:32:30: Detected add_action command
+07/30/24 18:32:30: Arguments string: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+07/30/24 18:32:30: Parsing arguments: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+07/30/24 18:32:30: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+07/30/24 18:32:30: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+07/30/24 18:32:30: Action Name: SpawnBoss4
+07/30/24 18:32:31: Full Action Command: Target.spawn_boss
+07/30/24 18:32:31: Action Params: [4, 0, 500]
+07/30/24 18:32:31: Target Object: Target
+07/30/24 18:32:31: Action Command: spawn_boss
+07/30/24 18:32:31: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:31: Raw command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+07/30/24 18:32:31: Cleaned command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+07/30/24 18:32:31: Detected add_action command
+07/30/24 18:32:31: Arguments string: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+07/30/24 18:32:31: Parsing arguments: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+07/30/24 18:32:31: Action Name: SpawnBoss5
+07/30/24 18:32:31: Full Action Command: Target.spawn_boss
+07/30/24 18:32:31: Action Params: [5, -353, 353]
+07/30/24 18:32:31: Target Object: Target
+07/30/24 18:32:31: Action Command: spawn_boss
+07/30/24 18:32:31: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:31: Raw command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+07/30/24 18:32:31: Cleaned command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+07/30/24 18:32:31: Detected add_action command
+07/30/24 18:32:31: Arguments string: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+07/30/24 18:32:31: Parsing arguments: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+07/30/24 18:32:31: Action Name: SpawnBoss6
+07/30/24 18:32:31: Full Action Command: Target.spawn_boss
+07/30/24 18:32:31: Action Params: [6, -500, 0]
+07/30/24 18:32:31: Target Object: Target
+07/30/24 18:32:31: Action Command: spawn_boss
+07/30/24 18:32:31: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:31: Raw command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+07/30/24 18:32:31: Cleaned command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+07/30/24 18:32:31: Detected add_action command
+07/30/24 18:32:31: Arguments string: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+07/30/24 18:32:31: Parsing arguments: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+07/30/24 18:32:31: Action Name: SpawnBoss7
+07/30/24 18:32:31: Full Action Command: Target.spawn_boss
+07/30/24 18:32:31: Action Params: [7, -353, -353]
+07/30/24 18:32:31: Target Object: Target
+07/30/24 18:32:31: Action Command: spawn_boss
+07/30/24 18:32:31: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:31: Raw command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+07/30/24 18:32:31: Cleaned command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+07/30/24 18:32:31: Detected add_action command
+07/30/24 18:32:31: Arguments string: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+07/30/24 18:32:31: Parsing arguments: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+07/30/24 18:32:31: Action Name: SpawnBoss8
+07/30/24 18:32:31: Full Action Command: Target.spawn_boss
+07/30/24 18:32:31: Action Params: [8, 0, -400]
+07/30/24 18:32:31: Target Object: Target
+07/30/24 18:32:31: Action Command: spawn_boss
+07/30/24 18:32:31: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:31: Raw command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+07/30/24 18:32:31: Cleaned command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+07/30/24 18:32:31: Detected add_action command
+07/30/24 18:32:31: Arguments string: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+07/30/24 18:32:31: Parsing arguments: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+07/30/24 18:32:31: Action Name: SpawnBoss9
+07/30/24 18:32:31: Full Action Command: Target.spawn_boss
+07/30/24 18:32:31: Action Params: [9, 283, -283]
+07/30/24 18:32:31: Target Object: Target
+07/30/24 18:32:31: Action Command: spawn_boss
+07/30/24 18:32:31: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:31: Raw command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+07/30/24 18:32:31: Cleaned command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+07/30/24 18:32:31: Detected add_action command
+07/30/24 18:32:31: Arguments string: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+07/30/24 18:32:31: Parsing arguments: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+07/30/24 18:32:31: Action Name: SpawnBoss10
+07/30/24 18:32:31: Full Action Command: Target.spawn_boss
+07/30/24 18:32:31: Action Params: [10, 400, 0]
+07/30/24 18:32:31: Target Object: Target
+07/30/24 18:32:31: Action Command: spawn_boss
+07/30/24 18:32:31: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:31: Raw command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+07/30/24 18:32:31: Cleaned command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+07/30/24 18:32:31: Detected add_action command
+07/30/24 18:32:31: Arguments string: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+07/30/24 18:32:31: Parsing arguments: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+07/30/24 18:32:31: Action Name: SpawnBoss11
+07/30/24 18:32:31: Full Action Command: Target.spawn_boss
+07/30/24 18:32:31: Action Params: [11, 283, 283]
+07/30/24 18:32:31: Target Object: Target
+07/30/24 18:32:31: Action Command: spawn_boss
+07/30/24 18:32:31: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:31: Raw command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+07/30/24 18:32:31: Cleaned command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+07/30/24 18:32:31: Detected add_action command
+07/30/24 18:32:31: Arguments string: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+07/30/24 18:32:31: Parsing arguments: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+07/30/24 18:32:31: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+07/30/24 18:32:32: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+07/30/24 18:32:32: Action Name: SpawnBoss12
+07/30/24 18:32:32: Full Action Command: Target.spawn_boss
+07/30/24 18:32:32: Action Params: [12, 0, 400]
+07/30/24 18:32:32: Target Object: Target
+07/30/24 18:32:32: Action Command: spawn_boss
+07/30/24 18:32:32: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:32: Raw command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+07/30/24 18:32:32: Cleaned command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+07/30/24 18:32:32: Detected add_action command
+07/30/24 18:32:32: Arguments string: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+07/30/24 18:32:32: Parsing arguments: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+07/30/24 18:32:32: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+07/30/24 18:32:32: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+07/30/24 18:32:32: Action Name: SpawnBoss13
+07/30/24 18:32:32: Full Action Command: Target.spawn_boss
+07/30/24 18:32:32: Action Params: [13, -283, 283]
+07/30/24 18:32:32: Target Object: Target
+07/30/24 18:32:32: Action Command: spawn_boss
+07/30/24 18:32:32: Invalid action command format. Expected 'Object.command'
+07/30/24 18:32:32: Raw command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3",
+"SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9",
+"SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+07/30/24 18:32:32: Cleaned command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+07/30/24 18:32:32: Parsing arguments: SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"]
+07/30/24 18:32:32: Parsed arguments: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+07/30/24 18:32:32: Command Name: add_action_group
+07/30/24 18:32:32: Target Object: yeancat
+07/30/24 18:32:32: Parameters: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+07/30/24 18:32:32: Action group 'SpawnBossCircle' added successfully.
+07/30/24 18:32:32: Actions and action groups saved successfully to Actions.txt.
+07/30/24 18:32:56: Raw command: Player.spawn_boss(0,0,-300)
+07/30/24 18:32:56: Cleaned command: Player.spawn_boss(0,0,-300)
+07/30/24 18:32:56: Parsing arguments: 0,0,-300
+07/30/24 18:32:56: Parsed arguments: ["0","0","-300"]
+07/30/24 18:32:56: Command Name: spawn_boss
+07/30/24 18:32:56: Target Object: Player
+07/30/24 18:32:56: Parameters: ["0","0","-300"]
+07/30/24 18:32:56: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:32:56: Added boss reference: Futurtle1 -> obj_boss
+07/30/24 18:32:56: Boss spawned successfully: 0 at position (1807.19, 917.14) relative to Target
+07/30/24 18:33:03: Raw command: list_objects
+07/30/24 18:33:03: Cleaned command: list_objects
+07/30/24 18:33:03: Command Name: list_objects
+07/30/24 18:33:03: Target Object: yeancat
+07/30/24 18:33:03: Parameters: []
+07/30/24 18:33:03: Available object references:
+Player: yeancat
+Target: yeancat
+
+Bosses:
+Futurtle1: obj_boss
+
+07/30/24 18:33:24: Raw command: execute_action(SpawnBossCircle)
+07/30/24 18:33:24: Cleaned command: execute_action(SpawnBossCircle)
+07/30/24 18:33:24: Executing action/group: SpawnBossCircle
+07/30/24 18:33:24: Decoded Data: {"type":"action_group","actions":["SpawnBoss0","SpawnBoss1","SpawnBoss2","SpawnBoss3","SpawnBoss4","SpawnBoss5","SpawnBoss6","SpawnBoss7","SpawnBoss8","SpawnBoss9","SpawnBoss10","SpawnBoss11","SpawnBoss12","SpawnBoss13"]}
+07/30/24 18:33:24: Raw command: execute_action(SpawnBoss0)
+07/30/24 18:33:24: Cleaned command: execute_action(SpawnBoss0)
+07/30/24 18:33:24: Executing action/group: SpawnBoss0
+07/30/24 18:33:24: Decoded Data: {"command":"spawn_boss","parameters":[0.0,0.0,-500.0],"targetObject":"Target"}
+07/30/24 18:33:24: Raw command: Target.spawn_boss([0.0,0.0,-500.0])
+07/30/24 18:33:24: Cleaned command: Target.spawn_boss([0.0,0.0,-500.0])
+07/30/24 18:33:24: Parsing arguments: [0.0,0.0,-500.0]
+07/30/24 18:33:24: Parsed arguments: ["[0.0,0.0,-500.0]"]
+07/30/24 18:33:24: Command Name: spawn_boss
+07/30/24 18:33:24: Target Object: Target
+07/30/24 18:33:24: Parameters: ["[0.0,0.0,-500.0]"]
+07/30/24 18:33:24: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:24: Added boss reference: Futurtle2 -> obj_boss
+07/30/24 18:33:24: Boss spawned successfully: 0 at position (2820, 765.78) relative to Target
+07/30/24 18:33:24: Raw command: execute_action(SpawnBoss1)
+07/30/24 18:33:24: Cleaned command: execute_action(SpawnBoss1)
+07/30/24 18:33:24: Executing action/group: SpawnBoss1
+07/30/24 18:33:24: Decoded Data: {"command":"spawn_boss","parameters":[1.0,353.0,-353.0],"targetObject":"Target"}
+07/30/24 18:33:24: Raw command: Target.spawn_boss([1.0,353.0,-353.0])
+07/30/24 18:33:24: Cleaned command: Target.spawn_boss([1.0,353.0,-353.0])
+07/30/24 18:33:24: Parsing arguments: [1.0,353.0,-353.0]
+07/30/24 18:33:24: Parsed arguments: ["[1.0,353.0,-353.0]"]
+07/30/24 18:33:24: Command Name: spawn_boss
+07/30/24 18:33:24: Target Object: Target
+07/30/24 18:33:24: Parameters: ["[1.0,353.0,-353.0]"]
+07/30/24 18:33:24: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:24: Added boss reference: TravisSquawk3 -> obj_boss
+07/30/24 18:33:24: Boss spawned successfully: 1 at position (3173, 912.78) relative to Target
+07/30/24 18:33:24: Raw command: execute_action(SpawnBoss2)
+07/30/24 18:33:24: Cleaned command: execute_action(SpawnBoss2)
+07/30/24 18:33:24: Executing action/group: SpawnBoss2
+07/30/24 18:33:24: Decoded Data: {"command":"spawn_boss","parameters":[[2.0,500.0,0.0,"Target"]],"targetObject":"yeancat"}
+07/30/24 18:33:24: Raw command: spawn_boss([[2.0,500.0,0.0,"Target"]])
+07/30/24 18:33:24: Cleaned command: spawn_boss([[2.0,500.0,0.0,"Target"]])
+07/30/24 18:33:24: Parsing arguments: [[2.0,500.0,0.0,"Target"]]
+07/30/24 18:33:24: Parsed arguments: ["[[2.0,500.0,0.0,\"Target\"]]"]
+07/30/24 18:33:24: Command Name: spawn_boss
+07/30/24 18:33:24: Target Object: yeancat
+07/30/24 18:33:24: Parameters: ["[[2.0,500.0,0.0,\"Target\"]]"]
+07/30/24 18:33:24: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:24: Added boss reference: Peacocky694 -> obj_boss
+07/30/24 18:33:24: Boss spawned successfully: 2 at position (3320, 1265.78) relative to Target
+07/30/24 18:33:24: Raw command: execute_action(SpawnBoss3)
+07/30/24 18:33:24: Cleaned command: execute_action(SpawnBoss3)
+07/30/24 18:33:25: Executing action/group: SpawnBoss3
+07/30/24 18:33:25: Decoded Data: {"command":"spawn_boss","parameters":[3.0,353.0,353.0],"targetObject":"Target"}
+07/30/24 18:33:25: Raw command: Target.spawn_boss([3.0,353.0,353.0])
+07/30/24 18:33:25: Cleaned command: Target.spawn_boss([3.0,353.0,353.0])
+07/30/24 18:33:25: Parsing arguments: [3.0,353.0,353.0]
+07/30/24 18:33:25: Parsed arguments: ["[3.0,353.0,353.0]"]
+07/30/24 18:33:25: Command Name: spawn_boss
+07/30/24 18:33:25: Target Object: Target
+07/30/24 18:33:25: Parameters: ["[3.0,353.0,353.0]"]
+07/30/24 18:33:25: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:25: Added boss reference: Rehino5 -> obj_boss
+07/30/24 18:33:25: Boss spawned successfully: 3 at position (3173, 1618.78) relative to Target
+07/30/24 18:33:25: Raw command: execute_action(SpawnBoss4)
+07/30/24 18:33:25: Cleaned command: execute_action(SpawnBoss4)
+07/30/24 18:33:25: Executing action/group: SpawnBoss4
+07/30/24 18:33:25: Decoded Data: {"command":"spawn_boss","parameters":[4.0,0.0,500.0],"targetObject":"Target"}
+07/30/24 18:33:25: Raw command: Target.spawn_boss([4.0,0.0,500.0])
+07/30/24 18:33:25: Cleaned command: Target.spawn_boss([4.0,0.0,500.0])
+07/30/24 18:33:25: Parsing arguments: [4.0,0.0,500.0]
+07/30/24 18:33:25: Parsed arguments: ["[4.0,0.0,500.0]"]
+07/30/24 18:33:25: Command Name: spawn_boss
+07/30/24 18:33:25: Target Object: Target
+07/30/24 18:33:25: Parameters: ["[4.0,0.0,500.0]"]
+07/30/24 18:33:25: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:25: Added boss reference: 22Salamander6 -> obj_boss
+07/30/24 18:33:25: Boss spawned successfully: 4 at position (2820, 1765.78) relative to Target
+07/30/24 18:33:25: Raw command: execute_action(SpawnBoss5)
+07/30/24 18:33:25: Cleaned command: execute_action(SpawnBoss5)
+07/30/24 18:33:25: Executing action/group: SpawnBoss5
+07/30/24 18:33:25: Decoded Data: {"command":"spawn_boss","parameters":[5.0,-353.0,353.0],"targetObject":"Target"}
+07/30/24 18:33:25: Raw command: Target.spawn_boss([5.0,-353.0,353.0])
+07/30/24 18:33:25: Cleaned command: Target.spawn_boss([5.0,-353.0,353.0])
+07/30/24 18:33:25: Parsing arguments: [5.0,-353.0,353.0]
+07/30/24 18:33:25: Parsed arguments: ["[5.0,-353.0,353.0]"]
+07/30/24 18:33:25: Command Name: spawn_boss
+07/30/24 18:33:25: Target Object: Target
+07/30/24 18:33:25: Parameters: ["[5.0,-353.0,353.0]"]
+07/30/24 18:33:25: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:25: Added boss reference: SquidCudi7 -> obj_boss
+07/30/24 18:33:25: Boss spawned successfully: 5 at position (2467, 1618.78) relative to Target
+07/30/24 18:33:25: Raw command: execute_action(SpawnBoss6)
+07/30/24 18:33:25: Cleaned command: execute_action(SpawnBoss6)
+07/30/24 18:33:25: Executing action/group: SpawnBoss6
+07/30/24 18:33:25: Decoded Data: {"command":"spawn_boss","parameters":[6.0,-500.0,0.0],"targetObject":"Target"}
+07/30/24 18:33:25: Raw command: Target.spawn_boss([6.0,-500.0,0.0])
+07/30/24 18:33:25: Cleaned command: Target.spawn_boss([6.0,-500.0,0.0])
+07/30/24 18:33:25: Parsing arguments: [6.0,-500.0,0.0]
+07/30/24 18:33:25: Parsed arguments: ["[6.0,-500.0,0.0]"]
+07/30/24 18:33:25: Command Name: spawn_boss
+07/30/24 18:33:25: Target Object: Target
+07/30/24 18:33:25: Parameters: ["[6.0,-500.0,0.0]"]
+07/30/24 18:33:25: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:25: Added boss reference: Dracoon8 -> obj_boss
+07/30/24 18:33:25: Boss spawned successfully: 6 at position (2320, 1265.78) relative to Target
+07/30/24 18:33:25: Raw command: execute_action(SpawnBoss7)
+07/30/24 18:33:25: Cleaned command: execute_action(SpawnBoss7)
+07/30/24 18:33:25: Executing action/group: SpawnBoss7
+07/30/24 18:33:25: Decoded Data: {"command":"spawn_boss","parameters":[7.0,-353.0,-353.0],"targetObject":"Target"}
+07/30/24 18:33:25: Raw command: Target.spawn_boss([7.0,-353.0,-353.0])
+07/30/24 18:33:25: Cleaned command: Target.spawn_boss([7.0,-353.0,-353.0])
+07/30/24 18:33:25: Parsing arguments: [7.0,-353.0,-353.0]
+07/30/24 18:33:25: Parsed arguments: ["[7.0,-353.0,-353.0]"]
+07/30/24 18:33:25: Command Name: spawn_boss
+07/30/24 18:33:25: Target Object: Target
+07/30/24 18:33:25: Parameters: ["[7.0,-353.0,-353.0]"]
+07/30/24 18:33:25: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:25: Added boss reference: KidBoo9 -> obj_boss
+07/30/24 18:33:25: Boss spawned successfully: 7 at position (2467, 912.78) relative to Target
+07/30/24 18:33:25: Raw command: execute_action(SpawnBoss8)
+07/30/24 18:33:25: Cleaned command: execute_action(SpawnBoss8)
+07/30/24 18:33:25: Executing action/group: SpawnBoss8
+07/30/24 18:33:25: Decoded Data: {"command":"spawn_boss","parameters":[8.0,0.0,-400.0],"targetObject":"Target"}
+07/30/24 18:33:25: Raw command: Target.spawn_boss([8.0,0.0,-400.0])
+07/30/24 18:33:25: Cleaned command: Target.spawn_boss([8.0,0.0,-400.0])
+07/30/24 18:33:25: Parsing arguments: [8.0,0.0,-400.0]
+07/30/24 18:33:25: Parsed arguments: ["[8.0,0.0,-400.0]"]
+07/30/24 18:33:25: Command Name: spawn_boss
+07/30/24 18:33:25: Target Object: Target
+07/30/24 18:33:25: Parameters: ["[8.0,0.0,-400.0]"]
+07/30/24 18:33:25: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:25: Added boss reference: LilSheep10 -> obj_boss
+07/30/24 18:33:25: Boss spawned successfully: 8 at position (2664.03, 1022.07) relative to Target
+07/30/24 18:33:25: Raw command: execute_action(SpawnBoss9)
+07/30/24 18:33:25: Cleaned command: execute_action(SpawnBoss9)
+07/30/24 18:33:25: Executing action/group: SpawnBoss9
+07/30/24 18:33:25: Decoded Data: {"command":"spawn_boss","parameters":[9.0,283.0,-283.0],"targetObject":"Target"}
+07/30/24 18:33:25: Raw command: Target.spawn_boss([9.0,283.0,-283.0])
+07/30/24 18:33:25: Cleaned command: Target.spawn_boss([9.0,283.0,-283.0])
+07/30/24 18:33:25: Parsing arguments: [9.0,283.0,-283.0]
+07/30/24 18:33:25: Parsed arguments: ["[9.0,283.0,-283.0]"]
+07/30/24 18:33:26: Command Name: spawn_boss
+07/30/24 18:33:26: Target Object: Target
+07/30/24 18:33:26: Parameters: ["[9.0,283.0,-283.0]"]
+07/30/24 18:33:26: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:26: Added boss reference: Emunem11 -> obj_boss
+07/30/24 18:33:26: Boss spawned successfully: 9 at position (3075.60, 1163.29) relative to Target
+07/30/24 18:33:26: Raw command: execute_action(SpawnBoss10)
+07/30/24 18:33:26: Cleaned command: execute_action(SpawnBoss10)
+07/30/24 18:33:26: Executing action/group: SpawnBoss10
+07/30/24 18:33:26: Decoded Data: {"command":"spawn_boss","parameters":[10.0,400.0,0.0],"targetObject":"Target"}
+07/30/24 18:33:26: Raw command: Target.spawn_boss([10.0,400.0,0.0])
+07/30/24 18:33:26: Cleaned command: Target.spawn_boss([10.0,400.0,0.0])
+07/30/24 18:33:26: Parsing arguments: [10.0,400.0,0.0]
+07/30/24 18:33:26: Parsed arguments: ["[10.0,400.0,0.0]"]
+07/30/24 18:33:26: Command Name: spawn_boss
+07/30/24 18:33:26: Target Object: Target
+07/30/24 18:33:26: Parameters: ["[10.0,400.0,0.0]"]
+07/30/24 18:33:26: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:26: Added boss reference: LilHump12 -> obj_boss
+07/30/24 18:33:26: Boss spawned successfully: 10 at position (3506.85, 1111.13) relative to Target
+07/30/24 18:33:26: Raw command: execute_action(SpawnBoss11)
+07/30/24 18:33:26: Cleaned command: execute_action(SpawnBoss11)
+07/30/24 18:33:26: Executing action/group: SpawnBoss11
+07/30/24 18:33:26: Decoded Data: {"command":"spawn_boss","parameters":[11.0,283.0,283.0],"targetObject":"Target"}
+07/30/24 18:33:26: Raw command: Target.spawn_boss([11.0,283.0,283.0])
+07/30/24 18:33:26: Cleaned command: Target.spawn_boss([11.0,283.0,283.0])
+07/30/24 18:33:26: Parsing arguments: [11.0,283.0,283.0]
+07/30/24 18:33:26: Parsed arguments: ["[11.0,283.0,283.0]"]
+07/30/24 18:33:26: Command Name: spawn_boss
+07/30/24 18:33:26: Target Object: Target
+07/30/24 18:33:26: Parameters: ["[11.0,283.0,283.0]"]
+07/30/24 18:33:26: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:26: Added boss reference: BeeYonce13 -> obj_boss
+07/30/24 18:33:26: Boss spawned successfully: 11 at position (3088.32, 1434.35) relative to Target
+07/30/24 18:33:26: Raw command: execute_action(SpawnBoss12)
+07/30/24 18:33:26: Cleaned command: execute_action(SpawnBoss12)
+07/30/24 18:33:26: Executing action/group: SpawnBoss12
+07/30/24 18:33:26: Decoded Data: {"command":"spawn_boss","parameters":[12.0,0.0,400.0],"targetObject":"Target"}
+07/30/24 18:33:26: Raw command: Target.spawn_boss([12.0,0.0,400.0])
+07/30/24 18:33:26: Cleaned command: Target.spawn_boss([12.0,0.0,400.0])
+07/30/24 18:33:26: Parsing arguments: [12.0,0.0,400.0]
+07/30/24 18:33:26: Parsed arguments: ["[12.0,0.0,400.0]"]
+07/30/24 18:33:26: Command Name: spawn_boss
+07/30/24 18:33:26: Target Object: Target
+07/30/24 18:33:26: Parameters: ["[12.0,0.0,400.0]"]
+07/30/24 18:33:26: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:26: Added boss reference: KimChameleon14 -> obj_boss
+07/30/24 18:33:26: Boss spawned successfully: 12 at position (2721.20, 1585.23) relative to Target
+07/30/24 18:33:26: Raw command: execute_action(SpawnBoss13)
+07/30/24 18:33:26: Cleaned command: execute_action(SpawnBoss13)
+07/30/24 18:33:26: Executing action/group: SpawnBoss13
+07/30/24 18:33:26: Decoded Data: {"command":"spawn_boss","parameters":[13.0,-283.0,283.0],"targetObject":"Target"}
+07/30/24 18:33:26: Raw command: Target.spawn_boss([13.0,-283.0,283.0])
+07/30/24 18:33:26: Cleaned command: Target.spawn_boss([13.0,-283.0,283.0])
+07/30/24 18:33:26: Parsing arguments: [13.0,-283.0,283.0]
+07/30/24 18:33:26: Parsed arguments: ["[13.0,-283.0,283.0]"]
+07/30/24 18:33:26: Command Name: spawn_boss
+07/30/24 18:33:26: Target Object: Target
+07/30/24 18:33:26: Parameters: ["[13.0,-283.0,283.0]"]
+07/30/24 18:33:26: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 18:33:26: Added boss reference: TaylorSwan15 -> obj_boss
+07/30/24 18:33:26: Boss spawned successfully: 13 at position (2406.19, 1238.19) relative to Target
+07/30/24 18:34:18: Raw command: level_up(1000)
+07/30/24 18:34:18: Cleaned command: level_up(1000)
+07/30/24 18:34:18: Parsing arguments: 1000
+07/30/24 18:34:18: Parsed arguments: ["1000"]
+07/30/24 18:34:18: Command Name: level_up
+07/30/24 18:34:18: Target Object: yeancat
+07/30/24 18:34:18: Parameters: ["1000"]
+07/30/24 18:34:18: Level up initiated with goal: 1000
+07/30/24 18:36:04: Raw command: list_variables
+07/30/24 18:36:04: Cleaned command: list_variables
+07/30/24 18:36:04: Command Name: list_variables
+07/30/24 18:36:04: Target Object: yeancat
+07/30/24 18:36:04: Parameters: []
+07/30/24 18:36:04: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+07/30/24 18:36:04: Password, Time, Macro5, Macro1, SpawnEnemies, Macro9, Macro7, Macro3, 
+07/30/24 18:36:04: CharacterLimit, ControllerType, Level
+07/30/24 18:36:30: Raw command: set_variable(SpawnEnemies,true)
+07/30/24 18:36:30: Cleaned command: set_variable(SpawnEnemies,true)
+07/30/24 18:36:30: Parsing arguments: SpawnEnemies,true
+07/30/24 18:36:30: Parsed arguments: ["SpawnEnemies","true"]
+07/30/24 18:36:30: Command Name: set_variable
+07/30/24 18:36:30: Target Object: yeancat
+07/30/24 18:36:30: Parameters: ["SpawnEnemies","true"]
+07/30/24 18:36:30: SpawnEnemies set to 1
+07/30/24 18:37:10: Raw command: execute_action(SpaceAdventureStart)
+07/30/24 18:37:10: Cleaned command: execute_action(SpaceAdventureStart)
+07/30/24 18:37:10: Executing action/group: SpaceAdventureStart
+07/30/24 18:37:10: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/30/24 18:37:10: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 18:37:10: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 18:37:10: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/30/24 18:37:10: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 18:37:10: Command Name: chat_bubble
+07/30/24 18:37:10: Target Object: Target
+07/30/24 18:37:10: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 18:37:10: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/30/24 18:37:10: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/30/24 18:37:13: Raw command: execute_action(StartExploration)
+07/30/24 18:37:13: Cleaned command: execute_action(StartExploration)
+07/30/24 18:37:13: Executing action/group: StartExploration
+07/30/24 18:37:13: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/30/24 18:37:13: Raw command: execute_action("SpaceExploration")
+07/30/24 18:37:13: Cleaned command: execute_action("SpaceExploration")
+07/30/24 18:37:13: Executing action/group: SpaceExploration
+07/30/24 18:37:13: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/30/24 18:37:13: Raw command: execute_action(GotoUniverseCity)
+07/30/24 18:37:13: Cleaned command: execute_action(GotoUniverseCity)
+07/30/24 18:37:13: Executing action/group: GotoUniverseCity
+07/30/24 18:37:13: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+07/30/24 18:37:13: Raw command: goto_planet("Universe City")
+07/30/24 18:37:13: Cleaned command: goto_planet("Universe City")
+07/30/24 18:37:13: Parsing arguments: "Universe City"
+07/30/24 18:37:13: Parsed arguments: ["\"Universe City\""]
+07/30/24 18:37:13: Command Name: goto_planet
+07/30/24 18:37:13: Target Object: yeancat
+07/30/24 18:37:13: Parameters: ["\"Universe City\""]
+07/30/24 18:37:13: Teleported to Universe City.
+07/30/24 18:37:13: Raw command: execute_action(ExplorationChoice)
+07/30/24 18:37:13: Cleaned command: execute_action(ExplorationChoice)
+07/30/24 18:37:13: Executing action/group: ExplorationChoice
+07/30/24 18:37:13: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"Target"}
+07/30/24 18:37:13: Raw command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/30/24 18:37:13: Cleaned command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/30/24 18:37:13: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/30/24 18:37:13: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/30/24 18:37:13: Command Name: chat_bubble
+07/30/24 18:37:13: Target Object: Target
+07/30/24 18:37:13: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/30/24 18:37:13: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: Target, Choices: []
+07/30/24 18:37:13: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+
+move?'. Number of choices: 3
+ERROR!!! :: ############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_chat_bubble:
+
+
+Unable to find instance for object index 192
+ at gml_Object_obj_chat_bubble_Step_0 (line 3) -     x = owner.x;
+############################################################################################
+gml_Object_obj_chat_bubble_Step_0 (line 3)
+
+Igor complete.
+elapsed time 00:09:59.9265240s for command "/Users/Shared/GameMakerStudio2/Cache/runtimes/runtime-2024.4.1.201/bin/igor/osx/arm64/Igor" -j=8  -options="/tmp/GameMakerStudio2/GMS2TEMP/build.bff" -v -- Mac Run started at 07/30/2024 18:27:53
+SUCCESS: Run Program Complete
+
+Great it all works! I was able to test everything! But we got a random crash

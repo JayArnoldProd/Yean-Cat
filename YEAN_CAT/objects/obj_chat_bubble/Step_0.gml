@@ -1,19 +1,24 @@
 // obj_chat_bubble Step Event
-if (owner != noone) {
-    x = owner.x;
-    y = owner.y - 60;
+
+if (!instance_exists(owner)) {
+    instance_destroy();  // Destroy the chat bubble if its owner no longer exists
+    exit;
 }
 
+x = owner.x;
+y = owner.y - 60;
+
+
 if (wrapped == 0) {
+	if string_contains(text, "|") {
+	text = string_replace_all(text, "|", "\n");
+	}
     draw_set_font(text_font);
     var text_length = string_length(text);
     var longestWordWidth = get_longest_word_width(text, text_font, 1);
     
-    // Adjust max_width based on text length
-    max_width = clamp(500 + text_length * 2, min_width, 1500);
-    
     // Calculate initial text scale
-    text_scale = min(clamp(1 - text_length / 500, 0.5, 1), clamp(1.5 - longestWordWidth / 1000, 0.5, 1));
+    text_scale = min(clamp(1 - text_length / 600, 0.4, 1), clamp(1.5 - longestWordWidth / 1200, 0.4, 1));
     
     // Wrap text
     wrapped_text = wrap_chat_text(text, max_width - 2 * padding);
@@ -38,7 +43,10 @@ if (wrapped == 0) {
 top_middle_x = x - (sprite_get_xoffset(sprite_index) - 250) * scale_x / 500;
 top_middle_y = y - sprite_get_yoffset(sprite_index) - real_scale_y - 60;
 
-lifetime++;
-if (lifetime >= duration) {
-    instance_destroy();
+// obj_chat_bubble Step Event
+if (timer_enabled) {
+    lifetime++;
+    if (lifetime >= duration) {
+        instance_destroy();
+    }
 }

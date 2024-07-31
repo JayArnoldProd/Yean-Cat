@@ -1,0 +1,167 @@
+07/29/24 02:07:06: Loaded action/group: SaveGameNow
+07/29/24 02:07:06: Loaded action/group: GotoKingsKingdom
+07/29/24 02:07:06: Loaded action/group: EnterPortal
+07/29/24 02:07:06: Loaded action/group: PurchaseArtifacts
+07/29/24 02:07:06: Loaded action/group: BattleOutcome
+07/29/24 02:07:06: Loaded action/group: VisitMarket
+07/29/24 02:07:06: Loaded action/group: GotoDivineDomain
+07/29/24 02:07:06: Loaded action/group: GotoTheEndonda
+07/29/24 02:07:06: Loaded action/group: GotoUniverseCity
+07/29/24 02:07:07: Loaded action/group: GotoLandOfLucy
+07/29/24 02:07:07: Loaded action/group: GotoPlaceOfPablo
+07/29/24 02:07:07: Loaded action/group: InvestigateSignals
+07/29/24 02:07:07: Loaded action/group: OfferTrade
+07/29/24 02:07:07: Loaded action/group: DisableEnemySpawns
+07/29/24 02:07:07: Loaded action/group: BattleSequence
+07/29/24 02:07:07: Loaded action/group: StartBattle
+07/29/24 02:07:07: Loaded action/group: GotoTheIcyHeart
+07/29/24 02:07:07: Loaded action/group: EngageCombat
+07/29/24 02:07:07: Loaded action/group: GotoGhostTown
+07/29/24 02:07:07: Loaded action/group: StartExploration
+07/29/24 02:07:07: Loaded action/group: SetLevelFive
+07/29/24 02:07:07: Loaded action/group: LevelUpThree
+07/29/24 02:07:07: Loaded action/group: LevelUpOnce
+07/29/24 02:07:07: Loaded action/group: GotoTheGoldMines
+07/29/24 02:07:07: Loaded action/group: StartPeaceMission
+07/29/24 02:07:07: Loaded action/group: DiplomaticChoice
+07/29/24 02:07:07: Loaded action/group: TreatyOutcome
+07/29/24 02:07:07: Loaded action/group: ExplorationChoice
+07/29/24 02:07:07: Loaded action/group: BattleChoice
+07/29/24 02:07:07: Loaded action/group: ArtifactMystery
+07/29/24 02:07:07: Loaded action/group: PortalOutcome
+07/29/24 02:07:07: Loaded action/group: PeacefulMission
+07/29/24 02:07:07: Loaded action/group: SpaceAdventureStart
+07/29/24 02:07:07: Loaded action/group: PortalAdventure
+07/29/24 02:07:07: Loaded action/group: EnableEnemySpawns
+07/29/24 02:07:07: Loaded action/group: GotoVulturesValley
+07/29/24 02:07:07: Loaded action/group: GotoEarth
+07/29/24 02:07:07: Loaded action/group: GotoStormySands
+07/29/24 02:07:07: Loaded action/group: SpaceExploration
+07/29/24 02:07:07: Loaded action/group: GotoFantasia
+07/29/24 02:07:07: Loaded action/group: GotoYetopia
+07/29/24 02:07:07: Loaded action/group: ArtifactOutcome
+07/29/24 02:07:07: Loaded action/group: EpicBattle
+07/29/24 02:07:07: Loaded action/group: PeaceTreaty
+07/29/24 02:07:07: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 02:07:07: [Client] Failed to reconnect to server. Will try again...
+07/29/24 02:07:16: Executing command: Player.chat_bubble("Hello World")
+07/29/24 02:07:16: Chat Bubble Created. Following 'yeancat' with text: 'Hello World'. Number of choices: 0
+07/29/24 02:07:34: [Jay Arnold] it works! but the update chat input visuals color changing is expectedly broken now!
+07/29/24 02:07:34: Chat Bubble Created. Following 'yeancat' with text: ' it works! but the update chat input visuals color changing is expectedly broken now!'. Number of choices: 0
+07/29/24 02:07:48: Executing command: add_action(Hello, Player.chat_bubble, ["Hello World"])
+07/29/24 02:07:48: Script not found for command: chat_bubble, ["Hello World"])
+07/29/24 02:07:55: Executing command: list_actions
+07/29/24 02:07:55: Actions: SaveGameNow, GotoKingsKingdom, EnterPortal, PurchaseArtifacts, BattleOutcome, VisitMarket, GotoDivineDomain, GotoTheEndonda, GotoUniverseCity, GotoLandOfLucy, GotoPlaceOfPablo, InvestigateSignals, OfferTrade, DisableEnemySpawns, BattleSequence, StartBattle, GotoTheIcyHeart, EngageCombat, GotoGhostTown, StartExploration, SetLevelFive, LevelUpThree, LevelUpOnce, GotoTheGoldMines, StartPeaceMission, DiplomaticChoice, TreatyOutcome, ExplorationChoice, BattleChoice, ArtifactMystery, PortalOutcome, PeacefulMission, SpaceAdventureStart, PortalAdventure, EnableEnemySpawns, GotoVulturesValley, GotoEarth, GotoStormySands, SpaceExploration, GotoFantasia, GotoYetopia, ArtifactOutcome, EpicBattle, PeaceTreaty,
+07/29/24 02:08:22: Executing command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 02:08:22: Script not found for command: chat_bubble,["Hello World"])
+07/29/24 02:08:29: [Jay Arnold] the action is not saving!
+07/29/24 02:08:29: Chat Bubble Created. Following 'yeancat' with text: ' the action is not saving!'. Number of choices: 0
+07/29/24 02:08:34: Executing command: execute_action(Hello)
+07/29/24 02:08:34: execute_action - Action Name: Hello
+07/29/24 02:08:34: Action 'Hello' not found.
+07/29/24 02:13:36: Loaded action/group: SaveGameNow
+07/29/24 02:13:36: Loaded action/group: GotoKingsKingdom
+07/29/24 02:13:36: Loaded action/group: EnterPortal
+07/29/24 02:13:36: Loaded action/group: PurchaseArtifacts
+07/29/24 02:13:36: Loaded action/group: BattleOutcome
+07/29/24 02:13:36: Loaded action/group: VisitMarket
+07/29/24 02:13:36: Loaded action/group: GotoDivineDomain
+07/29/24 02:13:36: Loaded action/group: GotoTheEndonda
+07/29/24 02:13:36: Loaded action/group: GotoUniverseCity
+07/29/24 02:13:36: Loaded action/group: GotoLandOfLucy
+07/29/24 02:13:36: Loaded action/group: GotoPlaceOfPablo
+07/29/24 02:13:36: Loaded action/group: InvestigateSignals
+07/29/24 02:13:36: Loaded action/group: OfferTrade
+07/29/24 02:13:36: Loaded action/group: DisableEnemySpawns
+07/29/24 02:13:36: Loaded action/group: BattleSequence
+07/29/24 02:13:36: Loaded action/group: StartBattle
+07/29/24 02:13:36: Loaded action/group: GotoTheIcyHeart
+07/29/24 02:13:36: Loaded action/group: EngageCombat
+07/29/24 02:13:36: Loaded action/group: GotoGhostTown
+07/29/24 02:13:36: Loaded action/group: StartExploration
+07/29/24 02:13:36: Loaded action/group: SetLevelFive
+07/29/24 02:13:36: Loaded action/group: LevelUpThree
+07/29/24 02:13:36: Loaded action/group: LevelUpOnce
+07/29/24 02:13:36: Loaded action/group: GotoTheGoldMines
+07/29/24 02:13:36: Loaded action/group: StartPeaceMission
+07/29/24 02:13:36: Loaded action/group: DiplomaticChoice
+07/29/24 02:13:36: Loaded action/group: TreatyOutcome
+07/29/24 02:13:36: Loaded action/group: ExplorationChoice
+07/29/24 02:13:36: Loaded action/group: BattleChoice
+07/29/24 02:13:36: Loaded action/group: ArtifactMystery
+07/29/24 02:13:36: Loaded action/group: PortalOutcome
+07/29/24 02:13:36: Loaded action/group: PeacefulMission
+07/29/24 02:13:36: Loaded action/group: SpaceAdventureStart
+07/29/24 02:13:36: Loaded action/group: PortalAdventure
+07/29/24 02:13:36: Loaded action/group: EnableEnemySpawns
+07/29/24 02:13:36: Loaded action/group: GotoVulturesValley
+07/29/24 02:13:36: Loaded action/group: GotoEarth
+07/29/24 02:13:36: Loaded action/group: GotoStormySands
+07/29/24 02:13:36: Loaded action/group: SpaceExploration
+07/29/24 02:13:36: Loaded action/group: GotoFantasia
+07/29/24 02:13:36: Loaded action/group: GotoYetopia
+07/29/24 02:13:36: Loaded action/group: ArtifactOutcome
+07/29/24 02:13:36: Loaded action/group: EpicBattle
+07/29/24 02:13:36: Loaded action/group: PeaceTreaty
+07/29/24 02:13:36: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 02:13:36: [Client] Failed to reconnect to server. Will try again...
+07/29/24 02:13:59: Executing command: Player.chat_bubble("Hello World")
+07/29/24 02:13:59: Chat Bubble Created. Following 'yeancat' with text: 'Hello World'. Number of choices: 0
+07/29/24 02:14:10: Executing command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 02:14:10: Script not found for command: chat_bubble,["Hello World"])
+07/29/24 02:16:10: Loaded action/group: SaveGameNow
+07/29/24 02:16:10: Loaded action/group: GotoKingsKingdom
+07/29/24 02:16:10: Loaded action/group: EnterPortal
+07/29/24 02:16:10: Loaded action/group: PurchaseArtifacts
+07/29/24 02:16:10: Loaded action/group: BattleOutcome
+07/29/24 02:16:10: Loaded action/group: VisitMarket
+07/29/24 02:16:10: Loaded action/group: GotoDivineDomain
+07/29/24 02:16:10: Loaded action/group: GotoTheEndonda
+07/29/24 02:16:10: Loaded action/group: GotoUniverseCity
+07/29/24 02:16:10: Loaded action/group: GotoLandOfLucy
+07/29/24 02:16:10: Loaded action/group: GotoPlaceOfPablo
+07/29/24 02:16:10: Loaded action/group: InvestigateSignals
+07/29/24 02:16:10: Loaded action/group: OfferTrade
+07/29/24 02:16:10: Loaded action/group: DisableEnemySpawns
+07/29/24 02:16:10: Loaded action/group: BattleSequence
+07/29/24 02:16:10: Loaded action/group: StartBattle
+07/29/24 02:16:10: Loaded action/group: GotoTheIcyHeart
+07/29/24 02:16:10: Loaded action/group: EngageCombat
+07/29/24 02:16:10: Loaded action/group: GotoGhostTown
+07/29/24 02:16:10: Loaded action/group: StartExploration
+07/29/24 02:16:10: Loaded action/group: SetLevelFive
+07/29/24 02:16:10: Loaded action/group: LevelUpThree
+07/29/24 02:16:10: Loaded action/group: LevelUpOnce
+07/29/24 02:16:10: Loaded action/group: GotoTheGoldMines
+07/29/24 02:16:10: Loaded action/group: StartPeaceMission
+07/29/24 02:16:10: Loaded action/group: DiplomaticChoice
+07/29/24 02:16:10: Loaded action/group: TreatyOutcome
+07/29/24 02:16:10: Loaded action/group: ExplorationChoice
+07/29/24 02:16:10: Loaded action/group: BattleChoice
+07/29/24 02:16:10: Loaded action/group: ArtifactMystery
+07/29/24 02:16:10: Loaded action/group: PortalOutcome
+07/29/24 02:16:10: Loaded action/group: PeacefulMission
+07/29/24 02:16:10: Loaded action/group: SpaceAdventureStart
+07/29/24 02:16:10: Loaded action/group: PortalAdventure
+07/29/24 02:16:10: Loaded action/group: EnableEnemySpawns
+07/29/24 02:16:10: Loaded action/group: GotoVulturesValley
+07/29/24 02:16:10: Loaded action/group: GotoEarth
+07/29/24 02:16:10: Loaded action/group: GotoStormySands
+07/29/24 02:16:10: Loaded action/group: SpaceExploration
+07/29/24 02:16:10: Loaded action/group: GotoFantasia
+07/29/24 02:16:10: Loaded action/group: GotoYetopia
+07/29/24 02:16:10: Loaded action/group: ArtifactOutcome
+07/29/24 02:16:10: Loaded action/group: EpicBattle
+07/29/24 02:16:10: Loaded action/group: PeaceTreaty
+07/29/24 02:16:10: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 02:16:10: [Client] Failed to reconnect to server. Will try again...
+07/29/24 02:16:26: Executing command: Player.chat_bubble("Hello World")
+07/29/24 02:16:26: Chat Bubble Created. Following 'yeancat' with text: 'Hello World'. Number of choices: 0
+07/29/24 02:16:33: [Jay Arnold] hello world
+07/29/24 02:16:33: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/29/24 02:16:37: [Jay Arnold] hello|world
+07/29/24 02:16:37: Chat Bubble Created. Following 'yeancat' with text: ' hello|world'. Number of choices: 0
+07/29/24 02:16:59: Executing command: add_action(Hello,Player.chat_bubble,["Hello World"])
+07/29/24 02:16:59: Script not found for command: chat_bubble,["Hello World"])
+07/29/24 02:17:05: Executing command: execute_action(Hello)
+07/29/24 02:17:05: Action 'Hello' not found.

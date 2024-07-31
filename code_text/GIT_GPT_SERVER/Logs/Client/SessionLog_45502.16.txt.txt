@@ -1,0 +1,706 @@
+07/28/24 22:57:14: Loaded action/group: SaveGameNow
+07/28/24 22:57:14: Loaded action/group: MoreChoices3
+07/28/24 22:57:14: Loaded action/group: GotoKingsKingdom
+07/28/24 22:57:14: Loaded action/group: MainMenuChoices2
+07/28/24 22:57:14: Loaded action/group: EnterPortal
+07/28/24 22:57:14: Loaded action/group: PurchaseArtifacts
+07/28/24 22:57:14: Loaded action/group: BattleOutcome
+07/28/24 22:57:14: Loaded action/group: MoreChoices1
+07/28/24 22:57:14: Loaded action/group: VisitMarket
+07/28/24 22:57:14: Loaded action/group: GotoDivineDomain
+07/28/24 22:57:14: Loaded action/group: GotoTheEndonda
+07/28/24 22:57:14: Loaded action/group: GotoUniverseCity
+07/28/24 22:57:14: Loaded action/group: GotoLandOfLucy
+07/28/24 22:57:14: Loaded action/group: GotoPlaceOfPablo
+07/28/24 22:57:15: Loaded action/group: InvestigateSignals
+07/28/24 22:57:15: Loaded action/group: OfferTrade
+07/28/24 22:57:15: Loaded action/group: BattleSequence
+07/28/24 22:57:15: Loaded action/group: StartBattle
+07/28/24 22:57:15: Loaded action/group: GotoTheIcyHeart
+07/28/24 22:57:15: Loaded action/group: GotoGhostTown
+07/28/24 22:57:15: Loaded action/group: MainMenuChoices
+07/28/24 22:57:15: Loaded action/group: StartExploration
+07/28/24 22:57:15: Loaded action/group: LevelUpOnce
+07/28/24 22:57:15: Loaded action/group: GotoTheGoldMines
+07/28/24 22:57:15: Loaded action/group: StartPeaceMission
+07/28/24 22:57:15: Loaded action/group: DiplomaticChoice
+07/28/24 22:57:15: Loaded action/group: TreatyOutcome
+07/28/24 22:57:15: Loaded action/group: ExplorationChoice
+07/28/24 22:57:15: Loaded action/group: BattleChoice
+07/28/24 22:57:15: Loaded action/group: MoreChoices2
+07/28/24 22:57:15: Loaded action/group: ArtifactMystery
+07/28/24 22:57:15: Loaded action/group: PortalOutcome
+07/28/24 22:57:15: Loaded action/group: MoreChoices4
+07/28/24 22:57:15: Loaded action/group: PeacefulMission
+07/28/24 22:57:15: Loaded action/group: SpaceAdventureStart
+07/28/24 22:57:15: Loaded action/group: PortalAdventure
+07/28/24 22:57:15: Loaded action/group: GotoVulturesValley
+07/28/24 22:57:15: Loaded action/group: GotoEarth
+07/28/24 22:57:15: Loaded action/group: GotoStormySands
+07/28/24 22:57:15: Loaded action/group: EngageComplete
+07/28/24 22:57:15: Loaded action/group: SpaceExploration
+07/28/24 22:57:15: Loaded action/group: GotoFantasia
+07/28/24 22:57:15: Loaded action/group: GotoYetopia
+07/28/24 22:57:15: Loaded action/group: ArtifactOutcome
+07/28/24 22:57:15: Loaded action/group: EpicBattle
+07/28/24 22:57:15: Loaded action/group: PeaceTreaty
+07/28/24 22:57:15: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 22:57:15: [Client] Failed to reconnect to server. Will try again...
+07/28/24 23:05:03: [Jay Arnold] hello
+07/28/24 23:05:03: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/28/24 23:05:03: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/28/24 23:05:05: [Jay Arnold] 
+07/28/24 23:05:05: Creating chat bubble:  , Owner: yeancat, Choices: []
+07/28/24 23:05:05: Chat Bubble Created. Following 'yeancat' with text: ' '. Number of choices: 0
+07/28/24 23:05:14: [Jay Arnold] hello
+07/28/24 23:05:14: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/28/24 23:05:14: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/28/24 23:05:44: [Jay Arnold] hello
+07/28/24 23:05:44: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/28/24 23:05:44: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/28/24 23:05:46: [Jay Arnold] hello
+07/28/24 23:05:46: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/28/24 23:05:46: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/28/24 23:05:48: [Jay Arnold] hello
+07/28/24 23:05:48: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/28/24 23:05:48: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/28/24 23:05:49: [Jay Arnold] hello
+07/28/24 23:05:49: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/28/24 23:05:49: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/28/24 23:06:10: Executing command: list_actions
+07/28/24 23:06:10: Actions: SaveGameNow, MoreChoices3, GotoKingsKingdom, MainMenuChoices2, EnterPortal, PurchaseArtifacts, BattleOutcome, MoreChoices1, VisitMarket, GotoDivineDomain, GotoTheEndonda, GotoUniverseCity, GotoLandOfLucy, GotoPlaceOfPablo, InvestigateSignals, OfferTrade, BattleSequence, StartBattle, GotoTheIcyHeart, GotoGhostTown, MainMenuChoices, StartExploration, LevelUpOnce, GotoTheGoldMines, StartPeaceMission, DiplomaticChoice, TreatyOutcome, ExplorationChoice, BattleChoice, MoreChoices2, ArtifactMystery, PortalOutcome, MoreChoices4, PeacefulMission, SpaceAdventureStart, PortalAdventure, GotoVulturesValley, GotoEarth, GotoStormySands, EngageComplete, SpaceExploration, GotoFantasia, GotoYetopia, ArtifactOutcome, EpicBattle, PeaceTreaty,
+07/28/24 23:06:18: Executing command: delete_action(All)
+07/28/24 23:06:18: All actions and action groups have been deleted.
+07/28/24 23:06:18: No actions or action groups to save.
+07/28/24 23:06:21: Executing command: list_actions
+07/28/24 23:06:21: No actions found.
+07/28/24 23:06:24: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/28/24 23:06:24: scr_add_action - Raw inputs:
+07/28/24 23:06:24: Name: LevelUpOnce
+07/28/24 23:06:24: Command: level_up
+07/28/24 23:06:24: Parameters: [1]
+07/28/24 23:06:24: Action 'LevelUpOnce' added/updated successfully.
+07/28/24 23:06:24: Encoded Command: eyJjb21tYW5kIjoibGV2ZWxfdXAiLCJwYXJhbWV0ZXJzIjpbMS4wXX0=
+07/28/24 23:06:24: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:24: Executing command: add_action(LevelUpThree, level_up, [3])
+07/28/24 23:06:24: scr_add_action - Raw inputs:
+07/28/24 23:06:24: Name: LevelUpThree
+07/28/24 23:06:24: Command: level_up
+07/28/24 23:06:24: Parameters: [3]
+07/28/24 23:06:24: Action 'LevelUpThree' added/updated successfully.
+07/28/24 23:06:24: Encoded Command: eyJjb21tYW5kIjoibGV2ZWxfdXAiLCJwYXJhbWV0ZXJzIjpbMy4wXX0=
+07/28/24 23:06:24: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:24: Executing command: add_action(SaveGameNow,save_game,[])
+07/28/24 23:06:24: scr_add_action - Raw inputs:
+07/28/24 23:06:24: Name: SaveGameNow
+07/28/24 23:06:24: Command: save_game
+07/28/24 23:06:24: Parameters: []
+07/28/24 23:06:24: Action 'SaveGameNow' added/updated successfully.
+07/28/24 23:06:24: Encoded Command: eyJjb21tYW5kIjoic2F2ZV9nYW1lIiwicGFyYW1ldGVycyI6W119
+07/28/24 23:06:24: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:29: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/28/24 23:06:29: scr_add_action - Raw inputs:
+07/28/24 23:06:29: Name: GotoEarth
+07/28/24 23:06:29: Command: goto_planet
+07/28/24 23:06:29: Parameters: ["Earth"]
+07/28/24 23:06:29: Action 'GotoEarth' added/updated successfully.
+07/28/24 23:06:29: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 23:06:29: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:29: Executing command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+07/28/24 23:06:29: scr_add_action - Raw inputs:
+07/28/24 23:06:29: Name: GotoUniverseCity
+07/28/24 23:06:29: Command: goto_planet
+07/28/24 23:06:29: Parameters: ["Universe City"]
+07/28/24 23:06:29: Action 'GotoUniverseCity' added/updated successfully.
+07/28/24 23:06:29: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 23:06:29: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:29: Executing command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+07/28/24 23:06:29: scr_add_action - Raw inputs:
+07/28/24 23:06:29: Name: GotoFantasia
+07/28/24 23:06:29: Command: goto_planet
+07/28/24 23:06:29: Parameters: ["Fantasia"]
+07/28/24 23:06:29: Action 'GotoFantasia' added/updated successfully.
+07/28/24 23:06:29: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 23:06:29: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:29: Executing command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+07/28/24 23:06:29: scr_add_action - Raw inputs:
+07/28/24 23:06:29: Name: GotoLandOfLucy
+07/28/24 23:06:29: Command: goto_planet
+07/28/24 23:06:29: Parameters: ["Land of Lucy"]
+07/28/24 23:06:29: Action 'GotoLandOfLucy' added/updated successfully.
+07/28/24 23:06:29: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 23:06:29: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:29: Executing command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+07/28/24 23:06:29: scr_add_action - Raw inputs:
+07/28/24 23:06:29: Name: GotoPlaceOfPablo
+07/28/24 23:06:29: Command: goto_planet
+07/28/24 23:06:29: Parameters: ["Place of Pablo"]
+07/28/24 23:06:29: Action 'GotoPlaceOfPablo' added/updated successfully.
+07/28/24 23:06:29: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 23:06:29: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:29: Executing command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+07/28/24 23:06:29: scr_add_action - Raw inputs:
+07/28/24 23:06:29: Name: GotoGhostTown
+07/28/24 23:06:29: Command: goto_planet
+07/28/24 23:06:29: Parameters: ["Ghost Town"]
+07/28/24 23:06:29: Action 'GotoGhostTown' added/updated successfully.
+07/28/24 23:06:29: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 23:06:29: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:29: Executing command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+07/28/24 23:06:29: scr_add_action - Raw inputs:
+07/28/24 23:06:29: Name: GotoVulturesValley
+07/28/24 23:06:29: Command: goto_planet
+07/28/24 23:06:29: Parameters: ["Vultures Valley"]
+07/28/24 23:06:29: Action 'GotoVulturesValley' added/updated successfully.
+07/28/24 23:06:29: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 23:06:29: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:34: Executing command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+07/28/24 23:06:34: scr_add_action - Raw inputs:
+07/28/24 23:06:34: Name: GotoTheEndonda
+07/28/24 23:06:34: Command: goto_planet
+07/28/24 23:06:34: Parameters: ["The Endonda"]
+07/28/24 23:06:34: Action 'GotoTheEndonda' added/updated successfully.
+07/28/24 23:06:34: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 23:06:34: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:34: Executing command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+07/28/24 23:06:34: scr_add_action - Raw inputs:
+07/28/24 23:06:34: Name: GotoStormySands
+07/28/24 23:06:34: Command: goto_planet
+07/28/24 23:06:34: Parameters: ["Stormy Sands"]
+07/28/24 23:06:34: Action 'GotoStormySands' added/updated successfully.
+07/28/24 23:06:34: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 23:06:34: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:34: Executing command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+07/28/24 23:06:34: scr_add_action - Raw inputs:
+07/28/24 23:06:34: Name: GotoDivineDomain
+07/28/24 23:06:34: Command: goto_planet
+07/28/24 23:06:34: Parameters: ["Divine Domain"]
+07/28/24 23:06:34: Action 'GotoDivineDomain' added/updated successfully.
+07/28/24 23:06:34: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 23:06:34: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:34: Executing command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+07/28/24 23:06:34: scr_add_action - Raw inputs:
+07/28/24 23:06:34: Name: GotoYetopia
+07/28/24 23:06:34: Command: goto_planet
+07/28/24 23:06:34: Parameters: ["Yetopia"]
+07/28/24 23:06:34: Action 'GotoYetopia' added/updated successfully.
+07/28/24 23:06:34: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 23:06:34: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:34: Executing command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+07/28/24 23:06:34: scr_add_action - Raw inputs:
+07/28/24 23:06:34: Name: GotoKingsKingdom
+07/28/24 23:06:34: Command: goto_planet
+07/28/24 23:06:34: Parameters: ["Kings Kingdom"]
+07/28/24 23:06:34: Action 'GotoKingsKingdom' added/updated successfully.
+07/28/24 23:06:34: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 23:06:34: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:34: Executing command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+07/28/24 23:06:34: scr_add_action - Raw inputs:
+07/28/24 23:06:34: Name: GotoTheIcyHeart
+07/28/24 23:06:34: Command: goto_planet
+07/28/24 23:06:34: Parameters: ["The Icy Heart"]
+07/28/24 23:06:34: Action 'GotoTheIcyHeart' added/updated successfully.
+07/28/24 23:06:34: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 23:06:34: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:34: Executing command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+07/28/24 23:06:34: scr_add_action - Raw inputs:
+07/28/24 23:06:34: Name: GotoTheGoldMines
+07/28/24 23:06:34: Command: goto_planet
+07/28/24 23:06:34: Parameters: ["The Gold Mines"]
+07/28/24 23:06:34: Action 'GotoTheGoldMines' added/updated successfully.
+07/28/24 23:06:34: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 23:06:34: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:40: Executing command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+07/28/24 23:06:40: scr_add_action - Raw inputs:
+07/28/24 23:06:40: Name: EnableEnemySpawns
+07/28/24 23:06:40: Command: set_variable
+07/28/24 23:06:40: Parameters: ["SpawnEnemies", "true"]
+07/28/24 23:06:40: Action 'EnableEnemySpawns' added/updated successfully.
+07/28/24 23:06:40: Encoded Command: eyJjb21tYW5kIjoic2V0X3ZhcmlhYmxlIiwicGFyYW1ldGVycyI6WyJTcGF3bkVuZW1pZXMiLCJ0cnVlIl19
+07/28/24 23:06:40: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:40: Executing command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+07/28/24 23:06:40: scr_add_action - Raw inputs:
+07/28/24 23:06:40: Name: DisableEnemySpawns
+07/28/24 23:06:40: Command: set_variable
+07/28/24 23:06:40: Parameters: ["SpawnEnemies", "false"]
+07/28/24 23:06:40: Action 'DisableEnemySpawns' added/updated successfully.
+07/28/24 23:06:40: Encoded Command: eyJjb21tYW5kIjoic2V0X3ZhcmlhYmxlIiwicGFyYW1ldGVycyI6WyJTcGF3bkVuZW1pZXMiLCJmYWxzZSJdfQ==
+07/28/24 23:06:40: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:40: Executing command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+07/28/24 23:06:40: scr_add_action - Raw inputs:
+07/28/24 23:06:40: Name: SetLevelFive
+07/28/24 23:06:40: Command: set_variable
+07/28/24 23:06:40: Parameters: ["Level", "5"]
+07/28/24 23:06:40: Action 'SetLevelFive' added/updated successfully.
+07/28/24 23:06:40: Encoded Command: eyJjb21tYW5kIjoic2V0X3ZhcmlhYmxlIiwicGFyYW1ldGVycyI6WyJMZXZlbCIsIjUiXX0=
+07/28/24 23:06:40: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:44: Executing command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+07/28/24 23:06:44: Action group 'SpaceExploration' added successfully.
+07/28/24 23:06:44: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:44: Executing command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+07/28/24 23:06:44: Action group 'BattleSequence' added successfully.
+07/28/24 23:06:44: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:44: Executing command: add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+07/28/24 23:06:44: Action group 'PeacefulMission' added successfully.
+07/28/24 23:06:44: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:50: Executing command: add_action(ExplorationChoice, chat_bubble, ["You've arrived at Universe City. What's your next move", "yeancat", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+07/28/24 23:06:50: scr_add_action - Raw inputs:
+07/28/24 23:06:50: Name: ExplorationChoice
+07/28/24 23:06:50: Command: chat_bubble
+07/28/24 23:06:50: Parameters: ["You've arrived at Universe City. What's your next move", "yeancat", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+07/28/24 23:06:50: Action 'ExplorationChoice' added/updated successfully.
+07/28/24 23:06:50: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIllvdSd2ZSBhcnJpdmVkIGF0IFVuaXZlcnNlIENpdHkuIFdoYXQncyB5b3VyIG5leHQgbW92ZSIsInllYW5jYXQiLFtbIkludmVzdGlnYXRlIHN0cmFuZ2Ugc2lnbmFscyIsIkludmVzdGlnYXRlU2lnbmFscyJdLFsiVmlzaXQgdGhlIGxvY2FsIG1hcmtldCIsIlZpc2l0TWFya2V0Il0sWyJSZXR1cm4gdG8gYmFzZSIsIlJldHVyblRvQmFzZSJdXV19
+07/28/24 23:06:50: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:06:50: Executing command: add_action(InvestigateSignals, chat_bubble, ["The signals lead you to a hidden portal. Do you enter", "yeancat", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+07/28/24 23:06:50: scr_add_action - Raw inputs:
+07/28/24 23:06:50: Name: InvestigateSignals
+07/28/24 23:06:50: Command: chat_bubble
+07/28/24 23:06:50: Parameters: ["The signals lead you to a hidden portal. Do you enter", "yeancat", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+07/28/24 23:06:50: Action 'InvestigateSignals' added/updated successfully.
+07/28/24 23:06:50: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIlRoZSBzaWduYWxzIGxlYWQgeW91IHRvIGEgaGlkZGVuIHBvcnRhbC4gRG8geW91IGVudGVyIiwieWVhbmNhdCIsW1siRW50ZXIgdGhlIHBvcnRhbCIsIkVudGVyUG9ydGFsIl0sWyJSZXBvcnQgYmFjayB0byBIUSIsIlJlcG9ydFRvSFEiXV1dfQ==
+07/28/24 23:06:50: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:00: Executing command: add_action(VisitMarket, chat_bubble, ["You find rare artifacts in the market. What do you do", "yeancat", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+07/28/24 23:07:00: scr_add_action - Raw inputs:
+07/28/24 23:07:00: Name: VisitMarket
+07/28/24 23:07:00: Command: chat_bubble
+07/28/24 23:07:00: Parameters: ["You find rare artifacts in the market. What do you do", "yeancat", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+07/28/24 23:07:00: Action 'VisitMarket' added/updated successfully.
+07/28/24 23:07:00: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIllvdSBmaW5kIHJhcmUgYXJ0aWZhY3RzIGluIHRoZSBtYXJrZXQuIFdoYXQgZG8geW91IGRvIiwieWVhbmNhdCIsW1siUHVyY2hhc2UgYXJ0aWZhY3RzIiwiUHVyY2hhc2VBcnRpZmFjdHMiXSxbIkludmVzdGlnYXRlIHNlbGxlciIsIkludmVzdGlnYXRlU2VsbGVyIl1dXX0=
+07/28/24 23:07:00: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:00: Executing command: add_action(BattleChoice, chat_bubble, ["Enemies approaching What's your strategy", "yeancat", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+07/28/24 23:07:00: scr_add_action - Raw inputs:
+07/28/24 23:07:00: Name: BattleChoice
+07/28/24 23:07:00: Command: chat_bubble
+07/28/24 23:07:00: Parameters: ["Enemies approaching What's your strategy", "yeancat", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+07/28/24 23:07:00: Action 'BattleChoice' added/updated successfully.
+07/28/24 23:07:00: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIkVuZW1pZXMgYXBwcm9hY2hpbmcgV2hhdCdzIHlvdXIgc3RyYXRlZ3kiLCJ5ZWFuY2F0IixbWyJFbmdhZ2UgaW4gY29tYmF0IiwiRW5nYWdlQ29tYmF0Il0sWyJBdHRlbXB0IGRpcGxvbWFjeSIsIkF0dGVtcHREaXBsb21hY3kiXSxbIlJldHJlYXQiLCJTdHJhdGVnaWNSZXRyZWF0Il1dXX0=
+07/28/24 23:07:00: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:05: Executing command: add_action(DiplomaticChoice, chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed", "yeancat", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+07/28/24 23:07:05: scr_add_action - Raw inputs:
+07/28/24 23:07:05: Name: DiplomaticChoice
+07/28/24 23:07:05: Command: chat_bubble
+07/28/24 23:07:05: Parameters: ["You're in Divine Domain for a peace mission. How do you proceed", "yeancat", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+07/28/24 23:07:05: Action 'DiplomaticChoice' added/updated successfully.
+07/28/24 23:07:05: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIllvdSdyZSBpbiBEaXZpbmUgRG9tYWluIGZvciBhIHBlYWNlIG1pc3Npb24uIEhvdyBkbyB5b3UgcHJvY2VlZCIsInllYW5jYXQiLFtbIk9mZmVyIHRyYWRlIGRlYWwiLCJPZmZlclRyYWRlIl0sWyJTaGFyZSB0ZWNobm9sb2d5IiwiU2hhcmVUZWNobm9sb2d5Il0sWyJSZXF1ZXN0IGFsbGlhbmNlIiwiUmVxdWVzdEFsbGlhbmNlIl1dXX0=
+07/28/24 23:07:05: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:10: Executing command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+07/28/24 23:07:10: Action group 'PortalAdventure' added successfully.
+07/28/24 23:07:10: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:10: Executing command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+07/28/24 23:07:10: Action group 'ArtifactMystery' added successfully.
+07/28/24 23:07:10: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:10: Executing command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+07/28/24 23:07:10: Action group 'EpicBattle' added successfully.
+07/28/24 23:07:10: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:10: Executing command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+07/28/24 23:07:10: Action group 'PeaceTreaty' added successfully.
+07/28/24 23:07:10: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:15: Clipboard content is too long to paste!
+07/28/24 23:07:16: [Jay Arnold] 
+07/28/24 23:07:16: Creating chat bubble:  , Owner: yeancat, Choices: []
+07/28/24 23:07:16: Chat Bubble Created. Following 'yeancat' with text: ' '. Number of choices: 0
+07/28/24 23:07:25: Executing command: add_action(PortalOutcome, chat_bubble, ["You've discovered an ancient civilization What's your approach", "yeancat", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+07/28/24 23:07:25: scr_add_action - Raw inputs:
+07/28/24 23:07:25: Name: PortalOutcome
+07/28/24 23:07:25: Command: chat_bubble
+07/28/24 23:07:25: Parameters: ["You've discovered an ancient civilization What's your approach", "yeancat", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+07/28/24 23:07:25: Action 'PortalOutcome' added/updated successfully.
+07/28/24 23:07:25: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIllvdSd2ZSBkaXNjb3ZlcmVkIGFuIGFuY2llbnQgY2l2aWxpemF0aW9uIFdoYXQncyB5b3VyIGFwcHJvYWNoIiwieWVhbmNhdCIsW1siU3R1ZHkgdGhlaXIgdGVjaG5vbG9neSIsIlN0dWR5VGVjaCJdLFsiRXN0YWJsaXNoIGNvbW11bmljYXRpb24iLCJDb21tdW5pY2F0ZSJdLFsiUmV0dXJuIGhvbWUgd2l0aCBmaW5kaW5ncyIsIlJldHVybldpdGhGaW5kaW5ncyJdXV19
+07/28/24 23:07:25: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:29: Executing command: add_action(ArtifactOutcome, chat_bubble, ["The artifacts have awakened ancient guardians Your move", "yeancat", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+07/28/24 23:07:29: scr_add_action - Raw inputs:
+07/28/24 23:07:29: Name: ArtifactOutcome
+07/28/24 23:07:29: Command: chat_bubble
+07/28/24 23:07:29: Parameters: ["The artifacts have awakened ancient guardians Your move", "yeancat", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+07/28/24 23:07:29: Action 'ArtifactOutcome' added/updated successfully.
+07/28/24 23:07:30: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIlRoZSBhcnRpZmFjdHMgaGF2ZSBhd2FrZW5lZCBhbmNpZW50IGd1YXJkaWFucyBZb3VyIG1vdmUiLCJ5ZWFuY2F0IixbWyJGaWdodCB0aGUgZ3VhcmRpYW5zIiwiRmlnaHRHdWFyZGlhbnMiXSxbIlRyeSB0byBkZWFjdGl2YXRlIGFydGlmYWN0cyIsIkRlYWN0aXZhdGVBcnRpZmFjdHMiXSxbIkVzY2FwZSB3aXRoIGFydGlmYWN0cyIsIkVzY2FwZVdpdGhBcnRpZmFjdHMiXV1dfQ==
+07/28/24 23:07:30: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:34: Executing command: add_action(BattleOutcome, chat_bubble, ["Victory The enemy forces are retreating. Next steps", "yeancat", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+07/28/24 23:07:34: scr_add_action - Raw inputs:
+07/28/24 23:07:34: Name: BattleOutcome
+07/28/24 23:07:34: Command: chat_bubble
+07/28/24 23:07:34: Parameters: ["Victory The enemy forces are retreating. Next steps", "yeancat", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+07/28/24 23:07:34: Action 'BattleOutcome' added/updated successfully.
+07/28/24 23:07:34: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIlZpY3RvcnkgVGhlIGVuZW15IGZvcmNlcyBhcmUgcmV0cmVhdGluZy4gTmV4dCBzdGVwcyIsInllYW5jYXQiLFtbIlB1cnN1ZSBhbmQgY2FwdHVyZSIsIlB1cnN1ZUVuZW15Il0sWyJTZWN1cmUgdGhlIGFyZWEiLCJTZWN1cmVBcmVhIl0sWyJDYWxsIGZvciByZWluZm9yY2VtZW50cyIsIkNhbGxSZWluZm9yY2VtZW50cyJdXV19
+07/28/24 23:07:34: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:40: Executing command: add_action(TreatyOutcome, chat_bubble, ["The peace treaty is ready. Final decisions", "yeancat", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+07/28/24 23:07:40: scr_add_action - Raw inputs:
+07/28/24 23:07:40: Name: TreatyOutcome
+07/28/24 23:07:40: Command: chat_bubble
+07/28/24 23:07:40: Parameters: ["The peace treaty is ready. Final decisions", "yeancat", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+07/28/24 23:07:40: Action 'TreatyOutcome' added/updated successfully.
+07/28/24 23:07:40: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIlRoZSBwZWFjZSB0cmVhdHkgaXMgcmVhZHkuIEZpbmFsIGRlY2lzaW9ucyIsInllYW5jYXQiLFtbIlNpZ24gdGhlIHRyZWF0eSIsIlNpZ25UcmVhdHkiXSxbIlByb3Bvc2UgYW1lbmRtZW50cyIsIlByb3Bvc2VBbWVuZG1lbnRzIl0sWyJSZWplY3QgYW5kIHJldHVybiB0byBuZWdvdGlhdGlvbnMiLCJSZW5lZ290aWF0ZVRyZWF0eSJdXV19
+07/28/24 23:07:40: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:45: Executing command: add_action(EnterPortal, execute_action, ["PortalAdventure"])
+07/28/24 23:07:45: scr_add_action - Raw inputs:
+07/28/24 23:07:45: Name: EnterPortal
+07/28/24 23:07:45: Command: execute_action
+07/28/24 23:07:45: Parameters: ["PortalAdventure"]
+07/28/24 23:07:46: Action 'EnterPortal' added/updated successfully.
+07/28/24 23:07:46: Encoded Command: eyJjb21tYW5kIjoiZXhlY3V0ZV9hY3Rpb24iLCJwYXJhbWV0ZXJzIjpbIlBvcnRhbEFkdmVudHVyZSJdfQ==
+07/28/24 23:07:46: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:46: Executing command: add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+07/28/24 23:07:46: scr_add_action - Raw inputs:
+07/28/24 23:07:46: Name: PurchaseArtifacts
+07/28/24 23:07:46: Command: execute_action
+07/28/24 23:07:46: Parameters: ["ArtifactMystery"]
+07/28/24 23:07:46: Action 'PurchaseArtifacts' added/updated successfully.
+07/28/24 23:07:46: Encoded Command: eyJjb21tYW5kIjoiZXhlY3V0ZV9hY3Rpb24iLCJwYXJhbWV0ZXJzIjpbIkFydGlmYWN0TXlzdGVyeSJdfQ==
+07/28/24 23:07:46: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:46: Executing command: add_action(EngageCombat, execute_action, ["EpicBattle"])
+07/28/24 23:07:46: scr_add_action - Raw inputs:
+07/28/24 23:07:46: Name: EngageCombat
+07/28/24 23:07:46: Command: execute_action
+07/28/24 23:07:46: Parameters: ["EpicBattle"]
+07/28/24 23:07:46: Action 'EngageCombat' added/updated successfully.
+07/28/24 23:07:46: Encoded Command: eyJjb21tYW5kIjoiZXhlY3V0ZV9hY3Rpb24iLCJwYXJhbWV0ZXJzIjpbIkVwaWNCYXR0bGUiXX0=
+07/28/24 23:07:46: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:46: Executing command: add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+07/28/24 23:07:46: scr_add_action - Raw inputs:
+07/28/24 23:07:46: Name: OfferTrade
+07/28/24 23:07:46: Command: execute_action
+07/28/24 23:07:46: Parameters: ["PeaceTreaty"]
+07/28/24 23:07:46: Action 'OfferTrade' added/updated successfully.
+07/28/24 23:07:46: Encoded Command: eyJjb21tYW5kIjoiZXhlY3V0ZV9hY3Rpb24iLCJwYXJhbWV0ZXJzIjpbIlBlYWNlVHJlYXR5Il19
+07/28/24 23:07:46: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:52: Executing command: add_action(SpaceAdventureStart, chat_bubble, ["Welcome to the Space Adventure Choose your path", "yeancat", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+07/28/24 23:07:52: scr_add_action - Raw inputs:
+07/28/24 23:07:52: Name: SpaceAdventureStart
+07/28/24 23:07:52: Command: chat_bubble
+07/28/24 23:07:52: Parameters: ["Welcome to the Space Adventure Choose your path", "yeancat", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+07/28/24 23:07:52: Action 'SpaceAdventureStart' added/updated successfully.
+07/28/24 23:07:52: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldlbGNvbWUgdG8gdGhlIFNwYWNlIEFkdmVudHVyZSBDaG9vc2UgeW91ciBwYXRoIiwieWVhbmNhdCIsW1siRXhwbG9yZSB0aGUgdW5pdmVyc2UiLCJTdGFydEV4cGxvcmF0aW9uIl0sWyJFbmdhZ2UgaW4gYmF0dGxlIiwiU3RhcnRCYXR0bGUiXSxbIkVtYmFyayBvbiBhIHBlYWNlIG1pc3Npb24iLCJTdGFydFBlYWNlTWlzc2lvbiJdXV19
+07/28/24 23:07:52: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:57: Executing command: add_action(StartExploration, execute_action, ["SpaceExploration"])
+07/28/24 23:07:57: scr_add_action - Raw inputs:
+07/28/24 23:07:58: Name: StartExploration
+07/28/24 23:07:58: Command: execute_action
+07/28/24 23:07:58: Parameters: ["SpaceExploration"]
+07/28/24 23:07:58: Action 'StartExploration' added/updated successfully.
+07/28/24 23:07:58: Encoded Command: eyJjb21tYW5kIjoiZXhlY3V0ZV9hY3Rpb24iLCJwYXJhbWV0ZXJzIjpbIlNwYWNlRXhwbG9yYXRpb24iXX0=
+07/28/24 23:07:58: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:58: Executing command: add_action(StartBattle, execute_action, ["BattleSequence"])
+07/28/24 23:07:58: scr_add_action - Raw inputs:
+07/28/24 23:07:58: Name: StartBattle
+07/28/24 23:07:58: Command: execute_action
+07/28/24 23:07:58: Parameters: ["BattleSequence"]
+07/28/24 23:07:58: Action 'StartBattle' added/updated successfully.
+07/28/24 23:07:58: Encoded Command: eyJjb21tYW5kIjoiZXhlY3V0ZV9hY3Rpb24iLCJwYXJhbWV0ZXJzIjpbIkJhdHRsZVNlcXVlbmNlIl19
+07/28/24 23:07:58: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:07:58: Executing command: add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+07/28/24 23:07:58: scr_add_action - Raw inputs:
+07/28/24 23:07:58: Name: StartPeaceMission
+07/28/24 23:07:58: Command: execute_action
+07/28/24 23:07:58: Parameters: ["PeacefulMission"]
+07/28/24 23:07:58: Action 'StartPeaceMission' added/updated successfully.
+07/28/24 23:07:58: Encoded Command: eyJjb21tYW5kIjoiZXhlY3V0ZV9hY3Rpb24iLCJwYXJhbWV0ZXJzIjpbIlBlYWNlZnVsTWlzc2lvbiJdfQ==
+07/28/24 23:07:58: Actions and action groups saved successfully to Actions.txt.
+07/28/24 23:08:18: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:08:18: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:08:18: Executing action: SpaceAdventureStart
+07/28/24 23:08:18: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:08:18: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:08:18: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:08:21: Executing command: execute_action(StartExploration)
+07/28/24 23:08:21: execute_action - Action Name: StartExploration
+07/28/24 23:08:21: Executing action: StartExploration
+07/28/24 23:08:21: Decoded Command: {"command":"execute_action","parameters":["SpaceExploration"]}
+07/28/24 23:08:21: Teleported to Universe City.
+07/28/24 23:08:21: Creating chat bubble: You've arrived at Universe City. What's your next move, Owner: yeancat, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+07/28/24 23:08:21: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move'. Number of choices: 3
+07/28/24 23:08:23: Executing command: execute_action(VisitMarket)
+07/28/24 23:08:23: execute_action - Action Name: VisitMarket
+07/28/24 23:08:23: Executing action: VisitMarket
+07/28/24 23:08:23: Decoded Command: {"command":"chat_bubble","parameters":["You find rare artifacts in the market. What do you do","yeancat",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]]}
+07/28/24 23:08:23: Creating chat bubble: You find rare artifacts in the market. What do you do, Owner: yeancat, Choices: [["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]
+07/28/24 23:08:23: Chat Bubble Created. Following 'yeancat' with text: 'You find rare artifacts in the market. What do you do'. Number of choices: 2
+07/28/24 23:08:25: Executing command: execute_action(PurchaseArtifacts)
+07/28/24 23:08:25: execute_action - Action Name: PurchaseArtifacts
+07/28/24 23:08:25: Executing action: PurchaseArtifacts
+07/28/24 23:08:25: Decoded Command: {"command":"execute_action","parameters":["ArtifactMystery"]}
+07/28/24 23:08:25: SpawnEnemies set to 1
+07/28/24 23:08:25: Teleported to Ghost Town.
+07/28/24 23:08:25: Creating chat bubble: The artifacts have awakened ancient guardians Your move, Owner: yeancat, Choices: [["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]
+07/28/24 23:08:25: Chat Bubble Created. Following 'yeancat' with text: 'The artifacts have awakened ancient guardians Your move'. Number of choices: 3
+07/28/24 23:08:29: Executing command: FightGuardians
+07/28/24 23:08:29: Script not found for command: FightGuardians
+07/28/24 23:08:42: Executing command: set_variable(SpawnEnemies,0)
+07/28/24 23:08:42: SpawnEnemies set to 0
+07/28/24 23:08:51: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:08:51: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:08:51: Executing action: SpaceAdventureStart
+07/28/24 23:08:52: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:08:52: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:08:52: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:08:54: Executing command: execute_action(StartExploration)
+07/28/24 23:08:54: execute_action - Action Name: StartExploration
+07/28/24 23:08:54: Executing action: StartExploration
+07/28/24 23:08:54: Decoded Command: {"command":"execute_action","parameters":["SpaceExploration"]}
+07/28/24 23:08:54: Teleported to Universe City.
+07/28/24 23:08:54: Creating chat bubble: You've arrived at Universe City. What's your next move, Owner: yeancat, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+07/28/24 23:08:54: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move'. Number of choices: 3
+07/28/24 23:08:55: Executing command: execute_action(VisitMarket)
+07/28/24 23:08:56: execute_action - Action Name: VisitMarket
+07/28/24 23:08:56: Executing action: VisitMarket
+07/28/24 23:08:56: Decoded Command: {"command":"chat_bubble","parameters":["You find rare artifacts in the market. What do you do","yeancat",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]]}
+07/28/24 23:08:56: Creating chat bubble: You find rare artifacts in the market. What do you do, Owner: yeancat, Choices: [["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]
+07/28/24 23:08:56: Chat Bubble Created. Following 'yeancat' with text: 'You find rare artifacts in the market. What do you do'. Number of choices: 2
+07/28/24 23:08:57: Executing command: execute_action(PurchaseArtifacts)
+07/28/24 23:08:58: execute_action - Action Name: PurchaseArtifacts
+07/28/24 23:08:58: Executing action: PurchaseArtifacts
+07/28/24 23:08:58: Decoded Command: {"command":"execute_action","parameters":["ArtifactMystery"]}
+07/28/24 23:08:58: SpawnEnemies set to 1
+07/28/24 23:08:58: Teleported to Ghost Town.
+07/28/24 23:08:58: Creating chat bubble: The artifacts have awakened ancient guardians Your move, Owner: yeancat, Choices: [["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]
+07/28/24 23:08:58: Chat Bubble Created. Following 'yeancat' with text: 'The artifacts have awakened ancient guardians Your move'. Number of choices: 3
+07/28/24 23:09:12: Executing command: EscapeWithArtifacts
+07/28/24 23:09:12: Script not found for command: EscapeWithArtifacts
+07/28/24 23:09:18: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:09:18: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:09:18: Executing action: SpaceAdventureStart
+07/28/24 23:09:18: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:09:18: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:09:18: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:09:20: Executing command: execute_action(StartBattle)
+07/28/24 23:09:20: execute_action - Action Name: StartBattle
+07/28/24 23:09:20: Executing action: StartBattle
+07/28/24 23:09:20: Decoded Command: {"command":"execute_action","parameters":["BattleSequence"]}
+07/28/24 23:09:20: SpawnEnemies set to 1
+07/28/24 23:09:20: Teleported to Vultures Valley.
+07/28/24 23:09:20: Creating chat bubble: Enemies approaching What's your strategy, Owner: yeancat, Choices: [["Engage in combat","EngageCombat"],["Attempt diplomacy","AttemptDiplomacy"],["Retreat","StrategicRetreat"]]
+07/28/24 23:09:20: Chat Bubble Created. Following 'yeancat' with text: 'Enemies approaching What's your strategy'. Number of choices: 3
+07/28/24 23:09:24: Executing command: AttemptDiplomacy
+07/28/24 23:09:24: Script not found for command: AttemptDiplomacy
+07/28/24 23:11:02: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:11:02: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:11:02: Executing action: SpaceAdventureStart
+07/28/24 23:11:02: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:11:02: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:11:02: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:11:03: Executing command: execute_action(StartPeaceMission)
+07/28/24 23:11:03: execute_action - Action Name: StartPeaceMission
+07/28/24 23:11:03: Executing action: StartPeaceMission
+07/28/24 23:11:03: Decoded Command: {"command":"execute_action","parameters":["PeacefulMission"]}
+07/28/24 23:11:03: Teleported to Divine Domain.
+07/28/24 23:11:03: Creating chat bubble: You're in Divine Domain for a peace mission. How do you proceed, Owner: yeancat, Choices: [["Offer trade deal","OfferTrade"],["Share technology","ShareTechnology"],["Request alliance","RequestAlliance"]]
+07/28/24 23:11:03: Chat Bubble Created. Following 'yeancat' with text: 'You're in Divine Domain for a peace mission. How do you proceed'. Number of choices: 3
+07/28/24 23:11:04: Executing command: execute_action(OfferTrade)
+07/28/24 23:11:04: execute_action - Action Name: OfferTrade
+07/28/24 23:11:04: Executing action: OfferTrade
+07/28/24 23:11:04: Decoded Command: {"command":"execute_action","parameters":["PeaceTreaty"]}
+07/28/24 23:11:04: Teleported to Kings Kingdom.
+07/28/24 23:11:04: Creating chat bubble: The peace treaty is ready. Final decisions, Owner: yeancat, Choices: [["Sign the treaty","SignTreaty"],["Propose amendments","ProposeAmendments"],["Reject and return to negotiations","RenegotiateTreaty"]]
+07/28/24 23:11:05: Chat Bubble Created. Following 'yeancat' with text: 'The peace treaty is ready. Final decisions'. Number of choices: 3
+07/28/24 23:11:06: Executing command: SignTreaty
+07/28/24 23:11:06: Script not found for command: SignTreaty
+07/28/24 23:11:08: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:11:08: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:11:08: Executing action: SpaceAdventureStart
+07/28/24 23:11:08: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:11:08: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:11:08: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:11:09: Executing command: execute_action(StartPeaceMission)
+07/28/24 23:11:09: execute_action - Action Name: StartPeaceMission
+07/28/24 23:11:09: Executing action: StartPeaceMission
+07/28/24 23:11:09: Decoded Command: {"command":"execute_action","parameters":["PeacefulMission"]}
+07/28/24 23:11:09: Teleported to Divine Domain.
+07/28/24 23:11:09: Creating chat bubble: You're in Divine Domain for a peace mission. How do you proceed, Owner: yeancat, Choices: [["Offer trade deal","OfferTrade"],["Share technology","ShareTechnology"],["Request alliance","RequestAlliance"]]
+07/28/24 23:11:09: Chat Bubble Created. Following 'yeancat' with text: 'You're in Divine Domain for a peace mission. How do you proceed'. Number of choices: 3
+07/28/24 23:11:10: Executing command: ShareTechnology
+07/28/24 23:11:10: Script not found for command: ShareTechnology
+07/28/24 23:11:12: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:11:12: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:11:12: Executing action: SpaceAdventureStart
+07/28/24 23:11:12: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:11:12: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:11:12: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:11:13: Executing command: execute_action(StartPeaceMission)
+07/28/24 23:11:13: execute_action - Action Name: StartPeaceMission
+07/28/24 23:11:13: Executing action: StartPeaceMission
+07/28/24 23:11:13: Decoded Command: {"command":"execute_action","parameters":["PeacefulMission"]}
+07/28/24 23:11:13: Teleported to Divine Domain.
+07/28/24 23:11:13: Creating chat bubble: You're in Divine Domain for a peace mission. How do you proceed, Owner: yeancat, Choices: [["Offer trade deal","OfferTrade"],["Share technology","ShareTechnology"],["Request alliance","RequestAlliance"]]
+07/28/24 23:11:13: Chat Bubble Created. Following 'yeancat' with text: 'You're in Divine Domain for a peace mission. How do you proceed'. Number of choices: 3
+07/28/24 23:11:14: Executing command: RequestAlliance
+07/28/24 23:11:14: Script not found for command: RequestAlliance
+07/28/24 23:11:50: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:11:50: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:11:50: Executing action: SpaceAdventureStart
+07/28/24 23:11:50: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:11:50: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:11:50: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:11:51: Executing command: execute_action(StartBattle)
+07/28/24 23:11:51: execute_action - Action Name: StartBattle
+07/28/24 23:11:51: Executing action: StartBattle
+07/28/24 23:11:51: Decoded Command: {"command":"execute_action","parameters":["BattleSequence"]}
+07/28/24 23:11:51: SpawnEnemies set to 1
+07/28/24 23:11:51: Teleported to Vultures Valley.
+07/28/24 23:11:52: Creating chat bubble: Enemies approaching What's your strategy, Owner: yeancat, Choices: [["Engage in combat","EngageCombat"],["Attempt diplomacy","AttemptDiplomacy"],["Retreat","StrategicRetreat"]]
+07/28/24 23:11:52: Chat Bubble Created. Following 'yeancat' with text: 'Enemies approaching What's your strategy'. Number of choices: 3
+07/28/24 23:11:54: Executing command: execute_action(EngageCombat)
+07/28/24 23:11:54: execute_action - Action Name: EngageCombat
+07/28/24 23:11:54: Executing action: EngageCombat
+07/28/24 23:11:54: Decoded Command: {"command":"execute_action","parameters":["EpicBattle"]}
+07/28/24 23:11:54: Level up initiated with goal: 3
+07/28/24 23:11:54: SpawnEnemies set to 0
+07/28/24 23:11:54: Creating chat bubble: Victory The enemy forces are retreating. Next steps, Owner: yeancat, Choices: [["Pursue and capture","PursueEnemy"],["Secure the area","SecureArea"],["Call for reinforcements","CallReinforcements"]]
+07/28/24 23:11:54: Chat Bubble Created. Following 'yeancat' with text: 'Victory The enemy forces are retreating. Next steps'. Number of choices: 3
+07/28/24 23:11:58: Executing command: PursueEnemy
+07/28/24 23:11:58: Script not found for command: PursueEnemy
+07/28/24 23:12:00: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:12:00: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:12:00: Executing action: SpaceAdventureStart
+07/28/24 23:12:00: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:12:00: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:12:00: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:12:01: Executing command: execute_action(StartBattle)
+07/28/24 23:12:01: execute_action - Action Name: StartBattle
+07/28/24 23:12:01: Executing action: StartBattle
+07/28/24 23:12:01: Decoded Command: {"command":"execute_action","parameters":["BattleSequence"]}
+07/28/24 23:12:01: SpawnEnemies set to 1
+07/28/24 23:12:01: Teleported to Vultures Valley.
+07/28/24 23:12:01: Creating chat bubble: Enemies approaching What's your strategy, Owner: yeancat, Choices: [["Engage in combat","EngageCombat"],["Attempt diplomacy","AttemptDiplomacy"],["Retreat","StrategicRetreat"]]
+07/28/24 23:12:01: Chat Bubble Created. Following 'yeancat' with text: 'Enemies approaching What's your strategy'. Number of choices: 3
+07/28/24 23:12:03: Executing command: execute_action(EngageCombat)
+07/28/24 23:12:03: execute_action - Action Name: EngageCombat
+07/28/24 23:12:03: Executing action: EngageCombat
+07/28/24 23:12:03: Decoded Command: {"command":"execute_action","parameters":["EpicBattle"]}
+07/28/24 23:12:03: Level up initiated with goal: 3
+07/28/24 23:12:03: SpawnEnemies set to 0
+07/28/24 23:12:03: Creating chat bubble: Victory The enemy forces are retreating. Next steps, Owner: yeancat, Choices: [["Pursue and capture","PursueEnemy"],["Secure the area","SecureArea"],["Call for reinforcements","CallReinforcements"]]
+07/28/24 23:12:03: Chat Bubble Created. Following 'yeancat' with text: 'Victory The enemy forces are retreating. Next steps'. Number of choices: 3
+07/28/24 23:12:04: Executing command: SecureArea
+07/28/24 23:12:04: Script not found for command: SecureArea
+07/28/24 23:12:06: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:12:06: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:12:06: Executing action: SpaceAdventureStart
+07/28/24 23:12:06: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:12:06: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:12:06: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:12:07: Executing command: execute_action(StartBattle)
+07/28/24 23:12:07: execute_action - Action Name: StartBattle
+07/28/24 23:12:07: Executing action: StartBattle
+07/28/24 23:12:07: Decoded Command: {"command":"execute_action","parameters":["BattleSequence"]}
+07/28/24 23:12:07: SpawnEnemies set to 1
+07/28/24 23:12:07: Teleported to Vultures Valley.
+07/28/24 23:12:07: Creating chat bubble: Enemies approaching What's your strategy, Owner: yeancat, Choices: [["Engage in combat","EngageCombat"],["Attempt diplomacy","AttemptDiplomacy"],["Retreat","StrategicRetreat"]]
+07/28/24 23:12:07: Chat Bubble Created. Following 'yeancat' with text: 'Enemies approaching What's your strategy'. Number of choices: 3
+07/28/24 23:12:08: Executing command: execute_action(EngageCombat)
+07/28/24 23:12:08: execute_action - Action Name: EngageCombat
+07/28/24 23:12:08: Executing action: EngageCombat
+07/28/24 23:12:08: Decoded Command: {"command":"execute_action","parameters":["EpicBattle"]}
+07/28/24 23:12:08: Level up initiated with goal: 3
+07/28/24 23:12:08: SpawnEnemies set to 0
+07/28/24 23:12:08: Creating chat bubble: Victory The enemy forces are retreating. Next steps, Owner: yeancat, Choices: [["Pursue and capture","PursueEnemy"],["Secure the area","SecureArea"],["Call for reinforcements","CallReinforcements"]]
+07/28/24 23:12:08: Chat Bubble Created. Following 'yeancat' with text: 'Victory The enemy forces are retreating. Next steps'. Number of choices: 3
+07/28/24 23:12:10: Executing command: CallReinforcements
+07/28/24 23:12:10: Script not found for command: CallReinforcements
+07/28/24 23:12:12: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:12:12: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:12:12: Executing action: SpaceAdventureStart
+07/28/24 23:12:12: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:12:12: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:12:12: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:12:15: Executing command: execute_action(StartExploration)
+07/28/24 23:12:15: execute_action - Action Name: StartExploration
+07/28/24 23:12:15: Executing action: StartExploration
+07/28/24 23:12:15: Decoded Command: {"command":"execute_action","parameters":["SpaceExploration"]}
+07/28/24 23:12:15: Teleported to Universe City.
+07/28/24 23:12:15: Creating chat bubble: You've arrived at Universe City. What's your next move, Owner: yeancat, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+07/28/24 23:12:15: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move'. Number of choices: 3
+07/28/24 23:12:17: Executing command: execute_action(InvestigateSignals)
+07/28/24 23:12:17: execute_action - Action Name: InvestigateSignals
+07/28/24 23:12:17: Executing action: InvestigateSignals
+07/28/24 23:12:17: Decoded Command: {"command":"chat_bubble","parameters":["The signals lead you to a hidden portal. Do you enter","yeancat",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]]}
+07/28/24 23:12:17: Creating chat bubble: The signals lead you to a hidden portal. Do you enter, Owner: yeancat, Choices: [["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]
+07/28/24 23:12:17: Chat Bubble Created. Following 'yeancat' with text: 'The signals lead you to a hidden portal. Do you enter'. Number of choices: 2
+07/28/24 23:12:19: Executing command: execute_action(EnterPortal)
+07/28/24 23:12:19: execute_action - Action Name: EnterPortal
+07/28/24 23:12:19: Executing action: EnterPortal
+07/28/24 23:12:19: Decoded Command: {"command":"execute_action","parameters":["PortalAdventure"]}
+07/28/24 23:12:19: Teleported to The Endonda.
+07/28/24 23:12:19: Level set to 5
+07/28/24 23:12:19: Creating chat bubble: You've discovered an ancient civilization What's your approach, Owner: yeancat, Choices: [["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]
+07/28/24 23:12:19: Chat Bubble Created. Following 'yeancat' with text: 'You've discovered an ancient civilization What's your approach'. Number of choices: 3
+07/28/24 23:12:23: Executing command: Communicate
+07/28/24 23:12:23: Script not found for command: Communicate
+07/28/24 23:12:25: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:12:25: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:12:25: Executing action: SpaceAdventureStart
+07/28/24 23:12:25: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:12:25: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:12:25: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:12:26: Executing command: execute_action(StartExploration)
+07/28/24 23:12:26: execute_action - Action Name: StartExploration
+07/28/24 23:12:26: Executing action: StartExploration
+07/28/24 23:12:26: Decoded Command: {"command":"execute_action","parameters":["SpaceExploration"]}
+07/28/24 23:12:26: Teleported to Universe City.
+07/28/24 23:12:26: Creating chat bubble: You've arrived at Universe City. What's your next move, Owner: yeancat, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+07/28/24 23:12:26: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move'. Number of choices: 3
+07/28/24 23:12:30: Executing command: execute_action(InvestigateSignals)
+07/28/24 23:12:30: execute_action - Action Name: InvestigateSignals
+07/28/24 23:12:30: Executing action: InvestigateSignals
+07/28/24 23:12:30: Decoded Command: {"command":"chat_bubble","parameters":["The signals lead you to a hidden portal. Do you enter","yeancat",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]]}
+07/28/24 23:12:30: Creating chat bubble: The signals lead you to a hidden portal. Do you enter, Owner: yeancat, Choices: [["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]
+07/28/24 23:12:30: Chat Bubble Created. Following 'yeancat' with text: 'The signals lead you to a hidden portal. Do you enter'. Number of choices: 2
+07/28/24 23:12:31: Executing command: execute_action(EnterPortal)
+07/28/24 23:12:31: execute_action - Action Name: EnterPortal
+07/28/24 23:12:31: Executing action: EnterPortal
+07/28/24 23:12:31: Decoded Command: {"command":"execute_action","parameters":["PortalAdventure"]}
+07/28/24 23:12:31: Teleported to The Endonda.
+07/28/24 23:12:31: Level set to 5
+07/28/24 23:12:31: Creating chat bubble: You've discovered an ancient civilization What's your approach, Owner: yeancat, Choices: [["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]
+07/28/24 23:12:31: Chat Bubble Created. Following 'yeancat' with text: 'You've discovered an ancient civilization What's your approach'. Number of choices: 3
+07/28/24 23:12:33: Executing command: ReturnWithFindings
+07/28/24 23:12:33: Script not found for command: ReturnWithFindings
+07/28/24 23:12:47: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:12:47: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:12:47: Executing action: SpaceAdventureStart
+07/28/24 23:12:47: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:12:47: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:12:47: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:12:48: Executing command: execute_action(StartExploration)
+07/28/24 23:12:48: execute_action - Action Name: StartExploration
+07/28/24 23:12:48: Executing action: StartExploration
+07/28/24 23:12:48: Decoded Command: {"command":"execute_action","parameters":["SpaceExploration"]}
+07/28/24 23:12:48: Teleported to Universe City.
+07/28/24 23:12:48: Creating chat bubble: You've arrived at Universe City. What's your next move, Owner: yeancat, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+07/28/24 23:12:48: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move'. Number of choices: 3
+07/28/24 23:12:49: Executing command: execute_action(InvestigateSignals)
+07/28/24 23:12:49: execute_action - Action Name: InvestigateSignals
+07/28/24 23:12:49: Executing action: InvestigateSignals
+07/28/24 23:12:49: Decoded Command: {"command":"chat_bubble","parameters":["The signals lead you to a hidden portal. Do you enter","yeancat",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]]}
+07/28/24 23:12:49: Creating chat bubble: The signals lead you to a hidden portal. Do you enter, Owner: yeancat, Choices: [["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]
+07/28/24 23:12:49: Chat Bubble Created. Following 'yeancat' with text: 'The signals lead you to a hidden portal. Do you enter'. Number of choices: 2
+07/28/24 23:12:51: Executing command: execute_action(EnterPortal)
+07/28/24 23:12:51: execute_action - Action Name: EnterPortal
+07/28/24 23:12:51: Executing action: EnterPortal
+07/28/24 23:12:51: Decoded Command: {"command":"execute_action","parameters":["PortalAdventure"]}
+07/28/24 23:12:51: Teleported to The Endonda.
+07/28/24 23:12:51: Level set to 5
+07/28/24 23:12:51: Creating chat bubble: You've discovered an ancient civilization What's your approach, Owner: yeancat, Choices: [["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]
+07/28/24 23:12:51: Chat Bubble Created. Following 'yeancat' with text: 'You've discovered an ancient civilization What's your approach'. Number of choices: 3
+07/28/24 23:12:52: Executing command: Communicate
+07/28/24 23:12:52: Script not found for command: Communicate
+07/28/24 23:12:55: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:12:55: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:12:55: Executing action: SpaceAdventureStart
+07/28/24 23:12:55: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:12:55: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:12:55: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:12:56: Executing command: execute_action(StartBattle)
+07/28/24 23:12:56: execute_action - Action Name: StartBattle
+07/28/24 23:12:56: Executing action: StartBattle
+07/28/24 23:12:56: Decoded Command: {"command":"execute_action","parameters":["BattleSequence"]}
+07/28/24 23:12:56: SpawnEnemies set to 1
+07/28/24 23:12:56: Teleported to Vultures Valley.
+07/28/24 23:12:56: Creating chat bubble: Enemies approaching What's your strategy, Owner: yeancat, Choices: [["Engage in combat","EngageCombat"],["Attempt diplomacy","AttemptDiplomacy"],["Retreat","StrategicRetreat"]]
+07/28/24 23:12:56: Chat Bubble Created. Following 'yeancat' with text: 'Enemies approaching What's your strategy'. Number of choices: 3
+07/28/24 23:12:59: Executing command: StrategicRetreat
+07/28/24 23:12:59: Script not found for command: StrategicRetreat
+07/28/24 23:13:11: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:13:11: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:13:11: Executing action: SpaceAdventureStart
+07/28/24 23:13:11: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:13:11: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:13:11: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3

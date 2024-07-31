@@ -1,9 +1,9 @@
-/// @description Insert description here
+///obj_boss draw
 // You can write your code in this editor
 //draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,bodyangle,col,1)
 draw_sprite_ext(spr_shadow,0,x-6*facing,y,.58*facing,.72,rotatebody,c_white,.85);
 draw_set_alpha(1)
-for (i=0 ; i<round(((abs(facing-1)*room_width/2)+(facing*x))/110); i+=1) {
+for (i=0 ; i<round(((abs(facing-1)*room_width/2)+(facing*x))/110)*global.camera_zoom; i+=1) {
 	if redcount[clamp(i,0,999999999)]=1 {
 		if (oxy)>0 {
 		draw_sprite_ext(master.characters[lookid,12],round(anicount)+1,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_maroon,(0.7 * sin(2 * pi * (time) / (40/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);

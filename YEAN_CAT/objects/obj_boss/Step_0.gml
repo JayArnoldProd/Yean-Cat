@@ -1,4 +1,4 @@
-/// @description Insert description here
+/// obj_boss step
 // You can write your code in this 
 if instance_exists(restar) {
 direction=point_direction(room_width/2,room_height/2,x,y)
@@ -44,6 +44,22 @@ laserobj=laserset[setlection]
 
 var xxx = x
 var yyy =y
+
+// Repel other bosses
+var repel_distance = 150; // Distance at which bosses start to repel each other
+var repel_strength = 0.5; // Strength of the repulsion
+
+with (obj_boss) {
+    if (id != other.id) { // Don't repel self
+        var dist = point_distance(x, y, other.x, other.y);
+        if (dist < repel_distance) {
+            var angle = point_direction(other.x, other.y, x, y);
+            var force = (repel_distance - dist) / repel_distance * repel_strength;
+            x += lengthdir_x(force, angle);
+            y += lengthdir_y(force, angle);
+        }
+    }
+}
 
 if dead=0 {
 	intensity=1+(1-abs(obj_terrain.systemposition-180)/180)*2

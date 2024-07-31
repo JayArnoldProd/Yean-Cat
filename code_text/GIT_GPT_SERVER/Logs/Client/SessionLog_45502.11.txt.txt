@@ -1,0 +1,118 @@
+07/28/24 21:42:28: Loaded action/group: SaveGameNow
+07/28/24 21:42:28: Loaded action/group: MoreChoices3
+07/28/24 21:42:28: Loaded action/group: GotoKingsKingdom
+07/28/24 21:42:28: Loaded action/group: MainMenuChoices2
+07/28/24 21:42:28: Loaded action/group: MoreChoices1
+07/28/24 21:42:28: Loaded action/group: GotoDivineDomain
+07/28/24 21:42:28: Loaded action/group: GotoTheEndonda
+07/28/24 21:42:28: Loaded action/group: GotoUniverseCity
+07/28/24 21:42:28: Loaded action/group: GotoLandOfLucy
+07/28/24 21:42:28: Loaded action/group: GotoPlaceOfPablo
+07/28/24 21:42:28: Loaded action/group: GotoTheIcyHeart
+07/28/24 21:42:28: Loaded action/group: GotoGhostTown
+07/28/24 21:42:28: Loaded action/group: MainMenuChoices
+07/28/24 21:42:28: Loaded action/group: LevelUpOnce
+07/28/24 21:42:28: Loaded action/group: GotoTheGoldMines
+07/28/24 21:42:28: Loaded action/group: MoreChoices2
+07/28/24 21:42:28: Loaded action/group: MoreChoices4
+07/28/24 21:42:28: Loaded action/group: GotoVulturesValley
+07/28/24 21:42:28: Loaded action/group: TpMenu
+07/28/24 21:42:28: Loaded action/group: GotoEarth
+07/28/24 21:42:28: Loaded action/group: GotoStormySands
+07/28/24 21:42:28: Loaded action/group: GotoFantasia
+07/28/24 21:42:28: Loaded action/group: GotoYetopia
+07/28/24 21:42:29: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 21:42:29: [Client] Failed to reconnect to server. Will try again...
+07/28/24 21:42:42: Executing command: delete_action("TpMenu")
+07/28/24 21:42:42: Action or action group 'TpMenu' has been deleted.
+07/28/24 21:42:42: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:42:48: Executing command: list_action_groups
+07/28/24 21:42:48: No action groups found.
+07/28/24 21:42:54: Executing command: add_action_group(TpMenu,["GotoDivineDomain","SaveGameNow", "MainMenuChoices2"])
+07/28/24 21:42:54: Action group 'TpMenu' added successfully.
+07/28/24 21:42:54: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:42:59: Executing command: execute_action(TpMenu)
+07/28/24 21:42:59: execute_action - Action Name: TpMenu
+07/28/24 21:42:59: Executing action: TpMenu
+07/28/24 21:42:59: Decoded Command: {"type":"action_group","actions":["GotoDivineDomain","SaveGameNow","MainMenuChoices2"]}
+07/28/24 21:42:59: Executing command: execute_action(GotoDivineDomain)
+07/28/24 21:42:59: execute_action - Action Name: GotoDivineDomain
+07/28/24 21:42:59: Executing action: GotoDivineDomain
+07/28/24 21:42:59: Decoded Command: {"command":"goto_planet","parameters":["Divine Domain"]}
+07/28/24 21:42:59: Teleported to Divine Domain.
+07/28/24 21:42:59: Executing command: execute_action(SaveGameNow)
+07/28/24 21:42:59: execute_action - Action Name: SaveGameNow
+07/28/24 21:42:59: Executing action: SaveGameNow
+07/28/24 21:43:00: Decoded Command: {"command":"save_game","parameters":[]}
+07/28/24 21:43:00: Saved Game
+07/28/24 21:43:00: Executing command: execute_action(MainMenuChoices2)
+07/28/24 21:43:00: execute_action - Action Name: MainMenuChoices2
+07/28/24 21:43:00: Executing action: MainMenuChoices2
+07/28/24 21:43:00: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]}
+07/28/24 21:43:00: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/28/24 21:43:00: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 21:43:01: Executing command: execute_action(GotoEarth)
+07/28/24 21:43:01: execute_action - Action Name: GotoEarth
+07/28/24 21:43:01: Executing action: GotoEarth
+07/28/24 21:43:01: Decoded Command: {"command":"goto_planet","parameters":["Earth"]}
+07/28/24 21:43:01: Teleported to Earth.
+07/28/24 21:45:03: Loaded action/group: SaveGameNow
+07/28/24 21:45:03: Loaded action/group: MoreChoices3
+07/28/24 21:45:03: Loaded action/group: GotoKingsKingdom
+07/28/24 21:45:03: Loaded action/group: MainMenuChoices2
+07/28/24 21:45:03: Loaded action/group: MoreChoices1
+07/28/24 21:45:03: Loaded action/group: GotoDivineDomain
+07/28/24 21:45:04: Loaded action/group: GotoTheEndonda
+07/28/24 21:45:04: Loaded action/group: GotoUniverseCity
+07/28/24 21:45:04: Loaded action/group: GotoLandOfLucy
+07/28/24 21:45:04: Loaded action/group: GotoPlaceOfPablo
+07/28/24 21:45:04: Loaded action/group: GotoTheIcyHeart
+07/28/24 21:45:04: Loaded action/group: GotoGhostTown
+07/28/24 21:45:04: Loaded action/group: MainMenuChoices
+07/28/24 21:45:04: Loaded action/group: LevelUpOnce
+07/28/24 21:45:04: Loaded action/group: GotoTheGoldMines
+07/28/24 21:45:04: Loaded action/group: MoreChoices2
+07/28/24 21:45:04: Loaded action/group: MoreChoices4
+07/28/24 21:45:04: Loaded action/group: GotoVulturesValley
+07/28/24 21:45:04: Loaded action/group: TpMenu
+07/28/24 21:45:04: Loaded action/group: GotoEarth
+07/28/24 21:45:04: Loaded action/group: GotoStormySands
+07/28/24 21:45:04: Loaded action/group: GotoFantasia
+07/28/24 21:45:04: Loaded action/group: GotoYetopia
+07/28/24 21:45:04: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 21:45:04: [Client] Failed to reconnect to server. Will try again...
+07/28/24 21:46:22: Executing command: list_action_groups
+07/28/24 21:46:22: Action Groups: TpMenu
+07/28/24 21:46:32: Executing command: delete_action("TpMenu")
+07/28/24 21:46:32: Action or action group 'TpMenu' has been deleted.
+07/28/24 21:46:32: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:46:41: Executing command: add_action_group(TpMenu,["GotoDivineDomain","SaveGameNow", "MainMenuChoices2"])
+07/28/24 21:46:41: Action group 'TpMenu' added successfully.
+07/28/24 21:46:41: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:46:45: Executing command: list_action_groups
+07/28/24 21:46:45: Action Groups: TpMenu
+07/28/24 21:46:48: Executing command: execute_action(TpMenu)
+07/28/24 21:46:48: execute_action - Action Name: TpMenu
+07/28/24 21:46:48: Executing action: TpMenu
+07/28/24 21:46:48: Decoded Command: {"type":"action_group","actions":["GotoDivineDomain","SaveGameNow","MainMenuChoices2"]}
+07/28/24 21:46:48: Executing command: execute_action(GotoDivineDomain)
+07/28/24 21:46:48: execute_action - Action Name: GotoDivineDomain
+07/28/24 21:46:48: Executing action: GotoDivineDomain
+07/28/24 21:46:48: Decoded Command: {"command":"goto_planet","parameters":["Divine Domain"]}
+07/28/24 21:46:48: Teleported to Divine Domain.
+07/28/24 21:46:48: Executing command: execute_action(SaveGameNow)
+07/28/24 21:46:48: execute_action - Action Name: SaveGameNow
+07/28/24 21:46:48: Executing action: SaveGameNow
+07/28/24 21:46:48: Decoded Command: {"command":"save_game","parameters":[]}
+07/28/24 21:46:48: Saved Game
+07/28/24 21:46:48: Executing command: execute_action(MainMenuChoices2)
+07/28/24 21:46:48: execute_action - Action Name: MainMenuChoices2
+07/28/24 21:46:48: Executing action: MainMenuChoices2
+07/28/24 21:46:48: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]}
+07/28/24 21:46:48: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/28/24 21:46:48: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 21:46:50: Executing command: execute_action(GotoFantasia)
+07/28/24 21:46:50: execute_action - Action Name: GotoFantasia
+07/28/24 21:46:50: Executing action: GotoFantasia
+07/28/24 21:46:50: Decoded Command: {"command":"goto_planet","parameters":["Fantasia"]}
+07/28/24 21:46:50: Teleported to Fantasia.

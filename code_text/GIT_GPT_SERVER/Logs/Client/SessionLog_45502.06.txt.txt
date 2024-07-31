@@ -1,0 +1,130 @@
+07/28/24 20:21:38: Loaded action/group: SaveGameNow
+07/28/24 20:21:38: Loaded action/group: MoreChoices3
+07/28/24 20:21:38: Loaded action/group: GotoKingsKingdom
+07/28/24 20:21:38: Loaded action/group: MainMenuChoices2
+07/28/24 20:21:38: Loaded action/group: MoreChoices1
+07/28/24 20:21:38: Loaded action/group: GotoDivineDomain
+07/28/24 20:21:38: Loaded action/group: GotoTheEndonda
+07/28/24 20:21:38: Loaded action/group: GotoUniverseCity
+07/28/24 20:21:38: Loaded action/group: GotoLandOfLucy
+07/28/24 20:21:38: Loaded action/group: GotoPlaceOfPablo
+07/28/24 20:21:38: Loaded action/group: GotoTheIcyHeart
+07/28/24 20:21:38: Loaded action/group: GotoGhostTown
+07/28/24 20:21:38: Loaded action/group: MainMenuChoices
+07/28/24 20:21:38: Loaded action/group: LevelUpOnce
+07/28/24 20:21:38: Loaded action/group: GotoTheGoldMines
+07/28/24 20:21:38: Loaded action/group: MoreChoices2
+07/28/24 20:21:38: Loaded action/group: MoreChoices4
+07/28/24 20:21:38: Loaded action/group: GotoVulturesValley
+07/28/24 20:21:38: Loaded action/group: GotoEarth
+07/28/24 20:21:38: Loaded action/group: GotoStormySands
+07/28/24 20:21:38: Loaded action/group: GotoFantasia
+07/28/24 20:21:38: Loaded action/group: GotoYetopia
+07/28/24 20:21:38: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 20:21:38: [Client] Failed to reconnect to server. Will try again...
+07/28/24 20:21:55: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save Game","SaveGameNow"],["Cancel","null"]]])
+07/28/24 20:21:55: scr_add_action - Raw inputs:
+07/28/24 20:21:55: Name: MainMenuChoices
+07/28/24 20:21:55: Command: chat_bubble
+07/28/24 20:21:55: Parameters: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save Game","SaveGameNow"],["Cancel","null"]]]
+07/28/24 20:21:55: Action 'MainMenuChoices' added/updated successfully.
+07/28/24 20:21:55: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 20:21:55: Actions and action groups saved successfully to Actions.txt.
+07/28/24 20:21:55: Executing command: add_action(MainMenuChoices2,chat_bubble,["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More", "MoreChoices1"]]])
+07/28/24 20:21:55: scr_add_action - Raw inputs:
+07/28/24 20:21:55: Name: MainMenuChoices2
+07/28/24 20:21:55: Command: chat_bubble
+07/28/24 20:21:55: Parameters: ["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More", "MoreChoices1"]]]
+07/28/24 20:21:55: Action 'MainMenuChoices2' added/updated successfully.
+07/28/24 20:21:55: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 20:21:55: Actions and action groups saved successfully to Actions.txt.
+07/28/24 20:22:41: Executing command: add_action(MoreChoices1,chat_bubble,["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]])
+07/28/24 20:22:41: scr_add_action - Raw inputs:
+07/28/24 20:22:41: Name: MoreChoices1
+07/28/24 20:22:41: Command: chat_bubble
+07/28/24 20:22:41: Parameters: ["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]]
+07/28/24 20:22:41: Action 'MoreChoices1' added/updated successfully.
+07/28/24 20:22:41: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 20:22:41: Actions and action groups saved successfully to Actions.txt.
+07/28/24 20:22:41: Executing command: add_action(MoreChoices2,chat_bubble,["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/28/24 20:22:41: scr_add_action - Raw inputs:
+07/28/24 20:22:41: Name: MoreChoices2
+07/28/24 20:22:41: Command: chat_bubble
+07/28/24 20:22:41: Parameters: ["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]]
+07/28/24 20:22:41: Action 'MoreChoices2' added/updated successfully.
+07/28/24 20:22:41: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 20:22:41: Actions and action groups saved successfully to Actions.txt.
+07/28/24 20:22:49: Executing command: add_action(MoreChoices3,chat_bubble,["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]])
+07/28/24 20:22:49: scr_add_action - Raw inputs:
+07/28/24 20:22:49: Name: MoreChoices3
+07/28/24 20:22:49: Command: chat_bubble
+07/28/24 20:22:50: Parameters: ["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]]
+07/28/24 20:22:50: Action 'MoreChoices3' added/updated successfully.
+07/28/24 20:22:50: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 20:22:50: Actions and action groups saved successfully to Actions.txt.
+07/28/24 20:22:50: Executing command: add_action(MoreChoices4,chat_bubble,["Where would you like to go?","yeancat",[["The Icy Heart","GotoTheIcyHeart"],["The Gold Mines","GotoTheGoldMines"],["Cancel","null"]]])
+07/28/24 20:22:50: scr_add_action - Raw inputs:
+07/28/24 20:22:50: Name: MoreChoices4
+07/28/24 20:22:50: Command: chat_bubble
+07/28/24 20:22:50: Parameters: ["Where would you like to go?","yeancat",[["The Icy Heart","GotoTheIcyHeart"],["The Gold Mines","GotoTheGoldMines"],["Cancel","null"]]]
+07/28/24 20:22:50: Action 'MoreChoices4' added/updated successfully.
+07/28/24 20:22:50: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 20:22:50: Actions and action groups saved successfully to Actions.txt.
+07/28/24 20:22:59: Executing command: execute_action(MainMenuChoices2)
+07/28/24 20:22:59: execute_action - Action Name: MainMenuChoices2
+07/28/24 20:22:59: Executing action: MainMenuChoices2
+07/28/24 20:22:59: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]}
+07/28/24 20:22:59: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/28/24 20:22:59: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 20:23:01: Executing command: execute_action(MoreChoices1)
+07/28/24 20:23:01: execute_action - Action Name: MoreChoices1
+07/28/24 20:23:01: Executing action: MoreChoices1
+07/28/24 20:23:01: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]]}
+07/28/24 20:23:01: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]
+07/28/24 20:23:01: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 20:23:03: Executing command: execute_action(MoreChoices2)
+07/28/24 20:23:03: execute_action - Action Name: MoreChoices2
+07/28/24 20:23:03: Executing action: MoreChoices2
+07/28/24 20:23:03: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]]}
+07/28/24 20:23:03: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]
+07/28/24 20:23:03: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 20:23:07: Executing command: execute_action(MoreChoices3)
+07/28/24 20:23:07: execute_action - Action Name: MoreChoices3
+07/28/24 20:23:07: Executing action: MoreChoices3
+07/28/24 20:23:07: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]]}
+07/28/24 20:23:07: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]
+07/28/24 20:23:07: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 20:23:12: Executing command: execute_action(GotoYetopia)
+07/28/24 20:23:12: execute_action - Action Name: GotoYetopia
+07/28/24 20:23:12: Executing action: GotoYetopia
+07/28/24 20:23:12: Decoded Command: {"command":"goto_planet","parameters":["Yetopia"]}
+07/28/24 20:23:12: Teleported to Yetopia.
+07/28/24 20:23:15: Executing command: execute_action(MainMenuChoices2)
+07/28/24 20:23:15: execute_action - Action Name: MainMenuChoices2
+07/28/24 20:23:15: Executing action: MainMenuChoices2
+07/28/24 20:23:15: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]}
+07/28/24 20:23:16: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/28/24 20:23:16: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 20:23:23: Executing command: execute_action(GotoUniverseCity)
+07/28/24 20:23:23: execute_action - Action Name: GotoUniverseCity
+07/28/24 20:23:23: Executing action: GotoUniverseCity
+07/28/24 20:23:23: Decoded Command: {"command":"goto_planet","parameters":["Universe City"]}
+07/28/24 20:23:23: Teleported to Universe City.
+07/28/24 20:24:03: Executing command: add_action_group(LvlTp,["GotoDivineDomain","SaveGameNow","MainMenuCho ices2"])
+07/28/24 20:24:03: Invalid parameters for add_action_group
+07/28/24 20:24:12: Executing command: execute_action(LvlTp)
+07/28/24 20:24:12: execute_action - Action Name: LvlTp
+07/28/24 20:24:12: Action 'LvlTp' not found.
+07/28/24 20:24:48: [Jay Arnold] i had to modify it, when pasting it i got an odd character added (-) for example: /add_action_group(LvlTp,["GotoDivineDomain","SaveGameNow","MainMenuCho i- ces2"])
+07/28/24 20:24:48: Creating chat bubble:  i had to modify it, when pasting it i got an odd character added (-) for example: /add_action_group(LvlTp,), Owner: yeancat, Choices: []
+07/28/24 20:24:48: Chat Bubble Created. Following 'yeancat' with text: ' i had to modify it, when pasting it i got an odd character added (-) for example: /add_action_group(LvlTp,)'. Number of choices: 0
+07/28/24 20:25:05: Executing command: add_action_group(LvlTp,[ "GotoDivineDomain", "SaveGameNow", "MainMenuChoices2"])
+07/28/24 20:25:05: Invalid parameters for add_action_group
+07/28/24 20:25:31: [Jay Arnold] adding spaces after each comma prevents this wierd bug from happening, but it should work without spaces.
+07/28/24 20:25:31: Creating chat bubble:  adding spaces after each comma prevents this wierd bug from happening, but it should work without spaces., Owner: yeancat, Choices: []
+07/28/24 20:25:31: Chat Bubble Created. Following 'yeancat' with text: ' adding spaces after each comma prevents this wierd bug from happening, but it should work without spaces.'. Number of choices: 0
+07/28/24 20:25:50: Executing command: list_actions
+07/28/24 20:25:50: Actions: SaveGameNow, MoreChoices3, GotoKingsKingdom, MainMenuChoices2, MoreChoices1, GotoDivineDomain, GotoTheEndonda, GotoUniverseCity, GotoLandOfLucy, GotoPlaceOfPablo, GotoTheIcyHeart, GotoGhostTown, MainMenuChoices, LevelUpOnce, GotoTheGoldMines, MoreChoices2, MoreChoices4, GotoVulturesValley, GotoEarth, GotoStormySands, GotoFantasia, GotoYetopia,
+07/28/24 20:26:47: [Jay Arnold] regardless it isnt working. also i should have a list_action_groups command as well so that the two can be separated, however i want them to both be able to be used with our execute_actions command. 
+07/28/24 20:26:47: Creating chat bubble:  regardless it isnt working. also i should have a list_action_groups command as well so that the two can be separated, however i want them to both be able to be used with our execute_actions command. , Owner: yeancat, Choices: []
+07/28/24 20:26:47: Chat Bubble Created. Following 'yeancat' with text: ' regardless it isnt working. also i should have a list_action_groups command as well so that the two can be separated, however i want them to both be able to be used with our execute_actions command. '. Number of choices: 0

@@ -3,7 +3,7 @@
 
 draw_set_alpha(al)
 draw_set_color(c_black);
-	draw_rectangle(0,0,room_width,room_height,0)
+	draw_rectangle(0+(obj_camera.target_x-room_width/2),0+(obj_camera.target_y-room_height/2),room_width+(obj_camera.target_x-room_width/2),room_height+(obj_camera.target_y-room_height/2),0)
 draw_set_alpha(1);
 draw_sprite_ext(sprite_index,0,x,y+50,1.25,1.55,0,c_white,sqrt(al))
 if image != noone {

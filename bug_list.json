@@ -1,202 +1,38 @@
 [
   {
-    "name": "Step Entry Split on Commas",
-    "description": "When listing steps with commas, each comma causes a new entry. This needs to be fixed so that steps can handle commas without creating new entries or a format must be decided to avoid this issue.",
-    "source": "GIT_GPT_SERVER",
-    "priority": "high",
-    "status": "open",
-    "date_reported": "2024-06-16",
-    "reported_by": "AI Assistant",
-    "assigned_to": "Dev Team",
-    "generation": "2",
-    "related_logs": [
-      "No related logs"
-    ],
-    "steps_to_reproduce": [
-      "Step 1: List steps with commas.",
-      "Step 2: Observe each comma causing a new entry."
-    ],
-    "resolution": [
-      "Expected fix: Adjust step entry handling to properly process commas."
-    ],
-    "related_features": [
-      "No related features"
-    ],
-    "related_objects": [
-      "No related objects"
-    ],
-    "related_scripts": [
-      "No related scripts"
-    ]
-  },
-  {
-    "name": "Sample Bug",
-    "description": "Implement a sample bug for testing purposes.",
+    "name": "Chat_Bubbles_Not_Destroying_Same_Owner_Instances",
+    "description": "Chat bubbles are not destroying other chat bubbles with the same owner when they are created, leading to overlapping bubbles. This causes visual clutter and potential confusion for users.",
     "source": "SYSTEM",
-    "priority": "low",
+    "priority": "medium",
     "status": "open",
-    "date_reported": "2024-06-20",
-    "reported_by": "Tester",
-    "assigned_to": "Dev Team",
-    "generation": "2",
-    "related_logs": [
-      "No related logs"
-    ],
-    "steps_to_reproduce": [
-      "Step 1: Create the bug.",
-      "Step 2: Implement the fix.",
-      "Step 3: Test the fix."
-    ],
-    "resolution": [
-      "Expected fix: Proper handling of the bug."
-    ],
-    "related_features": [
-      "No related features"
-    ],
-    "related_objects": [
-      "No related objects"
-    ],
-    "related_scripts": [
-      "No related scripts"
-    ]
-  },
-  {
-    "name": "Command_Text_Color_Inconsistency",
-    "description": "After implementing a fix for command text coloring, the issue has regressed. Commands are now inconsistently colored red or pink instead of the expected green for valid commands. This affects user experience and the ability to quickly validate command inputs.",
-    "source": "SYSTEM",
-    "priority": "high",
-    "status": "open",
-    "date_reported": "2024-07-22",
+    "date_reported": "2024-07-28",
     "reported_by": "Jay_Arnold",
     "assigned_to": "Dev_Team",
     "generation": "2",
     "related_logs": [
-      "SessionLog_45495.53"
+      "No_specific_log"
     ],
     "steps_to_reproduce": [
-      "Step 1: Reproduce the issue by typing various commands (e.g.",
-      " goto_planet",
-      " add_action",
-      " execute_action).",
-      "Step 2: Analyze the update_chat_input_visuals function for incorrect color assignment.",
-      "Step 3: Review the are_params_valid function for proper parameter validation.",
-      "Step 4: Check the action_exists function and global.actions map initialization.",
-      "Step 5: Verify the check_permission_command function for correct permission checking.",
-      "Step 6: Implement more detailed logging in color determination process.",
-      "Step 7: Consider implementing a state machine for complex command parsing.",
-      "Step 8: Test the system with a variety of command types and parameter structures."
+      "Step 1: Create a chat bubble for a specific owner.",
+      "Step 2: Create another chat bubble for the same owner without closing the first.",
+      "Step 3: Observe that both chat bubbles remain on screen",
+      " overlapping.",
+      "Step 4: Check the Create event of obj_chat_bubble for instance destruction logic.",
+      "Step 5: Verify the scr_chat_bubble function for proper instance management.",
+      "Step 6: Review handleDebugMessage function for any interference with bubble creation.",
+      "Step 7: Test with various owner types (e.g.",
+      " NPCs",
+      " player",
+      " system messages)."
     ],
     "resolution": [
-      "Expected fix: Consistent and correct color coding of command text. Valid commands should appear green",
-      " while invalid or unauthorized commands should be red. Complex commands with quoted strings and nested parameters should be handled correctly."
-    ],
-    "related_features": [
-      "Command_Text_Coloring",
-      "User_Interface_Feedback"
-    ],
-    "related_objects": [
-      "obj_Client",
-      "obj_Chat_Input"
-    ],
-    "related_scripts": [
-      "update_chat_input_visuals",
-      "check_permission_command",
-      "are_params_valid",
-      "action_exists",
-      "extract_action_name",
-      "parse_parameters",
-      "string_split",
-      "add_action",
-      "goto_planet",
-      "execute_action",
-      "are_brackets_balanced"
-    ]
-  },
-  {
-    "name": "Chat_Bubble_Choices_Not_Displaying",
-    "description": "Chat bubbles are being created with 0 choices, even when choices are specified in the command. This affects the functionality of choice-based interactions, particularly in actions like MainMenuChoices.",
-    "source": "SYSTEM",
-    "priority": "high",
-    "status": "open",
-    "date_reported": "2024-07-22",
-    "reported_by": "Jay_Arnold",
-    "assigned_to": "Dev_Team",
-    "generation": "2",
-    "related_logs": [
-      "SessionLog_45495.55"
-    ],
-    "steps_to_reproduce": [
-      "Step 1: Execute the MainMenuChoices action.",
-      "Step 2: Verify that the chat bubble appears without choices.",
-      "Step 3: Examine the scr_chat_bubble function for choice handling.",
-      "Step 4: Review the parse_arguments and parse_data_types functions for correct parameter parsing.",
-      "Step 5: Check the execute_action function for proper passing of choice parameters.",
-      "Step 6: Inspect the chat_bubble command implementation.",
-      "Step 7: Verify the scr_chat_bubble_choices function is being called correctly.",
-      "Step 8: Test with various chat bubble commands with different numbers of choices."
-    ],
-    "resolution": [
-      "Expected fix: Chat bubbles should correctly display all specified choices",
-      " allowing for interactive dialogue and menu options."
-    ],
-    "related_features": [
-      "Chat_Interaction",
-      "User_Interface",
-      "Action_Execution"
-    ],
-    "related_objects": [
-      "obj_chat_bubble",
-      "obj_Client"
-    ],
-    "related_scripts": [
-      "scr_chat_bubble",
-      "scr_add_action",
-      "scr_add_chat_bubble_action",
-      "parse_arguments",
-      "parse_data_types",
-      "scr_execute_action",
-      "execute_command",
-      "chat_bubble",
-      "scr_chat_bubble_choices",
-      "parse_nested_array"
-    ]
-  },
-  {
-    "name": "Chat_Bubbles_Appearing_Empty",
-    "description": "Chat bubbles are being created but appear empty. When a user types a message or when the system generates a chat bubble, the bubble appears visually, but it doesn't display any text. This occurs for both regular messages and potentially for chat bubbles with choices.",
-    "source": "SYSTEM",
-    "priority": "high",
-    "status": "open",
-    "date_reported": "2024-07-24",
-    "reported_by": "Jay_Arnold",
-    "assigned_to": "Dev_Team",
-    "generation": "2",
-    "related_logs": [
-      "SessionLog_45497.60"
-    ],
-    "steps_to_reproduce": [
-      "Step 1: Start the game.",
-      "Step 2: Type a normal message in the chat (not a command starting with '/').",
-      "Step 3: Observe if a chat bubble appears.",
-      "Step 4: Check if the chat bubble contains the text typed.",
-      "Step 5: Try typing messages of different lengths.",
-      "Step 6: Create a chat bubble with choices using a command.",
-      "Step 7: Check obj_chat_bubble's Create",
-      " Step",
-      " and Draw events.",
-      "Step 8: Review scr_chat_bubble and handleDebugMessage functions.",
-      "Step 9: Examine obj_Client for chat-related functionality.",
-      "Step 10: Check Actions.txt file content after adding actions.",
-      "Step 11: Monitor debug output when creating and displaying chat bubbles.",
-      "Step 12: Look for any error messages in the console related to chat bubbles or text drawing."
-    ],
-    "resolution": [
-      "Expected fix: Chat bubbles should properly display the text of messages and show choices when applicable. The text should be visible for messages of various lengths."
+      "Expected fix: When a new chat bubble is created",
+      " it should automatically destroy any existing chat bubbles with the same owner",
+      " ensuring only one bubble per owner is displayed at a time."
     ],
     "related_features": [
       "Chat_System",
-      "User_Interface",
-      "Text_Display"
+      "User_Interface"
     ],
     "related_objects": [
       "obj_chat_bubble",
@@ -204,97 +40,443 @@
     ],
     "related_scripts": [
       "scr_chat_bubble",
-      "handleDebugMessage",
-      "create_chat_bubble",
-      "draw_chat_bubble",
-      "process_chat_message"
+      "handleDebugMessage"
     ]
   },
   {
-    "name": "CLIENT_INSTANCE_COMMAND_ISSUE",
-    "description": "Client instance commands are not being processed correctly in the multiplayer mode.",
-    "source": "GAMEPLAY",
+    "name": "Multi_Line_Command_Input_And_Shift_Enter_Functionality",
+    "description": "The chat interface currently lacks the ability to input multiple commands at once and doesn't support the 'Shift+Enter' functionality for new lines. This limits the ability to create complex, multi-line command sequences for emergent behaviors and storytelling. Additionally, all 'Enter' key presses currently submit the text, regardless of whether 'Shift' is held.",
+    "source": "SYSTEM",
     "priority": "high",
     "status": "open",
-    "date_reported": "2024-07-24",
-    "reported_by": "Jay Arnold",
-    "assigned_to": "Dev Team",
-    "generation": "3",
+    "date_reported": "2024-07-28",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
     "related_logs": [
-      "SessionLog_45497.91"
+      "SessionLog_45501.88"
     ],
     "steps_to_reproduce": [
-      "Step 1: Identify the problematic commands.",
-      "Step 2: Investigate the command processing logic.",
-      "Step 3: Implement a fix for command handling.",
-      "Step 4: Test the fix in multiplayer mode."
+      "Step 1: Attempt to paste multiple commands into the chat input.",
+      "Step 2: Verify that only the first command is processed.",
+      "Step 3: Try using Shift+Enter to create a new line in the input.",
+      "Step 4: Observe that the input is submitted instead of creating a new line.",
+      "Step 5: Review execute_command and scr_execute_command for command processing.",
+      "Step 6: Examine update_chat_input_visuals for input handling.",
+      "Step 7: Check last_key_is_valid_character for Enter key handling.",
+      "Step 8: Review string manipulation functions for potential use in parsing multi-line input."
     ],
     "resolution": [
-      "Expected fix: Commands should be processed correctly in the client instance during multiplayer."
+      "Expected fix: 1) Allow pasting and manual input of multiple commands",
+      " each on a new line. 2) Implement Shift+Enter functionality to create new lines in the input without submitting. 3) Process multiple commands sequentially when submitted. 4) Maintain existing chat interface layout and core functionality."
     ],
     "related_features": [
-      "No related features"
+      "Command_Input",
+      "User_Interface",
+      "Scripting"
     ],
     "related_objects": [
-      "obj_Client",
-      "obj_chat_bubble"
+      "obj_client"
     ],
     "related_scripts": [
-      "save_actions",
-      "scr_save_actions",
-      "scr_add_action",
       "execute_command",
-      "load_actions",
-      "array_to_string_robust",
+      "scr_execute_command",
       "handleDebugMessage",
-      "appendAndWrap",
-      "scr_chat_bubble"
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "drawChatMessages",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "string_wrap",
+      "array_to_string",
+      "string_last_index_of"
     ]
   },
   {
-    "name": "ACTIONS_ADD_SAVE_ISSUE",
-    "description": "Actions are not adding or saving properly. Single argument actions are not executed correctly.",
-    "source": "GAMEPLAY",
+    "name": "Chat_Bubbles_Display_Line_Character",
+    "description": "Chat bubbles are displaying the Line character instead of line breaking.",
+    "source": "SYSTEM",
     "priority": "high",
     "status": "open",
-    "date_reported": "2024-07-24",
-    "reported_by": "Jay Arnold",
-    "assigned_to": "Dev Team",
-    "generation": "3",
+    "date_reported": "2024-07-28",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
     "related_logs": [
-      "SessionLog_45498.21"
+      "SessionLog_45501.97"
     ],
     "steps_to_reproduce": [
-      "Step 1: Identify the issue with adding and saving actions.",
-      "Step 2: Investigate the logic for handling single argument actions.",
-      "Step 3: Implement a fix for action handling and saving.",
-      "Step 4: Test the fix to ensure actions are processed correctly."
+      "Step 1: Test chat messages with line breaks.",
+      "Step 2: Create a chat bubble and check for correct line breaks.",
+      "Step 3: Review the drawChatMessages function for handling line breaks.",
+      "Step 4: Verify the chat bubble text handling in scr_chat_bubble script."
     ],
     "resolution": [
-      "Expected fix: Actions should add",
-      " save",
-      " and execute correctly",
-      " including single argument actions."
+      "Expected fix: 1) Ensure chat bubbles display text with line breaks correctly. 2) Remove any extraneous line characters."
     ],
     "related_features": [
-      "No related features"
+      "Chat_Bubbles",
+      "Text_Rendering",
+      "User_Interface"
     ],
     "related_objects": [
-      "obj_Client",
+      "obj_client",
       "obj_chat_bubble"
     ],
     "related_scripts": [
-      "save_actions",
-      "scr_save_actions",
-      "scr_add_action",
       "execute_command",
-      "load_actions",
-      "array_to_string_robust",
+      "scr_execute_command",
       "handleDebugMessage",
-      "appendAndWrap",
       "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "drawChatMessages",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "string_wrap",
+      "array_to_string",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
       "parse_arguments",
-      "decode_action_parameters"
+      "save_actions"
+    ]
+  },
+  {
+    "name": "Unintentional_Line_Breaking_Not_Working",
+    "description": "Unintentional line breaking is not working; text should break automatically at the proper place. Manual line breaks should be removed to avoid interference with commands and actions.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-28",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45501.97"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Type a long message and check for automatic line breaks.",
+      "Step 2: Create a chat bubble and ensure manual line breaks are removed.",
+      "Step 3: Review the string_wrap function for correct line breaking logic.",
+      "Step 4: Verify chat input handling in update_chat_input_visuals script."
+    ],
+    "resolution": [
+      "Expected fix: 1) Automatic line breaking should occur at the correct place. 2) Manual line breaks should not interfere with commands and actions."
+    ],
+    "related_features": [
+      "Chat_Bubbles",
+      "Text_Rendering",
+      "User_Interface"
+    ],
+    "related_objects": [
+      "obj_client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "drawChatMessages",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "string_wrap",
+      "array_to_string",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions"
+    ]
+  },
+  {
+    "name": "Cannot_Recall_Past_Commands",
+    "description": "Unable to recall past commands using the up or down arrow keys; only normal messages are recalled.",
+    "source": "SYSTEM",
+    "priority": "medium",
+    "status": "open",
+    "date_reported": "2024-07-28",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45501.97"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Attempt to recall past commands using arrow keys.",
+      "Step 2: Check the behavior for normal messages recall.",
+      "Step 3: Review the execute_command function for command history handling.",
+      "Step 4: Verify the chat input handling in update_chat_input_visuals script."
+    ],
+    "resolution": [
+      "Expected fix: 1) Commands should be recalled using arrow keys similar to normal messages. 2) Ensure consistency in recall functionality."
+    ],
+    "related_features": [
+      "Chat_Interface",
+      "Command_History",
+      "User_Interface"
+    ],
+    "related_objects": [
+      "obj_client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "drawChatMessages",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "string_wrap",
+      "array_to_string",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions"
+    ]
+  },
+  {
+    "name": "Chat_Bubbles_and_Command_Input_Issues",
+    "description": "The chat interface has several issues: \n1) Chat bubbles display the '|' character instead of properly breaking lines.\n2) Automatic line breaking is not functioning as expected, leading to unintentional formatting issues. Manual line breaks should remain but should not interfere with command execution. The automatic line breaks should use '\\n' instead of '|', and '\\n' should be properly removed before executing commands.\n3) Unable to recall past commands using the up or down arrow keys; only normal messages are recalled.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-28",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45501.97"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Type a long message and check for proper line breaking in chat bubbles.",
+      "Step 2: Ensure chat bubbles do not display the '|' character for line breaks.",
+      "Step 3: Verify that automatic line breaking uses '\\n' and that '\\n' is removed before command execution.",
+      "Step 4: Attempt to recall past commands using the up or down arrow keys.",
+      "Step 5: Review the execute_command and scr_execute_command functions for command processing and history handling.",
+      "Step 6: Examine update_chat_input_visuals for input handling.",
+      "Step 7: Check last_key_is_valid_character for Enter key handling.",
+      "Step 8: Review string manipulation functions for proper line breaking and command execution."
+    ],
+    "resolution": [
+      "Expected fix: 1) Chat bubbles should display text with correct line breaks and not show the '|' character. 2) Automatic line breaking should occur using ' '",
+      " and ' ' should be removed before executing commands. 3) Past commands should be recalled using arrow keys similar to normal messages."
+    ],
+    "related_features": [
+      "Chat_Bubbles",
+      "Text_Rendering",
+      "Command_History",
+      "User_Interface"
+    ],
+    "related_objects": [
+      "obj_client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "drawChatMessages",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "string_wrap",
+      "array_to_string",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions"
+    ]
+  },
+  {
+    "name": "Chat_Bubble_Scaling_Issues",
+    "description": "1. The draw_rectangle_outlined is not scaling with the longest message. It appears that global.longestmessage is not being updated, as the script for it cannot be found in the code.\n2. The x2 variable needs to be set properly in the client draw event.\n3. The scaling of the text in the chat bubble choices is too large, causing text to break into more lines than necessary. Text is being broken into 3 lines when it could fit into 2 lines if shrunk slightly.\n4. The breakpoint for new lines in chat bubble choices should be longer.\n5. The vertical spacing between the lines of a single choice should be closer.\n6. The text should scale down quicker than it currently does for the bubble itself.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-28",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "No Log"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Verify that global.longestmessage is being properly updated by implementing or fixing the updateLongestMessage script.",
+      "Step 2: Ensure the x2 variable is set correctly in the client draw event.",
+      "Step 3: Adjust the scaling of text in chat bubble choices to prevent excessive line breaks.",
+      "Step 4: Increase the breakpoint for new lines in chat bubble choices.",
+      "Step 5: Reduce the vertical spacing between lines of a single choice.",
+      "Step 6: Modify the text scaling to decrease quicker than it does for the chat bubble itself."
+    ],
+    "resolution": [
+      "Expected outcome: 1) draw_rectangle_outlined scales correctly with the longest message. 2) Text in chat bubble choices fits better within the bubbles",
+      " with fewer line breaks and improved readability."
+    ],
+    "related_features": [
+      "User_Interface",
+      "Text_Scaling",
+      "Chat_Bubbles"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "updateLongestMessage",
+      "get_longest_word_width",
+      "wrap_chat_text"
+    ]
+  },
+  {
+    "name": "Chat_Box_Overflow_and_Scroll_Limitation",
+    "description": "The chat box in the game is experiencing issues with scrolling and message display. The scroll limit doesn't account for the number of line breaks in the commandBuffer, preventing users from scrolling down far enough to see all messages. As a result, some chat log content is drawn outside its intended bounds. Additionally, the chat box is not limiting the displayed messages to the specified maximum (set to 6), causing more messages to be visible than intended.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-29",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45502.97"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Update the scrolling logic to account for line breaks in the commandBuffer.",
+      "Step 2: Modify the message display logic to show only the specified number of recent messages.",
+      "Step 3: Adjust the chat box drawing to ensure all content stays within its bounds."
+    ],
+    "resolution": [
+      "Expected outcome: The chat box should display only the 6 most recent messages above the text input box. Users should be able to scroll through the entire chat history",
+      " with the scroll limit accounting for line breaks in the commandBuffer. All chat content should be contained within the chat box bounds."
+    ],
+    "related_features": [
+      "Chat_Box",
+      "Scrolling",
+      "Message_Display"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "updateLongestMessage",
+      "get_longest_word_width",
+      "wrap_chat_text",
+      "string_wrap",
+      "appendAndWrap",
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "array_to_string",
+      "scr_add_action",
+      "scr_execute_action",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions",
+      "scr_add_action_group",
+      "list_actions",
+      "get_object_reference",
+      "list_action_groups",
+      "handleCommandWithArgs"
+    ]
+  },
+  {
+    "name": "Excessive_Line_Breaks_in_Chat_Bubble_Choices",
+    "description": "For some reason, more line breaks are added to chat bubble choices than needed. It appears that the chat bubbles themselves are breaking the text too soon, even though the max_width is 800.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-07-29",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45502.21"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Investigate why chat bubbles are breaking text too soon",
+      " despite the max_width being set to 800.",
+      "Step 2: Ensure that the text wrapping respects the max_width setting without introducing unnecessary line breaks."
+    ],
+    "resolution": [
+      "Expected outcome: Chat bubble choices should only break lines when the text exceeds the max_width setting",
+      " reducing the number of unnecessary line breaks."
+    ],
+    "related_features": [
+      "User_Interface",
+      "Text_Wrapping",
+      "Chat_Bubbles"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "updateLongestMessage",
+      "get_longest_word_width",
+      "wrap_chat_text",
+      "string_wrap",
+      "appendAndWrap",
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "array_to_string",
+      "scr_add_action",
+      "scr_execute_action",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions"
     ]
   }
 ]

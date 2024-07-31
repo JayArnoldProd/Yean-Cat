@@ -1,0 +1,78 @@
+07/27/24 21:16:56: Actions.txt not found. Starting with an empty actions map.
+07/27/24 21:16:56: [Client] Failed to reconnect to server. Will try again...
+07/27/24 21:17:12: [Jay Arnold] hello world
+07/27/24 21:17:12: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 21:17:12: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 21:17:16: Executing command: list_commands
+07/27/24 21:17:16: Processed command: list_commands
+07/27/24 21:17:16: Commands: add_action(, add_chat_bubble_action(, chat_bubble(, 
+07/27/24 21:17:16: chat_bubble_choices(, disable_heartbeat, enable_heartbeat, 
+07/27/24 21:17:16: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+07/27/24 21:17:16: list_actions, list_clients, list_commands, list_variables, 
+07/27/24 21:17:16: return_controller, save_actions, save_game, save_macros, 
+07/27/24 21:17:17: set_my_permission(, set_variable(, show_gamepad_mapping, show_lines(, 
+07/27/24 21:17:17: show_variable(, show_wpm, toggle_debug, toggle_input_display, 
+07/27/24 21:17:17: toggle_log_debug, toggle_server
+07/27/24 21:17:19: [Jay Arnold] nice
+07/27/24 21:17:19: Creating chat bubble:  nice, Owner: yeancat, Choices: []
+07/27/24 21:17:19: Chat Bubble Created. Following 'yeancat' with text: ' nice'. Number of choices: 0
+07/27/24 21:17:28: [Jay Arnold] nice
+07/27/24 21:17:28: Creating chat bubble:  nice, Owner: yeancat, Choices: []
+07/27/24 21:17:28: Chat Bubble Created. Following 'yeancat' with text: ' nice'. Number of choices: 0
+07/27/24 21:17:31: [Jay Arnold] hello
+07/27/24 21:17:31: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/27/24 21:17:31: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/27/24 21:17:37: [Jay Arnold] why cant i scroll
+07/27/24 21:17:37: Creating chat bubble:  why cant i scroll, Owner: yeancat, Choices: []
+07/27/24 21:17:37: Chat Bubble Created. Following 'yeancat' with text: ' why cant i scroll'. Number of choices: 0
+07/27/24 21:17:43: [Jay Arnold] oh nooo
+07/27/24 21:17:43: Creating chat bubble:  oh nooo, Owner: yeancat, Choices: []
+07/27/24 21:17:43: Chat Bubble Created. Following 'yeancat' with text: ' oh nooo'. Number of choices: 0
+07/27/24 21:17:47: [Jay Arnold] hello hello
+07/27/24 21:17:47: Creating chat bubble:  hello hello, Owner: yeancat, Choices: []
+07/27/24 21:17:47: Chat Bubble Created. Following 'yeancat' with text: ' hello hello'. Number of choices: 0
+07/27/24 21:17:56: Executing command: execute_action(MainMenuChoices)
+07/27/24 21:17:56: Processed command: execute_action(MainMenuChoices)
+07/27/24 21:17:56: execute_action - Action Name: MainMenuChoices
+07/27/24 21:17:56: Action 'MainMenuChoices' not found.
+07/27/24 21:18:05: Executing command: list_actions
+07/27/24 21:18:05: Processed command: list_actions
+07/27/24 21:18:05: No actions found.
+07/27/24 21:21:12: Actions.txt not found. Starting with an empty actions map.
+07/27/24 21:21:12: [Client] Failed to reconnect to server. Will try again...
+07/27/24 21:21:34: Executing command: list_actions
+07/27/24 21:21:34: Processed command: list_actions
+07/27/24 21:21:34: No actions found.
+07/27/24 21:21:40: [Jay Arnold] hello world
+07/27/24 21:21:40: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 21:21:40: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 21:24:14: Actions.txt not found. Starting with an empty actions map.
+07/27/24 21:24:14: [Client] Failed to reconnect to server. Will try again...
+07/27/24 21:24:46: [Jay Arnold] hello world
+07/27/24 21:24:46: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 21:24:46: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 21:24:49: Executing command: goto_planet(Fantasia)
+07/27/24 21:24:49: Processed command: goto_planet(Fantasia)
+07/27/24 21:24:49: Teleported to Fantasia.
+07/27/24 21:26:38: Actions.txt not found. Starting with an empty actions map.
+07/27/24 21:26:38: [Client] Failed to reconnect to server. Will try again...
+07/27/24 21:26:49: [Jay Arnold] hello world
+07/27/24 21:26:49: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 21:26:49: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 21:29:19: Actions.txt not found. Starting with an empty actions map.
+07/27/24 21:29:19: [Client] Failed to reconnect to server. Will try again...
+07/27/24 21:29:32: [Jay Arnold] hello world
+07/27/24 21:29:32: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 21:29:32: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 21:29:35: [Jay Arnold] sfalkjfn
+07/27/24 21:29:35: Creating chat bubble:  sfalkjfn, Owner: yeancat, Choices: []
+07/27/24 21:29:35: Chat Bubble Created. Following 'yeancat' with text: ' sfalkjfn'. Number of choices: 0
+07/27/24 21:29:38: Executing command: goto_planet(Fantasia)
+07/27/24 21:29:38: Processed command: goto_planet(Fantasia)
+07/27/24 21:29:38: Teleported to Fantasia.
+07/27/24 21:29:45: Executing command: toggle_log_debug
+07/27/24 21:29:45: Processed command: toggle_log_debug
+07/27/24 21:29:45: Log debug messages to file toggled: 1
+07/27/24 21:29:50: [Jay Arnold] hello world
+07/27/24 21:29:50: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 21:29:50: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0

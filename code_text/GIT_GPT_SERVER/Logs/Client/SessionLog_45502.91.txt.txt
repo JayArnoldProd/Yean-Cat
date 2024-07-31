@@ -1,0 +1,128 @@
+
+07/29/24 16:54:28: Loaded action/group: SaveGameNow
+07/29/24 16:54:28: Loaded action/group: GotoKingsKingdom
+07/29/24 16:54:28: Loaded action/group: EnterPortal
+07/29/24 16:54:28: Loaded action/group: PurchaseArtifacts
+07/29/24 16:54:28: Loaded action/group: BattleOutcome
+07/29/24 16:54:28: Loaded action/group: VisitMarket
+07/29/24 16:54:28: Loaded action/group: GotoDivineDomain
+07/29/24 16:54:28: Loaded action/group: GotoTheEndonda
+07/29/24 16:54:28: Loaded action/group: GotoUniverseCity
+07/29/24 16:54:28: Loaded action/group: GotoLandOfLucy
+07/29/24 16:54:28: Loaded action/group: GotoPlaceOfPablo
+07/29/24 16:54:28: Loaded action/group: InvestigateSignals
+07/29/24 16:54:28: Loaded action/group: OfferTrade
+07/29/24 16:54:28: Loaded action/group: DisableEnemySpawns
+07/29/24 16:54:28: Loaded action/group: BattleSequence
+07/29/24 16:54:28: Loaded action/group: StartBattle
+07/29/24 16:54:28: Loaded action/group: GotoTheIcyHeart
+07/29/24 16:54:28: Loaded action/group: EngageCombat
+07/29/24 16:54:28: Loaded action/group: GotoGhostTown
+07/29/24 16:54:28: Loaded action/group: StartExploration
+07/29/24 16:54:28: Loaded action/group: SetLevelFive
+07/29/24 16:54:28: Loaded action/group: LevelUpThree
+07/29/24 16:54:28: Loaded action/group: LevelUpOnce
+07/29/24 16:54:28: Loaded action/group: GotoTheGoldMines
+07/29/24 16:54:28: Loaded action/group: StartPeaceMission
+07/29/24 16:54:28: Loaded action/group: DiplomaticChoice
+07/29/24 16:54:28: Loaded action/group: TreatyOutcome
+07/29/24 16:54:28: Loaded action/group: ExplorationChoice
+07/29/24 16:54:28: Loaded action/group: BattleChoice
+07/29/24 16:54:28: Loaded action/group: ArtifactMystery
+07/29/24 16:54:28: Loaded action/group: PortalOutcome
+07/29/24 16:54:28: Loaded action/group: PeacefulMission
+07/29/24 16:54:28: Loaded action/group: SpaceAdventureStart
+07/29/24 16:54:28: Loaded action/group: PortalAdventure
+07/29/24 16:54:28: Loaded action/group: EnableEnemySpawns
+07/29/24 16:54:28: Loaded action/group: GotoVulturesValley
+07/29/24 16:54:28: Loaded action/group: GotoEarth
+07/29/24 16:54:28: Loaded action/group: GotoStormySands
+07/29/24 16:54:28: Loaded action/group: SpaceExploration
+07/29/24 16:54:28: Loaded action/group: GotoFantasia
+07/29/24 16:54:28: Loaded action/group: GotoYetopia
+07/29/24 16:54:28: Loaded action/group: ArtifactOutcome
+07/29/24 16:54:28: Loaded action/group: EpicBattle
+07/29/24 16:54:28: Loaded action/group: PeaceTreaty
+07/29/24 16:54:28: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 16:54:28: [Client] Failed to reconnect to server. Will try again...
+07/29/24 16:54:47: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 16:54:47: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 16:54:47: Executing action/group: SpaceAdventureStart
+07/29/24 16:54:47: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/29/24 16:54:47: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 16:54:47: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 16:54:47: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 16:54:47: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 16:54:47: Command Name: chat_bubble
+07/29/24 16:54:47: Target Object: Target
+07/29/24 16:54:47: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 16:54:47: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/29/24 16:54:47: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/29/24 16:54:50: Raw command: execute_action(StartExploration)
+07/29/24 16:54:50: Cleaned command: execute_action(StartExploration)
+07/29/24 16:54:50: Executing action/group: StartExploration
+07/29/24 16:54:50: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/29/24 16:54:50: Raw command: execute_action("SpaceExploration")
+07/29/24 16:54:50: Cleaned command: execute_action("SpaceExploration")
+07/29/24 16:54:50: Executing action/group: SpaceExploration
+07/29/24 16:54:50: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/29/24 16:54:50: Raw command: execute_action(GotoUniverseCity)
+07/29/24 16:54:50: Cleaned command: execute_action(GotoUniverseCity)
+07/29/24 16:54:50: Executing action/group: GotoUniverseCity
+07/29/24 16:54:50: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+07/29/24 16:54:50: Raw command: goto_planet("Universe City")
+07/29/24 16:54:50: Cleaned command: goto_planet("Universe City")
+07/29/24 16:54:50: Parsing arguments: "Universe City"
+07/29/24 16:54:50: Parsed arguments: ["\"Universe City\""]
+07/29/24 16:54:50: Command Name: goto_planet
+07/29/24 16:54:50: Target Object: yeancat
+07/29/24 16:54:50: Parameters: ["\"Universe City\""]
+07/29/24 16:54:50: Teleported to Universe City.
+07/29/24 16:54:50: Raw command: execute_action(ExplorationChoice)
+07/29/24 16:54:50: Cleaned command: execute_action(ExplorationChoice)
+07/29/24 16:54:50: Executing action/group: ExplorationChoice
+07/29/24 16:54:50: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"Target"}
+07/29/24 16:54:50: Raw command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/29/24 16:54:50: Cleaned command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/29/24 16:54:50: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/29/24 16:54:50: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/29/24 16:54:50: Command Name: chat_bubble
+07/29/24 16:54:50: Target Object: Target
+07/29/24 16:54:50: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/29/24 16:54:50: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: Target, Choices: []
+07/29/24 16:54:50: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move?'. Number of choices: 3
+07/29/24 16:55:02: Added object reference:  -> obj_boss
+07/29/24 16:55:02: Added object reference: Boss_0 -> obj_boss
+07/29/24 16:55:17: Raw command: list_objects
+07/29/24 16:55:17: Cleaned command: list_objects
+07/29/24 16:55:17: Command Name: list_objects
+07/29/24 16:55:17: Target Object: yeancat
+07/29/24 16:55:17: Parameters: []
+07/29/24 16:55:17: Available object references: Player: yeancat Target: yeancat Boss: obj_boss  Bosses: Boss_0: obj_boss : obj_boss 
+07/29/24 16:55:29: Raw command: set_target(Boss_0)
+07/29/24 16:55:29: Cleaned command: set_target(Boss_0)
+07/29/24 16:55:29: Parsing arguments: Boss_0
+07/29/24 16:55:29: Parsed arguments: ["Boss_0"]
+07/29/24 16:55:29: Command Name: set_target
+07/29/24 16:55:29: Target Object: yeancat
+07/29/24 16:55:29: Parameters: ["Boss_0"]
+07/29/24 16:55:29: Target set to Boss_0 (obj_boss)
+07/29/24 16:55:34: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 16:55:34: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 16:55:34: Executing action/group: SpaceAdventureStart
+07/29/24 16:55:34: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/29/24 16:55:34: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 16:55:34: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 16:55:34: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 16:55:34: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 16:55:34: Command Name: chat_bubble
+07/29/24 16:55:34: Target Object: Target
+07/29/24 16:55:34: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 16:55:34: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/29/24 16:55:34: Chat Bubble Created. Following 'obj_boss' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/29/24 16:55:38: [Jay Arnold] it works!!!
+07/29/24 16:55:38: Creating chat bubble: " it works!!!", Owner: yeancat, Choices: []
+07/29/24 16:55:38: Chat Bubble Created. Following 'yeancat' with text: ' it works!!!'. Number of choices: 0
+07/29/24 16:57:08: [Jay Arnold] my only problem is that the name should have been Futurtle1! i like the idea of also |Boss_0 being able to be used as well if we dont want to specify a name and just specify|the first or second boss on screen, but also being able to use their names (Futurtle2, etc)
+07/29/24 16:57:08: Creating chat bubble: " my only problem is that the name should have been Futurtle1! i like the idea of also |Boss_0 being able to be used as well if we dont want to specify a name and just specify|the first or second boss on screen, but also being able to use their names (Futurtle2, etc)", Owner: yeancat, Choices: []
+07/29/24 16:57:08: Chat Bubble Created. Following 'yeancat' with text: ' my only problem is that the name should have been Futurtle1! i like the idea of also |Boss_0 being able to be used as well if we dont want to specify a name and just specify|the first or second boss on screen, but also being able to use their names (Futurtle2, etc)'. Number of choices: 0

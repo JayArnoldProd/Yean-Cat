@@ -1,0 +1,95 @@
+07/30/24 00:33:38: Loaded action/group: SaveGameNow
+07/30/24 00:33:38: Loaded action/group: GotoKingsKingdom
+07/30/24 00:33:38: Loaded action/group: EnterPortal
+07/30/24 00:33:38: Loaded action/group: PurchaseArtifacts
+07/30/24 00:33:38: Loaded action/group: BattleOutcome
+07/30/24 00:33:38: Loaded action/group: VisitMarket
+07/30/24 00:33:38: Loaded action/group: GotoDivineDomain
+07/30/24 00:33:38: Loaded action/group: GotoTheEndonda
+07/30/24 00:33:38: Loaded action/group: GotoUniverseCity
+07/30/24 00:33:38: Loaded action/group: GotoLandOfLucy
+07/30/24 00:33:38: Loaded action/group: GotoPlaceOfPablo
+07/30/24 00:33:38: Loaded action/group: InvestigateSignals
+07/30/24 00:33:38: Loaded action/group: OfferTrade
+07/30/24 00:33:38: Loaded action/group: DisableEnemySpawns
+07/30/24 00:33:38: Loaded action/group: BattleSequence
+07/30/24 00:33:38: Loaded action/group: StartBattle
+07/30/24 00:33:38: Loaded action/group: GotoTheIcyHeart
+07/30/24 00:33:38: Loaded action/group: EngageCombat
+07/30/24 00:33:38: Loaded action/group: GotoGhostTown
+07/30/24 00:33:39: Loaded action/group: StartExploration
+07/30/24 00:33:39: Loaded action/group: SetLevelFive
+07/30/24 00:33:39: Loaded action/group: LevelUpThree
+07/30/24 00:33:39: Loaded action/group: LevelUpOnce
+07/30/24 00:33:39: Loaded action/group: GotoTheGoldMines
+07/30/24 00:33:39: Loaded action/group: StartPeaceMission
+07/30/24 00:33:39: Loaded action/group: DiplomaticChoice
+07/30/24 00:33:39: Loaded action/group: TreatyOutcome
+07/30/24 00:33:39: Loaded action/group: ExplorationChoice
+07/30/24 00:33:39: Loaded action/group: BattleChoice
+07/30/24 00:33:39: Loaded action/group: ArtifactMystery
+07/30/24 00:33:39: Loaded action/group: PortalOutcome
+07/30/24 00:33:39: Loaded action/group: PeacefulMission
+07/30/24 00:33:39: Loaded action/group: SpaceAdventureStart
+07/30/24 00:33:39: Loaded action/group: PortalAdventure
+07/30/24 00:33:39: Loaded action/group: EnableEnemySpawns
+07/30/24 00:33:39: Loaded action/group: GotoVulturesValley
+07/30/24 00:33:39: Loaded action/group: GotoEarth
+07/30/24 00:33:39: Loaded action/group: GotoStormySands
+07/30/24 00:33:39: Loaded action/group: SpaceExploration
+07/30/24 00:33:39: Loaded action/group: GotoFantasia
+07/30/24 00:33:39: Loaded action/group: AG1
+07/30/24 00:33:39: Loaded action/group: GotoYetopia
+07/30/24 00:33:39: Loaded action/group: ArtifactOutcome
+07/30/24 00:33:39: Loaded action/group: EpicBattle
+07/30/24 00:33:39: Loaded action/group: PeaceTreaty
+07/30/24 00:33:39: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 00:33:39: [Client] Failed to reconnect to server. Will try again...
+07/30/24 00:43:26: [Jay Arnold] okay lets see
+
+
+
+
+
+
+
+its not expanding down vertically enough it should keep going about 13 lines or so
+from here! considering theres only 1 line currently in chat
+07/30/24 00:43:26: Creating chat bubble: " okay lets see\n\n\n\n\n\n\n\nits not expanding down vertically enough it should keep going about 13 lines or so\nfrom here! considering theres only 1 line currently in chat", Owner: yeancat, Choices: []
+07/30/24 00:43:26: Chat Bubble Created. Following 'yeancat' with text: 'okay lets see
+
+
+
+
+
+
+
+its not expanding down vertically enough it
+should keep going about 13 lines or so
+from here! considering theres only 1 line
+currently in chat'. Number of choices: 0
+07/30/24 00:43:41: [Jay Arnold] now theres at least 6 lines so 
+
+
+
+
+
+
+it still should go down about 4 more lines
+07/30/24 00:43:41: Creating chat bubble: " now theres at least 6 lines so \n\n\n\n\n\n\nit still should go down about 4 more lines", Owner: yeancat, Choices: []
+07/30/24 00:43:41: Chat Bubble Created. Following 'yeancat' with text: 'now theres at least 6 lines so 
+
+
+
+
+
+
+it still should go down about 4 more lines'. Number of choices: 0
+07/30/24 00:43:50: Raw command: show_lines(11)
+07/30/24 00:43:50: Cleaned command: show_lines(11)
+07/30/24 00:43:50: Parsing arguments: 11
+07/30/24 00:43:50: Parsed arguments: ["11"]
+07/30/24 00:43:50: Command Name: show_lines
+07/30/24 00:43:50: Target Object: yeancat
+07/30/24 00:43:50: Parameters: ["11"]
+07/30/24 00:43:50: Display set to show 11 lines.

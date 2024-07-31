@@ -16,6 +16,6 @@ function scr_save_macros() {
     }
 
     file_text_close(file);
-    handleDebugMessage("Macros saved to Macros.txt", true);
+    handleDebugMessage("Macros saved to Macros.txt", false);
 }
 

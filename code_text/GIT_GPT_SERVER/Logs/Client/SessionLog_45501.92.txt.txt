@@ -1,0 +1,502 @@
+07/28/24 17:10:33: Loaded action: SaveGameNow, Encoded Command: eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:10:33: Loaded action: GotoTheEndonda, Encoded Command: eyJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:10:33: Loaded action: GotoUniverseCity, Encoded Command: eyJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXSwiY29tbWFuZCI6ImdvdG9fcGxhbmV0In0=
+07/28/24 17:10:33: Loaded action: GotoLandOfLucy, Encoded Command: eyJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:10:33: Loaded action: GotoPlaceOfPablo, Encoded Command: eyJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:10:33: Loaded action: GotoGhostTown, Encoded Command: eyJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXSwiY29tbWFuZCI6ImdvdG9fcGxhbmV0In0=
+07/28/24 17:10:33: Loaded action: LevelUpOnce, Encoded Command: eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:10:33: Loaded action: GotoEarth, Encoded Command: eyJwYXJhbWV0ZXJzIjpbIkVhcnRoIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:10:33: Loaded action: GotoStormySands, Encoded Command: eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:10:33: Loaded action: GotoFantasia, Encoded Command: eyJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:10:33: Actions loaded successfully from Actions.txt.
+07/28/24 17:10:33: [Client] Failed to reconnect to server. Will try again...
+07/28/24 17:10:56: [Jay Arnold] Hello World!
+07/28/24 17:10:56: Creating chat bubble:  Hello World!, Owner: yeancat, Choices: []
+07/28/24 17:10:56: Chat Bubble Created. Following 'yeancat' with text: ' Hello World!'. Number of choices: 0
+07/28/24 17:11:02: [Jay Arnold] Hello|World!
+07/28/24 17:11:02: Creating chat bubble:  Hello|World!, Owner: yeancat, Choices: []
+07/28/24 17:11:02: Chat Bubble Created. Following 'yeancat' with text: ' Hello|World!'. Number of choices: 0
+07/28/24 17:11:39: [Jay Arnold] okay great this new character works but it shows up as an actual line when I type it and my input text doesnt break the line. only when i press enter is it seen as an actual break
+07/28/24 17:11:39: Creating chat bubble:  okay great this new character works but it shows up as an actual line when I type it and my input text doesnt break the line. only when i press enter is it seen as an actual break, Owner: yeancat, Choices: []
+07/28/24 17:11:39: Chat Bubble Created. Following 'yeancat' with text: ' okay great this new character works but it shows up as an actual line when I type it and my input text doesnt break the line. only when i press enter is it seen as an actual break'. Number of choices: 0
+07/28/24 17:11:46: [Jay Arnold] lets see how it works with pasting
+07/28/24 17:11:46: Creating chat bubble:  lets see how it works with pasting, Owner: yeancat, Choices: []
+07/28/24 17:11:46: Chat Bubble Created. Following 'yeancat' with text: ' lets see how it works with pasting'. Number of choices: 0
+07/28/24 17:11:49: Executing command: list_actions
+07/28/24 17:11:49: Actions: SaveGameNow, GotoTheEndonda, GotoUniverseCity, GotoLandOfLucy, GotoPlaceOfPablo, GotoGhostTown, LevelUpOnce, GotoEarth, GotoStormySands, GotoFantasia,
+07/28/24 17:12:01: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/28/24 17:12:01: scr_add_action - Raw inputs:
+07/28/24 17:12:01: Name: GotoEarth
+07/28/24 17:12:01: Command: goto_planet
+07/28/24 17:12:01: Parameters: ["Earth"]
+07/28/24 17:12:01: Action 'GotoEarth' added/updated successfully.
+07/28/24 17:12:01: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:12:01: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:12:01: Saving action: GotoTheEndonda|||eyJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:01: Saving action: GotoUniverseCity|||eyJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXSwiY29tbWFuZCI6ImdvdG9fcGxhbmV0In0=
+07/28/24 17:12:01: Saving action: GotoLandOfLucy|||eyJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:12:01: Saving action: GotoPlaceOfPablo|||eyJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:01: Saving action: GotoGhostTown|||eyJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXSwiY29tbWFuZCI6ImdvdG9fcGxhbmV0In0=
+07/28/24 17:12:01: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:12:01: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:12:01: Saving action: GotoStormySands|||eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:12:01: Saving action: GotoFantasia|||eyJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:01: Actions saved successfully to Actions.txt.
+07/28/24 17:12:01: Executing command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+07/28/24 17:12:01: scr_add_action - Raw inputs:
+07/28/24 17:12:01: Name: GotoUniverseCity
+07/28/24 17:12:01: Command: goto_planet
+07/28/24 17:12:01: Parameters: ["Universe City"]
+07/28/24 17:12:01: Action 'GotoUniverseCity' added/updated successfully.
+07/28/24 17:12:01: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:12:01: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:12:01: Saving action: GotoTheEndonda|||eyJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:01: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:12:01: Saving action: GotoLandOfLucy|||eyJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:12:01: Saving action: GotoPlaceOfPablo|||eyJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:01: Saving action: GotoGhostTown|||eyJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXSwiY29tbWFuZCI6ImdvdG9fcGxhbmV0In0=
+07/28/24 17:12:01: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:12:01: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:12:01: Saving action: GotoStormySands|||eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:12:01: Saving action: GotoFantasia|||eyJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:01: Actions saved successfully to Actions.txt.
+07/28/24 17:12:01: Executing command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+07/28/24 17:12:01: scr_add_action - Raw inputs:
+07/28/24 17:12:01: Name: GotoFantasia
+07/28/24 17:12:01: Command: goto_planet
+07/28/24 17:12:01: Parameters: ["Fantasia"]
+07/28/24 17:12:02: Action 'GotoFantasia' added/updated successfully.
+07/28/24 17:12:02: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:12:02: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:12:02: Saving action: GotoTheEndonda|||eyJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:02: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:12:02: Saving action: GotoLandOfLucy|||eyJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:12:02: Saving action: GotoPlaceOfPablo|||eyJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:02: Saving action: GotoGhostTown|||eyJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXSwiY29tbWFuZCI6ImdvdG9fcGxhbmV0In0=
+07/28/24 17:12:02: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:12:02: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:12:02: Saving action: GotoStormySands|||eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:12:02: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:12:02: Actions saved successfully to Actions.txt.
+07/28/24 17:12:02: Executing command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+07/28/24 17:12:02: scr_add_action - Raw inputs:
+07/28/24 17:12:02: Name: GotoLandOfLucy
+07/28/24 17:12:02: Command: goto_planet
+07/28/24 17:12:02: Parameters: ["Land of Lucy"]
+07/28/24 17:12:02: Action 'GotoLandOfLucy' added/updated successfully.
+07/28/24 17:12:02: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:12:02: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:12:02: Saving action: GotoTheEndonda|||eyJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:02: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:12:02: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:12:02: Saving action: GotoPlaceOfPablo|||eyJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:02: Saving action: GotoGhostTown|||eyJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXSwiY29tbWFuZCI6ImdvdG9fcGxhbmV0In0=
+07/28/24 17:12:02: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:12:02: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:12:02: Saving action: GotoStormySands|||eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:12:02: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:12:02: Actions saved successfully to Actions.txt.
+07/28/24 17:12:46: [Jay Arnold] great! it worked! but everything was on one line as it was pasted! these new special indicators should be always interpreted as a linebreak when representing them visually
+07/28/24 17:12:46: Creating chat bubble:  great! it worked! but everything was on one line as it was pasted! these new special indicators should be always interpreted as a linebreak when representing them visually, Owner: yeancat, Choices: []
+07/28/24 17:12:46: Chat Bubble Created. Following 'yeancat' with text: ' great! it worked! but everything was on one line as it was pasted! these new special indicators should be always interpreted as a linebreak when representing them visually'. Number of choices: 0
+07/28/24 17:12:53: Clipboard content is too long to paste!
+07/28/24 17:12:59: Executing command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+07/28/24 17:12:59: scr_add_action - Raw inputs:
+07/28/24 17:12:59: Name: GotoPlaceOfPablo
+07/28/24 17:12:59: Command: goto_planet
+07/28/24 17:12:59: Parameters: ["Place of Pablo"]
+07/28/24 17:12:59: Action 'GotoPlaceOfPablo' added/updated successfully.
+07/28/24 17:12:59: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:12:59: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:12:59: Saving action: GotoTheEndonda|||eyJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:12:59: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:00: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:00: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:00: Saving action: GotoGhostTown|||eyJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXSwiY29tbWFuZCI6ImdvdG9fcGxhbmV0In0=
+07/28/24 17:13:00: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:00: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:00: Saving action: GotoStormySands|||eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:13:00: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:00: Actions saved successfully to Actions.txt.
+07/28/24 17:13:00: Executing command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+07/28/24 17:13:00: scr_add_action - Raw inputs:
+07/28/24 17:13:00: Name: GotoGhostTown
+07/28/24 17:13:00: Command: goto_planet
+07/28/24 17:13:00: Parameters: ["Ghost Town"]
+07/28/24 17:13:00: Action 'GotoGhostTown' added/updated successfully.
+07/28/24 17:13:00: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:00: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:00: Saving action: GotoTheEndonda|||eyJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:13:00: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:00: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:00: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:00: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:00: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:00: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:00: Saving action: GotoStormySands|||eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:13:00: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:00: Actions saved successfully to Actions.txt.
+07/28/24 17:13:00: Executing command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+07/28/24 17:13:00: scr_add_action - Raw inputs:
+07/28/24 17:13:00: Name: GotoVulturesValley
+07/28/24 17:13:00: Command: goto_planet
+07/28/24 17:13:00: Parameters: ["Vultures Valley"]
+07/28/24 17:13:00: Action 'GotoVulturesValley' added/updated successfully.
+07/28/24 17:13:00: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:00: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:00: Saving action: GotoTheEndonda|||eyJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl0sImNvbW1hbmQiOiJnb3RvX3BsYW5ldCJ9
+07/28/24 17:13:00: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:00: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:00: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:00: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:00: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:00: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:00: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:00: Saving action: GotoStormySands|||eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:13:00: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:00: Actions saved successfully to Actions.txt.
+07/28/24 17:13:00: Executing command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+07/28/24 17:13:00: scr_add_action - Raw inputs:
+07/28/24 17:13:01: Name: GotoTheEndonda
+07/28/24 17:13:01: Command: goto_planet
+07/28/24 17:13:01: Parameters: ["The Endonda"]
+07/28/24 17:13:01: Action 'GotoTheEndonda' added/updated successfully.
+07/28/24 17:13:01: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:01: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:01: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:01: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:01: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:01: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:01: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:01: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:01: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:01: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:01: Saving action: GotoStormySands|||eyJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdLCJjb21tYW5kIjoiZ290b19wbGFuZXQifQ==
+07/28/24 17:13:01: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:01: Actions saved successfully to Actions.txt.
+07/28/24 17:13:01: Executing command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+07/28/24 17:13:01: scr_add_action - Raw inputs:
+07/28/24 17:13:01: Name: GotoStormySands
+07/28/24 17:13:01: Command: goto_planet
+07/28/24 17:13:01: Parameters: ["Stormy Sands"]
+07/28/24 17:13:01: Action 'GotoStormySands' added/updated successfully.
+07/28/24 17:13:01: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:01: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:01: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:01: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:01: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:01: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:01: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:01: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:01: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:01: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:01: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:01: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:01: Actions saved successfully to Actions.txt.
+07/28/24 17:13:08: Executing command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+07/28/24 17:13:08: scr_add_action - Raw inputs:
+07/28/24 17:13:08: Name: GotoDivineDomain
+07/28/24 17:13:08: Command: goto_planet
+07/28/24 17:13:08: Parameters: ["Divine Domain"]
+07/28/24 17:13:08: Action 'GotoDivineDomain' added/updated successfully.
+07/28/24 17:13:08: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:08: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:08: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:08: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:08: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:08: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:09: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:09: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:09: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:09: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:09: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:09: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:09: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:09: Actions saved successfully to Actions.txt.
+07/28/24 17:13:09: Executing command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+07/28/24 17:13:09: scr_add_action - Raw inputs:
+07/28/24 17:13:09: Name: GotoYetopia
+07/28/24 17:13:09: Command: goto_planet
+07/28/24 17:13:09: Parameters: ["Yetopia"]
+07/28/24 17:13:09: Action 'GotoYetopia' added/updated successfully.
+07/28/24 17:13:09: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:09: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:09: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:09: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:09: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:09: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:09: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:09: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:09: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:09: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:09: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:09: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:09: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:09: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:09: Actions saved successfully to Actions.txt.
+07/28/24 17:13:09: Executing command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+07/28/24 17:13:09: scr_add_action - Raw inputs:
+07/28/24 17:13:09: Name: GotoKingsKingdom
+07/28/24 17:13:09: Command: goto_planet
+07/28/24 17:13:09: Parameters: ["Kings Kingdom"]
+07/28/24 17:13:09: Action 'GotoKingsKingdom' added/updated successfully.
+07/28/24 17:13:09: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:13:09: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:09: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:13:09: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:09: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:09: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:09: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:09: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:09: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:09: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:09: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:09: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:09: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:09: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:09: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:09: Actions saved successfully to Actions.txt.
+07/28/24 17:13:09: Executing command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+07/28/24 17:13:10: scr_add_action - Raw inputs:
+07/28/24 17:13:10: Name: GotoTheIcyHeart
+07/28/24 17:13:10: Command: goto_planet
+07/28/24 17:13:10: Parameters: ["The Icy Heart"]
+07/28/24 17:13:10: Action 'GotoTheIcyHeart' added/updated successfully.
+07/28/24 17:13:10: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:13:10: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:10: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:13:10: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:10: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:10: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:10: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:10: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:10: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:13:10: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:10: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:10: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:10: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:10: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:10: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:10: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:10: Actions saved successfully to Actions.txt.
+07/28/24 17:13:15: Executing command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+07/28/24 17:13:15: scr_add_action - Raw inputs:
+07/28/24 17:13:15: Name: GotoTheGoldMines
+07/28/24 17:13:15: Command: goto_planet
+07/28/24 17:13:15: Parameters: ["The Gold Mines"]
+07/28/24 17:13:15: Action 'GotoTheGoldMines' added/updated successfully.
+07/28/24 17:13:15: Encoded Command: eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 17:13:15: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:15: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:13:15: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:15: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:15: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:15: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:15: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:15: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:13:15: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:15: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:15: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 17:13:15: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:15: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:15: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:15: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:15: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:15: Actions saved successfully to Actions.txt.
+07/28/24 17:13:25: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save Game","SaveGameNow"],["Cancel","null"]]])
+07/28/24 17:13:25: scr_add_action - Raw inputs:
+07/28/24 17:13:25: Name: MainMenuChoices
+07/28/24 17:13:25: Command: chat_bubble
+07/28/24 17:13:25: Parameters: ["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save Game","SaveGameNow"],["Cancel","null"]]]
+07/28/24 17:13:25: Action 'MainMenuChoices' added/updated successfully.
+07/28/24 17:13:25: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 17:13:25: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:25: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:13:25: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:25: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:25: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:25: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:25: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:25: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:13:25: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:25: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 17:13:25: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:25: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 17:13:25: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:25: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:25: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:25: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:25: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:25: Actions saved successfully to Actions.txt.
+07/28/24 17:13:36: Executing command: execute_action(MainMenuChoices)
+07/28/24 17:13:36: execute_action - Action Name: MainMenuChoices
+07/28/24 17:13:36: Executing action: MainMenuChoices
+07/28/24 17:13:36: Decoded Command: {"command":"chat_bubble","parameters":["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save Game","SaveGameNow"],["Cancel","null"]]]}
+07/28/24 17:13:36: Creating chat bubble: What would you like to do?, Owner: yeancat, Choices: [["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save Game","SaveGameNow"],["Cancel","null"]]
+07/28/24 17:13:36: Chat Bubble Created. Following 'yeancat' with text: 'What would you like to do?'. Number of choices: 4
+07/28/24 17:13:45: Executing command: add_action(MainMenuChoices2,chat_bubble,["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]])
+07/28/24 17:13:45: scr_add_action - Raw inputs:
+07/28/24 17:13:45: Name: MainMenuChoices2
+07/28/24 17:13:45: Command: chat_bubble
+07/28/24 17:13:45: Parameters: ["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]
+07/28/24 17:13:45: Action 'MainMenuChoices2' added/updated successfully.
+07/28/24 17:13:45: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 17:13:45: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:45: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:13:45: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 17:13:45: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:45: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:45: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:45: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:45: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:45: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:13:45: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:45: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 17:13:45: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:45: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 17:13:45: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:45: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:45: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:45: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:45: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:45: Actions saved successfully to Actions.txt.
+07/28/24 17:13:49: Executing command: add_action(MoreChoices1,chat_bubble,["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]])
+07/28/24 17:13:49: scr_add_action - Raw inputs:
+07/28/24 17:13:49: Name: MoreChoices1
+07/28/24 17:13:49: Command: chat_bubble
+07/28/24 17:13:50: Parameters: ["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]]
+07/28/24 17:13:50: Action 'MoreChoices1' added/updated successfully.
+07/28/24 17:13:50: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 17:13:50: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:50: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:13:50: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 17:13:50: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 17:13:50: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:50: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:50: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:50: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:50: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:50: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:13:50: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:50: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 17:13:50: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:50: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 17:13:50: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:50: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:50: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:50: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:50: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:50: Actions saved successfully to Actions.txt.
+07/28/24 17:13:55: Executing command: add_action(MoreChoices2,chat_bubble,["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]])
+07/28/24 17:13:55: scr_add_action - Raw inputs:
+07/28/24 17:13:55: Name: MoreChoices2
+07/28/24 17:13:55: Command: chat_bubble
+07/28/24 17:13:55: Parameters: ["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]]
+07/28/24 17:13:55: Action 'MoreChoices2' added/updated successfully.
+07/28/24 17:13:55: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 17:13:55: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:13:55: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:13:55: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 17:13:55: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 17:13:55: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:13:55: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:13:55: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:13:55: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:13:55: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:13:55: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:13:55: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:13:55: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 17:13:55: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:13:55: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 17:13:55: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 17:13:55: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:13:55: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:13:55: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:13:55: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:13:55: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:13:55: Actions saved successfully to Actions.txt.
+07/28/24 17:13:59: Executing command: add_action(MoreChoices3,chat_bubble,["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]])
+07/28/24 17:13:59: scr_add_action - Raw inputs:
+07/28/24 17:13:59: Name: MoreChoices3
+07/28/24 17:13:59: Command: chat_bubble
+07/28/24 17:13:59: Parameters: ["Where would you like to go?","yeancat",[["Divine Domain","GotoDivineDomain"],["Yetopia","GotoYetopia"],["Kings Kingdom","GotoKingsKingdom"],["More","MoreChoices4"]]]
+07/28/24 17:13:59: Action 'MoreChoices3' added/updated successfully.
+07/28/24 17:13:59: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 17:13:59: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:14:00: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 17:14:00: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:14:00: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 17:14:00: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 17:14:00: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:14:00: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:14:00: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:14:00: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:14:00: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:14:00: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:14:00: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:14:00: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 17:14:00: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:14:00: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 17:14:00: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 17:14:00: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:14:00: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:14:00: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:14:00: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:14:00: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:14:00: Actions saved successfully to Actions.txt.
+07/28/24 17:14:08: Executing command: add_action(MoreChoices4,chat_bubble,["Where would you like to go?","yeancat",[["The Icy Heart","GotoTheIcyHeart"],["The Gold Mines","GotoTheGoldMines"],["Cancel","null"]]])
+07/28/24 17:14:08: scr_add_action - Raw inputs:
+07/28/24 17:14:08: Name: MoreChoices4
+07/28/24 17:14:08: Command: chat_bubble
+07/28/24 17:14:08: Parameters: ["Where would you like to go?","yeancat",[["The Icy Heart","GotoTheIcyHeart"],["The Gold Mines","GotoTheGoldMines"],["Cancel","null"]]]
+07/28/24 17:14:08: Action 'MoreChoices4' added/updated successfully.
+07/28/24 17:14:08: Encoded Command: eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 17:14:08: Saving action: SaveGameNow|||eyJwYXJhbWV0ZXJzIjpbXSwiY29tbWFuZCI6InNhdmVfZ2FtZSJ9
+07/28/24 17:14:08: Saving action: MoreChoices3|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkRpdmluZSBEb21haW4iLCJHb3RvRGl2aW5lRG9tYWluIl0sWyJZZXRvcGlhIiwiR290b1lldG9waWEiXSxbIktpbmdzIEtpbmdkb20iLCJHb3RvS2luZ3NLaW5nZG9tIl0sWyJNb3JlIiwiTW9yZUNob2ljZXM0Il1dXX0=
+07/28/24 17:14:08: Saving action: GotoKingsKingdom|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIktpbmdzIEtpbmdkb20iXX0=
+07/28/24 17:14:08: Saving action: MainMenuChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkVhcnRoIiwiR290b0VhcnRoIl0sWyJVbml2ZXJzZSBDaXR5IiwiR290b1VuaXZlcnNlQ2l0eSJdLFsiRmFudGFzaWEiLCJHb3RvRmFudGFzaWEiXSxbIk1vcmUiLCJNb3JlQ2hvaWNlczEiXV1dfQ==
+07/28/24 17:14:08: Saving action: MoreChoices1|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIkxhbmQgb2YgTHVjeSIsIkdvdG9MYW5kT2ZMdWN5Il0sWyJQbGFjZSBvZiBQYWJsbyIsIkdvdG9QbGFjZU9mUGFibG8iXSxbIkdob3N0IFRvd24iLCJHb3RvR2hvc3RUb3duIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMyIl1dXX0=
+07/28/24 17:14:08: Saving action: GotoDivineDomain|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkRpdmluZSBEb21haW4iXX0=
+07/28/24 17:14:08: Saving action: GotoTheEndonda|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBFbmRvbmRhIl19
+07/28/24 17:14:08: Saving action: GotoUniverseCity|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlVuaXZlcnNlIENpdHkiXX0=
+07/28/24 17:14:08: Saving action: GotoLandOfLucy|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkxhbmQgb2YgTHVjeSJdfQ==
+07/28/24 17:14:08: Saving action: GotoPlaceOfPablo|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlBsYWNlIG9mIFBhYmxvIl19
+07/28/24 17:14:08: Saving action: GotoTheIcyHeart|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBJY3kgSGVhcnQiXX0=
+07/28/24 17:14:09: Saving action: GotoGhostTown|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkdob3N0IFRvd24iXX0=
+07/28/24 17:14:09: Saving action: MainMenuChoices|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/IiwieWVhbmNhdCIsW1siR28gdG8gRWFydGgiLCJHb3RvRWFydGgiXSxbIkxldmVsIFVwIiwiTGV2ZWxVcE9uY2UiXSxbIlNhdmUgR2FtZSIsIlNhdmVHYW1lTm93Il0sWyJDYW5jZWwiLCJudWxsIl1dXX0=
+07/28/24 17:14:09: Saving action: LevelUpOnce|||eyJwYXJhbWV0ZXJzIjpbMS4wXSwiY29tbWFuZCI6ImxldmVsX3VwIn0=
+07/28/24 17:14:09: Saving action: GotoTheGoldMines|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlRoZSBHb2xkIE1pbmVzIl19
+07/28/24 17:14:09: Saving action: MoreChoices2|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlZ1bHR1cmVzIFZhbGxleSIsIkdvdG9WdWx0dXJlc1ZhbGxleSJdLFsiVGhlIEVuZG9uZGEiLCJHb3RvVGhlRW5kb25kYSJdLFsiU3Rvcm15IFNhbmRzIiwiR290b1N0b3JteVNhbmRzIl0sWyJNb3JlIiwiTW9yZUNob2ljZXMzIl1dXX0=
+07/28/24 17:14:09: Saving action: MoreChoices4|||eyJjb21tYW5kIjoiY2hhdF9idWJibGUiLCJwYXJhbWV0ZXJzIjpbIldoZXJlIHdvdWxkIHlvdSBsaWtlIHRvIGdvPyIsInllYW5jYXQiLFtbIlRoZSBJY3kgSGVhcnQiLCJHb3RvVGhlSWN5SGVhcnQiXSxbIlRoZSBHb2xkIE1pbmVzIiwiR290b1RoZUdvbGRNaW5lcyJdLFsiQ2FuY2VsIiwibnVsbCJdXV19
+07/28/24 17:14:09: Saving action: GotoVulturesValley|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlZ1bHR1cmVzIFZhbGxleSJdfQ==
+07/28/24 17:14:09: Saving action: GotoEarth|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkVhcnRoIl19
+07/28/24 17:14:09: Saving action: GotoStormySands|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIlN0b3JteSBTYW5kcyJdfQ==
+07/28/24 17:14:09: Saving action: GotoFantasia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIkZhbnRhc2lhIl19
+07/28/24 17:14:09: Saving action: GotoYetopia|||eyJjb21tYW5kIjoiZ290b19wbGFuZXQiLCJwYXJhbWV0ZXJzIjpbIllldG9waWEiXX0=
+07/28/24 17:14:09: Actions saved successfully to Actions.txt.
+07/28/24 17:14:12: Executing command: execute_action(MainMenuChoices2)
+07/28/24 17:14:12: execute_action - Action Name: MainMenuChoices2
+07/28/24 17:14:13: Executing action: MainMenuChoices2
+07/28/24 17:14:13: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]}
+07/28/24 17:14:13: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/28/24 17:14:13: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 17:14:15: Executing command: execute_action(MoreChoices1)
+07/28/24 17:14:15: execute_action - Action Name: MoreChoices1
+07/28/24 17:14:15: Executing action: MoreChoices1
+07/28/24 17:14:15: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]]}
+07/28/24 17:14:15: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Land of Lucy","GotoLandOfLucy"],["Place of Pablo","GotoPlaceOfPablo"],["Ghost Town","GotoGhostTown"],["More","MoreChoices2"]]
+07/28/24 17:14:15: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 17:14:16: Executing command: execute_action(MoreChoices2)
+07/28/24 17:14:16: execute_action - Action Name: MoreChoices2
+07/28/24 17:14:16: Executing action: MoreChoices2
+07/28/24 17:14:16: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]]}
+07/28/24 17:14:16: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Vultures Valley","GotoVulturesValley"],["The Endonda","GotoTheEndonda"],["Stormy Sands","GotoStormySands"],["More","MoreChoices3"]]
+07/28/24 17:14:16: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 17:14:16: Executing command: execute_action(GotoVulturesValley)
+07/28/24 17:14:16: execute_action - Action Name: GotoVulturesValley
+07/28/24 17:14:16: Executing action: GotoVulturesValley
+07/28/24 17:14:16: Decoded Command: {"command":"goto_planet","parameters":["Vultures Valley"]}
+07/28/24 17:14:16: Teleported to Vultures Valley.
+07/28/24 17:14:37: [Jay Arnold] great! the functionality of this works but lets make sure that it is seen as a linebreak when its pasted or typed.
+07/28/24 17:14:37: Creating chat bubble:  great! the functionality of this works but lets make sure that it is seen as a linebreak when its pasted or typed., Owner: yeancat, Choices: []
+07/28/24 17:14:37: Chat Bubble Created. Following 'yeancat' with text: ' great! the functionality of this works but lets make sure that it is seen as a linebreak when its pasted or typed.'. Number of choices: 0

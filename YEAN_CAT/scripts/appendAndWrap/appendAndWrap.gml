@@ -6,34 +6,39 @@
 // Function to wrap text lines and handle spaces near line ends correctly
 function appendAndWrap(char, currentBuffer, maxWidth) {
     var tempBuffer = currentBuffer + char;
-    var lastNewline = string_last_index_of(tempBuffer, "\n");
-    var line = (lastNewline != -1) ? string_copy(tempBuffer, lastNewline + 2, string_length(tempBuffer) - lastNewline) : tempBuffer;
-    var lineWidth = string_width(line);
-
-    // Don't wrap inside parentheses for command parameters
-    var openParenCount = string_count("(", line);
-    var closeParenCount = string_count(")", line);
+    var lines = string_split(tempBuffer, global.intentionalLineBreak);
+    var wrappedText = "";
     
-    if (openParenCount > closeParenCount) {
-        return tempBuffer;
-    }
-
-    // Handle space near maximum line width
-    if (char == " " && lineWidth >= maxWidth - string_width("w")) {
-        return string_insert("\n", tempBuffer, string_length(tempBuffer));
-    } else if (lineWidth > maxWidth) {
-        // Insert newline at last space or force it if no space found
-        var lastSpace = string_last_index_of(line, " ");
-        if (lastSpace > -1) {
-            return string_insert("\n", tempBuffer, lastNewline + lastSpace + 2);
-        } else {
-            return string_insert("\n", tempBuffer, string_length(tempBuffer));
+    for (var j = 0; j < array_length(lines); j++) {
+        var words = string_split(lines[j], " ");
+        var line = "";
+        
+        for (var i = 0; i < array_length(words); i++) {
+            var testLine = line + (line != "" ? " " : "") + words[i];
+            if (string_width(testLine) > maxWidth*1.8) {
+                if (line != "") {
+                    wrappedText += line + "\n";
+                    line = words[i];
+                } else {
+                    // If a single word is longer than maxWidth, we need to break it
+                    var remainingWord = words[i];
+                    while (string_width(remainingWord) > maxWidth*1.8) {
+                        var breakIndex = floor(string_length(remainingWord) * (maxWidth / string_width(remainingWord)));
+                        wrappedText += string_copy(remainingWord, 1, breakIndex) + "";
+                        remainingWord = string_delete(remainingWord, 1, breakIndex);
+                    }
+                    line = remainingWord;
+                }
+            } else {
+                line = testLine;
+            }
+        }
+        
+        wrappedText += line;
+        if (j < array_length(lines) - 1) {
+            wrappedText += global.intentionalLineBreak;
         }
     }
-
-    return tempBuffer;
+    
+    return wrappedText;
 }
-
-
-
-

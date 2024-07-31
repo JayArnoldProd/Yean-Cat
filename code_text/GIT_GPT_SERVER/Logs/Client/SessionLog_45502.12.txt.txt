@@ -1,0 +1,56 @@
+07/28/24 21:53:35: Loaded action/group: SaveGameNow
+07/28/24 21:53:35: Loaded action/group: MoreChoices3
+07/28/24 21:53:35: Loaded action/group: GotoKingsKingdom
+07/28/24 21:53:35: Loaded action/group: MainMenuChoices2
+07/28/24 21:53:35: Loaded action/group: MoreChoices1
+07/28/24 21:53:35: Loaded action/group: GotoDivineDomain
+07/28/24 21:53:35: Loaded action/group: GotoTheEndonda
+07/28/24 21:53:35: Loaded action/group: GotoUniverseCity
+07/28/24 21:53:35: Loaded action/group: GotoLandOfLucy
+07/28/24 21:53:35: Loaded action/group: GotoPlaceOfPablo
+07/28/24 21:53:35: Loaded action/group: GotoTheIcyHeart
+07/28/24 21:53:35: Loaded action/group: GotoGhostTown
+07/28/24 21:53:35: Loaded action/group: MainMenuChoices
+07/28/24 21:53:35: Loaded action/group: LevelUpOnce
+07/28/24 21:53:35: Loaded action/group: GotoTheGoldMines
+07/28/24 21:53:35: Loaded action/group: MoreChoices2
+07/28/24 21:53:35: Loaded action/group: MoreChoices4
+07/28/24 21:53:36: Loaded action/group: GotoVulturesValley
+07/28/24 21:53:36: Loaded action/group: TpMenu
+07/28/24 21:53:36: Loaded action/group: GotoEarth
+07/28/24 21:53:36: Loaded action/group: GotoStormySands
+07/28/24 21:53:36: Loaded action/group: GotoFantasia
+07/28/24 21:53:36: Loaded action/group: GotoYetopia
+07/28/24 21:53:36: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 21:53:36: [Client] Failed to reconnect to server. Will try again...
+07/28/24 21:53:45: Executing command: list_actions
+07/28/24 21:53:45: Actions: SaveGameNow, MoreChoices3, GotoKingsKingdom, MainMenuChoices2, MoreChoices1, GotoDivineDomain, GotoTheEndonda, GotoUniverseCity, GotoLandOfLucy, GotoPlaceOfPablo, GotoTheIcyHeart, GotoGhostTown, MainMenuChoices, LevelUpOnce, GotoTheGoldMines, MoreChoices2, MoreChoices4, GotoVulturesValley, TpMenu, GotoEarth, GotoStormySands, GotoFantasia, GotoYetopia,
+07/28/24 21:53:50: Executing command: list_action_groups
+07/28/24 21:53:50: Action Groups: TpMenu
+07/28/24 21:54:03: Executing command: delete_action("TpMenu")
+07/28/24 21:54:03: Action or action group 'TpMenu' has been deleted.
+07/28/24 21:54:03: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:54:12: Executing command: add_action_group(TpMenu,["GotoDivineDomain","SaveGameNow", "MainMenuChoices2"])
+07/28/24 21:54:12: Action group 'TpMenu' added successfully.
+07/28/24 21:54:12: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:54:12: Executing command: add_action_group(TpMenu2,[GotoDivineDomain","SaveGameNow" ,"MainMenuChoices2"])
+07/28/24 21:54:12: Error parsing action list: JSON parse error : unexpected character
+07/28/24 21:54:22: Executing command: add_action_group(TpMenu,["GotoDivineDomain","SaveGameNow", "MainMenuChoices2"])
+07/28/24 21:54:22: Action group 'TpMenu' added successfully.
+07/28/24 21:54:22: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:54:27: Executing command: add_action_group(TpMenu2,[GotoDivineDomain","SaveGameNow" ,"MainMenuChoices2"])
+07/28/24 21:54:27: Error parsing action list: JSON parse error : unexpected character
+07/28/24 21:54:30: Executing command: add_action_group(TpMenu2,[GotoDivineDomain","SaveGameNow" ,"MainMenuChoices2"])
+07/28/24 21:54:30: Error parsing action list: JSON parse error : unexpected character
+07/28/24 21:54:47: Executing command: add_action_group(TpMenu2,[GotoDivineDomain","SaveGameNow" ,"MainMenuChoices2"])
+07/28/24 21:54:47: Error parsing action list: JSON parse error : unexpected character
+07/28/24 21:54:59: Executing command: add_action_group(TpMenu2,["GotoDivineDomain","SaveGameNow" ,"MainMenuChoices2"])
+07/28/24 21:54:59: Action group 'TpMenu2' added successfully.
+07/28/24 21:54:59: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:55:05: Executing command: list_action_groups
+07/28/24 21:55:05: Action Groups: TpMenu2, TpMenu
+07/28/24 21:55:10: Executing command: delete_action(Groups)
+07/28/24 21:55:10: All Groups have been deleted.
+07/28/24 21:55:10: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:57:11: Executing command: list_action_groups
+07/28/24 21:57:11: No action groups found.

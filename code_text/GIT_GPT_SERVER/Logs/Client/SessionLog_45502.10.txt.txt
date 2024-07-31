@@ -1,0 +1,69 @@
+
+
+07/28/24 21:31:06: Loaded action/group: SaveGameNow
+07/28/24 21:31:06: Loaded action/group: MoreChoices3
+07/28/24 21:31:06: Loaded action/group: GotoKingsKingdom
+07/28/24 21:31:06: Loaded action/group: MainMenuChoices2
+07/28/24 21:31:06: Loaded action/group: MoreChoices1
+07/28/24 21:31:06: Loaded action/group: GotoDivineDomain
+07/28/24 21:31:06: Loaded action/group: GotoTheEndonda
+07/28/24 21:31:06: Loaded action/group: GotoUniverseCity
+07/28/24 21:31:06: Loaded action/group: GotoLandOfLucy
+07/28/24 21:31:06: Loaded action/group: GotoPlaceOfPablo
+07/28/24 21:31:06: Loaded action/group: GotoTheIcyHeart
+07/28/24 21:31:06: Loaded action/group: GotoGhostTown
+07/28/24 21:31:06: Loaded action/group: MainMenuChoices
+07/28/24 21:31:06: Loaded action/group: LevelUpOnce
+07/28/24 21:31:06: Loaded action/group: GotoTheGoldMines
+07/28/24 21:31:06: Loaded action/group: MoreChoices2
+07/28/24 21:31:06: Loaded action/group: MoreChoices4
+07/28/24 21:31:06: Loaded action/group: GotoVulturesValley
+07/28/24 21:31:06: Loaded action/group: TpMenu
+07/28/24 21:31:06: Loaded action/group: GotoEarth
+07/28/24 21:31:06: Loaded action/group: GotoStormySands
+07/28/24 21:31:06: Loaded action/group: GotoFantasia
+07/28/24 21:31:06: Loaded action/group: GotoYetopia
+07/28/24 21:31:06: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 21:31:06: [Client] Failed to reconnect to server. Will try again...
+07/28/24 21:31:15: Executing command: add_action_group(TpMenu,["GotoDivineDomain","SaveGameNow", "MainMenuChoices2"])
+07/28/24 21:31:15: Action group 'TpMenu' added successfully.
+07/28/24 21:31:15: Actions and action groups saved successfully to Actions.txt.
+07/28/24 21:31:21: Executing command: execute_action(TpMenu)
+07/28/24 21:31:21: execute_action - Action Name: TpMenu
+07/28/24 21:31:21: Executing action: TpMenu
+07/28/24 21:31:21: Decoded Command: {"type":"action_group","actions":["GotoDivineDomain","SaveGameNow","MainMenuChoices2"]}
+07/28/24 21:31:21: Executing command: execute_action(GotoDivineDomain)
+07/28/24 21:31:21: execute_action - Action Name: GotoDivineDomain
+07/28/24 21:31:21: Executing action: GotoDivineDomain
+07/28/24 21:31:21: Decoded Command: {"command":"goto_planet","parameters":["Divine Domain"]}
+07/28/24 21:31:21: Teleported to Divine Domain.
+07/28/24 21:31:21: Executing command: execute_action(SaveGameNow)
+07/28/24 21:31:21: execute_action - Action Name: SaveGameNow
+07/28/24 21:31:21: Executing action: SaveGameNow
+07/28/24 21:31:21: Decoded Command: {"command":"save_game","parameters":[]}
+07/28/24 21:31:21: Saved Game
+07/28/24 21:31:21: Executing command: execute_action(MainMenuChoices2)
+07/28/24 21:31:21: execute_action - Action Name: MainMenuChoices2
+07/28/24 21:31:21: Executing action: MainMenuChoices2
+07/28/24 21:31:21: Decoded Command: {"command":"chat_bubble","parameters":["Where would you like to go?","yeancat",[["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]]}
+07/28/24 21:31:21: Creating chat bubble: Where would you like to go?, Owner: yeancat, Choices: [["Earth","GotoEarth"],["Universe City","GotoUniverseCity"],["Fantasia","GotoFantasia"],["More","MoreChoices1"]]
+07/28/24 21:31:21: Chat Bubble Created. Following 'yeancat' with text: 'Where would you like to go?'. Number of choices: 4
+07/28/24 21:31:28: Executing command: execute_action(GotoUniverseCity)
+07/28/24 21:31:28: execute_action - Action Name: GotoUniverseCity
+07/28/24 21:31:28: Executing action: GotoUniverseCity
+07/28/24 21:31:28: Decoded Command: {"command":"goto_planet","parameters":["Universe City"]}
+07/28/24 21:31:28: Teleported to Universe City.
+07/28/24 21:31:47: [Jay Arnold] this works beautifully!
+07/28/24 21:31:47: Creating chat bubble:  this works beautifully!, Owner: yeancat, Choices: []
+07/28/24 21:31:47: Chat Bubble Created. Following 'yeancat' with text: ' this works beautifully!'. Number of choices: 0
+07/28/24 21:32:58: [Jay Arnold] i would like to add a command to delete action (this should delete actions and action groups) /delete_action("Name")
+07/28/24 21:32:58: Creating chat bubble:  i would like to add a command to delete action (this should delete actions and action groups) /delete_action("Name"), Owner: yeancat, Choices: []
+07/28/24 21:32:58: Chat Bubble Created. Following 'yeancat' with text: ' i would like to add a command to delete action (this should delete actions and action groups) /delete_action("Name")'. Number of choices: 0
+07/28/24 21:33:35: [Jay Arnold] hello
+07/28/24 21:33:35: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/28/24 21:33:35: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/28/24 21:33:41: [Jay Arnold] HELLO|WORLD
+07/28/24 21:33:41: Creating chat bubble:  HELLO|WORLD, Owner: yeancat, Choices: []
+07/28/24 21:33:41: Chat Bubble Created. Following 'yeancat' with text: ' HELLO|WORLD'. Number of choices: 0
+07/28/24 21:34:03: Executing command: level_up(100)
+07/28/24 21:34:03: Level up initiated with goal: 100

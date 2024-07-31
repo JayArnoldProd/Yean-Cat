@@ -1,0 +1,74 @@
+07/28/24 23:39:46: Loaded action/group: SaveGameNow
+07/28/24 23:39:46: Loaded action/group: GotoKingsKingdom
+07/28/24 23:39:46: Loaded action/group: EnterPortal
+07/28/24 23:39:46: Loaded action/group: PurchaseArtifacts
+07/28/24 23:39:46: Loaded action/group: BattleOutcome
+07/28/24 23:39:46: Loaded action/group: VisitMarket
+07/28/24 23:39:46: Loaded action/group: GotoDivineDomain
+07/28/24 23:39:46: Loaded action/group: GotoTheEndonda
+07/28/24 23:39:46: Loaded action/group: GotoUniverseCity
+07/28/24 23:39:46: Loaded action/group: GotoLandOfLucy
+07/28/24 23:39:46: Loaded action/group: GotoPlaceOfPablo
+07/28/24 23:39:46: Loaded action/group: InvestigateSignals
+07/28/24 23:39:46: Loaded action/group: OfferTrade
+07/28/24 23:39:46: Loaded action/group: DisableEnemySpawns
+07/28/24 23:39:46: Loaded action/group: BattleSequence
+07/28/24 23:39:46: Loaded action/group: StartBattle
+07/28/24 23:39:46: Loaded action/group: GotoTheIcyHeart
+07/28/24 23:39:46: Loaded action/group: EngageCombat
+07/28/24 23:39:46: Loaded action/group: GotoGhostTown
+07/28/24 23:39:46: Loaded action/group: StartExploration
+07/28/24 23:39:46: Loaded action/group: SetLevelFive
+07/28/24 23:39:46: Loaded action/group: LevelUpThree
+07/28/24 23:39:46: Loaded action/group: LevelUpOnce
+07/28/24 23:39:46: Loaded action/group: GotoTheGoldMines
+07/28/24 23:39:46: Loaded action/group: StartPeaceMission
+07/28/24 23:39:46: Loaded action/group: DiplomaticChoice
+07/28/24 23:39:46: Loaded action/group: TreatyOutcome
+07/28/24 23:39:46: Loaded action/group: ExplorationChoice
+07/28/24 23:39:46: Loaded action/group: BattleChoice
+07/28/24 23:39:46: Loaded action/group: ArtifactMystery
+07/28/24 23:39:47: Loaded action/group: PortalOutcome
+07/28/24 23:39:47: Loaded action/group: PeacefulMission
+07/28/24 23:39:47: Loaded action/group: SpaceAdventureStart
+07/28/24 23:39:47: Loaded action/group: PortalAdventure
+07/28/24 23:39:47: Loaded action/group: EnableEnemySpawns
+07/28/24 23:39:47: Loaded action/group: GotoVulturesValley
+07/28/24 23:39:47: Loaded action/group: GotoEarth
+07/28/24 23:39:47: Loaded action/group: GotoStormySands
+07/28/24 23:39:47: Loaded action/group: SpaceExploration
+07/28/24 23:39:47: Loaded action/group: GotoFantasia
+07/28/24 23:39:47: Loaded action/group: GotoYetopia
+07/28/24 23:39:47: Loaded action/group: ArtifactOutcome
+07/28/24 23:39:47: Loaded action/group: EpicBattle
+07/28/24 23:39:47: Loaded action/group: PeaceTreaty
+07/28/24 23:39:47: Actions and action groups loaded successfully from Actions.txt.
+07/28/24 23:39:47: [Client] Failed to reconnect to server. Will try again...
+07/28/24 23:39:58: [Jay Arnold] Hello World
+07/28/24 23:39:58: Creating chat bubble:  Hello World, Owner: yeancat, Choices: []
+07/28/24 23:39:58: Chat Bubble Created. Following 'yeancat' with text: ' Hello World'. Number of choices: 0
+07/28/24 23:40:13: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:40:13: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:40:13: Executing action: SpaceAdventureStart
+07/28/24 23:40:13: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:40:13: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:40:13: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:40:32: Executing command: execute_action(SpaceAdventureStart)
+07/28/24 23:40:32: execute_action - Action Name: SpaceAdventureStart
+07/28/24 23:40:32: Executing action: SpaceAdventureStart
+07/28/24 23:40:32: Decoded Command: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure Choose your path","yeancat",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]}
+07/28/24 23:40:32: Creating chat bubble: Welcome to the Space Adventure Choose your path, Owner: yeancat, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+07/28/24 23:40:32: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure Choose your path'. Number of choices: 3
+07/28/24 23:40:35: Executing command: execute_action(StartExploration)
+07/28/24 23:40:35: execute_action - Action Name: StartExploration
+07/28/24 23:40:35: Executing action: StartExploration
+07/28/24 23:40:35: Decoded Command: {"command":"execute_action","parameters":["SpaceExploration"]}
+07/28/24 23:40:35: Teleported to Universe City.
+07/28/24 23:40:35: Creating chat bubble: You've arrived at Universe City. What's your next move, Owner: yeancat, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+07/28/24 23:40:35: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move'. Number of choices: 3
+07/28/24 23:40:38: Executing command: execute_action(VisitMarket)
+07/28/24 23:40:38: execute_action - Action Name: VisitMarket
+07/28/24 23:40:38: Executing action: VisitMarket
+07/28/24 23:40:38: Decoded Command: {"command":"chat_bubble","parameters":["You find rare artifacts in the market. What do you do","yeancat",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]]}
+07/28/24 23:40:38: Creating chat bubble: You find rare artifacts in the market. What do you do, Owner: yeancat, Choices: [["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]
+07/28/24 23:40:38: Chat Bubble Created. Following 'yeancat' with text: 'You find rare artifacts in the market. What do you do'. Number of choices: 2

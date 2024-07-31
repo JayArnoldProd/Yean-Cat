@@ -1,0 +1,118 @@
+07/29/24 23:44:11: Loaded action/group: SaveGameNow
+07/29/24 23:44:11: Loaded action/group: GotoKingsKingdom
+07/29/24 23:44:11: Loaded action/group: EnterPortal
+07/29/24 23:44:11: Loaded action/group: PurchaseArtifacts
+07/29/24 23:44:11: Loaded action/group: BattleOutcome
+07/29/24 23:44:11: Loaded action/group: VisitMarket
+07/29/24 23:44:11: Loaded action/group: GotoDivineDomain
+07/29/24 23:44:11: Loaded action/group: GotoTheEndonda
+07/29/24 23:44:11: Loaded action/group: GotoUniverseCity
+07/29/24 23:44:11: Loaded action/group: GotoLandOfLucy
+07/29/24 23:44:11: Loaded action/group: GotoPlaceOfPablo
+07/29/24 23:44:11: Loaded action/group: InvestigateSignals
+07/29/24 23:44:11: Loaded action/group: OfferTrade
+07/29/24 23:44:11: Loaded action/group: DisableEnemySpawns
+07/29/24 23:44:11: Loaded action/group: BattleSequence
+07/29/24 23:44:11: Loaded action/group: StartBattle
+07/29/24 23:44:11: Loaded action/group: GotoTheIcyHeart
+07/29/24 23:44:11: Loaded action/group: EngageCombat
+07/29/24 23:44:11: Loaded action/group: GotoGhostTown
+07/29/24 23:44:11: Loaded action/group: StartExploration
+07/29/24 23:44:11: Loaded action/group: SetLevelFive
+07/29/24 23:44:11: Loaded action/group: LevelUpThree
+07/29/24 23:44:11: Loaded action/group: LevelUpOnce
+07/29/24 23:44:11: Loaded action/group: GotoTheGoldMines
+07/29/24 23:44:11: Loaded action/group: StartPeaceMission
+07/29/24 23:44:11: Loaded action/group: DiplomaticChoice
+07/29/24 23:44:11: Loaded action/group: TreatyOutcome
+07/29/24 23:44:11: Loaded action/group: ExplorationChoice
+07/29/24 23:44:11: Loaded action/group: BattleChoice
+07/29/24 23:44:11: Loaded action/group: ArtifactMystery
+07/29/24 23:44:11: Loaded action/group: PortalOutcome
+07/29/24 23:44:11: Loaded action/group: PeacefulMission
+07/29/24 23:44:11: Loaded action/group: SpaceAdventureStart
+07/29/24 23:44:11: Loaded action/group: PortalAdventure
+07/29/24 23:44:11: Loaded action/group: EnableEnemySpawns
+07/29/24 23:44:11: Loaded action/group: GotoVulturesValley
+07/29/24 23:44:11: Loaded action/group: GotoEarth
+07/29/24 23:44:11: Loaded action/group: GotoStormySands
+07/29/24 23:44:11: Loaded action/group: SpaceExploration
+07/29/24 23:44:11: Loaded action/group: GotoFantasia
+07/29/24 23:44:11: Loaded action/group: AG1
+07/29/24 23:44:12: Loaded action/group: GotoYetopia
+07/29/24 23:44:12: Loaded action/group: ArtifactOutcome
+07/29/24 23:44:12: Loaded action/group: EpicBattle
+07/29/24 23:44:12: Loaded action/group: PeaceTreaty
+07/29/24 23:44:12: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 23:44:12: [Client] Failed to reconnect to server. Will try again...
+07/29/24 23:44:39: [Jay Arnold] Hello World
+07/29/24 23:44:39: Creating chat bubble: " Hello World", Owner: yeancat, Choices: []
+07/29/24 23:44:39: Chat Bubble Created. Following 'yeancat' with text: 'Hello World'. Number of choices: 0
+07/29/24 23:44:45: [Jay Arnold] Now its one line too low
+07/29/24 23:44:45: Creating chat bubble: " Now its one line too low", Owner: yeancat, Choices: []
+07/29/24 23:44:45: Chat Bubble Created. Following 'yeancat' with text: 'Now its one line too low'. Number of choices: 0
+07/29/24 23:46:30: [Jay Arnold] i will type gibberish and test the line breaking and box sliding||nice its expanding downward|||this is going well||thats perfect! it started expanding up!||it should have begin expanding up about  6 line lower, with the current line count being|2|i will see how it works when it is set to the max 6
+07/29/24 23:46:30: Creating chat bubble: " i will type gibberish and test the line breaking and box sliding||nice its expanding downward|||this is going well||thats perfect! it started expanding up!||it should have begin expanding up about  6 line lower, with the current line count being|2|i will see how it works when it is set to the max 6", Owner: yeancat, Choices: []
+07/29/24 23:46:30: Chat Bubble Created. Following 'yeancat' with text: 'i will type gibberish and test the line breaking and box sliding||nice its expanding downward|||this is going well||thats perfect! it started expanding up!||it should have begin expanding up about  6 line lower, with the current line count being|2|i will see how it works when it is set to the max 6'. Number of choices: 0
+07/29/24 23:48:09: [Jay Arnold] okay now our line count is greater than 5 so we can see if the occursion of the upward expansion is at the proper position||more lines||a few more||okay from here it should have continued about 3 more lines before expanding upwards|this was a very sucessful test and only a few tweaks should lead us to perfection.|||||more lines||||good it expands seemingly infinately up past the view||
+07/29/24 23:48:09: Creating chat bubble: " okay now our line count is greater than 5 so we can see if the occursion of the upward expansion is at the proper position||more lines||a few more||okay from here it should have continued about 3 more lines before expanding upwards|this was a very sucessful test and only a few tweaks should lead us to perfection.|||||more lines||||good it expands seemingly infinately up past the view||", Owner: yeancat, Choices: []
+07/29/24 23:48:09: Chat Bubble Created. Following 'yeancat' with text: 'okay now our line count is greater than 5 so we can see if the occursion of the upward expansion is at the proper position||more lines||a few more||okay from here it should have continued about 3 more lines before expanding upwards|this was a very sucessful test and only a few tweaks should lead us to perfection.|||||more lines||||good it expands seemingly infinately up past the view||'. Number of choices: 0
+07/29/24 23:48:41: [Jay Arnold] the line break characters (vertical lines) are not being turned into new lines in the chat log as we can see.
+07/29/24 23:48:41: Creating chat bubble: " the line break characters (vertical lines) are not being turned into new lines in the chat log as we can see.", Owner: yeancat, Choices: []
+07/29/24 23:48:41: Chat Bubble Created. Following 'yeancat' with text: 'the line break characters (vertical lines) are not being turned into new lines in the chat log as we can see.'. Number of choices: 0
+07/29/24 23:50:04: [Jay Arnold] please address everything i observed. this text input box should be one line higher, and should expand downward more (dependent on max_visible_lines setting) until it expands upward, and thirdly the vertical character not being seen as new lines in the chat box.
+07/29/24 23:50:04: Creating chat bubble: " please address everything i observed. this text input box should be one line higher, and should expand downward more (dependent on max_visible_lines setting) until it expands upward, and thirdly the vertical character not being seen as new lines in the chat box.", Owner: yeancat, Choices: []
+07/29/24 23:50:04: Chat Bubble Created. Following 'yeancat' with text: 'please address everything i observed. this text input box should be one line higher, and should expand downward more (dependent on max_visible_lines setting) until it expands upward, and thirdly the vertical character not being seen as new lines in the chat box.'. Number of choices: 0
+07/29/24 23:53:08: Loaded action/group: SaveGameNow
+07/29/24 23:53:08: Loaded action/group: GotoKingsKingdom
+07/29/24 23:53:08: Loaded action/group: EnterPortal
+07/29/24 23:53:08: Loaded action/group: PurchaseArtifacts
+07/29/24 23:53:08: Loaded action/group: BattleOutcome
+07/29/24 23:53:08: Loaded action/group: VisitMarket
+07/29/24 23:53:08: Loaded action/group: GotoDivineDomain
+07/29/24 23:53:08: Loaded action/group: GotoTheEndonda
+07/29/24 23:53:08: Loaded action/group: GotoUniverseCity
+07/29/24 23:53:08: Loaded action/group: GotoLandOfLucy
+07/29/24 23:53:08: Loaded action/group: GotoPlaceOfPablo
+07/29/24 23:53:08: Loaded action/group: InvestigateSignals
+07/29/24 23:53:08: Loaded action/group: OfferTrade
+07/29/24 23:53:09: Loaded action/group: DisableEnemySpawns
+07/29/24 23:53:09: Loaded action/group: BattleSequence
+07/29/24 23:53:09: Loaded action/group: StartBattle
+07/29/24 23:53:09: Loaded action/group: GotoTheIcyHeart
+07/29/24 23:53:09: Loaded action/group: EngageCombat
+07/29/24 23:53:09: Loaded action/group: GotoGhostTown
+07/29/24 23:53:09: Loaded action/group: StartExploration
+07/29/24 23:53:09: Loaded action/group: SetLevelFive
+07/29/24 23:53:09: Loaded action/group: LevelUpThree
+07/29/24 23:53:09: Loaded action/group: LevelUpOnce
+07/29/24 23:53:09: Loaded action/group: GotoTheGoldMines
+07/29/24 23:53:09: Loaded action/group: StartPeaceMission
+07/29/24 23:53:09: Loaded action/group: DiplomaticChoice
+07/29/24 23:53:09: Loaded action/group: TreatyOutcome
+07/29/24 23:53:09: Loaded action/group: ExplorationChoice
+07/29/24 23:53:09: Loaded action/group: BattleChoice
+07/29/24 23:53:09: Loaded action/group: ArtifactMystery
+07/29/24 23:53:09: Loaded action/group: PortalOutcome
+07/29/24 23:53:09: Loaded action/group: PeacefulMission
+07/29/24 23:53:09: Loaded action/group: SpaceAdventureStart
+07/29/24 23:53:09: Loaded action/group: PortalAdventure
+07/29/24 23:53:09: Loaded action/group: EnableEnemySpawns
+07/29/24 23:53:09: Loaded action/group: GotoVulturesValley
+07/29/24 23:53:09: Loaded action/group: GotoEarth
+07/29/24 23:53:09: Loaded action/group: GotoStormySands
+07/29/24 23:53:09: Loaded action/group: SpaceExploration
+07/29/24 23:53:09: Loaded action/group: GotoFantasia
+07/29/24 23:53:09: Loaded action/group: AG1
+07/29/24 23:53:09: Loaded action/group: GotoYetopia
+07/29/24 23:53:09: Loaded action/group: ArtifactOutcome
+07/29/24 23:53:09: Loaded action/group: EpicBattle
+07/29/24 23:53:09: Loaded action/group: PeaceTreaty
+07/29/24 23:53:09: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 23:53:09: [Client] Failed to reconnect to server. Will try again...
+07/29/24 23:53:31: [Jay Arnold] the dskj sakjd aksjd lsakd alskd slkd alskjd slkad alskd lkas dlask dlksa dlkas dlskaj dlsakd slakjd skld lsakd slakd slakjd slk laskjd lsakjd laskd laskjd lsakjd a
+07/29/24 23:53:31: Creating chat bubble: " the dskj sakjd aksjd lsakd alskd slkd alskjd slkad alskd lkas dlask dlksa dlkas dlskaj dlsakd slakjd skld lsakd slakd slakjd slk laskjd lsakjd laskd laskjd lsakjd a", Owner: yeancat, Choices: []
+07/29/24 23:53:31: Chat Bubble Created. Following 'yeancat' with text: 'the dskj sakjd aksjd lsakd alskd slkd alskjd slkad alskd lkas dlask dlksa dlkas dlskaj dlsakd slakjd skld lsakd slakd slakjd slk laskjd lsakjd laskd laskjd lsakjd a'. Number of choices: 0
+07/29/24 23:53:41: [Jay Arnold] lkds adlks dlkjsa dlkas dlkjsa dlksa dlkasj dlkjsa dklas lksj laksd lsk alsk lksj slakd kld slkj aslkd slkd aslkd slakd aslkd lskad laksj lska dlaks lksja lask dlsk dlksa dlkajs dlsak dlsakd lask lska dlsakj dlkas dkljsa dlkas ljksa dklas dlks ad
+07/29/24 23:53:41: Creating chat bubble: " lkds adlks dlkjsa dlkas dlkjsa dlksa dlkasj dlkjsa dklas lksj laksd lsk alsk lksj slakd kld slkj aslkd slkd aslkd slakd aslkd lskad laksj lska dlaks lksja lask dlsk dlksa dlkajs dlsak dlsakd lask lska dlsakj dlkas dkljsa dlkas ljksa dklas dlks ad", Owner: yeancat, Choices: []
+07/29/24 23:53:41: Chat Bubble Created. Following 'yeancat' with text: 'lkds adlks dlkjsa dlkas dlkjsa dlksa dlkasj dlkjsa dklas lksj laksd lsk alsk lksj slakd kld slkj aslkd slkd aslkd slakd aslkd lskad laksj lska dlaks lksja lask dlsk dlksa dlkajs dlsak dlsakd lask lska dlsakj dlkas dkljsa dlkas ljksa dklas dlks ad'. Number of choices: 0

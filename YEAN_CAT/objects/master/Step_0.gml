@@ -155,6 +155,7 @@ if camovyy != camovy {
 if focusonbosss != focusonboss {
 	focusonbosss = (focusonbosss*200+focusonboss)/201
 }
+focusonbosss=0
 camera_set_view_pos(cam,960-960*(camscale-1)+camovxx*focusonbosss/2, 540-540*(camscale-1)+camovyy*focusonbosss/2)
 camera_set_view_size(cam,1920*camscale*(1-focusonbosss/4),1080*camscale*(1-focusonbosss/4))
 
@@ -544,32 +545,35 @@ if levelheat>0 {
 
 mobfreqset=(100*(1/(curse+1))*(1/((level-1)/200+1))*sqr(1+(1-abs(obj_terrain.systemposition-180)/180))/(lookingfortrouble+1))/(1+master.ti/2014)
 if spawnthings=1 {
-for (i=0; i<array_length(spaceboss); i ++) {
-if round(obj_terrain.systemposition*10)=spaceboss[i,0]*10 {
-if spaceboss[i,10]=0 {
-	if spaceboss[i,8]=1 {
-	var bosss = instance_create_layer(room_width*3/4,room_height/2,"player",obj_boss)
-	//position //1name //2health //3resistance0-1invincible /4/rate //5attacktype //6damage //7movetype //8image
-	bosss.bossid=spaceboss[i,12]
-	bosss.position= spaceboss[i,0]
-	bosss.namee = spaceboss[i,1]
-	bosss.healthh = spaceboss[i,2]
-	bosss.maxhealth = spaceboss[i,2]
-	bosss.resistance = spaceboss[i,3]
-	bosss.damage = spaceboss[i,6]
-	bosss.attackspeed =spaceboss[i,4]
-	bosss.attacktype =spaceboss[i,5]
-	bosss.movetype =spaceboss[i,7]
-	bosss.sprite_index =spaceboss[i,9]
-	bosss.bosstype=spaceboss[i,11]
-	bosss.lookid=spaceboss[i,12]
-	bosss.flying=1
-	bosss.bossaltitude=40000
-	spaceboss[i,10]=1
-	}
-}
-}
-}
+    for (i=0; i<array_length(spaceboss); i++) {
+        if round(obj_terrain.systemposition*10) == spaceboss[i,0]*10 {
+            if spaceboss[i,10] == 0 {
+                if spaceboss[i,8] == 1 {
+                    var bosss = instance_create_layer(room_width*3/4, room_height/2, "player", obj_boss);
+                    //position //1name //2health //3resistance0-1invincible /4/rate //5attacktype //6damage //7movetype //8image
+                    bosss.bossid = spaceboss[i,12]
+                    bosss.position = spaceboss[i,0]
+                    bosss.namee = spaceboss[i,1]
+                    bosss.healthh = spaceboss[i,2]
+                    bosss.maxhealth = spaceboss[i,2]
+                    bosss.resistance = spaceboss[i,3]
+                    bosss.damage = spaceboss[i,6]
+                    bosss.attackspeed = spaceboss[i,4]
+                    bosss.attacktype = spaceboss[i,5]
+                    bosss.movetype = spaceboss[i,7]
+                    bosss.sprite_index = spaceboss[i,9]
+                    bosss.bosstype = spaceboss[i,11]
+                    bosss.lookid = spaceboss[i,12]
+                    bosss.flying = 1
+                    bosss.bossaltitude = 40000
+                    with (bosss) {
+                        event_perform(ev_other, ev_user0);
+                    }
+                    spaceboss[i,10] = 1;
+                }
+            }
+        }
+    }
 }
 
 if selectedstage=0 {
@@ -1740,13 +1744,13 @@ if flying=0 {
 		}
 	}
 }
-//disable certain anemies
+//disable certain enemies
 for (i=0; i<array_length(mob);i++) {
 	if i>clamp((ti/1007)*10,0,11) {
 		mob[i]=[ghost,0,.75,0,1,1,1,1,1,1,0,0,0,1]
 	}
 }
-if mobfreq<0 {
+if mobfreq<0 and (spawnenemies = true) {
 	repeat (1+clamp(floor((hour*3600+minute*60+second)/1007*100)*(1-clamp((instance_number(enemy)+1)/(1+((hour*3600+minute*60+second)/1007)*100),0,1)),0,1000)) {
 	var enemypool = 0
 	for (i=0; i<array_length(mob);i++) {

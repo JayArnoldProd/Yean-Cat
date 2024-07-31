@@ -1,0 +1,284 @@
+07/29/24 18:54:27: Loaded action/group: SaveGameNow
+07/29/24 18:54:27: Loaded action/group: GotoKingsKingdom
+07/29/24 18:54:27: Loaded action/group: EnterPortal
+07/29/24 18:54:27: Loaded action/group: PurchaseArtifacts
+07/29/24 18:54:27: Loaded action/group: BattleOutcome
+07/29/24 18:54:27: Loaded action/group: VisitMarket
+07/29/24 18:54:27: Loaded action/group: GotoDivineDomain
+07/29/24 18:54:27: Loaded action/group: GotoTheEndonda
+07/29/24 18:54:27: Loaded action/group: GotoUniverseCity
+07/29/24 18:54:27: Loaded action/group: GotoLandOfLucy
+07/29/24 18:54:27: Loaded action/group: GotoPlaceOfPablo
+07/29/24 18:54:27: Loaded action/group: InvestigateSignals
+07/29/24 18:54:27: Loaded action/group: OfferTrade
+07/29/24 18:54:27: Loaded action/group: DisableEnemySpawns
+07/29/24 18:54:27: Loaded action/group: BattleSequence
+07/29/24 18:54:27: Loaded action/group: StartBattle
+07/29/24 18:54:27: Loaded action/group: GotoTheIcyHeart
+07/29/24 18:54:27: Loaded action/group: EngageCombat
+07/29/24 18:54:27: Loaded action/group: GotoGhostTown
+07/29/24 18:54:27: Loaded action/group: StartExploration
+07/29/24 18:54:27: Loaded action/group: SetLevelFive
+07/29/24 18:54:27: Loaded action/group: LevelUpThree
+07/29/24 18:54:27: Loaded action/group: LevelUpOnce
+07/29/24 18:54:27: Loaded action/group: GotoTheGoldMines
+07/29/24 18:54:27: Loaded action/group: StartPeaceMission
+07/29/24 18:54:27: Loaded action/group: DiplomaticChoice
+07/29/24 18:54:27: Loaded action/group: TreatyOutcome
+07/29/24 18:54:27: Loaded action/group: ExplorationChoice
+07/29/24 18:54:27: Loaded action/group: BattleChoice
+07/29/24 18:54:27: Loaded action/group: ArtifactMystery
+07/29/24 18:54:27: Loaded action/group: PortalOutcome
+07/29/24 18:54:27: Loaded action/group: PeacefulMission
+07/29/24 18:54:27: Loaded action/group: SpaceAdventureStart
+07/29/24 18:54:27: Loaded action/group: PortalAdventure
+07/29/24 18:54:27: Loaded action/group: EnableEnemySpawns
+07/29/24 18:54:27: Loaded action/group: GotoVulturesValley
+07/29/24 18:54:27: Loaded action/group: GotoEarth
+07/29/24 18:54:27: Loaded action/group: GotoStormySands
+07/29/24 18:54:27: Loaded action/group: SpaceExploration
+07/29/24 18:54:27: Loaded action/group: GotoFantasia
+07/29/24 18:54:27: Loaded action/group: GotoYetopia
+07/29/24 18:54:27: Loaded action/group: ArtifactOutcome
+07/29/24 18:54:27: Loaded action/group: EpicBattle
+07/29/24 18:54:27: Loaded action/group: PeaceTreaty
+07/29/24 18:54:27: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 18:54:27: [Client] Failed to reconnect to server. Will try again...
+07/29/24 18:54:55: [Jay Arnold] Hello World!
+07/29/24 18:54:55: Creating chat bubble: " Hello World!", Owner: yeancat, Choices: []
+07/29/24 18:54:55: Chat Bubble Created. Following 'yeancat' with text: 'Hello World!'. Number of choices: 0
+07/29/24 18:55:08: [Jay Arnold] okay thats drawn at the completely wrong place now and its black!
+07/29/24 18:55:08: Creating chat bubble: " okay thats drawn at the completely wrong place now and its black!", Owner: yeancat, Choices: []
+07/29/24 18:55:08: Chat Bubble Created. Following 'yeancat' with text: 'okay thats drawn at the completely wrong place now and its black!'. Number of choices: 0
+07/29/24 18:55:32: [Jay Arnold] now the hello world appears white and is directly below the bottom of the chat box
+07/29/24 18:55:32: Creating chat bubble: " now the hello world appears white and is directly below the bottom of the chat box", Owner: yeancat, Choices: []
+07/29/24 18:55:32: Chat Bubble Created. Following 'yeancat' with text: 'now the hello world appears white and is directly below the bottom of the chat box'. Number of choices: 0
+07/29/24 18:55:58: [Jay Arnold] the next message i type will cause the hello world to be just above my text box
+07/29/24 18:55:58: Creating chat bubble: " the next message i type will cause the hello world to be just above my text box", Owner: yeancat, Choices: []
+07/29/24 18:55:58: Chat Bubble Created. Following 'yeancat' with text: 'the next message i type will cause the hello world to be just above my text box'. Number of choices: 0
+07/29/24 18:56:23: [Jay Arnold] its a little high, but now Hello World is in the chat box, but stil below the top where it should be
+07/29/24 18:56:23: Creating chat bubble: " its a little high, but now Hello World is in the chat box, but stil below the top where it should be", Owner: yeancat, Choices: []
+07/29/24 18:56:23: Chat Bubble Created. Following 'yeancat' with text: 'its a little high, but now Hello World is in the chat box, but stil below the top where it should be'. Number of choices: 0
+07/29/24 18:56:40: [Jay Arnold] we have an odd, alternating between black and white messages
+07/29/24 18:56:40: Creating chat bubble: " we have an odd, alternating between black and white messages", Owner: yeancat, Choices: []
+07/29/24 18:56:40: Chat Bubble Created. Following 'yeancat' with text: 'we have an odd, alternating between black and white messages'. Number of choices: 0
+07/29/24 18:57:18: [Jay Arnold] as i type this, hello world! is at the top in the proper position. when i type the line break dowsnt|happen, it should have broke at the word "break" i had to manually break
+07/29/24 18:57:18: Creating chat bubble: " as i type this, hello world! is at the top in the proper position. when i type the line break dowsnt|happen, it should have broke at the word \"break\" i had to manually break", Owner: yeancat, Choices: []
+07/29/24 18:57:18: Chat Bubble Created. Following 'yeancat' with text: 'as i type this, hello world! is at the top in the proper position. when i type the line break dowsnt|happen, it should have broke at the word "break" i had to manually break'. Number of choices: 0
+07/29/24 18:57:37: [Jay Arnold] i will type more and see
+07/29/24 18:57:37: Creating chat bubble: " i will type more and see", Owner: yeancat, Choices: []
+07/29/24 18:57:37: Chat Bubble Created. Following 'yeancat' with text: 'i will type more and see'. Number of choices: 0
+07/29/24 18:57:44: [Jay Arnold] i can no longer scroll at all now
+07/29/24 18:57:44: Creating chat bubble: " i can no longer scroll at all now", Owner: yeancat, Choices: []
+07/29/24 18:57:44: Chat Bubble Created. Following 'yeancat' with text: 'i can no longer scroll at all now'. Number of choices: 0
+07/29/24 18:57:54: [Jay Arnold] this is odd!
+07/29/24 18:57:54: Creating chat bubble: " this is odd!", Owner: yeancat, Choices: []
+07/29/24 18:57:54: Chat Bubble Created. Following 'yeancat' with text: 'this is odd!'. Number of choices: 0
+07/29/24 18:57:57: [Jay Arnold] i will try a command now
+07/29/24 18:57:58: Creating chat bubble: " i will try a command now", Owner: yeancat, Choices: []
+07/29/24 18:57:58: Chat Bubble Created. Following 'yeancat' with text: 'i will try a command now'. Number of choices: 0
+07/29/24 18:58:03: Raw command: execute_action(SpaceAdventureStart)
+07/29/24 18:58:03: Cleaned command: execute_action(SpaceAdventureStart)
+07/29/24 18:58:03: Executing action/group: SpaceAdventureStart
+07/29/24 18:58:03: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/29/24 18:58:03: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 18:58:03: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/29/24 18:58:03: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/29/24 18:58:03: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 18:58:03: Command Name: chat_bubble
+07/29/24 18:58:03: Target Object: Target
+07/29/24 18:58:03: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/29/24 18:58:03: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/29/24 18:58:03: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/29/24 18:58:05: Raw command: execute_action(StartExploration)
+07/29/24 18:58:05: Cleaned command: execute_action(StartExploration)
+07/29/24 18:58:05: Executing action/group: StartExploration
+07/29/24 18:58:05: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/29/24 18:58:05: Raw command: execute_action("SpaceExploration")
+07/29/24 18:58:05: Cleaned command: execute_action("SpaceExploration")
+07/29/24 18:58:05: Executing action/group: SpaceExploration
+07/29/24 18:58:05: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/29/24 18:58:05: Raw command: execute_action(GotoUniverseCity)
+07/29/24 18:58:05: Cleaned command: execute_action(GotoUniverseCity)
+07/29/24 18:58:05: Executing action/group: GotoUniverseCity
+07/29/24 18:58:05: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+07/29/24 18:58:05: Raw command: goto_planet("Universe City")
+07/29/24 18:58:05: Cleaned command: goto_planet("Universe City")
+07/29/24 18:58:05: Parsing arguments: "Universe City"
+07/29/24 18:58:05: Parsed arguments: ["\"Universe City\""]
+07/29/24 18:58:05: Command Name: goto_planet
+07/29/24 18:58:05: Target Object: yeancat
+07/29/24 18:58:05: Parameters: ["\"Universe City\""]
+07/29/24 18:58:05: Teleported to Universe City.
+07/29/24 18:58:05: Raw command: execute_action(ExplorationChoice)
+07/29/24 18:58:05: Cleaned command: execute_action(ExplorationChoice)
+07/29/24 18:58:05: Executing action/group: ExplorationChoice
+07/29/24 18:58:05: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"Target"}
+07/29/24 18:58:05: Raw command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/29/24 18:58:05: Cleaned command: Target.chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/29/24 18:58:05: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/29/24 18:58:05: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/29/24 18:58:05: Command Name: chat_bubble
+07/29/24 18:58:05: Target Object: Target
+07/29/24 18:58:05: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/29/24 18:58:05: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: Target, Choices: []
+07/29/24 18:58:05: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next move?'. Number of choices: 3
+07/29/24 18:58:08: Raw command: execute_action(InvestigateSignals)
+07/29/24 18:58:08: Cleaned command: execute_action(InvestigateSignals)
+07/29/24 18:58:08: Executing action/group: InvestigateSignals
+07/29/24 18:58:08: Decoded Data: {"command":"chat_bubble","parameters":["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]],"targetObject":"Target"}
+07/29/24 18:58:08: Raw command: Target.chat_bubble(["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]])
+07/29/24 18:58:08: Cleaned command: Target.chat_bubble(["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]])
+07/29/24 18:58:08: Parsing arguments: ["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]]
+07/29/24 18:58:08: Parsed arguments: ["[\"The signals lead you to a hidden portal. Do you enter?\",[[\"Enter the portal\",\"EnterPortal\"],[\"Report back to HQ\",\"ReportToHQ\"]]]"]
+07/29/24 18:58:08: Command Name: chat_bubble
+07/29/24 18:58:08: Target Object: Target
+07/29/24 18:58:08: Parameters: ["[\"The signals lead you to a hidden portal. Do you enter?\",[[\"Enter the portal\",\"EnterPortal\"],[\"Report back to HQ\",\"ReportToHQ\"]]]"]
+07/29/24 18:58:08: Creating chat bubble: ["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]], Owner: Target, Choices: []
+07/29/24 18:58:08: Chat Bubble Created. Following 'yeancat' with text: 'The signals lead you to a hidden portal. Do you enter?'. Number of choices: 2
+07/29/24 18:58:10: Raw command: execute_action(EnterPortal)
+07/29/24 18:58:10: Cleaned command: execute_action(EnterPortal)
+07/29/24 18:58:10: Executing action/group: EnterPortal
+07/29/24 18:58:10: Decoded Data: {"command":"execute_action","parameters":"PortalAdventure","targetObject":"yeancat"}
+07/29/24 18:58:10: Raw command: execute_action("PortalAdventure")
+07/29/24 18:58:10: Cleaned command: execute_action("PortalAdventure")
+07/29/24 18:58:10: Executing action/group: PortalAdventure
+07/29/24 18:58:10: Decoded Data: {"type":"action_group","actions":["GotoTheEndonda","SetLevelFive","PortalOutcome"]}
+07/29/24 18:58:10: Raw command: execute_action(GotoTheEndonda)
+07/29/24 18:58:10: Cleaned command: execute_action(GotoTheEndonda)
+07/29/24 18:58:10: Executing action/group: GotoTheEndonda
+07/29/24 18:58:10: Decoded Data: {"command":"goto_planet","parameters":"The Endonda","targetObject":"yeancat"}
+07/29/24 18:58:10: Raw command: goto_planet("The Endonda")
+07/29/24 18:58:10: Cleaned command: goto_planet("The Endonda")
+07/29/24 18:58:10: Parsing arguments: "The Endonda"
+07/29/24 18:58:10: Parsed arguments: ["\"The Endonda\""]
+07/29/24 18:58:10: Command Name: goto_planet
+07/29/24 18:58:10: Target Object: yeancat
+07/29/24 18:58:10: Parameters: ["\"The Endonda\""]
+07/29/24 18:58:10: Teleported to The Endonda.
+07/29/24 18:58:10: Raw command: execute_action(SetLevelFive)
+07/29/24 18:58:10: Cleaned command: execute_action(SetLevelFive)
+07/29/24 18:58:10: Executing action/group: SetLevelFive
+07/29/24 18:58:10: Decoded Data: {"command":"set_variable","parameters":["Level","5"],"targetObject":"yeancat"}
+07/29/24 18:58:10: Raw command: set_variable(["Level","5"])
+07/29/24 18:58:10: Cleaned command: set_variable(["Level","5"])
+07/29/24 18:58:10: Parsing arguments: ["Level","5"]
+07/29/24 18:58:10: Parsed arguments: ["[\"Level\",\"5\"]"]
+07/29/24 18:58:10: Command Name: set_variable
+07/29/24 18:58:10: Target Object: yeancat
+07/29/24 18:58:10: Parameters: ["[\"Level\",\"5\"]"]
+07/29/24 18:58:10: Level set to 5
+07/29/24 18:58:10: Raw command: execute_action(PortalOutcome)
+07/29/24 18:58:10: Cleaned command: execute_action(PortalOutcome)
+07/29/24 18:58:10: Executing action/group: PortalOutcome
+07/29/24 18:58:10: Decoded Data: {"command":"chat_bubble","parameters":["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]],"targetObject":"Target"}
+07/29/24 18:58:10: Raw command: Target.chat_bubble(["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]])
+07/29/24 18:58:10: Cleaned command: Target.chat_bubble(["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]])
+07/29/24 18:58:10: Parsing arguments: ["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]]
+07/29/24 18:58:10: Parsed arguments: ["[\"You've discovered an ancient civilization! What's your approach?\",[[\"Study their technology\",\"StudyTech\"],[\"Establish communication\",\"Communicate\"],[\"Return home with findings\",\"ReturnWithFindings\"]]]"]
+07/29/24 18:58:10: Command Name: chat_bubble
+07/29/24 18:58:10: Target Object: Target
+07/29/24 18:58:10: Parameters: ["[\"You've discovered an ancient civilization! What's your approach?\",[[\"Study their technology\",\"StudyTech\"],[\"Establish communication\",\"Communicate\"],[\"Return home with findings\",\"ReturnWithFindings\"]]]"]
+07/29/24 18:58:10: Creating chat bubble: ["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]], Owner: Target, Choices: []
+07/29/24 18:58:10: Chat Bubble Created. Following 'yeancat' with text: 'You've discovered an ancient civilization! What's your approach?'. Number of choices: 3
+07/29/24 18:58:17: [Jay Arnold] still cant scroll!
+07/29/24 18:58:17: Creating chat bubble: " still cant scroll!", Owner: yeancat, Choices: []
+07/29/24 18:58:17: Chat Bubble Created. Following 'yeancat' with text: 'still cant scroll!'. Number of choices: 0
+07/29/24 18:58:20: Added boss reference: TravisSquawk1 -> obj_boss
+07/29/24 18:58:20: Added boss reference: Futurtle2 -> obj_boss
+07/29/24 18:58:44: [Jay Arnold] i do realise that the text is actually within the proper range now that i have typed |a bunch of messages!
+07/29/24 18:58:44: Creating chat bubble: " i do realise that the text is actually within the proper range now that i have typed |a bunch of messages!", Owner: yeancat, Choices: []
+07/29/24 18:58:44: Chat Bubble Created. Following 'yeancat' with text: 'i do realise that the text is actually within the proper range now that i have typed |a bunch of messages!'. Number of choices: 0
+07/29/24 19:00:33: [Jay Arnold] the only thing is it should start in the correct position, first message at the top,|and messages appear under the previous one. once the line count hits 7, or more, the |chat box should automatically scroll down to make sure it is visible, and the 1st or more entries|will become out of view.
+07/29/24 19:00:33: Creating chat bubble: " the only thing is it should start in the correct position, first message at the top,|and messages appear under the previous one. once the line count hits 7, or more, the |chat box should automatically scroll down to make sure it is visible, and the 1st or more entries|will become out of view.", Owner: yeancat, Choices: []
+07/29/24 19:00:33: Chat Bubble Created. Following 'yeancat' with text: 'the only thing is it should start in the correct position, first message at the top,|and messages appear under the previous one. once the line count hits 7, or more, the |chat box should automatically scroll down to make sure it is visible, and the 1st or more entries|will become out of view.'. Number of choices: 0
+07/29/24 19:01:38: [Jay Arnold] it seems we do have the text box only showing 6 lines in the correct position|the only issue is that it doesnt begin that way, the text is alternating black and white, |the text is no longer wrapping, and i can not scroll
+07/29/24 19:01:38: Creating chat bubble: " it seems we do have the text box only showing 6 lines in the correct position|the only issue is that it doesnt begin that way, the text is alternating black and white, |the text is no longer wrapping, and i can not scroll", Owner: yeancat, Choices: []
+07/29/24 19:01:38: Chat Bubble Created. Following 'yeancat' with text: 'it seems we do have the text box only showing 6 lines in the correct position|the only issue is that it doesnt begin that way, the text is alternating black and white, |the text is no longer wrapping, and i can not scroll'. Number of choices: 0
+07/29/24 19:03:35: Loaded action/group: SaveGameNow
+07/29/24 19:03:35: Loaded action/group: GotoKingsKingdom
+07/29/24 19:03:35: Loaded action/group: EnterPortal
+07/29/24 19:03:36: Loaded action/group: PurchaseArtifacts
+07/29/24 19:03:36: Loaded action/group: BattleOutcome
+07/29/24 19:03:36: Loaded action/group: VisitMarket
+07/29/24 19:03:36: Loaded action/group: GotoDivineDomain
+07/29/24 19:03:36: Loaded action/group: GotoTheEndonda
+07/29/24 19:03:36: Loaded action/group: GotoUniverseCity
+07/29/24 19:03:36: Loaded action/group: GotoLandOfLucy
+07/29/24 19:03:36: Loaded action/group: GotoPlaceOfPablo
+07/29/24 19:03:36: Loaded action/group: InvestigateSignals
+07/29/24 19:03:36: Loaded action/group: OfferTrade
+07/29/24 19:03:36: Loaded action/group: DisableEnemySpawns
+07/29/24 19:03:36: Loaded action/group: BattleSequence
+07/29/24 19:03:36: Loaded action/group: StartBattle
+07/29/24 19:03:36: Loaded action/group: GotoTheIcyHeart
+07/29/24 19:03:36: Loaded action/group: EngageCombat
+07/29/24 19:03:36: Loaded action/group: GotoGhostTown
+07/29/24 19:03:36: Loaded action/group: StartExploration
+07/29/24 19:03:36: Loaded action/group: SetLevelFive
+07/29/24 19:03:36: Loaded action/group: LevelUpThree
+07/29/24 19:03:36: Loaded action/group: LevelUpOnce
+07/29/24 19:03:36: Loaded action/group: GotoTheGoldMines
+07/29/24 19:03:36: Loaded action/group: StartPeaceMission
+07/29/24 19:03:36: Loaded action/group: DiplomaticChoice
+07/29/24 19:03:36: Loaded action/group: TreatyOutcome
+07/29/24 19:03:36: Loaded action/group: ExplorationChoice
+07/29/24 19:03:36: Loaded action/group: BattleChoice
+07/29/24 19:03:36: Loaded action/group: ArtifactMystery
+07/29/24 19:03:36: Loaded action/group: PortalOutcome
+07/29/24 19:03:36: Loaded action/group: PeacefulMission
+07/29/24 19:03:36: Loaded action/group: SpaceAdventureStart
+07/29/24 19:03:36: Loaded action/group: PortalAdventure
+07/29/24 19:03:36: Loaded action/group: EnableEnemySpawns
+07/29/24 19:03:36: Loaded action/group: GotoVulturesValley
+07/29/24 19:03:36: Loaded action/group: GotoEarth
+07/29/24 19:03:36: Loaded action/group: GotoStormySands
+07/29/24 19:03:36: Loaded action/group: SpaceExploration
+07/29/24 19:03:36: Loaded action/group: GotoFantasia
+07/29/24 19:03:36: Loaded action/group: GotoYetopia
+07/29/24 19:03:36: Loaded action/group: ArtifactOutcome
+07/29/24 19:03:36: Loaded action/group: EpicBattle
+07/29/24 19:03:36: Loaded action/group: PeaceTreaty
+07/29/24 19:03:36: Actions and action groups loaded successfully from Actions.txt.
+07/29/24 19:03:36: [Client] Failed to reconnect to server. Will try again...
+07/29/24 19:04:24: [Jay Arnold] Hello! i have made changes to the code involving scrolling|i decided to keep it in the draw event this time
+07/29/24 19:04:24: Creating chat bubble: " Hello! i have made changes to the code involving scrolling|i decided to keep it in the draw event this time", Owner: yeancat, Choices: []
+07/29/24 19:04:24: Chat Bubble Created. Following 'yeancat' with text: 'Hello! i have made changes to the code involving scrolling|i decided to keep it in the draw event this time'. Number of choices: 0
+07/29/24 19:04:36: [Jay Arnold] lets see if i end up being able to scroll when i type enough messages
+07/29/24 19:04:36: Creating chat bubble: " lets see if i end up being able to scroll when i type enough messages", Owner: yeancat, Choices: []
+07/29/24 19:04:36: Chat Bubble Created. Following 'yeancat' with text: 'lets see if i end up being able to scroll when i type enough messages'. Number of choices: 0
+07/29/24 19:05:35: [Jay Arnold] as expected we still get no text wrapping and every message is on one line and it doesnt even wrap while typing so... actually it just wrapped. so it just takes too long before wrapping in the text input.
+07/29/24 19:05:35: Creating chat bubble: " as expected we still get no text wrapping and every message is on one line and it doesnt even wrap while typing so... actually it just wrapped. so it just takes too long before wrapping in the text input.", Owner: yeancat, Choices: []
+07/29/24 19:05:35: Chat Bubble Created. Following 'yeancat' with text: 'as expected we still get no text wrapping and every message is on one line and it doesnt even wrap while typing so... actually it just wrapped. so it just takes too long before wrapping in the text input.'. Number of choices: 0
+07/29/24 19:05:48: [Jay Arnold] but its still displayed as a single line in the chat box
+07/29/24 19:05:48: Creating chat bubble: " but its still displayed as a single line in the chat box", Owner: yeancat, Choices: []
+07/29/24 19:05:48: Chat Bubble Created. Following 'yeancat' with text: 'but its still displayed as a single line in the chat box'. Number of choices: 0
+07/29/24 19:06:04: [Jay Arnold] im going to type a command so i can get many messages in the chat box
+07/29/24 19:06:04: Creating chat bubble: " im going to type a command so i can get many messages in the chat box", Owner: yeancat, Choices: []
+07/29/24 19:06:04: Chat Bubble Created. Following 'yeancat' with text: 'im going to type a command so i can get many messages in the chat box'. Number of choices: 0
+07/29/24 19:06:09: [Jay Arnold] this is message 6
+07/29/24 19:06:09: Creating chat bubble: " this is message 6", Owner: yeancat, Choices: []
+07/29/24 19:06:09: Chat Bubble Created. Following 'yeancat' with text: 'this is message 6'. Number of choices: 0
+07/29/24 19:06:15: [Jay Arnold] now it is all in the correct position
+07/29/24 19:06:15: Creating chat bubble: " now it is all in the correct position", Owner: yeancat, Choices: []
+07/29/24 19:06:15: Chat Bubble Created. Following 'yeancat' with text: 'now it is all in the correct position'. Number of choices: 0
+07/29/24 19:06:23: [Jay Arnold] 
+07/29/24 19:06:23: Creating chat bubble: " ", Owner: yeancat, Choices: []
+07/29/24 19:06:23: Chat Bubble Created. Following 'yeancat' with text: ''. Number of choices: 0
+07/29/24 19:06:28: [Jay Arnold] i can not scroll
+07/29/24 19:06:28: Creating chat bubble: " i can not scroll", Owner: yeancat, Choices: []
+07/29/24 19:06:28: Chat Bubble Created. Following 'yeancat' with text: 'i can not scroll'. Number of choices: 0
+07/29/24 19:06:31: [Jay Arnold] oh no!
+07/29/24 19:06:31: Creating chat bubble: " oh no!", Owner: yeancat, Choices: []
+07/29/24 19:06:31: Chat Bubble Created. Following 'yeancat' with text: 'oh no!'. Number of choices: 0
+07/29/24 19:06:34: [Jay Arnold] but
+07/29/24 19:06:34: Creating chat bubble: " but", Owner: yeancat, Choices: []
+07/29/24 19:06:34: Chat Bubble Created. Following 'yeancat' with text: 'but'. Number of choices: 0
+07/29/24 19:06:45: [Jay Arnold] it is scrolling down every time I enter a message
+07/29/24 19:06:45: Creating chat bubble: " it is scrolling down every time I enter a message", Owner: yeancat, Choices: []
+07/29/24 19:06:45: Chat Bubble Created. Following 'yeancat' with text: 'it is scrolling down every time I enter a message'. Number of choices: 0
+07/29/24 19:06:58: [Jay Arnold] so essentially nothing changed from the previous test!
+07/29/24 19:06:58: Creating chat bubble: " so essentially nothing changed from the previous test!", Owner: yeancat, Choices: []
+07/29/24 19:06:58: Chat Bubble Created. Following 'yeancat' with text: 'so essentially nothing changed from the previous test!'. Number of choices: 0
+
+

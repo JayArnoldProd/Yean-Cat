@@ -20,7 +20,7 @@ function scr_list_variables() {
 
         // Check if adding this variable would exceed the line length
         if (string_length(currentLine) + string_length(variable) > maxLineLength) {
-            handleDebugMessage(currentLine, true); // Send the current line
+            handleDebugMessage(currentLine, false); // Send the current line
             currentLine = variable; // Start a new line with the current variable
         } else {
             currentLine += variable; // Add the variable to the current line
@@ -31,7 +31,7 @@ function scr_list_variables() {
 
     // Send the final line, if it exists
     if (string_length(currentLine) > 0) {
-        handleDebugMessage(currentLine, true); // Send the final line
+        handleDebugMessage(currentLine, false); // Send the final line
     }
 }
 

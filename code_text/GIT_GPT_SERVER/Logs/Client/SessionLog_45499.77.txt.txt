@@ -1,0 +1,138 @@
+07/26/24 13:22:18: Actions.txt not found. Starting with an empty actions map.
+07/26/24 13:22:18: [Client] Failed to reconnect to server. Will try again...
+07/26/24 13:22:28: Executing command: goto_planet(Fantasia)
+07/26/24 13:22:28: Processed command: goto_planet(Fantasia)
+07/26/24 13:22:28: Teleported to Fantasia.
+07/26/24 13:22:33: Executing command: add_action(GotoEarth,goto_planet,["Earth"])
+07/26/24 13:22:33: Processed command: add_action(GotoEarth,goto_planet,["Earth"])
+07/26/24 13:22:33: Adding action: GotoEarth, Command: goto_planet, Raw Parameters: "Earth"
+07/26/24 13:22:33: Checking for command: goto_planet
+07/26/24 13:22:33: Action 'GotoEarth' added successfully.
+07/26/24 13:22:33: Saving action: GotoEarth|||goto_planet|||Ild5SkZZWEowYUNKZCI=
+07/26/24 13:22:33: Actions saved successfully to Actions.txt.
+07/26/24 13:22:37: Executing command: add_action(LevelUpOnce,level_up,[1])
+07/26/24 13:22:37: Processed command: add_action(LevelUpOnce,level_up,[1])
+07/26/24 13:22:37: Adding action: LevelUpOnce, Command: level_up, Raw Parameters: 1.0
+07/26/24 13:22:37: Checking for command: level_up
+07/26/24 13:22:37: Action 'LevelUpOnce' added successfully.
+07/26/24 13:22:37: Saving action: LevelUpOnce|||level_up|||Ild6RXVNRjA9Ig==
+07/26/24 13:22:37: Saving action: GotoEarth|||goto_planet|||Ild5SkZZWEowYUNKZCI=
+07/26/24 13:22:37: Actions saved successfully to Actions.txt.
+07/26/24 13:22:41: Executing command: add_action(SaveGameNow,save_game,[])
+07/26/24 13:22:41: Processed command: add_action(SaveGameNow,save_game,[])
+07/26/24 13:22:41: Adding action: SaveGameNow, Command: save_game, Raw Parameters: []
+07/26/24 13:22:41: Checking for command: save_game
+07/26/24 13:22:41: Action 'SaveGameNow' added successfully.
+07/26/24 13:22:41: Saving action: SaveGameNow|||save_game|||IlcxMD0i
+07/26/24 13:22:41: Saving action: LevelUpOnce|||level_up|||Ild6RXVNRjA9Ig==
+07/26/24 13:22:41: Saving action: GotoEarth|||goto_planet|||Ild5SkZZWEowYUNKZCI=
+07/26/24 13:22:41: Actions saved successfully to Actions.txt.
+07/26/24 13:22:45: Executing command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/26/24 13:22:45: Processed command: add_action(MainMenuChoices,chat_bubble,["What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level Up","LevelUpOnce"],["Save  Game","SaveGameNow"],["Cancel","null"]]])
+07/26/24 13:22:45: Adding action: MainMenuChoices, Command: chat_bubble, Raw Parameters: "What would you like to do?"
+07/26/24 13:22:45: Checking for command: chat_bubble
+07/26/24 13:22:45: Action 'MainMenuChoices' added successfully.
+07/26/24 13:22:45: Saving action: SaveGameNow|||save_game|||IlcxMD0i
+07/26/24 13:22:45: Saving action: MainMenuChoices|||chat_bubble|||Ild5SlhhR0YwSUhkdmRXeGtJSGx2ZFNCc2FXdGxJSFJ2SUdSdlB5SmQi
+07/26/24 13:22:45: Saving action: LevelUpOnce|||level_up|||Ild6RXVNRjA9Ig==
+07/26/24 13:22:45: Saving action: GotoEarth|||goto_planet|||Ild5SkZZWEowYUNKZCI=
+07/26/24 13:22:45: Actions saved successfully to Actions.txt.
+07/26/24 13:22:51: Executing command: execute_action(GotoEarth)
+07/26/24 13:22:51: Processed command: execute_action(GotoEarth)
+07/26/24 13:22:51: Successfully decoded parameters: ["Earth"]
+07/26/24 13:22:51: Executing action: GotoEarth
+07/26/24 13:22:51: Command: goto_planet
+07/26/24 13:22:51: Decoded Parameters: ["Earth"]
+07/26/24 13:22:51: Teleported to Earth.
+07/26/24 13:22:53: [Jay Arnold] nice!
+07/26/24 13:22:53: Raw chat_bubble parameters:  nice!, yeancat, []
+07/26/24 13:22:53: Creating chat bubble with text:  nice!, owner: yeancat, choices: []
+07/26/24 13:22:53: Chat Bubble Created. Following 'yeancat' with text: ' nice!'
+07/26/24 13:22:58: Executing command: execute_action(LevelUpOnce)
+07/26/24 13:22:58: Processed command: execute_action(LevelUpOnce)
+07/26/24 13:22:58: Successfully decoded parameters: [1.0]
+07/26/24 13:22:58: Executing action: LevelUpOnce
+07/26/24 13:22:58: Command: level_up
+07/26/24 13:22:58: Decoded Parameters: [1.0]
+07/26/24 13:22:58: Level up initiated with goal: 1
+07/26/24 13:23:04: Executing command: execute_action(SaveGameNow)
+07/26/24 13:23:04: Processed command: execute_action(SaveGameNow)
+07/26/24 13:23:04: Successfully decoded parameters: []
+07/26/24 13:23:04: Executing action: SaveGameNow
+07/26/24 13:23:04: Command: save_game
+07/26/24 13:23:04: Decoded Parameters: []
+07/26/24 13:23:04: Saved Game
+07/26/24 13:23:11: [Jay Arnold] okay brilliant!
+07/26/24 13:23:11: Raw chat_bubble parameters:  okay brilliant!, yeancat, []
+07/26/24 13:23:11: Creating chat bubble with text:  okay brilliant!, owner: yeancat, choices: []
+07/26/24 13:23:11: Chat Bubble Created. Following 'yeancat' with text: ' okay brilliant!'
+07/26/24 13:23:22: [Jay Arnold] now we can proceed to test chat bubbles
+07/26/24 13:23:22: Raw chat_bubble parameters:  now we can proceed to test chat bubbles, yeancat, []
+07/26/24 13:23:22: Creating chat bubble with text:  now we can proceed to test chat bubbles, owner: yeancat, choices: []
+07/26/24 13:23:22: Chat Bubble Created. Following 'yeancat' with text: ' now we can proceed to test chat bubbles'
+07/26/24 13:23:26: Executing command: chat_bubble("Hello World!”,”yeancat")
+07/26/24 13:23:26: Processed command: chat_bubble("Hello World!”,”yeancat")
+07/26/24 13:23:26: Error: Invalid parameters for chat_bubble command
+07/26/24 13:23:39: Executing command: chat_bubble("Hello World!","yeancat")
+07/26/24 13:23:39: Processed command: chat_bubble("Hello World!","yeancat")
+07/26/24 13:23:39: Raw chat_bubble parameters: "Hello World!", "yeancat", []
+07/26/24 13:23:39: Creating chat bubble with text: "Hello World!", owner: yeancat, choices: []
+07/26/24 13:23:39: Chat Bubble Created. Following 'yeancat' with text: '"Hello World!"'
+07/26/24 13:23:46: Executing command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+07/26/24 13:23:46: Processed command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+07/26/24 13:23:46: Raw chat_bubble parameters: "What would you like to do?", "yeancat", "[[\"Go to Earth\",\"GotoEarth\"],[\"Level  Up\",\"LevelUpOnce\"]]"
+07/26/24 13:23:46: Creating chat bubble with text: "What would you like to do?", owner: yeancat, choices: "[[\"Go to Earth\",\"GotoEarth\"],[\"Level  Up\",\"LevelUpOnce\"]]"
+07/26/24 13:23:46: Chat Bubble Created. Following 'yeancat' with text: '"What would you like to do?"'
+07/26/24 13:24:28: [Jay Arnold] those 2 commands work and create the bubble with the text, but it  needs to show in the log how many choices were created. then we can  proceed to adding the clickable choices beneath the chat bubble.
+07/26/24 13:24:28: Raw chat_bubble parameters:  those 2 commands work and create the bubble with the text, but it  needs to show in the log how many choices were created. then we can  proceed to adding the clickable choices beneath the chat bubble., yeancat, []
+07/26/24 13:24:28: Creating chat bubble with text:  those 2 commands work and create the bubble with the text, but it  needs to show in the log how many choices were created. then we can  proceed to adding the clickable choices beneath the chat bubble., owner: yeancat, choices: []
+07/26/24 13:24:28: Chat Bubble Created. Following 'yeancat' with text: ' those 2 commands work and create the bubble with the text, but it  needs to show in the log how many choices were created. then we can  proceed to adding the clickable choices beneath the chat bubble.'
+07/26/24 13:24:34: Executing command: execute_action(MainMenuChoices)
+07/26/24 13:24:34: Processed command: execute_action(MainMenuChoices)
+07/26/24 13:24:34: Successfully decoded parameters: ["What would you like to do?"]
+07/26/24 13:24:34: Executing action: MainMenuChoices
+07/26/24 13:24:34: Command: chat_bubble
+07/26/24 13:24:34: Decoded Parameters: ["What would you like to do?"]
+07/26/24 13:24:34: Raw chat_bubble parameters: What would you like to do?, undefined, []
+07/26/24 13:24:34: Creating chat bubble with text: What would you like to do?, owner: undefined, choices: []
+07/26/24 13:24:34: Error: Owner object 'undefined' not found
+07/26/24 13:25:07: [Jay Arnold] that is also an issue, it seems that the owner was not saved or loaded  properly for the command chat_bubble inside the action  MainMenuChoices.
+07/26/24 13:25:07: Raw chat_bubble parameters:  that is also an issue, it seems that the owner was not saved or loaded  properly for the command chat_bubble inside the action  MainMenuChoices., yeancat, []
+07/26/24 13:25:07: Creating chat bubble with text:  that is also an issue, it seems that the owner was not saved or loaded  properly for the command chat_bubble inside the action  MainMenuChoices., owner: yeancat, choices: []
+07/26/24 13:25:07: Chat Bubble Created. Following 'yeancat' with text: ' that is also an issue, it seems that the owner was not saved or loaded  properly for the command chat_bubble inside the action  MainMenuChoices.'
+07/26/24 13:25:30: [Jay Arnold] the detailed log will be too large to include for this test, so i will not  provide it.
+07/26/24 13:25:30: Raw chat_bubble parameters:  the detailed log will be too large to include for this test, so i will not  provide it., yeancat, []
+07/26/24 13:25:30: Creating chat bubble with text:  the detailed log will be too large to include for this test, so i will not  provide it., owner: yeancat, choices: []
+07/26/24 13:25:30: Chat Bubble Created. Following 'yeancat' with text: ' the detailed log will be too large to include for this test, so i will not  provide it.'
+
+Actions.txt:
+SaveGameNow|||save_game|||IlcxMD0i
+MainMenuChoices|||chat_bubble|||Ild5SlhhR0YwSUhkdmRXeGtJSGx2ZFNCc2FXdGxJSFJ2SUdSdlB5SmQi
+LevelUpOnce|||level_up|||Ild6RXVNRjA9Ig==
+GotoEarth|||goto_planet|||Ild5SkZZWEowYUNKZCI=
+
+
+Detailed log:
+
+Date: 07/26/24 Time: 13:23:46 Msg: Executing command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+Date: 07/26/24 Time: 13:23:46 Msg: Processed command: chat_bubble("What would you like to do?","yeancat",[["Go to Earth","GotoEarth"],["Level  Up","LevelUpOnce"]])
+Date: 07/26/24 Time: 13:23:46 Msg: Raw chat_bubble parameters: "What would you like to do?", "yeancat", "[[\"Go to Earth\",\"GotoEarth\"],[\"Level  Up\",\"LevelUpOnce\"]]"
+Date: 07/26/24 Time: 13:23:46 Msg: Creating chat bubble with text: "What would you like to do?", owner: yeancat, choices: "[[\"Go to Earth\",\"GotoEarth\"],[\"Level  Up\",\"LevelUpOnce\"]]"
+Date: 07/26/24 Time: 13:23:46 Msg: Chat Bubble Created. Following 'yeancat' with text: '"What would you like to do?"'
+[Client] Processed command/chat and cleared buffer.
+Drawing chat bubble. Text: '"What would you like to do?"'
+Wrapped text: ''
+Text position: 0, 15
+Text color: 4210752, Outline color: 0
+Text scale: 1
+Max width: 500
+Drawing chat bubble. Text: '"What would you like to do?"'
+Wrapped text: '"What would
+you like to do?"'
+Text position: 1408.15, 188.55
+Text color: 4210752, Outline color: 0
+Text scale: 0.94
+Max width: 556
+Drawing chat bubble. Text: '"What would you like to do?"'
+
+I cant send the entire log because every frame the chat bubble pops out this debug text, I would like to fix it so that this message only happens when it is created.

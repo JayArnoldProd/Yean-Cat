@@ -1,24 +1,35 @@
-// Helper function for string wrapping
 function string_wrap(str, max_width) {
+    var text_wrapped = "";
+    var space_pos = -1;
+    var line_width = 0;
     var str_len = string_length(str);
-    var last_space = 1;
-    var count = 1;
-    var substr;
     
-    repeat(str_len) {
-        substr = string_copy(str, 1, count);
-        if (string_width(substr) > max_width) {
-            str = string_delete(str, last_space, 1);
-            str = string_insert("\n", str, last_space);
-            count = last_space;
-        }
+    for (var i = 1; i <= str_len; i++) {
+        var char = string_char_at(str, i);
+        var char_width = string_width(char);
         
-        if (string_char_at(str, count) == " ") {
-            last_space = count;
-        }
+        if (char == " ") space_pos = i;
         
-        count++;
+        if (line_width + char_width > max_width*1.7) {
+            if (space_pos != -1) {
+                text_wrapped += string_copy(str, 1, space_pos - 1) + "\n";
+                str = string_delete(str, 1, space_pos);
+                line_width = 0;
+                i = 0;
+                str_len = string_length(str);
+                space_pos = -1;
+            } else {
+                text_wrapped += string_copy(str, 1, i - 1) + "\n";
+                str = string_delete(str, 1, i - 1);
+                line_width = 0;
+                i = 0;
+                str_len = string_length(str);
+            }
+        } else {
+            line_width += char_width;
+        }
     }
     
-    return str;
+    text_wrapped += str;
+    return text_wrapped;
 }

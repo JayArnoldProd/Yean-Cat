@@ -27,8 +27,8 @@ function scr_show_variable(varName) {
     }
 
     if (found) {
-        handleDebugMessage(varName + ": " + string(variableValue), true);
+        handleDebugMessage(varName + ": " + string(variableValue), false);
     } else {
-        handleDebugMessage("Error: Variable '" + varName + "' does not exist.", true);
+        handleDebugMessage("Error: Variable '" + varName + "' does not exist.", false);
     }
 }

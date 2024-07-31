@@ -293,6 +293,476 @@ toggle_server
       "scr_save_game",
       "scr_load_game"
     ]
+  },
+  {
+    "name": "Action_Group_Support",
+    "description": "Implement a new script, scr_add_action_group, that allows grouping actions together. The script should take a string for the group name and an array of strings of any length. The action group should be saved similarly to actions, with the name followed by '|||' and then encrypted data of its values. Action groups should be executable like individual actions, and existing functions should be modified to trigger action groups through scr_execute_action. Additionally, action groups should be clickable in chat bubbles, executing actions in order from the list. This feature enables the grouping of actions for more complex branching possibilities.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-28",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45502.03"
+    ],
+    "implementation_steps": [
+      "Step 1: Design the scr_add_action_group function to accept a name and an array of actions.",
+      "Step 2: Implement the saving mechanism for action groups",
+      " encrypting their data.",
+      "Step 3: Modify scr_execute_action to handle action groups",
+      " executing each action in order.",
+      "Step 4: Ensure action groups can be triggered from chat bubbles.",
+      "Step 5: Test the functionality by creating and executing action groups."
+    ],
+    "expected_outcome": [
+      "Expected outcome: Ability to create",
+      " save",
+      " and execute action groups",
+      " enabling more complex action sequences."
+    ],
+    "related_features": [
+      "Command_Input",
+      "User_Interface",
+      "Action_System"
+    ],
+    "related_objects": [
+      "obj_client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "string_wrap",
+      "array_to_string",
+      "scr_add_action",
+      "scr_execute_action",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions"
+    ]
+  },
+  {
+    "name": "Enhanced_Action_Command_Owner_Handling",
+    "description": "I would like to remove specifying the chat bubble owner from the command itself and have it default to 'yeancat'. To handle this better, the owner can be specified when calling the action or command. For example: /yeancat.chat_bubble('Hello World') /add_action(MainMenuChoices2, chat_bubble, ['Where would you like to go?', [['Earth', GotoEarth], ['Universe City', GotoUniverseCity], ['Fantasia', GotoFantasia], ['More', Player.MoreChoices1]]]) /Player.execute_action(MainMenuChoices2). Also notice how I would prefer to not have to type quotations inside these arrays for the strings! (At least not for the action names, they shouldn’t contain spaces anyways. If they could be accepted either way that would be cool too! But priority is getting it to work with our new owner definition.",
+    "source": "SYSTEM",
+    "priority": "medium",
+    "status": "planned",
+    "date_planned": "2024-07-29",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "3",
+    "related_logs": [
+      "SessionLog_45502.28"
+    ],
+    "implementation_steps": [
+      "Step 1: Remove chat bubble owner specification from the command itself and default to 'yeancat'.",
+      "Step 2: Implement owner specification when calling the action or command.",
+      "Step 3: Allow commands to default to 'yeancat' if owner not specified.",
+      "Step 4: Develop a system for defining and using enumerator-like names for objects.",
+      "Step 5: Ensure spawning an NPC and assigning it an action works seamlessly.",
+      "Step 6: Ensure execute_command is flexible and future-proof for adding new commands with minimal changes."
+    ],
+    "expected_outcome": [
+      "Expected outcome: The command system should handle owner specification seamlessly",
+      " allowing for complex interactions and reusable actions for different NPCs. Commands should be executed correctly with the specified or default owner",
+      " and the system should be future-proof for adding new commands easily."
+    ],
+    "related_features": [
+      "Command_System",
+      "Action_Groups",
+      "NPC_Interactions",
+      "Future_Commands"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "updateLongestMessage",
+      "get_longest_word_width",
+      "wrap_chat_text",
+      "string_wrap",
+      "appendAndWrap",
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "array_to_string",
+      "scr_add_action",
+      "scr_execute_action",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions"
+    ]
+  },
+  {
+    "name": "Target_Object_Reference_in_get_object_reference",
+    "description": "Implement a 'Target' object reference in the get_object_reference function. This Target object should be able to be set to various objects, including 'Player' (or 'yeancat'). The goal is to create a definition 'Target' which defaults to 'yeancat' or 'Player' but can be set to any existing objects with object reference definitions. Implement /set_target(Instance ID/'ReferenceName') command to set Target to a specific entity ID or the name of an object reference (excluding 'Target' itself). Also, implement /list_objects command to list the names of object references, e.g., ('Player', 'Target', 'NPC1', etc.).",
+    "source": "SYSTEM",
+    "priority": "medium",
+    "status": "planned",
+    "date_planned": "2024-07-29",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "3",
+    "related_logs": [
+      "SessionLog_45502.84"
+    ],
+    "implementation_steps": [
+      "Step 1: Implement 'Target' object reference in get_object_reference.",
+      "Step 2: Create a definition for 'Target' that defaults to 'yeancat' or 'Player'.",
+      "Step 3: Implement /set_target(Instance ID/'ReferenceName') command.",
+      "Step 4: Implement /list_objects command to list object references."
+    ],
+    "expected_outcome": [
+      "Expected outcome: The 'Target' object reference should be able to be set to various objects",
+      " including 'Player' (or 'yeancat'). The /set_target command should allow setting 'Target' to a specific entity ID or object reference name. The /list_objects command should list the names of object references."
+    ],
+    "related_features": [
+      "Command_System",
+      "Object_References"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "updateLongestMessage",
+      "get_longest_word_width",
+      "wrap_chat_text",
+      "string_wrap",
+      "appendAndWrap",
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "array_to_string",
+      "scr_add_action",
+      "scr_execute_action",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions",
+      "scr_add_action_group",
+      "list_actions",
+      "get_object_reference",
+      "list_action_groups"
+    ]
+  },
+  {
+    "name": "Scrollable_Chat_Input_Box",
+    "description": "Implement a scrollable chat input box that can accommodate long multi-line inputs (10+ lines) without extending beyond the visible screen area. When the input exceeds 9 lines (based on a max visible line count of 6), the text should shift up by one line for each additional line entered, with no upper limit. This ensures that the input box remains within the visible area of the camera while allowing for extensive command sequences.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-29",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45503.10"
+    ],
+    "implementation_steps": [
+      "Step 1: Modify update_chat_input_visuals to track the number of lines in the input.",
+      "Step 2: Implement a scrolling mechanism in the chat input box.",
+      "Step 3: Adjust the drawing position of the input text based on the number of lines.",
+      "Step 4: Ensure that only the visible portion of the text is rendered.",
+      "Step 5: Implement vertical scrolling controls (mouse wheel",
+      " arrow keys).",
+      "Step 6: Update appendAndWrap to handle the new scrolling behavior.",
+      "Step 7: Modify execute_multiple_commands to work with the scrollable input.",
+      "Step 8: Adjust handleDebugMessage to accommodate longer command sequences.",
+      "Step 9: Update string_wrap to work with the new scrollable input box.",
+      "Step 10: Implement a visual indicator for text that extends beyond the visible area."
+    ],
+    "expected_outcome": [
+      "Expected outcome: Users can input long",
+      " multi-line command sequences without the input box extending beyond the screen. The input box scrolls automatically as new lines are added",
+      " maintaining visibility of the most recent input while allowing access to earlier lines through scrolling."
+    ],
+    "related_features": [
+      "User_Interface",
+      "Command_Input",
+      "Text_Display"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "updateLongestMessage",
+      "get_longest_word_width",
+      "wrap_chat_text",
+      "string_wrap",
+      "appendAndWrap",
+      "execute_command",
+      "scr_execute_command",
+      "handleDebugMessage",
+      "scr_chat_bubble",
+      "execute_multiple_commands",
+      "scr_add_action",
+      "update_chat_input_visuals",
+      "last_key_is_valid_character",
+      "string_trim_left",
+      "string_trim_right",
+      "string_trim_lr",
+      "array_to_string",
+      "scr_add_action",
+      "scr_execute_action",
+      "string_last_index_of",
+      "check_permission_command",
+      "are_brackets_balanced",
+      "are_params_valid",
+      "parse_arguments",
+      "save_actions",
+      "scr_add_action_group",
+      "list_actions",
+      "get_object_reference",
+      "list_action_groups",
+      "handleCommandWithArgs"
+    ]
+  },
+  {
+    "name": "NPC_and_Boss_Spawning_System",
+    "description": "Implement a flexible system for spawning NPCs, bosses, and enemies with customizable parameters. This feature will allow developers to dynamically place characters in the game world, set their behavior, and trigger actions. Key components include:\n1. Command-based spawning with relative positioning\n2. Ability to set spawn locations for future use\n3. Conversion between NPC and hostile entity types\n4. Potential for server-synced placement in multiplayer scenarios",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-30",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "SessionLog_45503.35"
+    ],
+    "implementation_steps": [
+      "Step 1: Implement basic /spawn_npc command with position parameters.",
+      "Step 2: Add support for relative positioning to objects.",
+      "Step 3: Develop /spawn_boss and /spawn_enemy commands.",
+      "Step 4: Implement /set_spawn_npc command for future spawning.",
+      "Step 5: Create system for NPC-to-hostile conversion.",
+      "Step 6: Integrate action triggers for NPCs.",
+      "Step 7: Expand command parameters for additional properties.",
+      "Step 8: Test all spawning scenarios and interactions.",
+      "Step 9: Implement server synchronization for multiplayer (future enhancement)."
+    ],
+    "expected_outcome": [
+      "Expected outcome: A comprehensive system allowing dynamic spawning and management of NPCs",
+      " bosses",
+      " and enemies with customizable behaviors and positions. Developers should be able to easily place and modify entities in real-time",
+      " enhancing game world interactivity and storytelling capabilities."
+    ],
+    "related_features": [
+      "NPC_System",
+      "Boss_Mechanics",
+      "Enemy_AI",
+      "Command_System",
+      "Game_World_Management"
+    ],
+    "related_objects": [
+      "obj_npc",
+      "obj_boss",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "spawn_npc",
+      "spawn_boss",
+      "spawn_enemy",
+      "set_spawn_npc",
+      "execute_command",
+      "scr_execute_command"
+    ]
+  },
+  {
+    "name": "Enhanced_Boss_Spawning_System",
+    "description": "Improve the existing boss spawning system to allow more flexible and intuitive spawning of bosses relative to different reference points. Key improvements include:\n1. Ability to spawn bosses relative to various objects (Player, Center, Target, custom objects)\n2. Support for negative coordinates for positioning\n3. Integration with the action and action group system for complex spawn patterns\n4. Consistency with the chat bubble positioning system",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-30",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "SessionLog_45503.45"
+    ],
+    "implementation_steps": [
+      "Step 1: Modify spawn_boss function to handle object references (e.g.",
+      " Player",
+      " Center",
+      " Target).",
+      "Step 2: Implement relative positioning calculation in spawn_boss.",
+      "Step 3: Update spawn_boss to support negative coordinates.",
+      "Step 4: Integrate spawn_boss with the existing action system.",
+      "Step 5: Create helper functions for circular boss spawning patterns.",
+      "Step 6: Test various spawning scenarios (single spawn",
+      " multiple spawns",
+      " circular patterns).",
+      "Step 7: Ensure compatibility with existing boss-related scripts and objects.",
+      "Step 8: Update documentation and comments for the new spawning system."
+    ],
+    "expected_outcome": [
+      "Expected outcome: A versatile boss spawning system that allows precise positioning relative to various game objects",
+      " supports complex spawn patterns through the action system",
+      " and maintains consistency with other positioning systems in the game."
+    ],
+    "related_features": [
+      "Boss_Mechanics",
+      "Action_System",
+      "Game_World_Management"
+    ],
+    "related_objects": [
+      "obj_boss",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "spawn_boss",
+      "scr_spawn_boss",
+      "scr_add_action",
+      "scr_add_action_group",
+      "scr_execute_action",
+      "get_object_reference",
+      "add_object_reference"
+    ]
+  },
+  {
+    "name": "Enhanced_NPC_and_Boss_Spawning_System_with_Action_Trigger",
+    "description": "Implement a comprehensive system for spawning NPCs and bosses with improved functionality and bug fixes. Key components include:\n1. New scr_spawn_npc script mirroring the functionality of scr_spawn_boss\n2. Addition of action trigger parameter for NPCs\n3. Updating object reference system to include NPCs alongside bosses\n4. Fixing bug in action creation system\n5. Ensuring consistency in spawning behavior between NPCs and bosses",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-30",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "SessionLog_45504.03"
+    ],
+    "implementation_steps": [
+      "Step 1: Fix bug in action creation system.",
+      "Step 2: Create scr_spawn_npc script based on scr_spawn_boss.",
+      "Step 3: Add action trigger parameter to scr_spawn_npc.",
+      "Step 4: Update object reference system to include NPCs.",
+      "Step 5: Implement dual definitions for NPCs (e.g.",
+      " NPC1 / NPC_1).",
+      "Step 6: Ensure consistent behavior between NPC and boss spawning.",
+      "Step 7: Implement 'confirm' press functionality for NPC action triggers.",
+      "Step 8: Test NPC spawning with various object references and action triggers.",
+      "Step 9: Update related scripts (list_actions",
+      " add_object_reference",
+      " etc.) for NPC compatibility.",
+      "Step 10: Comprehensive testing of both NPC and boss spawning systems."
+    ],
+    "expected_outcome": [
+      "Expected outcome: A robust system for spawning both NPCs and bosses",
+      " with fixed action creation",
+      " consistent behavior",
+      " and added functionality for NPC interaction through action triggers. The system should seamlessly integrate with existing object references and action systems."
+    ],
+    "related_features": [
+      "NPC_System",
+      "Boss_Mechanics",
+      "Action_System",
+      "Game_World_Management"
+    ],
+    "related_objects": [
+      "obj_npc",
+      "obj_boss",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "scr_spawn_npc",
+      "scr_spawn_boss",
+      "scr_add_action",
+      "scr_execute_action",
+      "get_object_reference",
+      "add_object_reference",
+      "list_actions",
+      "list_action_groups"
+    ]
+  },
+  {
+    "name": "Advanced_Camera_Control_System",
+    "description": "Implement an advanced camera control system with dynamic targeting and zooming capabilities. Key components include:\n1. New /camera_target(x,y) command for precise camera positioning\n2. New /camera_zoom(1-2) command for manual zoom control\n3. Dynamic zoom based on player altitude\n4. Automatic camera behavior adjustment for chat bubbles\n5. Multi-target camera positioning for multiple chat bubbles",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-31",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "No_specific_log"
+    ],
+    "implementation_steps": [
+      "Step 1: Implement /camera_target command with support for relative positioning.",
+      "Step 2: Create /camera_zoom command with range 1-2.",
+      "Step 3: Modify camera zoom to dynamically adjust based on player altitude: clamp(1+obj_terrain.playeraltitude/40000",
+      "1",
+      "2).",
+      "Step 4: Implement smooth transition to zoom level 1 when chat bubbles are present.",
+      "Step 5: Develop system to target camera on chat bubble positions.",
+      "Step 6: Create logic for averaging camera position with multiple chat bubbles.",
+      "Step 7: Integrate new camera controls with existing camera speed variable.",
+      "Step 8: Ensure smooth transitions between different camera states.",
+      "Step 9: Test camera behavior in various scenarios (altitude changes",
+      " chat interactions",
+      " manual controls).",
+      "Step 10: Optimize performance for smooth camera movement."
+    ],
+    "expected_outcome": [
+      "Expected outcome: A versatile camera system that provides both manual control and intelligent automatic behavior. The camera should smoothly adapt to player altitude",
+      " focus on relevant game elements like chat bubbles",
+      " and allow precise control for cinematic moments or specific gameplay needs."
+    ],
+    "related_features": [
+      "Camera_System",
+      "User_Interface",
+      "Chat_System"
+    ],
+    "related_objects": [
+      "obj_camera",
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "execute_command",
+      "scr_execute_command",
+      "scr_chat_bubble"
+    ]
   }
 ]
 

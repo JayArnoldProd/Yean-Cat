@@ -1,0 +1,500 @@
+07/27/24 19:36:50: Loaded action: SaveGameNow, Encoded Command: InNhdmVfZ2FtZShbXSki
+07/27/24 19:36:50: Loaded action: MainMenuChoices, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 19:36:50: Loaded action: LevelUpOnce, Encoded Command: ImxldmVsX3VwKFsxXSki
+07/27/24 19:36:50: Loaded action: GotoEarth, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 19:36:50: Actions loaded successfully from Actions.txt.
+07/27/24 19:36:50: [Client] Failed to reconnect to server. Will try again...
+07/27/24 19:37:11: [Jay Arnold] hello world
+07/27/24 19:37:11: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 19:37:11: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 19:37:15: [Jay Arnold] hello again
+07/27/24 19:37:15: Creating chat bubble:  hello again, Owner: yeancat, Choices: []
+07/27/24 19:37:15: Chat Bubble Created. Following 'yeancat' with text: ' hello again'. Number of choices: 0
+07/27/24 19:37:17: [Jay Arnold] hello
+07/27/24 19:37:17: Creating chat bubble:  hello, Owner: yeancat, Choices: []
+07/27/24 19:37:17: Chat Bubble Created. Following 'yeancat' with text: ' hello'. Number of choices: 0
+07/27/24 19:37:21: [Jay Arnold] i cant scroll
+07/27/24 19:37:21: Creating chat bubble:  i cant scroll, Owner: yeancat, Choices: []
+07/27/24 19:37:21: Chat Bubble Created. Following 'yeancat' with text: ' i cant scroll'. Number of choices: 0
+07/27/24 19:37:30: [Jay Arnold] eeassssseee
+07/27/24 19:37:30: Creating chat bubble:  eeassssseee, Owner: yeancat, Choices: []
+07/27/24 19:37:30: Chat Bubble Created. Following 'yeancat' with text: ' eeassssseee'. Number of choices: 0
+07/27/24 19:42:45: Loaded action: SaveGameNow, Encoded Command: InNhdmVfZ2FtZShbXSki
+07/27/24 19:42:45: Loaded action: MainMenuChoices, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 19:42:45: Loaded action: LevelUpOnce, Encoded Command: ImxldmVsX3VwKFsxXSki
+07/27/24 19:42:45: Loaded action: GotoEarth, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 19:42:45: Actions loaded successfully from Actions.txt.
+07/27/24 19:42:45: [Client] Failed to reconnect to server. Will try again...
+07/27/24 19:42:57: [Jay Arnold] hello world
+07/27/24 19:42:57: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 19:42:57: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 19:43:02: [Jay Arnold] lets see 
+07/27/24 19:43:02: Creating chat bubble:  lets see , Owner: yeancat, Choices: []
+07/27/24 19:43:02: Chat Bubble Created. Following 'yeancat' with text: ' lets see '. Number of choices: 0
+07/27/24 19:43:09: [Jay Arnold] i see 14 lines but i should only see 11
+07/27/24 19:43:09: Creating chat bubble:  i see 14 lines but i should only see 11, Owner: yeancat, Choices: []
+07/27/24 19:43:09: Chat Bubble Created. Following 'yeancat' with text: ' i see 14 lines but i should only see 11'. Number of choices: 0
+07/27/24 19:43:15: [Jay Arnold] its not crashing
+07/27/24 19:43:15: Creating chat bubble:  its not crashing, Owner: yeancat, Choices: []
+07/27/24 19:43:15: Chat Bubble Created. Following 'yeancat' with text: ' its not crashing'. Number of choices: 0
+07/27/24 19:43:36: [Jay Arnold] and it is changing the scroll index when i scroll but not scrolling the  chat
+07/27/24 19:43:36: Creating chat bubble:  and it is changing the scroll index when i scroll but not scrolling the  chat, Owner: yeancat, Choices: []
+07/27/24 19:43:36: Chat Bubble Created. Following 'yeancat' with text: ' and it is changing the scroll index when i scroll but not scrolling the  chat'. Number of choices: 0
+07/27/24 19:44:37: [Jay Arnold] the existing  draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);  should be used for the black box please. just make it scale like the  black box does that you made
+07/27/24 19:44:37: Creating chat bubble:  the existing  draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);  should be used for the black box please. just make it scale like the  black box does that you made, Owner: yeancat, Choices: []
+07/27/24 19:44:37: Chat Bubble Created. Following 'yeancat' with text: ' the existing  draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);  should be used for the black box please. just make it scale like the  black box does that you made'. Number of choices: 0
+07/27/24 19:44:52: [Jay Arnold] the max scroll index i can reach is 13
+07/27/24 19:44:52: Creating chat bubble:  the max scroll index i can reach is 13, Owner: yeancat, Choices: []
+07/27/24 19:44:52: Chat Bubble Created. Following 'yeancat' with text: ' the max scroll index i can reach is 13'. Number of choices: 0
+07/27/24 19:44:55: [Jay Arnold] now its 16
+07/27/24 19:44:55: Creating chat bubble:  now its 16, Owner: yeancat, Choices: []
+07/27/24 19:44:55: Chat Bubble Created. Following 'yeancat' with text: ' now its 16'. Number of choices: 0
+07/27/24 19:45:00: [Jay Arnold] but the chat is not scrolling
+07/27/24 19:45:00: Creating chat bubble:  but the chat is not scrolling, Owner: yeancat, Choices: []
+07/27/24 19:45:00: Chat Bubble Created. Following 'yeancat' with text: ' but the chat is not scrolling'. Number of choices: 0
+07/27/24 19:45:14: [Jay Arnold] i will include my current code.
+07/27/24 19:45:14: Creating chat bubble:  i will include my current code., Owner: yeancat, Choices: []
+07/27/24 19:45:14: Chat Bubble Created. Following 'yeancat' with text: ' i will include my current code.'. Number of choices: 0
+
+///Client Draw Code
+
+draw_set_font(fnt_chat);
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    var maxLinesToShow = global.max_visible_lines;
+	var xx = 990;
+	var yy = 686; // Starting y position
+	var startY = yy;
+	var sca=.7
+	var totalLines = drawChatMessages(global.debugMessages, 990, startY, maxLinesToShow, sca, false, global.c_chat2, global.c_chat1);
+	var lm_cal=clamp(xx+(clamp(110-global.longestmessage,0,110))+1.65*(global.longestmessage-50)/3,xx+215,(display_get_gui_width()-10)/2+room_width/2)+10
+	var x1 = 980
+	var y1 = 686-20
+	var x2 = max(lm_cal,clamp(xx+(clamp(110-global.longestmessage,0,110))+1.65*(string_width(global.commandBuffer)-1)/3,xx+215,(display_get_gui_width())/2+room_width/2+50))
+	// In the Draw GUI event
+var chatBoxHeight = 500; // Adjust this value as needed
+var y2 = y1 + chatBoxHeight;
+	//draw transparent background box for chatbox that adjusts to fit the longest message. will be later swapped for a scaled image background
+	draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);
+	draw_set_alpha(1);
+	
+	global.chat_line_height = 70 * sca + 5;
+// Set drawing properties
+draw_set_colour(c_ltgray);
+draw_set_halign(fa_left);
+draw_set_valign(fa_top);
+draw_set_font(fnt_chat); 
+// Display server status
+var serverStatus = "Server Unable to Connect"; // Default message
+if (isServerRunning) {
+    serverStatus = "Server Online";
+	draw_set_colour(c_lime);
+} else {
+    serverStatus = "Server Stopped";
+	draw_set_colour(c_red);
+}
+
+if show_server_status=true {
+draw_text_transformed(xx, yy, serverStatus, sca, sca, 0);
+yy += 40; // Increment y position for next line
+}
+
+if connectedClients>0 {
+	draw_set_colour(c_aqua);
+} else {
+	draw_set_colour(c_ltgrey);
+}
+if show_server_status=true {
+	//we can keep drawing this section this way unless somehow your next response can condense it as well. but its  kind of fine as is, no issues here.
+draw_text_transformed(xx+3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx-3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx+3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_text_transformed(xx-3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+draw_set_color(global.c_chat1);
+draw_text_transformed(xx, yy-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+yy += 50; // Increment y position for next 
+} else {
+	draw_set_color(global.c_chat1);
+	draw_text_transformed(xx+3, yy+3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx-3, yy+3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx+3, yy-3-10, "Chat Box", sca, sca, 0);
+	draw_text_transformed(xx-3, yy-3-10, "Chat Box", sca, sca, 0);
+	draw_set_color(global.c_chat2);
+	draw_text_transformed(xx, yy-10, "Chat Box", sca, sca, 0);
+yy += 60; // Increment y position for next line
+}
+
+sca=.5
+
+if show_chatbox and ds_exists(global.debugMessages, ds_type_list) {
+    var startY = yy;
+    var maxLinesToShow = global.max_visible_lines;
+	// Before calling drawChatMessages, ensure messages is a ds_list
+if (!ds_exists(global.debugMessages, ds_type_list)) {
+    show_debug_message("Error: debugMessages is not a valid ds_list.");
+    return;
+}
+
+    var totalLines = drawChatMessages(global.debugMessages, 990, startY, maxLinesToShow, sca, false,global.c_chat2,global.c_chat1);
+
+    // Calculate the max index for scrolling based on the total number of lines
+    var maxScrollIndex = max(0, clamp(totalLines - maxLinesToShow,0,9999999));
+
+    // Scroll messages with keyboard or mouse wheel
+    if (input_check("up") || mouse_wheel_up()) {
+		if !(input_check("up") and isActive = true) { //disable scrolling from "W" when typing
+        scrollIndex = max(0, scrollIndex - 1);
+        show_debug_message("[Client] Scrolled up: Current scroll index is " + string(scrollIndex));
+		}
+    }
+    if (input_check("down") || mouse_wheel_down()) {
+		if !(input_check("down") and isActive = true) {//disable scrolling from "S" when typing
+        scrollIndex = min(maxScrollIndex, scrollIndex + 1);
+        show_debug_message("[Client] Scrolled down: Current scroll index is " + string(scrollIndex));
+		}
+    }
+
+    // Ensuring scrollIndex is always within the valid range
+    scrollIndex = clamp(scrollIndex, 0, maxScrollIndex);
+
+    // Redraw messages considering the scroll index
+	// Before calling drawChatMessages, ensure messages is a ds_list
+if (!ds_exists(global.debugMessages, ds_type_list)) {
+    show_debug_message("Error: debugMessages is not a valid ds_list.");
+    return;
+}
+
+    drawChatMessages(global.debugMessages, 990, yy , maxLinesToShow, sca, true,global.c_chat2,global.c_chat1);
+}
+
+yy=yy+clamp(totalLines-scrollIndex,0,global.max_visible_lines)*(global.chat_line_height*1.00)+5
+sca=.6
+_yy=yy-15
+ 
+if (isActive) {
+// Determine the number of line breaks in the command buffer
+var lineCount = array_length(string_split(global.commandBuffer, "\n"));
+
+// Calculate the new height based on the number of lines
+var lines = string_split(global.commandBuffer, "\n");
+var boxHeight = global.chat_line_height*1.05 * array_length(lines) + 2; // Calculate box height based on number of lines
+
+//chat input box drawing code 
+draw_set_color(c_black); // Set initial color to black (border)
+ 
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_white);  // border becomes white if command is being typed
+    }
+// Adjust the bottom y-coordinate of the rectangle to expand with each new line
+draw_rectangle(xx + 5, yy - 11, clamp(xx - 90 + 1.85 * (string_width(global.commandBuffer) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150 + 10, yy + boxHeight + 10, false);
+
+    draw_set_color(c_white);  // Set initial bg color to white when no '/' detected
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_black);  // Default bg color if command is being typed
+		slash_typed=true
+    } else {
+		slash_typed=false
+	}
+draw_rectangle(xx + 10, yy - 6, clamp(xx - 90 + 1.85 * (string_width(global.commandBuffer) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150, yy + boxHeight, false);
+//draw command buffer
+draw_set_color(global.c_chat2);
+	//we stay drawing these like this because theres no need for line handling here.
+
+	draw_set_color(merge_color(global.textColor,c_red,clamp(abs(shake_angle),0,1)));
+    draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, global.commandBuffer + "_", sca, sca, shake_angle*.25);  // Shoblinking cursor
+} else {
+	draw_set_color(merge_color(global.c_chat1,c_red,clamp(abs(shake_angle),0,1)));
+    draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, global.commandBuffer + "_", sca, sca, shake_angle*.25);  // Show blinking cursor
+}
+} else {
+	exit
+}
+
+/// Step Event of obj_Client
+global.max_visible_lines = maxDisplayMessages;
+
+// Create mouse if it doesn't exist and using keyboard and mouse
+if (!instance_exists(obj_Cursor) && (global.control_type != 1)) { 
+    instance_create_depth(mouse_x, mouse_y, -1000000, obj_Cursor);
+}
+
+// Set current font and heartbeat rate
+global.heartbeatBPM = global.current_bpm;
+fnt_chat = master.font_array[fnt_chat_id, 1];
+global.wrapWidth = 2350; // Adjusted wrap width
+
+// Check for gamepad input
+check_gamepad_input();
+
+// Handle shake angle
+if (abs(shake_angle) > 0.1) {
+    var invert = choose(-1, 1) * (random(8) + 92) / 100;
+    shake_angle = round(invert * shake_angle * 100) / 100;
+} else if (shake_angle != 0) {
+    shake_angle = 0;
+    keyboard_lastkey = vk_nokey;
+}
+
+// Handle reconnection logic
+if (!global.isConnected && global.reconnectTimer <= 0) {
+    var result = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+    if (result >= 0) {
+        global.isConnected = true;
+        isServerRunning = true;
+        handleDebugMessage("[Client] Successfully reconnected to server.", true);
+        global.reconnectTimer = global.reconnectInterval;
+    } else {
+        global.reconnectTimer = global.reconnectInterval;
+        isServerRunning = false;
+        handleDebugMessage("[Client] Failed to reconnect to server. Will try again...", true);
+    }
+} else if (global.isConnected && global.reconnectTimer > 0) {
+    global.reconnectTimer--;
+}
+
+// Handle incoming network events safely
+if (ds_exists(async_load, ds_type_map)) {
+    var type = ds_map_find_value(async_load, "type");
+    var n_id = ds_map_find_value(async_load, "id");
+
+    if (n_id == global.client_socket) {
+        switch (type) {
+            case network_type_data:
+                var buffer = ds_map_find_value(async_load, "buffer");
+                buffer_seek(buffer, buffer_seek_start, 0);
+                var identifier = buffer_read(buffer, buffer_u8);
+
+                switch (identifier) {
+                    case global.IDENTIFIER_HEARTBEAT:
+                        handleDebugMessage("[Client] Heartbeat received from server.", true);
+                        break;
+                    
+                    case global.IDENTIFIER_TEST_MESSAGE:
+                        var msg = buffer_read(buffer, buffer_string);
+                        handleDebugMessage("[Client] Message from server: " + msg, true);
+                        break;
+                }
+                buffer_delete(buffer);
+                break;
+
+            case network_type_connect:
+                handleDebugMessage("[Client] Connected to server.", true);
+                break;
+                
+            case network_type_disconnect:
+                global.isConnected = false;
+                handleDebugMessage("[Client] Disconnected from server. Attempting to identify cause...", true);
+                break;
+        }
+    }
+} else {
+    //show_debug_message("ERROR: Invalid ds_map reference in async event.");
+}
+
+
+// Command input and execution logic
+if (input_check_pressed("chat") && !isActive) {
+    isActive = true;
+    global.commandBuffer = "";
+    keyboard_string = "";
+    show_debug_message("[Client] Chat input activated.");
+}
+
+// Toggle chat box with a specific key, e.g., Tab
+if (keyboard_check_pressed(vk_tab)) {
+    show_chatbox = !show_chatbox;
+    global.commandBuffer = "";  // Clear previous commands or texts
+    keyboard_string = "";
+    show_debug_message("[Client] Toggled chat box visibility: " + string(show_chatbox));
+}
+
+// Handle backspace and text input
+if (isActive) {
+// Handle backspace input
+    if (input_check("cancel") && string_length(global.commandBuffer) > 0) {
+        if (global.backspaceTimer == 0 || global.backspaceTimer >= global.backspaceDelay) {
+            var lastCharPosition = string_length(global.commandBuffer);
+
+            // Check if the last character is a newline
+            if (string_char_at(global.commandBuffer, lastCharPosition) == "\n") {
+                // Adjust the global.lastSpaceIndex if necessary
+                if (global.lastSpaceIndex >= lastCharPosition) {
+                    global.lastSpaceIndex = string_last_index_of(string_copy(global.commandBuffer, 1, lastCharPosition - 1), " ");
+                }
+            }
+
+            // Perform the character deletion
+            global.commandBuffer = string_delete(global.commandBuffer, lastCharPosition, 1);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Updated command buffer after backspace: " + global.commandBuffer);
+
+            // Clear the keyboard buffer to avoid unwanted characters
+            keyboard_string = "";
+
+            // Increase deletion speed
+            if (global.backspaceTimer == 0) {
+                global.backspaceTimer = 1;
+            } else {
+                global.backspaceTimer = global.backspaceSpeed;
+				if global.backspaceSpeed<14 {
+					global.backspaceSpeed+=1
+				}
+            }
+        } else {
+            global.backspaceTimer += 1;
+        }
+    } else {
+        global.backspaceTimer = 0; // Reset timer when backspace is released
+		global.backspaceSpeed=1
+    }
+	if string_length(global.commandBuffer)<global.character_limit {
+    var char = keyboard_string;
+	} else {
+		var char = "";
+		if keyboard_check_pressed(vk_anykey) {
+		if last_key_is_valid_character(keyboard_lastkey) {
+			//play sound to indicate char limit. 
+			var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
+			shake_angle=choose(-1,1)*random_range(.95,1.00)
+		}
+		}
+	}
+    // Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+    var pasting = false;
+    if (os_type == os_windows) {
+        if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    } else if (os_type == os_macosx) {
+        if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    }
+
+    // Handle pasting
+    if (pasting) {
+        if (clipboard_has_text()) {
+            var clip_string = clipboard_get_text();
+            if (string_length(clip_string) > 0 && string_length(clip_string) < 200) {
+                global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+                update_chat_input_visuals();
+                show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
+            } else {
+                handleDebugMessage("Clipboard content is too long to paste!", true);
+            }
+        }
+        pasting = false;
+    }
+
+    if (char != "") {
+        // Prevent typing if command is filled
+        if (!((global.textColor == c_lime || global.textColor == c_red) && slash_typed)) {
+            draw_set_font(fnt_chat);
+            global.commandBuffer = appendAndWrap(char, global.commandBuffer, global.wrapWidth);
+        }
+        update_chat_input_visuals();
+        keyboard_string = ""; // Clear the buffer after reading
+        //show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
+    }
+
+// Check if Enter is pressed to process the command or chat message
+if (input_check_pressed("confirm")) {
+    var trimmedCommand = string_trim(string_replace_all(global.commandBuffer, "\n", " "));
+    if (string_char_at(trimmedCommand, 1) == "/") {
+        var command = string_delete(trimmedCommand, 1, 1);
+        execute_command(string_trim(command));
+    } else {
+            var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
+            global.message_is_bubble = 1;
+            handleDebugMessage(chatMessage, false);
+            global.message_is_bubble = 0;
+        }
+
+        // Add the command/message to the recall list
+        if (string_length(global.commandBuffer) > 0) {
+            ds_list_add(global.recall_list, global.commandBuffer);
+            if (ds_list_size(global.recall_list) > global.recall_max) {
+                ds_list_delete(global.recall_list, 0);  // Remove the oldest entry if exceeding the limit
+            }
+        }
+        global.recall_index = -1;
+        global.textColor = global.defaultTextColor;
+        global.commandBuffer = "";
+        isActive = false;
+        show_debug_message("[Client] Processed command/chat and cleared buffer.");
+}
+    // Navigate through the recall list using up and down arrows
+    if (input_check_pressed("up")) {
+		if !(keyboard_check_pressed(ord("W"))) {
+        if (global.recall_index == -1) {
+            global.recall_index = ds_list_size(global.recall_list) - 1;
+        } else {
+            global.recall_index = max(0, global.recall_index - 1);
+        }
+		
+        if (global.recall_index >= 0 && global.recall_index < ds_list_size(global.recall_list)) {
+            global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled previous command/chat: " + global.commandBuffer);
+        }
+		}
+    } else if (input_check_pressed("down")) {
+		if !(keyboard_check_pressed(ord("S"))) {
+        if (global.recall_index != -1) {
+            global.recall_index = min(ds_list_size(global.recall_list) - 1, global.recall_index + 1);
+            if (global.recall_index < ds_list_size(global.recall_list)) {
+                global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+				update_chat_input_visuals();
+				show_debug_message("[Client] Recalled next command/chat: " + global.commandBuffer);
+			} else {
+                global.commandBuffer = "";
+            }
+			
+			}
+			
+            
+        }
+    }
+}
+
+// Handle chat display and scrolling
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+    
+    var maxScrollIndex = max(0, totalLines - global.max_visible_lines);
+    
+    // Scroll messages with input system
+    if (input_check("up") && !isActive) {
+        scrollIndex = max(0, scrollIndex - 1);
+        show_debug_message("[Client] Scrolled up: Current scroll index is " + string(scrollIndex));
+    }
+    if (input_check("down") && !isActive) {
+        scrollIndex = min(maxScrollIndex, scrollIndex + 1);
+        show_debug_message("[Client] Scrolled down: Current scroll index is " + string(scrollIndex));
+    }
+    
+    // Check if a new message was added
+    if (ds_list_size(global.debugMessages) > 0 && 
+        ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {
+        // Scroll to the bottom when a new message is added
+        scrollIndex = maxScrollIndex;
+        global.lastAddedMessage = ""; // Reset the last added message
+    }
+    
+    // Ensure scrollIndex is within valid range
+    scrollIndex = clamp(scrollIndex, 0, maxScrollIndex);
+    
+    // Draw the chat messages
+    drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+// Only process incoming data and send heartbeats if the server is running
+if (isServerRunning && sendHeartbeat && (current_time - global.lastHeartbeatTime >= broadcastInterval)) {
+    handleDebugMessage("Heartbeat sent to Server", true);
+    global.lastHeartbeatTime = current_time;
+}
+
+

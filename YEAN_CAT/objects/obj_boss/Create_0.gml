@@ -1,10 +1,10 @@
-/// @description Insert description here
+/// obj_boss Create
 // You can write your code in this 
 music=audio_play_sound(nothingsound,0,0);
 moose=0
 music_emitter = audio_emitter_create();
 fadeinmusic=0
-
+repel_distance = random_range(100, 200);
 dead=0
 bossid=0
 grav=0
@@ -49,10 +49,11 @@ laserset=[-1,-1,-1,0,-1,-1,0,-1,-1,0]
 areaset=[-1,-1,-1,-1,-1,-1,0,-1,-1,-1]
 damageset=[2,1,1,2,3,1,4,2,1,3]
 attackspeedset=[4,2,6,3,4,4,2,8,4,3]
-
+projectile=0
 projectileset=[0,-1,1,-1,-1,2,-1,3,-1,-1]
 attackset=[2,1,2,5,3,2,6,2,3,5]
-
+jumptotal=1
+jumpcount=jumptotal
 //attack type 
 //0= none
 //1=  damage while touching

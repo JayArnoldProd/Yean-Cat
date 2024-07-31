@@ -1,0 +1,103 @@
+
+07/30/24 00:21:27: Loaded action/group: SaveGameNow
+07/30/24 00:21:27: Loaded action/group: GotoKingsKingdom
+07/30/24 00:21:27: Loaded action/group: EnterPortal
+07/30/24 00:21:27: Loaded action/group: PurchaseArtifacts
+07/30/24 00:21:27: Loaded action/group: BattleOutcome
+07/30/24 00:21:27: Loaded action/group: VisitMarket
+07/30/24 00:21:27: Loaded action/group: GotoDivineDomain
+07/30/24 00:21:28: Loaded action/group: GotoTheEndonda
+07/30/24 00:21:28: Loaded action/group: GotoUniverseCity
+07/30/24 00:21:28: Loaded action/group: GotoLandOfLucy
+07/30/24 00:21:28: Loaded action/group: GotoPlaceOfPablo
+07/30/24 00:21:28: Loaded action/group: InvestigateSignals
+07/30/24 00:21:28: Loaded action/group: OfferTrade
+07/30/24 00:21:28: Loaded action/group: DisableEnemySpawns
+07/30/24 00:21:28: Loaded action/group: BattleSequence
+07/30/24 00:21:28: Loaded action/group: StartBattle
+07/30/24 00:21:28: Loaded action/group: GotoTheIcyHeart
+07/30/24 00:21:28: Loaded action/group: EngageCombat
+07/30/24 00:21:28: Loaded action/group: GotoGhostTown
+07/30/24 00:21:28: Loaded action/group: StartExploration
+07/30/24 00:21:28: Loaded action/group: SetLevelFive
+07/30/24 00:21:28: Loaded action/group: LevelUpThree
+07/30/24 00:21:28: Loaded action/group: LevelUpOnce
+07/30/24 00:21:28: Loaded action/group: GotoTheGoldMines
+07/30/24 00:21:28: Loaded action/group: StartPeaceMission
+07/30/24 00:21:28: Loaded action/group: DiplomaticChoice
+07/30/24 00:21:28: Loaded action/group: TreatyOutcome
+07/30/24 00:21:28: Loaded action/group: ExplorationChoice
+07/30/24 00:21:28: Loaded action/group: BattleChoice
+07/30/24 00:21:28: Loaded action/group: ArtifactMystery
+07/30/24 00:21:28: Loaded action/group: PortalOutcome
+07/30/24 00:21:28: Loaded action/group: PeacefulMission
+07/30/24 00:21:28: Loaded action/group: SpaceAdventureStart
+07/30/24 00:21:28: Loaded action/group: PortalAdventure
+07/30/24 00:21:28: Loaded action/group: EnableEnemySpawns
+07/30/24 00:21:28: Loaded action/group: GotoVulturesValley
+07/30/24 00:21:28: Loaded action/group: GotoEarth
+07/30/24 00:21:28: Loaded action/group: GotoStormySands
+07/30/24 00:21:28: Loaded action/group: SpaceExploration
+07/30/24 00:21:28: Loaded action/group: GotoFantasia
+07/30/24 00:21:28: Loaded action/group: AG1
+07/30/24 00:21:28: Loaded action/group: GotoYetopia
+07/30/24 00:21:29: Loaded action/group: ArtifactOutcome
+07/30/24 00:21:29: Loaded action/group: EpicBattle
+07/30/24 00:21:29: Loaded action/group: PeaceTreaty
+07/30/24 00:21:29: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 00:21:29: [Client] Failed to reconnect to server. Will try again...
+07/30/24 00:21:39: [Jay Arnold] hello world
+07/30/24 00:21:39: Creating chat bubble: " hello world", Owner: yeancat, Choices: []
+07/30/24 00:21:39: Chat Bubble Created. Following 'yeancat' with text: 'hello world'. Number of choices: 0
+07/30/24 00:21:43: [Jay Arnold] nice the text is white now
+07/30/24 00:21:43: Creating chat bubble: " nice the text is white now", Owner: yeancat, Choices: []
+07/30/24 00:21:43: Chat Bubble Created. Following 'yeancat' with text: 'nice the text is white now'. Number of choices: 0
+07/30/24 00:21:51: [Jay Arnold] beautiful to see
+07/30/24 00:21:51: Creating chat bubble: " beautiful to see", Owner: yeancat, Choices: []
+07/30/24 00:21:51: Chat Bubble Created. Following 'yeancat' with text: 'beautiful to see'. Number of choices: 0
+07/30/24 00:22:30: [Jay Arnold] lasd lksj 
+
+
+
+
+
+tfslkd 
+it is now beginning vertical expansion much too soon!
+
+it could have continued expanding down for like 10 more lines
+07/30/24 00:22:30: Creating chat bubble: " lasd lksj \n\n\n\n\n\ntfslkd \nit is now beginning vertical expansion much too soon!\n\nit could have continued expanding down for like 10 more lines", Owner: yeancat, Choices: []
+07/30/24 00:22:30: Chat Bubble Created. Following 'yeancat' with text: 'lasd lksj 
+
+
+
+
+
+tfslkd 
+it is now beginning vertical expansion much too
+soon!
+
+it could have continued expanding down for
+like 10 more lines'. Number of choices: 0
+07/30/24 00:22:44: Raw command: show_lines(10)
+07/30/24 00:22:44: Cleaned command: show_lines(10)
+07/30/24 00:22:44: Parsing arguments: 10
+07/30/24 00:22:44: Parsed arguments: ["10"]
+07/30/24 00:22:44: Command Name: show_lines
+07/30/24 00:22:44: Target Object: yeancat
+07/30/24 00:22:44: Parameters: ["10"]
+07/30/24 00:22:44: Display set to show 10 lines.
+07/30/24 00:23:20: [Jay Arnold] lets see now
+
+
+
+now at 10 lines it begins vertical expansion about 2 lines too late. lets tweak this
+07/30/24 00:23:20: Creating chat bubble: " lets see now\n\n\n\nnow at 10 lines it begins vertical expansion about 2 lines too late. lets tweak this", Owner: yeancat, Choices: []
+07/30/24 00:23:20: Chat Bubble Created. Following 'yeancat' with text: 'lets see now
+
+
+
+now at 10 lines it begins vertical expansion
+about 2 lines too late. lets tweak this'. Number of choices: 0
+07/30/24 00:23:27: [Jay Arnold] that is the only problem
+07/30/24 00:23:27: Creating chat bubble: " that is the only problem", Owner: yeancat, Choices: []
+07/30/24 00:23:27: Chat Bubble Created. Following 'yeancat' with text: 'that is the only problem'. Number of choices: 0

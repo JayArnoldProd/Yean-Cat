@@ -1,0 +1,255 @@
+
+07/30/24 04:31:27: [Jay Arnold] also btw its not obj_yeancat its just yeancat, i already updated it in my code though.
+07/30/24 04:31:27: Creating chat bubble: " also btw its not obj_yeancat its just yeancat, i already updated it in my code though.", Owner: yeancat, Choices: []
+07/30/24 04:31:27: Chat Bubble Created. Following 'yeancat' with text: 'also btw its not obj_yeancat its just yeancat, i already
+updated it in my code though.'. Number of choices: 0
+07/30/24 04:31:36: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:31:37: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:31:37: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 04:31:37: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 04:31:37: Command Name: spawn_boss
+07/30/24 04:31:37: Target Object: yeancat
+07/30/24 04:31:37: Parameters: ["2","200","200","\"Center\""]
+07/30/24 04:31:37: Added boss reference: Peacocky693 -> obj_boss
+07/30/24 04:31:37: Added boss reference: Peacocky693 -> obj_boss
+07/30/24 04:31:37: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 04:31:37: Added boss reference: Peacocky694 -> obj_boss
+07/30/24 04:31:37: Added boss reference: Peacocky694 -> obj_boss
+07/30/24 04:31:46: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:31:46: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:31:46: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 04:31:46: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 04:31:46: Command Name: spawn_boss
+07/30/24 04:31:46: Target Object: yeancat
+07/30/24 04:31:46: Parameters: ["3","50","50","\"Target\""]
+07/30/24 04:31:46: Added boss reference: Rehino5 -> obj_boss
+07/30/24 04:31:46: Added boss reference: Rehino5 -> obj_boss
+07/30/24 04:31:46: Boss spawned successfully: Rehino at position (2853.35, 1254.35)
+07/30/24 04:31:46: Added boss reference: Rehino6 -> obj_boss
+07/30/24 04:31:46: Added boss reference: Rehino6 -> obj_boss
+07/30/24 04:32:18: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:32:18: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:32:19: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 04:32:19: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:32:19: Command Name: spawn_boss
+07/30/24 04:32:19: Target Object: yeancat
+07/30/24 04:32:19: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:32:19: Added boss reference: 22Salamander7 -> obj_boss
+07/30/24 04:32:19: Added boss reference: 22Salamander7 -> obj_boss
+07/30/24 04:32:19: Boss spawned successfully: 22 Salamander at position (1909.26, 1436.71)
+07/30/24 04:32:19: Added boss reference: 22Salamander8 -> obj_boss
+07/30/24 04:32:19: Added boss reference: 22Salamander8 -> obj_boss
+07/30/24 04:32:29: Saved Game
+07/30/24 04:32:50: [Jay Arnold] hahaha i got obliterated by 8 bosses that was funny but it was double what i
+wanted.
+07/30/24 04:32:50: Creating chat bubble: " hahaha i got obliterated by 8 bosses that was funny but it was double what i\nwanted.", Owner: yeancat, Choices: []
+07/30/24 04:32:50: Chat Bubble Created. Following 'yeancat' with text: 'hahaha i got obliterated by 8 bosses that was
+funny but it was double what i
+wanted.'. Number of choices: 0
+07/30/24 04:35:52: Loaded action/group: SaveGameNow
+07/30/24 04:35:52: Loaded action/group: GotoKingsKingdom
+07/30/24 04:35:52: Loaded action/group: EnterPortal
+07/30/24 04:35:52: Loaded action/group: PurchaseArtifacts
+07/30/24 04:35:52: Loaded action/group: BattleOutcome
+07/30/24 04:35:52: Loaded action/group: VisitMarket
+07/30/24 04:35:52: Loaded action/group: GotoDivineDomain
+07/30/24 04:35:52: Loaded action/group: GotoTheEndonda
+07/30/24 04:35:52: Loaded action/group: GotoUniverseCity
+07/30/24 04:35:52: Loaded action/group: GotoLandOfLucy
+07/30/24 04:35:52: Loaded action/group: GotoPlaceOfPablo
+07/30/24 04:35:52: Loaded action/group: InvestigateSignals
+07/30/24 04:35:52: Loaded action/group: OfferTrade
+07/30/24 04:35:52: Loaded action/group: DisableEnemySpawns
+07/30/24 04:35:52: Loaded action/group: BattleSequence
+07/30/24 04:35:52: Loaded action/group: StartBattle
+07/30/24 04:35:53: Loaded action/group: GotoTheIcyHeart
+07/30/24 04:35:53: Loaded action/group: EngageCombat
+07/30/24 04:35:53: Loaded action/group: GotoGhostTown
+07/30/24 04:35:53: Loaded action/group: StartExploration
+07/30/24 04:35:53: Loaded action/group: SetLevelFive
+07/30/24 04:35:53: Loaded action/group: LevelUpThree
+07/30/24 04:35:53: Loaded action/group: LevelUpOnce
+07/30/24 04:35:53: Loaded action/group: GotoTheGoldMines
+07/30/24 04:35:53: Loaded action/group: StartPeaceMission
+07/30/24 04:35:53: Loaded action/group: DiplomaticChoice
+07/30/24 04:35:53: Loaded action/group: TreatyOutcome
+07/30/24 04:35:53: Loaded action/group: ExplorationChoice
+07/30/24 04:35:53: Loaded action/group: BattleChoice
+07/30/24 04:35:53: Loaded action/group: ArtifactMystery
+07/30/24 04:35:53: Loaded action/group: PortalOutcome
+07/30/24 04:35:53: Loaded action/group: PeacefulMission
+07/30/24 04:35:53: Loaded action/group: SpaceAdventureStart
+07/30/24 04:35:53: Loaded action/group: PortalAdventure
+07/30/24 04:35:53: Loaded action/group: EnableEnemySpawns
+07/30/24 04:35:53: Loaded action/group: GotoVulturesValley
+07/30/24 04:35:53: Loaded action/group: GotoEarth
+07/30/24 04:35:53: Loaded action/group: GotoStormySands
+07/30/24 04:35:53: Loaded action/group: SpaceExploration
+07/30/24 04:35:53: Loaded action/group: GotoFantasia
+07/30/24 04:35:53: Loaded action/group: AG1
+07/30/24 04:35:53: Loaded action/group: GotoYetopia
+07/30/24 04:35:53: Loaded action/group: ArtifactOutcome
+07/30/24 04:35:53: Loaded action/group: EpicBattle
+07/30/24 04:35:53: Loaded action/group: PeaceTreaty
+07/30/24 04:35:53: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 04:35:53: [Client] Failed to reconnect to server. Will try again...
+07/30/24 04:36:28: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:36:28: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:36:28: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 04:36:28: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 04:36:28: Command Name: spawn_boss
+07/30/24 04:36:28: Target Object: yeancat
+07/30/24 04:36:28: Parameters: ["1","100","100","\"Player\""]
+07/30/24 04:36:28: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 04:36:28: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 04:36:28: Boss spawned successfully: Travis Squawk at position (1523.22, 1549.02)
+07/30/24 04:36:41: [Jay Arnold] nice its just one boss! i just see the message twice for some reasont
+07/30/24 04:36:41: Creating chat bubble: " nice its just one boss! i just see the message twice for some reasont", Owner: yeancat, Choices: []
+07/30/24 04:36:41: Chat Bubble Created. Following 'yeancat' with text: 'nice its just one boss! i just see the message twice for some
+reasont'. Number of choices: 0
+07/30/24 04:36:45: Raw command: list_objects
+07/30/24 04:36:45: Cleaned command: list_objects
+07/30/24 04:36:45: Command Name: list_objects
+07/30/24 04:36:45: Target Object: yeancat
+07/30/24 04:36:45: Parameters: []
+07/30/24 04:36:45: Available object references:
+Player: yeancat
+Target: yeancat
+
+Bosses:
+TravisSquawk1: obj_boss
+
+07/30/24 04:36:54: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:36:54: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:36:54: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 04:36:54: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 04:36:54: Command Name: spawn_boss
+07/30/24 04:36:54: Target Object: yeancat
+07/30/24 04:36:54: Parameters: ["2","200","200","\"Center\""]
+07/30/24 04:36:54: Added boss reference: Peacocky692 -> obj_boss
+07/30/24 04:36:54: Added boss reference: Peacocky692 -> obj_boss
+07/30/24 04:36:54: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 04:36:54: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:36:55: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:36:55: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 04:36:55: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 04:36:55: Command Name: spawn_boss
+07/30/24 04:36:55: Target Object: yeancat
+07/30/24 04:36:55: Parameters: ["3","50","50","\"Target\""]
+07/30/24 04:36:55: Added boss reference: Rehino3 -> obj_boss
+07/30/24 04:36:55: Added boss reference: Rehino3 -> obj_boss
+07/30/24 04:36:55: Boss spawned successfully: Rehino at position (1552.82, 1419.09)
+07/30/24 04:37:01: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:37:01: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:37:01: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 04:37:01: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:37:01: Command Name: spawn_boss
+07/30/24 04:37:01: Target Object: yeancat
+07/30/24 04:37:01: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:37:01: Added boss reference: 22Salamander4 -> obj_boss
+07/30/24 04:37:01: Added boss reference: 22Salamander4 -> obj_boss
+07/30/24 04:37:02: Boss spawned successfully: 22 Salamander at position (1153.88, 1378.64)
+07/30/24 04:37:37: Raw command: level_up(500)
+07/30/24 04:37:37: Cleaned command: level_up(500)
+07/30/24 04:37:37: Parsing arguments: 500
+07/30/24 04:37:37: Parsed arguments: ["500"]
+07/30/24 04:37:37: Command Name: level_up
+07/30/24 04:37:37: Target Object: yeancat
+07/30/24 04:37:37: Parameters: ["500"]
+07/30/24 04:37:37: Level up initiated with goal: 500
+07/30/24 04:38:46: Raw command: level_up(10)
+07/30/24 04:38:46: Cleaned command: level_up(10)
+07/30/24 04:38:46: Parsing arguments: 10
+07/30/24 04:38:46: Parsed arguments: ["10"]
+07/30/24 04:38:46: Command Name: level_up
+07/30/24 04:38:46: Target Object: yeancat
+07/30/24 04:38:46: Parameters: ["10"]
+07/30/24 04:38:46: Level up initiated with goal: 10
+07/30/24 04:39:53: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:39:53: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:39:53: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 04:39:53: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 04:39:53: Command Name: spawn_boss
+07/30/24 04:39:53: Target Object: yeancat
+07/30/24 04:39:53: Parameters: ["1","100","100","\"Player\""]
+07/30/24 04:39:53: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 04:39:53: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 04:39:53: Boss spawned successfully: Travis Squawk at position (2167.14, 1241.07)
+07/30/24 04:39:53: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:39:53: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:39:53: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 04:39:53: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 04:39:53: Command Name: spawn_boss
+07/30/24 04:39:53: Target Object: yeancat
+07/30/24 04:39:54: Parameters: ["2","200","200","\"Center\""]
+07/30/24 04:39:54: Added boss reference: Peacocky692 -> obj_boss
+07/30/24 04:39:54: Added boss reference: Peacocky692 -> obj_boss
+07/30/24 04:39:54: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 04:39:54: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:39:54: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:39:54: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 04:39:54: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 04:39:54: Command Name: spawn_boss
+07/30/24 04:39:54: Target Object: yeancat
+07/30/24 04:39:54: Parameters: ["3","50","50","\"Target\""]
+07/30/24 04:39:54: Added boss reference: Rehino3 -> obj_boss
+07/30/24 04:39:54: Added boss reference: Rehino3 -> obj_boss
+07/30/24 04:39:54: Boss spawned successfully: Rehino at position (2117.14, 1191.07)
+07/30/24 04:39:54: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:39:54: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:39:54: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 04:39:54: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:39:54: Command Name: spawn_boss
+07/30/24 04:39:54: Target Object: yeancat
+07/30/24 04:39:54: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:39:54: Added boss reference: 22Salamander4 -> obj_boss
+07/30/24 04:39:54: Added boss reference: 22Salamander4 -> obj_boss
+07/30/24 04:39:54: Boss spawned successfully: 22 Salamander at position (2317.14, 1391.07)
+07/30/24 04:40:55: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:40:56: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:40:56: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 04:40:56: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 04:40:56: Command Name: spawn_boss
+07/30/24 04:40:56: Target Object: yeancat
+07/30/24 04:40:56: Parameters: ["1","100","100","\"Player\""]
+07/30/24 04:40:56: Added boss reference: TravisSquawk2 -> obj_boss
+07/30/24 04:40:56: Added boss reference: TravisSquawk2 -> obj_boss
+07/30/24 04:40:56: Boss spawned successfully: Travis Squawk at position (2111.06, 1286.43)
+07/30/24 04:40:56: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:40:56: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:40:56: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 04:40:56: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 04:40:56: Command Name: spawn_boss
+07/30/24 04:40:56: Target Object: yeancat
+07/30/24 04:40:56: Parameters: ["2","200","200","\"Center\""]
+07/30/24 04:40:56: Added boss reference: Peacocky693 -> obj_boss
+07/30/24 04:40:56: Added boss reference: Peacocky693 -> obj_boss
+07/30/24 04:40:56: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 04:40:56: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:40:56: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:40:56: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 04:40:56: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 04:40:56: Command Name: spawn_boss
+07/30/24 04:40:56: Target Object: yeancat
+07/30/24 04:40:56: Parameters: ["3","50","50","\"Target\""]
+07/30/24 04:40:56: Added boss reference: Rehino4 -> obj_boss
+07/30/24 04:40:56: Added boss reference: Rehino4 -> obj_boss
+07/30/24 04:40:56: Boss spawned successfully: Rehino at position (2061.06, 1236.43)
+07/30/24 04:40:56: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:40:56: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:40:56: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 04:40:56: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:40:56: Command Name: spawn_boss
+07/30/24 04:40:56: Target Object: yeancat
+07/30/24 04:40:56: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:40:56: Added boss reference: 22Salamander5 -> obj_boss
+07/30/24 04:40:56: Added boss reference: 22Salamander5 -> obj_boss
+07/30/24 04:40:56: Boss spawned successfully: 22 Salamander at position (2070, 1230)
+07/30/24 04:42:25: [Jay Arnold] yeah the appearance of the reference twice in the chat box is the only issue
+07/30/24 04:42:25: Creating chat bubble: " yeah the appearance of the reference twice in the chat box is the only issue", Owner: yeancat, Choices: []
+07/30/24 04:42:25: Chat Bubble Created. Following 'yeancat' with text: 'yeah the appearance of the reference twice in the chat box
+is the only issue'. Number of choices: 0
+07/30/24 04:42:49: [Jay Arnold] i think everything is spawning relative to the proper objects or definitions
+07/30/24 04:42:49: Creating chat bubble: " i think everything is spawning relative to the proper objects or definitions", Owner: yeancat, Choices: []
+07/30/24 04:42:49: Chat Bubble Created. Following 'yeancat' with text: 'i think everything is spawning relative to the proper objects
+or definitions'. Number of choices: 0

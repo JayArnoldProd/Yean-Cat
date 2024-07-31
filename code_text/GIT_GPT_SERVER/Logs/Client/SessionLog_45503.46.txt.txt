@@ -1,0 +1,104 @@
+07/30/24 06:05:40: Loaded action/group: SaveGameNow
+07/30/24 06:05:40: Loaded action/group: GotoKingsKingdom
+07/30/24 06:05:40: Loaded action/group: EnterPortal
+07/30/24 06:05:40: Loaded action/group: PurchaseArtifacts
+07/30/24 06:05:41: Loaded action/group: BattleOutcome
+07/30/24 06:05:41: Loaded action/group: VisitMarket
+07/30/24 06:05:41: Loaded action/group: GotoDivineDomain
+07/30/24 06:05:41: Loaded action/group: GotoTheEndonda
+07/30/24 06:05:41: Loaded action/group: GotoUniverseCity
+07/30/24 06:05:41: Loaded action/group: GotoLandOfLucy
+07/30/24 06:05:41: Loaded action/group: GotoPlaceOfPablo
+07/30/24 06:05:41: Loaded action/group: InvestigateSignals
+07/30/24 06:05:41: Loaded action/group: OfferTrade
+07/30/24 06:05:41: Loaded action/group: DisableEnemySpawns
+07/30/24 06:05:41: Loaded action/group: BattleSequence
+07/30/24 06:05:41: Loaded action/group: StartBattle
+07/30/24 06:05:41: Loaded action/group: SpawnBoss4
+07/30/24 06:05:41: Loaded action/group: SpawnBossCircle
+07/30/24 06:05:41: Loaded action/group: GotoTheIcyHeart
+07/30/24 06:05:41: Loaded action/group: EngageCombat
+07/30/24 06:05:41: Loaded action/group: GotoGhostTown
+07/30/24 06:05:41: Loaded action/group: SpawnBoss0
+07/30/24 06:05:41: Loaded action/group: SpawnBoss13
+07/30/24 06:05:41: Loaded action/group: StartExploration
+07/30/24 06:05:41: Loaded action/group: SpawnBoss8
+07/30/24 06:05:41: Loaded action/group: SpawnBoss6
+07/30/24 06:05:41: Loaded action/group: SetLevelFive
+07/30/24 06:05:41: Loaded action/group: LevelUpThree
+07/30/24 06:05:41: Loaded action/group: LevelUpOnce
+07/30/24 06:05:41: Loaded action/group: GotoTheGoldMines
+07/30/24 06:05:41: Loaded action/group: SpawnBoss11
+07/30/24 06:05:41: Loaded action/group: StartPeaceMission
+07/30/24 06:05:41: Loaded action/group: SpawnBoss2
+07/30/24 06:05:41: Loaded action/group: DiplomaticChoice
+07/30/24 06:05:41: Loaded action/group: TreatyOutcome
+07/30/24 06:05:41: Loaded action/group: ExplorationChoice
+07/30/24 06:05:41: Loaded action/group: BattleChoice
+07/30/24 06:05:41: Loaded action/group: ArtifactMystery
+07/30/24 06:05:41: Loaded action/group: PortalOutcome
+07/30/24 06:05:41: Loaded action/group: PeacefulMission
+07/30/24 06:05:41: Loaded action/group: SpaceAdventureStart
+07/30/24 06:05:41: Loaded action/group: PortalAdventure
+07/30/24 06:05:42: Loaded action/group: EnableEnemySpawns
+07/30/24 06:05:42: Loaded action/group: GotoVulturesValley
+07/30/24 06:05:42: Loaded action/group: GotoEarth
+07/30/24 06:05:42: Loaded action/group: SpawnBoss1
+07/30/24 06:05:42: Loaded action/group: GotoStormySands
+07/30/24 06:05:42: Loaded action/group: SpawnBoss12
+07/30/24 06:05:42: Loaded action/group: SpaceExploration
+07/30/24 06:05:42: Loaded action/group: GotoFantasia
+07/30/24 06:05:42: Loaded action/group: SpawnBoss5
+07/30/24 06:05:42: Loaded action/group: AG1
+07/30/24 06:05:42: Loaded action/group: SpawnBoss10
+07/30/24 06:05:42: Loaded action/group: GotoYetopia
+07/30/24 06:05:42: Loaded action/group: SpawnBoss3
+07/30/24 06:05:42: Loaded action/group: ArtifactOutcome
+07/30/24 06:05:42: Loaded action/group: EpicBattle
+07/30/24 06:05:42: Loaded action/group: SpawnBoss7
+07/30/24 06:05:42: Loaded action/group: SpawnBoss9
+07/30/24 06:05:42: Loaded action/group: PeaceTreaty
+07/30/24 06:05:42: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 06:05:42: [Client] Failed to reconnect to server. Will try again...
+07/30/24 06:06:03: Raw command: spawn_boss(0, 0, -500, Player)
+07/30/24 06:06:03: Cleaned command: spawn_boss(0, 0, -500, Player)
+07/30/24 06:06:03: Parsing arguments: 0, 0, -500, Player
+07/30/24 06:06:03: Parsed arguments: ["0","0","-500","Player"]
+07/30/24 06:06:03: Command Name: spawn_boss
+07/30/24 06:06:03: Target Object: yeancat
+07/30/24 06:06:03: Parameters: ["0","0","-500","Player"]
+07/30/24 06:06:03: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 06:06:03: Invalid parameters for spawn_boss. Expected [boss_id, x, y, relative_to (optional)]
+07/30/24 06:06:03: Raw command: spawn_boss(1, 100, 100, Center)
+07/30/24 06:06:03: Cleaned command: spawn_boss(1, 100, 100, Center)
+07/30/24 06:06:03: Parsing arguments: 1, 100, 100, Center
+07/30/24 06:06:03: Parsed arguments: ["1","100","100","Center"]
+07/30/24 06:06:03: Command Name: spawn_boss
+07/30/24 06:06:03: Target Object: yeancat
+07/30/24 06:06:03: Parameters: ["1","100","100","Center"]
+07/30/24 06:06:03: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 06:06:03: Invalid parameters for spawn_boss. Expected [boss_id, x, y, relative_to (optional)]
+07/30/24 06:06:03: Raw command: spawn_boss(2, 50, 50, Target)
+07/30/24 06:06:03: Cleaned command: spawn_boss(2, 50, 50, Target)
+07/30/24 06:06:03: Parsing arguments: 2, 50, 50, Target
+07/30/24 06:06:03: Parsed arguments: ["2","50","50","Target"]
+07/30/24 06:06:03: Command Name: spawn_boss
+07/30/24 06:06:03: Target Object: yeancat
+07/30/24 06:06:03: Parameters: ["2","50","50","Target"]
+07/30/24 06:06:03: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 06:06:03: Invalid parameters for spawn_boss. Expected [boss_id, x, y, relative_to (optional)]
+07/30/24 06:06:03: Raw command: spawn_boss(3, 200, 200, TravisSquawk1)
+07/30/24 06:06:03: Cleaned command: spawn_boss(3, 200, 200, TravisSquawk1)
+07/30/24 06:06:03: Parsing arguments: 3, 200, 200, TravisSquawk1
+07/30/24 06:06:03: Parsed arguments: ["3","200","200","TravisSquawk1"]
+07/30/24 06:06:03: Command Name: spawn_boss
+07/30/24 06:06:03: Target Object: yeancat
+07/30/24 06:06:03: Parameters: ["3","200","200","TravisSquawk1"]
+07/30/24 06:06:03: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 06:06:03: Invalid parameters for spawn_boss. Expected [boss_id, x, y, relative_to (optional)]
+07/30/24 06:06:44: [Jay Arnold] okay it didnt work but thats okay because thats not the format i wanted
+it should be: /Player.spawn_boss(1, 100, 100) etc...
+07/30/24 06:06:44: Creating chat bubble: " okay it didnt work but thats okay because thats not the format i wanted\nit should be: \/Player.spawn_boss(1, 100, 100) etc...", Owner: yeancat, Choices: []
+07/30/24 06:06:44: Chat Bubble Created. Following 'yeancat' with text: 'okay it didnt work but thats okay because thats not the
+format i wanted
+it should be: /Player.spawn_boss(1, 100, 100) etc...'. Number of choices: 0

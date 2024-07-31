@@ -1,49 +1,43 @@
-/// @function scr_chat_bubble(Text, owner, [choices])
+/// @function scr_chat_bubble(text, owner, [choices])
 /// @param {string} _text - The text to show in the chat bubble
 /// @param {string} _ownerName - The owner object name it will follow
 /// @param {array} [_choices] - Optional array of choices, each choice is an array [text, actionName]
-function scr_chat_bubble(_text, _ownerName, _choices = []) {
-   handleDebugMessage("Raw chat_bubble parameters: " + string(_text) + ", " + string(_ownerName) + ", " + json_stringify(_choices), true);
+function scr_chat_bubble(text, owner, choices) {
+    handleDebugMessage("Creating chat bubble: " + json_stringify(text) + ", Owner: " + string(owner) + ", Choices: " + json_stringify(choices), true);
+
+    var ownerObject = noone;
     
-    if (is_array(_text) && array_length(_text) >= 3) {
-        _choices = _text[2];
-        _ownerName = _text[1];
-        _text = _text[0];
+    if (owner == "Target") {
+        ownerObject = global.currentTarget;
+    } else if (owner == "Player" || owner == "yeancat") {
+        ownerObject = yeancat; // Assuming yeancat is the actual player object
+    } else {
+        ownerObject = asset_get_index(owner);
     }
 
-
-    // Remove quotes from _ownerName if present
-    _ownerName = string_replace_all(_ownerName, "\"", "");
-
-    handleDebugMessage("Creating chat bubble with text: " + string(_text) + ", owner: " + string(_ownerName) + ", choices: " + json_stringify(_choices), true);
-
-    var _owner = asset_get_index(_ownerName);
-
-    if (!object_exists(_owner)) {
-        handleDebugMessage("Error: Owner object '" + string(_ownerName) + "' not found", true);
-        return;
+    if (!instance_exists(ownerObject)) {
+        handleDebugMessage("Owner object not found, using yeancat", true);
+        ownerObject = yeancat; // Fallback to player object
     }
 
-    var ownerInstance = instance_find(_owner, 0);
-    if (ownerInstance == noone) {
-        handleDebugMessage("Error: No instances of owner object '" + string(_ownerName) + "' found", true);
-        return;
-    }
-
+    // Destroy existing chat bubbles with the same owner
     with (obj_chat_bubble) {
-        if (owner == ownerInstance) {
+        if (self.owner == ownerObject) {
             instance_destroy();
         }
     }
 
-    var bubble = instance_create_layer(ownerInstance.x, ownerInstance.y - 60, "uii", obj_chat_bubble);
-    with (bubble) {
-        text = _text;
-        wrapped_text = "";
-        owner = ownerInstance;
-        wrapped = 0;
-        choices = _choices;
-    }
+    // Create new chat bubble using constructor
+    var bubble = instance_create_layer(ownerObject.x, ownerObject.y - 60, "uii", obj_chat_bubble, {
+        text: is_array(text) && array_length(text) > 1 ? string(text[0]) : (is_string(text) ? text : string(text)),
+        choices: is_array(text) && array_length(text) > 1 ? text[1] : (is_array(choices) ? choices : []),
+        owner: ownerObject
+    });
 
-    handleDebugMessage("Chat Bubble Created. Following '" + string(_ownerName) + "' with text: '" + string(_text) + "'", true);
+    if (bubble != noone) {
+        handleDebugMessage("Chat Bubble Created. Following '" + object_get_name(ownerObject.object_index) + 
+                           "' with text: '" + bubble.text + "'. Number of choices: " + string(array_length(bubble.choices)), true);
+    } else {
+        handleDebugMessage("Failed to create chat bubble instance", true);
+    }
 }

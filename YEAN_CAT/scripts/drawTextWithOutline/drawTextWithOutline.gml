@@ -1,21 +1,10 @@
-function drawTextWithOutline(x, y, text, sca, offset, col1, col2, max_text_width = -1) {
-    if (max_text_width == -1) {
-        // If no max width is provided, use regular draw_text
-        draw_set_color(col1);
-        draw_text_transformed(x + offset, y + offset, text, sca, sca, 0);
-        draw_text_transformed(x - offset, y + offset, text, sca, sca, 0);
-        draw_text_transformed(x + offset, y - offset, text, sca, sca, 0);
-        draw_text_transformed(x - offset, y - offset, text, sca, sca, 0);
-        draw_set_color(col2);
-        draw_text_transformed(x, y, text, sca, sca, 0);
-    } else {
-        // Use draw_text_ext_transformed if max width is provided
-        draw_set_color(col1);
-        draw_text_ext_transformed(x + offset, y + offset, text, -1, max_text_width, sca, sca, 0);
-        draw_text_ext_transformed(x - offset, y + offset, text, -1, max_text_width, sca, sca, 0);
-        draw_text_ext_transformed(x + offset, y - offset, text, -1, max_text_width, sca, sca, 0);
-        draw_text_ext_transformed(x - offset, y - offset, text, -1, max_text_width, sca, sca, 0);
-        draw_set_color(col2);
-        draw_text_ext_transformed(x, y, text, -1, max_text_width, sca, sca, 0);
+function drawTextWithOutline(x, y, text, scale, outline_width, outline_color, text_color, max_width) {
+    draw_set_color(outline_color);
+    for (var i = -outline_width; i <= outline_width; i++) {
+        for (var j = -outline_width; j <= outline_width; j++) {
+            draw_text_ext_transformed(x + i, y + j, text, -1, max_width, scale, scale, 0);
+        }
     }
+    draw_set_color(text_color);
+    draw_text_ext_transformed(x, y, text, -1, max_width, scale, scale, 0);
 }

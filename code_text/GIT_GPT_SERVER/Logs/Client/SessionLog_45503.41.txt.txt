@@ -1,0 +1,937 @@
+
+07/30/24 04:57:07: Loaded action/group: SaveGameNow
+07/30/24 04:57:07: Loaded action/group: GotoKingsKingdom
+07/30/24 04:57:07: Loaded action/group: EnterPortal
+07/30/24 04:57:07: Loaded action/group: PurchaseArtifacts
+07/30/24 04:57:07: Loaded action/group: BattleOutcome
+07/30/24 04:57:07: Loaded action/group: VisitMarket
+07/30/24 04:57:07: Loaded action/group: GotoDivineDomain
+07/30/24 04:57:07: Loaded action/group: GotoTheEndonda
+07/30/24 04:57:07: Loaded action/group: GotoUniverseCity
+07/30/24 04:57:07: Loaded action/group: GotoLandOfLucy
+07/30/24 04:57:07: Loaded action/group: GotoPlaceOfPablo
+07/30/24 04:57:07: Loaded action/group: InvestigateSignals
+07/30/24 04:57:08: Loaded action/group: OfferTrade
+07/30/24 04:57:08: Loaded action/group: DisableEnemySpawns
+07/30/24 04:57:08: Loaded action/group: BattleSequence
+07/30/24 04:57:08: Loaded action/group: StartBattle
+07/30/24 04:57:08: Loaded action/group: GotoTheIcyHeart
+07/30/24 04:57:08: Loaded action/group: EngageCombat
+07/30/24 04:57:08: Loaded action/group: GotoGhostTown
+07/30/24 04:57:08: Loaded action/group: StartExploration
+07/30/24 04:57:08: Loaded action/group: SetLevelFive
+07/30/24 04:57:08: Loaded action/group: LevelUpThree
+07/30/24 04:57:08: Loaded action/group: LevelUpOnce
+07/30/24 04:57:08: Loaded action/group: GotoTheGoldMines
+07/30/24 04:57:08: Loaded action/group: StartPeaceMission
+07/30/24 04:57:08: Loaded action/group: DiplomaticChoice
+07/30/24 04:57:08: Loaded action/group: TreatyOutcome
+07/30/24 04:57:08: Loaded action/group: ExplorationChoice
+07/30/24 04:57:08: Loaded action/group: BattleChoice
+07/30/24 04:57:08: Loaded action/group: ArtifactMystery
+07/30/24 04:57:08: Loaded action/group: PortalOutcome
+07/30/24 04:57:08: Loaded action/group: PeacefulMission
+07/30/24 04:57:08: Loaded action/group: SpaceAdventureStart
+07/30/24 04:57:08: Loaded action/group: PortalAdventure
+07/30/24 04:57:08: Loaded action/group: EnableEnemySpawns
+07/30/24 04:57:08: Loaded action/group: GotoVulturesValley
+07/30/24 04:57:08: Loaded action/group: GotoEarth
+07/30/24 04:57:08: Loaded action/group: GotoStormySands
+07/30/24 04:57:08: Loaded action/group: SpaceExploration
+07/30/24 04:57:08: Loaded action/group: GotoFantasia
+07/30/24 04:57:08: Loaded action/group: AG1
+07/30/24 04:57:08: Loaded action/group: GotoYetopia
+07/30/24 04:57:08: Loaded action/group: ArtifactOutcome
+07/30/24 04:57:08: Loaded action/group: EpicBattle
+07/30/24 04:57:08: Loaded action/group: PeaceTreaty
+07/30/24 04:57:08: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 04:57:08: [Client] Failed to reconnect to server. Will try again...
+07/30/24 04:58:00: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:58:00: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:58:00: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 04:58:00: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 04:58:00: Command Name: spawn_boss
+07/30/24 04:58:00: Target Object: yeancat
+07/30/24 04:58:00: Parameters: ["1","100","100","\"Player\""]
+07/30/24 04:58:00: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 04:58:00: Boss spawned successfully: Travis Squawk at position (1521.90, 1451.19)
+07/30/24 04:58:00: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:58:00: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:58:00: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 04:58:00: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 04:58:00: Command Name: spawn_boss
+07/30/24 04:58:00: Target Object: yeancat
+07/30/24 04:58:00: Parameters: ["2","200","200","\"Center\""]
+07/30/24 04:58:00: Added boss reference: Peacocky692 -> obj_boss
+07/30/24 04:58:00: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 04:58:00: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:58:00: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:58:00: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 04:58:00: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 04:58:00: Command Name: spawn_boss
+07/30/24 04:58:00: Target Object: yeancat
+07/30/24 04:58:00: Parameters: ["3","50","50","\"Target\""]
+07/30/24 04:58:00: Added boss reference: Rehino3 -> obj_boss
+07/30/24 04:58:00: Boss spawned successfully: Rehino at position (1471.90, 1401.19)
+07/30/24 04:58:00: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:58:00: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:58:00: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 04:58:00: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:58:00: Command Name: spawn_boss
+07/30/24 04:58:00: Target Object: yeancat
+07/30/24 04:58:00: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:58:00: Added boss reference: 22Salamander4 -> obj_boss
+07/30/24 04:58:01: Boss spawned successfully: 22 Salamander at position (1671.90, 1601.19)
+07/30/24 04:58:54: Saved Game
+07/30/24 04:58:57: Saved Game
+07/30/24 04:59:20: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:59:20: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:59:20: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 04:59:20: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 04:59:20: Command Name: spawn_boss
+07/30/24 04:59:20: Target Object: yeancat
+07/30/24 04:59:20: Parameters: ["1","100","100","\"Player\""]
+07/30/24 04:59:20: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 04:59:20: Boss spawned successfully: Travis Squawk at position (1523.70, 1473.59)
+07/30/24 04:59:20: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:59:21: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:59:21: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 04:59:21: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 04:59:21: Command Name: spawn_boss
+07/30/24 04:59:21: Target Object: yeancat
+07/30/24 04:59:21: Parameters: ["2","200","200","\"Center\""]
+07/30/24 04:59:21: Added boss reference: Peacocky692 -> obj_boss
+07/30/24 04:59:21: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 04:59:21: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:59:21: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:59:21: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 04:59:21: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 04:59:21: Command Name: spawn_boss
+07/30/24 04:59:21: Target Object: yeancat
+07/30/24 04:59:21: Parameters: ["3","50","50","\"Target\""]
+07/30/24 04:59:21: Added boss reference: Rehino3 -> obj_boss
+07/30/24 04:59:21: Boss spawned successfully: Rehino at position (1473.70, 1423.59)
+07/30/24 04:59:21: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:59:21: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:59:21: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 04:59:21: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:59:21: Command Name: spawn_boss
+07/30/24 04:59:21: Target Object: yeancat
+07/30/24 04:59:21: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:59:21: Added boss reference: 22Salamander4 -> obj_boss
+07/30/24 04:59:21: Boss spawned successfully: 22 Salamander at position (1673.70, 1623.59)
+07/30/24 04:59:26: Saved Game
+07/30/24 04:59:29: Saved Game
+07/30/24 04:59:57: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:59:57: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:59:57: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 04:59:57: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 04:59:57: Command Name: spawn_boss
+07/30/24 04:59:57: Target Object: yeancat
+07/30/24 04:59:57: Parameters: ["1","100","100","\"Player\""]
+07/30/24 04:59:57: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 04:59:57: Boss spawned successfully: Travis Squawk at position (2230.68, 1407.73)
+07/30/24 04:59:57: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:59:57: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 04:59:57: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 04:59:58: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 04:59:58: Command Name: spawn_boss
+07/30/24 04:59:58: Target Object: yeancat
+07/30/24 04:59:58: Parameters: ["2","200","200","\"Center\""]
+07/30/24 04:59:58: Added boss reference: Peacocky692 -> obj_boss
+07/30/24 04:59:58: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 04:59:58: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:59:58: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 04:59:58: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 04:59:58: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 04:59:58: Command Name: spawn_boss
+07/30/24 04:59:58: Target Object: yeancat
+07/30/24 04:59:58: Parameters: ["3","50","50","\"Target\""]
+07/30/24 04:59:58: Added boss reference: Rehino3 -> obj_boss
+07/30/24 04:59:58: Boss spawned successfully: Rehino at position (2180.68, 1357.73)
+07/30/24 04:59:58: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:59:58: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 04:59:58: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 04:59:58: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:59:58: Command Name: spawn_boss
+07/30/24 04:59:58: Target Object: yeancat
+07/30/24 04:59:58: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 04:59:58: Added boss reference: 22Salamander4 -> obj_boss
+07/30/24 04:59:58: Boss spawned successfully: 22 Salamander at position (2380.68, 1557.73)
+07/30/24 05:00:06: Raw command: level_up(100)
+07/30/24 05:00:06: Cleaned command: level_up(100)
+07/30/24 05:00:06: Parsing arguments: 100
+07/30/24 05:00:06: Parsed arguments: ["100"]
+07/30/24 05:00:06: Command Name: level_up
+07/30/24 05:00:06: Target Object: yeancat
+07/30/24 05:00:06: Parameters: ["100"]
+07/30/24 05:00:06: Level up initiated with goal: 100
+07/30/24 05:03:12: Raw command: level_up(300)
+07/30/24 05:03:12: Cleaned command: level_up(300)
+07/30/24 05:03:12: Parsing arguments: 300
+07/30/24 05:03:12: Parsed arguments: ["300"]
+07/30/24 05:03:12: Command Name: level_up
+07/30/24 05:03:12: Target Object: yeancat
+07/30/24 05:03:12: Parameters: ["300"]
+07/30/24 05:03:12: Level up initiated with goal: 300
+07/30/24 05:04:29: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 05:04:30: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 05:04:30: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 05:04:30: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 05:04:30: Command Name: spawn_boss
+07/30/24 05:04:30: Target Object: yeancat
+07/30/24 05:04:30: Parameters: ["1","100","100","\"Player\""]
+07/30/24 05:04:30: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 05:04:30: Boss spawned successfully: Travis Squawk at position (2200.34, 1388.60)
+07/30/24 05:04:30: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 05:04:30: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 05:04:30: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 05:04:30: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 05:04:30: Command Name: spawn_boss
+07/30/24 05:04:30: Target Object: yeancat
+07/30/24 05:04:30: Parameters: ["2","200","200","\"Center\""]
+07/30/24 05:04:30: Added boss reference: Peacocky692 -> obj_boss
+07/30/24 05:04:30: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 05:04:30: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 05:04:30: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 05:04:30: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 05:04:30: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 05:04:30: Command Name: spawn_boss
+07/30/24 05:04:30: Target Object: yeancat
+07/30/24 05:04:30: Parameters: ["3","50","50","\"Target\""]
+07/30/24 05:04:30: Added boss reference: Rehino3 -> obj_boss
+07/30/24 05:04:30: Boss spawned successfully: Rehino at position (2150.34, 1338.60)
+07/30/24 05:04:30: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 05:04:30: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 05:04:30: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 05:04:30: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 05:04:30: Command Name: spawn_boss
+07/30/24 05:04:30: Target Object: yeancat
+07/30/24 05:04:30: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 05:04:30: Added boss reference: 22Salamander4 -> obj_boss
+07/30/24 05:04:30: Boss spawned successfully: 22 Salamander at position (2350.34, 1538.60)
+07/30/24 05:04:30: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 05:04:31: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 05:04:31: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 05:04:31: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 05:04:31: Command Name: spawn_boss
+07/30/24 05:04:31: Target Object: yeancat
+07/30/24 05:04:31: Parameters: ["1","100","100","\"Player\""]
+07/30/24 05:04:31: Added boss reference: TravisSquawk5 -> obj_boss
+07/30/24 05:04:31: Boss spawned successfully: Travis Squawk at position (2200.34, 1388.60)
+07/30/24 05:04:31: Raw command: spawn_boss(2, 200, 200, "Center")
+07/30/24 05:04:31: Cleaned command: spawn_boss(2, 200, 200, "Center")
+07/30/24 05:04:31: Parsing arguments: 2, 200, 200, "Center"
+07/30/24 05:04:31: Parsed arguments: ["2","200","200","\"Center\""]
+07/30/24 05:04:31: Command Name: spawn_boss
+07/30/24 05:04:31: Target Object: yeancat
+07/30/24 05:04:31: Parameters: ["2","200","200","\"Center\""]
+07/30/24 05:04:31: Added boss reference: Peacocky696 -> obj_boss
+07/30/24 05:04:31: Boss spawned successfully: Peacocky 69 at position (2120, 1280)
+07/30/24 05:04:31: Raw command: spawn_boss(3, 50, 50, "Target")
+07/30/24 05:04:31: Cleaned command: spawn_boss(3, 50, 50, "Target")
+07/30/24 05:04:31: Parsing arguments: 3, 50, 50, "Target"
+07/30/24 05:04:31: Parsed arguments: ["3","50","50","\"Target\""]
+07/30/24 05:04:31: Command Name: spawn_boss
+07/30/24 05:04:31: Target Object: yeancat
+07/30/24 05:04:31: Parameters: ["3","50","50","\"Target\""]
+07/30/24 05:04:31: Added boss reference: Rehino7 -> obj_boss
+07/30/24 05:04:31: Boss spawned successfully: Rehino at position (2150.34, 1338.60)
+07/30/24 05:04:31: Raw command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 05:04:31: Cleaned command: spawn_boss(4, 150, 150, "TravisSquawk1")
+07/30/24 05:04:31: Parsing arguments: 4, 150, 150, "TravisSquawk1"
+07/30/24 05:04:31: Parsed arguments: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 05:04:31: Command Name: spawn_boss
+07/30/24 05:04:31: Target Object: yeancat
+07/30/24 05:04:31: Parameters: ["4","150","150","\"TravisSquawk1\""]
+07/30/24 05:04:31: Added boss reference: 22Salamander8 -> obj_boss
+07/30/24 05:04:31: Boss spawned successfully: 22 Salamander at position (2350.34, 1538.60)
+07/30/24 05:08:31: Raw command: add_action_group(SpawnBossCircle, [
+07/30/24 05:08:31: Cleaned command: add_action_group(SpawnBossCircle, [
+07/30/24 05:08:31: Command Name: add_action_group(SpawnBossCircle, [
+07/30/24 05:08:31: Target Object: yeancat
+07/30/24 05:08:31: Parameters: []
+07/30/24 05:08:32: Script not found for command: add_action_group(SpawnBossCircle, [
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(0, 0, -500, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(0, 0, -500, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(0, 0, -500, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(1, 353, -353, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(1, 353, -353, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(1, 353, -353, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(2, 500, 0, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(2, 500, 0, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(2, 500, 0, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(3, 353, 353, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(3, 353, 353, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(3, 353, 353, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(4, 0, 500, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(4, 0, 500, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(4, 0, 500, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(5, -353, 353, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(5, -353, 353, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(5, -353, 353, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(6, -500, 0, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(6, -500, 0, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(6, -500, 0, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(7, -353, -353, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(7, -353, -353, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(7, -353, -353, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(8, 0, -400, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(8, 0, -400, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(8, 0, -400, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(9, 283, -283, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(9, 283, -283, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(9, 283, -283, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:32: [Jay Arnold] "spawn_boss(10, 400, 0, \"Player\")",
+07/30/24 05:08:32: Creating chat bubble: " \"spawn_boss(10, 400, 0, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:32: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(10, 400, 0, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:33: [Jay Arnold] "spawn_boss(11, 283, 283, \"Player\")",
+07/30/24 05:08:33: Creating chat bubble: " \"spawn_boss(11, 283, 283, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:33: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(11, 283, 283, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:33: [Jay Arnold] "spawn_boss(12, 0, 400, \"Player\")",
+07/30/24 05:08:33: Creating chat bubble: " \"spawn_boss(12, 0, 400, \\\"Player\\\")\",", Owner: yeancat, Choices: []
+07/30/24 05:08:33: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(12, 0, 400, \"Player\")",'. Number of choices: 0
+07/30/24 05:08:33: [Jay Arnold] "spawn_boss(13, -283, 283, \"Player\")"
+07/30/24 05:08:33: Creating chat bubble: " \"spawn_boss(13, -283, 283, \\\"Player\\\")\"", Owner: yeancat, Choices: []
+07/30/24 05:08:33: Chat Bubble Created. Following 'yeancat' with text: '"spawn_boss(13, -283, 283, \"Player\")"'. Number of choices: 0
+07/30/24 05:08:33: [Jay Arnold] ])
+07/30/24 05:08:33: Creating chat bubble: " ])", Owner: yeancat, Choices: []
+07/30/24 05:08:33: Chat Bubble Created. Following 'yeancat' with text: '])'. Number of choices: 0
+07/30/24 05:08:54: Raw command: add_action(SpawnBoss0, spawn_boss, [0, 0, -500, "Player"])
+07/30/24 05:08:54: Cleaned command: add_action(SpawnBoss0, spawn_boss, [0, 0, -500, "Player"])
+07/30/24 05:08:54: Detected add_action command
+07/30/24 05:08:54: Arguments string: SpawnBoss0, spawn_boss, [0, 0, -500, "Player"]
+07/30/24 05:08:54: Parsing arguments: SpawnBoss0, spawn_boss, [0, 0, -500, "Player"]
+07/30/24 05:08:54: Parsed arguments: ["SpawnBoss0","spawn_boss","[0, 0, -500, \"Player\"]"]
+07/30/24 05:08:54: Parsed arguments: ["SpawnBoss0","spawn_boss","[0, 0, -500, \"Player\"]"]
+07/30/24 05:08:54: Action Name: SpawnBoss0
+07/30/24 05:08:54: Full Action Command: spawn_boss
+07/30/24 05:08:54: Action Params: [0, 0, -500, "Player"]
+07/30/24 05:08:54: Target Object: yeancat
+07/30/24 05:08:54: Action Command: spawn_boss
+07/30/24 05:08:54: scr_add_action called with:
+07/30/24 05:08:54: Action Name: SpawnBoss0
+07/30/24 05:08:54: Action Command: spawn_boss
+07/30/24 05:08:54: Action Params: [0, 0, -500, "Player"]
+07/30/24 05:08:54: Target Object: yeancat
+07/30/24 05:08:54: Action 'SpawnBoss0' added/updated successfully.
+07/30/24 05:08:54: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOlswLjAsMC4wLC01MDAuMCwiUGxheWVyIl0sInRhcmdldE9iamVjdCI6InllYW5jYXQifQ==
+07/30/24 05:08:54: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:54: Raw command: add_action(SpawnBoss1, spawn_boss, [1, 353, -353, "Player"])
+07/30/24 05:08:54: Cleaned command: add_action(SpawnBoss1, spawn_boss, [1, 353, -353, "Player"])
+07/30/24 05:08:54: Detected add_action command
+07/30/24 05:08:54: Arguments string: SpawnBoss1, spawn_boss, [1, 353, -353, "Player"]
+07/30/24 05:08:54: Parsing arguments: SpawnBoss1, spawn_boss, [1, 353, -353, "Player"]
+07/30/24 05:08:55: Parsed arguments: ["SpawnBoss1","spawn_boss","[1, 353, -353, \"Player\"]"]
+07/30/24 05:08:55: Parsed arguments: ["SpawnBoss1","spawn_boss","[1, 353, -353, \"Player\"]"]
+07/30/24 05:08:55: Action Name: SpawnBoss1
+07/30/24 05:08:55: Full Action Command: spawn_boss
+07/30/24 05:08:55: Action Params: [1, 353, -353, "Player"]
+07/30/24 05:08:55: Target Object: yeancat
+07/30/24 05:08:55: Action Command: spawn_boss
+07/30/24 05:08:55: scr_add_action called with:
+07/30/24 05:08:55: Action Name: SpawnBoss1
+07/30/24 05:08:55: Action Command: spawn_boss
+07/30/24 05:08:55: Action Params: [1, 353, -353, "Player"]
+07/30/24 05:08:55: Target Object: yeancat
+07/30/24 05:08:55: Action 'SpawnBoss1' added/updated successfully.
+07/30/24 05:08:55: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOlsxLjAsMzUzLjAsLTM1My4wLCJQbGF5ZXIiXSwidGFyZ2V0T2JqZWN0IjoieWVhbmNhdCJ9
+07/30/24 05:08:55: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:55: Raw command: add_action(SpawnBoss2, spawn_boss, [2, 500, 0, "Player"])
+07/30/24 05:08:55: Cleaned command: add_action(SpawnBoss2, spawn_boss, [2, 500, 0, "Player"])
+07/30/24 05:08:55: Detected add_action command
+07/30/24 05:08:55: Arguments string: SpawnBoss2, spawn_boss, [2, 500, 0, "Player"]
+07/30/24 05:08:55: Parsing arguments: SpawnBoss2, spawn_boss, [2, 500, 0, "Player"]
+07/30/24 05:08:55: Parsed arguments: ["SpawnBoss2","spawn_boss","[2, 500, 0, \"Player\"]"]
+07/30/24 05:08:55: Parsed arguments: ["SpawnBoss2","spawn_boss","[2, 500, 0, \"Player\"]"]
+07/30/24 05:08:55: Action Name: SpawnBoss2
+07/30/24 05:08:55: Full Action Command: spawn_boss
+07/30/24 05:08:55: Action Params: [2, 500, 0, "Player"]
+07/30/24 05:08:55: Target Object: yeancat
+07/30/24 05:08:55: Action Command: spawn_boss
+07/30/24 05:08:55: scr_add_action called with:
+07/30/24 05:08:55: Action Name: SpawnBoss2
+07/30/24 05:08:55: Action Command: spawn_boss
+07/30/24 05:08:55: Action Params: [2, 500, 0, "Player"]
+07/30/24 05:08:55: Target Object: yeancat
+07/30/24 05:08:55: Action 'SpawnBoss2' added/updated successfully.
+07/30/24 05:08:55: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOlsyLjAsNTAwLjAsMC4wLCJQbGF5ZXIiXSwidGFyZ2V0T2JqZWN0IjoieWVhbmNhdCJ9
+07/30/24 05:08:55: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:55: Raw command: add_action(SpawnBoss3, spawn_boss, [3, 353, 353, "Player"])
+07/30/24 05:08:55: Cleaned command: add_action(SpawnBoss3, spawn_boss, [3, 353, 353, "Player"])
+07/30/24 05:08:55: Detected add_action command
+07/30/24 05:08:55: Arguments string: SpawnBoss3, spawn_boss, [3, 353, 353, "Player"]
+07/30/24 05:08:55: Parsing arguments: SpawnBoss3, spawn_boss, [3, 353, 353, "Player"]
+07/30/24 05:08:55: Parsed arguments: ["SpawnBoss3","spawn_boss","[3, 353, 353, \"Player\"]"]
+07/30/24 05:08:55: Parsed arguments: ["SpawnBoss3","spawn_boss","[3, 353, 353, \"Player\"]"]
+07/30/24 05:08:55: Action Name: SpawnBoss3
+07/30/24 05:08:55: Full Action Command: spawn_boss
+07/30/24 05:08:55: Action Params: [3, 353, 353, "Player"]
+07/30/24 05:08:55: Target Object: yeancat
+07/30/24 05:08:55: Action Command: spawn_boss
+07/30/24 05:08:55: scr_add_action called with:
+07/30/24 05:08:55: Action Name: SpawnBoss3
+07/30/24 05:08:55: Action Command: spawn_boss
+07/30/24 05:08:55: Action Params: [3, 353, 353, "Player"]
+07/30/24 05:08:55: Target Object: yeancat
+07/30/24 05:08:55: Action 'SpawnBoss3' added/updated successfully.
+07/30/24 05:08:55: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOlszLjAsMzUzLjAsMzUzLjAsIlBsYXllciJdLCJ0YXJnZXRPYmplY3QiOiJ5ZWFuY2F0In0=
+07/30/24 05:08:55: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:55: Raw command: add_action(SpawnBoss4, spawn_boss, [4, 0, 500, "Player"])
+07/30/24 05:08:55: Cleaned command: add_action(SpawnBoss4, spawn_boss, [4, 0, 500, "Player"])
+07/30/24 05:08:55: Detected add_action command
+07/30/24 05:08:55: Arguments string: SpawnBoss4, spawn_boss, [4, 0, 500, "Player"]
+07/30/24 05:08:55: Parsing arguments: SpawnBoss4, spawn_boss, [4, 0, 500, "Player"]
+07/30/24 05:08:55: Parsed arguments: ["SpawnBoss4","spawn_boss","[4, 0, 500, \"Player\"]"]
+07/30/24 05:08:55: Parsed arguments: ["SpawnBoss4","spawn_boss","[4, 0, 500, \"Player\"]"]
+07/30/24 05:08:55: Action Name: SpawnBoss4
+07/30/24 05:08:55: Full Action Command: spawn_boss
+07/30/24 05:08:55: Action Params: [4, 0, 500, "Player"]
+07/30/24 05:08:55: Target Object: yeancat
+07/30/24 05:08:55: Action Command: spawn_boss
+07/30/24 05:08:55: scr_add_action called with:
+07/30/24 05:08:55: Action Name: SpawnBoss4
+07/30/24 05:08:55: Action Command: spawn_boss
+07/30/24 05:08:55: Action Params: [4, 0, 500, "Player"]
+07/30/24 05:08:55: Target Object: yeancat
+07/30/24 05:08:56: Action 'SpawnBoss4' added/updated successfully.
+07/30/24 05:08:56: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOls0LjAsMC4wLDUwMC4wLCJQbGF5ZXIiXSwidGFyZ2V0T2JqZWN0IjoieWVhbmNhdCJ9
+07/30/24 05:08:56: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:56: Raw command: add_action(SpawnBoss5, spawn_boss, [5, -353, 353, "Player"])
+07/30/24 05:08:56: Cleaned command: add_action(SpawnBoss5, spawn_boss, [5, -353, 353, "Player"])
+07/30/24 05:08:56: Detected add_action command
+07/30/24 05:08:56: Arguments string: SpawnBoss5, spawn_boss, [5, -353, 353, "Player"]
+07/30/24 05:08:56: Parsing arguments: SpawnBoss5, spawn_boss, [5, -353, 353, "Player"]
+07/30/24 05:08:56: Parsed arguments: ["SpawnBoss5","spawn_boss","[5, -353, 353, \"Player\"]"]
+07/30/24 05:08:56: Parsed arguments: ["SpawnBoss5","spawn_boss","[5, -353, 353, \"Player\"]"]
+07/30/24 05:08:56: Action Name: SpawnBoss5
+07/30/24 05:08:56: Full Action Command: spawn_boss
+07/30/24 05:08:56: Action Params: [5, -353, 353, "Player"]
+07/30/24 05:08:56: Target Object: yeancat
+07/30/24 05:08:56: Action Command: spawn_boss
+07/30/24 05:08:56: scr_add_action called with:
+07/30/24 05:08:56: Action Name: SpawnBoss5
+07/30/24 05:08:56: Action Command: spawn_boss
+07/30/24 05:08:56: Action Params: [5, -353, 353, "Player"]
+07/30/24 05:08:56: Target Object: yeancat
+07/30/24 05:08:56: Action 'SpawnBoss5' added/updated successfully.
+07/30/24 05:08:56: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOls1LjAsLTM1My4wLDM1My4wLCJQbGF5ZXIiXSwidGFyZ2V0T2JqZWN0IjoieWVhbmNhdCJ9
+07/30/24 05:08:56: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:56: Raw command: add_action(SpawnBoss6, spawn_boss, [6, -500, 0, "Player"])
+07/30/24 05:08:56: Cleaned command: add_action(SpawnBoss6, spawn_boss, [6, -500, 0, "Player"])
+07/30/24 05:08:56: Detected add_action command
+07/30/24 05:08:56: Arguments string: SpawnBoss6, spawn_boss, [6, -500, 0, "Player"]
+07/30/24 05:08:56: Parsing arguments: SpawnBoss6, spawn_boss, [6, -500, 0, "Player"]
+07/30/24 05:08:56: Parsed arguments: ["SpawnBoss6","spawn_boss","[6, -500, 0, \"Player\"]"]
+07/30/24 05:08:56: Parsed arguments: ["SpawnBoss6","spawn_boss","[6, -500, 0, \"Player\"]"]
+07/30/24 05:08:56: Action Name: SpawnBoss6
+07/30/24 05:08:56: Full Action Command: spawn_boss
+07/30/24 05:08:56: Action Params: [6, -500, 0, "Player"]
+07/30/24 05:08:56: Target Object: yeancat
+07/30/24 05:08:56: Action Command: spawn_boss
+07/30/24 05:08:56: scr_add_action called with:
+07/30/24 05:08:56: Action Name: SpawnBoss6
+07/30/24 05:08:56: Action Command: spawn_boss
+07/30/24 05:08:56: Action Params: [6, -500, 0, "Player"]
+07/30/24 05:08:56: Target Object: yeancat
+07/30/24 05:08:56: Action 'SpawnBoss6' added/updated successfully.
+07/30/24 05:08:56: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOls2LjAsLTUwMC4wLDAuMCwiUGxheWVyIl0sInRhcmdldE9iamVjdCI6InllYW5jYXQifQ==
+07/30/24 05:08:56: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:56: Raw command: add_action(SpawnBoss7, spawn_boss, [7, -353, -353, "Player"])
+07/30/24 05:08:56: Cleaned command: add_action(SpawnBoss7, spawn_boss, [7, -353, -353, "Player"])
+07/30/24 05:08:56: Detected add_action command
+07/30/24 05:08:56: Arguments string: SpawnBoss7, spawn_boss, [7, -353, -353, "Player"]
+07/30/24 05:08:56: Parsing arguments: SpawnBoss7, spawn_boss, [7, -353, -353, "Player"]
+07/30/24 05:08:56: Parsed arguments: ["SpawnBoss7","spawn_boss","[7, -353, -353, \"Player\"]"]
+07/30/24 05:08:56: Parsed arguments: ["SpawnBoss7","spawn_boss","[7, -353, -353, \"Player\"]"]
+07/30/24 05:08:56: Action Name: SpawnBoss7
+07/30/24 05:08:56: Full Action Command: spawn_boss
+07/30/24 05:08:56: Action Params: [7, -353, -353, "Player"]
+07/30/24 05:08:56: Target Object: yeancat
+07/30/24 05:08:56: Action Command: spawn_boss
+07/30/24 05:08:56: scr_add_action called with:
+07/30/24 05:08:56: Action Name: SpawnBoss7
+07/30/24 05:08:56: Action Command: spawn_boss
+07/30/24 05:08:56: Action Params: [7, -353, -353, "Player"]
+07/30/24 05:08:56: Target Object: yeancat
+07/30/24 05:08:56: Action 'SpawnBoss7' added/updated successfully.
+07/30/24 05:08:56: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOls3LjAsLTM1My4wLC0zNTMuMCwiUGxheWVyIl0sInRhcmdldE9iamVjdCI6InllYW5jYXQifQ==
+07/30/24 05:08:56: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:56: Raw command: add_action(SpawnBoss8, spawn_boss, [8, 0, -400, "Player"])
+07/30/24 05:08:56: Cleaned command: add_action(SpawnBoss8, spawn_boss, [8, 0, -400, "Player"])
+07/30/24 05:08:56: Detected add_action command
+07/30/24 05:08:56: Arguments string: SpawnBoss8, spawn_boss, [8, 0, -400, "Player"]
+07/30/24 05:08:56: Parsing arguments: SpawnBoss8, spawn_boss, [8, 0, -400, "Player"]
+07/30/24 05:08:56: Parsed arguments: ["SpawnBoss8","spawn_boss","[8, 0, -400, \"Player\"]"]
+07/30/24 05:08:56: Parsed arguments: ["SpawnBoss8","spawn_boss","[8, 0, -400, \"Player\"]"]
+07/30/24 05:08:56: Action Name: SpawnBoss8
+07/30/24 05:08:56: Full Action Command: spawn_boss
+07/30/24 05:08:56: Action Params: [8, 0, -400, "Player"]
+07/30/24 05:08:56: Target Object: yeancat
+07/30/24 05:08:56: Action Command: spawn_boss
+07/30/24 05:08:56: scr_add_action called with:
+07/30/24 05:08:56: Action Name: SpawnBoss8
+07/30/24 05:08:56: Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [8, 0, -400, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action 'SpawnBoss8' added/updated successfully.
+07/30/24 05:08:57: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOls4LjAsMC4wLC00MDAuMCwiUGxheWVyIl0sInRhcmdldE9iamVjdCI6InllYW5jYXQifQ==
+07/30/24 05:08:57: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:57: Raw command: add_action(SpawnBoss9, spawn_boss, [9, 283, -283, "Player"])
+07/30/24 05:08:57: Cleaned command: add_action(SpawnBoss9, spawn_boss, [9, 283, -283, "Player"])
+07/30/24 05:08:57: Detected add_action command
+07/30/24 05:08:57: Arguments string: SpawnBoss9, spawn_boss, [9, 283, -283, "Player"]
+07/30/24 05:08:57: Parsing arguments: SpawnBoss9, spawn_boss, [9, 283, -283, "Player"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss9","spawn_boss","[9, 283, -283, \"Player\"]"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss9","spawn_boss","[9, 283, -283, \"Player\"]"]
+07/30/24 05:08:57: Action Name: SpawnBoss9
+07/30/24 05:08:57: Full Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [9, 283, -283, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action Command: spawn_boss
+07/30/24 05:08:57: scr_add_action called with:
+07/30/24 05:08:57: Action Name: SpawnBoss9
+07/30/24 05:08:57: Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [9, 283, -283, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action 'SpawnBoss9' added/updated successfully.
+07/30/24 05:08:57: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOls5LjAsMjgzLjAsLTI4My4wLCJQbGF5ZXIiXSwidGFyZ2V0T2JqZWN0IjoieWVhbmNhdCJ9
+07/30/24 05:08:57: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:57: Raw command: add_action(SpawnBoss10, spawn_boss, [10, 400, 0, "Player"])
+07/30/24 05:08:57: Cleaned command: add_action(SpawnBoss10, spawn_boss, [10, 400, 0, "Player"])
+07/30/24 05:08:57: Detected add_action command
+07/30/24 05:08:57: Arguments string: SpawnBoss10, spawn_boss, [10, 400, 0, "Player"]
+07/30/24 05:08:57: Parsing arguments: SpawnBoss10, spawn_boss, [10, 400, 0, "Player"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss10","spawn_boss","[10, 400, 0, \"Player\"]"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss10","spawn_boss","[10, 400, 0, \"Player\"]"]
+07/30/24 05:08:57: Action Name: SpawnBoss10
+07/30/24 05:08:57: Full Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [10, 400, 0, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action Command: spawn_boss
+07/30/24 05:08:57: scr_add_action called with:
+07/30/24 05:08:57: Action Name: SpawnBoss10
+07/30/24 05:08:57: Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [10, 400, 0, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action 'SpawnBoss10' added/updated successfully.
+07/30/24 05:08:57: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOlsxMC4wLDQwMC4wLDAuMCwiUGxheWVyIl0sInRhcmdldE9iamVjdCI6InllYW5jYXQifQ==
+07/30/24 05:08:57: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:57: Raw command: add_action(SpawnBoss11, spawn_boss, [11, 283, 283, "Player"])
+07/30/24 05:08:57: Cleaned command: add_action(SpawnBoss11, spawn_boss, [11, 283, 283, "Player"])
+07/30/24 05:08:57: Detected add_action command
+07/30/24 05:08:57: Arguments string: SpawnBoss11, spawn_boss, [11, 283, 283, "Player"]
+07/30/24 05:08:57: Parsing arguments: SpawnBoss11, spawn_boss, [11, 283, 283, "Player"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss11","spawn_boss","[11, 283, 283, \"Player\"]"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss11","spawn_boss","[11, 283, 283, \"Player\"]"]
+07/30/24 05:08:57: Action Name: SpawnBoss11
+07/30/24 05:08:57: Full Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [11, 283, 283, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action Command: spawn_boss
+07/30/24 05:08:57: scr_add_action called with:
+07/30/24 05:08:57: Action Name: SpawnBoss11
+07/30/24 05:08:57: Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [11, 283, 283, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action 'SpawnBoss11' added/updated successfully.
+07/30/24 05:08:57: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOlsxMS4wLDI4My4wLDI4My4wLCJQbGF5ZXIiXSwidGFyZ2V0T2JqZWN0IjoieWVhbmNhdCJ9
+07/30/24 05:08:57: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:57: Raw command: add_action(SpawnBoss12, spawn_boss, [12, 0, 400, "Player"])
+07/30/24 05:08:57: Cleaned command: add_action(SpawnBoss12, spawn_boss, [12, 0, 400, "Player"])
+07/30/24 05:08:57: Detected add_action command
+07/30/24 05:08:57: Arguments string: SpawnBoss12, spawn_boss, [12, 0, 400, "Player"]
+07/30/24 05:08:57: Parsing arguments: SpawnBoss12, spawn_boss, [12, 0, 400, "Player"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss12","spawn_boss","[12, 0, 400, \"Player\"]"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss12","spawn_boss","[12, 0, 400, \"Player\"]"]
+07/30/24 05:08:57: Action Name: SpawnBoss12
+07/30/24 05:08:57: Full Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [12, 0, 400, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action Command: spawn_boss
+07/30/24 05:08:57: scr_add_action called with:
+07/30/24 05:08:57: Action Name: SpawnBoss12
+07/30/24 05:08:57: Action Command: spawn_boss
+07/30/24 05:08:57: Action Params: [12, 0, 400, "Player"]
+07/30/24 05:08:57: Target Object: yeancat
+07/30/24 05:08:57: Action 'SpawnBoss12' added/updated successfully.
+07/30/24 05:08:57: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOlsxMi4wLDAuMCw0MDAuMCwiUGxheWVyIl0sInRhcmdldE9iamVjdCI6InllYW5jYXQifQ==
+07/30/24 05:08:57: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:08:57: Raw command: add_action(SpawnBoss13, spawn_boss, [13, -283, 283, "Player"])
+07/30/24 05:08:57: Cleaned command: add_action(SpawnBoss13, spawn_boss, [13, -283, 283, "Player"])
+07/30/24 05:08:57: Detected add_action command
+07/30/24 05:08:57: Arguments string: SpawnBoss13, spawn_boss, [13, -283, 283, "Player"]
+07/30/24 05:08:57: Parsing arguments: SpawnBoss13, spawn_boss, [13, -283, 283, "Player"]
+07/30/24 05:08:57: Parsed arguments: ["SpawnBoss13","spawn_boss","[13, -283, 283, \"Player\"]"]
+07/30/24 05:08:58: Parsed arguments: ["SpawnBoss13","spawn_boss","[13, -283, 283, \"Player\"]"]
+07/30/24 05:08:58: Action Name: SpawnBoss13
+07/30/24 05:08:58: Full Action Command: spawn_boss
+07/30/24 05:08:58: Action Params: [13, -283, 283, "Player"]
+07/30/24 05:08:58: Target Object: yeancat
+07/30/24 05:08:58: Action Command: spawn_boss
+07/30/24 05:08:58: scr_add_action called with:
+07/30/24 05:08:58: Action Name: SpawnBoss13
+07/30/24 05:08:58: Action Command: spawn_boss
+07/30/24 05:08:58: Action Params: [13, -283, 283, "Player"]
+07/30/24 05:08:58: Target Object: yeancat
+07/30/24 05:08:58: Action 'SpawnBoss13' added/updated successfully.
+07/30/24 05:08:58: Encoded Command: eyJjb21tYW5kIjoic3Bhd25fYm9zcyIsInBhcmFtZXRlcnMiOlsxMy4wLC0yODMuMCwyODMuMCwiUGxheWVyIl0sInRhcmdldE9iamVjdCI6InllYW5jYXQifQ==
+07/30/24 05:08:58: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:09:06: Raw command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3",
+"SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9",
+"SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+07/30/24 05:09:06: Cleaned command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+07/30/24 05:09:06: Parsing arguments: SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"]
+07/30/24 05:09:06: Parsed arguments: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+07/30/24 05:09:06: Command Name: add_action_group
+07/30/24 05:09:06: Target Object: yeancat
+07/30/24 05:09:06: Parameters: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+07/30/24 05:09:06: Action group 'SpawnBossCircle' added successfully.
+07/30/24 05:09:06: Actions and action groups saved successfully to Actions.txt.
+07/30/24 05:09:15: Raw command: execute_action(SpawnBossCircle)
+07/30/24 05:09:15: Cleaned command: execute_action(SpawnBossCircle)
+07/30/24 05:09:15: Executing action/group: SpawnBossCircle
+07/30/24 05:09:15: Decoded Data: {"type":"action_group","actions":["SpawnBoss0","SpawnBoss1","SpawnBoss2","SpawnBoss3","SpawnBoss4","SpawnBoss5","SpawnBoss6","SpawnBoss7","SpawnBoss8","SpawnBoss9","SpawnBoss10","SpawnBoss11","SpawnBoss12","SpawnBoss13"]}
+07/30/24 05:09:15: Raw command: execute_action(SpawnBoss0)
+07/30/24 05:09:15: Cleaned command: execute_action(SpawnBoss0)
+07/30/24 05:09:15: Executing action/group: SpawnBoss0
+07/30/24 05:09:15: Decoded Data: {"command":"spawn_boss","parameters":[0.0,0.0,-500.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:15: Raw command: spawn_boss([0.0,0.0,-500.0,"Player"])
+07/30/24 05:09:15: Cleaned command: spawn_boss([0.0,0.0,-500.0,"Player"])
+07/30/24 05:09:15: Parsing arguments: [0.0,0.0,-500.0,"Player"]
+07/30/24 05:09:15: Parsed arguments: ["[0.0,0.0,-500.0,\"Player\"]"]
+07/30/24 05:09:15: Command Name: spawn_boss
+07/30/24 05:09:15: Target Object: yeancat
+07/30/24 05:09:15: Parameters: ["[0.0,0.0,-500.0,\"Player\"]"]
+07/30/24 05:09:15: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:15: Raw command: execute_action(SpawnBoss1)
+07/30/24 05:09:15: Cleaned command: execute_action(SpawnBoss1)
+07/30/24 05:09:15: Executing action/group: SpawnBoss1
+07/30/24 05:09:15: Decoded Data: {"command":"spawn_boss","parameters":[1.0,353.0,-353.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:16: Raw command: spawn_boss([1.0,353.0,-353.0,"Player"])
+07/30/24 05:09:16: Cleaned command: spawn_boss([1.0,353.0,-353.0,"Player"])
+07/30/24 05:09:16: Parsing arguments: [1.0,353.0,-353.0,"Player"]
+07/30/24 05:09:16: Parsed arguments: ["[1.0,353.0,-353.0,\"Player\"]"]
+07/30/24 05:09:16: Command Name: spawn_boss
+07/30/24 05:09:16: Target Object: yeancat
+07/30/24 05:09:16: Parameters: ["[1.0,353.0,-353.0,\"Player\"]"]
+07/30/24 05:09:16: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:16: Raw command: execute_action(SpawnBoss2)
+07/30/24 05:09:16: Cleaned command: execute_action(SpawnBoss2)
+07/30/24 05:09:16: Executing action/group: SpawnBoss2
+07/30/24 05:09:16: Decoded Data: {"command":"spawn_boss","parameters":[2.0,500.0,0.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:16: Raw command: spawn_boss([2.0,500.0,0.0,"Player"])
+07/30/24 05:09:16: Cleaned command: spawn_boss([2.0,500.0,0.0,"Player"])
+07/30/24 05:09:16: Parsing arguments: [2.0,500.0,0.0,"Player"]
+07/30/24 05:09:16: Parsed arguments: ["[2.0,500.0,0.0,\"Player\"]"]
+07/30/24 05:09:16: Command Name: spawn_boss
+07/30/24 05:09:16: Target Object: yeancat
+07/30/24 05:09:16: Parameters: ["[2.0,500.0,0.0,\"Player\"]"]
+07/30/24 05:09:16: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:16: Raw command: execute_action(SpawnBoss3)
+07/30/24 05:09:16: Cleaned command: execute_action(SpawnBoss3)
+07/30/24 05:09:16: Executing action/group: SpawnBoss3
+07/30/24 05:09:16: Decoded Data: {"command":"spawn_boss","parameters":[3.0,353.0,353.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:16: Raw command: spawn_boss([3.0,353.0,353.0,"Player"])
+07/30/24 05:09:16: Cleaned command: spawn_boss([3.0,353.0,353.0,"Player"])
+07/30/24 05:09:16: Parsing arguments: [3.0,353.0,353.0,"Player"]
+07/30/24 05:09:16: Parsed arguments: ["[3.0,353.0,353.0,\"Player\"]"]
+07/30/24 05:09:16: Command Name: spawn_boss
+07/30/24 05:09:16: Target Object: yeancat
+07/30/24 05:09:16: Parameters: ["[3.0,353.0,353.0,\"Player\"]"]
+07/30/24 05:09:16: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:16: Raw command: execute_action(SpawnBoss4)
+07/30/24 05:09:16: Cleaned command: execute_action(SpawnBoss4)
+07/30/24 05:09:16: Executing action/group: SpawnBoss4
+07/30/24 05:09:16: Decoded Data: {"command":"spawn_boss","parameters":[4.0,0.0,500.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:16: Raw command: spawn_boss([4.0,0.0,500.0,"Player"])
+07/30/24 05:09:16: Cleaned command: spawn_boss([4.0,0.0,500.0,"Player"])
+07/30/24 05:09:16: Parsing arguments: [4.0,0.0,500.0,"Player"]
+07/30/24 05:09:16: Parsed arguments: ["[4.0,0.0,500.0,\"Player\"]"]
+07/30/24 05:09:16: Command Name: spawn_boss
+07/30/24 05:09:16: Target Object: yeancat
+07/30/24 05:09:16: Parameters: ["[4.0,0.0,500.0,\"Player\"]"]
+07/30/24 05:09:16: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:16: Raw command: execute_action(SpawnBoss5)
+07/30/24 05:09:16: Cleaned command: execute_action(SpawnBoss5)
+07/30/24 05:09:16: Executing action/group: SpawnBoss5
+07/30/24 05:09:16: Decoded Data: {"command":"spawn_boss","parameters":[5.0,-353.0,353.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:16: Raw command: spawn_boss([5.0,-353.0,353.0,"Player"])
+07/30/24 05:09:16: Cleaned command: spawn_boss([5.0,-353.0,353.0,"Player"])
+07/30/24 05:09:16: Parsing arguments: [5.0,-353.0,353.0,"Player"]
+07/30/24 05:09:16: Parsed arguments: ["[5.0,-353.0,353.0,\"Player\"]"]
+07/30/24 05:09:16: Command Name: spawn_boss
+07/30/24 05:09:16: Target Object: yeancat
+07/30/24 05:09:16: Parameters: ["[5.0,-353.0,353.0,\"Player\"]"]
+07/30/24 05:09:16: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:16: Raw command: execute_action(SpawnBoss6)
+07/30/24 05:09:16: Cleaned command: execute_action(SpawnBoss6)
+07/30/24 05:09:17: Executing action/group: SpawnBoss6
+07/30/24 05:09:17: Decoded Data: {"command":"spawn_boss","parameters":[6.0,-500.0,0.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:17: Raw command: spawn_boss([6.0,-500.0,0.0,"Player"])
+07/30/24 05:09:17: Cleaned command: spawn_boss([6.0,-500.0,0.0,"Player"])
+07/30/24 05:09:17: Parsing arguments: [6.0,-500.0,0.0,"Player"]
+07/30/24 05:09:17: Parsed arguments: ["[6.0,-500.0,0.0,\"Player\"]"]
+07/30/24 05:09:17: Command Name: spawn_boss
+07/30/24 05:09:17: Target Object: yeancat
+07/30/24 05:09:17: Parameters: ["[6.0,-500.0,0.0,\"Player\"]"]
+07/30/24 05:09:17: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:17: Raw command: execute_action(SpawnBoss7)
+07/30/24 05:09:17: Cleaned command: execute_action(SpawnBoss7)
+07/30/24 05:09:17: Executing action/group: SpawnBoss7
+07/30/24 05:09:17: Decoded Data: {"command":"spawn_boss","parameters":[7.0,-353.0,-353.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:17: Raw command: spawn_boss([7.0,-353.0,-353.0,"Player"])
+07/30/24 05:09:17: Cleaned command: spawn_boss([7.0,-353.0,-353.0,"Player"])
+07/30/24 05:09:17: Parsing arguments: [7.0,-353.0,-353.0,"Player"]
+07/30/24 05:09:17: Parsed arguments: ["[7.0,-353.0,-353.0,\"Player\"]"]
+07/30/24 05:09:17: Command Name: spawn_boss
+07/30/24 05:09:17: Target Object: yeancat
+07/30/24 05:09:17: Parameters: ["[7.0,-353.0,-353.0,\"Player\"]"]
+07/30/24 05:09:17: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:17: Raw command: execute_action(SpawnBoss8)
+07/30/24 05:09:17: Cleaned command: execute_action(SpawnBoss8)
+07/30/24 05:09:17: Executing action/group: SpawnBoss8
+07/30/24 05:09:17: Decoded Data: {"command":"spawn_boss","parameters":[8.0,0.0,-400.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:17: Raw command: spawn_boss([8.0,0.0,-400.0,"Player"])
+07/30/24 05:09:17: Cleaned command: spawn_boss([8.0,0.0,-400.0,"Player"])
+07/30/24 05:09:17: Parsing arguments: [8.0,0.0,-400.0,"Player"]
+07/30/24 05:09:17: Parsed arguments: ["[8.0,0.0,-400.0,\"Player\"]"]
+07/30/24 05:09:17: Command Name: spawn_boss
+07/30/24 05:09:17: Target Object: yeancat
+07/30/24 05:09:17: Parameters: ["[8.0,0.0,-400.0,\"Player\"]"]
+07/30/24 05:09:17: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:17: Raw command: execute_action(SpawnBoss9)
+07/30/24 05:09:17: Cleaned command: execute_action(SpawnBoss9)
+07/30/24 05:09:17: Executing action/group: SpawnBoss9
+07/30/24 05:09:17: Decoded Data: {"command":"spawn_boss","parameters":[9.0,283.0,-283.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:17: Raw command: spawn_boss([9.0,283.0,-283.0,"Player"])
+07/30/24 05:09:17: Cleaned command: spawn_boss([9.0,283.0,-283.0,"Player"])
+07/30/24 05:09:17: Parsing arguments: [9.0,283.0,-283.0,"Player"]
+07/30/24 05:09:17: Parsed arguments: ["[9.0,283.0,-283.0,\"Player\"]"]
+07/30/24 05:09:17: Command Name: spawn_boss
+07/30/24 05:09:17: Target Object: yeancat
+07/30/24 05:09:17: Parameters: ["[9.0,283.0,-283.0,\"Player\"]"]
+07/30/24 05:09:17: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:17: Raw command: execute_action(SpawnBoss10)
+07/30/24 05:09:17: Cleaned command: execute_action(SpawnBoss10)
+07/30/24 05:09:17: Executing action/group: SpawnBoss10
+07/30/24 05:09:17: Decoded Data: {"command":"spawn_boss","parameters":[10.0,400.0,0.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:17: Raw command: spawn_boss([10.0,400.0,0.0,"Player"])
+07/30/24 05:09:17: Cleaned command: spawn_boss([10.0,400.0,0.0,"Player"])
+07/30/24 05:09:17: Parsing arguments: [10.0,400.0,0.0,"Player"]
+07/30/24 05:09:17: Parsed arguments: ["[10.0,400.0,0.0,\"Player\"]"]
+07/30/24 05:09:17: Command Name: spawn_boss
+07/30/24 05:09:17: Target Object: yeancat
+07/30/24 05:09:17: Parameters: ["[10.0,400.0,0.0,\"Player\"]"]
+07/30/24 05:09:17: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:17: Raw command: execute_action(SpawnBoss11)
+07/30/24 05:09:17: Cleaned command: execute_action(SpawnBoss11)
+07/30/24 05:09:17: Executing action/group: SpawnBoss11
+07/30/24 05:09:17: Decoded Data: {"command":"spawn_boss","parameters":[11.0,283.0,283.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:17: Raw command: spawn_boss([11.0,283.0,283.0,"Player"])
+07/30/24 05:09:17: Cleaned command: spawn_boss([11.0,283.0,283.0,"Player"])
+07/30/24 05:09:17: Parsing arguments: [11.0,283.0,283.0,"Player"]
+07/30/24 05:09:17: Parsed arguments: ["[11.0,283.0,283.0,\"Player\"]"]
+07/30/24 05:09:17: Command Name: spawn_boss
+07/30/24 05:09:17: Target Object: yeancat
+07/30/24 05:09:17: Parameters: ["[11.0,283.0,283.0,\"Player\"]"]
+07/30/24 05:09:17: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:17: Raw command: execute_action(SpawnBoss12)
+07/30/24 05:09:17: Cleaned command: execute_action(SpawnBoss12)
+07/30/24 05:09:17: Executing action/group: SpawnBoss12
+07/30/24 05:09:17: Decoded Data: {"command":"spawn_boss","parameters":[12.0,0.0,400.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:17: Raw command: spawn_boss([12.0,0.0,400.0,"Player"])
+07/30/24 05:09:17: Cleaned command: spawn_boss([12.0,0.0,400.0,"Player"])
+07/30/24 05:09:17: Parsing arguments: [12.0,0.0,400.0,"Player"]
+07/30/24 05:09:17: Parsed arguments: ["[12.0,0.0,400.0,\"Player\"]"]
+07/30/24 05:09:17: Command Name: spawn_boss
+07/30/24 05:09:17: Target Object: yeancat
+07/30/24 05:09:17: Parameters: ["[12.0,0.0,400.0,\"Player\"]"]
+07/30/24 05:09:17: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:17: Raw command: execute_action(SpawnBoss13)
+07/30/24 05:09:17: Cleaned command: execute_action(SpawnBoss13)
+07/30/24 05:09:17: Executing action/group: SpawnBoss13
+07/30/24 05:09:17: Decoded Data: {"command":"spawn_boss","parameters":[13.0,-283.0,283.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:17: Raw command: spawn_boss([13.0,-283.0,283.0,"Player"])
+07/30/24 05:09:17: Cleaned command: spawn_boss([13.0,-283.0,283.0,"Player"])
+07/30/24 05:09:17: Parsing arguments: [13.0,-283.0,283.0,"Player"]
+07/30/24 05:09:17: Parsed arguments: ["[13.0,-283.0,283.0,\"Player\"]"]
+07/30/24 05:09:18: Command Name: spawn_boss
+07/30/24 05:09:18: Target Object: yeancat
+07/30/24 05:09:18: Parameters: ["[13.0,-283.0,283.0,\"Player\"]"]
+07/30/24 05:09:18: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:42: Raw command: execute_action(SpawnBossCircle)
+07/30/24 05:09:42: Cleaned command: execute_action(SpawnBossCircle)
+07/30/24 05:09:42: Executing action/group: SpawnBossCircle
+07/30/24 05:09:42: Decoded Data: {"type":"action_group","actions":["SpawnBoss0","SpawnBoss1","SpawnBoss2","SpawnBoss3","SpawnBoss4","SpawnBoss5","SpawnBoss6","SpawnBoss7","SpawnBoss8","SpawnBoss9","SpawnBoss10","SpawnBoss11","SpawnBoss12","SpawnBoss13"]}
+07/30/24 05:09:42: Raw command: execute_action(SpawnBoss0)
+07/30/24 05:09:42: Cleaned command: execute_action(SpawnBoss0)
+07/30/24 05:09:42: Executing action/group: SpawnBoss0
+07/30/24 05:09:42: Decoded Data: {"command":"spawn_boss","parameters":[0.0,0.0,-500.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:42: Raw command: spawn_boss([0.0,0.0,-500.0,"Player"])
+07/30/24 05:09:42: Cleaned command: spawn_boss([0.0,0.0,-500.0,"Player"])
+07/30/24 05:09:42: Parsing arguments: [0.0,0.0,-500.0,"Player"]
+07/30/24 05:09:42: Parsed arguments: ["[0.0,0.0,-500.0,\"Player\"]"]
+07/30/24 05:09:42: Command Name: spawn_boss
+07/30/24 05:09:42: Target Object: yeancat
+07/30/24 05:09:42: Parameters: ["[0.0,0.0,-500.0,\"Player\"]"]
+07/30/24 05:09:42: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:42: Raw command: execute_action(SpawnBoss1)
+07/30/24 05:09:42: Cleaned command: execute_action(SpawnBoss1)
+07/30/24 05:09:42: Executing action/group: SpawnBoss1
+07/30/24 05:09:42: Decoded Data: {"command":"spawn_boss","parameters":[1.0,353.0,-353.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:42: Raw command: spawn_boss([1.0,353.0,-353.0,"Player"])
+07/30/24 05:09:42: Cleaned command: spawn_boss([1.0,353.0,-353.0,"Player"])
+07/30/24 05:09:42: Parsing arguments: [1.0,353.0,-353.0,"Player"]
+07/30/24 05:09:42: Parsed arguments: ["[1.0,353.0,-353.0,\"Player\"]"]
+07/30/24 05:09:42: Command Name: spawn_boss
+07/30/24 05:09:42: Target Object: yeancat
+07/30/24 05:09:42: Parameters: ["[1.0,353.0,-353.0,\"Player\"]"]
+07/30/24 05:09:42: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:42: Raw command: execute_action(SpawnBoss2)
+07/30/24 05:09:42: Cleaned command: execute_action(SpawnBoss2)
+07/30/24 05:09:42: Executing action/group: SpawnBoss2
+07/30/24 05:09:42: Decoded Data: {"command":"spawn_boss","parameters":[2.0,500.0,0.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:42: Raw command: spawn_boss([2.0,500.0,0.0,"Player"])
+07/30/24 05:09:42: Cleaned command: spawn_boss([2.0,500.0,0.0,"Player"])
+07/30/24 05:09:42: Parsing arguments: [2.0,500.0,0.0,"Player"]
+07/30/24 05:09:42: Parsed arguments: ["[2.0,500.0,0.0,\"Player\"]"]
+07/30/24 05:09:42: Command Name: spawn_boss
+07/30/24 05:09:42: Target Object: yeancat
+07/30/24 05:09:42: Parameters: ["[2.0,500.0,0.0,\"Player\"]"]
+07/30/24 05:09:42: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:42: Raw command: execute_action(SpawnBoss3)
+07/30/24 05:09:42: Cleaned command: execute_action(SpawnBoss3)
+07/30/24 05:09:42: Executing action/group: SpawnBoss3
+07/30/24 05:09:42: Decoded Data: {"command":"spawn_boss","parameters":[3.0,353.0,353.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:42: Raw command: spawn_boss([3.0,353.0,353.0,"Player"])
+07/30/24 05:09:42: Cleaned command: spawn_boss([3.0,353.0,353.0,"Player"])
+07/30/24 05:09:42: Parsing arguments: [3.0,353.0,353.0,"Player"]
+07/30/24 05:09:42: Parsed arguments: ["[3.0,353.0,353.0,\"Player\"]"]
+07/30/24 05:09:42: Command Name: spawn_boss
+07/30/24 05:09:42: Target Object: yeancat
+07/30/24 05:09:42: Parameters: ["[3.0,353.0,353.0,\"Player\"]"]
+07/30/24 05:09:42: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:42: Raw command: execute_action(SpawnBoss4)
+07/30/24 05:09:42: Cleaned command: execute_action(SpawnBoss4)
+07/30/24 05:09:42: Executing action/group: SpawnBoss4
+07/30/24 05:09:43: Decoded Data: {"command":"spawn_boss","parameters":[4.0,0.0,500.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:43: Raw command: spawn_boss([4.0,0.0,500.0,"Player"])
+07/30/24 05:09:43: Cleaned command: spawn_boss([4.0,0.0,500.0,"Player"])
+07/30/24 05:09:43: Parsing arguments: [4.0,0.0,500.0,"Player"]
+07/30/24 05:09:43: Parsed arguments: ["[4.0,0.0,500.0,\"Player\"]"]
+07/30/24 05:09:43: Command Name: spawn_boss
+07/30/24 05:09:43: Target Object: yeancat
+07/30/24 05:09:43: Parameters: ["[4.0,0.0,500.0,\"Player\"]"]
+07/30/24 05:09:43: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:43: Raw command: execute_action(SpawnBoss5)
+07/30/24 05:09:43: Cleaned command: execute_action(SpawnBoss5)
+07/30/24 05:09:43: Executing action/group: SpawnBoss5
+07/30/24 05:09:43: Decoded Data: {"command":"spawn_boss","parameters":[5.0,-353.0,353.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:43: Raw command: spawn_boss([5.0,-353.0,353.0,"Player"])
+07/30/24 05:09:43: Cleaned command: spawn_boss([5.0,-353.0,353.0,"Player"])
+07/30/24 05:09:43: Parsing arguments: [5.0,-353.0,353.0,"Player"]
+07/30/24 05:09:43: Parsed arguments: ["[5.0,-353.0,353.0,\"Player\"]"]
+07/30/24 05:09:43: Command Name: spawn_boss
+07/30/24 05:09:43: Target Object: yeancat
+07/30/24 05:09:43: Parameters: ["[5.0,-353.0,353.0,\"Player\"]"]
+07/30/24 05:09:43: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:43: Raw command: execute_action(SpawnBoss6)
+07/30/24 05:09:43: Cleaned command: execute_action(SpawnBoss6)
+07/30/24 05:09:43: Executing action/group: SpawnBoss6
+07/30/24 05:09:43: Decoded Data: {"command":"spawn_boss","parameters":[6.0,-500.0,0.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:43: Raw command: spawn_boss([6.0,-500.0,0.0,"Player"])
+07/30/24 05:09:43: Cleaned command: spawn_boss([6.0,-500.0,0.0,"Player"])
+07/30/24 05:09:43: Parsing arguments: [6.0,-500.0,0.0,"Player"]
+07/30/24 05:09:43: Parsed arguments: ["[6.0,-500.0,0.0,\"Player\"]"]
+07/30/24 05:09:43: Command Name: spawn_boss
+07/30/24 05:09:43: Target Object: yeancat
+07/30/24 05:09:43: Parameters: ["[6.0,-500.0,0.0,\"Player\"]"]
+07/30/24 05:09:43: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:43: Raw command: execute_action(SpawnBoss7)
+07/30/24 05:09:43: Cleaned command: execute_action(SpawnBoss7)
+07/30/24 05:09:43: Executing action/group: SpawnBoss7
+07/30/24 05:09:43: Decoded Data: {"command":"spawn_boss","parameters":[7.0,-353.0,-353.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:43: Raw command: spawn_boss([7.0,-353.0,-353.0,"Player"])
+07/30/24 05:09:43: Cleaned command: spawn_boss([7.0,-353.0,-353.0,"Player"])
+07/30/24 05:09:43: Parsing arguments: [7.0,-353.0,-353.0,"Player"]
+07/30/24 05:09:43: Parsed arguments: ["[7.0,-353.0,-353.0,\"Player\"]"]
+07/30/24 05:09:43: Command Name: spawn_boss
+07/30/24 05:09:43: Target Object: yeancat
+07/30/24 05:09:43: Parameters: ["[7.0,-353.0,-353.0,\"Player\"]"]
+07/30/24 05:09:43: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:43: Raw command: execute_action(SpawnBoss8)
+07/30/24 05:09:43: Cleaned command: execute_action(SpawnBoss8)
+07/30/24 05:09:43: Executing action/group: SpawnBoss8
+07/30/24 05:09:43: Decoded Data: {"command":"spawn_boss","parameters":[8.0,0.0,-400.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:43: Raw command: spawn_boss([8.0,0.0,-400.0,"Player"])
+07/30/24 05:09:43: Cleaned command: spawn_boss([8.0,0.0,-400.0,"Player"])
+07/30/24 05:09:43: Parsing arguments: [8.0,0.0,-400.0,"Player"]
+07/30/24 05:09:43: Parsed arguments: ["[8.0,0.0,-400.0,\"Player\"]"]
+07/30/24 05:09:43: Command Name: spawn_boss
+07/30/24 05:09:43: Target Object: yeancat
+07/30/24 05:09:43: Parameters: ["[8.0,0.0,-400.0,\"Player\"]"]
+07/30/24 05:09:43: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:43: Raw command: execute_action(SpawnBoss9)
+07/30/24 05:09:43: Cleaned command: execute_action(SpawnBoss9)
+07/30/24 05:09:43: Executing action/group: SpawnBoss9
+07/30/24 05:09:43: Decoded Data: {"command":"spawn_boss","parameters":[9.0,283.0,-283.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:43: Raw command: spawn_boss([9.0,283.0,-283.0,"Player"])
+07/30/24 05:09:43: Cleaned command: spawn_boss([9.0,283.0,-283.0,"Player"])
+07/30/24 05:09:43: Parsing arguments: [9.0,283.0,-283.0,"Player"]
+07/30/24 05:09:43: Parsed arguments: ["[9.0,283.0,-283.0,\"Player\"]"]
+07/30/24 05:09:43: Command Name: spawn_boss
+07/30/24 05:09:43: Target Object: yeancat
+07/30/24 05:09:43: Parameters: ["[9.0,283.0,-283.0,\"Player\"]"]
+07/30/24 05:09:43: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:43: Raw command: execute_action(SpawnBoss10)
+07/30/24 05:09:43: Cleaned command: execute_action(SpawnBoss10)
+07/30/24 05:09:43: Executing action/group: SpawnBoss10
+07/30/24 05:09:43: Decoded Data: {"command":"spawn_boss","parameters":[10.0,400.0,0.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:43: Raw command: spawn_boss([10.0,400.0,0.0,"Player"])
+07/30/24 05:09:43: Cleaned command: spawn_boss([10.0,400.0,0.0,"Player"])
+07/30/24 05:09:43: Parsing arguments: [10.0,400.0,0.0,"Player"]
+07/30/24 05:09:43: Parsed arguments: ["[10.0,400.0,0.0,\"Player\"]"]
+07/30/24 05:09:43: Command Name: spawn_boss
+07/30/24 05:09:43: Target Object: yeancat
+07/30/24 05:09:43: Parameters: ["[10.0,400.0,0.0,\"Player\"]"]
+07/30/24 05:09:43: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:44: Raw command: execute_action(SpawnBoss11)
+07/30/24 05:09:44: Cleaned command: execute_action(SpawnBoss11)
+07/30/24 05:09:44: Executing action/group: SpawnBoss11
+07/30/24 05:09:44: Decoded Data: {"command":"spawn_boss","parameters":[11.0,283.0,283.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:44: Raw command: spawn_boss([11.0,283.0,283.0,"Player"])
+07/30/24 05:09:44: Cleaned command: spawn_boss([11.0,283.0,283.0,"Player"])
+07/30/24 05:09:44: Parsing arguments: [11.0,283.0,283.0,"Player"]
+07/30/24 05:09:44: Parsed arguments: ["[11.0,283.0,283.0,\"Player\"]"]
+07/30/24 05:09:44: Command Name: spawn_boss
+07/30/24 05:09:44: Target Object: yeancat
+07/30/24 05:09:44: Parameters: ["[11.0,283.0,283.0,\"Player\"]"]
+07/30/24 05:09:44: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:44: Raw command: execute_action(SpawnBoss12)
+07/30/24 05:09:44: Cleaned command: execute_action(SpawnBoss12)
+07/30/24 05:09:44: Executing action/group: SpawnBoss12
+07/30/24 05:09:44: Decoded Data: {"command":"spawn_boss","parameters":[12.0,0.0,400.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:44: Raw command: spawn_boss([12.0,0.0,400.0,"Player"])
+07/30/24 05:09:44: Cleaned command: spawn_boss([12.0,0.0,400.0,"Player"])
+07/30/24 05:09:44: Parsing arguments: [12.0,0.0,400.0,"Player"]
+07/30/24 05:09:44: Parsed arguments: ["[12.0,0.0,400.0,\"Player\"]"]
+07/30/24 05:09:44: Command Name: spawn_boss
+07/30/24 05:09:44: Target Object: yeancat
+07/30/24 05:09:44: Parameters: ["[12.0,0.0,400.0,\"Player\"]"]
+07/30/24 05:09:44: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:44: Raw command: execute_action(SpawnBoss13)
+07/30/24 05:09:44: Cleaned command: execute_action(SpawnBoss13)
+07/30/24 05:09:44: Executing action/group: SpawnBoss13
+07/30/24 05:09:44: Decoded Data: {"command":"spawn_boss","parameters":[13.0,-283.0,283.0,"Player"],"targetObject":"yeancat"}
+07/30/24 05:09:44: Raw command: spawn_boss([13.0,-283.0,283.0,"Player"])
+07/30/24 05:09:44: Cleaned command: spawn_boss([13.0,-283.0,283.0,"Player"])
+07/30/24 05:09:44: Parsing arguments: [13.0,-283.0,283.0,"Player"]
+07/30/24 05:09:44: Parsed arguments: ["[13.0,-283.0,283.0,\"Player\"]"]
+07/30/24 05:09:44: Command Name: spawn_boss
+07/30/24 05:09:44: Target Object: yeancat
+07/30/24 05:09:44: Parameters: ["[13.0,-283.0,283.0,\"Player\"]"]
+07/30/24 05:09:44: Invalid number of parameters for spawn_boss command. Usage: spawn_boss(boss_id, x, y, [relative_to])
+07/30/24 05:09:47: [Jay Arnold] hmm it didnt work
+07/30/24 05:09:47: Creating chat bubble: " hmm it didnt work", Owner: yeancat, Choices: []
+07/30/24 05:09:47: Chat Bubble Created. Following 'yeancat' with text: 'hmm it didnt work'. Number of choices: 0

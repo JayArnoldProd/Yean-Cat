@@ -1,0 +1,64 @@
+
+07/30/24 04:21:59: Loaded action/group: SaveGameNow
+07/30/24 04:21:59: Loaded action/group: GotoKingsKingdom
+07/30/24 04:21:59: Loaded action/group: EnterPortal
+07/30/24 04:21:59: Loaded action/group: PurchaseArtifacts
+07/30/24 04:21:59: Loaded action/group: BattleOutcome
+07/30/24 04:21:59: Loaded action/group: VisitMarket
+07/30/24 04:21:59: Loaded action/group: GotoDivineDomain
+07/30/24 04:21:59: Loaded action/group: GotoTheEndonda
+07/30/24 04:21:59: Loaded action/group: GotoUniverseCity
+07/30/24 04:21:59: Loaded action/group: GotoLandOfLucy
+07/30/24 04:22:00: Loaded action/group: GotoPlaceOfPablo
+07/30/24 04:22:00: Loaded action/group: InvestigateSignals
+07/30/24 04:22:00: Loaded action/group: OfferTrade
+07/30/24 04:22:00: Loaded action/group: DisableEnemySpawns
+07/30/24 04:22:00: Loaded action/group: BattleSequence
+07/30/24 04:22:00: Loaded action/group: StartBattle
+07/30/24 04:22:00: Loaded action/group: GotoTheIcyHeart
+07/30/24 04:22:00: Loaded action/group: EngageCombat
+07/30/24 04:22:00: Loaded action/group: GotoGhostTown
+07/30/24 04:22:00: Loaded action/group: StartExploration
+07/30/24 04:22:00: Loaded action/group: SetLevelFive
+07/30/24 04:22:00: Loaded action/group: LevelUpThree
+07/30/24 04:22:00: Loaded action/group: LevelUpOnce
+07/30/24 04:22:00: Loaded action/group: GotoTheGoldMines
+07/30/24 04:22:00: Loaded action/group: StartPeaceMission
+07/30/24 04:22:00: Loaded action/group: DiplomaticChoice
+07/30/24 04:22:00: Loaded action/group: TreatyOutcome
+07/30/24 04:22:00: Loaded action/group: ExplorationChoice
+07/30/24 04:22:00: Loaded action/group: BattleChoice
+07/30/24 04:22:00: Loaded action/group: ArtifactMystery
+07/30/24 04:22:00: Loaded action/group: PortalOutcome
+07/30/24 04:22:00: Loaded action/group: PeacefulMission
+07/30/24 04:22:00: Loaded action/group: SpaceAdventureStart
+07/30/24 04:22:00: Loaded action/group: PortalAdventure
+07/30/24 04:22:00: Loaded action/group: EnableEnemySpawns
+07/30/24 04:22:00: Loaded action/group: GotoVulturesValley
+07/30/24 04:22:00: Loaded action/group: GotoEarth
+07/30/24 04:22:00: Loaded action/group: GotoStormySands
+07/30/24 04:22:00: Loaded action/group: SpaceExploration
+07/30/24 04:22:00: Loaded action/group: GotoFantasia
+07/30/24 04:22:00: Loaded action/group: AG1
+07/30/24 04:22:00: Loaded action/group: GotoYetopia
+07/30/24 04:22:00: Loaded action/group: ArtifactOutcome
+07/30/24 04:22:00: Loaded action/group: EpicBattle
+07/30/24 04:22:00: Loaded action/group: PeaceTreaty
+07/30/24 04:22:00: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 04:22:00: [Client] Failed to reconnect to server. Will try again...
+07/30/24 04:22:21: Raw command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:22:21: Cleaned command: spawn_boss(1, 100, 100, "Player")
+07/30/24 04:22:21: Parsing arguments: 1, 100, 100, "Player"
+07/30/24 04:22:21: Parsed arguments: ["1","100","100","\"Player\""]
+07/30/24 04:22:21: Command Name: spawn_boss
+07/30/24 04:22:21: Target Object: yeancat
+07/30/24 04:22:21: Parameters: ["1","100","100","\"Player\""]
+07/30/24 04:22:21: Added boss reference: TravisSquawk1 -> obj_boss
+07/30/24 04:22:21: Added boss reference: TravissquawkrefInstance1000871 -> obj_boss
+07/30/24 04:22:21: Boss spawned successfully: Travis Squawk at position (1525.67, 1504.44)
+07/30/24 04:22:21: Boss reference added: TravisSquawkref instance 100087
+07/30/24 04:22:21: Added boss reference: TravisSquawk2 -> obj_boss
+07/30/24 04:22:21: Added boss reference: TravissquawkrefInstance1000882 -> obj_boss
+07/30/24 04:22:31: [Jay Arnold] it spawned 2 travis squawks!
+07/30/24 04:22:31: Creating chat bubble: " it spawned 2 travis squawks!", Owner: yeancat, Choices: []
+07/30/24 04:22:31: Chat Bubble Created. Following 'yeancat' with text: 'it spawned 2 travis squawks!'. Number of choices: 0

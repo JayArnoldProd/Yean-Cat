@@ -8,7 +8,7 @@ if !instance_exists(obj_Cursor) and (global.control_type!=1) {
 // Set current font and heartbeat rate
 global.heartbeatBPM = global.current_bpm;
 fnt_chat = master.font_array[fnt_chat_id, 1];
-global.wrapWidth = 2350; // Adjusted wrap width
+global.wrapWidth = 1700; // Adjusted wrap width
 
 //check for gamepad input
 check_gamepad_input()
@@ -99,6 +99,17 @@ if (keyboard_check_pressed(vk_tab)) {
 
 // Handle backspace and text input
 if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var total_lines = array_length(lines);
+    global.input_scroll_offset = max(0, total_lines - global.max_visible_lines);
+    
+    // Adjust scroll offset based on total lines
+    if (total_lines > global.max_visible_lines) {
+        global.input_scroll_offset = total_lines - global.max_visible_lines;
+    } else {
+        global.input_scroll_offset = 0;
+    }
+
 // Handle backspace input
     if (input_check("cancel") && string_length(global.commandBuffer) > 0) {
         if (global.backspaceTimer == 0 || global.backspaceTimer >= global.backspaceDelay) {
@@ -136,19 +147,8 @@ if (isActive) {
         global.backspaceTimer = 0; // Reset timer when backspace is released
 		global.backspaceSpeed=1
     }
-	if string_length(global.commandBuffer)<global.character_limit {
-    var char = keyboard_string;
-	} else {
-		var char = "";
-		if keyboard_check_pressed(vk_anykey) {
-		if last_key_is_valid_character(keyboard_lastkey) {
-			//play sound to indicate char limit. 
-			var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
-			shake_angle=choose(-1,1)*random_range(.95,1.00)
-		}
-		}
-	}
-    // Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+	
+	// Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
     var pasting = false;
     if (os_type == os_windows) {
         if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
@@ -163,43 +163,80 @@ if (isActive) {
 			char = ""
         }
     }
-
-    // Handle pasting
-    if (pasting) {
-        if (clipboard_has_text()) {
-            var clip_string = clipboard_get_text();
-            if (string_length(clip_string) > 0 && string_length(clip_string) < 200) {
-                global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+	
+	if string_length(global.commandBuffer) < global.character_limit {
+    var char = keyboard_string;
+        var space_pressed = keyboard_check_pressed(vk_space);
+        
+        if (char != "" || space_pressed) {
+            if (!pasting) {
+                if (space_pressed) {
+                    global.commandBuffer += " ";
+                    show_debug_message("[Client] Space added to command buffer");
+                } else {
+                    global.commandBuffer += char;
+                }
+                keyboard_string = ""; // Clear the keyboard buffer after reading
                 update_chat_input_visuals();
-                show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
-            } else {
-                handleDebugMessage("Clipboard content is too long to paste!", true);
+                show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
             }
         }
-        pasting = false;
+	} else {
+    var char = "";
+    if keyboard_check_pressed(vk_anykey) {
+        if last_key_is_valid_character(keyboard_lastkey) {
+            //play sound to indicate char limit. 
+            var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
+            shake_angle = choose(-1,1) * random_range(.95,1.00)
+        }
+    }
+}
+
+// Debug: Check for space key press
+    if (keyboard_check_pressed(vk_space)) {
+        show_debug_message("[Client] Space key pressed");
     }
 
-    if (char != "") {
-        // Prevent typing if command is filled
-        if (!((global.textColor == c_lime || global.textColor == c_red) && slash_typed)) {
-            draw_set_font(fnt_chat);
-            global.commandBuffer = appendAndWrap(char, global.commandBuffer, global.wrapWidth);
-        }
-        update_chat_input_visuals();
-        keyboard_string = ""; // Clear the buffer after reading
-        show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
+    // Debug: Check keyboard_string content
+    if (keyboard_string != "") {
+        show_debug_message("[Client] keyboard_string content: " + keyboard_string);
     }
+
+// Handle pasting
+// In the Step event of obj_Client
+if (pasting) {
+    if (clipboard_has_text()) {
+        var clip_string = clipboard_get_text();
+        if (string_length(clip_string) > 0 && string_length(clip_string) < global.character_limit) {
+            // Replace regular line breaks with intentional line breaks
+            clip_string = string_replace_all(clip_string, "\n", global.intentionalLineBreak);
+            clip_string = string_replace_all(clip_string, "\r", "");
+            
+            global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
+        } else {
+            handleDebugMessage("Clipboard content is too long to paste!", false);
+        }
+    }
+    pasting = false;
+}
 
 // Check if Enter is pressed to process the command or chat message
 if (input_check_pressed("confirm")) {
-    var trimmedCommand = string_trim(string_replace_all(global.commandBuffer, "\n", " "));
-    if (string_char_at(trimmedCommand, 1) == "/") {
-        var command = string_delete(trimmedCommand, 1, 1);
-        execute_command(string_trim(command));
-    } else {
+	if (keyboard_check(vk_shift)) {
+            // Shift+Enter: Add a new line
+            global.commandBuffer += global.intentionalLineBreak;
+            update_chat_input_visuals();
+        } else {
+        if (string_char_at(global.commandBuffer, 1) == "/") {
+            execute_multiple_commands(global.commandBuffer);
+            global.textColor = global.defaultTextColor;
+            isActive = false;
+        } else {
             var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
             global.message_is_bubble = 1;
-            handleDebugMessage(chatMessage, false);
+            handleDebugMessage(chatMessage, -1);
             global.message_is_bubble = 0;
         }
 
@@ -215,6 +252,7 @@ if (input_check_pressed("confirm")) {
         global.commandBuffer = "";
         isActive = false;
         show_debug_message("[Client] Processed command/chat and cleared buffer.");
+}
 }
     // Navigate through the recall list using up and down arrows
     if (keyboard_check_pressed(vk_up)) {
@@ -245,8 +283,9 @@ if (input_check_pressed("confirm")) {
 }
 
 if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+	global.longestmessage = updateLongestMessage(global.debugMessages);
     var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
-    
+ 
     // Check if a new message was added
     if (ds_list_size(global.debugMessages) > 0 && 
         ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {

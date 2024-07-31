@@ -37,5 +37,516 @@
       "parse_arguments",
       "execute_action"
     ]
+  },
+  {
+    "name": "Step Entry Split on Commas",
+    "description": "When listing steps with commas, each comma causes a new entry. This needs to be fixed so that steps can handle commas without creating new entries or a format must be decided to avoid this issue.",
+    "source": "GIT_GPT_SERVER",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-06-16",
+    "reported_by": "AI Assistant",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "related_logs": [
+      "No related logs"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: List steps with commas.",
+      "Step 2: Observe each comma causing a new entry."
+    ],
+    "resolution": [
+      "Expected fix: Adjust step entry handling to properly process commas."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "No related objects"
+    ],
+    "related_scripts": [
+      "No related scripts"
+    ]
+  },
+  {
+    "name": "Sample Bug",
+    "description": "Implement a sample bug for testing purposes.",
+    "source": "SYSTEM",
+    "priority": "low",
+    "status": "closed",
+    "date_reported": "2024-06-20",
+    "reported_by": "Tester",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "related_logs": [
+      "No related logs"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Create the bug.",
+      "Step 2: Implement the fix.",
+      "Step 3: Test the fix."
+    ],
+    "resolution": [
+      "Expected fix: Proper handling of the bug."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "No related objects"
+    ],
+    "related_scripts": [
+      "No related scripts"
+    ]
+  },
+  {
+    "name": "Command_Text_Color_Inconsistency",
+    "description": "After implementing a fix for command text coloring, the issue has regressed. Commands are now inconsistently colored red or pink instead of the expected green for valid commands. This affects user experience and the ability to quickly validate command inputs.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-22",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45495.53"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Reproduce the issue by typing various commands (e.g.",
+      " goto_planet",
+      " add_action",
+      " execute_action).",
+      "Step 2: Analyze the update_chat_input_visuals function for incorrect color assignment.",
+      "Step 3: Review the are_params_valid function for proper parameter validation.",
+      "Step 4: Check the action_exists function and global.actions map initialization.",
+      "Step 5: Verify the check_permission_command function for correct permission checking.",
+      "Step 6: Implement more detailed logging in color determination process.",
+      "Step 7: Consider implementing a state machine for complex command parsing.",
+      "Step 8: Test the system with a variety of command types and parameter structures."
+    ],
+    "resolution": [
+      "Expected fix: Consistent and correct color coding of command text. Valid commands should appear green",
+      " while invalid or unauthorized commands should be red. Complex commands with quoted strings and nested parameters should be handled correctly."
+    ],
+    "related_features": [
+      "Command_Text_Coloring",
+      "User_Interface_Feedback"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_Chat_Input"
+    ],
+    "related_scripts": [
+      "update_chat_input_visuals",
+      "check_permission_command",
+      "are_params_valid",
+      "action_exists",
+      "extract_action_name",
+      "parse_parameters",
+      "string_split",
+      "add_action",
+      "goto_planet",
+      "execute_action",
+      "are_brackets_balanced"
+    ]
+  },
+  {
+    "name": "Chat_Bubble_Choices_Not_Displaying",
+    "description": "Chat bubbles are being created with 0 choices, even when choices are specified in the command. This affects the functionality of choice-based interactions, particularly in actions like MainMenuChoices.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-22",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45495.55"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Execute the MainMenuChoices action.",
+      "Step 2: Verify that the chat bubble appears without choices.",
+      "Step 3: Examine the scr_chat_bubble function for choice handling.",
+      "Step 4: Review the parse_arguments and parse_data_types functions for correct parameter parsing.",
+      "Step 5: Check the execute_action function for proper passing of choice parameters.",
+      "Step 6: Inspect the chat_bubble command implementation.",
+      "Step 7: Verify the scr_chat_bubble_choices function is being called correctly.",
+      "Step 8: Test with various chat bubble commands with different numbers of choices."
+    ],
+    "resolution": [
+      "Expected fix: Chat bubbles should correctly display all specified choices",
+      " allowing for interactive dialogue and menu options."
+    ],
+    "related_features": [
+      "Chat_Interaction",
+      "User_Interface",
+      "Action_Execution"
+    ],
+    "related_objects": [
+      "obj_chat_bubble",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "scr_chat_bubble",
+      "scr_add_action",
+      "scr_add_chat_bubble_action",
+      "parse_arguments",
+      "parse_data_types",
+      "scr_execute_action",
+      "execute_command",
+      "chat_bubble",
+      "scr_chat_bubble_choices",
+      "parse_nested_array"
+    ]
+  },
+  {
+    "name": "Chat_Bubbles_Appearing_Empty",
+    "description": "Chat bubbles are being created but appear empty. When a user types a message or when the system generates a chat bubble, the bubble appears visually, but it doesn't display any text. This occurs for both regular messages and potentially for chat bubbles with choices.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-24",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45497.60"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Start the game.",
+      "Step 2: Type a normal message in the chat (not a command starting with '/').",
+      "Step 3: Observe if a chat bubble appears.",
+      "Step 4: Check if the chat bubble contains the text typed.",
+      "Step 5: Try typing messages of different lengths.",
+      "Step 6: Create a chat bubble with choices using a command.",
+      "Step 7: Check obj_chat_bubble's Create",
+      " Step",
+      " and Draw events.",
+      "Step 8: Review scr_chat_bubble and handleDebugMessage functions.",
+      "Step 9: Examine obj_Client for chat-related functionality.",
+      "Step 10: Check Actions.txt file content after adding actions.",
+      "Step 11: Monitor debug output when creating and displaying chat bubbles.",
+      "Step 12: Look for any error messages in the console related to chat bubbles or text drawing."
+    ],
+    "resolution": [
+      "Expected fix: Chat bubbles should properly display the text of messages and show choices when applicable. The text should be visible for messages of various lengths."
+    ],
+    "related_features": [
+      "Chat_System",
+      "User_Interface",
+      "Text_Display"
+    ],
+    "related_objects": [
+      "obj_chat_bubble",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "scr_chat_bubble",
+      "handleDebugMessage"
+    ]
+  },
+  {
+    "name": "CLIENT_INSTANCE_COMMAND_ISSUE",
+    "description": "Client instance commands are not being processed correctly in the multiplayer mode.",
+    "source": "GAMEPLAY",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-24",
+    "reported_by": "Jay Arnold",
+    "assigned_to": "Dev Team",
+    "generation": "3",
+    "related_logs": [
+      "SessionLog_45497.91"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Identify the problematic commands.",
+      "Step 2: Investigate the command processing logic.",
+      "Step 3: Implement a fix for command handling.",
+      "Step 4: Test the fix in multiplayer mode."
+    ],
+    "resolution": [
+      "Expected fix: Commands should be processed correctly in the client instance during multiplayer."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "save_actions",
+      "scr_save_actions",
+      "scr_add_action",
+      "execute_command",
+      "load_actions",
+      "array_to_string_robust",
+      "handleDebugMessage",
+      "appendAndWrap",
+      "scr_chat_bubble"
+    ]
+  },
+  {
+    "name": "ACTIONS_ADD_SAVE_ISSUE",
+    "description": "Actions are not adding or saving properly. Single argument actions are not executed correctly.",
+    "source": "GAMEPLAY",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-24",
+    "reported_by": "Jay Arnold",
+    "assigned_to": "Dev Team",
+    "generation": "3",
+    "related_logs": [
+      "SessionLog_45498.21"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Identify the issue with adding and saving actions.",
+      "Step 2: Investigate the logic for handling single argument actions.",
+      "Step 3: Implement a fix for action handling and saving.",
+      "Step 4: Test the fix to ensure actions are processed correctly."
+    ],
+    "resolution": [
+      "Expected fix: Actions should add",
+      " save",
+      " and execute correctly",
+      " including single argument actions."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "save_actions",
+      "scr_save_actions",
+      "scr_add_action",
+      "execute_command",
+      "load_actions",
+      "array_to_string_robust",
+      "handleDebugMessage",
+      "appendAndWrap",
+      "scr_chat_bubble",
+      "parse_arguments",
+      "decode_action_parameters"
+    ]
+  },
+  {
+    "name": "Action_Parameter_Loss_In_Chat_Bubble_Execution",
+    "description": "When adding and executing the 'MainMenuChoices' action, which uses the chat_bubble command, not all parameters are being correctly saved or retrieved. Specifically, when executing the action, only the first parameter (the text) is being passed to the chat_bubble function, while the owner and choices parameters are missing. This likely affects other actions using complex parameter structures.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-26",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45495.55"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Add the MainMenuChoices action using add_action command.",
+      "Step 2: Execute the MainMenuChoices action.",
+      "Step 3: Observe that only the text is displayed",
+      " without choices.",
+      "Step 4: Check the saving process in save_actions and scr_add_action.",
+      "Step 5: Verify the loading process in load_actions.",
+      "Step 6: Examine parameter encoding/decoding in decode_action_parameters.",
+      "Step 7: Review execute_command and how it passes parameters to chat_bubble.",
+      "Step 8: Inspect parse_arguments for correct handling of complex parameter structures.",
+      "Step 9: Check json_stringify and json_parse usage for parameter storage.",
+      "Step 10: Verify base64_encode and base64_decode for any data corruption.",
+      "Step 11: Test other actions like scr_goto_planet",
+      " scr_level_up",
+      " and scr_save_game for similar issues."
+    ],
+    "resolution": [
+      "Expected fix: All parameters",
+      " including the owner and choices",
+      " should be correctly saved when adding an action and fully retrieved and passed when executing the action. This should work for all actions",
+      " especially those with complex parameter structures like arrays within arrays."
+    ],
+    "related_features": [
+      "Action_System",
+      "Chat_Bubble_Functionality",
+      "Parameter_Handling"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "scr_add_action",
+      "execute_command",
+      "save_actions",
+      "load_actions",
+      "decode_action_parameters",
+      "scr_chat_bubble",
+      "parse_arguments",
+      "handleDebugMessage",
+      "json_stringify",
+      "json_parse",
+      "base64_encode",
+      "base64_decode",
+      "appendAndWrap",
+      "array_to_string_robust",
+      "scr_goto_planet",
+      "scr_level_up",
+      "scr_save_game"
+    ]
+  },
+  {
+    "name": "Chat_System_Multiple_Issues",
+    "description": "The chat system is experiencing multiple issues: 1) Text in the chat box is overlapping, likely due to incorrect line height calculation or text wrapping. 2) Chat bubbles are not properly destroying old instances, causing overlapping bubbles from the same owner. 3) Chat bubbles with choices are being destroyed prematurely. 4) The chat box's black rectangle outline doesn't scale properly with the text content. 5) Debug messages related to creating chat bubbles and adding actions are not properly formatted or positioned.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-27",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45500.98"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Test chat with various message lengths.",
+      "Step 2: Create multiple chat bubbles for the same owner.",
+      "Step 3: Create chat bubbles with choices and verify their persistence.",
+      "Step 4: Examine drawChatMessages function for line calculation issues.",
+      "Step 5: Review obj_chat_bubble's Create and Destroy events.",
+      "Step 6: Check the timer mechanism for chat bubble destruction.",
+      "Step 7: Inspect handleDebugMessage function for proper formatting.",
+      "Step 8: Verify string_wrap and appendAndWrap functions.",
+      "Step 9: Review drawTextWithOutline function.",
+      "Step 10: Test scrolling mechanism with long messages.",
+      "Step 11: Examine chat box background drawing code."
+    ],
+    "resolution": [
+      "Expected fix: 1) Chat messages should not overlap and be properly spaced. 2) Only one chat bubble per owner should be visible at a time. 3) Chat bubbles with choices should persist until a choice is made. 4) The chat box outline should scale correctly with content. 5) Debug messages should be properly formatted and positioned in the chat."
+    ],
+    "related_features": [
+      "Chat_System",
+      "User_Interface",
+      "Debug_Output"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble",
+      "obj_Cursor"
+    ],
+    "related_scripts": [
+      "drawChatMessages",
+      "string_wrap",
+      "handleDebugMessage",
+      "execute_command",
+      "add_command",
+      "add_action",
+      "parse_arguments",
+      "drawTextWithOutline",
+      "appendAndWrap",
+      "update_chat_input_visuals",
+      "load_actions",
+      "save_actions",
+      "handle_choice_selection",
+      "check_gamepad_input",
+      "string_split",
+      "logToFile"
+    ]
+  },
+  {
+    "name": "Extra_Space_In_Action_Parameters_Due_To_Text_Wrapping",
+    "description": "Certain actions have extra space characters added to their action parameters due to text wrapping in the chat input box. This causes issues when executing actions, particularly with planet names or other parameters sensitive to exact string matching. For example, 'Vultures Valley' becomes 'Vultures  Valley', causing the action to fail due to an invalid planet name.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "closed",
+    "date_reported": "2024-07-27",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "2",
+    "related_logs": [
+      "SessionLog_45501.16"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Create an action with a long parameter that triggers text wrapping (e.g.",
+      " add_action(GotoVulturesValley",
+      "goto_planet",
+      "[\"Vultures Valley\"])).",
+      "Step 2: Execute the action and observe the debug output.",
+      "Step 3: Verify that extra spaces are introduced in the parameter (e.g.",
+      " \"Vultures  Valley\").",
+      "Step 4: Check if the action fails due to the extra space.",
+      "Step 5: Review the appendAndWrap function for improper space handling.",
+      "Step 6: Examine the parse_arguments function for potential issues with space preservation.",
+      "Step 7: Investigate the add_action function to see how it processes and stores parameters.",
+      "Step 8: Review the save_actions and load_actions functions for potential space-related issues in serialization/deserialization.",
+      "Step 9: Check the execute_command function for how it retrieves and processes action parameters.",
+      "Step 10: Verify the string_wrap function's behavior with spaces at line breaks."
+    ],
+    "resolution": [
+      "Expected fix: Action parameters should maintain their original spacing",
+      " regardless of text wrapping in the chat input box. The 'GotoVulturesValley' action should execute correctly with 'Vultures Valley' as the parameter",
+      " without additional spaces."
+    ],
+    "related_features": [
+      "Action_System",
+      "Chat_Input",
+      "Text_Processing"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "drawChatMessages",
+      "string_wrap",
+      "handleDebugMessage",
+      "execute_command",
+      "add_command",
+      "add_action",
+      "parse_arguments",
+      "drawTextWithOutline",
+      "appendAndWrap",
+      "update_chat_input_visuals",
+      "load_actions",
+      "save_actions",
+      "handle_choice_selection",
+      "string_split",
+      "logToFile"
+    ]
+  },
+  {
+    "name": "INVALID_DS_MAP_REFERENCE",
+    "description": "There is an invalid reference to a ds_map when trying to access the async_load map.",
+    "source": "SYSTEM",
+    "priority": "critical",
+    "status": "closed",
+    "date_reported": "2024-07-24",
+    "reported_by": "Jay Arnold",
+    "assigned_to": "Dev Team",
+    "generation": "4",
+    "related_logs": [
+      "SessionLog_45501.19"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Identify the code segment where the ds_map reference error occurs.",
+      "Step 2: Verify the validity of the ds_map reference and ensure it exists before accessing.",
+      "Step 3: Implement checks and fixes to handle invalid ds_map references appropriately.",
+      "Step 4: Test to confirm the ds_map is accessed correctly without errors."
+    ],
+    "resolution": [
+      "Expected fix: Proper handling and validation of ds_map references to prevent errors when accessing the async_load map."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "master",
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "No related scripts"
+    ]
   }
 ]

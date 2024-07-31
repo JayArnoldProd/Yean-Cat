@@ -468,23 +468,22 @@ responsecount=[
 //[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
 //[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
 //[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound]
-
-//]
-
+global.threedee=0
+global.camera_zoom=1;
 //MACRO Variables
-global.macro1=-85
-global.macro2=30
-global.macro3=.5
-global.macro4=0
-global.macro5=0
-global.macro6=0
-global.macro7=0
-global.macro8=0
-global.macro9=0
-global.macro10=0
+global.macro1 = 1;     // Camera movement speed
+global.macro2 = 1;   // Zoom level
+global.macro3 = 0;     // 3D effect intensity (0 for no effect, negative for normal orientation)
+global.macro4 = 1;     // Not used, can be repurposed
+global.macro5 = -1920;  // Horizontal offset for 3D objects
+global.macro6 = -1080;     // Vertical offset for 3D objects
+global.macro7 = 0;      // Not used, can be repurposed if needed
+global.macro8 = 0;      // Not used, can be repurposed if needed
+global.macro9 = 1;      // Not used, can be repurposed if needed
+global.macro10 = 1;     // Not used, can be repurposed if needed
 
 audio_listener_orientation(0,1,0,0,0,1);
-cam=view_camera[0]
+
 camscale=1
 focusonboss=0
 focustime=0
@@ -494,6 +493,12 @@ focusonbosss=0
 camovxx=0
 camovyy=0
 moby=0
+
+if !instance_exists(obj_camera) {
+	var camra=instance_create_depth(room_width/2,room_height/2,0,obj_camera)
+camra.cam =view_camera[0];
+cam=camra.cam;
+}
 
 global.room_speed_set=60
 rspeed=60
@@ -886,6 +891,7 @@ xpcount=0
 xpbuff=0;
 
 spawnthings=false;
+spawnenemies=false;
 
 //key for xp
 keypitch=1

@@ -1,0 +1,58 @@
+07/27/24 18:25:43: Loaded action: SaveGameNow, Encoded Command: InNhdmVfZ2FtZShbXSki
+07/27/24 18:25:43: Loaded action: MainMenuChoices, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 18:25:43: Loaded action: LevelUpOnce, Encoded Command: ImxldmVsX3VwKFsxXSki
+07/27/24 18:25:43: Loaded action: GotoEarth, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 18:25:43: Actions loaded successfully from Actions.txt.
+07/27/24 18:25:43: [Client] Failed to reconnect to server. Will try again...
+07/27/24 18:25:59: [Jay Arnold] hello world
+07/27/24 18:25:59: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 18:25:59: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 18:27:44: Loaded action: SaveGameNow, Encoded Command: InNhdmVfZ2FtZShbXSki
+07/27/24 18:27:44: Loaded action: MainMenuChoices, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 18:27:44: Loaded action: LevelUpOnce, Encoded Command: ImxldmVsX3VwKFsxXSki
+07/27/24 18:27:44: Loaded action: GotoEarth, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 18:27:44: Actions loaded successfully from Actions.txt.
+07/27/24 18:27:44: [Client] Failed to reconnect to server. Will try again...
+07/27/24 18:27:56: [Jay Arnold] d
+07/27/24 18:27:56: Creating chat bubble:  d, Owner: yeancat, Choices: []
+07/27/24 18:27:56: Chat Bubble Created. Following 'yeancat' with text: ' d'. Number of choices: 0
+07/27/24 18:31:20: Loaded action: SaveGameNow, Encoded Command: InNhdmVfZ2FtZShbXSki
+07/27/24 18:33:19: Loaded action: SaveGameNow, Encoded Command: InNhdmVfZ2FtZShbXSki
+07/27/24 18:33:19: Loaded action: MainMenuChoices, Encoded Command: ImNoYXRfYnViYmxlKFtcIldoYXQgd291bGQgeW91IGxpa2UgdG8gZG8/XCIsXCJ5ZWFuY2F0XCIsW1tcIkdvIHRvIEVhcnRoXCIsXCJHb3RvRWFydGhcIl0sW1wiTGV2ZWwgVXBcIixcIkxldmVsVXBPbmNlXCJdLFtcIlNhdmUgIEdhbWVcIixcIlNhdmVHYW1lTm93XCJdLFtcIkNhbmNlbFwiLFwibnVsbFwiXV1dKSI=
+07/27/24 18:33:19: Loaded action: LevelUpOnce, Encoded Command: ImxldmVsX3VwKFsxXSki
+07/27/24 18:33:19: Loaded action: GotoEarth, Encoded Command: ImdvdG9fcGxhbmV0KFtcIkVhcnRoXCJdKSI=
+07/27/24 18:33:19: Actions loaded successfully from Actions.txt.
+07/27/24 18:33:19: [Client] Failed to reconnect to server. Will try again...
+07/27/24 18:33:31: [Jay Arnold] hello world
+07/27/24 18:33:31: Creating chat bubble:  hello world, Owner: yeancat, Choices: []
+07/27/24 18:33:31: Chat Bubble Created. Following 'yeancat' with text: ' hello world'. Number of choices: 0
+07/27/24 18:34:46: [Jay Arnold] the bug i need to fix is that sometimes messages overlap in the chat  box
+07/27/24 18:34:46: Creating chat bubble:  the bug i need to fix is that sometimes messages overlap in the chat  box, Owner: yeancat, Choices: []
+07/27/24 18:34:46: Chat Bubble Created. Following 'yeancat' with text: ' the bug i need to fix is that sometimes messages overlap in the chat  box'. Number of choices: 0
+07/27/24 18:35:47: [Jay Arnold] that message created debug message in the chat and it isnt  recognizing the correct amount of lines to stagger it from the previous  message i believe
+07/27/24 18:35:47: Creating chat bubble:  that message created debug message in the chat and it isnt  recognizing the correct amount of lines to stagger it from the previous  message i believe, Owner: yeancat, Choices: []
+07/27/24 18:35:47: Chat Bubble Created. Following 'yeancat' with text: ' that message created debug message in the chat and it isnt  recognizing the correct amount of lines to stagger it from the previous  message i believe'. Number of choices: 0
+07/27/24 18:36:52: [Jay Arnold] also the black rectancle outline does not remain scaled to fit the chat  box text
+07/27/24 18:36:52: Creating chat bubble:  also the black rectancle outline does not remain scaled to fit the chat  box text, Owner: yeancat, Choices: []
+07/27/24 18:36:52: Chat Bubble Created. Following 'yeancat' with text: ' also the black rectancle outline does not remain scaled to fit the chat  box text'. Number of choices: 0
+07/27/24 18:37:16: Executing command: list_variables
+07/27/24 18:37:16: Processed command: list_variables
+07/27/24 18:37:16: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+07/27/24 18:37:16: Password, Time, Macro5, Macro1, Macro9, Macro7, Macro3, 
+07/27/24 18:37:16: CharacterLimit, ControllerType, Level
+07/27/24 18:38:39: Executing command: list_commands
+07/27/24 18:38:39: Processed command: list_commands
+07/27/24 18:38:39: Commands: add_action(, add_chat_bubble_action(, chat_bubble(, 
+07/27/24 18:38:39: chat_bubble_choices(, disable_heartbeat, enable_heartbeat, 
+07/27/24 18:38:39: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+07/27/24 18:38:39: list_actions, list_clients, list_commands, list_variables, 
+07/27/24 18:38:39: return_controller, save_actions, save_game, save_macros, 
+07/27/24 18:38:39: set_my_permission(, set_variable(, show_gamepad_mapping, show_lines(, 
+07/27/24 18:38:39: show_variable(, show_wpm, toggle_debug, toggle_input_display, 
+07/27/24 18:38:39: toggle_log_debug, toggle_server
+07/27/24 18:38:48: Executing command: show_lines(11)
+07/27/24 18:38:48: Processed command: show_lines(11)
+07/27/24 18:38:48: Display set to show 11 lines.
+07/27/24 18:39:23: [Jay Arnold] yes it seems to only be an issue with the debug messages involving   creating chat bubbles and adding actions i believe
+07/27/24 18:39:23: Creating chat bubble:  yes it seems to only be an issue with the debug messages involving   creating chat bubbles and adding actions i believe, Owner: yeancat, Choices: []
+07/27/24 18:39:23: Chat Bubble Created. Following 'yeancat' with text: ' yes it seems to only be an issue with the debug messages involving   creating chat bubbles and adding actions i believe'. Number of choices: 0
