@@ -11,6 +11,7 @@ function scr_add_action(actionName, fullActionCommand, actionParams) {
     }
 
     var actionData = {
+        type: "single_action",
         targetObject: targetObject,
         command: actionCommand,
         parameters: json_parse(actionParams)

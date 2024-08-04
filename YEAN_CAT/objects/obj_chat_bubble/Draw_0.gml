@@ -95,15 +95,12 @@ if (array_length(choices) > 0) {
             scale = hover_scale[? i];
         }
 			
-        // Check for mouse click
-        if (is_hovering && mouse_check_button_pressed(mb_left)) {
-            if (choices[i][1] != "null") {
-                handle_choice_selection(choices[i][1]);  // Pass the action name to the new function
-            } else {
-                // Handle "null" action (e.g., close the chat bubble)
-                instance_destroy();
-            }
-        }
+// Inside the for loop that draws choices in obj_chat_bubble's Draw event
+if (is_hovering && mouse_check_button_pressed(mb_left)) {
+    var selected_action = choices[i][1];
+    handle_choice_selection(selected_action);
+    break;  // Exit the loop after handling the choice
+}
 
         // Draw choice bubble
         var choice_scale_x = choice_width / 880 * scale;

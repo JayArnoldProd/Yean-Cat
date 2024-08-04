@@ -1,0 +1,129 @@
+08/01/24 00:33:25: Loaded action/group: SaveGameNow
+08/01/24 00:33:25: Loaded action/group: GotoKingsKingdom
+08/01/24 00:33:25: Loaded action/group: EnterPortal
+08/01/24 00:33:25: Loaded action/group: PurchaseArtifacts
+08/01/24 00:33:25: Loaded action/group: BattleOutcome
+08/01/24 00:33:25: Loaded action/group: VisitMarket
+08/01/24 00:33:25: Loaded action/group: GotoDivineDomain
+08/01/24 00:33:25: Loaded action/group: GotoTheEndonda
+08/01/24 00:33:25: Loaded action/group: GotoUniverseCity
+08/01/24 00:33:25: Loaded action/group: SpawnNPC1
+08/01/24 00:33:25: Loaded action/group: GotoLandOfLucy
+08/01/24 00:33:25: Loaded action/group: GotoPlaceOfPablo
+08/01/24 00:33:25: Loaded action/group: InvestigateSignals
+08/01/24 00:33:25: Loaded action/group: OfferTrade
+08/01/24 00:33:25: Loaded action/group: DisableEnemySpawns
+08/01/24 00:33:25: Loaded action/group: BattleSequence
+08/01/24 00:33:25: Loaded action/group: StartBattle
+08/01/24 00:33:25: Loaded action/group: SpawnBoss4
+08/01/24 00:33:25: Loaded action/group: SpawnBossCircle
+08/01/24 00:33:25: Loaded action/group: GotoTheIcyHeart
+08/01/24 00:33:25: Loaded action/group: EngageCombat
+08/01/24 00:33:25: Loaded action/group: LevelUpReward
+08/01/24 00:33:25: Loaded action/group: GotoGhostTown
+08/01/24 00:33:25: Loaded action/group: SpawnBoss0
+08/01/24 00:33:25: Loaded action/group: SpawnBoss13
+08/01/24 00:33:25: Loaded action/group: StartExploration
+08/01/24 00:33:25: Loaded action/group: SpawnBoss8
+08/01/24 00:33:25: Loaded action/group: SpawnBoss6
+08/01/24 00:33:25: Loaded action/group: SetLevelFive
+08/01/24 00:33:25: Loaded action/group: LevelTooLow
+08/01/24 00:33:25: Loaded action/group: LevelUpThree
+08/01/24 00:33:25: Loaded action/group: LevelUpOnce
+08/01/24 00:33:25: Loaded action/group: GotoTheGoldMines
+08/01/24 00:33:25: Loaded action/group: SpawnBoss11
+08/01/24 00:33:25: Loaded action/group: StartPeaceMission
+08/01/24 00:33:25: Loaded action/group: SpawnBoss2
+08/01/24 00:33:25: Loaded action/group: DiplomaticChoice
+08/01/24 00:33:25: Loaded action/group: TreatyOutcome
+08/01/24 00:33:25: Loaded action/group: ExplorationChoice
+08/01/24 00:33:25: Loaded action/group: BattleChoice
+08/01/24 00:33:25: Loaded action/group: ArtifactMystery
+08/01/24 00:33:25: Loaded action/group: PortalOutcome
+08/01/24 00:33:25: Loaded action/group: CheckLevel
+08/01/24 00:33:25: Loaded action/group: PeacefulMission
+08/01/24 00:33:25: Loaded action/group: SpaceAdventureStart
+08/01/24 00:33:25: Loaded action/group: PortalAdventure
+08/01/24 00:33:25: Loaded action/group: EnableEnemySpawns
+08/01/24 00:33:25: Loaded action/group: GotoVulturesValley
+08/01/24 00:33:25: Loaded action/group: GotoEarth
+08/01/24 00:33:25: Loaded action/group: SpawnBoss1
+08/01/24 00:33:25: Loaded action/group: GotoStormySands
+08/01/24 00:33:25: Loaded action/group: SpawnBoss12
+08/01/24 00:33:25: Loaded action/group: SpaceExploration
+08/01/24 00:33:25: Loaded action/group: GotoFantasia
+08/01/24 00:33:25: Loaded action/group: SpawnBoss5
+08/01/24 00:33:25: Loaded action/group: AG1
+08/01/24 00:33:25: Loaded action/group: SpawnBoss10
+08/01/24 00:33:25: Loaded action/group: GotoYetopia
+08/01/24 00:33:25: Loaded action/group: SpawnBoss3
+08/01/24 00:33:25: Loaded action/group: ArtifactOutcome
+08/01/24 00:33:25: Loaded action/group: EpicBattle
+08/01/24 00:33:25: Loaded action/group: SpawnBoss7
+08/01/24 00:33:25: Loaded action/group: SpawnBoss9
+08/01/24 00:33:25: Loaded action/group: PeaceTreaty
+08/01/24 00:33:25: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 00:33:25: [Client] Failed to reconnect to server. Will try again...
+08/01/24 00:33:53: Raw command: set_variable(Level,1)
+08/01/24 00:33:53: Cleaned command: set_variable(Level,1)
+08/01/24 00:33:53: Parsing arguments: Level,1
+08/01/24 00:33:53: Parsed arguments: ["Level","1"]
+08/01/24 00:33:54: Command Name: set_variable
+08/01/24 00:33:54: Target Object: yeancat
+08/01/24 00:33:54: Parameters: ["Level","1"]
+08/01/24 00:33:54: Level set to 1
+08/01/24 00:33:54: Raw command: add_action(LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"])
+08/01/24 00:33:54: Cleaned command: add_action(LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"])
+08/01/24 00:33:54: Detected add_action command
+08/01/24 00:33:54: Arguments string: LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"]
+08/01/24 00:33:54: Parsing arguments: LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"]
+08/01/24 00:33:54: Parsed arguments: ["LevelUpReward","Target.chat_bubble","[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 00:33:54: Parsed arguments: ["LevelUpReward","Target.chat_bubble","[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 00:33:54: Action Name: LevelUpReward
+08/01/24 00:33:54: Full Action Command: Target.chat_bubble
+08/01/24 00:33:54: Action Params: ["Congratulations! You've reached level 5 or higher!"]
+08/01/24 00:33:54: Target Object: Target
+08/01/24 00:33:54: Action Command: chat_bubble
+08/01/24 00:33:54: Action 'LevelUpReward' added/updated successfully.
+08/01/24 00:33:54: Actions and action groups saved successfully to Actions.txt.
+08/01/24 00:33:54: Raw command: add_action(LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"])
+08/01/24 00:33:54: Cleaned command: add_action(LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"])
+08/01/24 00:33:54: Detected add_action command
+08/01/24 00:33:54: Arguments string: LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"]
+08/01/24 00:33:54: Parsing arguments: LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"]
+08/01/24 00:33:54: Parsed arguments: ["LevelTooLow","Target.chat_bubble","[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 00:33:54: Parsed arguments: ["LevelTooLow","Target.chat_bubble","[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 00:33:54: Action Name: LevelTooLow
+08/01/24 00:33:54: Full Action Command: Target.chat_bubble
+08/01/24 00:33:54: Action Params: ["Your level is too low. Keep playing to level up!"]
+08/01/24 00:33:54: Target Object: Target
+08/01/24 00:33:54: Action Command: chat_bubble
+08/01/24 00:33:54: Action 'LevelTooLow' added/updated successfully.
+08/01/24 00:33:54: Actions and action groups saved successfully to Actions.txt.
+08/01/24 00:33:54: Raw command: add_action_condition(CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow)
+08/01/24 00:33:54: Cleaned command: add_action_condition(CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow)
+08/01/24 00:33:54: Parsing arguments: CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow
+08/01/24 00:33:54: Parsed arguments: ["CheckLevel","Level",">=","5","LevelUpReward","LevelTooLow"]
+08/01/24 00:33:54: Command Name: add_action_condition
+08/01/24 00:33:54: Target Object: yeancat
+08/01/24 00:33:54: Parameters: ["CheckLevel","Level",">=","5","LevelUpReward","LevelTooLow"]
+08/01/24 00:33:54: Action condition 'CheckLevel' added successfully.
+08/01/24 00:34:04: Raw command: execute_action(CheckLevel)
+08/01/24 00:34:04: Cleaned command: execute_action(CheckLevel)
+08/01/24 00:34:04: Executing action/group: CheckLevel
+08/01/24 00:34:04: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"5","operator":">=","trueAction":"LevelUpReward","falseAction":"LevelTooLow"}
+08/01/24 00:34:04: Invalid action/group data for: CheckLevel
+08/01/24 00:36:12: [Jay Arnold] okay maybe we need to make sure its storing to actions.txt like actions and action groups are stored but
+categorized so that i can list them separately.
+08/01/24 00:36:12: Creating chat bubble: " okay maybe we need to make sure its storing to actions.txt like actions and action groups are stored but\ncategorized so that i can list them separately.", Owner: yeancat, Choices: []
+08/01/24 00:36:12: Chat Bubble Created. Following 'yeancat' with text: 'okay maybe we need to make sure its storing to actions.txt
+like actions and action groups are stored but
+categorized so that i can list them separately.'. Number of choices: 0
+08/01/24 00:36:24: [Jay Arnold] which brings up the fact that we still need /list_action_conditions
+08/01/24 00:36:24: Creating chat bubble: " which brings up the fact that we still need \/list_action_conditions", Owner: yeancat, Choices: []
+08/01/24 00:36:24: Chat Bubble Created. Following 'yeancat' with text: 'which brings up the fact that we still need
+/list_action_conditions'. Number of choices: 0
+08/01/24 00:36:50: [Jay Arnold] please add this command and try and fix why the action condition is not being executed.
+08/01/24 00:36:50: Creating chat bubble: " please add this command and try and fix why the action condition is not being executed.", Owner: yeancat, Choices: []
+08/01/24 00:36:50: Chat Bubble Created. Following 'yeancat' with text: 'please add this command and try and fix why the action
+condition is not being executed.'. Number of choices: 0

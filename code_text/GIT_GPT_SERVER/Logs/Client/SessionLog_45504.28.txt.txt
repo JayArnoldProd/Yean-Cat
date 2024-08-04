@@ -1,0 +1,752 @@
+07/31/24 01:43:46: Loaded action/group: SaveGameNow
+07/31/24 01:43:46: Loaded action/group: GotoKingsKingdom
+07/31/24 01:43:46: Loaded action/group: EnterPortal
+07/31/24 01:43:46: Loaded action/group: PurchaseArtifacts
+07/31/24 01:43:46: Loaded action/group: BattleOutcome
+07/31/24 01:43:46: Loaded action/group: VisitMarket
+07/31/24 01:43:46: Loaded action/group: GotoDivineDomain
+07/31/24 01:43:46: Loaded action/group: GotoTheEndonda
+07/31/24 01:43:46: Loaded action/group: GotoUniverseCity
+07/31/24 01:43:46: Loaded action/group: SpawnNPC1
+07/31/24 01:43:46: Loaded action/group: GotoLandOfLucy
+07/31/24 01:43:46: Loaded action/group: GotoPlaceOfPablo
+07/31/24 01:43:46: Loaded action/group: InvestigateSignals
+07/31/24 01:43:46: Loaded action/group: OfferTrade
+07/31/24 01:43:46: Loaded action/group: DisableEnemySpawns
+07/31/24 01:43:46: Loaded action/group: BattleSequence
+07/31/24 01:43:46: Loaded action/group: StartBattle
+07/31/24 01:43:47: Loaded action/group: SpawnBoss4
+07/31/24 01:43:47: Loaded action/group: SpawnBossCircle
+07/31/24 01:43:47: Loaded action/group: GotoTheIcyHeart
+07/31/24 01:43:47: Loaded action/group: EngageCombat
+07/31/24 01:43:47: Loaded action/group: GotoGhostTown
+07/31/24 01:43:47: Loaded action/group: SpawnBoss0
+07/31/24 01:43:47: Loaded action/group: SpawnBoss13
+07/31/24 01:43:47: Loaded action/group: StartExploration
+07/31/24 01:43:47: Loaded action/group: SpawnBoss8
+07/31/24 01:43:47: Loaded action/group: SpawnBoss6
+07/31/24 01:43:47: Loaded action/group: SetLevelFive
+07/31/24 01:43:47: Loaded action/group: LevelUpThree
+07/31/24 01:43:47: Loaded action/group: LevelUpOnce
+07/31/24 01:43:47: Loaded action/group: GotoTheGoldMines
+07/31/24 01:43:47: Loaded action/group: SpawnBoss11
+07/31/24 01:43:47: Loaded action/group: StartPeaceMission
+07/31/24 01:43:47: Loaded action/group: SpawnBoss2
+07/31/24 01:43:47: Loaded action/group: DiplomaticChoice
+07/31/24 01:43:47: Loaded action/group: TreatyOutcome
+07/31/24 01:43:47: Loaded action/group: ExplorationChoice
+07/31/24 01:43:47: Loaded action/group: BattleChoice
+07/31/24 01:43:47: Loaded action/group: ArtifactMystery
+07/31/24 01:43:47: Loaded action/group: PortalOutcome
+07/31/24 01:43:47: Loaded action/group: PeacefulMission
+07/31/24 01:43:47: Loaded action/group: SpaceAdventureStart
+07/31/24 01:43:47: Loaded action/group: PortalAdventure
+07/31/24 01:43:47: Loaded action/group: EnableEnemySpawns
+07/31/24 01:43:47: Loaded action/group: GotoVulturesValley
+07/31/24 01:43:47: Loaded action/group: GotoEarth
+07/31/24 01:43:47: Loaded action/group: SpawnBoss1
+07/31/24 01:43:47: Loaded action/group: GotoStormySands
+07/31/24 01:43:47: Loaded action/group: SpawnBoss12
+07/31/24 01:43:47: Loaded action/group: SpaceExploration
+07/31/24 01:43:47: Loaded action/group: GotoFantasia
+07/31/24 01:43:47: Loaded action/group: SpawnBoss5
+07/31/24 01:43:47: Loaded action/group: AG1
+07/31/24 01:43:47: Loaded action/group: SpawnBoss10
+07/31/24 01:43:47: Loaded action/group: GotoYetopia
+07/31/24 01:43:47: Loaded action/group: SpawnBoss3
+07/31/24 01:43:47: Loaded action/group: ArtifactOutcome
+07/31/24 01:43:47: Loaded action/group: EpicBattle
+07/31/24 01:43:47: Loaded action/group: SpawnBoss7
+07/31/24 01:43:47: Loaded action/group: SpawnBoss9
+07/31/24 01:43:47: Loaded action/group: PeaceTreaty
+07/31/24 01:43:47: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 01:43:48: [Client] Failed to reconnect to server. Will try again...
+07/31/24 01:44:09: [Jay Arnold] okay now everything is normal not flipped again!
+07/31/24 01:44:09: Creating chat bubble: " okay now everything is normal not flipped again!", Owner: yeancat, Choices: []
+07/31/24 01:44:09: Chat Bubble Created. Following 'yeancat' with text: 'okay now everything is normal not flipped
+again!'. Number of choices: 0
+07/31/24 01:44:53: [Jay Arnold] all of my 2d treated draw events are in the correct position but the 3d ones are
+down and to the right about half the view width and height
+07/31/24 01:44:53: Creating chat bubble: " all of my 2d treated draw events are in the correct position but the 3d ones are\ndown and to the right about half the view width and height", Owner: yeancat, Choices: []
+07/31/24 01:44:53: Chat Bubble Created. Following 'yeancat' with text: 'all of my 2d treated draw events are in the
+correct position but the 3d ones are
+down and to the right about half the view
+width and height'. Number of choices: 0
+07/31/24 01:45:20: [Jay Arnold] i will attempt to adjust some macros to get it to line up hopefully the 2d chatbox
+which is not a gui draw will not shift
+07/31/24 01:45:20: Creating chat bubble: " i will attempt to adjust some macros to get it to line up hopefully the 2d chatbox\nwhich is not a gui draw will not shift", Owner: yeancat, Choices: []
+07/31/24 01:45:20: Chat Bubble Created. Following 'yeancat' with text: 'i will attempt to adjust some macros to get it to
+line up hopefully the 2d chatbox
+which is not a gui draw will not shift'. Number of choices: 0
+07/31/24 01:45:37: Raw command: set_variable(Macro5,-200)
+07/31/24 01:45:37: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:45:37: Parsing arguments: Macro5,-200
+07/31/24 01:45:37: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:45:37: Command Name: set_variable
+07/31/24 01:45:37: Target Object: yeancat
+07/31/24 01:45:37: Parameters: ["Macro5","-200"]
+07/31/24 01:45:37: Macro5 set to -200
+07/31/24 01:46:06: Raw command: set_variable(Macro6,-200)
+07/31/24 01:46:06: Cleaned command: set_variable(Macro6,-200)
+07/31/24 01:46:06: Parsing arguments: Macro6,-200
+07/31/24 01:46:06: Parsed arguments: ["Macro6","-200"]
+07/31/24 01:46:06: Command Name: set_variable
+07/31/24 01:46:07: Target Object: yeancat
+07/31/24 01:46:07: Parameters: ["Macro6","-200"]
+07/31/24 01:46:07: Macro6 set to -200
+07/31/24 01:46:10: Raw command: set_variable(Macro6,-200)
+07/31/24 01:46:10: Cleaned command: set_variable(Macro6,-200)
+07/31/24 01:46:10: Parsing arguments: Macro6,-200
+07/31/24 01:46:10: Parsed arguments: ["Macro6","-200"]
+07/31/24 01:46:10: Command Name: set_variable
+07/31/24 01:46:10: Target Object: yeancat
+07/31/24 01:46:10: Parameters: ["Macro6","-200"]
+07/31/24 01:46:10: Macro6 set to -200
+07/31/24 01:46:15: [Jay Arnold] hello
+07/31/24 01:46:15: Creating chat bubble: " hello", Owner: yeancat, Choices: []
+07/31/24 01:46:15: Chat Bubble Created. Following 'yeancat' with text: 'hello'. Number of choices: 0
+07/31/24 01:46:18: Raw command: set_variable(Macro6,-200)
+07/31/24 01:46:18: Cleaned command: set_variable(Macro6,-200)
+07/31/24 01:46:18: Parsing arguments: Macro6,-200
+07/31/24 01:46:18: Parsed arguments: ["Macro6","-200"]
+07/31/24 01:46:18: Command Name: set_variable
+07/31/24 01:46:18: Target Object: yeancat
+07/31/24 01:46:18: Parameters: ["Macro6","-200"]
+07/31/24 01:46:18: Macro6 set to -200
+07/31/24 01:46:24: Raw command: set_variable(Macro5,-200)
+07/31/24 01:46:24: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:46:24: Parsing arguments: Macro5,-200
+07/31/24 01:46:24: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:46:24: Command Name: set_variable
+07/31/24 01:46:24: Target Object: yeancat
+07/31/24 01:46:25: Parameters: ["Macro5","-200"]
+07/31/24 01:46:25: Macro5 set to -200
+07/31/24 01:46:27: Raw command: set_variable(Macro5,-200)
+07/31/24 01:46:27: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:46:27: Parsing arguments: Macro5,-200
+07/31/24 01:46:27: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:46:27: Command Name: set_variable
+07/31/24 01:46:27: Target Object: yeancat
+07/31/24 01:46:27: Parameters: ["Macro5","-200"]
+07/31/24 01:46:27: Macro5 set to -200
+07/31/24 01:46:29: Raw command: set_variable(Macro5,-200)
+07/31/24 01:46:29: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:46:29: Parsing arguments: Macro5,-200
+07/31/24 01:46:29: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:46:29: Command Name: set_variable
+07/31/24 01:46:29: Target Object: yeancat
+07/31/24 01:46:29: Parameters: ["Macro5","-200"]
+07/31/24 01:46:29: Macro5 set to -200
+07/31/24 01:46:30: Raw command: set_variable(Macro5,-200)
+07/31/24 01:46:30: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:46:30: Parsing arguments: Macro5,-200
+07/31/24 01:46:30: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:46:30: Command Name: set_variable
+07/31/24 01:46:30: Target Object: yeancat
+07/31/24 01:46:30: Parameters: ["Macro5","-200"]
+07/31/24 01:46:30: Macro5 set to -200
+07/31/24 01:46:36: Raw command: set_variable(Macro5,-500)
+07/31/24 01:46:36: Cleaned command: set_variable(Macro5,-500)
+07/31/24 01:46:36: Parsing arguments: Macro5,-500
+07/31/24 01:46:36: Parsed arguments: ["Macro5","-500"]
+07/31/24 01:46:36: Command Name: set_variable
+07/31/24 01:46:36: Target Object: yeancat
+07/31/24 01:46:36: Parameters: ["Macro5","-500"]
+07/31/24 01:46:36: Macro5 set to -500
+07/31/24 01:46:44: Raw command: set_variable(Macro6,-500)
+07/31/24 01:46:45: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:46:45: Parsing arguments: Macro6,-500
+07/31/24 01:46:45: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:46:45: Command Name: set_variable
+07/31/24 01:46:45: Target Object: yeancat
+07/31/24 01:46:45: Parameters: ["Macro6","-500"]
+07/31/24 01:46:45: Macro6 set to -500
+07/31/24 01:46:48: Raw command: set_variable(Macro6,-500)
+07/31/24 01:46:48: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:46:49: Parsing arguments: Macro6,-500
+07/31/24 01:46:49: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:46:49: Command Name: set_variable
+07/31/24 01:46:49: Target Object: yeancat
+07/31/24 01:46:49: Parameters: ["Macro6","-500"]
+07/31/24 01:46:49: Macro6 set to -500
+07/31/24 01:46:50: Raw command: set_variable(Macro6,-500)
+07/31/24 01:46:50: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:46:50: Parsing arguments: Macro6,-500
+07/31/24 01:46:50: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:46:50: Command Name: set_variable
+07/31/24 01:46:50: Target Object: yeancat
+07/31/24 01:46:50: Parameters: ["Macro6","-500"]
+07/31/24 01:46:50: Macro6 set to -500
+07/31/24 01:46:55: Raw command: set_variable(Macro6,500)
+07/31/24 01:46:55: Cleaned command: set_variable(Macro6,500)
+07/31/24 01:46:55: Parsing arguments: Macro6,500
+07/31/24 01:46:55: Parsed arguments: ["Macro6","500"]
+07/31/24 01:46:55: Command Name: set_variable
+07/31/24 01:46:55: Target Object: yeancat
+07/31/24 01:46:55: Parameters: ["Macro6","500"]
+07/31/24 01:46:55: Macro6 set to 500
+07/31/24 01:46:57: Raw command: set_variable(Macro6,500)
+07/31/24 01:46:57: Cleaned command: set_variable(Macro6,500)
+07/31/24 01:46:57: Parsing arguments: Macro6,500
+07/31/24 01:46:57: Parsed arguments: ["Macro6","500"]
+07/31/24 01:46:57: Command Name: set_variable
+07/31/24 01:46:57: Target Object: yeancat
+07/31/24 01:46:57: Parameters: ["Macro6","500"]
+07/31/24 01:46:57: Macro6 set to 500
+07/31/24 01:47:03: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:03: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:03: Parsing arguments: Macro6,-500
+07/31/24 01:47:03: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:03: Command Name: set_variable
+07/31/24 01:47:03: Target Object: yeancat
+07/31/24 01:47:03: Parameters: ["Macro6","-500"]
+07/31/24 01:47:03: Macro6 set to -500
+07/31/24 01:47:04: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:04: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:04: Parsing arguments: Macro6,-500
+07/31/24 01:47:04: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:04: Command Name: set_variable
+07/31/24 01:47:04: Target Object: yeancat
+07/31/24 01:47:04: Parameters: ["Macro6","-500"]
+07/31/24 01:47:04: Macro6 set to -500
+07/31/24 01:47:05: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:05: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:05: Parsing arguments: Macro6,-500
+07/31/24 01:47:05: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:05: Command Name: set_variable
+07/31/24 01:47:05: Target Object: yeancat
+07/31/24 01:47:05: Parameters: ["Macro6","-500"]
+07/31/24 01:47:05: Macro6 set to -500
+07/31/24 01:47:06: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:06: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:06: Parsing arguments: Macro6,-500
+07/31/24 01:47:06: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:06: Command Name: set_variable
+07/31/24 01:47:06: Target Object: yeancat
+07/31/24 01:47:06: Parameters: ["Macro6","-500"]
+07/31/24 01:47:06: Macro6 set to -500
+07/31/24 01:47:07: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:07: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:07: Parsing arguments: Macro6,-500
+07/31/24 01:47:07: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:07: Command Name: set_variable
+07/31/24 01:47:07: Target Object: yeancat
+07/31/24 01:47:07: Parameters: ["Macro6","-500"]
+07/31/24 01:47:07: Macro6 set to -500
+07/31/24 01:47:07: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:07: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:07: Parsing arguments: Macro6,-500
+07/31/24 01:47:07: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:07: Command Name: set_variable
+07/31/24 01:47:07: Target Object: yeancat
+07/31/24 01:47:07: Parameters: ["Macro6","-500"]
+07/31/24 01:47:07: Macro6 set to -500
+07/31/24 01:47:08: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:08: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:08: Parsing arguments: Macro6,-500
+07/31/24 01:47:08: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:08: Command Name: set_variable
+07/31/24 01:47:08: Target Object: yeancat
+07/31/24 01:47:08: Parameters: ["Macro6","-500"]
+07/31/24 01:47:08: Macro6 set to -500
+07/31/24 01:47:09: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:09: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:09: Parsing arguments: Macro6,-500
+07/31/24 01:47:09: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:09: Command Name: set_variable
+07/31/24 01:47:09: Target Object: yeancat
+07/31/24 01:47:09: Parameters: ["Macro6","-500"]
+07/31/24 01:47:09: Macro6 set to -500
+07/31/24 01:47:22: Raw command: set_variable(Macro5,-200)
+07/31/24 01:47:22: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:47:22: Parsing arguments: Macro5,-200
+07/31/24 01:47:22: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:47:22: Command Name: set_variable
+07/31/24 01:47:22: Target Object: yeancat
+07/31/24 01:47:22: Parameters: ["Macro5","-200"]
+07/31/24 01:47:22: Macro5 set to -200
+07/31/24 01:47:25: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:25: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:25: Parsing arguments: Macro6,-500
+07/31/24 01:47:25: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:25: Command Name: set_variable
+07/31/24 01:47:25: Target Object: yeancat
+07/31/24 01:47:25: Parameters: ["Macro6","-500"]
+07/31/24 01:47:25: Macro6 set to -500
+07/31/24 01:47:32: Raw command: set_variable(Macro5,-200)
+07/31/24 01:47:32: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:47:32: Parsing arguments: Macro5,-200
+07/31/24 01:47:32: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:47:32: Command Name: set_variable
+07/31/24 01:47:32: Target Object: yeancat
+07/31/24 01:47:32: Parameters: ["Macro5","-200"]
+07/31/24 01:47:32: Macro5 set to -200
+07/31/24 01:47:40: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:40: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:40: Parsing arguments: Macro6,-500
+07/31/24 01:47:40: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:40: Command Name: set_variable
+07/31/24 01:47:40: Target Object: yeancat
+07/31/24 01:47:40: Parameters: ["Macro6","-500"]
+07/31/24 01:47:40: Macro6 set to -500
+07/31/24 01:47:43: Raw command: set_variable(Macro5,-200)
+07/31/24 01:47:43: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:47:43: Parsing arguments: Macro5,-200
+07/31/24 01:47:43: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:47:43: Command Name: set_variable
+07/31/24 01:47:43: Target Object: yeancat
+07/31/24 01:47:43: Parameters: ["Macro5","-200"]
+07/31/24 01:47:43: Macro5 set to -200
+07/31/24 01:47:47: Raw command: set_variable(Macro5,-200)
+07/31/24 01:47:47: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:47:47: Parsing arguments: Macro5,-200
+07/31/24 01:47:47: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:47:47: Command Name: set_variable
+07/31/24 01:47:47: Target Object: yeancat
+07/31/24 01:47:47: Parameters: ["Macro5","-200"]
+07/31/24 01:47:47: Macro5 set to -200
+07/31/24 01:47:49: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:49: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:50: Parsing arguments: Macro6,-500
+07/31/24 01:47:50: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:50: Command Name: set_variable
+07/31/24 01:47:50: Target Object: yeancat
+07/31/24 01:47:50: Parameters: ["Macro6","-500"]
+07/31/24 01:47:50: Macro6 set to -500
+07/31/24 01:47:52: Raw command: set_variable(Macro5,-200)
+07/31/24 01:47:52: Cleaned command: set_variable(Macro5,-200)
+07/31/24 01:47:52: Parsing arguments: Macro5,-200
+07/31/24 01:47:52: Parsed arguments: ["Macro5","-200"]
+07/31/24 01:47:52: Command Name: set_variable
+07/31/24 01:47:52: Target Object: yeancat
+07/31/24 01:47:52: Parameters: ["Macro5","-200"]
+07/31/24 01:47:52: Macro5 set to -200
+07/31/24 01:47:53: Raw command: set_variable(Macro6,-500)
+07/31/24 01:47:53: Cleaned command: set_variable(Macro6,-500)
+07/31/24 01:47:53: Parsing arguments: Macro6,-500
+07/31/24 01:47:53: Parsed arguments: ["Macro6","-500"]
+07/31/24 01:47:53: Command Name: set_variable
+07/31/24 01:47:53: Target Object: yeancat
+07/31/24 01:47:53: Parameters: ["Macro6","-500"]
+07/31/24 01:47:53: Macro6 set to -500
+07/31/24 01:48:11: Raw command: set_variable(Macro1,1.5)
+07/31/24 01:48:11: Cleaned command: set_variable(Macro1,1.5)
+07/31/24 01:48:11: Parsing arguments: Macro1,1.5
+07/31/24 01:48:11: Parsed arguments: ["Macro1","1.5"]
+07/31/24 01:48:11: Command Name: set_variable
+07/31/24 01:48:11: Target Object: yeancat
+07/31/24 01:48:11: Parameters: ["Macro1","1.5"]
+07/31/24 01:48:11: Macro1 set to 1.50
+07/31/24 01:48:15: Raw command: set_variable(Macro1,2)
+07/31/24 01:48:15: Cleaned command: set_variable(Macro1,2)
+07/31/24 01:48:15: Parsing arguments: Macro1,2
+07/31/24 01:48:15: Parsed arguments: ["Macro1","2"]
+07/31/24 01:48:15: Command Name: set_variable
+07/31/24 01:48:15: Target Object: yeancat
+07/31/24 01:48:15: Parameters: ["Macro1","2"]
+07/31/24 01:48:15: Macro1 set to 2
+07/31/24 01:48:18: Raw command: set_variable(Macro1,1)
+07/31/24 01:48:18: Cleaned command: set_variable(Macro1,1)
+07/31/24 01:48:18: Parsing arguments: Macro1,1
+07/31/24 01:48:18: Parsed arguments: ["Macro1","1"]
+07/31/24 01:48:18: Command Name: set_variable
+07/31/24 01:48:18: Target Object: yeancat
+07/31/24 01:48:18: Parameters: ["Macro1","1"]
+07/31/24 01:48:18: Macro1 set to 1
+07/31/24 01:48:20: Raw command: set_variable(Macro1,.5)
+07/31/24 01:48:20: Cleaned command: set_variable(Macro1,.5)
+07/31/24 01:48:21: Parsing arguments: Macro1,.5
+07/31/24 01:48:21: Parsed arguments: ["Macro1",".5"]
+07/31/24 01:48:21: Command Name: set_variable
+07/31/24 01:48:21: Target Object: yeancat
+07/31/24 01:48:21: Parameters: ["Macro1",".5"]
+07/31/24 01:48:21: Macro1 set to 0.50
+07/31/24 01:48:25: Raw command: set_variable(Macro1,1)
+07/31/24 01:48:25: Cleaned command: set_variable(Macro1,1)
+07/31/24 01:48:25: Parsing arguments: Macro1,1
+07/31/24 01:48:25: Parsed arguments: ["Macro1","1"]
+07/31/24 01:48:25: Command Name: set_variable
+07/31/24 01:48:25: Target Object: yeancat
+07/31/24 01:48:25: Parameters: ["Macro1","1"]
+07/31/24 01:48:25: Macro1 set to 1
+07/31/24 01:48:35: Raw command: set_variable(Macro2,.5)
+07/31/24 01:48:35: Cleaned command: set_variable(Macro2,.5)
+07/31/24 01:48:35: Parsing arguments: Macro2,.5
+07/31/24 01:48:35: Parsed arguments: ["Macro2",".5"]
+07/31/24 01:48:35: Command Name: set_variable
+07/31/24 01:48:35: Target Object: yeancat
+07/31/24 01:48:35: Parameters: ["Macro2",".5"]
+07/31/24 01:48:35: Macro2 set to 0.50
+07/31/24 01:48:54: Raw command: set_variable(Macro2,1)
+07/31/24 01:48:54: Cleaned command: set_variable(Macro2,1)
+07/31/24 01:48:54: Parsing arguments: Macro2,1
+07/31/24 01:48:54: Parsed arguments: ["Macro2","1"]
+07/31/24 01:48:54: Command Name: set_variable
+07/31/24 01:48:54: Target Object: yeancat
+07/31/24 01:48:54: Parameters: ["Macro2","1"]
+07/31/24 01:48:54: Macro2 set to 1
+07/31/24 01:49:03: Raw command: set_variable(Macro2,.1)
+07/31/24 01:49:03: Cleaned command: set_variable(Macro2,.1)
+07/31/24 01:49:03: Parsing arguments: Macro2,.1
+07/31/24 01:49:03: Parsed arguments: ["Macro2",".1"]
+07/31/24 01:49:03: Command Name: set_variable
+07/31/24 01:49:03: Target Object: yeancat
+07/31/24 01:49:03: Parameters: ["Macro2",".1"]
+07/31/24 01:49:03: Macro2 set to 0.10
+07/31/24 01:49:17: Raw command: set_variable(Macro2,1)
+07/31/24 01:49:17: Cleaned command: set_variable(Macro2,1)
+07/31/24 01:49:17: Parsing arguments: Macro2,1
+07/31/24 01:49:17: Parsed arguments: ["Macro2","1"]
+07/31/24 01:49:17: Command Name: set_variable
+07/31/24 01:49:17: Target Object: yeancat
+07/31/24 01:49:17: Parameters: ["Macro2","1"]
+07/31/24 01:49:17: Macro2 set to 1
+07/31/24 01:49:47: Raw command: set_variable(Macro3,0)
+07/31/24 01:49:47: Cleaned command: set_variable(Macro3,0)
+07/31/24 01:49:47: Parsing arguments: Macro3,0
+07/31/24 01:49:47: Parsed arguments: ["Macro3","0"]
+07/31/24 01:49:47: Command Name: set_variable
+07/31/24 01:49:47: Target Object: yeancat
+07/31/24 01:49:47: Parameters: ["Macro3","0"]
+07/31/24 01:49:47: Macro3 set to 0
+07/31/24 01:49:51: Raw command: set_variable(Macro3,.1)
+07/31/24 01:49:51: Cleaned command: set_variable(Macro3,.1)
+07/31/24 01:49:51: Parsing arguments: Macro3,.1
+07/31/24 01:49:52: Parsed arguments: ["Macro3",".1"]
+07/31/24 01:49:52: Command Name: set_variable
+07/31/24 01:49:52: Target Object: yeancat
+07/31/24 01:49:52: Parameters: ["Macro3",".1"]
+07/31/24 01:49:52: Macro3 set to 0.10
+07/31/24 01:49:58: Raw command: set_variable(Macro3,0)
+07/31/24 01:49:58: Cleaned command: set_variable(Macro3,0)
+07/31/24 01:49:58: Parsing arguments: Macro3,0
+07/31/24 01:49:58: Parsed arguments: ["Macro3","0"]
+07/31/24 01:49:58: Command Name: set_variable
+07/31/24 01:49:58: Target Object: yeancat
+07/31/24 01:49:58: Parameters: ["Macro3","0"]
+07/31/24 01:49:58: Macro3 set to 0
+07/31/24 01:50:02: Raw command: set_variable(Macro3,1)
+07/31/24 01:50:02: Cleaned command: set_variable(Macro3,1)
+07/31/24 01:50:02: Parsing arguments: Macro3,1
+07/31/24 01:50:02: Parsed arguments: ["Macro3","1"]
+07/31/24 01:50:02: Command Name: set_variable
+07/31/24 01:50:02: Target Object: yeancat
+07/31/24 01:50:02: Parameters: ["Macro3","1"]
+07/31/24 01:50:02: Macro3 set to 1
+07/31/24 01:50:05: Raw command: set_variable(Macro3,0)
+07/31/24 01:50:05: Cleaned command: set_variable(Macro3,0)
+07/31/24 01:50:05: Parsing arguments: Macro3,0
+07/31/24 01:50:05: Parsed arguments: ["Macro3","0"]
+07/31/24 01:50:05: Command Name: set_variable
+07/31/24 01:50:05: Target Object: yeancat
+07/31/24 01:50:05: Parameters: ["Macro3","0"]
+07/31/24 01:50:05: Macro3 set to 0
+07/31/24 01:50:10: Raw command: set_variable(Macro3,.1)
+07/31/24 01:50:10: Cleaned command: set_variable(Macro3,.1)
+07/31/24 01:50:10: Parsing arguments: Macro3,.1
+07/31/24 01:50:10: Parsed arguments: ["Macro3",".1"]
+07/31/24 01:50:10: Command Name: set_variable
+07/31/24 01:50:10: Target Object: yeancat
+07/31/24 01:50:10: Parameters: ["Macro3",".1"]
+07/31/24 01:50:10: Macro3 set to 0.10
+07/31/24 01:50:20: Raw command: set_variable(Macro2,1.1)
+07/31/24 01:50:20: Cleaned command: set_variable(Macro2,1.1)
+07/31/24 01:50:21: Parsing arguments: Macro2,1.1
+07/31/24 01:50:21: Parsed arguments: ["Macro2","1.1"]
+07/31/24 01:50:21: Command Name: set_variable
+07/31/24 01:50:21: Target Object: yeancat
+07/31/24 01:50:21: Parameters: ["Macro2","1.1"]
+07/31/24 01:50:21: Macro2 set to 1.10
+07/31/24 01:50:24: Raw command: set_variable(Macro2,1.5)
+07/31/24 01:50:25: Cleaned command: set_variable(Macro2,1.5)
+07/31/24 01:50:25: Parsing arguments: Macro2,1.5
+07/31/24 01:50:25: Parsed arguments: ["Macro2","1.5"]
+07/31/24 01:50:25: Command Name: set_variable
+07/31/24 01:50:25: Target Object: yeancat
+07/31/24 01:50:25: Parameters: ["Macro2","1.5"]
+07/31/24 01:50:25: Macro2 set to 1.50
+07/31/24 01:50:31: Raw command: set_variable(Macro3,0)
+07/31/24 01:50:31: Cleaned command: set_variable(Macro3,0)
+07/31/24 01:50:31: Parsing arguments: Macro3,0
+07/31/24 01:50:31: Parsed arguments: ["Macro3","0"]
+07/31/24 01:50:31: Command Name: set_variable
+07/31/24 01:50:31: Target Object: yeancat
+07/31/24 01:50:31: Parameters: ["Macro3","0"]
+07/31/24 01:50:31: Macro3 set to 0
+07/31/24 01:50:54: Raw command: set_variable(Macro5,-1000)
+07/31/24 01:50:54: Cleaned command: set_variable(Macro5,-1000)
+07/31/24 01:50:54: Parsing arguments: Macro5,-1000
+07/31/24 01:50:54: Parsed arguments: ["Macro5","-1000"]
+07/31/24 01:50:54: Command Name: set_variable
+07/31/24 01:50:54: Target Object: yeancat
+07/31/24 01:50:54: Parameters: ["Macro5","-1000"]
+07/31/24 01:50:54: Macro5 set to -1000
+07/31/24 01:51:00: Raw command: set_variable(Macro6,-1000
+07/31/24 01:51:00: Cleaned command: set_variable(Macro6,-1000
+07/31/24 01:51:00: Command Name: set_variable(Macro6,-1000
+07/31/24 01:51:00: Target Object: yeancat
+07/31/24 01:51:00: Parameters: []
+07/31/24 01:51:00: Script not found for command: set_variable(Macro6,-1000
+07/31/24 01:51:04: Raw command: set_variable(Macro6,-1000)
+07/31/24 01:51:04: Cleaned command: set_variable(Macro6,-1000)
+07/31/24 01:51:04: Parsing arguments: Macro6,-1000
+07/31/24 01:51:04: Parsed arguments: ["Macro6","-1000"]
+07/31/24 01:51:04: Command Name: set_variable
+07/31/24 01:51:04: Target Object: yeancat
+07/31/24 01:51:04: Parameters: ["Macro6","-1000"]
+07/31/24 01:51:04: Macro6 set to -1000
+07/31/24 01:51:14: Raw command: set_variable(Macro6,-100)
+07/31/24 01:51:14: Cleaned command: set_variable(Macro6,-100)
+07/31/24 01:51:14: Parsing arguments: Macro6,-100
+07/31/24 01:51:14: Parsed arguments: ["Macro6","-100"]
+07/31/24 01:51:14: Command Name: set_variable
+07/31/24 01:51:14: Target Object: yeancat
+07/31/24 01:51:14: Parameters: ["Macro6","-100"]
+07/31/24 01:51:14: Macro6 set to -100
+07/31/24 01:51:24: Raw command: set_variable(Macro6,-1000)
+07/31/24 01:51:24: Cleaned command: set_variable(Macro6,-1000)
+07/31/24 01:51:24: Parsing arguments: Macro6,-1000
+07/31/24 01:51:24: Parsed arguments: ["Macro6","-1000"]
+07/31/24 01:51:24: Command Name: set_variable
+07/31/24 01:51:24: Target Object: yeancat
+07/31/24 01:51:24: Parameters: ["Macro6","-1000"]
+07/31/24 01:51:24: Macro6 set to -1000
+07/31/24 01:51:29: Raw command: set_variable(Macro6,-1100)
+07/31/24 01:51:29: Cleaned command: set_variable(Macro6,-1100)
+07/31/24 01:51:29: Parsing arguments: Macro6,-1100
+07/31/24 01:51:29: Parsed arguments: ["Macro6","-1100"]
+07/31/24 01:51:29: Command Name: set_variable
+07/31/24 01:51:29: Target Object: yeancat
+07/31/24 01:51:29: Parameters: ["Macro6","-1100"]
+07/31/24 01:51:29: Macro6 set to -1100
+07/31/24 01:51:46: Raw command: set_variable(Macro5,-1100)
+07/31/24 01:51:46: Cleaned command: set_variable(Macro5,-1100)
+07/31/24 01:51:46: Parsing arguments: Macro5,-1100
+07/31/24 01:51:46: Parsed arguments: ["Macro5","-1100"]
+07/31/24 01:51:46: Command Name: set_variable
+07/31/24 01:51:46: Target Object: yeancat
+07/31/24 01:51:46: Parameters: ["Macro5","-1100"]
+07/31/24 01:51:46: Macro5 set to -1100
+07/31/24 01:51:50: Raw command: set_variable(Macro5,-1200)
+07/31/24 01:51:50: Cleaned command: set_variable(Macro5,-1200)
+07/31/24 01:51:50: Parsing arguments: Macro5,-1200
+07/31/24 01:51:50: Parsed arguments: ["Macro5","-1200"]
+07/31/24 01:51:50: Command Name: set_variable
+07/31/24 01:51:50: Target Object: yeancat
+07/31/24 01:51:50: Parameters: ["Macro5","-1200"]
+07/31/24 01:51:50: Macro5 set to -1200
+07/31/24 01:51:57: Raw command: set_variable(Macro5,-1300)
+07/31/24 01:51:57: Cleaned command: set_variable(Macro5,-1300)
+07/31/24 01:51:57: Parsing arguments: Macro5,-1300
+07/31/24 01:51:57: Parsed arguments: ["Macro5","-1300"]
+07/31/24 01:51:57: Command Name: set_variable
+07/31/24 01:51:57: Target Object: yeancat
+07/31/24 01:51:57: Parameters: ["Macro5","-1300"]
+07/31/24 01:51:57: Macro5 set to -1300
+07/31/24 01:52:01: Raw command: set_variable(Macro5,-1400)
+07/31/24 01:52:01: Cleaned command: set_variable(Macro5,-1400)
+07/31/24 01:52:01: Parsing arguments: Macro5,-1400
+07/31/24 01:52:01: Parsed arguments: ["Macro5","-1400"]
+07/31/24 01:52:01: Command Name: set_variable
+07/31/24 01:52:01: Target Object: yeancat
+07/31/24 01:52:01: Parameters: ["Macro5","-1400"]
+07/31/24 01:52:01: Macro5 set to -1400
+07/31/24 01:52:07: Raw command: set_variable(Macro6,-1200)
+07/31/24 01:52:07: Cleaned command: set_variable(Macro6,-1200)
+07/31/24 01:52:07: Parsing arguments: Macro6,-1200
+07/31/24 01:52:07: Parsed arguments: ["Macro6","-1200"]
+07/31/24 01:52:07: Command Name: set_variable
+07/31/24 01:52:07: Target Object: yeancat
+07/31/24 01:52:07: Parameters: ["Macro6","-1200"]
+07/31/24 01:52:07: Macro6 set to -1200
+07/31/24 01:52:13: Raw command: set_variable(Macro6,-1300)
+07/31/24 01:52:13: Cleaned command: set_variable(Macro6,-1300)
+07/31/24 01:52:13: Parsing arguments: Macro6,-1300
+07/31/24 01:52:13: Parsed arguments: ["Macro6","-1300"]
+07/31/24 01:52:13: Command Name: set_variable
+07/31/24 01:52:13: Target Object: yeancat
+07/31/24 01:52:14: Parameters: ["Macro6","-1300"]
+07/31/24 01:52:14: Macro6 set to -1300
+07/31/24 01:52:18: Raw command: set_variable(Macro6,-1200)
+07/31/24 01:52:18: Cleaned command: set_variable(Macro6,-1200)
+07/31/24 01:52:18: Parsing arguments: Macro6,-1200
+07/31/24 01:52:18: Parsed arguments: ["Macro6","-1200"]
+07/31/24 01:52:18: Command Name: set_variable
+07/31/24 01:52:19: Target Object: yeancat
+07/31/24 01:52:19: Parameters: ["Macro6","-1200"]
+07/31/24 01:52:19: Macro6 set to -1200
+07/31/24 01:52:23: Raw command: set_variable(Macro6,-1080)
+07/31/24 01:52:23: Cleaned command: set_variable(Macro6,-1080)
+07/31/24 01:52:23: Parsing arguments: Macro6,-1080
+07/31/24 01:52:23: Parsed arguments: ["Macro6","-1080"]
+07/31/24 01:52:23: Command Name: set_variable
+07/31/24 01:52:24: Target Object: yeancat
+07/31/24 01:52:24: Parameters: ["Macro6","-1080"]
+07/31/24 01:52:24: Macro6 set to -1080
+07/31/24 01:52:36: Raw command: set_variable(Macro5,-1920)
+07/31/24 01:52:36: Cleaned command: set_variable(Macro5,-1920)
+07/31/24 01:52:36: Parsing arguments: Macro5,-1920
+07/31/24 01:52:36: Parsed arguments: ["Macro5","-1920"]
+07/31/24 01:52:36: Command Name: set_variable
+07/31/24 01:52:36: Target Object: yeancat
+07/31/24 01:52:36: Parameters: ["Macro5","-1920"]
+07/31/24 01:52:36: Macro5 set to -1920
+07/31/24 01:52:43: Raw command: set_variable(Macro5,-1300)
+07/31/24 01:52:43: Cleaned command: set_variable(Macro5,-1300)
+07/31/24 01:52:43: Parsing arguments: Macro5,-1300
+07/31/24 01:52:43: Parsed arguments: ["Macro5","-1300"]
+07/31/24 01:52:44: Command Name: set_variable
+07/31/24 01:52:44: Target Object: yeancat
+07/31/24 01:52:44: Parameters: ["Macro5","-1300"]
+07/31/24 01:52:44: Macro5 set to -1300
+07/31/24 01:52:47: Raw command: set_variable(Macro5,-1920)
+07/31/24 01:52:47: Cleaned command: set_variable(Macro5,-1920)
+07/31/24 01:52:47: Parsing arguments: Macro5,-1920
+07/31/24 01:52:47: Parsed arguments: ["Macro5","-1920"]
+07/31/24 01:52:47: Command Name: set_variable
+07/31/24 01:52:47: Target Object: yeancat
+07/31/24 01:52:47: Parameters: ["Macro5","-1920"]
+07/31/24 01:52:47: Macro5 set to -1920
+07/31/24 01:53:04: [Jay Arnold] this is the best it has looked so fat
+07/31/24 01:53:04: Creating chat bubble: " this is the best it has looked so fat", Owner: yeancat, Choices: []
+07/31/24 01:53:04: Chat Bubble Created. Following 'yeancat' with text: 'this is the best it has looked so fat'. Number of choices: 0
+07/31/24 01:53:07: [Jay Arnold] far
+07/31/24 01:53:07: Creating chat bubble: " far", Owner: yeancat, Choices: []
+07/31/24 01:53:07: Chat Bubble Created. Following 'yeancat' with text: 'far'. Number of choices: 0
+07/31/24 01:53:28: Raw command: save_macros
+07/31/24 01:53:28: Cleaned command: save_macros
+07/31/24 01:53:28: Command Name: save_macros
+07/31/24 01:53:28: Target Object: yeancat
+07/31/24 01:53:28: Parameters: []
+07/31/24 01:53:29: Macros saved to Macros.txt
+07/31/24 01:53:41: Raw command: set_variable(Macro2,1)
+07/31/24 01:53:41: Cleaned command: set_variable(Macro2,1)
+07/31/24 01:53:41: Parsing arguments: Macro2,1
+07/31/24 01:53:41: Parsed arguments: ["Macro2","1"]
+07/31/24 01:53:41: Command Name: set_variable
+07/31/24 01:53:41: Target Object: yeancat
+07/31/24 01:53:41: Parameters: ["Macro2","1"]
+07/31/24 01:53:41: Macro2 set to 1
+07/31/24 01:53:45: [Jay Arnold] 
+07/31/24 01:53:45: Creating chat bubble: " ", Owner: yeancat, Choices: []
+07/31/24 01:53:45: Chat Bubble Created. Following 'yeancat' with text: ''. Number of choices: 0
+07/31/24 01:54:06: [Jay Arnold] when i am in the center of the screen i am lined up with my gun but not the terrain,
+07/31/24 01:54:06: Creating chat bubble: " when i am in the center of the screen i am lined up with my gun but not the terrain,", Owner: yeancat, Choices: []
+07/31/24 01:54:06: Chat Bubble Created. Following 'yeancat' with text: 'when i am in the center of the screen i am lined up with my
+gun but not the terrain,'. Number of choices: 0
+07/31/24 01:54:29: [Jay Arnold] i imagine if i set the depth of the player to be the same one that the terrain is on with these
+macros it would line up
+07/31/24 01:54:29: Creating chat bubble: " i imagine if i set the depth of the player to be the same one that the terrain is on with these\nmacros it would line up", Owner: yeancat, Choices: []
+07/31/24 01:54:29: Chat Bubble Created. Following 'yeancat' with text: 'i imagine if i set the depth of the player to be the same one
+that the terrain is on with these
+macros it would line up'. Number of choices: 0
+07/31/24 01:54:40: [Jay Arnold] the weapons too of course
+07/31/24 01:54:40: Creating chat bubble: " the weapons too of course", Owner: yeancat, Choices: []
+07/31/24 01:54:40: Chat Bubble Created. Following 'yeancat' with text: 'the weapons too of course'. Number of choices: 0
+07/31/24 01:54:58: Raw command: show_variable(Macro3)
+07/31/24 01:54:58: Cleaned command: show_variable(Macro3)
+07/31/24 01:54:58: Parsing arguments: Macro3
+07/31/24 01:54:58: Parsed arguments: ["Macro3"]
+07/31/24 01:54:58: Command Name: show_variable
+07/31/24 01:54:58: Target Object: yeancat
+07/31/24 01:54:58: Parameters: ["Macro3"]
+07/31/24 01:54:58: Macro3: 0
+07/31/24 01:55:06: Raw command: set_variable(Macro3,.1)
+07/31/24 01:55:06: Cleaned command: set_variable(Macro3,.1)
+07/31/24 01:55:06: Parsing arguments: Macro3,.1
+07/31/24 01:55:07: Parsed arguments: ["Macro3",".1"]
+07/31/24 01:55:07: Command Name: set_variable
+07/31/24 01:55:07: Target Object: yeancat
+07/31/24 01:55:07: Parameters: ["Macro3",".1"]
+07/31/24 01:55:07: Macro3 set to 0.10
+07/31/24 01:55:14: [Jay Arnold] now it is upside down
+07/31/24 01:55:14: Creating chat bubble: " now it is upside down", Owner: yeancat, Choices: []
+07/31/24 01:55:14: Chat Bubble Created. Following 'yeancat' with text: 'now it is upside down'. Number of choices: 0
+07/31/24 01:55:22: [Jay Arnold] that is the only difference
+07/31/24 01:55:22: Creating chat bubble: " that is the only difference", Owner: yeancat, Choices: []
+07/31/24 01:55:22: Chat Bubble Created. Following 'yeancat' with text: 'that is the only difference'. Number of choices: 0
+07/31/24 01:55:26: Raw command: set_variable(Macro3,0)
+07/31/24 01:55:26: Cleaned command: set_variable(Macro3,0)
+07/31/24 01:55:26: Parsing arguments: Macro3,0
+07/31/24 01:55:26: Parsed arguments: ["Macro3","0"]
+07/31/24 01:55:26: Command Name: set_variable
+07/31/24 01:55:26: Target Object: yeancat
+07/31/24 01:55:26: Parameters: ["Macro3","0"]
+07/31/24 01:55:26: Macro3 set to 0
+07/31/24 01:55:29: Raw command: set_variable(Macro3,1)
+07/31/24 01:55:30: Cleaned command: set_variable(Macro3,1)
+07/31/24 01:55:30: Parsing arguments: Macro3,1
+07/31/24 01:55:30: Parsed arguments: ["Macro3","1"]
+07/31/24 01:55:30: Command Name: set_variable
+07/31/24 01:55:30: Target Object: yeancat
+07/31/24 01:55:30: Parameters: ["Macro3","1"]
+07/31/24 01:55:30: Macro3 set to 1
+07/31/24 01:55:33: Raw command: set_variable(Macro3,0)
+07/31/24 01:55:33: Cleaned command: set_variable(Macro3,0)
+07/31/24 01:55:33: Parsing arguments: Macro3,0
+07/31/24 01:55:33: Parsed arguments: ["Macro3","0"]
+07/31/24 01:55:33: Command Name: set_variable
+07/31/24 01:55:33: Target Object: yeancat
+07/31/24 01:55:33: Parameters: ["Macro3","0"]
+07/31/24 01:55:33: Macro3 set to 0
+07/31/24 01:55:37: Raw command: set_variable(Macro3,-1)
+07/31/24 01:55:37: Cleaned command: set_variable(Macro3,-1)
+07/31/24 01:55:37: Parsing arguments: Macro3,-1
+07/31/24 01:55:37: Parsed arguments: ["Macro3","-1"]
+07/31/24 01:55:37: Command Name: set_variable
+07/31/24 01:55:37: Target Object: yeancat
+07/31/24 01:55:37: Parameters: ["Macro3","-1"]
+07/31/24 01:55:37: Macro3 set to -1
+07/31/24 01:55:45: Raw command: set_variable(Macro3,-10)
+07/31/24 01:55:45: Cleaned command: set_variable(Macro3,-10)
+07/31/24 01:55:45: Parsing arguments: Macro3,-10
+07/31/24 01:55:45: Parsed arguments: ["Macro3","-10"]
+07/31/24 01:55:45: Command Name: set_variable
+07/31/24 01:55:45: Target Object: yeancat
+07/31/24 01:55:45: Parameters: ["Macro3","-10"]
+07/31/24 01:55:45: Macro3 set to -10
+07/31/24 01:56:05: [Jay Arnold] that causes the camera to stay not flipped but now it moves 
+07/31/24 01:56:05: Creating chat bubble: " that causes the camera to stay not flipped but now it moves ", Owner: yeancat, Choices: []
+07/31/24 01:56:05: Chat Bubble Created. Following 'yeancat' with text: 'that causes the camera to stay not flipped but now it moves '. Number of choices: 0
+07/31/24 01:56:24: [Jay Arnold] but it actually moves opposite from the direction of the player movement
+07/31/24 01:56:24: Creating chat bubble: " but it actually moves opposite from the direction of the player movement", Owner: yeancat, Choices: []
+07/31/24 01:56:24: Chat Bubble Created. Following 'yeancat' with text: 'but it actually moves opposite from the direction of the
+player movement'. Number of choices: 0
+07/31/24 01:56:34: Raw command: set_variable(Macro3,-1)
+07/31/24 01:56:34: Cleaned command: set_variable(Macro3,-1)
+07/31/24 01:56:34: Parsing arguments: Macro3,-1
+07/31/24 01:56:34: Parsed arguments: ["Macro3","-1"]
+07/31/24 01:56:34: Command Name: set_variable
+07/31/24 01:56:34: Target Object: yeancat
+07/31/24 01:56:34: Parameters: ["Macro3","-1"]
+07/31/24 01:56:34: Macro3 set to -1
+07/31/24 01:56:44: [Jay Arnold] and that makes the effect less dramatic
+07/31/24 01:56:44: Creating chat bubble: " and that makes the effect less dramatic", Owner: yeancat, Choices: []
+07/31/24 01:56:44: Chat Bubble Created. Following 'yeancat' with text: 'and that makes the effect less dramatic'. Number of choices: 0
+07/31/24 01:57:04: [Jay Arnold] this would be cool if it were flipped
+07/31/24 01:57:04: Creating chat bubble: " this would be cool if it were flipped", Owner: yeancat, Choices: []
+07/31/24 01:57:04: Chat Bubble Created. Following 'yeancat' with text: 'this would be cool if it were flipped'. Number of choices: 0
+07/31/24 01:57:07: Raw command: set_variable(Macro3,0)
+07/31/24 01:57:07: Cleaned command: set_variable(Macro3,0)
+07/31/24 01:57:07: Parsing arguments: Macro3,0
+07/31/24 01:57:07: Parsed arguments: ["Macro3","0"]
+07/31/24 01:57:07: Command Name: set_variable
+07/31/24 01:57:08: Target Object: yeancat
+07/31/24 01:57:08: Parameters: ["Macro3","0"]
+07/31/24 01:57:08: Macro3 set to 0
+07/31/24 01:57:13: [Jay Arnold] now the camera is stationary
+07/31/24 01:57:13: Creating chat bubble: " now the camera is stationary", Owner: yeancat, Choices: []
+07/31/24 01:57:13: Chat Bubble Created. Following 'yeancat' with text: 'now the camera is stationary'. Number of choices: 0
+07/31/24 01:58:11: [Jay Arnold] i hope my testing of macros is insightful the current macro settings are the best so far
+i will provide you this log and make the terrain and player depth the same. let me know what else to do.
+07/31/24 01:58:11: Creating chat bubble: " i hope my testing of macros is insightful the current macro settings are the best so far\ni will provide you this log and make the terrain and player depth the same. let me know what else to do.", Owner: yeancat, Choices: []
+07/31/24 01:58:11: Chat Bubble Created. Following 'yeancat' with text: 'i hope my testing of macros is insightful the current macro
+settings are the best so far
+i will provide you this log and make the terrain and player
+depth the same. let me know what else to do.'. Number of choices: 0
+07/31/24 01:58:36: Raw command: save_macros
+07/31/24 01:58:36: Cleaned command: save_macros
+07/31/24 01:58:37: Command Name: save_macros
+07/31/24 01:58:37: Target Object: yeancat
+07/31/24 01:58:37: Parameters: []
+07/31/24 01:58:37: Macros saved to Macros.txt

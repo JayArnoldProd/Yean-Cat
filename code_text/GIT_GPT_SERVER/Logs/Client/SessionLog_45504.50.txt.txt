@@ -1,0 +1,369 @@
+07/31/24 06:55:06: Loaded action/group: SaveGameNow
+07/31/24 06:55:06: Loaded action/group: GotoKingsKingdom
+07/31/24 06:55:06: Loaded action/group: EnterPortal
+07/31/24 06:55:06: Loaded action/group: PurchaseArtifacts
+07/31/24 06:55:06: Loaded action/group: BattleOutcome
+07/31/24 06:55:06: Loaded action/group: VisitMarket
+07/31/24 06:55:06: Loaded action/group: GotoDivineDomain
+07/31/24 06:55:06: Loaded action/group: GotoTheEndonda
+07/31/24 06:55:06: Loaded action/group: GotoUniverseCity
+07/31/24 06:55:06: Loaded action/group: SpawnNPC1
+07/31/24 06:55:06: Loaded action/group: GotoLandOfLucy
+07/31/24 06:55:06: Loaded action/group: GotoPlaceOfPablo
+07/31/24 06:55:06: Loaded action/group: InvestigateSignals
+07/31/24 06:55:06: Loaded action/group: OfferTrade
+07/31/24 06:55:06: Loaded action/group: DisableEnemySpawns
+07/31/24 06:55:06: Loaded action/group: BattleSequence
+07/31/24 06:55:06: Loaded action/group: StartBattle
+07/31/24 06:55:06: Loaded action/group: SpawnBoss4
+07/31/24 06:55:06: Loaded action/group: SpawnBossCircle
+07/31/24 06:55:06: Loaded action/group: GotoTheIcyHeart
+07/31/24 06:55:06: Loaded action/group: EngageCombat
+07/31/24 06:55:06: Loaded action/group: GotoGhostTown
+07/31/24 06:55:06: Loaded action/group: SpawnBoss0
+07/31/24 06:55:06: Loaded action/group: SpawnBoss13
+07/31/24 06:55:06: Loaded action/group: StartExploration
+07/31/24 06:55:06: Loaded action/group: SpawnBoss8
+07/31/24 06:55:06: Loaded action/group: SpawnBoss6
+07/31/24 06:55:06: Loaded action/group: SetLevelFive
+07/31/24 06:55:06: Loaded action/group: LevelUpThree
+07/31/24 06:55:06: Loaded action/group: LevelUpOnce
+07/31/24 06:55:06: Loaded action/group: GotoTheGoldMines
+07/31/24 06:55:06: Loaded action/group: SpawnBoss11
+07/31/24 06:55:06: Loaded action/group: StartPeaceMission
+07/31/24 06:55:06: Loaded action/group: SpawnBoss2
+07/31/24 06:55:06: Loaded action/group: DiplomaticChoice
+07/31/24 06:55:06: Loaded action/group: TreatyOutcome
+07/31/24 06:55:06: Loaded action/group: ExplorationChoice
+07/31/24 06:55:06: Loaded action/group: BattleChoice
+07/31/24 06:55:06: Loaded action/group: ArtifactMystery
+07/31/24 06:55:06: Loaded action/group: PortalOutcome
+07/31/24 06:55:06: Loaded action/group: PeacefulMission
+07/31/24 06:55:06: Loaded action/group: SpaceAdventureStart
+07/31/24 06:55:06: Loaded action/group: PortalAdventure
+07/31/24 06:55:06: Loaded action/group: EnableEnemySpawns
+07/31/24 06:55:06: Loaded action/group: GotoVulturesValley
+07/31/24 06:55:06: Loaded action/group: GotoEarth
+07/31/24 06:55:07: Loaded action/group: SpawnBoss1
+07/31/24 06:55:07: Loaded action/group: GotoStormySands
+07/31/24 06:55:07: Loaded action/group: SpawnBoss12
+07/31/24 06:55:07: Loaded action/group: SpaceExploration
+07/31/24 06:55:07: Loaded action/group: GotoFantasia
+07/31/24 06:55:07: Loaded action/group: SpawnBoss5
+07/31/24 06:55:07: Loaded action/group: AG1
+07/31/24 06:55:07: Loaded action/group: SpawnBoss10
+07/31/24 06:55:07: Loaded action/group: GotoYetopia
+07/31/24 06:55:07: Loaded action/group: SpawnBoss3
+07/31/24 06:55:07: Loaded action/group: ArtifactOutcome
+07/31/24 06:55:07: Loaded action/group: EpicBattle
+07/31/24 06:55:07: Loaded action/group: SpawnBoss7
+07/31/24 06:55:07: Loaded action/group: SpawnBoss9
+07/31/24 06:55:07: Loaded action/group: PeaceTreaty
+07/31/24 06:55:07: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 06:55:07: [Client] Failed to reconnect to server. Will try again...
+07/31/24 06:55:39: Raw command: Player.camera_target(100, -50)
+07/31/24 06:55:39: Cleaned command: Player.camera_target(100, -50)
+07/31/24 06:55:39: Parsing arguments: 100, -50
+07/31/24 06:55:39: Parsed arguments: ["100","-50"]
+07/31/24 06:55:39: Command Name: camera_target
+07/31/24 06:55:39: Target Object: Player
+07/31/24 06:55:39: Parameters: ["100","-50"]
+07/31/24 06:55:39: Camera target set to yeancat with offset (100, -50)
+07/31/24 06:56:16: Raw command: camera_target(0,0)
+07/31/24 06:56:16: Cleaned command: camera_target(0,0)
+07/31/24 06:56:16: Parsing arguments: 0,0
+07/31/24 06:56:16: Parsed arguments: ["0","0"]
+07/31/24 06:56:16: Command Name: camera_target
+07/31/24 06:56:16: Target Object: yeancat
+07/31/24 06:56:16: Parameters: ["0","0"]
+07/31/24 06:56:16: Camera target set to yeancat with offset (0, 0)
+07/31/24 06:56:25: Raw command: Center.camera_target(0,0)
+07/31/24 06:56:25: Cleaned command: Center.camera_target(0,0)
+07/31/24 06:56:25: Parsing arguments: 0,0
+07/31/24 06:56:25: Parsed arguments: ["0","0"]
+07/31/24 06:56:25: Command Name: camera_target
+07/31/24 06:56:25: Target Object: Center
+07/31/24 06:56:25: Parameters: ["0","0"]
+07/31/24 06:56:25: Camera target set to room center with offset (0, 0)
+07/31/24 06:56:30: [Jay Arnold] there we go!
+07/31/24 06:56:30: Creating chat bubble: " there we go!", Owner: yeancat, Choices: []
+07/31/24 06:56:30: Chat Bubble Created. Following 'yeancat' with text: 'there we go!'. Number of choices: 0
+07/31/24 06:56:57: [Jay Arnold] typing just /camera_target(0,0) did not go to center though but /Target.camera did
+07/31/24 06:56:57: Creating chat bubble: " typing just \/camera_target(0,0) did not go to center though but \/Target.camera did", Owner: yeancat, Choices: []
+07/31/24 06:56:58: Chat Bubble Created. Following 'yeancat' with text: 'typing just /camera_target(0,0) did not go to center though
+but /Target.camera did'. Number of choices: 0
+07/31/24 06:57:08: [Jay Arnold] i mean /Center.camera_target did
+07/31/24 06:57:08: Creating chat bubble: " i mean \/Center.camera_target did", Owner: yeancat, Choices: []
+07/31/24 06:57:08: Chat Bubble Created. Following 'yeancat' with text: 'i mean /Center.camera_target did'. Number of choices: 0
+07/31/24 06:57:30: Raw command: Player.camera_target(100, -50)
+07/31/24 06:57:30: Cleaned command: Player.camera_target(100, -50)
+07/31/24 06:57:30: Parsing arguments: 100, -50
+07/31/24 06:57:30: Parsed arguments: ["100","-50"]
+07/31/24 06:57:30: Command Name: camera_target
+07/31/24 06:57:30: Target Object: Player
+07/31/24 06:57:30: Parameters: ["100","-50"]
+07/31/24 06:57:30: Camera target set to yeancat with offset (100, -50)
+07/31/24 06:57:38: Raw command: Center.camera_target(0,0)
+07/31/24 06:57:38: Cleaned command: Center.camera_target(0,0)
+07/31/24 06:57:38: Parsing arguments: 0,0
+07/31/24 06:57:38: Parsed arguments: ["0","0"]
+07/31/24 06:57:38: Command Name: camera_target
+07/31/24 06:57:38: Target Object: Center
+07/31/24 06:57:38: Parameters: ["0","0"]
+07/31/24 06:57:38: Camera target set to room center with offset (0, 0)
+07/31/24 06:57:43: Raw command: camera_target(0,0)
+07/31/24 06:57:43: Cleaned command: camera_target(0,0)
+07/31/24 06:57:43: Parsing arguments: 0,0
+07/31/24 06:57:43: Parsed arguments: ["0","0"]
+07/31/24 06:57:43: Command Name: camera_target
+07/31/24 06:57:43: Target Object: yeancat
+07/31/24 06:57:43: Parameters: ["0","0"]
+07/31/24 06:57:43: Camera target set to room center with offset (0, 0)
+07/31/24 06:57:46: Raw command: camera_target(0,0)
+07/31/24 06:57:46: Cleaned command: camera_target(0,0)
+07/31/24 06:57:46: Parsing arguments: 0,0
+07/31/24 06:57:46: Parsed arguments: ["0","0"]
+07/31/24 06:57:46: Command Name: camera_target
+07/31/24 06:57:46: Target Object: yeancat
+07/31/24 06:57:46: Parameters: ["0","0"]
+07/31/24 06:57:46: Camera target set to room center with offset (0, 0)
+07/31/24 06:57:49: Raw command: Center.camera_target(0,0)
+07/31/24 06:57:49: Cleaned command: Center.camera_target(0,0)
+07/31/24 06:57:49: Parsing arguments: 0,0
+07/31/24 06:57:49: Parsed arguments: ["0","0"]
+07/31/24 06:57:49: Command Name: camera_target
+07/31/24 06:57:49: Target Object: Center
+07/31/24 06:57:49: Parameters: ["0","0"]
+07/31/24 06:57:49: Camera target set to room center with offset (0, 0)
+07/31/24 06:57:53: Raw command: Player.camera_target(100, -50)
+07/31/24 06:57:53: Cleaned command: Player.camera_target(100, -50)
+07/31/24 06:57:53: Parsing arguments: 100, -50
+07/31/24 06:57:53: Parsed arguments: ["100","-50"]
+07/31/24 06:57:53: Command Name: camera_target
+07/31/24 06:57:53: Target Object: Player
+07/31/24 06:57:53: Parameters: ["100","-50"]
+07/31/24 06:57:53: Camera target set to yeancat with offset (100, -50)
+07/31/24 06:57:57: Raw command: camera_target(0,0)
+07/31/24 06:57:57: Cleaned command: camera_target(0,0)
+07/31/24 06:57:57: Parsing arguments: 0,0
+07/31/24 06:57:57: Parsed arguments: ["0","0"]
+07/31/24 06:57:57: Command Name: camera_target
+07/31/24 06:57:57: Target Object: yeancat
+07/31/24 06:57:57: Parameters: ["0","0"]
+07/31/24 06:57:57: Camera target set to yeancat with offset (0, 0)
+07/31/24 06:58:03: Raw command: Player.camera_target(100, -50)
+07/31/24 06:58:03: Cleaned command: Player.camera_target(100, -50)
+07/31/24 06:58:03: Parsing arguments: 100, -50
+07/31/24 06:58:03: Parsed arguments: ["100","-50"]
+07/31/24 06:58:03: Command Name: camera_target
+07/31/24 06:58:03: Target Object: Player
+07/31/24 06:58:03: Parameters: ["100","-50"]
+07/31/24 06:58:03: Camera target set to yeancat with offset (100, -50)
+07/31/24 06:58:09: Raw command: camera_target(0,0)
+07/31/24 06:58:09: Cleaned command: camera_target(0,0)
+07/31/24 06:58:09: Parsing arguments: 0,0
+07/31/24 06:58:09: Parsed arguments: ["0","0"]
+07/31/24 06:58:09: Command Name: camera_target
+07/31/24 06:58:09: Target Object: yeancat
+07/31/24 06:58:09: Parameters: ["0","0"]
+07/31/24 06:58:09: Camera target set to yeancat with offset (0, 0)
+07/31/24 06:58:35: [Jay Arnold] interesting! it seems if i dont pass a object it just uses the previouslt set camera target
+07/31/24 06:58:35: Creating chat bubble: " interesting! it seems if i dont pass a object it just uses the previouslt set camera target", Owner: yeancat, Choices: []
+07/31/24 06:58:35: Chat Bubble Created. Following 'yeancat' with text: 'interesting! it seems if i dont pass a object it just uses the
+previouslt set camera target'. Number of choices: 0
+07/31/24 06:58:47: [Jay Arnold] thats actually probably perferred
+07/31/24 06:58:47: Creating chat bubble: " thats actually probably perferred", Owner: yeancat, Choices: []
+07/31/24 06:58:47: Chat Bubble Created. Following 'yeancat' with text: 'thats actually probably perferred'. Number of choices: 0
+07/31/24 06:59:02: [Jay Arnold] lets keep everything how it is now
+07/31/24 06:59:02: Creating chat bubble: " lets keep everything how it is now", Owner: yeancat, Choices: []
+07/31/24 06:59:02: Chat Bubble Created. Following 'yeancat' with text: 'lets keep everything how it is now'. Number of choices: 0
+07/31/24 06:59:12: Raw command: Center.camera_target(0,0)
+07/31/24 06:59:12: Cleaned command: Center.camera_target(0,0)
+07/31/24 06:59:12: Parsing arguments: 0,0
+07/31/24 06:59:12: Parsed arguments: ["0","0"]
+07/31/24 06:59:12: Command Name: camera_target
+07/31/24 06:59:12: Target Object: Center
+07/31/24 06:59:12: Parameters: ["0","0"]
+07/31/24 06:59:12: Camera target set to room center with offset (0, 0)
+07/31/24 06:59:32: [Jay Arnold] my only critique is that the camera change is instant and not gradual
+07/31/24 06:59:32: Creating chat bubble: " my only critique is that the camera change is instant and not gradual", Owner: yeancat, Choices: []
+07/31/24 06:59:32: Chat Bubble Created. Following 'yeancat' with text: 'my only critique is that the camera change is instant and not
+gradual'. Number of choices: 0
+07/31/24 06:59:35: Raw command: Player.camera_target(100, -50)
+07/31/24 06:59:35: Cleaned command: Player.camera_target(100, -50)
+07/31/24 06:59:35: Parsing arguments: 100, -50
+07/31/24 06:59:35: Parsed arguments: ["100","-50"]
+07/31/24 06:59:35: Command Name: camera_target
+07/31/24 06:59:35: Target Object: Player
+07/31/24 06:59:35: Parameters: ["100","-50"]
+07/31/24 06:59:35: Camera target set to yeancat with offset (100, -50)
+07/31/24 06:59:42: Raw command: camera_target(0,0)
+07/31/24 06:59:42: Cleaned command: camera_target(0,0)
+07/31/24 06:59:42: Parsing arguments: 0,0
+07/31/24 06:59:42: Parsed arguments: ["0","0"]
+07/31/24 06:59:42: Command Name: camera_target
+07/31/24 06:59:43: Target Object: yeancat
+07/31/24 06:59:43: Parameters: ["0","0"]
+07/31/24 06:59:43: Camera target set to yeancat with offset (0, 0)
+07/31/24 06:59:46: Raw command: Center.camera_target(0,0)
+07/31/24 06:59:46: Cleaned command: Center.camera_target(0,0)
+07/31/24 06:59:46: Parsing arguments: 0,0
+07/31/24 06:59:46: Parsed arguments: ["0","0"]
+07/31/24 06:59:46: Command Name: camera_target
+07/31/24 06:59:46: Target Object: Center
+07/31/24 06:59:46: Parameters: ["0","0"]
+07/31/24 06:59:46: Camera target set to room center with offset (0, 0)
+07/31/24 06:59:48: Raw command: camera_target(0,0)
+07/31/24 06:59:48: Cleaned command: camera_target(0,0)
+07/31/24 06:59:48: Parsing arguments: 0,0
+07/31/24 06:59:48: Parsed arguments: ["0","0"]
+07/31/24 06:59:48: Command Name: camera_target
+07/31/24 06:59:48: Target Object: yeancat
+07/31/24 06:59:48: Parameters: ["0","0"]
+07/31/24 06:59:48: Camera target set to room center with offset (0, 0)
+07/31/24 06:59:52: Raw command: Player.camera_target(100, -50)
+07/31/24 06:59:52: Cleaned command: Player.camera_target(100, -50)
+07/31/24 06:59:52: Parsing arguments: 100, -50
+07/31/24 06:59:52: Parsed arguments: ["100","-50"]
+07/31/24 06:59:52: Command Name: camera_target
+07/31/24 06:59:52: Target Object: Player
+07/31/24 06:59:52: Parameters: ["100","-50"]
+07/31/24 06:59:52: Camera target set to yeancat with offset (100, -50)
+07/31/24 06:59:53: Raw command: camera_target(0,0)
+07/31/24 06:59:53: Cleaned command: camera_target(0,0)
+07/31/24 06:59:54: Parsing arguments: 0,0
+07/31/24 06:59:54: Parsed arguments: ["0","0"]
+07/31/24 06:59:54: Command Name: camera_target
+07/31/24 06:59:54: Target Object: yeancat
+07/31/24 06:59:54: Parameters: ["0","0"]
+07/31/24 06:59:54: Camera target set to yeancat with offset (0, 0)
+07/31/24 06:59:59: Raw command: Center.camera_target(0,0)
+07/31/24 06:59:59: Cleaned command: Center.camera_target(0,0)
+07/31/24 06:59:59: Parsing arguments: 0,0
+07/31/24 06:59:59: Parsed arguments: ["0","0"]
+07/31/24 06:59:59: Command Name: camera_target
+07/31/24 06:59:59: Target Object: Center
+07/31/24 06:59:59: Parameters: ["0","0"]
+07/31/24 06:59:59: Camera target set to room center with offset (0, 0)
+07/31/24 07:00:17: [Jay Arnold] it is gradual when targeting an object but not when returning to the center.
+07/31/24 07:00:17: Creating chat bubble: " it is gradual when targeting an object but not when returning to the center.", Owner: yeancat, Choices: []
+07/31/24 07:00:17: Chat Bubble Created. Following 'yeancat' with text: 'it is gradual when targeting an object but not when
+returning to the center.'. Number of choices: 0
+07/31/24 07:03:27: Loaded action/group: SaveGameNow
+07/31/24 07:03:27: Loaded action/group: GotoKingsKingdom
+07/31/24 07:03:27: Loaded action/group: EnterPortal
+07/31/24 07:03:27: Loaded action/group: PurchaseArtifacts
+07/31/24 07:03:27: Loaded action/group: BattleOutcome
+07/31/24 07:03:27: Loaded action/group: VisitMarket
+07/31/24 07:03:27: Loaded action/group: GotoDivineDomain
+07/31/24 07:03:27: Loaded action/group: GotoTheEndonda
+07/31/24 07:03:28: Loaded action/group: GotoUniverseCity
+07/31/24 07:03:28: Loaded action/group: SpawnNPC1
+07/31/24 07:03:28: Loaded action/group: GotoLandOfLucy
+07/31/24 07:03:28: Loaded action/group: GotoPlaceOfPablo
+07/31/24 07:03:28: Loaded action/group: InvestigateSignals
+07/31/24 07:03:28: Loaded action/group: OfferTrade
+07/31/24 07:03:28: Loaded action/group: DisableEnemySpawns
+07/31/24 07:03:28: Loaded action/group: BattleSequence
+07/31/24 07:03:28: Loaded action/group: StartBattle
+07/31/24 07:03:28: Loaded action/group: SpawnBoss4
+07/31/24 07:03:28: Loaded action/group: SpawnBossCircle
+07/31/24 07:03:28: Loaded action/group: GotoTheIcyHeart
+07/31/24 07:03:28: Loaded action/group: EngageCombat
+07/31/24 07:03:28: Loaded action/group: GotoGhostTown
+07/31/24 07:03:28: Loaded action/group: SpawnBoss0
+07/31/24 07:03:28: Loaded action/group: SpawnBoss13
+07/31/24 07:03:28: Loaded action/group: StartExploration
+07/31/24 07:03:28: Loaded action/group: SpawnBoss8
+07/31/24 07:03:28: Loaded action/group: SpawnBoss6
+07/31/24 07:03:28: Loaded action/group: SetLevelFive
+07/31/24 07:03:28: Loaded action/group: LevelUpThree
+07/31/24 07:03:28: Loaded action/group: LevelUpOnce
+07/31/24 07:03:28: Loaded action/group: GotoTheGoldMines
+07/31/24 07:03:28: Loaded action/group: SpawnBoss11
+07/31/24 07:03:28: Loaded action/group: StartPeaceMission
+07/31/24 07:03:28: Loaded action/group: SpawnBoss2
+07/31/24 07:03:28: Loaded action/group: DiplomaticChoice
+07/31/24 07:03:28: Loaded action/group: TreatyOutcome
+07/31/24 07:03:28: Loaded action/group: ExplorationChoice
+07/31/24 07:03:28: Loaded action/group: BattleChoice
+07/31/24 07:03:28: Loaded action/group: ArtifactMystery
+07/31/24 07:03:28: Loaded action/group: PortalOutcome
+07/31/24 07:03:28: Loaded action/group: PeacefulMission
+07/31/24 07:03:28: Loaded action/group: SpaceAdventureStart
+07/31/24 07:03:28: Loaded action/group: PortalAdventure
+07/31/24 07:03:28: Loaded action/group: EnableEnemySpawns
+07/31/24 07:03:28: Loaded action/group: GotoVulturesValley
+07/31/24 07:03:28: Loaded action/group: GotoEarth
+07/31/24 07:03:28: Loaded action/group: SpawnBoss1
+07/31/24 07:03:28: Loaded action/group: GotoStormySands
+07/31/24 07:03:28: Loaded action/group: SpawnBoss12
+07/31/24 07:03:28: Loaded action/group: SpaceExploration
+07/31/24 07:03:28: Loaded action/group: GotoFantasia
+07/31/24 07:03:28: Loaded action/group: SpawnBoss5
+07/31/24 07:03:28: Loaded action/group: AG1
+07/31/24 07:03:28: Loaded action/group: SpawnBoss10
+07/31/24 07:03:28: Loaded action/group: GotoYetopia
+07/31/24 07:03:28: Loaded action/group: SpawnBoss3
+07/31/24 07:03:28: Loaded action/group: ArtifactOutcome
+07/31/24 07:03:28: Loaded action/group: EpicBattle
+07/31/24 07:03:28: Loaded action/group: SpawnBoss7
+07/31/24 07:03:28: Loaded action/group: SpawnBoss9
+07/31/24 07:03:28: Loaded action/group: PeaceTreaty
+07/31/24 07:03:28: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 07:03:28: [Client] Failed to reconnect to server. Will try again...
+07/31/24 07:03:50: Raw command: Player.camera_target(100, -50)
+07/31/24 07:03:50: Cleaned command: Player.camera_target(100, -50)
+07/31/24 07:03:50: Parsing arguments: 100, -50
+07/31/24 07:03:50: Parsed arguments: ["100","-50"]
+07/31/24 07:03:50: Command Name: camera_target
+07/31/24 07:03:50: Target Object: Player
+07/31/24 07:03:50: Parameters: ["100","-50"]
+07/31/24 07:03:50: Camera target set to yeancat with offset (100, -50)
+07/31/24 07:04:08: Raw command: camera_target(0,0)
+07/31/24 07:04:08: Cleaned command: camera_target(0,0)
+07/31/24 07:04:08: Parsing arguments: 0,0
+07/31/24 07:04:08: Parsed arguments: ["0","0"]
+07/31/24 07:04:08: Command Name: camera_target
+07/31/24 07:04:08: Target Object: yeancat
+07/31/24 07:04:08: Parameters: ["0","0"]
+07/31/24 07:04:08: Camera target set to yeancat with offset (0, 0)
+07/31/24 07:04:22: Raw command: Center.camera_target(0,0)
+07/31/24 07:04:22: Cleaned command: Center.camera_target(0,0)
+07/31/24 07:04:22: Parsing arguments: 0,0
+07/31/24 07:04:22: Parsed arguments: ["0","0"]
+07/31/24 07:04:22: Command Name: camera_target
+07/31/24 07:04:22: Target Object: Center
+07/31/24 07:04:22: Parameters: ["0","0"]
+07/31/24 07:04:22: Camera target set to room center with offset (0, 0)
+07/31/24 07:04:25: Raw command: Center.camera_target(0,0)
+07/31/24 07:04:25: Cleaned command: Center.camera_target(0,0)
+07/31/24 07:04:25: Parsing arguments: 0,0
+07/31/24 07:04:25: Parsed arguments: ["0","0"]
+07/31/24 07:04:25: Command Name: camera_target
+07/31/24 07:04:25: Target Object: Center
+07/31/24 07:04:25: Parameters: ["0","0"]
+07/31/24 07:04:25: Camera target set to room center with offset (0, 0)
+07/31/24 07:04:35: Raw command: Player.camera_target(100, -50)
+07/31/24 07:04:35: Cleaned command: Player.camera_target(100, -50)
+07/31/24 07:04:35: Parsing arguments: 100, -50
+07/31/24 07:04:35: Parsed arguments: ["100","-50"]
+07/31/24 07:04:35: Command Name: camera_target
+07/31/24 07:04:35: Target Object: Player
+07/31/24 07:04:35: Parameters: ["100","-50"]
+07/31/24 07:04:35: Camera target set to yeancat with offset (100, -50)
+07/31/24 07:04:48: Raw command: Center.camera_target(0,0)
+07/31/24 07:04:48: Cleaned command: Center.camera_target(0,0)
+07/31/24 07:04:48: Parsing arguments: 0,0
+07/31/24 07:04:48: Parsed arguments: ["0","0"]
+07/31/24 07:04:48: Command Name: camera_target
+07/31/24 07:04:48: Target Object: Center
+07/31/24 07:04:48: Parameters: ["0","0"]
+07/31/24 07:04:48: Camera target set to room center with offset (0, 0)
+07/31/24 07:05:18: [Jay Arnold] its still not gradually moving back to the center and is instantly snapping. like it does for setting the
+target to player, the camera should smoothly move to the center.
+07/31/24 07:05:18: Creating chat bubble: " its still not gradually moving back to the center and is instantly snapping. like it does for setting the\ntarget to player, the camera should smoothly move to the center.", Owner: yeancat, Choices: []
+07/31/24 07:05:18: Chat Bubble Created. Following 'yeancat' with text: 'its still not gradually moving back to the center and is
+instantly snapping. like it does for setting the
+target to player, the camera should smoothly move to the
+center.'. Number of choices: 0

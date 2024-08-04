@@ -1,0 +1,128 @@
+08/01/24 20:09:39: Loaded action: SaveGameNow
+08/01/24 20:09:39: Loaded action: GotoKingsKingdom
+08/01/24 20:09:39: Loaded action: EnterPortal
+08/01/24 20:09:39: Loaded action: PurchaseArtifacts
+08/01/24 20:09:39: Loaded action: SignTreaty
+08/01/24 20:09:39: Loaded action: BattleOutcome
+08/01/24 20:09:39: Loaded action: VisitMarket
+08/01/24 20:09:39: Loaded action: GotoDivineDomain
+08/01/24 20:09:39: Loaded action: GotoTheEndonda
+08/01/24 20:09:39: Loaded action: GotoUniverseCity
+08/01/24 20:09:39: Loaded action: GotoLandOfLucy
+08/01/24 20:09:39: Loaded action: GotoPlaceOfPablo
+08/01/24 20:09:39: Loaded action: InvestigateSignals
+08/01/24 20:09:39: Loaded action: OfferTrade
+08/01/24 20:09:39: Loaded action: DisableEnemySpawns
+08/01/24 20:09:39: Loaded action: StartBattle
+08/01/24 20:09:40: Loaded action: SpawnBoss4
+08/01/24 20:09:40: Loaded action: GotoTheIcyHeart
+08/01/24 20:09:40: Loaded action: EngageCombat
+08/01/24 20:09:40: Loaded action: GotoGhostTown
+08/01/24 20:09:40: Loaded action: SpawnBoss0
+08/01/24 20:09:40: Loaded action: SpawnBoss13
+08/01/24 20:09:40: Loaded action: StartExploration
+08/01/24 20:09:40: Loaded action: SpawnBoss8
+08/01/24 20:09:40: Loaded action: SpawnBoss6
+08/01/24 20:09:40: Loaded action: SetLevelFive
+08/01/24 20:09:40: Loaded action: LevelUpThree
+08/01/24 20:09:40: Loaded action: LevelUpOnce
+08/01/24 20:09:40: Loaded action: GotoTheGoldMines
+08/01/24 20:09:40: Loaded action: SpawnBoss11
+08/01/24 20:09:40: Loaded action: StartPeaceMission
+08/01/24 20:09:40: Loaded action: DiplomaticChoice
+08/01/24 20:09:40: Loaded action: TreatyOutcome
+08/01/24 20:09:40: Loaded action: ExplorationChoice
+08/01/24 20:09:40: Loaded action: BattleChoice
+08/01/24 20:09:40: Loaded action: PortalOutcome
+08/01/24 20:09:40: Loaded action: SpaceAdventureStart
+08/01/24 20:09:40: Loaded action: EnableEnemySpawns
+08/01/24 20:09:41: Loaded action: GotoVulturesValley
+08/01/24 20:09:41: Loaded action: GotoEarth
+08/01/24 20:09:41: Loaded action: SpawnBoss1
+08/01/24 20:09:41: Loaded action: GotoStormySands
+08/01/24 20:09:41: Loaded action: SpawnBoss12
+08/01/24 20:09:41: Loaded action: GotoFantasia
+08/01/24 20:09:41: Loaded action: SpawnBoss5
+08/01/24 20:09:41: Loaded action: SpawnBoss10
+08/01/24 20:09:41: Loaded action: GotoYetopia
+08/01/24 20:09:41: Loaded action: SpawnBoss3
+08/01/24 20:09:41: Loaded action: ArtifactOutcome
+08/01/24 20:09:41: Loaded action: SpawnBoss7
+08/01/24 20:09:41: Loaded action: SpawnBoss9
+08/01/24 20:09:41: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 20:09:41: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 20:09:41: Loaded condition: IsHealthFull
+08/01/24 20:09:41: Loaded condition: IsLevelHigh
+08/01/24 20:09:41: Conditions loaded successfully from Conditions.txt.
+08/01/24 20:09:41: Loaded action condition: CheckLevelAndHealth
+08/01/24 20:09:41: Action conditions loaded successfully from ActionConditions.txt.
+08/01/24 20:09:41: Loaded action group: BattleSequence
+08/01/24 20:09:41: Loaded action group: SpawnBossCircle
+08/01/24 20:09:41: Loaded action group: ArtifactMystery
+08/01/24 20:09:41: Loaded action group: PeacefulMission
+08/01/24 20:09:41: Loaded action group: PortalAdventure
+08/01/24 20:09:41: Loaded action group: SpaceExploration
+08/01/24 20:09:41: Loaded action group: EpicBattle
+08/01/24 20:09:41: Loaded action group: PeaceTreaty
+08/01/24 20:09:41: Action groups loaded successfully from ActionGroups.txt.
+08/01/24 20:09:41: [Client] Failed to reconnect to server. Will try again...
+08/01/24 20:09:52: Raw command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 20:09:52: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 20:09:52: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 20:09:52: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 20:09:52: Command Name: add_condition
+08/01/24 20:09:52: Target Object: yeancat
+08/01/24 20:09:52: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 20:09:52: Condition 'IsLevelHigh' added successfully.
+08/01/24 20:09:52: Conditions saved successfully to Conditions.txt.
+08/01/24 20:09:52: Raw command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 20:09:52: Cleaned command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 20:09:52: Parsing arguments: IsHealthFull, Health, =, 50
+08/01/24 20:09:52: Parsed arguments: ["IsHealthFull","Health","=","50"]
+08/01/24 20:09:52: Command Name: add_condition
+08/01/24 20:09:52: Target Object: yeancat
+08/01/24 20:09:52: Parameters: ["IsHealthFull","Health","=","50"]
+08/01/24 20:09:52: Condition 'IsHealthFull' added successfully.
+08/01/24 20:09:52: Conditions saved successfully to Conditions.txt.
+08/01/24 20:09:52: Raw command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 20:09:52: Cleaned command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 20:09:52: Parsing arguments: IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull
+08/01/24 20:09:52: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 20:09:52: Command Name: add_condition
+08/01/24 20:09:52: Target Object: yeancat
+08/01/24 20:09:52: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 20:09:52: Condition 'IsLevelHighAndHealthFull' added successfully.
+08/01/24 20:09:52: Conditions saved successfully to Conditions.txt.
+08/01/24 20:09:52: Raw command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull,
+HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 20:09:52: Cleaned command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 20:09:52: Parsing arguments: CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth
+08/01/24 20:09:52: Parsed arguments: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 20:09:52: Command Name: add_action_condition
+08/01/24 20:09:53: Target Object: yeancat
+08/01/24 20:09:53: Parameters: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 20:09:53: Action condition 'CheckLevelAndHealth' added successfully.
+08/01/24 20:09:53: Action conditions saved successfully to ActionConditions.txt.
+08/01/24 20:10:06: Raw command: execute_action(CheckLevelAndHealth)
+08/01/24 20:10:06: Cleaned command: execute_action(CheckLevelAndHealth)
+08/01/24 20:10:06: Action/group/condition 'CheckLevelAndHealth' not found.
+08/01/24 20:10:13: Raw command: level_up(20)
+08/01/24 20:10:13: Cleaned command: level_up(20)
+08/01/24 20:10:13: Parsing arguments: 20
+08/01/24 20:10:13: Parsed arguments: ["20"]
+08/01/24 20:10:13: Command Name: level_up
+08/01/24 20:10:13: Target Object: yeancat
+08/01/24 20:10:13: Parameters: ["20"]
+08/01/24 20:10:13: Level up initiated with goal: 20
+08/01/24 20:10:18: Raw command: execute_action(CheckLevelAndHealth)
+08/01/24 20:10:18: Cleaned command: execute_action(CheckLevelAndHealth)
+08/01/24 20:10:18: Action/group/condition 'CheckLevelAndHealth' not found.
+08/01/24 20:10:24: [Jay Arnold] nope it didnt work!
+08/01/24 20:10:24: Creating chat bubble: " nope it didnt work!", Owner: yeancat, Choices: []
+08/01/24 20:10:24: Chat Bubble Created. Following 'yeancat' with text: 'nope it didnt work!'. Number of choices: 0
+08/01/24 20:10:29: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 20:10:29: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 20:10:29: Executing action/group/condition: SpaceAdventureStart
+08/01/24 20:10:29: Decoded Data: {"type":"single_action","command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 20:10:29: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/01/24 20:10:29: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3

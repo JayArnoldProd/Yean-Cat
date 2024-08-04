@@ -1,0 +1,303 @@
+
+08/01/24 06:51:31: Loaded action/group: SaveGameNow
+08/01/24 06:51:31: Loaded action/group: GotoKingsKingdom
+08/01/24 06:51:31: Loaded action/group: EnterPortal
+08/01/24 06:51:31: Loaded action/group: PurchaseArtifacts
+08/01/24 06:51:31: Loaded action/group: BattleOutcome
+08/01/24 06:51:31: Loaded action/group: VisitMarket
+08/01/24 06:51:31: Loaded action/group: GotoDivineDomain
+08/01/24 06:51:31: Loaded action/group: GotoTheEndonda
+08/01/24 06:51:31: Loaded action/group: GotoUniverseCity
+08/01/24 06:51:32: Loaded action/group: GotoLandOfLucy
+08/01/24 06:51:32: Loaded action/group: GotoPlaceOfPablo
+08/01/24 06:51:32: Loaded action/group: InvestigateSignals
+08/01/24 06:51:32: Loaded action/group: OfferTrade
+08/01/24 06:51:32: Loaded action/group: DisableEnemySpawns
+08/01/24 06:51:32: Loaded action/group: StartBattle
+08/01/24 06:51:32: Loaded action/group: SpawnBoss4
+08/01/24 06:51:32: Loaded action/group: GotoTheIcyHeart
+08/01/24 06:51:32: Loaded action/group: EngageCombat
+08/01/24 06:51:32: Loaded action/group: GotoGhostTown
+08/01/24 06:51:32: Loaded action/group: SpawnBoss0
+08/01/24 06:51:32: Loaded action/group: IsLevelHighAndHealthFull
+08/01/24 06:51:32: Loaded action/group: SpawnBoss13
+08/01/24 06:51:32: Loaded action/group: StartExploration
+08/01/24 06:51:32: Loaded action/group: SpawnBoss8
+08/01/24 06:51:32: Loaded action/group: SpawnBoss6
+08/01/24 06:51:32: Loaded action/group: SetLevelFive
+08/01/24 06:51:32: Loaded action/group: LevelUpThree
+08/01/24 06:51:32: Loaded action/group: LevelUpOnce
+08/01/24 06:51:32: Loaded action/group: "IsLevelHighAndHealthFull"
+08/01/24 06:51:32: Loaded action/group: GotoTheGoldMines
+08/01/24 06:51:32: Loaded action/group: SpawnBoss11
+08/01/24 06:51:32: Loaded action/group: StartPeaceMission
+08/01/24 06:51:32: Loaded action/group: DiplomaticChoice
+08/01/24 06:51:32: Loaded action/group: TreatyOutcome
+08/01/24 06:51:32: Loaded action/group: ExplorationChoice
+08/01/24 06:51:32: Loaded action/group: BattleChoice
+08/01/24 06:51:32: Loaded action/group: PortalOutcome
+08/01/24 06:51:32: Loaded action/group: SpaceAdventureStart
+08/01/24 06:51:32: Loaded action/group: EnableEnemySpawns
+08/01/24 06:51:32: Loaded action/group: GotoVulturesValley
+08/01/24 06:51:32: Loaded action/group: "IsHealthFull"
+08/01/24 06:51:32: Loaded action/group: GotoEarth
+08/01/24 06:51:33: Loaded action/group: SpawnBoss1
+08/01/24 06:51:33: Loaded action/group: GotoStormySands
+08/01/24 06:51:33: Loaded action/group: SpawnBoss12
+08/01/24 06:51:33: Loaded action/group: IsHealthFull
+08/01/24 06:51:33: Loaded action/group: GotoFantasia
+08/01/24 06:51:33: Loaded action/group: SpawnBoss5
+08/01/24 06:51:33: Loaded action/group: SpawnBoss10
+08/01/24 06:51:33: Loaded action/group: GotoYetopia
+08/01/24 06:51:33: Loaded action/group: SpawnBoss3
+08/01/24 06:51:33: Loaded action/group: IsLevelHigh
+08/01/24 06:51:33: Loaded action/group: ArtifactOutcome
+08/01/24 06:51:33: Loaded action/group: SpawnBoss7
+08/01/24 06:51:33: Loaded action/group: SpawnBoss9
+08/01/24 06:51:33: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 06:51:33: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 06:51:33: Loaded condition: IsHealthFull
+08/01/24 06:51:33: Loaded condition: IsLevelHigh
+08/01/24 06:51:33: Conditions loaded successfully from Conditions.txt.
+08/01/24 06:51:33: [Client] Failed to reconnect to server. Will try again...
+08/01/24 06:51:57: Raw command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:51:57: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:51:57: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 06:51:57: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:51:57: Command Name: add_condition
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:51:57: Raw command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:51:57: Cleaned command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:51:57: Parsing arguments: IsHealthFull, Health, =, 50
+08/01/24 06:51:57: Parsed arguments: ["IsHealthFull","Health","=","50"]
+08/01/24 06:51:57: Command Name: add_condition
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["IsHealthFull","Health","=","50"]
+08/01/24 06:51:57: Raw command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:51:57: Cleaned command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:51:57: Parsing arguments: IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull
+08/01/24 06:51:57: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:51:57: Command Name: add_condition
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:51:57: Raw command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull,
+HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:51:57: Cleaned command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:51:57: Parsing arguments: CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth
+08/01/24 06:51:57: Parsed arguments: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:51:57: Command Name: add_action_condition
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:51:57: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:51:57: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:51:57: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 06:51:57: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:51:57: Command Name: add_action_group
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:52:50: Raw command: list_actions
+08/01/24 06:52:50: Cleaned command: list_actions
+08/01/24 06:52:50: Command Name: list_actions
+08/01/24 06:52:50: Target Object: yeancat
+08/01/24 06:52:50: Parameters: []
+08/01/24 06:52:50: Actions: "IsHealthFull", "IsLevelHighAndHealthFull", ArtifactOutcome, 
+08/01/24 06:52:50: BattleChoice, BattleOutcome, DiplomaticChoice, DisableEnemySpawns, 
+08/01/24 06:52:50: EnableEnemySpawns, EngageCombat, EnterPortal, ExplorationChoice, 
+08/01/24 06:52:50: GotoDivineDomain, GotoEarth, GotoFantasia, GotoGhostTown, 
+08/01/24 06:52:50: GotoKingsKingdom, GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, 
+08/01/24 06:52:50: GotoTheEndonda, GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+08/01/24 06:52:50: GotoVulturesValley, GotoYetopia, InvestigateSignals, IsHealthFull, 
+08/01/24 06:52:50: IsLevelHigh, IsLevelHighAndHealthFull, LevelUpOnce, LevelUpThree, 
+08/01/24 06:52:50: OfferTrade, PortalOutcome, PurchaseArtifacts, SaveGameNow, 
+08/01/24 06:52:50: SetLevelFive, SpaceAdventureStart, SpawnBoss0, SpawnBoss1, 
+08/01/24 06:52:50: SpawnBoss10, SpawnBoss11, SpawnBoss12, SpawnBoss13, SpawnBoss3, 
+08/01/24 06:52:50: SpawnBoss4, SpawnBoss5, SpawnBoss6, SpawnBoss7, SpawnBoss8, 
+08/01/24 06:52:50: SpawnBoss9, StartBattle, StartExploration, StartPeaceMission, 
+08/01/24 06:52:50: TreatyOutcome, VisitMarket
+08/01/24 06:52:54: Raw command: list_action_groups
+08/01/24 06:52:54: Cleaned command: list_action_groups
+08/01/24 06:52:54: Command Name: list_action_groups
+08/01/24 06:52:54: Target Object: yeancat
+08/01/24 06:52:54: Parameters: []
+08/01/24 06:52:54: No action groups found.
+08/01/24 06:52:58: Raw command: list_conditions
+08/01/24 06:52:58: Cleaned command: list_conditions
+08/01/24 06:52:58: Command Name: list_conditions
+08/01/24 06:52:58: Target Object: yeancat
+08/01/24 06:52:58: Parameters: []
+08/01/24 06:52:58: Conditions: IsLevelHighAndHealthFull, IsHealthFull, IsLevelHigh
+08/01/24 06:53:09: Raw command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:53:09: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:53:09: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 06:53:09: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:53:09: Command Name: add_condition
+08/01/24 06:53:09: Target Object: yeancat
+08/01/24 06:53:09: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:53:09: Raw command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:53:10: Cleaned command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:53:10: Parsing arguments: IsHealthFull, Health, =, 50
+08/01/24 06:53:10: Parsed arguments: ["IsHealthFull","Health","=","50"]
+08/01/24 06:53:10: Command Name: add_condition
+08/01/24 06:53:10: Target Object: yeancat
+08/01/24 06:53:10: Parameters: ["IsHealthFull","Health","=","50"]
+08/01/24 06:53:10: Raw command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:53:10: Cleaned command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:53:10: Parsing arguments: IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull
+08/01/24 06:53:10: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:53:10: Command Name: add_condition
+08/01/24 06:53:10: Target Object: yeancat
+08/01/24 06:53:10: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:53:10: Raw command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull,
+HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:53:10: Cleaned command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:53:10: Parsing arguments: CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth
+08/01/24 06:53:10: Parsed arguments: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:53:10: Command Name: add_action_condition
+08/01/24 06:53:10: Target Object: yeancat
+08/01/24 06:53:10: Parameters: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:53:10: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:53:10: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:53:10: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 06:53:10: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:53:10: Command Name: add_action_group
+08/01/24 06:53:10: Target Object: yeancat
+08/01/24 06:53:10: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:53:15: [Jay Arnold] nothing is happening
+08/01/24 06:53:15: Creating chat bubble: " nothing is happening", Owner: yeancat, Choices: []
+08/01/24 06:53:15: Chat Bubble Created. Following 'yeancat' with text: 'nothing is happening'. Number of choices: 0
+08/01/24 06:53:23: Raw command: list_conditions
+08/01/24 06:53:23: Cleaned command: list_conditions
+08/01/24 06:53:23: Command Name: list_conditions
+08/01/24 06:53:23: Target Object: yeancat
+08/01/24 06:53:23: Parameters: []
+08/01/24 06:53:23: Conditions: IsLevelHighAndHealthFull, IsHealthFull, IsLevelHigh
+08/01/24 06:53:23: Raw command: list_action_conditions
+08/01/24 06:53:23: Cleaned command: list_action_conditions
+08/01/24 06:53:23: Command Name: list_action_conditions
+08/01/24 06:53:23: Target Object: yeancat
+08/01/24 06:53:23: Parameters: []
+08/01/24 06:53:23: No action conditions found.
+08/01/24 06:53:23: Raw command: list_action_groups
+08/01/24 06:53:23: Cleaned command: list_action_groups
+08/01/24 06:53:23: Command Name: list_action_groups
+08/01/24 06:53:23: Target Object: yeancat
+08/01/24 06:53:23: Parameters: []
+08/01/24 06:53:23: No action groups found.
+08/01/24 06:53:23: Raw command: list_actions
+08/01/24 06:53:23: Cleaned command: list_actions
+08/01/24 06:53:23: Command Name: list_actions
+08/01/24 06:53:23: Target Object: yeancat
+08/01/24 06:53:23: Parameters: []
+08/01/24 06:53:23: Actions: "IsHealthFull", "IsLevelHighAndHealthFull", ArtifactOutcome, 
+08/01/24 06:53:23: BattleChoice, BattleOutcome, DiplomaticChoice, DisableEnemySpawns, 
+08/01/24 06:53:23: EnableEnemySpawns, EngageCombat, EnterPortal, ExplorationChoice, 
+08/01/24 06:53:23: GotoDivineDomain, GotoEarth, GotoFantasia, GotoGhostTown, 
+08/01/24 06:53:23: GotoKingsKingdom, GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, 
+08/01/24 06:53:23: GotoTheEndonda, GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+08/01/24 06:53:23: GotoVulturesValley, GotoYetopia, InvestigateSignals, IsHealthFull, 
+08/01/24 06:53:23: IsLevelHigh, IsLevelHighAndHealthFull, LevelUpOnce, LevelUpThree, 
+08/01/24 06:53:23: OfferTrade, PortalOutcome, PurchaseArtifacts, SaveGameNow, 
+08/01/24 06:53:23: SetLevelFive, SpaceAdventureStart, SpawnBoss0, SpawnBoss1, 
+08/01/24 06:53:23: SpawnBoss10, SpawnBoss11, SpawnBoss12, SpawnBoss13, SpawnBoss3, 
+08/01/24 06:53:23: SpawnBoss4, SpawnBoss5, SpawnBoss6, SpawnBoss7, SpawnBoss8, 
+08/01/24 06:53:23: SpawnBoss9, StartBattle, StartExploration, StartPeaceMission, 
+08/01/24 06:53:23: TreatyOutcome, VisitMarket
+08/01/24 06:53:48: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:53:48: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:53:48: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 06:53:48: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:53:48: Command Name: add_action_group
+08/01/24 06:53:48: Target Object: yeancat
+08/01/24 06:53:48: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+
+I will delete my actions.txt and I also didnt notice any conditions.txt which is wierd because there should be one.
+
+I will begin with the test sequence:
+
+
+/add_action(LevelUpOnce,level_up,[1])
+/add_action(LevelUpThree, level_up, [3])
+/add_action(SaveGameNow,save_game,[])
+/add_action(GotoEarth,goto_planet,["Earth"])
+/add_action(GotoUniverseCity,goto_planet,["Universe City"])
+/add_action(GotoFantasia,goto_planet,["Fantasia"])
+/add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+/add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+/add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+/add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+/add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+/add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+/add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+/add_action(GotoYetopia,goto_planet,["Yetopia"])
+/add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+/add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+/add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+/add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+/add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+/add_action(SetLevelFive, set_variable, ["Level", "5"])
+/add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+/add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+
+/add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+/add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+/add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+/add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+/add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+/add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+/add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+/add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+
+/add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+/add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+/add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+/add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+
+/add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+/add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+/add_action(EnterPortal, execute_action, ["PortalAdventure"])
+/add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+/add_action(EngageCombat, execute_action, ["EpicBattle"])
+/add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+/add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+/add_action(StartExploration, execute_action, ["SpaceExploration"])
+/add_action(StartBattle, execute_action, ["BattleSequence"])
+/add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+
+/add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+/add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+/add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+/add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+/add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+/add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+/add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+/add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+/add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+/add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+/add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+/add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+/add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+/add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+
+/add_condition(IsLevelHigh, Level, >=, 10); 
+/add_condition(IsHealthFull, Health, =, 50);
+/add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull);
+/add_action_condition(CheckLevel10, IsLevelHigh, Level10OrAbove, BelowLevel10);
+/add_action_condition(CheckHonestyYes, IsLevelHigh, HonestAbove10, LyingBelow10);
+/add_action_condition(CheckHonestyNo, IsLevelHigh, LyingAbove10, HonestBelow10);
+/add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth,NotHighLevelOrNotFullHealth);
+
+/list_action_conditions
+/list_conditions
+/list_action_groups
+/list_actions
+
+/execute_action(SpaceAdventureStart)
+/execute_action(IsLevelHighAndHealthFull)
+/execute_action(SpawnBossCircle)
+
+/Center.camera_target(0,0)
+/Target.camera_target(0,0)
+/Player.camera_target(0,0)
+
+That is the language that until recently was mostly working, now most of it isnt able to produce the results we once had, due to some ai adjustments breaking the system.

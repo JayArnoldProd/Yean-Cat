@@ -1,0 +1,13 @@
+{
+  "$GMScript":"v1",
+  "%Name":"save_action_conditions",
+  "isCompatibility":false,
+  "isDnD":false,
+  "name":"save_action_conditions",
+  "parent":{
+    "name":"Scripts",
+    "path":"folders/Scripts.yy",
+  },
+  "resourceType":"GMScript",
+  "resourceVersion":"2.0",
+}

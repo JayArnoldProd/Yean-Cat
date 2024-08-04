@@ -763,6 +763,62 @@ toggle_server
       "scr_execute_command",
       "scr_chat_bubble"
     ]
+  },
+  {
+    "name": "Action_Condition_System",
+    "description": "Implement a dynamic action condition system for creating branching logic in game actions and dialogues. Key components include:\n1. New /add_action_condition command for creating conditional actions\n2. Support for various comparison operators (>, <, =, !=, >=, etc.)\n3. Ability to compare variables or values\n4. Integration with existing action and action group system\n5. Compatibility with chat bubble choices\n6. New /list_action_conditions command for reviewing created conditions",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "planned",
+    "date_planned": "2024-07-31",
+    "planned_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "SessionLog_45505.17"
+    ],
+    "implementation_steps": [
+      "Step 1: Implement /add_action_condition command with support for various operators.",
+      "Step 2: Create logic for evaluating conditions and executing appropriate actions.",
+      "Step 3: Integrate condition system with existing action and action group functionality.",
+      "Step 4: Implement /list_action_conditions command for reviewing created conditions.",
+      "Step 5: Modify chat bubble system to support conditional choices.",
+      "Step 6: Create example conditions for NPC interactions (e.g.",
+      " level-based dialogue",
+      " item purchases).",
+      "Step 7: Implement condition checking in scr_execute_action.",
+      "Step 8: Add support for nested conditions and complex logical statements.",
+      "Step 9: Create documentation and usage examples for the new condition system.",
+      "Step 10: Comprehensive testing with various game scenarios (NPC interactions",
+      " purchases",
+      " progression checks)."
+    ],
+    "expected_outcome": [
+      "Expected outcome: A versatile condition system that allows for dynamic",
+      " branching gameplay logic. This system should seamlessly integrate with existing action and dialogue systems",
+      " enabling complex interactions based on player stats",
+      " inventory",
+      " or game state. It will significantly enhance the depth of NPC interactions",
+      " quest systems",
+      " and overall game progression mechanics."
+    ],
+    "related_features": [
+      "Action_System",
+      "Dialog_System",
+      "Game_Logic",
+      "NPC_Interactions"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "scr_add_action",
+      "scr_execute_action",
+      "scr_add_action_group",
+      "list_actions",
+      "list_action_groups"
+    ]
   }
 ]
 

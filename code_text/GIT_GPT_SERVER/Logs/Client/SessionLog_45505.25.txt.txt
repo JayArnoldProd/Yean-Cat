@@ -1,0 +1,159 @@
+08/01/24 01:07:02: Loaded action/group: SpaceExploration
+08/01/24 01:07:02: Loaded action/group: OfferTrade
+08/01/24 01:07:02: Loaded action/group: StartExploration
+08/01/24 01:07:02: Loaded action/group: AG1
+08/01/24 01:07:02: Loaded action/group: PeaceTreaty
+08/01/24 01:07:02: Loaded action/group: GotoTheIcyHeart
+08/01/24 01:07:02: Loaded action/group: EnableEnemySpawns
+08/01/24 01:07:02: Loaded action/group: BattleOutcome
+08/01/24 01:07:02: Loaded action/group: GotoGhostTown
+08/01/24 01:07:02: Loaded action/group: PeacefulMission
+08/01/24 01:07:02: Loaded action/group: GotoFantasia
+08/01/24 01:07:02: Loaded action/group: SpawnBoss9
+08/01/24 01:07:02: Loaded action/group: GotoTheEndonda
+08/01/24 01:07:02: Loaded action/group: SpawnBossCircle
+08/01/24 01:07:02: Loaded action/group: EngageCombat
+08/01/24 01:07:02: Loaded action/group: GotoTheGoldMines
+08/01/24 01:07:02: Loaded action/group: BattleChoice
+08/01/24 01:07:02: Loaded action/group: SaveGameNow
+08/01/24 01:07:02: Loaded action/group: StartBattle
+08/01/24 01:07:02: Loaded action/group: SpawnBoss1
+08/01/24 01:07:02: Loaded action/group: LevelTooLow
+08/01/24 01:07:02: Loaded action/group: GotoDivineDomain
+08/01/24 01:07:02: Loaded action/group: GotoYetopia
+08/01/24 01:07:02: Loaded action/group: GotoPlaceOfPablo
+08/01/24 01:07:02: Loaded action/group: ArtifactMystery
+08/01/24 01:07:02: Loaded action/group: DisableEnemySpawns
+08/01/24 01:07:02: Loaded action/group: SpawnBoss2
+08/01/24 01:07:02: Loaded action/group: SpaceAdventureStart
+08/01/24 01:07:02: Loaded action/group: SpawnBoss11
+08/01/24 01:07:02: Loaded action/group: PortalAdventure
+08/01/24 01:07:02: Loaded action/group: SpawnNPC1
+08/01/24 01:07:02: Loaded action/group: SpawnBoss5
+08/01/24 01:07:02: Loaded action/group: GotoEarth
+08/01/24 01:07:02: Loaded action/group: PortalOutcome
+08/01/24 01:07:02: Loaded action/group: InvestigateSignals
+08/01/24 01:07:02: Loaded action/group: GotoKingsKingdom
+08/01/24 01:07:02: Loaded action/group: SpawnBoss3
+08/01/24 01:07:02: Loaded action/group: GotoUniverseCity
+08/01/24 01:07:02: Loaded action/group: ArtifactOutcome
+08/01/24 01:07:02: Loaded action/group: ExplorationChoice
+08/01/24 01:07:02: Loaded action/group: BattleSequence
+08/01/24 01:07:02: Loaded action/group: SpawnBoss4
+08/01/24 01:07:02: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 01:07:02: [Client] Failed to reconnect to server. Will try again...
+08/01/24 01:07:11: Raw command: list_actions
+08/01/24 01:07:11: Cleaned command: list_actions
+08/01/24 01:07:11: Command Name: list_actions
+08/01/24 01:07:11: Target Object: yeancat
+08/01/24 01:07:11: Parameters: []
+08/01/24 01:07:11: Actions: ArtifactOutcome, BattleChoice, BattleOutcome, 
+08/01/24 01:07:11: DisableEnemySpawns, EnableEnemySpawns, EngageCombat, 
+08/01/24 01:07:11: ExplorationChoice, GotoDivineDomain, GotoEarth, GotoFantasia, 
+08/01/24 01:07:11: GotoGhostTown, GotoKingsKingdom, GotoPlaceOfPablo, GotoTheEndonda, 
+08/01/24 01:07:11: GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, GotoYetopia, 
+08/01/24 01:07:11: InvestigateSignals, LevelTooLow, OfferTrade, PortalOutcome, 
+08/01/24 01:07:11: SaveGameNow, SpaceAdventureStart, SpawnBoss1, SpawnBoss11, 
+08/01/24 01:07:11: SpawnBoss2, SpawnBoss3, SpawnBoss4, SpawnBoss5, SpawnBoss9, 
+08/01/24 01:07:11: SpawnNPC1, StartBattle, StartExploration
+08/01/24 01:07:13: [Jay Arnold] nice
+08/01/24 01:07:13: Creating chat bubble: " nice", Owner: yeancat, Choices: []
+08/01/24 01:07:13: Chat Bubble Created. Following 'yeancat' with text: 'nice'. Number of choices: 0
+08/01/24 01:07:17: Raw command: list_action_groups
+08/01/24 01:07:17: Cleaned command: list_action_groups
+08/01/24 01:07:17: Command Name: list_action_groups
+08/01/24 01:07:17: Target Object: yeancat
+08/01/24 01:07:17: Parameters: []
+08/01/24 01:07:17: Action Groups: AG1, ArtifactMystery, BattleSequence, PeaceTreaty, 
+08/01/24 01:07:17: PeacefulMission, PortalAdventure, SpaceExploration, SpawnBossCircle
+08/01/24 01:07:20: Raw command: list_action_conditions
+08/01/24 01:07:20: Cleaned command: list_action_conditions
+08/01/24 01:07:20: Command Name: list_action_conditions
+08/01/24 01:07:20: Target Object: yeancat
+08/01/24 01:07:20: Parameters: []
+08/01/24 01:07:20: No action conditions found.
+08/01/24 01:07:22: [Jay Arnold] nice
+08/01/24 01:07:22: Creating chat bubble: " nice", Owner: yeancat, Choices: []
+08/01/24 01:07:22: Chat Bubble Created. Following 'yeancat' with text: 'nice'. Number of choices: 0
+08/01/24 01:07:41: Raw command: set_variable(Level,1)
+08/01/24 01:07:41: Cleaned command: set_variable(Level,1)
+08/01/24 01:07:41: Parsing arguments: Level,1
+08/01/24 01:07:41: Parsed arguments: ["Level","1"]
+08/01/24 01:07:41: Command Name: set_variable
+08/01/24 01:07:41: Target Object: yeancat
+08/01/24 01:07:41: Parameters: ["Level","1"]
+08/01/24 01:07:41: Level set to 1
+08/01/24 01:07:41: Raw command: add_action(LevelUpReward,Target.chat_bubble,["Congratulations! You've
+reached level 5 or higher!"])
+08/01/24 01:07:41: Cleaned command: add_action(LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"])
+08/01/24 01:07:41: Detected add_action command
+08/01/24 01:07:41: Arguments string: LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:07:41: Parsing arguments: LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:07:41: Parsed arguments: ["LevelUpReward","Target.chat_bubble","[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 01:07:41: Parsed arguments: ["LevelUpReward","Target.chat_bubble","[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 01:07:41: Action Name: LevelUpReward
+08/01/24 01:07:41: Full Action Command: Target.chat_bubble
+08/01/24 01:07:41: Action Params: ["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:07:41: Target Object: Target
+08/01/24 01:07:41: Action Command: chat_bubble
+08/01/24 01:07:41: Action 'LevelUpReward' added/updated successfully.
+08/01/24 01:07:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:07:41: Raw command: add_action(LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing
+to level up!"])
+08/01/24 01:07:41: Cleaned command: add_action(LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"])
+08/01/24 01:07:41: Detected add_action command
+08/01/24 01:07:41: Arguments string: LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"]
+08/01/24 01:07:41: Parsing arguments: LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"]
+08/01/24 01:07:41: Parsed arguments: ["LevelTooLow","Target.chat_bubble","[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 01:07:41: Parsed arguments: ["LevelTooLow","Target.chat_bubble","[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 01:07:41: Action Name: LevelTooLow
+08/01/24 01:07:41: Full Action Command: Target.chat_bubble
+08/01/24 01:07:41: Action Params: ["Your level is too low. Keep playing to level up!"]
+08/01/24 01:07:41: Target Object: Target
+08/01/24 01:07:41: Action Command: chat_bubble
+08/01/24 01:07:41: Action 'LevelTooLow' added/updated successfully.
+08/01/24 01:07:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:07:41: Raw command: add_action_condition(CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow)
+08/01/24 01:07:41: Cleaned command: add_action_condition(CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow)
+08/01/24 01:07:41: Parsing arguments: CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow
+08/01/24 01:07:41: Parsed arguments: ["CheckLevel","Level",">=","5","LevelUpReward","LevelTooLow"]
+08/01/24 01:07:41: Command Name: add_action_condition
+08/01/24 01:07:41: Target Object: yeancat
+08/01/24 01:07:42: Parameters: ["CheckLevel","Level",">=","5","LevelUpReward","LevelTooLow"]
+08/01/24 01:07:42: Action condition 'CheckLevel' added successfully.
+08/01/24 01:07:42: Raw command: list_action_conditions
+08/01/24 01:07:42: Cleaned command: list_action_conditions
+08/01/24 01:07:42: Command Name: list_action_conditions
+08/01/24 01:07:42: Target Object: yeancat
+08/01/24 01:07:42: Parameters: []
+08/01/24 01:07:42: Action Conditions: CheckLevel
+08/01/24 01:07:46: [Jay Arnold] fantastic!
+08/01/24 01:07:46: Creating chat bubble: " fantastic!", Owner: yeancat, Choices: []
+08/01/24 01:07:46: Chat Bubble Created. Following 'yeancat' with text: 'fantastic!'. Number of choices: 0
+08/01/24 01:08:04: Raw command: execute_action(CheckLevel)
+08/01/24 01:08:04: Cleaned command: execute_action(CheckLevel)
+08/01/24 01:08:04: Executing action/group: CheckLevel
+08/01/24 01:08:04: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"5","operator":">=","trueAction":"LevelUpReward","falseAction":"LevelTooLow"}
+08/01/24 01:08:04: Invalid action/group data for: CheckLevel
+08/01/24 01:08:20: [Jay Arnold] okay it didnt execute the action conditon it seems
+08/01/24 01:08:20: Creating chat bubble: " okay it didnt execute the action conditon it seems", Owner: yeancat, Choices: []
+08/01/24 01:08:20: Chat Bubble Created. Following 'yeancat' with text: 'okay it didnt execute the action conditon it seems'. Number of choices: 0
+08/01/24 01:08:29: Raw command: set_variable(Level,6)
+08/01/24 01:08:29: Cleaned command: set_variable(Level,6)
+08/01/24 01:08:29: Parsing arguments: Level,6
+08/01/24 01:08:29: Parsed arguments: ["Level","6"]
+08/01/24 01:08:29: Command Name: set_variable
+08/01/24 01:08:29: Target Object: yeancat
+08/01/24 01:08:29: Parameters: ["Level","6"]
+08/01/24 01:08:29: Level set to 6
+08/01/24 01:08:30: Raw command: execute_action(CheckLevel)
+08/01/24 01:08:30: Cleaned command: execute_action(CheckLevel)
+08/01/24 01:08:30: Executing action/group: CheckLevel
+08/01/24 01:08:30: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"5","operator":">=","trueAction":"LevelUpReward","falseAction":"LevelTooLow"}
+08/01/24 01:08:30: Invalid action/group data for: CheckLevel
+08/01/24 01:08:35: [Jay Arnold] still no
+08/01/24 01:08:35: Creating chat bubble: " still no", Owner: yeancat, Choices: []
+08/01/24 01:08:35: Chat Bubble Created. Following 'yeancat' with text: 'still no'. Number of choices: 0
+08/01/24 01:08:44: [Jay Arnold] but good work on the saving of them! 
+08/01/24 01:08:44: Creating chat bubble: " but good work on the saving of them! ", Owner: yeancat, Choices: []
+08/01/24 01:08:44: Chat Bubble Created. Following 'yeancat' with text: 'but good work on the saving of them! '. Number of choices: 0

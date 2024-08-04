@@ -5,10 +5,8 @@ function load_actions() {
             var line = file_text_read_string(file);
             var split = string_split(line, "|||");
             if (array_length(split) == 2) {
-                var actionName = split[0];
-                var encodedData = split[1];
-                ds_map_set(global.actionDetails, actionName, encodedData);
-                handleDebugMessage("Loaded action/group: " + actionName, true);
+                ds_map_set(global.actionDetails, split[0], split[1]);
+                handleDebugMessage("Loaded action: " + split[0], true);
             }
             file_text_readln(file);
         }

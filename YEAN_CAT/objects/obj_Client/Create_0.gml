@@ -30,6 +30,9 @@ instance_create_depth(room_width/2,room_height/2,-1000000,obj_Cursor);
 global.timeOffset = 0;
 global.inputDisplayEnabled = false;  // Initialize the variable at an appropriate place in your game startup code
 global.actions = ds_map_create();
+global.conditions = ds_map_create();
+global.actionGroups = ds_map_create();
+global.actionConditions = ds_map_create();
 // Adding command details
 // Global initialization script or create event
 global.commandDetails = ds_map_create();
@@ -55,6 +58,8 @@ add_command("list_variables", 2, [[]], false);
 add_command("add_action(", 2, [["string"],["string"],["array"]],true);
 add_command("save_actions", 2, [], false);
 add_command("list_actions", 2, [], false);
+add_command("list_action_conditions", 2, [[]], false);
+add_command("list_conditions", 2, [[]], false);
 add_command("execute_action(", 2, [["string"]], true);
 add_command("show_variable(", 2, [["string"]], true);
 add_command("return_controller", 1, [[]], false);
@@ -70,6 +75,9 @@ add_command("set_spawn_npc(", 2, [["string"], ["real"], ["real"], ["string"], ["
 add_command("spawn_npc(", 2, [["string"], ["real"], ["real"], ["real"], ["string"]], true);
 add_command("spawn_boss(", 2, [["real"], ["real"], ["real"], ["string"]], true);
 add_command("camera_target(", 2, [["real"], ["real"]], true);
+add_command("add_action_condition(", 2, [["string"],["string"],["string"],["string"]], true);
+add_command("add_condition", 2, [["string"],["string"],["string"],["string"]], true);
+add_command("debug_print_all_data", 0, [[]], false);
 // Initialize global action details
 global.actionDetails = ds_map_create();
 
@@ -86,6 +94,7 @@ global.variableDetails = ds_map_create();
 add_variable("Zoom", "camera_zoom", 1,global, "real", 1, 3, [], [], "Player");
 add_variable("SpawnEnemies", "spawnenemies", 1, master, "bool", 0, 1, [], [], "Player");
 add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("Health", "healthh", 1, yeancat, "real", 0, 100000, [], [], "Player");
 add_variable("Password", "password", 1, master, "string", 1, 100000, [], [], "Player");
 add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
 add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
@@ -224,3 +233,6 @@ global.recall_index = -1;  // Index for navigating through the recall list
 shake_angle=0 //angle to shake text when character limit reached.
 
 load_actions()
+load_conditions()
+load_action_conditions()
+load_action_groups()

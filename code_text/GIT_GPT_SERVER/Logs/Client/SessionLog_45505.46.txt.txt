@@ -1,0 +1,211 @@
+
+
+08/01/24 06:04:37: Loaded action/group: SaveGameNow
+08/01/24 06:04:37: Loaded action/group: GotoKingsKingdom
+08/01/24 06:04:37: Loaded action/group: EnterPortal
+08/01/24 06:04:37: Loaded action/group: PurchaseArtifacts
+08/01/24 06:04:37: Loaded action/group: BattleOutcome
+08/01/24 06:04:37: Loaded action/group: VisitMarket
+08/01/24 06:04:37: Loaded action/group: GotoDivineDomain
+08/01/24 06:04:37: Loaded action/group: GotoTheEndonda
+08/01/24 06:04:37: Loaded action/group: GotoUniverseCity
+08/01/24 06:04:38: Loaded action/group: GotoLandOfLucy
+08/01/24 06:04:38: Loaded action/group: GotoPlaceOfPablo
+08/01/24 06:04:38: Loaded action/group: InvestigateSignals
+08/01/24 06:04:38: Loaded action/group: OfferTrade
+08/01/24 06:04:38: Loaded action/group: DisableEnemySpawns
+08/01/24 06:04:38: Loaded action/group: StartBattle
+08/01/24 06:04:38: Loaded action/group: SpawnBoss4
+08/01/24 06:04:38: Loaded action/group: GotoTheIcyHeart
+08/01/24 06:04:38: Loaded action/group: EngageCombat
+08/01/24 06:04:38: Loaded action/group: GotoGhostTown
+08/01/24 06:04:38: Loaded action/group: SpawnBoss0
+08/01/24 06:04:38: Loaded action/group: IsLevelHighAndHealthFull
+08/01/24 06:04:38: Loaded action/group: SpawnBoss13
+08/01/24 06:04:38: Loaded action/group: StartExploration
+08/01/24 06:04:38: Loaded action/group: SpawnBoss8
+08/01/24 06:04:38: Loaded action/group: SpawnBoss6
+08/01/24 06:04:38: Loaded action/group: SetLevelFive
+08/01/24 06:04:38: Loaded action/group: LevelUpThree
+08/01/24 06:04:38: Loaded action/group: LevelUpOnce
+08/01/24 06:04:38: Loaded action/group: "IsLevelHighAndHealthFull"
+08/01/24 06:04:38: Loaded action/group: GotoTheGoldMines
+08/01/24 06:04:38: Loaded action/group: SpawnBoss11
+08/01/24 06:04:38: Loaded action/group: StartPeaceMission
+08/01/24 06:04:38: Loaded action/group: DiplomaticChoice
+08/01/24 06:04:38: Loaded action/group: TreatyOutcome
+08/01/24 06:04:38: Loaded action/group: ExplorationChoice
+08/01/24 06:04:38: Loaded action/group: BattleChoice
+08/01/24 06:04:38: Loaded action/group: PortalOutcome
+08/01/24 06:04:38: Loaded action/group: SpaceAdventureStart
+08/01/24 06:04:38: Loaded action/group: EnableEnemySpawns
+08/01/24 06:04:38: Loaded action/group: GotoVulturesValley
+08/01/24 06:04:38: Loaded action/group: "IsHealthFull"
+08/01/24 06:04:38: Loaded action/group: GotoEarth
+08/01/24 06:04:38: Loaded action/group: SpawnBoss1
+08/01/24 06:04:38: Loaded action/group: GotoStormySands
+08/01/24 06:04:38: Loaded action/group: SpawnBoss12
+08/01/24 06:04:38: Loaded action/group: IsHealthFull
+08/01/24 06:04:38: Loaded action/group: GotoFantasia
+08/01/24 06:04:38: Loaded action/group: SpawnBoss5
+08/01/24 06:04:38: Loaded action/group: SpawnBoss10
+08/01/24 06:04:38: Loaded action/group: GotoYetopia
+08/01/24 06:04:38: Loaded action/group: SpawnBoss3
+08/01/24 06:04:38: Loaded action/group: IsLevelHigh
+08/01/24 06:04:38: Loaded action/group: ArtifactOutcome
+08/01/24 06:04:38: Loaded action/group: SpawnBoss7
+08/01/24 06:04:38: Loaded action/group: SpawnBoss9
+08/01/24 06:04:38: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 06:04:38: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 06:04:38: Loaded condition: IsHealthFull
+08/01/24 06:04:38: Loaded condition: IsLevelHigh
+08/01/24 06:04:38: Conditions loaded successfully from Conditions.txt.
+08/01/24 06:04:38: [Client] Failed to reconnect to server. Will try again...
+08/01/24 06:04:50: Raw command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:04:50: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:04:50: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 06:04:50: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:04:50: Command Name: add_condition
+08/01/24 06:04:50: Target Object: yeancat
+08/01/24 06:04:50: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:04:50: Condition 'IsLevelHigh' added successfully.
+08/01/24 06:04:50: Actions and action groups saved successfully to Actions.txt.
+08/01/24 06:04:50: Raw command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:04:50: Cleaned command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:04:50: Parsing arguments: IsHealthFull, Health, =, 50
+08/01/24 06:04:50: Parsed arguments: ["IsHealthFull","Health","=","50"]
+08/01/24 06:04:50: Command Name: add_condition
+08/01/24 06:04:50: Target Object: yeancat
+08/01/24 06:04:50: Parameters: ["IsHealthFull","Health","=","50"]
+08/01/24 06:04:50: Condition 'IsHealthFull' added successfully.
+08/01/24 06:04:50: Actions and action groups saved successfully to Actions.txt.
+08/01/24 06:04:50: Raw command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:04:50: Cleaned command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:04:50: Parsing arguments: IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull
+08/01/24 06:04:50: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:04:50: Command Name: add_condition
+08/01/24 06:04:50: Target Object: yeancat
+08/01/24 06:04:50: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:04:50: Condition 'IsLevelHighAndHealthFull' added successfully.
+08/01/24 06:04:50: Actions and action groups saved successfully to Actions.txt.
+08/01/24 06:04:50: Raw command: add_action_condition(CheckLevel10, IsLevelHigh, Level10OrAbove, BelowLevel10)
+08/01/24 06:04:50: Cleaned command: add_action_condition(CheckLevel10, IsLevelHigh, Level10OrAbove, BelowLevel10)
+08/01/24 06:04:50: Parsing arguments: CheckLevel10, IsLevelHigh, Level10OrAbove, BelowLevel10
+08/01/24 06:04:50: Parsed arguments: ["CheckLevel10","IsLevelHigh","Level10OrAbove","BelowLevel10"]
+08/01/24 06:04:50: Command Name: add_action_condition
+08/01/24 06:04:50: Target Object: yeancat
+08/01/24 06:04:50: Parameters: ["CheckLevel10","IsLevelHigh","Level10OrAbove","BelowLevel10"]
+08/01/24 06:04:50: Action condition 'CheckLevel10' added successfully.
+08/01/24 06:04:50: Raw command: add_action_condition(CheckHonestyYes, IsLevelHigh, HonestAbove10,
+LyingBelow10)
+08/01/24 06:04:50: Cleaned command: add_action_condition(CheckHonestyYes, IsLevelHigh, HonestAbove10, LyingBelow10)
+08/01/24 06:04:50: Parsing arguments: CheckHonestyYes, IsLevelHigh, HonestAbove10, LyingBelow10
+08/01/24 06:04:50: Parsed arguments: ["CheckHonestyYes","IsLevelHigh","HonestAbove10","LyingBelow10"]
+08/01/24 06:04:50: Command Name: add_action_condition
+08/01/24 06:04:50: Target Object: yeancat
+08/01/24 06:04:50: Parameters: ["CheckHonestyYes","IsLevelHigh","HonestAbove10","LyingBelow10"]
+08/01/24 06:04:50: Action condition 'CheckHonestyYes' added successfully.
+08/01/24 06:04:50: Raw command: add_action_condition(CheckHonestyNo, IsLevelHigh, LyingAbove10, HonestBelow10)
+08/01/24 06:04:50: Cleaned command: add_action_condition(CheckHonestyNo, IsLevelHigh, LyingAbove10, HonestBelow10)
+08/01/24 06:04:50: Parsing arguments: CheckHonestyNo, IsLevelHigh, LyingAbove10, HonestBelow10
+08/01/24 06:04:50: Parsed arguments: ["CheckHonestyNo","IsLevelHigh","LyingAbove10","HonestBelow10"]
+08/01/24 06:04:50: Command Name: add_action_condition
+08/01/24 06:04:50: Target Object: yeancat
+08/01/24 06:04:50: Parameters: ["CheckHonestyNo","IsLevelHigh","LyingAbove10","HonestBelow10"]
+08/01/24 06:04:51: Action condition 'CheckHonestyNo' added successfully.
+08/01/24 06:04:51: Raw command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull,
+HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:04:51: Cleaned command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:04:51: Parsing arguments: CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth
+08/01/24 06:04:51: Parsed arguments: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:04:51: Command Name: add_action_condition
+08/01/24 06:04:51: Target Object: yeancat
+08/01/24 06:04:51: Parameters: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:04:51: Action condition 'CheckLevelAndHealth' added successfully.
+08/01/24 06:05:24: Raw command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 06:05:24: Cleaned command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 06:05:24: Executing action/group/condition: IsLevelHighAndHealthFull
+08/01/24 06:05:24: Decoded Data: {"type":"condition","operator":"and","leftOperand":"IsLevelHigh","rightOperand":"IsHealthFull"}
+
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+Variable <unknown_object>.command(100400, -2147483648) not set before reading it.
+ at gml_Script_execute_single_action (line 2) -     var cmdName = actionData.command;
+############################################################################################
+gml_Script_execute_single_action (line 2)
+gml_Script_execute_command (line 114) -                         execute_single_action(decodedData);
+gml_Script_execute_multiple_commands (line 7) -             execute_command(command);
+gml_Object_obj_Client_Step_0 (line 233) -             execute_multiple_commands(global.commandBuffer);
+
+08/01/24 06:09:34: Loaded action/group: SaveGameNow
+08/01/24 06:09:34: Loaded action/group: GotoKingsKingdom
+08/01/24 06:09:34: Loaded action/group: EnterPortal
+08/01/24 06:09:34: Loaded action/group: PurchaseArtifacts
+08/01/24 06:09:34: Loaded action/group: BattleOutcome
+08/01/24 06:09:34: Loaded action/group: VisitMarket
+08/01/24 06:09:35: Loaded action/group: GotoDivineDomain
+08/01/24 06:09:35: Loaded action/group: GotoTheEndonda
+08/01/24 06:09:35: Loaded action/group: GotoUniverseCity
+08/01/24 06:09:35: Loaded action/group: GotoLandOfLucy
+08/01/24 06:09:35: Loaded action/group: GotoPlaceOfPablo
+08/01/24 06:09:35: Loaded action/group: InvestigateSignals
+08/01/24 06:09:35: Loaded action/group: OfferTrade
+08/01/24 06:09:35: Loaded action/group: DisableEnemySpawns
+08/01/24 06:09:35: Loaded action/group: StartBattle
+08/01/24 06:09:35: Loaded action/group: SpawnBoss4
+08/01/24 06:09:35: Loaded action/group: GotoTheIcyHeart
+08/01/24 06:09:35: Loaded action/group: EngageCombat
+08/01/24 06:09:35: Loaded action/group: GotoGhostTown
+08/01/24 06:09:35: Loaded action/group: SpawnBoss0
+08/01/24 06:09:35: Loaded action/group: IsLevelHighAndHealthFull
+08/01/24 06:09:35: Loaded action/group: SpawnBoss13
+08/01/24 06:09:35: Loaded action/group: StartExploration
+08/01/24 06:09:35: Loaded action/group: SpawnBoss8
+08/01/24 06:09:35: Loaded action/group: SpawnBoss6
+08/01/24 06:09:35: Loaded action/group: SetLevelFive
+08/01/24 06:09:35: Loaded action/group: LevelUpThree
+08/01/24 06:09:35: Loaded action/group: LevelUpOnce
+08/01/24 06:09:35: Loaded action/group: "IsLevelHighAndHealthFull"
+08/01/24 06:09:35: Loaded action/group: GotoTheGoldMines
+08/01/24 06:09:35: Loaded action/group: SpawnBoss11
+08/01/24 06:09:35: Loaded action/group: StartPeaceMission
+08/01/24 06:09:35: Loaded action/group: DiplomaticChoice
+08/01/24 06:09:35: Loaded action/group: TreatyOutcome
+08/01/24 06:09:35: Loaded action/group: ExplorationChoice
+08/01/24 06:09:35: Loaded action/group: BattleChoice
+08/01/24 06:09:35: Loaded action/group: PortalOutcome
+08/01/24 06:09:35: Loaded action/group: SpaceAdventureStart
+08/01/24 06:09:35: Loaded action/group: EnableEnemySpawns
+08/01/24 06:09:35: Loaded action/group: GotoVulturesValley
+08/01/24 06:09:35: Loaded action/group: "IsHealthFull"
+08/01/24 06:09:35: Loaded action/group: GotoEarth
+08/01/24 06:09:35: Loaded action/group: SpawnBoss1
+08/01/24 06:09:35: Loaded action/group: GotoStormySands
+08/01/24 06:09:35: Loaded action/group: SpawnBoss12
+08/01/24 06:09:35: Loaded action/group: IsHealthFull
+08/01/24 06:09:35: Loaded action/group: GotoFantasia
+08/01/24 06:09:35: Loaded action/group: SpawnBoss5
+08/01/24 06:09:35: Loaded action/group: SpawnBoss10
+08/01/24 06:09:35: Loaded action/group: GotoYetopia
+08/01/24 06:09:35: Loaded action/group: SpawnBoss3
+08/01/24 06:09:35: Loaded action/group: IsLevelHigh
+08/01/24 06:09:35: Loaded action/group: ArtifactOutcome
+08/01/24 06:09:35: Loaded action/group: SpawnBoss7
+08/01/24 06:09:35: Loaded action/group: SpawnBoss9
+08/01/24 06:09:35: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 06:09:35: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 06:09:35: Loaded condition: IsHealthFull
+08/01/24 06:09:35: Loaded condition: IsLevelHigh
+08/01/24 06:09:35: Conditions loaded successfully from Conditions.txt.
+08/01/24 06:09:35: [Client] Failed to reconnect to server. Will try again...
+08/01/24 06:09:57: Raw command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 06:09:57: Cleaned command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 06:09:57: Executing action/group/condition: IsLevelHighAndHealthFull
+08/01/24 06:09:57: Decoded Data: {"type":"condition","operator":"and","leftOperand":"IsLevelHigh","rightOperand":"IsHealthFull"}

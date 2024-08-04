@@ -1,0 +1,188 @@
+08/01/24 01:57:59: Loaded action/group: SaveGameNow
+08/01/24 01:57:59: Loaded action/group: GotoKingsKingdom
+08/01/24 01:57:59: Loaded action/group: CheckHonestyYes
+08/01/24 01:57:59: Loaded action/group: BattleOutcome
+08/01/24 01:57:59: Loaded action/group: HonestAbove10
+08/01/24 01:57:59: Loaded action/group: GotoDivineDomain
+08/01/24 01:57:59: Loaded action/group: LyingAbove10
+08/01/24 01:57:59: Loaded action/group: GotoTheEndonda
+08/01/24 01:57:59: Loaded action/group: GotoUniverseCity
+08/01/24 01:57:59: Loaded action/group: SpawnNPC1
+08/01/24 01:57:59: Loaded action/group: GotoPlaceOfPablo
+08/01/24 01:57:59: Loaded action/group: InvestigateSignals
+08/01/24 01:57:59: Loaded action/group: OfferTrade
+08/01/24 01:57:59: Loaded action/group: DisableEnemySpawns
+08/01/24 01:57:59: Loaded action/group: BattleSequence
+08/01/24 01:57:59: Loaded action/group: Level10OrAbove
+08/01/24 01:57:59: Loaded action/group: StartBattle
+08/01/24 01:57:59: Loaded action/group: SpawnBoss4
+08/01/24 01:57:59: Loaded action/group: SpawnBossCircle
+08/01/24 01:57:59: Loaded action/group: GotoTheIcyHeart
+08/01/24 01:57:59: Loaded action/group: EngageCombat
+08/01/24 01:57:59: Loaded action/group: LevelUpReward
+08/01/24 01:57:59: Loaded action/group: GotoGhostTown
+08/01/24 01:57:59: Loaded action/group: StartExploration
+08/01/24 01:57:59: Loaded action/group: LevelTooLow
+08/01/24 01:57:59: Loaded action/group: AskAboutLevel10
+08/01/24 01:57:59: Loaded action/group: BelowLevel10
+08/01/24 01:57:59: Loaded action/group: GotoTheGoldMines
+08/01/24 01:57:59: Loaded action/group: SpawnBoss11
+08/01/24 01:57:59: Loaded action/group: SpawnBoss2
+08/01/24 01:57:59: Loaded action/group: ExplorationChoice
+08/01/24 01:57:59: Loaded action/group: BattleChoice
+08/01/24 01:57:59: Loaded action/group: ArtifactMystery
+08/01/24 01:58:00: Loaded action/group: PortalOutcome
+08/01/24 01:58:00: Loaded action/group: CheckHonestyNo
+08/01/24 01:58:00: Loaded action/group: CheckLevel
+08/01/24 01:58:00: Loaded action/group: PeacefulMission
+08/01/24 01:58:00: Loaded action/group: SpaceAdventureStart
+08/01/24 01:58:00: Loaded action/group: PortalAdventure
+08/01/24 01:58:00: Loaded action/group: CheckLevel10
+08/01/24 01:58:00: Loaded action/group: EnableEnemySpawns
+08/01/24 01:58:00: Loaded action/group: GotoEarth
+08/01/24 01:58:00: Loaded action/group: SpawnBoss1
+08/01/24 01:58:00: Loaded action/group: SpaceExploration
+08/01/24 01:58:00: Loaded action/group: LyingBelow10
+08/01/24 01:58:00: Loaded action/group: GotoFantasia
+08/01/24 01:58:00: Loaded action/group: HonestBelow10
+08/01/24 01:58:00: Loaded action/group: SpawnBoss5
+08/01/24 01:58:00: Loaded action/group: AG1
+08/01/24 01:58:00: Loaded action/group: GotoYetopia
+08/01/24 01:58:00: Loaded action/group: SpawnBoss3
+08/01/24 01:58:00: Loaded action/group: ArtifactOutcome
+08/01/24 01:58:00: Loaded action/group: SpawnBoss9
+08/01/24 01:58:00: Loaded action/group: PeaceTreaty
+08/01/24 01:58:00: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 01:58:00: [Client] Failed to reconnect to server. Will try again...
+08/01/24 01:58:41: Raw command: add_action_condition(IsLevelHigh,Level,>=,10,null,null)
+08/01/24 01:58:41: Cleaned command: add_action_condition(IsLevelHigh,Level,>=,10,null,null)
+08/01/24 01:58:41: Parsing arguments: IsLevelHigh,Level,>=,10,null,null
+08/01/24 01:58:41: Parsed arguments: ["IsLevelHigh","Level",">=","10","null","null"]
+08/01/24 01:58:41: Command Name: add_action_condition
+08/01/24 01:58:41: Target Object: yeancat
+08/01/24 01:58:41: Parameters: ["IsLevelHigh","Level",">=","10","null","null"]
+08/01/24 01:58:41: Action condition 'IsLevelHigh' added successfully.
+08/01/24 01:58:41: Raw command: add_action_condition(IsHealthFull,Health,=,50,null,null)
+08/01/24 01:58:41: Cleaned command: add_action_condition(IsHealthFull,Health,=,50,null,null)
+08/01/24 01:58:41: Parsing arguments: IsHealthFull,Health,=,50,null,null
+08/01/24 01:58:41: Parsed arguments: ["IsHealthFull","Health","=","50","null","null"]
+08/01/24 01:58:41: Command Name: add_action_condition
+08/01/24 01:58:41: Target Object: yeancat
+08/01/24 01:58:41: Parameters: ["IsHealthFull","Health","=","50","null","null"]
+08/01/24 01:58:41: Action condition 'IsHealthFull' added successfully.
+08/01/24 01:58:41: Raw command: add_action_condition(IsLevelHighAndHealthFull,IsLevelHigh,and,IsHealthFull,HighLevelFullHealth,NotHi
+ghLevelOrNotFullHealth)
+08/01/24 01:58:41: Cleaned command: add_action_condition(IsLevelHighAndHealthFull,IsLevelHigh,and,IsHealthFull,HighLevelFullHealth,NotHi ghLevelOrNotFullHealth)
+08/01/24 01:58:41: Parsing arguments: IsLevelHighAndHealthFull,IsLevelHigh,and,IsHealthFull,HighLevelFullHealth,NotHi ghLevelOrNotFullHealth
+08/01/24 01:58:41: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull","HighLevelFullHealth","NotHi ghLevelOrNotFullHealth"]
+08/01/24 01:58:41: Command Name: add_action_condition
+08/01/24 01:58:41: Target Object: yeancat
+08/01/24 01:58:41: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull","HighLevelFullHealth","NotHi ghLevelOrNotFullHealth"]
+08/01/24 01:58:41: Action condition 'IsLevelHighAndHealthFull' added successfully.
+08/01/24 01:58:41: Raw command: add_action(HighLevelFullHealth,Target.chat_bubble,["You are high level and have full health!"])
+08/01/24 01:58:41: Cleaned command: add_action(HighLevelFullHealth,Target.chat_bubble,["You are high level and have full health!"])
+08/01/24 01:58:41: Detected add_action command
+08/01/24 01:58:41: Arguments string: HighLevelFullHealth,Target.chat_bubble,["You are high level and have full health!"]
+08/01/24 01:58:41: Parsing arguments: HighLevelFullHealth,Target.chat_bubble,["You are high level and have full health!"]
+08/01/24 01:58:41: Parsed arguments: ["HighLevelFullHealth","Target.chat_bubble","[\"You are high level and have full health!\"]"]
+08/01/24 01:58:41: Parsed arguments: ["HighLevelFullHealth","Target.chat_bubble","[\"You are high level and have full health!\"]"]
+08/01/24 01:58:41: Action Name: HighLevelFullHealth
+08/01/24 01:58:41: Full Action Command: Target.chat_bubble
+08/01/24 01:58:41: Action Params: ["You are high level and have full health!"]
+08/01/24 01:58:41: Target Object: Target
+08/01/24 01:58:41: Action Command: chat_bubble
+08/01/24 01:58:41: Action 'HighLevelFullHealth' added/updated successfully.
+08/01/24 01:58:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:58:41: Raw command: add_action(NotHighLevelOrNotFullHealth,Target.chat_bubble,["You are either not high level or don't
+have full health."])
+08/01/24 01:58:41: Cleaned command: add_action(NotHighLevelOrNotFullHealth,Target.chat_bubble,["You are either not high level or don't have full health."])
+08/01/24 01:58:41: Detected add_action command
+08/01/24 01:58:41: Arguments string: NotHighLevelOrNotFullHealth,Target.chat_bubble,["You are either not high level or don't have full health."]
+08/01/24 01:58:41: Parsing arguments: NotHighLevelOrNotFullHealth,Target.chat_bubble,["You are either not high level or don't have full health."]
+08/01/24 01:58:41: Parsed arguments: ["NotHighLevelOrNotFullHealth","Target.chat_bubble","[\"You are either not high level or don't have full health.\"]"]
+08/01/24 01:58:41: Parsed arguments: ["NotHighLevelOrNotFullHealth","Target.chat_bubble","[\"You are either not high level or don't have full health.\"]"]
+08/01/24 01:58:41: Action Name: NotHighLevelOrNotFullHealth
+08/01/24 01:58:41: Full Action Command: Target.chat_bubble
+08/01/24 01:58:41: Action Params: ["You are either not high level or don't have full health."]
+08/01/24 01:58:41: Target Object: Target
+08/01/24 01:58:41: Action Command: chat_bubble
+08/01/24 01:58:41: Action 'NotHighLevelOrNotFullHealth' added/updated successfully.
+08/01/24 01:58:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:58:47: Raw command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 01:58:47: Cleaned command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 01:58:47: Executing action/group/condition: IsLevelHighAndHealthFull
+08/01/24 01:58:47: Decoded Data: {"type":"action_condition","leftOperand":"IsLevelHigh","rightOperand":"IsHealthFull","operator":"and","trueAction":"HighLevelFullHealth","falseAction":"NotHi ghLevelOrNotFullHealth"}
+08/01/24 01:58:47: Condition result: 0 (IsLevelHigh and IsHealthFull)
+08/01/24 01:58:47: Raw command: execute_action(NotHi ghLevelOrNotFullHealth)
+08/01/24 01:58:47: Cleaned command: execute_action(NotHi ghLevelOrNotFullHealth)
+08/01/24 01:58:47: Action/group/condition 'NotHi ghLevelOrNotFullHealth' not found.
+08/01/24 01:59:05: Raw command: level_up(15)
+08/01/24 01:59:05: Cleaned command: level_up(15)
+08/01/24 01:59:05: Parsing arguments: 15
+08/01/24 01:59:05: Parsed arguments: ["15"]
+08/01/24 01:59:05: Command Name: level_up
+08/01/24 01:59:05: Target Object: yeancat
+08/01/24 01:59:05: Parameters: ["15"]
+08/01/24 01:59:05: Level up initiated with goal: 15
+08/01/24 01:59:10: Raw command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 01:59:10: Cleaned command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 01:59:10: Executing action/group/condition: IsLevelHighAndHealthFull
+08/01/24 01:59:10: Decoded Data: {"type":"action_condition","leftOperand":"IsLevelHigh","rightOperand":"IsHealthFull","operator":"and","trueAction":"HighLevelFullHealth","falseAction":"NotHi ghLevelOrNotFullHealth"}
+08/01/24 01:59:10: Condition result: 0 (IsLevelHigh and IsHealthFull)
+08/01/24 01:59:10: Raw command: execute_action(NotHi ghLevelOrNotFullHealth)
+08/01/24 01:59:10: Cleaned command: execute_action(NotHi ghLevelOrNotFullHealth)
+08/01/24 01:59:10: Action/group/condition 'NotHi ghLevelOrNotFullHealth' not found.
+08/01/24 01:59:24: [Jay Arnold] i have 82 health and my level is 15 i changed the health requirement to 50
+08/01/24 01:59:24: Creating chat bubble: " i have 82 health and my level is 15 i changed the health requirement to 50", Owner: yeancat, Choices: []
+08/01/24 01:59:24: Chat Bubble Created. Following 'yeancat' with text: 'i have 82 health and my level is 15 i changed the health
+requirement to 50'. Number of choices: 0
+08/01/24 01:59:32: Raw command: show_variable(Health)
+08/01/24 01:59:32: Cleaned command: show_variable(Health)
+08/01/24 01:59:32: Parsing arguments: Health
+08/01/24 01:59:32: Parsed arguments: ["Health"]
+08/01/24 01:59:32: Command Name: show_variable
+08/01/24 01:59:32: Target Object: yeancat
+08/01/24 01:59:32: Parameters: ["Health"]
+08/01/24 01:59:32: Health: 82
+08/01/24 01:59:40: Raw command: show_variable(Level)
+08/01/24 01:59:40: Cleaned command: show_variable(Level)
+08/01/24 01:59:40: Parsing arguments: Level
+08/01/24 01:59:40: Parsed arguments: ["Level"]
+08/01/24 01:59:40: Command Name: show_variable
+08/01/24 01:59:40: Target Object: yeancat
+08/01/24 01:59:40: Parameters: ["Level"]
+08/01/24 01:59:40: Level: 16
+08/01/24 02:00:22: [Jay Arnold] good try though! im wondering if we need to separate conditions from action conditions
+(the definiton of conditions) this will allow us to reuse them more easily. 
+08/01/24 02:00:22: Creating chat bubble: " good try though! im wondering if we need to separate conditions from action conditions\n(the definiton of conditions) this will allow us to reuse them more easily. ", Owner: yeancat, Choices: []
+08/01/24 02:00:23: Chat Bubble Created. Following 'yeancat' with text: 'good try though! im wondering if we need to separate
+conditions from action conditions
+(the definiton of conditions) this will allow us to reuse them
+more easily. '. Number of choices: 0
+08/01/24 02:00:44: [Jay Arnold] perhaps instead we should have a new Conditions.txt file and instead do it like this
+08/01/24 02:00:44: Creating chat bubble: " perhaps instead we should have a new Conditions.txt file and instead do it like this", Owner: yeancat, Choices: []
+08/01/24 02:00:44: Chat Bubble Created. Following 'yeancat' with text: 'perhaps instead we should have a new Conditions.txt file
+and instead do it like this'. Number of choices: 0
+08/01/24 02:01:58: Raw command: add_condition("Name",leftoperand,operator,rightoperand)
+08/01/24 02:01:58: Cleaned command: add_condition("Name",leftoperand,operator,rightoperand)
+08/01/24 02:01:58: Parsing arguments: "Name",leftoperand,operator,rightoperand
+08/01/24 02:01:58: Parsed arguments: ["\"Name\"","leftoperand","operator","rightoperand"]
+08/01/24 02:01:58: Command Name: add_condition
+08/01/24 02:01:58: Target Object: yeancat
+08/01/24 02:01:58: Parameters: ["\"Name\"","leftoperand","operator","rightoperand"]
+08/01/24 02:01:58: Script not found for command: add_condition
+08/01/24 02:02:58: [Jay Arnold] and then we could do /add_action_condition("Name",conditionname,trueaction,falseaction)
+08/01/24 02:02:58: Creating chat bubble: " and then we could do \/add_action_condition(\"Name\",conditionname,trueaction,falseaction)", Owner: yeancat, Choices: []
+08/01/24 02:02:58: Chat Bubble Created. Following 'yeancat' with text: 'and then we could do
+/add_action_condition("Name",conditionname,trueaction,f
+alseaction)'. Number of choices: 0
+08/01/24 02:04:21: [Jay Arnold] if you believe that would be a cleaner approach and keep us from creating too many conditions as well as
+better overall then i would like to also implement that, either before or after fixing the and/or not
+working properly, whichever order would be convenient. if you can do both at once that would be godly!
+08/01/24 02:04:21: Creating chat bubble: " if you believe that would be a cleaner approach and keep us from creating too many conditions as well as\nbetter overall then i would like to also implement that, either before or after fixing the and\/or not\nworking properly, whichever order would be convenient. if you can do both at once that would be godly!", Owner: yeancat, Choices: []
+08/01/24 02:04:21: Chat Bubble Created. Following 'yeancat' with text: 'if you believe that would be a cleaner approach and keep us
+from creating too many conditions as well as
+better overall then i would like to also implement that,
+either before or after fixing the and/or not
+working properly, whichever order would be convenient. if
+you can do both at once that would be godly!'. Number of choices: 0

@@ -1,0 +1,166 @@
+08/01/24 20:26:22: Loaded action: SaveGameNow
+08/01/24 20:26:22: Loaded action: GotoKingsKingdom
+08/01/24 20:26:22: Loaded action: EnterPortal
+08/01/24 20:26:22: Loaded action: PurchaseArtifacts
+08/01/24 20:26:22: Loaded action: SignTreaty
+08/01/24 20:26:23: Loaded action: BattleOutcome
+08/01/24 20:26:23: Loaded action: VisitMarket
+08/01/24 20:26:23: Loaded action: GotoDivineDomain
+08/01/24 20:26:23: Loaded action: GotoTheEndonda
+08/01/24 20:26:23: Loaded action: GotoUniverseCity
+08/01/24 20:26:23: Loaded action: GotoLandOfLucy
+08/01/24 20:26:23: Loaded action: GotoPlaceOfPablo
+08/01/24 20:26:23: Loaded action: InvestigateSignals
+08/01/24 20:26:23: Loaded action: OfferTrade
+08/01/24 20:26:23: Loaded action: DisableEnemySpawns
+08/01/24 20:26:23: Loaded action: StartBattle
+08/01/24 20:26:23: Loaded action: SpawnBoss4
+08/01/24 20:26:23: Loaded action: GotoTheIcyHeart
+08/01/24 20:26:23: Loaded action: EngageCombat
+08/01/24 20:26:23: Loaded action: GotoGhostTown
+08/01/24 20:26:23: Loaded action: SpawnBoss0
+08/01/24 20:26:23: Loaded action: SpawnBoss13
+08/01/24 20:26:23: Loaded action: StartExploration
+08/01/24 20:26:23: Loaded action: SpawnBoss8
+08/01/24 20:26:23: Loaded action: SpawnBoss6
+08/01/24 20:26:23: Loaded action: SetLevelFive
+08/01/24 20:26:23: Loaded action: LevelUpThree
+08/01/24 20:26:23: Loaded action: LevelUpOnce
+08/01/24 20:26:23: Loaded action: GotoTheGoldMines
+08/01/24 20:26:23: Loaded action: SpawnBoss11
+08/01/24 20:26:23: Loaded action: StartPeaceMission
+08/01/24 20:26:23: Loaded action: DiplomaticChoice
+08/01/24 20:26:23: Loaded action: TreatyOutcome
+08/01/24 20:26:23: Loaded action: ExplorationChoice
+08/01/24 20:26:23: Loaded action: BattleChoice
+08/01/24 20:26:23: Loaded action: PortalOutcome
+08/01/24 20:26:23: Loaded action: SpaceAdventureStart
+08/01/24 20:26:23: Loaded action: EnableEnemySpawns
+08/01/24 20:26:24: Loaded action: GotoVulturesValley
+08/01/24 20:26:24: Loaded action: GotoEarth
+08/01/24 20:26:24: Loaded action: SpawnBoss1
+08/01/24 20:26:24: Loaded action: GotoStormySands
+08/01/24 20:26:24: Loaded action: SpawnBoss12
+08/01/24 20:26:24: Loaded action: GotoFantasia
+08/01/24 20:26:24: Loaded action: SpawnBoss5
+08/01/24 20:26:24: Loaded action: SpawnBoss10
+08/01/24 20:26:24: Loaded action: GotoYetopia
+08/01/24 20:26:24: Loaded action: SpawnBoss3
+08/01/24 20:26:24: Loaded action: ArtifactOutcome
+08/01/24 20:26:24: Loaded action: SpawnBoss7
+08/01/24 20:26:24: Loaded action: SpawnBoss9
+08/01/24 20:26:24: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 20:26:24: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 20:26:24: Loaded condition: IsHealthFull
+08/01/24 20:26:24: Loaded condition: IsLevelHigh
+08/01/24 20:26:24: Conditions loaded successfully from Conditions.txt.
+08/01/24 20:26:24: Loaded action condition: CheckLevelAndHealth
+08/01/24 20:26:24: Action conditions loaded successfully from ActionConditions.txt.
+08/01/24 20:26:24: Loaded action group: BattleSequence
+08/01/24 20:26:24: Loaded action group: SpawnBossCircle
+08/01/24 20:26:24: Loaded action group: ArtifactMystery
+08/01/24 20:26:24: Loaded action group: PeacefulMission
+08/01/24 20:26:24: Loaded action group: PortalAdventure
+08/01/24 20:26:24: Loaded action group: SpaceExploration
+08/01/24 20:26:24: Loaded action group: EpicBattle
+08/01/24 20:26:24: Loaded action group: PeaceTreaty
+08/01/24 20:26:24: Action groups loaded successfully from ActionGroups.txt.
+08/01/24 20:26:24: [Client] Failed to reconnect to server. Will try again...
+08/01/24 20:29:11: Raw command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 20:29:11: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 20:29:11: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 20:29:11: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 20:29:11: Command Name: add_condition
+08/01/24 20:29:11: Target Object: yeancat
+08/01/24 20:29:11: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 20:29:11: Condition 'IsLevelHigh' added successfully.
+08/01/24 20:29:11: Conditions saved successfully to Conditions.txt.
+08/01/24 20:29:11: Raw command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 20:29:11: Cleaned command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 20:29:12: Parsing arguments: IsHealthFull, Health, =, 50
+08/01/24 20:29:12: Parsed arguments: ["IsHealthFull","Health","=","50"]
+08/01/24 20:29:12: Command Name: add_condition
+08/01/24 20:29:12: Target Object: yeancat
+08/01/24 20:29:12: Parameters: ["IsHealthFull","Health","=","50"]
+08/01/24 20:29:12: Condition 'IsHealthFull' added successfully.
+08/01/24 20:29:12: Conditions saved successfully to Conditions.txt.
+08/01/24 20:29:12: Raw command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 20:29:12: Cleaned command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 20:29:12: Parsing arguments: IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull
+08/01/24 20:29:12: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 20:29:12: Command Name: add_condition
+08/01/24 20:29:12: Target Object: yeancat
+08/01/24 20:29:12: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 20:29:12: Condition 'IsLevelHighAndHealthFull' added successfully.
+08/01/24 20:29:12: Conditions saved successfully to Conditions.txt.
+08/01/24 20:29:12: Raw command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull,
+HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 20:29:12: Cleaned command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 20:29:12: Parsing arguments: CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth
+08/01/24 20:29:12: Parsed arguments: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 20:29:12: Command Name: add_action_condition
+08/01/24 20:29:12: Target Object: yeancat
+08/01/24 20:29:12: Parameters: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 20:29:12: Action condition 'CheckLevelAndHealth' added successfully.
+08/01/24 20:29:12: Action conditions saved successfully to ActionConditions.txt.
+08/01/24 20:29:18: Raw command: execute_action(CheckLevelAndHealth)
+08/01/24 20:29:18: Cleaned command: execute_action(CheckLevelAndHealth)
+08/01/24 20:29:18: Action/group/condition 'CheckLevelAndHealth' not found.
+08/01/24 20:42:29: Raw command: list_commands
+08/01/24 20:42:29: Cleaned command: list_commands
+08/01/24 20:42:29: Command Name: list_commands
+08/01/24 20:42:29: Target Object: yeancat
+08/01/24 20:42:30: Parameters: []
+08/01/24 20:42:30: Commands: add_action(, add_action_condition(, add_action_group(, 
+08/01/24 20:42:30: add_condition, camera_target(, chat_bubble(, delete_action(, 
+08/01/24 20:42:30: delete_actions(, disable_heartbeat, enable_heartbeat, 
+08/01/24 20:42:30: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+08/01/24 20:42:30: list_action_conditions, list_action_groups, list_actions, 
+08/01/24 20:42:30: list_clients, list_commands, list_conditions, list_objects, 
+08/01/24 20:42:30: list_variables, return_controller, save_actions, save_game, 
+08/01/24 20:42:30: save_macros, set_my_permission(, set_spawn_npc(, set_target(, 
+08/01/24 20:42:30: set_variable(, show_gamepad_mapping, show_lines(, show_variable(, 
+08/01/24 20:42:30: show_wpm, spawn_boss(, spawn_npc(, toggle_debug, 
+08/01/24 20:42:30: toggle_input_display, toggle_log_debug, toggle_server
+08/01/24 20:42:34: Raw command: list_actions
+08/01/24 20:42:34: Cleaned command: list_actions
+08/01/24 20:42:34: Command Name: list_actions
+08/01/24 20:42:34: Target Object: yeancat
+08/01/24 20:42:34: Parameters: []
+08/01/24 20:42:34: Actions: ArtifactOutcome, BattleChoice, BattleOutcome, 
+08/01/24 20:42:34: DiplomaticChoice, DisableEnemySpawns, EnableEnemySpawns, 
+08/01/24 20:42:34: EngageCombat, EnterPortal, ExplorationChoice, GotoDivineDomain, 
+08/01/24 20:42:34: GotoEarth, GotoFantasia, GotoGhostTown, GotoKingsKingdom, 
+08/01/24 20:42:34: GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, GotoTheEndonda, 
+08/01/24 20:42:34: GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+08/01/24 20:42:34: GotoVulturesValley, GotoYetopia, InvestigateSignals, LevelUpOnce, 
+08/01/24 20:42:34: LevelUpThree, OfferTrade, PortalOutcome, PurchaseArtifacts, 
+08/01/24 20:42:34: SaveGameNow, SetLevelFive, SignTreaty, SpaceAdventureStart, 
+08/01/24 20:42:34: SpawnBoss0, SpawnBoss1, SpawnBoss10, SpawnBoss11, SpawnBoss12, 
+08/01/24 20:42:34: SpawnBoss13, SpawnBoss3, SpawnBoss4, SpawnBoss5, SpawnBoss6, 
+08/01/24 20:42:34: SpawnBoss7, SpawnBoss8, SpawnBoss9, StartBattle, StartExploration, 
+08/01/24 20:42:34: StartPeaceMission, TreatyOutcome, VisitMarket
+08/01/24 20:42:40: Raw command: list_conditions
+08/01/24 20:42:40: Cleaned command: list_conditions
+08/01/24 20:42:40: Command Name: list_conditions
+08/01/24 20:42:40: Target Object: yeancat
+08/01/24 20:42:40: Parameters: []
+08/01/24 20:42:40: Conditions: IsLevelHighAndHealthFull, IsHealthFull, IsLevelHigh
+08/01/24 20:42:47: Raw command: list_action_conditions
+08/01/24 20:42:47: Cleaned command: list_action_conditions
+08/01/24 20:42:47: Command Name: list_action_conditions
+08/01/24 20:42:47: Target Object: yeancat
+08/01/24 20:42:47: Parameters: []
+08/01/24 20:42:47: Action Conditions: CheckLevelAndHealth
+08/01/24 20:43:23: Raw command: execute_action(CheckLevelAndHealth)
+08/01/24 20:43:23: Cleaned command: execute_action(CheckLevelAndHealth)
+08/01/24 20:43:23: Action/group/condition 'CheckLevelAndHealth' not found.
+08/01/24 20:44:02: [Jay Arnold] the issue we are experienceing is that my execute_action is not detecting the
+action_condition and therefore is not checking the condition to execute the true
+or false action
+08/01/24 20:44:02: Creating chat bubble: " the issue we are experienceing is that my execute_action is not detecting the\naction_condition and therefore is not checking the condition to execute the true\nor false action", Owner: yeancat, Choices: []
+08/01/24 20:44:02: Chat Bubble Created. Following 'yeancat' with text: 'the issue we are experienceing is that my
+execute_action is not detecting the
+action_condition and therefore is not checking
+the condition to execute the true
+or false action'. Number of choices: 0

@@ -1,0 +1,78 @@
+
+08/01/24 01:19:22: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 01:19:22: [Client] Failed to reconnect to server. Will try again...
+08/01/24 01:19:31: Raw command: set_variable(Level,1)
+08/01/24 01:19:31: Cleaned command: set_variable(Level,1)
+08/01/24 01:19:31: Parsing arguments: Level,1
+08/01/24 01:19:31: Parsed arguments: ["Level","1"]
+08/01/24 01:19:31: Command Name: set_variable
+08/01/24 01:19:31: Target Object: yeancat
+08/01/24 01:19:31: Parameters: ["Level","1"]
+08/01/24 01:19:31: Level set to 1
+08/01/24 01:19:31: Raw command: add_action(LevelUpReward,Target.chat_bubble,["Congratulations! You've
+reached level 5 or higher!"])
+08/01/24 01:19:31: Cleaned command: add_action(LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"])
+08/01/24 01:19:31: Detected add_action command
+08/01/24 01:19:31: Arguments string: LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:19:31: Parsing arguments: LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:19:31: Parsed arguments: ["LevelUpReward","Target.chat_bubble","[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 01:19:31: Parsed arguments: ["LevelUpReward","Target.chat_bubble","[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 01:19:31: Action Name: LevelUpReward
+08/01/24 01:19:31: Full Action Command: Target.chat_bubble
+08/01/24 01:19:31: Action Params: ["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:19:31: Target Object: Target
+08/01/24 01:19:31: Action Command: chat_bubble
+08/01/24 01:19:31: Action 'LevelUpReward' added/updated successfully.
+08/01/24 01:19:31: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:19:31: Raw command: add_action(LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing
+to level up!"])
+08/01/24 01:19:31: Cleaned command: add_action(LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"])
+08/01/24 01:19:31: Detected add_action command
+08/01/24 01:19:31: Arguments string: LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"]
+08/01/24 01:19:31: Parsing arguments: LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"]
+08/01/24 01:19:31: Parsed arguments: ["LevelTooLow","Target.chat_bubble","[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 01:19:31: Parsed arguments: ["LevelTooLow","Target.chat_bubble","[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 01:19:31: Action Name: LevelTooLow
+08/01/24 01:19:31: Full Action Command: Target.chat_bubble
+08/01/24 01:19:31: Action Params: ["Your level is too low. Keep playing to level up!"]
+08/01/24 01:19:31: Target Object: Target
+08/01/24 01:19:31: Action Command: chat_bubble
+08/01/24 01:19:31: Action 'LevelTooLow' added/updated successfully.
+08/01/24 01:19:31: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:19:31: Raw command: add_action_condition(CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow)
+08/01/24 01:19:31: Cleaned command: add_action_condition(CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow)
+08/01/24 01:19:31: Parsing arguments: CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow
+08/01/24 01:19:31: Parsed arguments: ["CheckLevel","Level",">=","5","LevelUpReward","LevelTooLow"]
+08/01/24 01:19:31: Command Name: add_action_condition
+08/01/24 01:19:31: Target Object: yeancat
+08/01/24 01:19:31: Parameters: ["CheckLevel","Level",">=","5","LevelUpReward","LevelTooLow"]
+08/01/24 01:19:31: Action condition 'CheckLevel' added successfully.
+08/01/24 01:19:37: Raw command: list_action_conditions
+08/01/24 01:19:37: Cleaned command: list_action_conditions
+08/01/24 01:19:37: Command Name: list_action_conditions
+08/01/24 01:19:37: Target Object: yeancat
+08/01/24 01:19:37: Parameters: []
+08/01/24 01:19:37: Action Conditions: CheckLevel
+08/01/24 01:19:51: Raw command: execute_action(CheckLevel)
+08/01/24 01:19:51: Cleaned command: execute_action(CheckLevel)
+08/01/24 01:19:51: Executing action/group: CheckLevel
+08/01/24 01:19:51: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"5","operator":">=","trueAction":"LevelUpReward","falseAction":"LevelTooLow"}
+08/01/24 01:19:51: Invalid action/group data for: CheckLevel
+08/01/24 01:19:53: [Jay Arnold] nope!
+08/01/24 01:19:53: Creating chat bubble: " nope!", Owner: yeancat, Choices: []
+08/01/24 01:19:53: Chat Bubble Created. Following 'yeancat' with text: 'nope!'. Number of choices: 0
+08/01/24 01:20:00: Raw command: set_variable(Level,6)
+08/01/24 01:20:00: Cleaned command: set_variable(Level,6)
+08/01/24 01:20:00: Parsing arguments: Level,6
+08/01/24 01:20:00: Parsed arguments: ["Level","6"]
+08/01/24 01:20:00: Command Name: set_variable
+08/01/24 01:20:00: Target Object: yeancat
+08/01/24 01:20:00: Parameters: ["Level","6"]
+08/01/24 01:20:00: Level set to 6
+08/01/24 01:20:00: Raw command: execute_action(CheckLevel)
+08/01/24 01:20:00: Cleaned command: execute_action(CheckLevel)
+08/01/24 01:20:00: Executing action/group: CheckLevel
+08/01/24 01:20:00: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"5","operator":">=","trueAction":"LevelUpReward","falseAction":"LevelTooLow"}
+08/01/24 01:20:00: Invalid action/group data for: CheckLevel
+
+Hmm this error only is in execute_command so I will provide it with this log. Lets make sure checklevel is being treated as a action condition

@@ -1,0 +1,161 @@
+07/30/24 23:13:43: Loaded action/group: SaveGameNow
+07/30/24 23:13:43: Loaded action/group: GotoKingsKingdom
+07/30/24 23:13:43: Loaded action/group: EnterPortal
+07/30/24 23:13:43: Loaded action/group: PurchaseArtifacts
+07/30/24 23:13:43: Loaded action/group: BattleOutcome
+07/30/24 23:13:43: Loaded action/group: VisitMarket
+07/30/24 23:13:43: Loaded action/group: GotoDivineDomain
+07/30/24 23:13:43: Loaded action/group: GotoTheEndonda
+07/30/24 23:13:43: Loaded action/group: GotoUniverseCity
+07/30/24 23:13:43: Loaded action/group: SpawnNPC1
+07/30/24 23:13:43: Loaded action/group: GotoLandOfLucy
+07/30/24 23:13:43: Loaded action/group: GotoPlaceOfPablo
+07/30/24 23:13:44: Loaded action/group: InvestigateSignals
+07/30/24 23:13:44: Loaded action/group: OfferTrade
+07/30/24 23:13:44: Loaded action/group: DisableEnemySpawns
+07/30/24 23:13:44: Loaded action/group: BattleSequence
+07/30/24 23:13:44: Loaded action/group: StartBattle
+07/30/24 23:13:44: Loaded action/group: SpawnBoss4
+07/30/24 23:13:44: Loaded action/group: SpawnBossCircle
+07/30/24 23:13:44: Loaded action/group: GotoTheIcyHeart
+07/30/24 23:13:44: Loaded action/group: EngageCombat
+07/30/24 23:13:44: Loaded action/group: GotoGhostTown
+07/30/24 23:13:44: Loaded action/group: SpawnBoss0
+07/30/24 23:13:44: Loaded action/group: SpawnBoss13
+07/30/24 23:13:44: Loaded action/group: StartExploration
+07/30/24 23:13:44: Loaded action/group: SpawnBoss8
+07/30/24 23:13:44: Loaded action/group: SpawnBoss6
+07/30/24 23:13:44: Loaded action/group: SetLevelFive
+07/30/24 23:13:44: Loaded action/group: LevelUpThree
+07/30/24 23:13:44: Loaded action/group: LevelUpOnce
+07/30/24 23:13:44: Loaded action/group: GotoTheGoldMines
+07/30/24 23:13:44: Loaded action/group: SpawnBoss11
+07/30/24 23:13:44: Loaded action/group: StartPeaceMission
+07/30/24 23:13:44: Loaded action/group: SpawnBoss2
+07/30/24 23:13:44: Loaded action/group: DiplomaticChoice
+07/30/24 23:13:44: Loaded action/group: TreatyOutcome
+07/30/24 23:13:44: Loaded action/group: ExplorationChoice
+07/30/24 23:13:44: Loaded action/group: BattleChoice
+07/30/24 23:13:44: Loaded action/group: ArtifactMystery
+07/30/24 23:13:44: Loaded action/group: PortalOutcome
+07/30/24 23:13:44: Loaded action/group: PeacefulMission
+07/30/24 23:13:44: Loaded action/group: SpaceAdventureStart
+07/30/24 23:13:44: Loaded action/group: PortalAdventure
+07/30/24 23:13:44: Loaded action/group: EnableEnemySpawns
+07/30/24 23:13:44: Loaded action/group: GotoVulturesValley
+07/30/24 23:13:44: Loaded action/group: GotoEarth
+07/30/24 23:13:44: Loaded action/group: SpawnBoss1
+07/30/24 23:13:44: Loaded action/group: GotoStormySands
+07/30/24 23:13:44: Loaded action/group: SpawnBoss12
+07/30/24 23:13:44: Loaded action/group: SpaceExploration
+07/30/24 23:13:44: Loaded action/group: GotoFantasia
+07/30/24 23:13:44: Loaded action/group: SpawnBoss5
+07/30/24 23:13:44: Loaded action/group: AG1
+07/30/24 23:13:44: Loaded action/group: SpawnBoss10
+07/30/24 23:13:44: Loaded action/group: GotoYetopia
+07/30/24 23:13:44: Loaded action/group: SpawnBoss3
+07/30/24 23:13:44: Loaded action/group: ArtifactOutcome
+07/30/24 23:13:44: Loaded action/group: EpicBattle
+07/30/24 23:13:45: Loaded action/group: SpawnBoss7
+07/30/24 23:13:45: Loaded action/group: SpawnBoss9
+07/30/24 23:13:45: Loaded action/group: PeaceTreaty
+07/30/24 23:13:45: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 23:13:45: [Client] Failed to reconnect to server. Will try again...
+07/30/24 23:14:18: [Jay Arnold] everything is upside down! but i can see everything
+07/30/24 23:14:18: Creating chat bubble: " everything is upside down! but i can see everything", Owner: yeancat, Choices: []
+07/30/24 23:14:18: Chat Bubble Created. Following 'yeancat' with text: 'everything is upside down! but i can see
+everything'. Number of choices: 0
+07/30/24 23:14:50: Raw command: set_variable(Macro9,.02)
+07/30/24 23:14:50: Cleaned command: set_variable(Macro9,.02)
+07/30/24 23:14:50: Parsing arguments: Macro9,.02
+07/30/24 23:14:50: Parsed arguments: ["Macro9",".02"]
+07/30/24 23:14:51: Command Name: set_variable
+07/30/24 23:14:51: Target Object: yeancat
+07/30/24 23:14:51: Parameters: ["Macro9",".02"]
+07/30/24 23:14:51: Macro9 set to 0.02
+07/30/24 23:15:08: Raw command: set_variable(Macro8,.5)
+07/30/24 23:15:08: Cleaned command: set_variable(Macro8,.5)
+07/30/24 23:15:08: Parsing arguments: Macro8,.5
+07/30/24 23:15:08: Parsed arguments: ["Macro8",".5"]
+07/30/24 23:15:08: Command Name: set_variable
+07/30/24 23:15:08: Target Object: yeancat
+07/30/24 23:15:08: Parameters: ["Macro8",".5"]
+07/30/24 23:15:08: Macro8 set to 0.50
+07/30/24 23:15:12: Raw command: set_variable(Macro8,.1)
+07/30/24 23:15:12: Cleaned command: set_variable(Macro8,.1)
+07/30/24 23:15:12: Parsing arguments: Macro8,.1
+07/30/24 23:15:13: Parsed arguments: ["Macro8",".1"]
+07/30/24 23:15:13: Command Name: set_variable
+07/30/24 23:15:13: Target Object: yeancat
+07/30/24 23:15:13: Parameters: ["Macro8",".1"]
+07/30/24 23:15:13: Macro8 set to 0.10
+07/30/24 23:15:47: Raw command: set_variable(Macro1,-1)
+07/30/24 23:15:47: Cleaned command: set_variable(Macro1,-1)
+07/30/24 23:15:47: Parsing arguments: Macro1,-1
+07/30/24 23:15:47: Parsed arguments: ["Macro1","-1"]
+07/30/24 23:15:47: Command Name: set_variable
+07/30/24 23:15:47: Target Object: yeancat
+07/30/24 23:15:47: Parameters: ["Macro1","-1"]
+07/30/24 23:15:47: Macro1 set to -1
+07/30/24 23:15:52: Raw command: set_variable(Macro1,2)
+07/30/24 23:15:52: Cleaned command: set_variable(Macro1,2)
+07/30/24 23:15:52: Parsing arguments: Macro1,2
+07/30/24 23:15:52: Parsed arguments: ["Macro1","2"]
+07/30/24 23:15:52: Command Name: set_variable
+07/30/24 23:15:52: Target Object: yeancat
+07/30/24 23:15:52: Parameters: ["Macro1","2"]
+07/30/24 23:15:52: Macro1 set to 2
+07/30/24 23:15:56: Raw command: set_variable(Macro1,1)
+07/30/24 23:15:56: Cleaned command: set_variable(Macro1,1)
+07/30/24 23:15:56: Parsing arguments: Macro1,1
+07/30/24 23:15:56: Parsed arguments: ["Macro1","1"]
+07/30/24 23:15:56: Command Name: set_variable
+07/30/24 23:15:56: Target Object: yeancat
+07/30/24 23:15:56: Parameters: ["Macro1","1"]
+07/30/24 23:15:56: Macro1 set to 1
+07/30/24 23:16:00: Raw command: set_variable(Macro2,-1)
+07/30/24 23:16:01: Cleaned command: set_variable(Macro2,-1)
+07/30/24 23:16:01: Parsing arguments: Macro2,-1
+07/30/24 23:16:01: Parsed arguments: ["Macro2","-1"]
+07/30/24 23:16:01: Command Name: set_variable
+07/30/24 23:16:01: Target Object: yeancat
+07/30/24 23:16:01: Parameters: ["Macro2","-1"]
+07/30/24 23:16:01: Macro2 set to -1
+07/30/24 23:16:06: Raw command: set_variable(Macro2,10)
+07/30/24 23:16:06: Cleaned command: set_variable(Macro2,10)
+07/30/24 23:16:06: Parsing arguments: Macro2,10
+07/30/24 23:16:06: Parsed arguments: ["Macro2","10"]
+07/30/24 23:16:06: Command Name: set_variable
+07/30/24 23:16:06: Target Object: yeancat
+07/30/24 23:16:06: Parameters: ["Macro2","10"]
+07/30/24 23:16:06: Macro2 set to 10
+07/30/24 23:16:34: Raw command: set_variable(Macro5,0)
+07/30/24 23:16:34: Cleaned command: set_variable(Macro5,0)
+07/30/24 23:16:34: Parsing arguments: Macro5,0
+07/30/24 23:16:34: Parsed arguments: ["Macro5","0"]
+07/30/24 23:16:34: Command Name: set_variable
+07/30/24 23:16:34: Target Object: yeancat
+07/30/24 23:16:34: Parameters: ["Macro5","0"]
+07/30/24 23:16:34: Macro5 set to 0
+07/30/24 23:21:44: [Jay Arnold] so the logo object has the only thing that is legible and not reversed and
+positioned and scaled correctly
+07/30/24 23:21:45: Creating chat bubble: " so the logo object has the only thing that is legible and not reversed and\npositioned and scaled correctly", Owner: yeancat, Choices: []
+07/30/24 23:21:45: Chat Bubble Created. Following 'yeancat' with text: 'so the logo object has the only thing that is
+legible and not reversed and
+positioned and scaled correctly'. Number of choices: 0
+07/30/24 23:23:35: [Jay Arnold] the logo is on uiitop with a depth of 0, the logo itself that uses a surface is
+reversed and in the wrong place, but the other text isperfect. so the depth of
+objects which arent using our 3d code in ther draw 
+07/30/24 23:23:35: Creating chat bubble: " the logo is on uiitop with a depth of 0, the logo itself that uses a surface is\nreversed and in the wrong place, but the other text isperfect. so the depth of\nobjects which arent using our 3d code in ther draw ", Owner: yeancat, Choices: []
+07/30/24 23:23:35: Chat Bubble Created. Following 'yeancat' with text: 'the logo is on uiitop with a depth of 0, the logo
+itself that uses a surface is
+reversed and in the wrong place, but the other
+text isperfect. so the depth of
+objects which arent using our 3d code in there.
+draw '. Number of choices: 0
+
+It was hard for me to type in game because of the layout.
+
+I was trying to explain the the object with depth 0 was drawn properly. The objects I applied the 3d code had become reversed and changing the macros didnt effect much.
+
+All I was trying to do was have this draw everything the same way it used to, but with a 3d camera. The layer of each object should have only made a hair of a difference in the way it is seen by the camera. Please make fixes to the code and give me your proposed default values for the macros that I can adjust in game.

@@ -1,0 +1,109 @@
+07/31/24 07:57:33: Loaded action/group: SaveGameNow
+07/31/24 07:57:33: Loaded action/group: GotoKingsKingdom
+07/31/24 07:57:33: Loaded action/group: EnterPortal
+07/31/24 07:57:33: Loaded action/group: PurchaseArtifacts
+07/31/24 07:57:33: Loaded action/group: BattleOutcome
+07/31/24 07:57:33: Loaded action/group: VisitMarket
+07/31/24 07:57:33: Loaded action/group: GotoDivineDomain
+07/31/24 07:57:33: Loaded action/group: GotoTheEndonda
+07/31/24 07:57:33: Loaded action/group: GotoUniverseCity
+07/31/24 07:57:33: Loaded action/group: SpawnNPC1
+07/31/24 07:57:33: Loaded action/group: GotoLandOfLucy
+07/31/24 07:57:33: Loaded action/group: GotoPlaceOfPablo
+07/31/24 07:57:33: Loaded action/group: InvestigateSignals
+07/31/24 07:57:33: Loaded action/group: OfferTrade
+07/31/24 07:57:33: Loaded action/group: DisableEnemySpawns
+07/31/24 07:57:33: Loaded action/group: BattleSequence
+07/31/24 07:57:33: Loaded action/group: StartBattle
+07/31/24 07:57:33: Loaded action/group: SpawnBoss4
+07/31/24 07:57:34: Loaded action/group: SpawnBossCircle
+07/31/24 07:57:34: Loaded action/group: GotoTheIcyHeart
+07/31/24 07:57:34: Loaded action/group: EngageCombat
+07/31/24 07:57:34: Loaded action/group: GotoGhostTown
+07/31/24 07:57:34: Loaded action/group: SpawnBoss0
+07/31/24 07:57:34: Loaded action/group: SpawnBoss13
+07/31/24 07:57:34: Loaded action/group: StartExploration
+07/31/24 07:57:34: Loaded action/group: SpawnBoss8
+07/31/24 07:57:34: Loaded action/group: SpawnBoss6
+07/31/24 07:57:34: Loaded action/group: SetLevelFive
+07/31/24 07:57:34: Loaded action/group: LevelUpThree
+07/31/24 07:57:34: Loaded action/group: LevelUpOnce
+07/31/24 07:57:34: Loaded action/group: GotoTheGoldMines
+07/31/24 07:57:34: Loaded action/group: SpawnBoss11
+07/31/24 07:57:34: Loaded action/group: StartPeaceMission
+07/31/24 07:57:34: Loaded action/group: SpawnBoss2
+07/31/24 07:57:34: Loaded action/group: DiplomaticChoice
+07/31/24 07:57:34: Loaded action/group: TreatyOutcome
+07/31/24 07:57:34: Loaded action/group: ExplorationChoice
+07/31/24 07:57:34: Loaded action/group: BattleChoice
+07/31/24 07:57:34: Loaded action/group: ArtifactMystery
+07/31/24 07:57:34: Loaded action/group: PortalOutcome
+07/31/24 07:57:34: Loaded action/group: PeacefulMission
+07/31/24 07:57:34: Loaded action/group: SpaceAdventureStart
+07/31/24 07:57:34: Loaded action/group: PortalAdventure
+07/31/24 07:57:34: Loaded action/group: EnableEnemySpawns
+07/31/24 07:57:34: Loaded action/group: GotoVulturesValley
+07/31/24 07:57:34: Loaded action/group: GotoEarth
+07/31/24 07:57:34: Loaded action/group: SpawnBoss1
+07/31/24 07:57:34: Loaded action/group: GotoStormySands
+07/31/24 07:57:34: Loaded action/group: SpawnBoss12
+07/31/24 07:57:34: Loaded action/group: SpaceExploration
+07/31/24 07:57:34: Loaded action/group: GotoFantasia
+07/31/24 07:57:34: Loaded action/group: SpawnBoss5
+07/31/24 07:57:34: Loaded action/group: AG1
+07/31/24 07:57:34: Loaded action/group: SpawnBoss10
+07/31/24 07:57:34: Loaded action/group: GotoYetopia
+07/31/24 07:57:34: Loaded action/group: SpawnBoss3
+07/31/24 07:57:34: Loaded action/group: ArtifactOutcome
+07/31/24 07:57:34: Loaded action/group: EpicBattle
+07/31/24 07:57:34: Loaded action/group: SpawnBoss7
+07/31/24 07:57:34: Loaded action/group: SpawnBoss9
+07/31/24 07:57:34: Loaded action/group: PeaceTreaty
+07/31/24 07:57:34: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 07:57:34: [Client] Failed to reconnect to server. Will try again...
+07/31/24 07:57:56: Raw command: level_up(200)
+07/31/24 07:57:56: Cleaned command: level_up(200)
+07/31/24 07:57:56: Parsing arguments: 200
+07/31/24 07:57:56: Parsed arguments: ["200"]
+07/31/24 07:57:56: Command Name: level_up
+07/31/24 07:57:56: Target Object: yeancat
+07/31/24 07:57:56: Parameters: ["200"]
+07/31/24 07:57:56: Level up initiated with goal: 200
+07/31/24 07:59:05: Raw command: level_up(200)
+07/31/24 07:59:05: Cleaned command: level_up(200)
+07/31/24 07:59:05: Parsing arguments: 200
+07/31/24 07:59:05: Parsed arguments: ["200"]
+07/31/24 07:59:05: Command Name: level_up
+07/31/24 07:59:05: Target Object: yeancat
+07/31/24 07:59:05: Parameters: ["200"]
+07/31/24 07:59:05: Level up initiated with goal: 200
+07/31/24 08:00:36: Raw command: list_objects
+07/31/24 08:00:36: Cleaned command: list_objects
+07/31/24 08:00:36: Command Name: list_objects
+07/31/24 08:00:36: Target Object: yeancat
+07/31/24 08:00:36: Parameters: []
+07/31/24 08:00:36: Available object references:
+Player: yeancat
+Target: yeancat
+Center: Instance
+
+Bosses and NPCs:
+Rehino1: obj_boss (Boss) at (2137.19, 1400.93)
+
+07/31/24 08:00:49: Raw command: Rehino1.camera_target(0,0)d
+07/31/24 08:00:49: Cleaned command: Rehino1.camera_target(0,0)d
+07/31/24 08:00:49: Invalid target object: Rehino1
+07/31/24 08:00:51: Raw command: Rehino1.camera_target(0,0)
+07/31/24 08:00:51: Cleaned command: Rehino1.camera_target(0,0)
+07/31/24 08:00:51: Invalid target object: Rehino1
+07/31/24 08:00:58: Raw command: Rehino1.camera_target(0,0)
+07/31/24 08:00:58: Cleaned command: Rehino1.camera_target(0,0)
+07/31/24 08:00:58: Invalid target object: Rehino1
+07/31/24 08:01:08: Raw command: Player.camera_target(100, -50)
+07/31/24 08:01:08: Cleaned command: Player.camera_target(100, -50)
+07/31/24 08:01:08: Parsing arguments: 100, -50
+07/31/24 08:01:08: Parsed arguments: ["100","-50"]
+07/31/24 08:01:08: Command Name: camera_target
+07/31/24 08:01:09: Target Object: Player
+07/31/24 08:01:09: Parameters: ["100","-50"]
+07/31/24 08:01:09: Camera target set to yeancat with offset (100, -50)

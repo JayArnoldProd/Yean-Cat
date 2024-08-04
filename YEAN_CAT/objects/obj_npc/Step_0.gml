@@ -741,7 +741,7 @@ if instance_exists(yeancat) {
 if (distance_to_object(yeancat) < 32 && keyboard_check_pressed(vk_space)) {
     if (action_trigger != "") {
         // Execute the action trigger
-        execute_action(action_trigger);
+        scr_execute_action(action_trigger);
     }
 }
 }

@@ -1,0 +1,235 @@
+07/30/24 21:53:43: Loaded action/group: SaveGameNow
+07/30/24 21:53:43: Loaded action/group: GotoKingsKingdom
+07/30/24 21:53:43: Loaded action/group: EnterPortal
+07/30/24 21:53:43: Loaded action/group: PurchaseArtifacts
+07/30/24 21:53:43: Loaded action/group: BattleOutcome
+07/30/24 21:53:43: Loaded action/group: VisitMarket
+07/30/24 21:53:43: Loaded action/group: GotoDivineDomain
+07/30/24 21:53:43: Loaded action/group: GotoTheEndonda
+07/30/24 21:53:44: Loaded action/group: GotoUniverseCity
+07/30/24 21:53:44: Loaded action/group: SpawnNPC1
+07/30/24 21:53:44: Loaded action/group: GotoLandOfLucy
+07/30/24 21:53:44: Loaded action/group: GotoPlaceOfPablo
+07/30/24 21:53:44: Loaded action/group: InvestigateSignals
+07/30/24 21:53:44: Loaded action/group: OfferTrade
+07/30/24 21:53:44: Loaded action/group: DisableEnemySpawns
+07/30/24 21:53:44: Loaded action/group: BattleSequence
+07/30/24 21:53:44: Loaded action/group: StartBattle
+07/30/24 21:53:44: Loaded action/group: SpawnBoss4
+07/30/24 21:53:44: Loaded action/group: SpawnBossCircle
+07/30/24 21:53:44: Loaded action/group: GotoTheIcyHeart
+07/30/24 21:53:44: Loaded action/group: EngageCombat
+07/30/24 21:53:44: Loaded action/group: GotoGhostTown
+07/30/24 21:53:44: Loaded action/group: SpawnBoss0
+07/30/24 21:53:44: Loaded action/group: SpawnBoss13
+07/30/24 21:53:44: Loaded action/group: StartExploration
+07/30/24 21:53:44: Loaded action/group: SpawnBoss8
+07/30/24 21:53:44: Loaded action/group: SpawnBoss6
+07/30/24 21:53:44: Loaded action/group: SetLevelFive
+07/30/24 21:53:44: Loaded action/group: LevelUpThree
+07/30/24 21:53:44: Loaded action/group: LevelUpOnce
+07/30/24 21:53:44: Loaded action/group: GotoTheGoldMines
+07/30/24 21:53:44: Loaded action/group: SpawnBoss11
+07/30/24 21:53:44: Loaded action/group: StartPeaceMission
+07/30/24 21:53:44: Loaded action/group: SpawnBoss2
+07/30/24 21:53:44: Loaded action/group: DiplomaticChoice
+07/30/24 21:53:44: Loaded action/group: TreatyOutcome
+07/30/24 21:53:44: Loaded action/group: ExplorationChoice
+07/30/24 21:53:44: Loaded action/group: BattleChoice
+07/30/24 21:53:44: Loaded action/group: ArtifactMystery
+07/30/24 21:53:44: Loaded action/group: PortalOutcome
+07/30/24 21:53:44: Loaded action/group: PeacefulMission
+07/30/24 21:53:44: Loaded action/group: SpaceAdventureStart
+07/30/24 21:53:44: Loaded action/group: PortalAdventure
+07/30/24 21:53:44: Loaded action/group: EnableEnemySpawns
+07/30/24 21:53:44: Loaded action/group: GotoVulturesValley
+07/30/24 21:53:44: Loaded action/group: GotoEarth
+07/30/24 21:53:44: Loaded action/group: SpawnBoss1
+07/30/24 21:53:44: Loaded action/group: GotoStormySands
+07/30/24 21:53:44: Loaded action/group: SpawnBoss12
+07/30/24 21:53:44: Loaded action/group: SpaceExploration
+07/30/24 21:53:44: Loaded action/group: GotoFantasia
+07/30/24 21:53:44: Loaded action/group: SpawnBoss5
+07/30/24 21:53:44: Loaded action/group: AG1
+07/30/24 21:53:44: Loaded action/group: SpawnBoss10
+07/30/24 21:53:44: Loaded action/group: GotoYetopia
+07/30/24 21:53:44: Loaded action/group: SpawnBoss3
+07/30/24 21:53:44: Loaded action/group: ArtifactOutcome
+07/30/24 21:53:44: Loaded action/group: EpicBattle
+07/30/24 21:53:44: Loaded action/group: SpawnBoss7
+07/30/24 21:53:44: Loaded action/group: SpawnBoss9
+07/30/24 21:53:44: Loaded action/group: PeaceTreaty
+07/30/24 21:53:44: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 21:53:44: [Client] Failed to reconnect to server. Will try again...
+07/30/24 21:54:06: Raw command: execute_action(SpaceAdventureStart)
+07/30/24 21:54:06: Cleaned command: execute_action(SpaceAdventureStart)
+07/30/24 21:54:06: Executing action/group: SpaceAdventureStart
+07/30/24 21:54:06: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/30/24 21:54:06: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 21:54:06: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/30/24 21:54:06: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/30/24 21:54:06: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 21:54:06: Command Name: chat_bubble
+07/30/24 21:54:06: Target Object: Target
+07/30/24 21:54:06: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/30/24 21:54:06: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/30/24 21:54:06: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your
+path:'. Number of choices: 3
+07/30/24 21:54:13: Raw command: execute_action(StartPeaceMission)
+07/30/24 21:54:13: Cleaned command: execute_action(StartPeaceMission)
+07/30/24 21:54:13: Executing action/group: StartPeaceMission
+07/30/24 21:54:13: Decoded Data: {"command":"execute_action","parameters":"PeacefulMission","targetObject":"yeancat"}
+07/30/24 21:54:13: Raw command: execute_action("PeacefulMission")
+07/30/24 21:54:13: Cleaned command: execute_action("PeacefulMission")
+07/30/24 21:54:13: Executing action/group: PeacefulMission
+07/30/24 21:54:13: Decoded Data: {"type":"action_group","actions":["GotoDivineDomain","DiplomaticChoice"]}
+07/30/24 21:54:13: Raw command: execute_action(GotoDivineDomain)
+07/30/24 21:54:13: Cleaned command: execute_action(GotoDivineDomain)
+07/30/24 21:54:13: Executing action/group: GotoDivineDomain
+07/30/24 21:54:13: Decoded Data: {"command":"goto_planet","parameters":"Divine Domain","targetObject":"yeancat"}
+07/30/24 21:54:13: Raw command: goto_planet("Divine Domain")
+07/30/24 21:54:13: Cleaned command: goto_planet("Divine Domain")
+07/30/24 21:54:13: Parsing arguments: "Divine Domain"
+07/30/24 21:54:13: Parsed arguments: ["\"Divine Domain\""]
+07/30/24 21:54:13: Command Name: goto_planet
+07/30/24 21:54:13: Target Object: yeancat
+07/30/24 21:54:13: Parameters: ["\"Divine Domain\""]
+07/30/24 21:54:13: Teleported to Divine Domain.
+07/30/24 21:54:13: Raw command: execute_action(DiplomaticChoice)
+07/30/24 21:54:13: Cleaned command: execute_action(DiplomaticChoice)
+07/30/24 21:54:13: Executing action/group: DiplomaticChoice
+07/30/24 21:54:13: Decoded Data: {"command":"chat_bubble","parameters":["You're in Divine Domain for a peace mission. How do you proceed?",[["Offer trade deal","OfferTrade"],["Share technology","ShareTechnology"],["Request alliance","RequestAlliance"]]],"targetObject":"yeancat"}
+07/30/24 21:54:13: Raw command: chat_bubble(["You're in Divine Domain for a peace mission. How do you proceed?",[["Offer trade deal","OfferTrade"],["Share technology","ShareTechnology"],["Request alliance","RequestAlliance"]]])
+07/30/24 21:54:13: Cleaned command: chat_bubble(["You're in Divine Domain for a peace mission. How do you proceed?",[["Offer trade deal","OfferTrade"],["Share technology","ShareTechnology"],["Request alliance","RequestAlliance"]]])
+07/30/24 21:54:13: Parsing arguments: ["You're in Divine Domain for a peace mission. How do you proceed?",[["Offer trade deal","OfferTrade"],["Share technology","ShareTechnology"],["Request alliance","RequestAlliance"]]]
+07/30/24 21:54:13: Parsed arguments: ["[\"You're in Divine Domain for a peace mission. How do you proceed?\",[[\"Offer trade deal\",\"OfferTrade\"],[\"Share technology\",\"ShareTechnology\"],[\"Request alliance\",\"RequestAlliance\"]]]"]
+07/30/24 21:54:13: Command Name: chat_bubble
+07/30/24 21:54:13: Target Object: yeancat
+07/30/24 21:54:13: Parameters: ["[\"You're in Divine Domain for a peace mission. How do you proceed?\",[[\"Offer trade deal\",\"OfferTrade\"],[\"Share technology\",\"ShareTechnology\"],[\"Request alliance\",\"RequestAlliance\"]]]"]
+07/30/24 21:54:13: Creating chat bubble: ["You're in Divine Domain for a peace mission. How do you proceed?",[["Offer trade deal","OfferTrade"],["Share technology","ShareTechnology"],["Request alliance","RequestAlliance"]]], Owner: yeancat, Choices: []
+07/30/24 21:54:13: Chat Bubble Created. Following 'yeancat' with text: 'You're in Divine Domain for a peace mission. How do
+you proceed?'. Number of choices: 3
+07/30/24 21:54:30: Raw command: execute_action(RequestAlliance)
+07/30/24 21:54:30: Cleaned command: execute_action(RequestAlliance)
+07/30/24 21:54:30: Action/group 'RequestAlliance' not found.
+07/30/24 21:54:33: Raw command: add_action(SpawnNPC1, Target.spawn_npc, ["Friendly NPC", 1, 100, 100, "GreetPlayer"])
+07/30/24 21:54:33: Cleaned command: add_action(SpawnNPC1, Target.spawn_npc, ["Friendly NPC", 1, 100, 100, "GreetPlayer"])
+07/30/24 21:54:33: Detected add_action command
+07/30/24 21:54:33: Arguments string: SpawnNPC1, Target.spawn_npc, ["Friendly NPC", 1, 100, 100, "GreetPlayer"]
+07/30/24 21:54:33: Parsing arguments: SpawnNPC1, Target.spawn_npc, ["Friendly NPC", 1, 100, 100, "GreetPlayer"]
+07/30/24 21:54:33: Parsed arguments: ["SpawnNPC1","Target.spawn_npc","[\"Friendly NPC\", 1, 100, 100, \"GreetPlayer\"]"]
+07/30/24 21:54:33: Parsed arguments: ["SpawnNPC1","Target.spawn_npc","[\"Friendly NPC\", 1, 100, 100, \"GreetPlayer\"]"]
+07/30/24 21:54:33: Action Name: SpawnNPC1
+07/30/24 21:54:33: Full Action Command: Target.spawn_npc
+07/30/24 21:54:33: Action Params: ["Friendly NPC", 1, 100, 100, "GreetPlayer"]
+07/30/24 21:54:33: Target Object: Target
+07/30/24 21:54:33: Action Command: spawn_npc
+07/30/24 21:54:33: Action 'SpawnNPC1' added/updated successfully.
+07/30/24 21:54:33: Actions and action groups saved successfully to Actions.txt.
+07/30/24 21:55:19: Raw command: execute_action(SpawnNPC1)
+07/30/24 21:55:19: Cleaned command: execute_action(SpawnNPC1)
+07/30/24 21:55:19: Executing action/group: SpawnNPC1
+07/30/24 21:55:19: Decoded Data: {"command":"spawn_npc","parameters":["Friendly NPC",1.0,100.0,100.0,"GreetPlayer"],"targetObject":"Target"}
+07/30/24 21:55:19: Raw command: Target.spawn_npc(["Friendly NPC",1.0,100.0,100.0,"GreetPlayer"])
+07/30/24 21:55:19: Cleaned command: Target.spawn_npc(["Friendly NPC",1.0,100.0,100.0,"GreetPlayer"])
+07/30/24 21:55:19: Parsing arguments: ["Friendly NPC",1.0,100.0,100.0,"GreetPlayer"]
+07/30/24 21:55:19: Parsed arguments: ["[\"Friendly NPC\",1.0,100.0,100.0,\"GreetPlayer\"]"]
+07/30/24 21:55:19: Command Name: spawn_npc
+07/30/24 21:55:19: Target Object: Target
+07/30/24 21:55:19: Parameters: ["[\"Friendly NPC\",1.0,100.0,100.0,\"GreetPlayer\"]"]
+07/30/24 21:55:19: Added NPC reference: NPC_Friendly NPC -> obj_npc
+07/30/24 21:55:19: NPC 'Friendly NPC' spawned successfully: 1 at position (100, 100)
+07/30/24 21:56:01: Raw command: execute_action(SpawnNPC1)
+07/30/24 21:56:01: Cleaned command: execute_action(SpawnNPC1)
+07/30/24 21:56:01: Executing action/group: SpawnNPC1
+07/30/24 21:56:01: Decoded Data: {"command":"spawn_npc","parameters":["Friendly NPC",1.0,100.0,100.0,"GreetPlayer"],"targetObject":"Target"}
+07/30/24 21:56:01: Raw command: Target.spawn_npc(["Friendly NPC",1.0,100.0,100.0,"GreetPlayer"])
+07/30/24 21:56:01: Cleaned command: Target.spawn_npc(["Friendly NPC",1.0,100.0,100.0,"GreetPlayer"])
+07/30/24 21:56:01: Parsing arguments: ["Friendly NPC",1.0,100.0,100.0,"GreetPlayer"]
+07/30/24 21:56:01: Parsed arguments: ["[\"Friendly NPC\",1.0,100.0,100.0,\"GreetPlayer\"]"]
+07/30/24 21:56:01: Command Name: spawn_npc
+07/30/24 21:56:01: Target Object: Target
+07/30/24 21:56:01: Parameters: ["[\"Friendly NPC\",1.0,100.0,100.0,\"GreetPlayer\"]"]
+07/30/24 21:56:01: Added NPC reference: NPC_Friendly NPC -> obj_npc
+07/30/24 21:56:01: NPC 'Friendly NPC' spawned successfully: 1 at position (100, 100)
+07/30/24 21:56:28: [Jay Arnold] so in theory.. /Player.spawn_npc("Friendly NPC", 1, 100, 100, "GreetPlayer") should work
+07/30/24 21:56:28: Creating chat bubble: " so in theory.. \/Player.spawn_npc(\"Friendly NPC\", 1, 100, 100, \"GreetPlayer\") should work", Owner: yeancat, Choices: []
+07/30/24 21:56:28: Chat Bubble Created. Following 'yeancat' with text: 'so in theory.. /Player.spawn_npc("Friendly NPC", 1, 100,
+100, "GreetPlayer") should work'. Number of choices: 0
+07/30/24 21:56:39: Raw command: Player.spawn_npc("Friendly NPC", 1, 100, 100, "GreetPlayer")
+07/30/24 21:56:39: Cleaned command: Player.spawn_npc("Friendly NPC", 1, 100, 100, "GreetPlayer")
+07/30/24 21:56:39: Parsing arguments: "Friendly NPC", 1, 100, 100, "GreetPlayer"
+07/30/24 21:56:39: Parsed arguments: ["\"Friendly NPC\"","1","100","100","\"GreetPlayer\""]
+07/30/24 21:56:39: Command Name: spawn_npc
+07/30/24 21:56:39: Target Object: Player
+07/30/24 21:56:39: Parameters: ["\"Friendly NPC\"","1","100","100","\"GreetPlayer\""]
+07/30/24 21:56:39: Added NPC reference: NPC_"Friendly NPC" -> obj_npc
+07/30/24 21:56:39: NPC '"Friendly NPC"' spawned successfully: 1 at position (100, 100)
+07/30/24 21:56:48: [Jay Arnold] it does not! lets figure out why and fix it
+07/30/24 21:56:48: Creating chat bubble: " it does not! lets figure out why and fix it", Owner: yeancat, Choices: []
+07/30/24 21:56:48: Chat Bubble Created. Following 'yeancat' with text: 'it does not! lets figure out why and fix it'. Number of choices: 0
+
+07/30/24 21:57:52: Raw command: list_objects
+07/30/24 21:57:52: Cleaned command: list_objects
+07/30/24 21:57:52: Command Name: list_objects
+07/30/24 21:57:52: Target Object: yeancat
+07/30/24 21:57:52: Parameters: []
+07/30/24 21:57:52: Available object references:
+Player: yeancat
+Target: yeancat
+Center: Instance
+
+Bosses and NPCs:
+Friendly NPC: obj_npc (NPC)
+"Friendly NPC": obj_npc (NPC)
+
+07/30/24 21:58:33: Raw command: add_action(SpawnNPC1, Target.spawn_npc, ["Friendly NPC", 1, 0, -300, "GreetPlayer"])
+07/30/24 21:58:33: Cleaned command: add_action(SpawnNPC1, Target.spawn_npc, ["Friendly NPC", 1, 0, -300, "GreetPlayer"])
+07/30/24 21:58:33: Detected add_action command
+07/30/24 21:58:33: Arguments string: SpawnNPC1, Target.spawn_npc, ["Friendly NPC", 1, 0, -300, "GreetPlayer"]
+07/30/24 21:58:33: Parsing arguments: SpawnNPC1, Target.spawn_npc, ["Friendly NPC", 1, 0, -300, "GreetPlayer"]
+07/30/24 21:58:33: Parsed arguments: ["SpawnNPC1","Target.spawn_npc","[\"Friendly NPC\", 1, 0, -300, \"GreetPlayer\"]"]
+07/30/24 21:58:33: Parsed arguments: ["SpawnNPC1","Target.spawn_npc","[\"Friendly NPC\", 1, 0, -300, \"GreetPlayer\"]"]
+07/30/24 21:58:33: Action Name: SpawnNPC1
+07/30/24 21:58:33: Full Action Command: Target.spawn_npc
+07/30/24 21:58:33: Action Params: ["Friendly NPC", 1, 0, -300, "GreetPlayer"]
+07/30/24 21:58:33: Target Object: Target
+07/30/24 21:58:33: Action Command: spawn_npc
+07/30/24 21:58:33: Action 'SpawnNPC1' added/updated successfully.
+07/30/24 21:58:33: Actions and action groups saved successfully to Actions.txt.
+07/30/24 21:58:38: Raw command: execute_action(SpawnNPC1)
+07/30/24 21:58:38: Cleaned command: execute_action(SpawnNPC1)
+07/30/24 21:58:38: Executing action/group: SpawnNPC1
+07/30/24 21:58:38: Decoded Data: {"command":"spawn_npc","parameters":["Friendly NPC",1.0,0.0,-300.0,"GreetPlayer"],"targetObject":"Target"}
+07/30/24 21:58:39: Raw command: Target.spawn_npc(["Friendly NPC",1.0,0.0,-300.0,"GreetPlayer"])
+07/30/24 21:58:39: Cleaned command: Target.spawn_npc(["Friendly NPC",1.0,0.0,-300.0,"GreetPlayer"])
+07/30/24 21:58:39: Parsing arguments: ["Friendly NPC",1.0,0.0,-300.0,"GreetPlayer"]
+07/30/24 21:58:39: Parsed arguments: ["[\"Friendly NPC\",1.0,0.0,-300.0,\"GreetPlayer\"]"]
+07/30/24 21:58:39: Command Name: spawn_npc
+07/30/24 21:58:39: Target Object: Target
+07/30/24 21:58:39: Parameters: ["[\"Friendly NPC\",1.0,0.0,-300.0,\"GreetPlayer\"]"]
+07/30/24 21:58:39: Added NPC reference: NPC_Friendly NPC -> obj_npc
+07/30/24 21:58:39: NPC 'Friendly NPC' spawned successfully: 1 at position (0, -300)
+07/30/24 22:00:08: Raw command: Player.spawn_npc("Friendly NPC", 1, 0, -300, "GreetPlayer")
+07/30/24 22:00:08: Cleaned command: Player.spawn_npc("Friendly NPC", 1, 0, -300, "GreetPlayer")
+07/30/24 22:00:08: Parsing arguments: "Friendly NPC", 1, 0, -300, "GreetPlayer"
+07/30/24 22:00:08: Parsed arguments: ["\"Friendly NPC\"","1","0","-300","\"GreetPlayer\""]
+07/30/24 22:00:08: Command Name: spawn_npc
+07/30/24 22:00:08: Target Object: Player
+07/30/24 22:00:08: Parameters: ["\"Friendly NPC\"","1","0","-300","\"GreetPlayer\""]
+07/30/24 22:00:08: Added NPC reference: NPC_"Friendly NPC" -> obj_npc
+07/30/24 22:00:08: NPC '"Friendly NPC"' spawned successfully: 1 at position (0, -300)
+07/30/24 22:00:13: Raw command: list_objects
+07/30/24 22:00:13: Cleaned command: list_objects
+07/30/24 22:00:13: Command Name: list_objects
+07/30/24 22:00:13: Target Object: yeancat
+07/30/24 22:00:13: Parameters: []
+07/30/24 22:00:13: Available object references:
+Player: yeancat
+Target: yeancat
+Center: Instance
+
+Bosses and NPCs:
+Friendly NPC: obj_npc (NPC)
+"Friendly NPC": obj_npc (NPC)
+

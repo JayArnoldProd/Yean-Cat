@@ -1,0 +1,357 @@
+08/01/24 01:37:59: Loaded action/group: SaveGameNow
+08/01/24 01:37:59: Loaded action/group: GotoKingsKingdom
+08/01/24 01:37:59: Loaded action/group: BattleOutcome
+08/01/24 01:37:59: Loaded action/group: GotoDivineDomain
+08/01/24 01:37:59: Loaded action/group: GotoTheEndonda
+08/01/24 01:37:59: Loaded action/group: GotoUniverseCity
+08/01/24 01:37:59: Loaded action/group: SpawnNPC1
+08/01/24 01:37:59: Loaded action/group: GotoPlaceOfPablo
+08/01/24 01:37:59: Loaded action/group: InvestigateSignals
+08/01/24 01:37:59: Loaded action/group: OfferTrade
+08/01/24 01:37:59: Loaded action/group: DisableEnemySpawns
+08/01/24 01:37:59: Loaded action/group: BattleSequence
+08/01/24 01:37:59: Loaded action/group: StartBattle
+08/01/24 01:37:59: Loaded action/group: SpawnBoss4
+08/01/24 01:37:59: Loaded action/group: SpawnBossCircle
+08/01/24 01:37:59: Loaded action/group: GotoTheIcyHeart
+08/01/24 01:37:59: Loaded action/group: EngageCombat
+08/01/24 01:37:59: Loaded action/group: LevelUpReward
+08/01/24 01:37:59: Loaded action/group: GotoGhostTown
+08/01/24 01:37:59: Loaded action/group: StartExploration
+08/01/24 01:38:00: Loaded action/group: LevelTooLow
+08/01/24 01:38:00: Loaded action/group: GotoTheGoldMines
+08/01/24 01:38:00: Loaded action/group: SpawnBoss11
+08/01/24 01:38:00: Loaded action/group: SpawnBoss2
+08/01/24 01:38:00: Loaded action/group: ExplorationChoice
+08/01/24 01:38:00: Loaded action/group: BattleChoice
+08/01/24 01:38:00: Loaded action/group: ArtifactMystery
+08/01/24 01:38:00: Loaded action/group: PortalOutcome
+08/01/24 01:38:00: Loaded action/group: CheckLevel
+08/01/24 01:38:00: Loaded action/group: PeacefulMission
+08/01/24 01:38:00: Loaded action/group: SpaceAdventureStart
+08/01/24 01:38:00: Loaded action/group: PortalAdventure
+08/01/24 01:38:00: Loaded action/group: EnableEnemySpawns
+08/01/24 01:38:00: Loaded action/group: GotoEarth
+08/01/24 01:38:00: Loaded action/group: SpawnBoss1
+08/01/24 01:38:00: Loaded action/group: SpaceExploration
+08/01/24 01:38:00: Loaded action/group: GotoFantasia
+08/01/24 01:38:00: Loaded action/group: SpawnBoss5
+08/01/24 01:38:00: Loaded action/group: AG1
+08/01/24 01:38:00: Loaded action/group: GotoYetopia
+08/01/24 01:38:00: Loaded action/group: SpawnBoss3
+08/01/24 01:38:00: Loaded action/group: ArtifactOutcome
+08/01/24 01:38:00: Loaded action/group: SpawnBoss9
+08/01/24 01:38:00: Loaded action/group: PeaceTreaty
+08/01/24 01:38:00: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 01:38:00: [Client] Failed to reconnect to server. Will try again...
+08/01/24 01:38:36: Raw command: add_action_condition(CheckLevel10,Level,>=,10,Level10OrAbove,BelowLevel10)
+08/01/24 01:38:36: Cleaned command: add_action_condition(CheckLevel10,Level,>=,10,Level10OrAbove,BelowLevel10)
+08/01/24 01:38:36: Parsing arguments: CheckLevel10,Level,>=,10,Level10OrAbove,BelowLevel10
+08/01/24 01:38:36: Parsed arguments: ["CheckLevel10","Level",">=","10","Level10OrAbove","BelowLevel10"]
+08/01/24 01:38:36: Command Name: add_action_condition
+08/01/24 01:38:36: Target Object: yeancat
+08/01/24 01:38:36: Parameters: ["CheckLevel10","Level",">=","10","Level10OrAbove","BelowLevel10"]
+08/01/24 01:38:36: Action condition 'CheckLevel10' added successfully.
+08/01/24 01:38:36: Raw command: add_action(Level10OrAbove,Target.chat_bubble,["You are level 10 or above!"])
+08/01/24 01:38:36: Cleaned command: add_action(Level10OrAbove,Target.chat_bubble,["You are level 10 or above!"])
+08/01/24 01:38:36: Detected add_action command
+08/01/24 01:38:36: Arguments string: Level10OrAbove,Target.chat_bubble,["You are level 10 or above!"]
+08/01/24 01:38:36: Parsing arguments: Level10OrAbove,Target.chat_bubble,["You are level 10 or above!"]
+08/01/24 01:38:36: Parsed arguments: ["Level10OrAbove","Target.chat_bubble","[\"You are level 10 or above!\"]"]
+08/01/24 01:38:36: Parsed arguments: ["Level10OrAbove","Target.chat_bubble","[\"You are level 10 or above!\"]"]
+08/01/24 01:38:36: Action Name: Level10OrAbove
+08/01/24 01:38:36: Full Action Command: Target.chat_bubble
+08/01/24 01:38:36: Action Params: ["You are level 10 or above!"]
+08/01/24 01:38:36: Target Object: Target
+08/01/24 01:38:36: Action Command: chat_bubble
+08/01/24 01:38:36: Action 'Level10OrAbove' added/updated successfully.
+08/01/24 01:38:36: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:38:36: Raw command: add_action(BelowLevel10,Target.chat_bubble,["You are below level 10."])
+08/01/24 01:38:36: Cleaned command: add_action(BelowLevel10,Target.chat_bubble,["You are below level 10."])
+08/01/24 01:38:36: Detected add_action command
+08/01/24 01:38:36: Arguments string: BelowLevel10,Target.chat_bubble,["You are below level 10."]
+08/01/24 01:38:36: Parsing arguments: BelowLevel10,Target.chat_bubble,["You are below level 10."]
+08/01/24 01:38:36: Parsed arguments: ["BelowLevel10","Target.chat_bubble","[\"You are below level 10.\"]"]
+08/01/24 01:38:36: Parsed arguments: ["BelowLevel10","Target.chat_bubble","[\"You are below level 10.\"]"]
+08/01/24 01:38:36: Action Name: BelowLevel10
+08/01/24 01:38:36: Full Action Command: Target.chat_bubble
+08/01/24 01:38:36: Action Params: ["You are below level 10."]
+08/01/24 01:38:36: Target Object: Target
+08/01/24 01:38:36: Action Command: chat_bubble
+08/01/24 01:38:36: Action 'BelowLevel10' added/updated successfully.
+08/01/24 01:38:36: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:38:36: Raw command: add_action(HonestAbove10,Target.chat_bubble,["You're right, you are level 10 or above!"])
+08/01/24 01:38:36: Cleaned command: add_action(HonestAbove10,Target.chat_bubble,["You're right, you are level 10 or above!"])
+08/01/24 01:38:36: Detected add_action command
+08/01/24 01:38:36: Arguments string: HonestAbove10,Target.chat_bubble,["You're right, you are level 10 or above!"]
+08/01/24 01:38:36: Parsing arguments: HonestAbove10,Target.chat_bubble,["You're right, you are level 10 or above!"]
+08/01/24 01:38:36: Parsed arguments: ["HonestAbove10","Target.chat_bubble","[\"You're right, you are level 10 or above!\"]"]
+08/01/24 01:38:36: Parsed arguments: ["HonestAbove10","Target.chat_bubble","[\"You're right, you are level 10 or above!\"]"]
+08/01/24 01:38:36: Action Name: HonestAbove10
+08/01/24 01:38:36: Full Action Command: Target.chat_bubble
+08/01/24 01:38:36: Action Params: ["You're right, you are level 10 or above!"]
+08/01/24 01:38:36: Target Object: Target
+08/01/24 01:38:36: Action Command: chat_bubble
+08/01/24 01:38:36: Action 'HonestAbove10' added/updated successfully.
+08/01/24 01:38:36: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:38:36: Raw command: add_action(LyingAbove10,Target.chat_bubble,["You're being modest! You are actually level 10 or
+above!"])
+08/01/24 01:38:36: Cleaned command: add_action(LyingAbove10,Target.chat_bubble,["You're being modest! You are actually level 10 or above!"])
+08/01/24 01:38:36: Detected add_action command
+08/01/24 01:38:36: Arguments string: LyingAbove10,Target.chat_bubble,["You're being modest! You are actually level 10 or above!"]
+08/01/24 01:38:36: Parsing arguments: LyingAbove10,Target.chat_bubble,["You're being modest! You are actually level 10 or above!"]
+08/01/24 01:38:36: Parsed arguments: ["LyingAbove10","Target.chat_bubble","[\"You're being modest! You are actually level 10 or above!\"]"]
+08/01/24 01:38:36: Parsed arguments: ["LyingAbove10","Target.chat_bubble","[\"You're being modest! You are actually level 10 or above!\"]"]
+08/01/24 01:38:36: Action Name: LyingAbove10
+08/01/24 01:38:36: Full Action Command: Target.chat_bubble
+08/01/24 01:38:37: Action Params: ["You're being modest! You are actually level 10 or above!"]
+08/01/24 01:38:37: Target Object: Target
+08/01/24 01:38:37: Action Command: chat_bubble
+08/01/24 01:38:37: Action 'LyingAbove10' added/updated successfully.
+08/01/24 01:38:37: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:38:37: Raw command: add_action(HonestBelow10,Target.chat_bubble,["You're right, you are below level 10."])
+08/01/24 01:38:37: Cleaned command: add_action(HonestBelow10,Target.chat_bubble,["You're right, you are below level 10."])
+08/01/24 01:38:37: Detected add_action command
+08/01/24 01:38:37: Arguments string: HonestBelow10,Target.chat_bubble,["You're right, you are below level 10."]
+08/01/24 01:38:37: Parsing arguments: HonestBelow10,Target.chat_bubble,["You're right, you are below level 10."]
+08/01/24 01:38:37: Parsed arguments: ["HonestBelow10","Target.chat_bubble","[\"You're right, you are below level 10.\"]"]
+08/01/24 01:38:37: Parsed arguments: ["HonestBelow10","Target.chat_bubble","[\"You're right, you are below level 10.\"]"]
+08/01/24 01:38:37: Action Name: HonestBelow10
+08/01/24 01:38:37: Full Action Command: Target.chat_bubble
+08/01/24 01:38:37: Action Params: ["You're right, you are below level 10."]
+08/01/24 01:38:37: Target Object: Target
+08/01/24 01:38:37: Action Command: chat_bubble
+08/01/24 01:38:37: Action 'HonestBelow10' added/updated successfully.
+08/01/24 01:38:37: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:38:37: Raw command: add_action(LyingBelow10,Target.chat_bubble,["Nice try, but you're actually below level 10!"])
+08/01/24 01:38:37: Cleaned command: add_action(LyingBelow10,Target.chat_bubble,["Nice try, but you're actually below level 10!"])
+08/01/24 01:38:37: Detected add_action command
+08/01/24 01:38:37: Arguments string: LyingBelow10,Target.chat_bubble,["Nice try, but you're actually below level 10!"]
+08/01/24 01:38:37: Parsing arguments: LyingBelow10,Target.chat_bubble,["Nice try, but you're actually below level 10!"]
+08/01/24 01:38:37: Parsed arguments: ["LyingBelow10","Target.chat_bubble","[\"Nice try, but you're actually below level 10!\"]"]
+08/01/24 01:38:37: Parsed arguments: ["LyingBelow10","Target.chat_bubble","[\"Nice try, but you're actually below level 10!\"]"]
+08/01/24 01:38:37: Action Name: LyingBelow10
+08/01/24 01:38:37: Full Action Command: Target.chat_bubble
+08/01/24 01:38:37: Action Params: ["Nice try, but you're actually below level 10!"]
+08/01/24 01:38:37: Target Object: Target
+08/01/24 01:38:37: Action Command: chat_bubble
+08/01/24 01:38:37: Action 'LyingBelow10' added/updated successfully.
+08/01/24 01:38:37: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:38:37: Raw command: add_action_condition(CheckHonestyYes,Level,>=,10,HonestAbove10,LyingBelow10)
+08/01/24 01:38:37: Cleaned command: add_action_condition(CheckHonestyYes,Level,>=,10,HonestAbove10,LyingBelow10)
+08/01/24 01:38:37: Parsing arguments: CheckHonestyYes,Level,>=,10,HonestAbove10,LyingBelow10
+08/01/24 01:38:37: Parsed arguments: ["CheckHonestyYes","Level",">=","10","HonestAbove10","LyingBelow10"]
+08/01/24 01:38:37: Command Name: add_action_condition
+08/01/24 01:38:37: Target Object: yeancat
+08/01/24 01:38:37: Parameters: ["CheckHonestyYes","Level",">=","10","HonestAbove10","LyingBelow10"]
+08/01/24 01:38:37: Action condition 'CheckHonestyYes' added successfully.
+08/01/24 01:38:37: Raw command: add_action_condition(CheckHonestyNo,Level,>=,10,LyingAbove10,HonestBelow10)
+08/01/24 01:38:37: Cleaned command: add_action_condition(CheckHonestyNo,Level,>=,10,LyingAbove10,HonestBelow10)
+08/01/24 01:38:37: Parsing arguments: CheckHonestyNo,Level,>=,10,LyingAbove10,HonestBelow10
+08/01/24 01:38:37: Parsed arguments: ["CheckHonestyNo","Level",">=","10","LyingAbove10","HonestBelow10"]
+08/01/24 01:38:37: Command Name: add_action_condition
+08/01/24 01:38:37: Target Object: yeancat
+08/01/24 01:38:37: Parameters: ["CheckHonestyNo","Level",">=","10","LyingAbove10","HonestBelow10"]
+08/01/24 01:38:37: Action condition 'CheckHonestyNo' added successfully.
+08/01/24 01:38:37: Raw command: add_action(AskAboutLevel10,Target.chat_bubble,["Are you level 10 or
+above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:38:37: Cleaned command: add_action(AskAboutLevel10,Target.chat_bubble,["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:38:37: Detected add_action command
+08/01/24 01:38:37: Arguments string: AskAboutLevel10,Target.chat_bubble,["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]]
+08/01/24 01:38:37: Parsing arguments: AskAboutLevel10,Target.chat_bubble,["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]]
+08/01/24 01:38:37: Parsed arguments: ["AskAboutLevel10","Target.chat_bubble","[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:38:37: Parsed arguments: ["AskAboutLevel10","Target.chat_bubble","[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:38:37: Action Name: AskAboutLevel10
+08/01/24 01:38:37: Full Action Command: Target.chat_bubble
+08/01/24 01:38:37: Action Params: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]]
+08/01/24 01:38:37: Target Object: Target
+08/01/24 01:38:37: Action Command: chat_bubble
+08/01/24 01:38:37: Action 'AskAboutLevel10' added/updated successfully.
+08/01/24 01:38:37: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:38:47: Raw command: set_variable(Level,5)
+08/01/24 01:38:47: Cleaned command: set_variable(Level,5)
+08/01/24 01:38:47: Parsing arguments: Level,5
+08/01/24 01:38:47: Parsed arguments: ["Level","5"]
+08/01/24 01:38:47: Command Name: set_variable
+08/01/24 01:38:47: Target Object: yeancat
+08/01/24 01:38:47: Parameters: ["Level","5"]
+08/01/24 01:38:48: Level set to 5
+08/01/24 01:38:48: Raw command: execute_action(AskAboutLevel10)
+08/01/24 01:38:48: Cleaned command: execute_action(AskAboutLevel10)
+08/01/24 01:38:48: Executing action/group/condition: AskAboutLevel10
+08/01/24 01:38:48: Decoded Data: {"command":"chat_bubble","parameters":["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]],"targetObject":"Target"}
+08/01/24 01:38:48: Raw command: Target.chat_bubble(["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:38:48: Cleaned command: Target.chat_bubble(["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:38:48: Parsing arguments: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]]
+08/01/24 01:38:48: Parsed arguments: ["[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:38:48: Command Name: chat_bubble
+08/01/24 01:38:48: Target Object: Target
+08/01/24 01:38:48: Parameters: ["[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:38:48: Creating chat bubble: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]], Owner: Target, Choices: []
+08/01/24 01:38:48: Owner object not found, using yeancat
+08/01/24 01:38:48: Chat Bubble Created. Following 'yeancat' with text: 'Are you level 10 or above?'. Number of choices: 2
+08/01/24 01:38:51: Raw command: execute_action(CheckHonestyYes)
+08/01/24 01:38:51: Cleaned command: execute_action(CheckHonestyYes)
+08/01/24 01:38:51: Executing action/group/condition: CheckHonestyYes
+08/01/24 01:38:51: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"10","operator":">=","trueAction":"HonestAbove10","falseAction":"LyingBelow10"}
+08/01/24 01:38:51: Condition result: 0 (5 >= 10)
+08/01/24 01:38:51: Raw command: execute_action(LyingBelow10)
+08/01/24 01:38:51: Cleaned command: execute_action(LyingBelow10)
+08/01/24 01:38:51: Executing action/group/condition: LyingBelow10
+08/01/24 01:38:51: Decoded Data: {"command":"chat_bubble","parameters":["Nice try, but you're actually below level 10!"],"targetObject":"Target"}
+08/01/24 01:38:51: Raw command: Target.chat_bubble(["Nice try, but you're actually below level 10!"])
+08/01/24 01:38:51: Cleaned command: Target.chat_bubble(["Nice try, but you're actually below level 10!"])
+08/01/24 01:38:51: Parsing arguments: ["Nice try, but you're actually below level 10!"]
+08/01/24 01:38:51: Parsed arguments: ["[\"Nice try, but you're actually below level 10!\"]"]
+08/01/24 01:38:51: Command Name: chat_bubble
+08/01/24 01:38:51: Target Object: Target
+08/01/24 01:38:51: Parameters: ["[\"Nice try, but you're actually below level 10!\"]"]
+08/01/24 01:38:51: Creating chat bubble: ["Nice try, but you're actually below level 10!"], Owner: Target, Choices: []
+08/01/24 01:38:51: Owner object not found, using yeancat
+08/01/24 01:38:51: Chat Bubble Created. Following 'yeancat' with text: '[ "Nice try, but you're actually below level 10!" ]'. Number of choices: 0
+08/01/24 01:39:17: [Jay Arnold] okay good! the second text bubble though had the [ " " ] in it though the initial one was perfect
+08/01/24 01:39:17: Creating chat bubble: " okay good! the second text bubble though had the  in it though the initial one was perfect", Owner: yeancat, Choices: []
+08/01/24 01:39:17: Chat Bubble Created. Following 'yeancat' with text: 'okay good! the second text bubble though had the  in it
+though the initial one was perfect'. Number of choices: 0
+08/01/24 01:39:23: Raw command: set_variable(Level,5)
+08/01/24 01:39:23: Cleaned command: set_variable(Level,5)
+08/01/24 01:39:23: Parsing arguments: Level,5
+08/01/24 01:39:23: Parsed arguments: ["Level","5"]
+08/01/24 01:39:23: Command Name: set_variable
+08/01/24 01:39:23: Target Object: yeancat
+08/01/24 01:39:23: Parameters: ["Level","5"]
+08/01/24 01:39:23: Level set to 5
+08/01/24 01:39:23: Raw command: execute_action(AskAboutLevel10)
+08/01/24 01:39:23: Cleaned command: execute_action(AskAboutLevel10)
+08/01/24 01:39:23: Executing action/group/condition: AskAboutLevel10
+08/01/24 01:39:23: Decoded Data: {"command":"chat_bubble","parameters":["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]],"targetObject":"Target"}
+08/01/24 01:39:23: Raw command: Target.chat_bubble(["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:39:23: Cleaned command: Target.chat_bubble(["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:39:23: Parsing arguments: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]]
+08/01/24 01:39:23: Parsed arguments: ["[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:39:23: Command Name: chat_bubble
+08/01/24 01:39:23: Target Object: Target
+08/01/24 01:39:23: Parameters: ["[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:39:23: Creating chat bubble: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]], Owner: Target, Choices: []
+08/01/24 01:39:23: Owner object not found, using yeancat
+08/01/24 01:39:23: Chat Bubble Created. Following 'yeancat' with text: 'Are you level 10 or above?'. Number of choices: 2
+08/01/24 01:39:25: Raw command: execute_action(CheckHonestyNo)
+08/01/24 01:39:25: Cleaned command: execute_action(CheckHonestyNo)
+08/01/24 01:39:25: Executing action/group/condition: CheckHonestyNo
+08/01/24 01:39:25: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"10","operator":">=","trueAction":"LyingAbove10","falseAction":"HonestBelow10"}
+08/01/24 01:39:25: Condition result: 0 (5 >= 10)
+08/01/24 01:39:25: Raw command: execute_action(HonestBelow10)
+08/01/24 01:39:25: Cleaned command: execute_action(HonestBelow10)
+08/01/24 01:39:25: Executing action/group/condition: HonestBelow10
+08/01/24 01:39:25: Decoded Data: {"command":"chat_bubble","parameters":["You're right, you are below level 10."],"targetObject":"Target"}
+08/01/24 01:39:25: Raw command: Target.chat_bubble(["You're right, you are below level 10."])
+08/01/24 01:39:25: Cleaned command: Target.chat_bubble(["You're right, you are below level 10."])
+08/01/24 01:39:25: Parsing arguments: ["You're right, you are below level 10."]
+08/01/24 01:39:25: Parsed arguments: ["[\"You're right, you are below level 10.\"]"]
+08/01/24 01:39:25: Command Name: chat_bubble
+08/01/24 01:39:25: Target Object: Target
+08/01/24 01:39:25: Parameters: ["[\"You're right, you are below level 10.\"]"]
+08/01/24 01:39:25: Creating chat bubble: ["You're right, you are below level 10."], Owner: Target, Choices: []
+08/01/24 01:39:25: Owner object not found, using yeancat
+08/01/24 01:39:25: Chat Bubble Created. Following 'yeancat' with text: '[ "You're right, you are below level 10." ]'. Number of choices: 0
+08/01/24 01:39:36: Raw command: set_variable(Level,15)
+08/01/24 01:39:36: Cleaned command: set_variable(Level,15)
+08/01/24 01:39:36: Parsing arguments: Level,15
+08/01/24 01:39:36: Parsed arguments: ["Level","15"]
+08/01/24 01:39:36: Command Name: set_variable
+08/01/24 01:39:36: Target Object: yeancat
+08/01/24 01:39:36: Parameters: ["Level","15"]
+08/01/24 01:39:36: Level set to 15
+08/01/24 01:39:36: Raw command: execute_action(AskAboutLevel10)
+08/01/24 01:39:36: Cleaned command: execute_action(AskAboutLevel10)
+08/01/24 01:39:36: Executing action/group/condition: AskAboutLevel10
+08/01/24 01:39:36: Decoded Data: {"command":"chat_bubble","parameters":["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]],"targetObject":"Target"}
+08/01/24 01:39:36: Raw command: Target.chat_bubble(["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:39:36: Cleaned command: Target.chat_bubble(["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:39:36: Parsing arguments: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]]
+08/01/24 01:39:36: Parsed arguments: ["[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:39:36: Command Name: chat_bubble
+08/01/24 01:39:36: Target Object: Target
+08/01/24 01:39:36: Parameters: ["[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:39:36: Creating chat bubble: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]], Owner: Target, Choices: []
+08/01/24 01:39:36: Owner object not found, using yeancat
+08/01/24 01:39:36: Chat Bubble Created. Following 'yeancat' with text: 'Are you level 10 or above?'. Number of choices: 2
+08/01/24 01:39:39: Raw command: execute_action(CheckHonestyNo)
+08/01/24 01:39:39: Cleaned command: execute_action(CheckHonestyNo)
+08/01/24 01:39:39: Executing action/group/condition: CheckHonestyNo
+08/01/24 01:39:39: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"10","operator":">=","trueAction":"LyingAbove10","falseAction":"HonestBelow10"}
+08/01/24 01:39:39: Condition result: 1 (15 >= 10)
+08/01/24 01:39:39: Raw command: execute_action(LyingAbove10)
+08/01/24 01:39:39: Cleaned command: execute_action(LyingAbove10)
+08/01/24 01:39:39: Executing action/group/condition: LyingAbove10
+08/01/24 01:39:39: Decoded Data: {"command":"chat_bubble","parameters":["You're being modest! You are actually level 10 or above!"],"targetObject":"Target"}
+08/01/24 01:39:39: Raw command: Target.chat_bubble(["You're being modest! You are actually level 10 or above!"])
+08/01/24 01:39:39: Cleaned command: Target.chat_bubble(["You're being modest! You are actually level 10 or above!"])
+08/01/24 01:39:39: Parsing arguments: ["You're being modest! You are actually level 10 or above!"]
+08/01/24 01:39:39: Parsed arguments: ["[\"You're being modest! You are actually level 10 or above!\"]"]
+08/01/24 01:39:39: Command Name: chat_bubble
+08/01/24 01:39:39: Target Object: Target
+08/01/24 01:39:39: Parameters: ["[\"You're being modest! You are actually level 10 or above!\"]"]
+08/01/24 01:39:39: Creating chat bubble: ["You're being modest! You are actually level 10 or above!"], Owner: Target, Choices: []
+08/01/24 01:39:39: Owner object not found, using yeancat
+08/01/24 01:39:39: Chat Bubble Created. Following 'yeancat' with text: '[ "You're being modest! You are actually level 10 or
+above!" ]'. Number of choices: 0
+08/01/24 01:39:43: Raw command: set_variable(Level,15)
+08/01/24 01:39:43: Cleaned command: set_variable(Level,15)
+08/01/24 01:39:43: Parsing arguments: Level,15
+08/01/24 01:39:43: Parsed arguments: ["Level","15"]
+08/01/24 01:39:43: Command Name: set_variable
+08/01/24 01:39:43: Target Object: yeancat
+08/01/24 01:39:43: Parameters: ["Level","15"]
+08/01/24 01:39:43: Level set to 15
+08/01/24 01:39:43: Raw command: execute_action(AskAboutLevel10)
+08/01/24 01:39:43: Cleaned command: execute_action(AskAboutLevel10)
+08/01/24 01:39:43: Executing action/group/condition: AskAboutLevel10
+08/01/24 01:39:43: Decoded Data: {"command":"chat_bubble","parameters":["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]],"targetObject":"Target"}
+08/01/24 01:39:43: Raw command: Target.chat_bubble(["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:39:43: Cleaned command: Target.chat_bubble(["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]])
+08/01/24 01:39:43: Parsing arguments: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]]
+08/01/24 01:39:43: Parsed arguments: ["[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:39:43: Command Name: chat_bubble
+08/01/24 01:39:43: Target Object: Target
+08/01/24 01:39:43: Parameters: ["[\"Are you level 10 or above?\",[[\"Yes\",\"CheckHonestyYes\"],[\"No\",\"CheckHonestyNo\"]]]"]
+08/01/24 01:39:43: Creating chat bubble: ["Are you level 10 or above?",[["Yes","CheckHonestyYes"],["No","CheckHonestyNo"]]], Owner: Target, Choices: []
+08/01/24 01:39:43: Owner object not found, using yeancat
+08/01/24 01:39:43: Chat Bubble Created. Following 'yeancat' with text: 'Are you level 10 or above?'. Number of choices: 2
+08/01/24 01:39:45: Raw command: execute_action(CheckHonestyYes)
+08/01/24 01:39:45: Cleaned command: execute_action(CheckHonestyYes)
+08/01/24 01:39:45: Executing action/group/condition: CheckHonestyYes
+08/01/24 01:39:45: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"10","operator":">=","trueAction":"HonestAbove10","falseAction":"LyingBelow10"}
+08/01/24 01:39:45: Condition result: 1 (15 >= 10)
+08/01/24 01:39:45: Raw command: execute_action(HonestAbove10)
+08/01/24 01:39:45: Cleaned command: execute_action(HonestAbove10)
+08/01/24 01:39:45: Executing action/group/condition: HonestAbove10
+08/01/24 01:39:45: Decoded Data: {"command":"chat_bubble","parameters":["You're right, you are level 10 or above!"],"targetObject":"Target"}
+08/01/24 01:39:45: Raw command: Target.chat_bubble(["You're right, you are level 10 or above!"])
+08/01/24 01:39:45: Cleaned command: Target.chat_bubble(["You're right, you are level 10 or above!"])
+08/01/24 01:39:45: Parsing arguments: ["You're right, you are level 10 or above!"]
+08/01/24 01:39:45: Parsed arguments: ["[\"You're right, you are level 10 or above!\"]"]
+08/01/24 01:39:45: Command Name: chat_bubble
+08/01/24 01:39:46: Target Object: Target
+08/01/24 01:39:46: Parameters: ["[\"You're right, you are level 10 or above!\"]"]
+08/01/24 01:39:46: Creating chat bubble: ["You're right, you are level 10 or above!"], Owner: Target, Choices: []
+08/01/24 01:39:46: Owner object not found, using yeancat
+08/01/24 01:39:46: Chat Bubble Created. Following 'yeancat' with text: '[ "You're right, you are level 10 or above!" ]'. Number of choices: 0
+08/01/24 01:43:14: [Jay Arnold] fantastic! now we just have to fix this remaining [ " issue. then we can proceed to expanding the action
+conditions function to be able to also handle and as well as or and use other action conditions
+to create even more complexity! of course when an action condition tries to check the value of another
+action condition, the action condition it is checking will not execute the linked actions to its true and
+false value. only the true false actions for the check itself will be executed when this and/or action
+condition is executed.
+08/01/24 01:43:14: Creating chat bubble: " fantastic! now we just have to fix this remaining [ \" issue. then we can proceed to expanding the action\nconditions function to be able to also handle and as well as or and use other action conditions\nto create even more complexity! of course when an action condition tries to check the value of another\naction condition, the action condition it is checking will not execute the linked actions to its true and\nfalse value. only the true false actions for the check itself will be executed when this and\/or action\ncondition is executed.", Owner: yeancat, Choices: []
+08/01/24 01:43:14: Chat Bubble Created. Following 'yeancat' with text: 'fantastic! now we just have to fix this remaining [ " issue.
+then we can proceed to expanding the action
+conditions function to be able to also handle and as well as
+or and use other action conditions
+to create even more complexity! of course when an action
+condition tries to check the value of another
+action condition, the action condition it is checking will not
+execute the linked actions to its true and
+false value. only the true false actions for the check itself
+will be executed when this and/or action
+condition is executed.'. Number of choices: 0

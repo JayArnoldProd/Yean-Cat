@@ -86,40 +86,43 @@ function execute_command(command) {
         }
         return;
     } else if (string_pos("execute_action(", command) == 1) {
-        var actionName = string_replace(command, "execute_action(", "");
-        actionName = string_replace(actionName, ")", "");
-        actionName = string_trim(actionName);
-        actionName = string_replace_all(actionName, "\"", ""); // Remove quotes
+    var actionName = string_replace(command, "execute_action(", "");
+    actionName = string_replace(actionName, ")", "");
+    actionName = string_trim(actionName);
+    actionName = string_replace_all(actionName, "\"", ""); // Remove quotes
+    
+    handleDebugMessage("Attempting to execute action: " + actionName, true);
+    handleDebugMessage("Action exists in actionDetails: " + string(ds_map_exists(global.actionDetails, actionName)), true);
+    handleDebugMessage("Action exists in actionGroups: " + string(ds_map_exists(global.actionGroups, actionName)), true);
+    handleDebugMessage("Action exists in actionConditions: " + string(ds_map_exists(global.actionConditions, actionName)), true);
+    
+    if (ds_map_exists(global.actionConditions, actionName)) {
+        var actionConditionData = ds_map_find_value(global.actionConditions, actionName);
+        handleDebugMessage("Executing action condition: " + actionName + " with data: " + json_stringify(actionConditionData), true);
+        execute_action_condition(actionConditionData);
+    } else if (ds_map_exists(global.actionDetails, actionName)) {
+        var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
+        var decodedData = json_parse(base64_decode(encodedCommand));
         
-        if (ds_map_exists(global.actionDetails, actionName)) {
-            var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
-            var decodedData = json_parse(base64_decode(encodedCommand));
-            
-            handleDebugMessage("Executing action/group: " + actionName, true);
-            handleDebugMessage("Decoded Data: " + json_stringify(decodedData), true);
-            
-            if (is_struct(decodedData) && variable_struct_exists(decodedData, "type") && decodedData.type == "action_group") {
-                // Handle action group
-                var actions = decodedData.actions;
-                for (var i = 0; i < array_length(actions); i++) {
-                    execute_command("execute_action(" + actions[i] + ")");
-                }
-            } else if (is_struct(decodedData) && variable_struct_exists(decodedData, "command")) {
-                // Handle single action
-                var cmdName = decodedData.command;
-                var params = decodedData.parameters;
-                var targetObj = decodedData.targetObject;
-                
-                var fullCmd = (targetObj != "yeancat" ? targetObj + "." : "") + cmdName + "(" + json_stringify(params) + ")";
-                execute_command(fullCmd);
-            } else {
-                handleDebugMessage("Invalid action/group data for: " + actionName, true);
-            }
-        } else {
-            handleDebugMessage("Action/group '" + actionName + "' not found.", true);
+        handleDebugMessage("Executing action: " + actionName, true);
+        execute_single_action(decodedData);
+    } else if (ds_map_exists(global.actionGroups, actionName)) {
+        var groupActions = ds_map_find_value(global.actionGroups, actionName);
+        handleDebugMessage("Executing action group: " + actionName, true);
+        for (var i = 0; i < array_length(groupActions); i++) {
+            execute_command("execute_action(" + groupActions[i] + ")");
         }
-        return;
-    } else if (openParenIndex > 0 && closeParenIndex > openParenIndex) {
+    } else {
+        handleDebugMessage("Action/group/condition '" + actionName + "' not found.", true);
+        handleDebugMessage("Contents of global.actionConditions:", true);
+        var key = ds_map_find_first(global.actionConditions);
+        while (!is_undefined(key)) {
+            handleDebugMessage(key + ": " + json_stringify(ds_map_find_value(global.actionConditions, key)), true);
+            key = ds_map_find_next(global.actionConditions, key);
+        }
+    }
+    return;
+} else if (openParenIndex > 0 && closeParenIndex > openParenIndex) {
         commandName = string_trim_lr(string_copy(command, 1, openParenIndex - 1));
         var paramString = string_copy(command, openParenIndex + 1, closeParenIndex - openParenIndex - 1);
         parameters = parse_arguments(paramString);
@@ -151,15 +154,15 @@ if (commandName == "spawn_boss") {
 }
 
     if (commandName == "chat_bubble") {
-        if (array_length(parameters) >= 1) {
-            var text = json_parse(parameters[0]);
-            var choices = (array_length(parameters) > 1) ? json_parse(parameters[1]) : [];
-            scr_chat_bubble(text, targetObject, choices);
-        } else {
-            handleDebugMessage("Invalid number of arguments for chat_bubble", true);
-        }
-        return;
+    if (array_length(parameters) >= 1) {
+        var text = is_string(parameters[0]) ? json_parse(parameters[0]) : parameters[0];
+        var choices = (array_length(parameters) > 1) ? (is_string(parameters[1]) ? json_parse(parameters[1]) : parameters[1]) : [];
+        scr_chat_bubble(text, targetObject, choices);
+    } else {
+        handleDebugMessage("Invalid number of arguments for chat_bubble", true);
     }
+    return;
+}
     
     var scriptName = "scr_" + commandName;
     if (script_exists(asset_get_index(scriptName))) {

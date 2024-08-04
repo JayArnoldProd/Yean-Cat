@@ -1,0 +1,167 @@
+07/31/24 02:46:19: Loaded action/group: SaveGameNow
+07/31/24 02:46:19: Loaded action/group: GotoKingsKingdom
+07/31/24 02:46:19: Loaded action/group: EnterPortal
+07/31/24 02:46:19: Loaded action/group: PurchaseArtifacts
+07/31/24 02:46:19: Loaded action/group: BattleOutcome
+07/31/24 02:46:19: Loaded action/group: VisitMarket
+07/31/24 02:46:19: Loaded action/group: GotoDivineDomain
+07/31/24 02:46:19: Loaded action/group: GotoTheEndonda
+07/31/24 02:46:19: Loaded action/group: GotoUniverseCity
+07/31/24 02:46:19: Loaded action/group: SpawnNPC1
+07/31/24 02:46:19: Loaded action/group: GotoLandOfLucy
+07/31/24 02:46:19: Loaded action/group: GotoPlaceOfPablo
+07/31/24 02:46:19: Loaded action/group: InvestigateSignals
+07/31/24 02:46:19: Loaded action/group: OfferTrade
+07/31/24 02:46:19: Loaded action/group: DisableEnemySpawns
+07/31/24 02:46:19: Loaded action/group: BattleSequence
+07/31/24 02:46:19: Loaded action/group: StartBattle
+07/31/24 02:46:19: Loaded action/group: SpawnBoss4
+07/31/24 02:46:19: Loaded action/group: SpawnBossCircle
+07/31/24 02:46:19: Loaded action/group: GotoTheIcyHeart
+07/31/24 02:46:19: Loaded action/group: EngageCombat
+07/31/24 02:46:19: Loaded action/group: GotoGhostTown
+07/31/24 02:46:19: Loaded action/group: SpawnBoss0
+07/31/24 02:46:19: Loaded action/group: SpawnBoss13
+07/31/24 02:46:19: Loaded action/group: StartExploration
+07/31/24 02:46:19: Loaded action/group: SpawnBoss8
+07/31/24 02:46:19: Loaded action/group: SpawnBoss6
+07/31/24 02:46:19: Loaded action/group: SetLevelFive
+07/31/24 02:46:19: Loaded action/group: LevelUpThree
+07/31/24 02:46:19: Loaded action/group: LevelUpOnce
+07/31/24 02:46:19: Loaded action/group: GotoTheGoldMines
+07/31/24 02:46:19: Loaded action/group: SpawnBoss11
+07/31/24 02:46:19: Loaded action/group: StartPeaceMission
+07/31/24 02:46:19: Loaded action/group: SpawnBoss2
+07/31/24 02:46:20: Loaded action/group: DiplomaticChoice
+07/31/24 02:46:20: Loaded action/group: TreatyOutcome
+07/31/24 02:46:20: Loaded action/group: ExplorationChoice
+07/31/24 02:46:20: Loaded action/group: BattleChoice
+07/31/24 02:46:20: Loaded action/group: ArtifactMystery
+07/31/24 02:46:20: Loaded action/group: PortalOutcome
+07/31/24 02:46:20: Loaded action/group: PeacefulMission
+07/31/24 02:46:20: Loaded action/group: SpaceAdventureStart
+07/31/24 02:46:20: Loaded action/group: PortalAdventure
+07/31/24 02:46:20: Loaded action/group: EnableEnemySpawns
+07/31/24 02:46:20: Loaded action/group: GotoVulturesValley
+07/31/24 02:46:20: Loaded action/group: GotoEarth
+07/31/24 02:46:20: Loaded action/group: SpawnBoss1
+07/31/24 02:46:20: Loaded action/group: GotoStormySands
+07/31/24 02:46:20: Loaded action/group: SpawnBoss12
+07/31/24 02:46:20: Loaded action/group: SpaceExploration
+07/31/24 02:46:20: Loaded action/group: GotoFantasia
+07/31/24 02:46:20: Loaded action/group: SpawnBoss5
+07/31/24 02:46:20: Loaded action/group: AG1
+07/31/24 02:46:20: Loaded action/group: SpawnBoss10
+07/31/24 02:46:20: Loaded action/group: GotoYetopia
+07/31/24 02:46:20: Loaded action/group: SpawnBoss3
+07/31/24 02:46:20: Loaded action/group: ArtifactOutcome
+07/31/24 02:46:20: Loaded action/group: EpicBattle
+07/31/24 02:46:20: Loaded action/group: SpawnBoss7
+07/31/24 02:46:20: Loaded action/group: SpawnBoss9
+07/31/24 02:46:20: Loaded action/group: PeaceTreaty
+07/31/24 02:46:20: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 02:46:20: [Client] Failed to reconnect to server. Will try again...
+07/31/24 02:46:38: Raw command: set_variable(Macro3,-1)
+07/31/24 02:46:39: Cleaned command: set_variable(Macro3,-1)
+07/31/24 02:46:39: Parsing arguments: Macro3,-1
+07/31/24 02:46:39: Parsed arguments: ["Macro3","-1"]
+07/31/24 02:46:39: Command Name: set_variable
+07/31/24 02:46:39: Target Object: yeancat
+07/31/24 02:46:39: Parameters: ["Macro3","-1"]
+07/31/24 02:46:39: Macro3 set to -1
+07/31/24 02:46:42: Raw command: set_variable(Macro3,1)
+07/31/24 02:46:42: Cleaned command: set_variable(Macro3,1)
+07/31/24 02:46:42: Parsing arguments: Macro3,1
+07/31/24 02:46:42: Parsed arguments: ["Macro3","1"]
+07/31/24 02:46:42: Command Name: set_variable
+07/31/24 02:46:42: Target Object: yeancat
+07/31/24 02:46:42: Parameters: ["Macro3","1"]
+07/31/24 02:46:42: Macro3 set to 1
+07/31/24 02:47:20: Raw command: set_variable(Macro3,0)
+07/31/24 02:47:20: Cleaned command: set_variable(Macro3,0)
+07/31/24 02:47:20: Parsing arguments: Macro3,0
+07/31/24 02:47:20: Parsed arguments: ["Macro3","0"]
+07/31/24 02:47:20: Command Name: set_variable
+07/31/24 02:47:20: Target Object: yeancat
+07/31/24 02:47:20: Parameters: ["Macro3","0"]
+07/31/24 02:47:20: Macro3 set to 0
+07/31/24 02:47:42: Raw command: set_variable(Macro2,1)
+07/31/24 02:47:42: Cleaned command: set_variable(Macro2,1)
+07/31/24 02:47:42: Parsing arguments: Macro2,1
+07/31/24 02:47:42: Parsed arguments: ["Macro2","1"]
+07/31/24 02:47:42: Command Name: set_variable
+07/31/24 02:47:42: Target Object: yeancat
+07/31/24 02:47:42: Parameters: ["Macro2","1"]
+07/31/24 02:47:42: Macro2 set to 1
+07/31/24 02:47:48: Raw command: set_variable(Macro2,-1)
+07/31/24 02:47:48: Cleaned command: set_variable(Macro2,-1)
+07/31/24 02:47:48: Parsing arguments: Macro2,-1
+07/31/24 02:47:48: Parsed arguments: ["Macro2","-1"]
+07/31/24 02:47:48: Command Name: set_variable
+07/31/24 02:47:48: Target Object: yeancat
+07/31/24 02:47:48: Parameters: ["Macro2","-1"]
+07/31/24 02:47:48: Macro2 set to -1
+07/31/24 02:48:08: Raw command: set_variable(Macro3,1)
+07/31/24 02:48:08: Cleaned command: set_variable(Macro3,1)
+07/31/24 02:48:08: Parsing arguments: Macro3,1
+07/31/24 02:48:08: Parsed arguments: ["Macro3","1"]
+07/31/24 02:48:08: Command Name: set_variable
+07/31/24 02:48:08: Target Object: yeancat
+07/31/24 02:48:08: Parameters: ["Macro3","1"]
+07/31/24 02:48:08: Macro3 set to 1
+07/31/24 02:48:14: Raw command: set_variable(Macro3,0)
+07/31/24 02:48:14: Cleaned command: set_variable(Macro3,0)
+07/31/24 02:48:14: Parsing arguments: Macro3,0
+07/31/24 02:48:14: Parsed arguments: ["Macro3","0"]
+07/31/24 02:48:14: Command Name: set_variable
+07/31/24 02:48:14: Target Object: yeancat
+07/31/24 02:48:14: Parameters: ["Macro3","0"]
+07/31/24 02:48:14: Macro3 set to 0
+07/31/24 02:48:36: Raw command: set_variable(Macro2,-1)
+07/31/24 02:48:36: Cleaned command: set_variable(Macro2,-1)
+07/31/24 02:48:36: Parsing arguments: Macro2,-1
+07/31/24 02:48:36: Parsed arguments: ["Macro2","-1"]
+07/31/24 02:48:36: Command Name: set_variable
+07/31/24 02:48:36: Target Object: yeancat
+07/31/24 02:48:36: Parameters: ["Macro2","-1"]
+07/31/24 02:48:36: Macro2 set to -1
+07/31/24 02:48:42: Raw command: set_variable(Macro2,1)
+07/31/24 02:48:42: Cleaned command: set_variable(Macro2,1)
+07/31/24 02:48:42: Parsing arguments: Macro2,1
+07/31/24 02:48:42: Parsed arguments: ["Macro2","1"]
+07/31/24 02:48:42: Command Name: set_variable
+07/31/24 02:48:42: Target Object: yeancat
+07/31/24 02:48:42: Parameters: ["Macro2","1"]
+07/31/24 02:48:42: Macro2 set to 1
+07/31/24 02:48:45: Raw command: set_variable(Macro2,0)
+07/31/24 02:48:45: Cleaned command: set_variable(Macro2,0)
+07/31/24 02:48:45: Parsing arguments: Macro2,0
+07/31/24 02:48:45: Parsed arguments: ["Macro2","0"]
+07/31/24 02:48:45: Command Name: set_variable
+07/31/24 02:48:45: Target Object: yeancat
+07/31/24 02:48:45: Parameters: ["Macro2","0"]
+07/31/24 02:48:45: Macro2 set to 0
+07/31/24 02:48:49: Raw command: set_variable(Macro2,1)
+07/31/24 02:48:49: Cleaned command: set_variable(Macro2,1)
+07/31/24 02:48:49: Parsing arguments: Macro2,1
+07/31/24 02:48:49: Parsed arguments: ["Macro2","1"]
+07/31/24 02:48:49: Command Name: set_variable
+07/31/24 02:48:49: Target Object: yeancat
+07/31/24 02:48:49: Parameters: ["Macro2","1"]
+07/31/24 02:48:49: Macro2 set to 1
+07/31/24 02:48:54: Raw command: set_variable(Macro2,2)
+07/31/24 02:48:54: Cleaned command: set_variable(Macro2,2)
+07/31/24 02:48:54: Parsing arguments: Macro2,2
+07/31/24 02:48:54: Parsed arguments: ["Macro2","2"]
+07/31/24 02:48:54: Command Name: set_variable
+07/31/24 02:48:54: Target Object: yeancat
+07/31/24 02:48:54: Parameters: ["Macro2","2"]
+07/31/24 02:48:54: Macro2 set to 2
+07/31/24 02:48:59: Raw command: set_variable(Macro2,-1)
+07/31/24 02:48:59: Cleaned command: set_variable(Macro2,-1)
+07/31/24 02:48:59: Parsing arguments: Macro2,-1
+07/31/24 02:48:59: Parsed arguments: ["Macro2","-1"]
+07/31/24 02:48:59: Command Name: set_variable
+07/31/24 02:48:59: Target Object: yeancat
+07/31/24 02:48:59: Parameters: ["Macro2","-1"]
+07/31/24 02:48:59: Macro2 set to -1

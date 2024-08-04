@@ -1,0 +1,1928 @@
+08/01/24 05:29:43: Actions.txt not found. No actions or action groups loaded.
+08/01/24 05:29:43: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 05:29:43: Loaded condition: IsHealthFull
+08/01/24 05:29:43: Loaded condition: IsLevelHigh
+08/01/24 05:29:43: Conditions loaded successfully from Conditions.txt.
+08/01/24 05:29:43: [Client] Failed to reconnect to server. Will try again...
+08/01/24 05:30:05: Raw command: add_action(LevelUpOnce,level_up,[1])
+08/01/24 05:30:05: Cleaned command: add_action(LevelUpOnce,level_up,[1])
+08/01/24 05:30:05: Detected add_action command
+08/01/24 05:30:05: Arguments string: LevelUpOnce,level_up,[1]
+08/01/24 05:30:05: Parsing arguments: LevelUpOnce,level_up,[1]
+08/01/24 05:30:05: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+08/01/24 05:30:05: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+08/01/24 05:30:05: Action Name: LevelUpOnce
+08/01/24 05:30:05: Full Action Command: level_up
+08/01/24 05:30:05: Action Params: [1]
+08/01/24 05:30:05: Target Object: yeancat
+08/01/24 05:30:05: Action Command: level_up
+08/01/24 05:30:05: Action 'LevelUpOnce' added/updated successfully.
+08/01/24 05:30:05: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:05: Raw command: add_action(LevelUpThree, level_up, [3])
+08/01/24 05:30:05: Cleaned command: add_action(LevelUpThree, level_up, [3])
+08/01/24 05:30:05: Detected add_action command
+08/01/24 05:30:05: Arguments string: LevelUpThree, level_up, [3]
+08/01/24 05:30:05: Parsing arguments: LevelUpThree, level_up, [3]
+08/01/24 05:30:05: Parsed arguments: ["LevelUpThree","level_up","[3]"]
+08/01/24 05:30:05: Parsed arguments: ["LevelUpThree","level_up","[3]"]
+08/01/24 05:30:05: Action Name: LevelUpThree
+08/01/24 05:30:05: Full Action Command: level_up
+08/01/24 05:30:05: Action Params: [3]
+08/01/24 05:30:05: Target Object: yeancat
+08/01/24 05:30:05: Action Command: level_up
+08/01/24 05:30:05: Action 'LevelUpThree' added/updated successfully.
+08/01/24 05:30:05: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:05: Raw command: add_action(SaveGameNow,save_game,[])
+08/01/24 05:30:05: Cleaned command: add_action(SaveGameNow,save_game,[])
+08/01/24 05:30:05: Detected add_action command
+08/01/24 05:30:05: Arguments string: SaveGameNow,save_game,[]
+08/01/24 05:30:05: Parsing arguments: SaveGameNow,save_game,[]
+08/01/24 05:30:05: Parsed arguments: ["SaveGameNow","save_game","[]"]
+08/01/24 05:30:05: Parsed arguments: ["SaveGameNow","save_game","[]"]
+08/01/24 05:30:05: Action Name: SaveGameNow
+08/01/24 05:30:06: Full Action Command: save_game
+08/01/24 05:30:06: Action Params: []
+08/01/24 05:30:06: Target Object: yeancat
+08/01/24 05:30:06: Action Command: save_game
+08/01/24 05:30:06: Action 'SaveGameNow' added/updated successfully.
+08/01/24 05:30:06: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:06: Raw command: add_action(GotoEarth,goto_planet,["Earth"])
+08/01/24 05:30:06: Cleaned command: add_action(GotoEarth,goto_planet,["Earth"])
+08/01/24 05:30:06: Detected add_action command
+08/01/24 05:30:06: Arguments string: GotoEarth,goto_planet,["Earth"]
+08/01/24 05:30:06: Parsing arguments: GotoEarth,goto_planet,["Earth"]
+08/01/24 05:30:06: Parsed arguments: ["GotoEarth","goto_planet","[\"Earth\"]"]
+08/01/24 05:30:06: Parsed arguments: ["GotoEarth","goto_planet","[\"Earth\"]"]
+08/01/24 05:30:06: Action Name: GotoEarth
+08/01/24 05:30:06: Full Action Command: goto_planet
+08/01/24 05:30:06: Action Params: ["Earth"]
+08/01/24 05:30:06: Target Object: yeancat
+08/01/24 05:30:06: Action Command: goto_planet
+08/01/24 05:30:06: Action 'GotoEarth' added/updated successfully.
+08/01/24 05:30:06: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:06: Raw command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+08/01/24 05:30:06: Cleaned command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+08/01/24 05:30:06: Detected add_action command
+08/01/24 05:30:06: Arguments string: GotoUniverseCity,goto_planet,["Universe City"]
+08/01/24 05:30:06: Parsing arguments: GotoUniverseCity,goto_planet,["Universe City"]
+08/01/24 05:30:06: Parsed arguments: ["GotoUniverseCity","goto_planet","[\"Universe City\"]"]
+08/01/24 05:30:06: Parsed arguments: ["GotoUniverseCity","goto_planet","[\"Universe City\"]"]
+08/01/24 05:30:06: Action Name: GotoUniverseCity
+08/01/24 05:30:06: Full Action Command: goto_planet
+08/01/24 05:30:06: Action Params: ["Universe City"]
+08/01/24 05:30:06: Target Object: yeancat
+08/01/24 05:30:06: Action Command: goto_planet
+08/01/24 05:30:06: Action 'GotoUniverseCity' added/updated successfully.
+08/01/24 05:30:06: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:06: Raw command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+08/01/24 05:30:06: Cleaned command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+08/01/24 05:30:06: Detected add_action command
+08/01/24 05:30:06: Arguments string: GotoFantasia,goto_planet,["Fantasia"]
+08/01/24 05:30:06: Parsing arguments: GotoFantasia,goto_planet,["Fantasia"]
+08/01/24 05:30:06: Parsed arguments: ["GotoFantasia","goto_planet","[\"Fantasia\"]"]
+08/01/24 05:30:06: Parsed arguments: ["GotoFantasia","goto_planet","[\"Fantasia\"]"]
+08/01/24 05:30:06: Action Name: GotoFantasia
+08/01/24 05:30:06: Full Action Command: goto_planet
+08/01/24 05:30:06: Action Params: ["Fantasia"]
+08/01/24 05:30:06: Target Object: yeancat
+08/01/24 05:30:06: Action Command: goto_planet
+08/01/24 05:30:06: Action 'GotoFantasia' added/updated successfully.
+08/01/24 05:30:06: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:06: Raw command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+08/01/24 05:30:06: Cleaned command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+08/01/24 05:30:06: Detected add_action command
+08/01/24 05:30:06: Arguments string: GotoLandOfLucy,goto_planet,["Land of Lucy"]
+08/01/24 05:30:06: Parsing arguments: GotoLandOfLucy,goto_planet,["Land of Lucy"]
+08/01/24 05:30:06: Parsed arguments: ["GotoLandOfLucy","goto_planet","[\"Land of Lucy\"]"]
+08/01/24 05:30:06: Parsed arguments: ["GotoLandOfLucy","goto_planet","[\"Land of Lucy\"]"]
+08/01/24 05:30:06: Action Name: GotoLandOfLucy
+08/01/24 05:30:06: Full Action Command: goto_planet
+08/01/24 05:30:06: Action Params: ["Land of Lucy"]
+08/01/24 05:30:06: Target Object: yeancat
+08/01/24 05:30:06: Action Command: goto_planet
+08/01/24 05:30:06: Action 'GotoLandOfLucy' added/updated successfully.
+08/01/24 05:30:06: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:06: Raw command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+08/01/24 05:30:06: Cleaned command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+08/01/24 05:30:06: Detected add_action command
+08/01/24 05:30:06: Arguments string: GotoPlaceOfPablo,goto_planet,["Place of Pablo"]
+08/01/24 05:30:06: Parsing arguments: GotoPlaceOfPablo,goto_planet,["Place of Pablo"]
+08/01/24 05:30:06: Parsed arguments: ["GotoPlaceOfPablo","goto_planet","[\"Place of Pablo\"]"]
+08/01/24 05:30:06: Parsed arguments: ["GotoPlaceOfPablo","goto_planet","[\"Place of Pablo\"]"]
+08/01/24 05:30:06: Action Name: GotoPlaceOfPablo
+08/01/24 05:30:06: Full Action Command: goto_planet
+08/01/24 05:30:06: Action Params: ["Place of Pablo"]
+08/01/24 05:30:06: Target Object: yeancat
+08/01/24 05:30:06: Action Command: goto_planet
+08/01/24 05:30:06: Action 'GotoPlaceOfPablo' added/updated successfully.
+08/01/24 05:30:06: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:06: Raw command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+08/01/24 05:30:06: Cleaned command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+08/01/24 05:30:06: Detected add_action command
+08/01/24 05:30:06: Arguments string: GotoGhostTown,goto_planet,["Ghost Town"]
+08/01/24 05:30:07: Parsing arguments: GotoGhostTown,goto_planet,["Ghost Town"]
+08/01/24 05:30:07: Parsed arguments: ["GotoGhostTown","goto_planet","[\"Ghost Town\"]"]
+08/01/24 05:30:07: Parsed arguments: ["GotoGhostTown","goto_planet","[\"Ghost Town\"]"]
+08/01/24 05:30:07: Action Name: GotoGhostTown
+08/01/24 05:30:07: Full Action Command: goto_planet
+08/01/24 05:30:07: Action Params: ["Ghost Town"]
+08/01/24 05:30:07: Target Object: yeancat
+08/01/24 05:30:07: Action Command: goto_planet
+08/01/24 05:30:07: Action 'GotoGhostTown' added/updated successfully.
+08/01/24 05:30:07: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:07: Raw command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+08/01/24 05:30:07: Cleaned command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+08/01/24 05:30:07: Detected add_action command
+08/01/24 05:30:07: Arguments string: GotoVulturesValley,goto_planet,["Vultures Valley"]
+08/01/24 05:30:07: Parsing arguments: GotoVulturesValley,goto_planet,["Vultures Valley"]
+08/01/24 05:30:07: Parsed arguments: ["GotoVulturesValley","goto_planet","[\"Vultures Valley\"]"]
+08/01/24 05:30:07: Parsed arguments: ["GotoVulturesValley","goto_planet","[\"Vultures Valley\"]"]
+08/01/24 05:30:07: Action Name: GotoVulturesValley
+08/01/24 05:30:07: Full Action Command: goto_planet
+08/01/24 05:30:07: Action Params: ["Vultures Valley"]
+08/01/24 05:30:07: Target Object: yeancat
+08/01/24 05:30:07: Action Command: goto_planet
+08/01/24 05:30:07: Action 'GotoVulturesValley' added/updated successfully.
+08/01/24 05:30:07: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:07: Raw command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+08/01/24 05:30:07: Cleaned command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+08/01/24 05:30:07: Detected add_action command
+08/01/24 05:30:07: Arguments string: GotoTheEndonda,goto_planet,["The Endonda"]
+08/01/24 05:30:07: Parsing arguments: GotoTheEndonda,goto_planet,["The Endonda"]
+08/01/24 05:30:07: Parsed arguments: ["GotoTheEndonda","goto_planet","[\"The Endonda\"]"]
+08/01/24 05:30:07: Parsed arguments: ["GotoTheEndonda","goto_planet","[\"The Endonda\"]"]
+08/01/24 05:30:07: Action Name: GotoTheEndonda
+08/01/24 05:30:07: Full Action Command: goto_planet
+08/01/24 05:30:07: Action Params: ["The Endonda"]
+08/01/24 05:30:07: Target Object: yeancat
+08/01/24 05:30:07: Action Command: goto_planet
+08/01/24 05:30:07: Action 'GotoTheEndonda' added/updated successfully.
+08/01/24 05:30:07: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:07: Raw command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+08/01/24 05:30:07: Cleaned command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+08/01/24 05:30:07: Detected add_action command
+08/01/24 05:30:07: Arguments string: GotoStormySands,goto_planet,["Stormy Sands"]
+08/01/24 05:30:07: Parsing arguments: GotoStormySands,goto_planet,["Stormy Sands"]
+08/01/24 05:30:07: Parsed arguments: ["GotoStormySands","goto_planet","[\"Stormy Sands\"]"]
+08/01/24 05:30:07: Parsed arguments: ["GotoStormySands","goto_planet","[\"Stormy Sands\"]"]
+08/01/24 05:30:07: Action Name: GotoStormySands
+08/01/24 05:30:07: Full Action Command: goto_planet
+08/01/24 05:30:07: Action Params: ["Stormy Sands"]
+08/01/24 05:30:07: Target Object: yeancat
+08/01/24 05:30:07: Action Command: goto_planet
+08/01/24 05:30:07: Action 'GotoStormySands' added/updated successfully.
+08/01/24 05:30:07: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:07: Raw command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+08/01/24 05:30:07: Cleaned command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+08/01/24 05:30:07: Detected add_action command
+08/01/24 05:30:07: Arguments string: GotoDivineDomain,goto_planet,["Divine Domain"]
+08/01/24 05:30:07: Parsing arguments: GotoDivineDomain,goto_planet,["Divine Domain"]
+08/01/24 05:30:07: Parsed arguments: ["GotoDivineDomain","goto_planet","[\"Divine Domain\"]"]
+08/01/24 05:30:07: Parsed arguments: ["GotoDivineDomain","goto_planet","[\"Divine Domain\"]"]
+08/01/24 05:30:07: Action Name: GotoDivineDomain
+08/01/24 05:30:07: Full Action Command: goto_planet
+08/01/24 05:30:07: Action Params: ["Divine Domain"]
+08/01/24 05:30:07: Target Object: yeancat
+08/01/24 05:30:07: Action Command: goto_planet
+08/01/24 05:30:07: Action 'GotoDivineDomain' added/updated successfully.
+08/01/24 05:30:07: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:07: Raw command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+08/01/24 05:30:07: Cleaned command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+08/01/24 05:30:07: Detected add_action command
+08/01/24 05:30:07: Arguments string: GotoYetopia,goto_planet,["Yetopia"]
+08/01/24 05:30:07: Parsing arguments: GotoYetopia,goto_planet,["Yetopia"]
+08/01/24 05:30:07: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+08/01/24 05:30:07: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+08/01/24 05:30:07: Action Name: GotoYetopia
+08/01/24 05:30:07: Full Action Command: goto_planet
+08/01/24 05:30:07: Action Params: ["Yetopia"]
+08/01/24 05:30:07: Target Object: yeancat
+08/01/24 05:30:08: Action Command: goto_planet
+08/01/24 05:30:08: Action 'GotoYetopia' added/updated successfully.
+08/01/24 05:30:08: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:08: Raw command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+08/01/24 05:30:08: Cleaned command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+08/01/24 05:30:08: Detected add_action command
+08/01/24 05:30:08: Arguments string: GotoKingsKingdom,goto_planet,["Kings Kingdom"]
+08/01/24 05:30:08: Parsing arguments: GotoKingsKingdom,goto_planet,["Kings Kingdom"]
+08/01/24 05:30:08: Parsed arguments: ["GotoKingsKingdom","goto_planet","[\"Kings Kingdom\"]"]
+08/01/24 05:30:08: Parsed arguments: ["GotoKingsKingdom","goto_planet","[\"Kings Kingdom\"]"]
+08/01/24 05:30:08: Action Name: GotoKingsKingdom
+08/01/24 05:30:08: Full Action Command: goto_planet
+08/01/24 05:30:08: Action Params: ["Kings Kingdom"]
+08/01/24 05:30:08: Target Object: yeancat
+08/01/24 05:30:08: Action Command: goto_planet
+08/01/24 05:30:08: Action 'GotoKingsKingdom' added/updated successfully.
+08/01/24 05:30:08: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:08: Raw command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+08/01/24 05:30:08: Cleaned command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+08/01/24 05:30:08: Detected add_action command
+08/01/24 05:30:08: Arguments string: GotoTheIcyHeart,goto_planet,["The Icy Heart"]
+08/01/24 05:30:08: Parsing arguments: GotoTheIcyHeart,goto_planet,["The Icy Heart"]
+08/01/24 05:30:08: Parsed arguments: ["GotoTheIcyHeart","goto_planet","[\"The Icy Heart\"]"]
+08/01/24 05:30:08: Parsed arguments: ["GotoTheIcyHeart","goto_planet","[\"The Icy Heart\"]"]
+08/01/24 05:30:08: Action Name: GotoTheIcyHeart
+08/01/24 05:30:08: Full Action Command: goto_planet
+08/01/24 05:30:08: Action Params: ["The Icy Heart"]
+08/01/24 05:30:08: Target Object: yeancat
+08/01/24 05:30:08: Action Command: goto_planet
+08/01/24 05:30:08: Action 'GotoTheIcyHeart' added/updated successfully.
+08/01/24 05:30:08: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:08: Raw command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+08/01/24 05:30:08: Cleaned command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+08/01/24 05:30:08: Detected add_action command
+08/01/24 05:30:08: Arguments string: GotoTheGoldMines,goto_planet,["The Gold Mines"]
+08/01/24 05:30:08: Parsing arguments: GotoTheGoldMines,goto_planet,["The Gold Mines"]
+08/01/24 05:30:08: Parsed arguments: ["GotoTheGoldMines","goto_planet","[\"The Gold Mines\"]"]
+08/01/24 05:30:08: Parsed arguments: ["GotoTheGoldMines","goto_planet","[\"The Gold Mines\"]"]
+08/01/24 05:30:08: Action Name: GotoTheGoldMines
+08/01/24 05:30:08: Full Action Command: goto_planet
+08/01/24 05:30:08: Action Params: ["The Gold Mines"]
+08/01/24 05:30:08: Target Object: yeancat
+08/01/24 05:30:08: Action Command: goto_planet
+08/01/24 05:30:08: Action 'GotoTheGoldMines' added/updated successfully.
+08/01/24 05:30:08: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:08: Raw command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+08/01/24 05:30:08: Cleaned command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+08/01/24 05:30:08: Detected add_action command
+08/01/24 05:30:08: Arguments string: EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"]
+08/01/24 05:30:08: Parsing arguments: EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"]
+08/01/24 05:30:08: Parsed arguments: ["EnableEnemySpawns","set_variable","[\"SpawnEnemies\", \"true\"]"]
+08/01/24 05:30:08: Parsed arguments: ["EnableEnemySpawns","set_variable","[\"SpawnEnemies\", \"true\"]"]
+08/01/24 05:30:08: Action Name: EnableEnemySpawns
+08/01/24 05:30:08: Full Action Command: set_variable
+08/01/24 05:30:08: Action Params: ["SpawnEnemies", "true"]
+08/01/24 05:30:08: Target Object: yeancat
+08/01/24 05:30:08: Action Command: set_variable
+08/01/24 05:30:08: Action 'EnableEnemySpawns' added/updated successfully.
+08/01/24 05:30:08: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:08: Raw command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+08/01/24 05:30:08: Cleaned command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+08/01/24 05:30:08: Detected add_action command
+08/01/24 05:30:08: Arguments string: DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"]
+08/01/24 05:30:08: Parsing arguments: DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"]
+08/01/24 05:30:08: Parsed arguments: ["DisableEnemySpawns","set_variable","[\"SpawnEnemies\", \"false\"]"]
+08/01/24 05:30:08: Parsed arguments: ["DisableEnemySpawns","set_variable","[\"SpawnEnemies\", \"false\"]"]
+08/01/24 05:30:08: Action Name: DisableEnemySpawns
+08/01/24 05:30:08: Full Action Command: set_variable
+08/01/24 05:30:08: Action Params: ["SpawnEnemies", "false"]
+08/01/24 05:30:08: Target Object: yeancat
+08/01/24 05:30:08: Action Command: set_variable
+08/01/24 05:30:08: Action 'DisableEnemySpawns' added/updated successfully.
+08/01/24 05:30:08: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:08: Raw command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+08/01/24 05:30:08: Cleaned command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+08/01/24 05:30:08: Detected add_action command
+08/01/24 05:30:08: Arguments string: SetLevelFive, set_variable, ["Level", "5"]
+08/01/24 05:30:08: Parsing arguments: SetLevelFive, set_variable, ["Level", "5"]
+08/01/24 05:30:08: Parsed arguments: ["SetLevelFive","set_variable","[\"Level\", \"5\"]"]
+08/01/24 05:30:08: Parsed arguments: ["SetLevelFive","set_variable","[\"Level\", \"5\"]"]
+08/01/24 05:30:08: Action Name: SetLevelFive
+08/01/24 05:30:08: Full Action Command: set_variable
+08/01/24 05:30:08: Action Params: ["Level", "5"]
+08/01/24 05:30:09: Target Object: yeancat
+08/01/24 05:30:09: Action Command: set_variable
+08/01/24 05:30:09: Action 'SetLevelFive' added/updated successfully.
+08/01/24 05:30:09: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:09: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 05:30:09: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 05:30:09: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 05:30:09: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 05:30:09: Command Name: add_action_group
+08/01/24 05:30:09: Target Object: yeancat
+08/01/24 05:30:09: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 05:30:09: Raw command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley",
+"BattleChoice"])
+08/01/24 05:30:09: Cleaned command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+08/01/24 05:30:09: Parsing arguments: BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"]
+08/01/24 05:30:09: Parsed arguments: ["BattleSequence","[\"EnableEnemySpawns\", \"GotoVulturesValley\", \"BattleChoice\"]"]
+08/01/24 05:30:09: Command Name: add_action_group
+08/01/24 05:30:09: Target Object: yeancat
+08/01/24 05:30:09: Parameters: ["BattleSequence","[\"EnableEnemySpawns\", \"GotoVulturesValley\", \"BattleChoice\"]"]
+08/01/24 05:30:11: Raw command: add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+08/01/24 05:30:11: Cleaned command: add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+08/01/24 05:30:11: Parsing arguments: PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"]
+08/01/24 05:30:11: Parsed arguments: ["PeacefulMission","[\"GotoDivineDomain\", \"DiplomaticChoice\"]"]
+08/01/24 05:30:11: Command Name: add_action_group
+08/01/24 05:30:11: Target Object: yeancat
+08/01/24 05:30:11: Parameters: ["PeacefulMission","[\"GotoDivineDomain\", \"DiplomaticChoice\"]"]
+08/01/24 05:30:11: Raw command: add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe
+City. What's your next move?", [["Investigate strange signals",
+"InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base",
+"ReturnToBase"]]])
+08/01/24 05:30:11: Cleaned command: add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+08/01/24 05:30:11: Detected add_action command
+08/01/24 05:30:11: Arguments string: ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 05:30:11: Parsing arguments: ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 05:30:11: Parsed arguments: ["ExplorationChoice","Target.chat_bubble","[\"You've arrived at Universe City. What's your next move?\", [[\"Investigate strange signals\", \"InvestigateSignals\"], [\"Visit the local market\", \"VisitMarket\"], [\"Return to base\", \"ReturnToBase\"]]]"]
+08/01/24 05:30:11: Parsed arguments: ["ExplorationChoice","Target.chat_bubble","[\"You've arrived at Universe City. What's your next move?\", [[\"Investigate strange signals\", \"InvestigateSignals\"], [\"Visit the local market\", \"VisitMarket\"], [\"Return to base\", \"ReturnToBase\"]]]"]
+08/01/24 05:30:11: Action Name: ExplorationChoice
+08/01/24 05:30:11: Full Action Command: Target.chat_bubble
+08/01/24 05:30:11: Action Params: ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 05:30:11: Target Object: Target
+08/01/24 05:30:11: Action Command: chat_bubble
+08/01/24 05:30:11: Action 'ExplorationChoice' added/updated successfully.
+08/01/24 05:30:11: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:11: Raw command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a
+hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report
+back to HQ", "ReportToHQ"]]])
+08/01/24 05:30:11: Cleaned command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+08/01/24 05:30:11: Detected add_action command
+08/01/24 05:30:11: Arguments string: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 05:30:11: Parsing arguments: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 05:30:11: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+08/01/24 05:30:11: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+08/01/24 05:30:11: Action Name: InvestigateSignals
+08/01/24 05:30:11: Full Action Command: Target.chat_bubble
+08/01/24 05:30:11: Action Params: ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 05:30:11: Target Object: Target
+08/01/24 05:30:11: Action Command: chat_bubble
+08/01/24 05:30:11: Action 'InvestigateSignals' added/updated successfully.
+08/01/24 05:30:11: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:11: Raw command: add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the
+market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"],
+["Investigate seller", "InvestigateSeller"]]])
+08/01/24 05:30:11: Cleaned command: add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+08/01/24 05:30:12: Detected add_action command
+08/01/24 05:30:12: Arguments string: VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 05:30:12: Parsing arguments: VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 05:30:12: Parsed arguments: ["VisitMarket","Target.chat_bubble","[\"You find rare artifacts in the market. What do you do?\", [[\"Purchase artifacts\", \"PurchaseArtifacts\"], [\"Investigate seller\", \"InvestigateSeller\"]]]"]
+08/01/24 05:30:12: Parsed arguments: ["VisitMarket","Target.chat_bubble","[\"You find rare artifacts in the market. What do you do?\", [[\"Purchase artifacts\", \"PurchaseArtifacts\"], [\"Investigate seller\", \"InvestigateSeller\"]]]"]
+08/01/24 05:30:12: Action Name: VisitMarket
+08/01/24 05:30:12: Full Action Command: Target.chat_bubble
+08/01/24 05:30:12: Action Params: ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 05:30:12: Target Object: Target
+08/01/24 05:30:12: Action Command: chat_bubble
+08/01/24 05:30:12: Action 'VisitMarket' added/updated successfully.
+08/01/24 05:30:12: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:12: Raw command: add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's
+your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy",
+"AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+08/01/24 05:30:12: Cleaned command: add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+08/01/24 05:30:12: Detected add_action command
+08/01/24 05:30:12: Arguments string: BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 05:30:12: Parsing arguments: BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 05:30:12: Parsed arguments: ["BattleChoice","Target.chat_bubble","[\"Enemies approaching! What's your strategy?\", [[\"Engage in combat\", \"EngageCombat\"], [\"Attempt diplomacy\", \"AttemptDiplomacy\"], [\"Retreat\", \"StrategicRetreat\"]]]"]
+08/01/24 05:30:12: Parsed arguments: ["BattleChoice","Target.chat_bubble","[\"Enemies approaching! What's your strategy?\", [[\"Engage in combat\", \"EngageCombat\"], [\"Attempt diplomacy\", \"AttemptDiplomacy\"], [\"Retreat\", \"StrategicRetreat\"]]]"]
+08/01/24 05:30:12: Action Name: BattleChoice
+08/01/24 05:30:12: Full Action Command: Target.chat_bubble
+08/01/24 05:30:12: Action Params: ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 05:30:12: Target Object: Target
+08/01/24 05:30:12: Action Command: chat_bubble
+08/01/24 05:30:12: Action 'BattleChoice' added/updated successfully.
+08/01/24 05:30:12: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:12: Raw command: add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a
+peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"],
+["Share technology", "ShareTechnology"], ["Request alliance",
+"RequestAlliance"]]])
+08/01/24 05:30:12: Cleaned command: add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+08/01/24 05:30:12: Detected add_action command
+08/01/24 05:30:12: Arguments string: DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 05:30:12: Parsing arguments: DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 05:30:12: Parsed arguments: ["DiplomaticChoice","Target.chat_bubble","[\"You're in Divine Domain for a peace mission. How do you proceed?\", [[\"Offer trade deal\", \"OfferTrade\"], [\"Share technology\", \"ShareTechnology\"], [\"Request alliance\", \"RequestAlliance\"]]]"]
+08/01/24 05:30:12: Parsed arguments: ["DiplomaticChoice","Target.chat_bubble","[\"You're in Divine Domain for a peace mission. How do you proceed?\", [[\"Offer trade deal\", \"OfferTrade\"], [\"Share technology\", \"ShareTechnology\"], [\"Request alliance\", \"RequestAlliance\"]]]"]
+08/01/24 05:30:12: Action Name: DiplomaticChoice
+08/01/24 05:30:12: Full Action Command: Target.chat_bubble
+08/01/24 05:30:12: Action Params: ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 05:30:12: Target Object: Target
+08/01/24 05:30:12: Action Command: chat_bubble
+08/01/24 05:30:12: Action 'DiplomaticChoice' added/updated successfully.
+08/01/24 05:30:12: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:12: Raw command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive",
+"PortalOutcome"])
+08/01/24 05:30:12: Cleaned command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+08/01/24 05:30:12: Parsing arguments: PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"]
+08/01/24 05:30:12: Parsed arguments: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+08/01/24 05:30:12: Command Name: add_action_group
+08/01/24 05:30:12: Target Object: yeancat
+08/01/24 05:30:12: Parameters: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+08/01/24 05:30:12: Raw command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown",
+"ArtifactOutcome"])
+08/01/24 05:30:12: Cleaned command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+08/01/24 05:30:12: Parsing arguments: ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"]
+08/01/24 05:30:12: Parsed arguments: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+08/01/24 05:30:12: Command Name: add_action_group
+08/01/24 05:30:12: Target Object: yeancat
+08/01/24 05:30:12: Parameters: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+08/01/24 05:30:16: Raw command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns",
+"BattleOutcome"])
+08/01/24 05:30:16: Cleaned command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+08/01/24 05:30:16: Parsing arguments: EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"]
+08/01/24 05:30:16: Parsed arguments: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+08/01/24 05:30:17: Command Name: add_action_group
+08/01/24 05:30:17: Target Object: yeancat
+08/01/24 05:30:17: Parameters: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+08/01/24 05:30:17: Raw command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+08/01/24 05:30:17: Cleaned command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+08/01/24 05:30:17: Parsing arguments: PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"]
+08/01/24 05:30:17: Parsed arguments: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+08/01/24 05:30:17: Command Name: add_action_group
+08/01/24 05:30:17: Target Object: yeancat
+08/01/24 05:30:17: Parameters: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+08/01/24 05:30:17: Raw command: add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient
+civilization! What's your approach?", [["Study their technology", "StudyTech"],
+["Establish communication", "Communicate"], ["Return home with findings",
+"ReturnWithFindings"]]])
+08/01/24 05:30:17: Cleaned command: add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+08/01/24 05:30:17: Detected add_action command
+08/01/24 05:30:17: Arguments string: PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 05:30:17: Parsing arguments: PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 05:30:17: Parsed arguments: ["PortalOutcome","Target.chat_bubble","[\"You've discovered an ancient civilization! What's your approach?\", [[\"Study their technology\", \"StudyTech\"], [\"Establish communication\", \"Communicate\"], [\"Return home with findings\", \"ReturnWithFindings\"]]]"]
+08/01/24 05:30:17: Parsed arguments: ["PortalOutcome","Target.chat_bubble","[\"You've discovered an ancient civilization! What's your approach?\", [[\"Study their technology\", \"StudyTech\"], [\"Establish communication\", \"Communicate\"], [\"Return home with findings\", \"ReturnWithFindings\"]]]"]
+08/01/24 05:30:17: Action Name: PortalOutcome
+08/01/24 05:30:17: Full Action Command: Target.chat_bubble
+08/01/24 05:30:17: Action Params: ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 05:30:17: Target Object: Target
+08/01/24 05:30:17: Action Command: chat_bubble
+08/01/24 05:30:17: Action 'PortalOutcome' added/updated successfully.
+08/01/24 05:30:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:17: Raw command: add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened
+ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try
+to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts",
+"EscapeWithArtifacts"]]])
+08/01/24 05:30:17: Cleaned command: add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+08/01/24 05:30:17: Detected add_action command
+08/01/24 05:30:17: Arguments string: ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 05:30:17: Parsing arguments: ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 05:30:17: Parsed arguments: ["ArtifactOutcome","Target.chat_bubble","[\"The artifacts have awakened ancient guardians! Your move?\", [[\"Fight the guardians\", \"FightGuardians\"], [\"Try to deactivate artifacts\", \"DeactivateArtifacts\"], [\"Escape with artifacts\", \"EscapeWithArtifacts\"]]]"]
+08/01/24 05:30:17: Parsed arguments: ["ArtifactOutcome","Target.chat_bubble","[\"The artifacts have awakened ancient guardians! Your move?\", [[\"Fight the guardians\", \"FightGuardians\"], [\"Try to deactivate artifacts\", \"DeactivateArtifacts\"], [\"Escape with artifacts\", \"EscapeWithArtifacts\"]]]"]
+08/01/24 05:30:17: Action Name: ArtifactOutcome
+08/01/24 05:30:17: Full Action Command: Target.chat_bubble
+08/01/24 05:30:17: Action Params: ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 05:30:17: Target Object: Target
+08/01/24 05:30:17: Action Command: chat_bubble
+08/01/24 05:30:17: Action 'ArtifactOutcome' added/updated successfully.
+08/01/24 05:30:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:21: Raw command: add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are
+retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the
+area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+08/01/24 05:30:21: Cleaned command: add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+08/01/24 05:30:21: Detected add_action command
+08/01/24 05:30:21: Arguments string: BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 05:30:21: Parsing arguments: BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 05:30:21: Parsed arguments: ["BattleOutcome","Target.chat_bubble","[\"Victory! The enemy forces are retreating. Next steps?\", [[\"Pursue and capture\", \"PursueEnemy\"], [\"Secure the area\", \"SecureArea\"], [\"Call for reinforcements\", \"CallReinforcements\"]]]"]
+08/01/24 05:30:21: Parsed arguments: ["BattleOutcome","Target.chat_bubble","[\"Victory! The enemy forces are retreating. Next steps?\", [[\"Pursue and capture\", \"PursueEnemy\"], [\"Secure the area\", \"SecureArea\"], [\"Call for reinforcements\", \"CallReinforcements\"]]]"]
+08/01/24 05:30:21: Action Name: BattleOutcome
+08/01/24 05:30:21: Full Action Command: Target.chat_bubble
+08/01/24 05:30:21: Action Params: ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 05:30:21: Target Object: Target
+08/01/24 05:30:21: Action Command: chat_bubble
+08/01/24 05:30:21: Action 'BattleOutcome' added/updated successfully.
+08/01/24 05:30:21: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:21: Raw command: add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready.
+Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments",
+"ProposeAmendments"], ["Reject and return to negotiations",
+"RenegotiateTreaty"]]])
+08/01/24 05:30:21: Cleaned command: add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+08/01/24 05:30:21: Detected add_action command
+08/01/24 05:30:21: Arguments string: TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 05:30:21: Parsing arguments: TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 05:30:21: Parsed arguments: ["TreatyOutcome","Target.chat_bubble","[\"The peace treaty is ready. Final decisions:\", [[\"Sign the treaty\", \"SignTreaty\"], [\"Propose amendments\", \"ProposeAmendments\"], [\"Reject and return to negotiations\", \"RenegotiateTreaty\"]]]"]
+08/01/24 05:30:21: Parsed arguments: ["TreatyOutcome","Target.chat_bubble","[\"The peace treaty is ready. Final decisions:\", [[\"Sign the treaty\", \"SignTreaty\"], [\"Propose amendments\", \"ProposeAmendments\"], [\"Reject and return to negotiations\", \"RenegotiateTreaty\"]]]"]
+08/01/24 05:30:21: Action Name: TreatyOutcome
+08/01/24 05:30:21: Full Action Command: Target.chat_bubble
+08/01/24 05:30:21: Action Params: ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 05:30:21: Target Object: Target
+08/01/24 05:30:21: Action Command: chat_bubble
+08/01/24 05:30:21: Action 'TreatyOutcome' added/updated successfully.
+08/01/24 05:30:21: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:21: Raw command: add_action(EnterPortal, execute_action, ["PortalAdventure"])
+08/01/24 05:30:21: Cleaned command: add_action(EnterPortal, execute_action, ["PortalAdventure"])
+08/01/24 05:30:22: Detected add_action command
+08/01/24 05:30:22: Arguments string: EnterPortal, execute_action, ["PortalAdventure"]
+08/01/24 05:30:22: Parsing arguments: EnterPortal, execute_action, ["PortalAdventure"]
+08/01/24 05:30:22: Parsed arguments: ["EnterPortal","execute_action","[\"PortalAdventure\"]"]
+08/01/24 05:30:22: Parsed arguments: ["EnterPortal","execute_action","[\"PortalAdventure\"]"]
+08/01/24 05:30:22: Action Name: EnterPortal
+08/01/24 05:30:22: Full Action Command: execute_action
+08/01/24 05:30:22: Action Params: ["PortalAdventure"]
+08/01/24 05:30:22: Target Object: yeancat
+08/01/24 05:30:22: Action Command: execute_action
+08/01/24 05:30:22: Action 'EnterPortal' added/updated successfully.
+08/01/24 05:30:22: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:22: Raw command: add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+08/01/24 05:30:22: Cleaned command: add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+08/01/24 05:30:22: Detected add_action command
+08/01/24 05:30:22: Arguments string: PurchaseArtifacts, execute_action, ["ArtifactMystery"]
+08/01/24 05:30:22: Parsing arguments: PurchaseArtifacts, execute_action, ["ArtifactMystery"]
+08/01/24 05:30:22: Parsed arguments: ["PurchaseArtifacts","execute_action","[\"ArtifactMystery\"]"]
+08/01/24 05:30:22: Parsed arguments: ["PurchaseArtifacts","execute_action","[\"ArtifactMystery\"]"]
+08/01/24 05:30:22: Action Name: PurchaseArtifacts
+08/01/24 05:30:22: Full Action Command: execute_action
+08/01/24 05:30:22: Action Params: ["ArtifactMystery"]
+08/01/24 05:30:22: Target Object: yeancat
+08/01/24 05:30:22: Action Command: execute_action
+08/01/24 05:30:22: Action 'PurchaseArtifacts' added/updated successfully.
+08/01/24 05:30:22: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:22: Raw command: add_action(EngageCombat, execute_action, ["EpicBattle"])
+08/01/24 05:30:22: Cleaned command: add_action(EngageCombat, execute_action, ["EpicBattle"])
+08/01/24 05:30:22: Detected add_action command
+08/01/24 05:30:22: Arguments string: EngageCombat, execute_action, ["EpicBattle"]
+08/01/24 05:30:22: Parsing arguments: EngageCombat, execute_action, ["EpicBattle"]
+08/01/24 05:30:22: Parsed arguments: ["EngageCombat","execute_action","[\"EpicBattle\"]"]
+08/01/24 05:30:22: Parsed arguments: ["EngageCombat","execute_action","[\"EpicBattle\"]"]
+08/01/24 05:30:22: Action Name: EngageCombat
+08/01/24 05:30:22: Full Action Command: execute_action
+08/01/24 05:30:22: Action Params: ["EpicBattle"]
+08/01/24 05:30:22: Target Object: yeancat
+08/01/24 05:30:22: Action Command: execute_action
+08/01/24 05:30:22: Action 'EngageCombat' added/updated successfully.
+08/01/24 05:30:22: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:22: Raw command: add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+08/01/24 05:30:22: Cleaned command: add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+08/01/24 05:30:22: Detected add_action command
+08/01/24 05:30:22: Arguments string: OfferTrade, execute_action, ["PeaceTreaty"]
+08/01/24 05:30:22: Parsing arguments: OfferTrade, execute_action, ["PeaceTreaty"]
+08/01/24 05:30:22: Parsed arguments: ["OfferTrade","execute_action","[\"PeaceTreaty\"]"]
+08/01/24 05:30:22: Parsed arguments: ["OfferTrade","execute_action","[\"PeaceTreaty\"]"]
+08/01/24 05:30:22: Action Name: OfferTrade
+08/01/24 05:30:22: Full Action Command: execute_action
+08/01/24 05:30:22: Action Params: ["PeaceTreaty"]
+08/01/24 05:30:22: Target Object: yeancat
+08/01/24 05:30:22: Action Command: execute_action
+08/01/24 05:30:22: Action 'OfferTrade' added/updated successfully.
+08/01/24 05:30:22: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:22: Raw command: add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space
+Adventure! Choose your path:", [["Explore the universe", "StartExploration"],
+["Engage in battle", "StartBattle"], ["Embark on a peace mission",
+"StartPeaceMission"]]])
+08/01/24 05:30:22: Cleaned command: add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+08/01/24 05:30:22: Detected add_action command
+08/01/24 05:30:22: Arguments string: SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 05:30:22: Parsing arguments: SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 05:30:22: Parsed arguments: ["SpaceAdventureStart","Target.chat_bubble","[\"Welcome to the Space Adventure! Choose your path:\", [[\"Explore the universe\", \"StartExploration\"], [\"Engage in battle\", \"StartBattle\"], [\"Embark on a peace mission\", \"StartPeaceMission\"]]]"]
+08/01/24 05:30:22: Parsed arguments: ["SpaceAdventureStart","Target.chat_bubble","[\"Welcome to the Space Adventure! Choose your path:\", [[\"Explore the universe\", \"StartExploration\"], [\"Engage in battle\", \"StartBattle\"], [\"Embark on a peace mission\", \"StartPeaceMission\"]]]"]
+08/01/24 05:30:22: Action Name: SpaceAdventureStart
+08/01/24 05:30:22: Full Action Command: Target.chat_bubble
+08/01/24 05:30:22: Action Params: ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 05:30:22: Target Object: Target
+08/01/24 05:30:22: Action Command: chat_bubble
+08/01/24 05:30:22: Action 'SpaceAdventureStart' added/updated successfully.
+08/01/24 05:30:22: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:22: Raw command: add_action(StartExploration, execute_action, ["SpaceExploration"])
+08/01/24 05:30:22: Cleaned command: add_action(StartExploration, execute_action, ["SpaceExploration"])
+08/01/24 05:30:22: Detected add_action command
+08/01/24 05:30:22: Arguments string: StartExploration, execute_action, ["SpaceExploration"]
+08/01/24 05:30:22: Parsing arguments: StartExploration, execute_action, ["SpaceExploration"]
+08/01/24 05:30:22: Parsed arguments: ["StartExploration","execute_action","[\"SpaceExploration\"]"]
+08/01/24 05:30:22: Parsed arguments: ["StartExploration","execute_action","[\"SpaceExploration\"]"]
+08/01/24 05:30:22: Action Name: StartExploration
+08/01/24 05:30:22: Full Action Command: execute_action
+08/01/24 05:30:22: Action Params: ["SpaceExploration"]
+08/01/24 05:30:22: Target Object: yeancat
+08/01/24 05:30:22: Action Command: execute_action
+08/01/24 05:30:22: Action 'StartExploration' added/updated successfully.
+08/01/24 05:30:22: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:23: Raw command: add_action(StartBattle, execute_action, ["BattleSequence"])
+08/01/24 05:30:23: Cleaned command: add_action(StartBattle, execute_action, ["BattleSequence"])
+08/01/24 05:30:23: Detected add_action command
+08/01/24 05:30:23: Arguments string: StartBattle, execute_action, ["BattleSequence"]
+08/01/24 05:30:23: Parsing arguments: StartBattle, execute_action, ["BattleSequence"]
+08/01/24 05:30:23: Parsed arguments: ["StartBattle","execute_action","[\"BattleSequence\"]"]
+08/01/24 05:30:23: Parsed arguments: ["StartBattle","execute_action","[\"BattleSequence\"]"]
+08/01/24 05:30:23: Action Name: StartBattle
+08/01/24 05:30:23: Full Action Command: execute_action
+08/01/24 05:30:23: Action Params: ["BattleSequence"]
+08/01/24 05:30:23: Target Object: yeancat
+08/01/24 05:30:23: Action Command: execute_action
+08/01/24 05:30:23: Action 'StartBattle' added/updated successfully.
+08/01/24 05:30:23: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:30:23: Raw command: add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+08/01/24 05:30:23: Cleaned command: add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+08/01/24 05:30:23: Detected add_action command
+08/01/24 05:30:23: Arguments string: StartPeaceMission, execute_action, ["PeacefulMission"]
+08/01/24 05:30:23: Parsing arguments: StartPeaceMission, execute_action, ["PeacefulMission"]
+08/01/24 05:30:23: Parsed arguments: ["StartPeaceMission","execute_action","[\"PeacefulMission\"]"]
+08/01/24 05:30:23: Parsed arguments: ["StartPeaceMission","execute_action","[\"PeacefulMission\"]"]
+08/01/24 05:30:23: Action Name: StartPeaceMission
+08/01/24 05:30:23: Full Action Command: execute_action
+08/01/24 05:30:23: Action Params: ["PeacefulMission"]
+08/01/24 05:30:23: Target Object: yeancat
+08/01/24 05:30:23: Action Command: execute_action
+08/01/24 05:30:23: Action 'StartPeaceMission' added/updated successfully.
+08/01/24 05:30:23: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:57: Raw command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+08/01/24 05:31:57: Cleaned command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+08/01/24 05:31:57: Detected add_action command
+08/01/24 05:31:57: Arguments string: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+08/01/24 05:31:57: Parsing arguments: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+08/01/24 05:31:57: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+08/01/24 05:31:57: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+08/01/24 05:31:57: Action Name: SpawnBoss0
+08/01/24 05:31:57: Full Action Command: Target.spawn_boss
+08/01/24 05:31:57: Action Params: [0, 0, -500]
+08/01/24 05:31:57: Target Object: Target
+08/01/24 05:31:57: Action Command: spawn_boss
+08/01/24 05:31:57: Action 'SpawnBoss0' added/updated successfully.
+08/01/24 05:31:57: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:57: Raw command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+08/01/24 05:31:57: Cleaned command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+08/01/24 05:31:57: Detected add_action command
+08/01/24 05:31:57: Arguments string: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+08/01/24 05:31:57: Parsing arguments: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+08/01/24 05:31:57: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+08/01/24 05:31:57: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+08/01/24 05:31:57: Action Name: SpawnBoss1
+08/01/24 05:31:57: Full Action Command: Target.spawn_boss
+08/01/24 05:31:57: Action Params: [1, 353, -353]
+08/01/24 05:31:58: Target Object: Target
+08/01/24 05:31:58: Action Command: spawn_boss
+08/01/24 05:31:58: Action 'SpawnBoss1' added/updated successfully.
+08/01/24 05:31:58: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:58: Raw command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+08/01/24 05:31:58: Cleaned command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+08/01/24 05:31:58: Detected add_action command
+08/01/24 05:31:58: Arguments string: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+08/01/24 05:31:58: Parsing arguments: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+08/01/24 05:31:58: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+08/01/24 05:31:58: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+08/01/24 05:31:58: Action Name: SpawnBoss3
+08/01/24 05:31:58: Full Action Command: Target.spawn_boss
+08/01/24 05:31:58: Action Params: [3, 353, 353]
+08/01/24 05:31:58: Target Object: Target
+08/01/24 05:31:58: Action Command: spawn_boss
+08/01/24 05:31:58: Action 'SpawnBoss3' added/updated successfully.
+08/01/24 05:31:58: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:58: Raw command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+08/01/24 05:31:58: Cleaned command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+08/01/24 05:31:58: Detected add_action command
+08/01/24 05:31:58: Arguments string: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+08/01/24 05:31:58: Parsing arguments: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+08/01/24 05:31:58: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+08/01/24 05:31:58: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+08/01/24 05:31:58: Action Name: SpawnBoss4
+08/01/24 05:31:58: Full Action Command: Target.spawn_boss
+08/01/24 05:31:58: Action Params: [4, 0, 500]
+08/01/24 05:31:58: Target Object: Target
+08/01/24 05:31:58: Action Command: spawn_boss
+08/01/24 05:31:58: Action 'SpawnBoss4' added/updated successfully.
+08/01/24 05:31:58: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:58: Raw command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+08/01/24 05:31:58: Cleaned command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+08/01/24 05:31:58: Detected add_action command
+08/01/24 05:31:58: Arguments string: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+08/01/24 05:31:58: Parsing arguments: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+08/01/24 05:31:58: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+08/01/24 05:31:58: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+08/01/24 05:31:58: Action Name: SpawnBoss5
+08/01/24 05:31:58: Full Action Command: Target.spawn_boss
+08/01/24 05:31:58: Action Params: [5, -353, 353]
+08/01/24 05:31:58: Target Object: Target
+08/01/24 05:31:58: Action Command: spawn_boss
+08/01/24 05:31:58: Action 'SpawnBoss5' added/updated successfully.
+08/01/24 05:31:58: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:58: Raw command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+08/01/24 05:31:58: Cleaned command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+08/01/24 05:31:58: Detected add_action command
+08/01/24 05:31:58: Arguments string: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+08/01/24 05:31:58: Parsing arguments: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+08/01/24 05:31:58: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+08/01/24 05:31:58: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+08/01/24 05:31:58: Action Name: SpawnBoss6
+08/01/24 05:31:58: Full Action Command: Target.spawn_boss
+08/01/24 05:31:58: Action Params: [6, -500, 0]
+08/01/24 05:31:58: Target Object: Target
+08/01/24 05:31:58: Action Command: spawn_boss
+08/01/24 05:31:58: Action 'SpawnBoss6' added/updated successfully.
+08/01/24 05:31:58: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:58: Raw command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+08/01/24 05:31:58: Cleaned command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+08/01/24 05:31:58: Detected add_action command
+08/01/24 05:31:58: Arguments string: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+08/01/24 05:31:59: Parsing arguments: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+08/01/24 05:31:59: Action Name: SpawnBoss7
+08/01/24 05:31:59: Full Action Command: Target.spawn_boss
+08/01/24 05:31:59: Action Params: [7, -353, -353]
+08/01/24 05:31:59: Target Object: Target
+08/01/24 05:31:59: Action Command: spawn_boss
+08/01/24 05:31:59: Action 'SpawnBoss7' added/updated successfully.
+08/01/24 05:31:59: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:59: Raw command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+08/01/24 05:31:59: Cleaned command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+08/01/24 05:31:59: Detected add_action command
+08/01/24 05:31:59: Arguments string: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+08/01/24 05:31:59: Parsing arguments: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+08/01/24 05:31:59: Action Name: SpawnBoss8
+08/01/24 05:31:59: Full Action Command: Target.spawn_boss
+08/01/24 05:31:59: Action Params: [8, 0, -400]
+08/01/24 05:31:59: Target Object: Target
+08/01/24 05:31:59: Action Command: spawn_boss
+08/01/24 05:31:59: Action 'SpawnBoss8' added/updated successfully.
+08/01/24 05:31:59: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:59: Raw command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+08/01/24 05:31:59: Cleaned command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+08/01/24 05:31:59: Detected add_action command
+08/01/24 05:31:59: Arguments string: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+08/01/24 05:31:59: Parsing arguments: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+08/01/24 05:31:59: Action Name: SpawnBoss9
+08/01/24 05:31:59: Full Action Command: Target.spawn_boss
+08/01/24 05:31:59: Action Params: [9, 283, -283]
+08/01/24 05:31:59: Target Object: Target
+08/01/24 05:31:59: Action Command: spawn_boss
+08/01/24 05:31:59: Action 'SpawnBoss9' added/updated successfully.
+08/01/24 05:31:59: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:59: Raw command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+08/01/24 05:31:59: Cleaned command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+08/01/24 05:31:59: Detected add_action command
+08/01/24 05:31:59: Arguments string: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+08/01/24 05:31:59: Parsing arguments: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+08/01/24 05:31:59: Action Name: SpawnBoss10
+08/01/24 05:31:59: Full Action Command: Target.spawn_boss
+08/01/24 05:31:59: Action Params: [10, 400, 0]
+08/01/24 05:31:59: Target Object: Target
+08/01/24 05:31:59: Action Command: spawn_boss
+08/01/24 05:31:59: Action 'SpawnBoss10' added/updated successfully.
+08/01/24 05:31:59: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:59: Raw command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+08/01/24 05:31:59: Cleaned command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+08/01/24 05:31:59: Detected add_action command
+08/01/24 05:31:59: Arguments string: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+08/01/24 05:31:59: Parsing arguments: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+08/01/24 05:31:59: Action Name: SpawnBoss11
+08/01/24 05:31:59: Full Action Command: Target.spawn_boss
+08/01/24 05:31:59: Action Params: [11, 283, 283]
+08/01/24 05:31:59: Target Object: Target
+08/01/24 05:31:59: Action Command: spawn_boss
+08/01/24 05:31:59: Action 'SpawnBoss11' added/updated successfully.
+08/01/24 05:31:59: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:59: Raw command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+08/01/24 05:31:59: Cleaned command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+08/01/24 05:31:59: Detected add_action command
+08/01/24 05:31:59: Arguments string: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+08/01/24 05:31:59: Parsing arguments: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+08/01/24 05:31:59: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+08/01/24 05:31:59: Action Name: SpawnBoss12
+08/01/24 05:31:59: Full Action Command: Target.spawn_boss
+08/01/24 05:31:59: Action Params: [12, 0, 400]
+08/01/24 05:31:59: Target Object: Target
+08/01/24 05:31:59: Action Command: spawn_boss
+08/01/24 05:31:59: Action 'SpawnBoss12' added/updated successfully.
+08/01/24 05:31:59: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:31:59: Raw command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+08/01/24 05:31:59: Cleaned command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+08/01/24 05:31:59: Detected add_action command
+08/01/24 05:31:59: Arguments string: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+08/01/24 05:32:00: Parsing arguments: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+08/01/24 05:32:00: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+08/01/24 05:32:00: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+08/01/24 05:32:00: Action Name: SpawnBoss13
+08/01/24 05:32:00: Full Action Command: Target.spawn_boss
+08/01/24 05:32:00: Action Params: [13, -283, 283]
+08/01/24 05:32:00: Target Object: Target
+08/01/24 05:32:00: Action Command: spawn_boss
+08/01/24 05:32:00: Action 'SpawnBoss13' added/updated successfully.
+08/01/24 05:32:00: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:32:00: Raw command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2",
+"SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7",
+"SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12",
+"SpawnBoss13"])
+08/01/24 05:32:00: Cleaned command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+08/01/24 05:32:00: Parsing arguments: SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"]
+08/01/24 05:32:00: Parsed arguments: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+08/01/24 05:32:00: Command Name: add_action_group
+08/01/24 05:32:00: Target Object: yeancat
+08/01/24 05:32:00: Parameters: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+08/01/24 05:32:03: Raw command: add_condition(IsLevelHigh, Level, >=, 10);
+08/01/24 05:32:03: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10);
+08/01/24 05:32:04: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 05:32:04: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 05:32:04: Command Name: add_condition
+08/01/24 05:32:04: Target Object: yeancat
+08/01/24 05:32:04: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 05:32:04: Condition 'IsLevelHigh' added successfully.
+08/01/24 05:32:04: Raw command: add_condition("IsHealthFull", "Health", "=", 50);
+08/01/24 05:32:04: Cleaned command: add_condition("IsHealthFull", "Health", "=", 50);
+08/01/24 05:32:04: Parsing arguments: "IsHealthFull", "Health", "=", 50
+08/01/24 05:32:04: Parsed arguments: ["\"IsHealthFull\"","\"Health\"","\"=\"","50"]
+08/01/24 05:32:04: Command Name: add_condition
+08/01/24 05:32:04: Target Object: yeancat
+08/01/24 05:32:04: Parameters: ["\"IsHealthFull\"","\"Health\"","\"=\"","50"]
+08/01/24 05:32:04: Condition '"IsHealthFull"' added successfully.
+08/01/24 05:32:04: Raw command: add_condition("IsLevelHighAndHealthFull", "IsLevelHigh", "and",
+"IsHealthFull");
+08/01/24 05:32:04: Cleaned command: add_condition("IsLevelHighAndHealthFull", "IsLevelHigh", "and", "IsHealthFull");
+08/01/24 05:32:04: Parsing arguments: "IsLevelHighAndHealthFull", "IsLevelHigh", "and", "IsHealthFull"
+08/01/24 05:32:04: Parsed arguments: ["\"IsLevelHighAndHealthFull\"","\"IsLevelHigh\"","\"and\"","\"IsHealthFull\""]
+08/01/24 05:32:04: Command Name: add_condition
+08/01/24 05:32:04: Target Object: yeancat
+08/01/24 05:32:04: Parameters: ["\"IsLevelHighAndHealthFull\"","\"IsLevelHigh\"","\"and\"","\"IsHealthFull\""]
+08/01/24 05:32:04: Condition '"IsLevelHighAndHealthFull"' added successfully.
+08/01/24 05:32:04: Raw command: add_action_condition("CheckLevel10", "IsLevelHigh", "Level10OrAbove",
+"BelowLevel10");
+08/01/24 05:32:04: Cleaned command: add_action_condition("CheckLevel10", "IsLevelHigh", "Level10OrAbove", "BelowLevel10");
+08/01/24 05:32:04: Parsing arguments: "CheckLevel10", "IsLevelHigh", "Level10OrAbove", "BelowLevel10"
+08/01/24 05:32:04: Parsed arguments: ["\"CheckLevel10\"","\"IsLevelHigh\"","\"Level10OrAbove\"","\"BelowLevel10\""]
+08/01/24 05:32:04: Command Name: add_action_condition
+08/01/24 05:32:04: Target Object: yeancat
+08/01/24 05:32:04: Parameters: ["\"CheckLevel10\"","\"IsLevelHigh\"","\"Level10OrAbove\"","\"BelowLevel10\""]
+08/01/24 05:32:04: Action condition '"CheckLevel10"' added successfully.
+08/01/24 05:32:04: Raw command: add_action_condition("CheckHonestyYes", "IsLevelHigh", "HonestAbove10",
+"LyingBelow10");
+08/01/24 05:32:04: Cleaned command: add_action_condition("CheckHonestyYes", "IsLevelHigh", "HonestAbove10", "LyingBelow10");
+08/01/24 05:32:04: Parsing arguments: "CheckHonestyYes", "IsLevelHigh", "HonestAbove10", "LyingBelow10"
+08/01/24 05:32:04: Parsed arguments: ["\"CheckHonestyYes\"","\"IsLevelHigh\"","\"HonestAbove10\"","\"LyingBelow10\""]
+08/01/24 05:32:04: Command Name: add_action_condition
+08/01/24 05:32:04: Target Object: yeancat
+08/01/24 05:32:04: Parameters: ["\"CheckHonestyYes\"","\"IsLevelHigh\"","\"HonestAbove10\"","\"LyingBelow10\""]
+08/01/24 05:32:04: Action condition '"CheckHonestyYes"' added successfully.
+08/01/24 05:32:04: Raw command: add_action_condition("CheckHonestyNo", "IsLevelHigh", "LyingAbove10",
+"HonestBelow10");
+08/01/24 05:32:04: Cleaned command: add_action_condition("CheckHonestyNo", "IsLevelHigh", "LyingAbove10", "HonestBelow10");
+08/01/24 05:32:04: Parsing arguments: "CheckHonestyNo", "IsLevelHigh", "LyingAbove10", "HonestBelow10"
+08/01/24 05:32:04: Parsed arguments: ["\"CheckHonestyNo\"","\"IsLevelHigh\"","\"LyingAbove10\"","\"HonestBelow10\""]
+08/01/24 05:32:04: Command Name: add_action_condition
+08/01/24 05:32:04: Target Object: yeancat
+08/01/24 05:32:04: Parameters: ["\"CheckHonestyNo\"","\"IsLevelHigh\"","\"LyingAbove10\"","\"HonestBelow10\""]
+08/01/24 05:32:04: Action condition '"CheckHonestyNo"' added successfully.
+08/01/24 05:32:04: Raw command: add_action_condition("CheckLevelAndHealth", "IsLevelHighAndHealthFull",
+"HighLevelFullHealth","NotHighLevelOrNotFullHealth");
+08/01/24 05:32:04: Cleaned command: add_action_condition("CheckLevelAndHealth", "IsLevelHighAndHealthFull", "HighLevelFullHealth","NotHighLevelOrNotFullHealth");
+08/01/24 05:32:04: Parsing arguments: "CheckLevelAndHealth", "IsLevelHighAndHealthFull", "HighLevelFullHealth","NotHighLevelOrNotFullHealth"
+08/01/24 05:32:04: Parsed arguments: ["\"CheckLevelAndHealth\"","\"IsLevelHighAndHealthFull\"","\"HighLevelFullHealth\"","\"NotHighLevelOrNotFullHealth\""]
+08/01/24 05:32:04: Command Name: add_action_condition
+08/01/24 05:32:04: Target Object: yeancat
+08/01/24 05:32:04: Parameters: ["\"CheckLevelAndHealth\"","\"IsLevelHighAndHealthFull\"","\"HighLevelFullHealth\"","\"NotHighLevelOrNotFullHealth\""]
+08/01/24 05:32:04: Action condition '"CheckLevelAndHealth"' added successfully.
+08/01/24 05:32:08: Raw command: list_action_conditions
+08/01/24 05:32:08: Cleaned command: list_action_conditions
+08/01/24 05:32:08: Command Name: list_action_conditions
+08/01/24 05:32:08: Target Object: yeancat
+08/01/24 05:32:08: Parameters: []
+08/01/24 05:32:08: Action Conditions: "CheckHonestyNo", "CheckHonestyYes", 
+08/01/24 05:32:08: "CheckLevel10", "CheckLevelAndHealth"
+08/01/24 05:32:08: Raw command: list_action_groups
+08/01/24 05:32:09: Cleaned command: list_action_groups
+08/01/24 05:32:09: Command Name: list_action_groups
+08/01/24 05:32:09: Target Object: yeancat
+08/01/24 05:32:09: Parameters: []
+08/01/24 05:32:09: No action groups found.
+08/01/24 05:32:09: Raw command: list_actions
+08/01/24 05:32:09: Cleaned command: list_actions
+08/01/24 05:32:09: Command Name: list_actions
+08/01/24 05:32:09: Target Object: yeancat
+08/01/24 05:32:09: Parameters: []
+08/01/24 05:32:09: Actions: ArtifactOutcome, BattleChoice, BattleOutcome, 
+08/01/24 05:32:09: DiplomaticChoice, DisableEnemySpawns, EnableEnemySpawns, 
+08/01/24 05:32:09: EngageCombat, EnterPortal, ExplorationChoice, GotoDivineDomain, 
+08/01/24 05:32:09: GotoEarth, GotoFantasia, GotoGhostTown, GotoKingsKingdom, 
+08/01/24 05:32:09: GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, GotoTheEndonda, 
+08/01/24 05:32:09: GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+08/01/24 05:32:09: GotoVulturesValley, GotoYetopia, InvestigateSignals, LevelUpOnce, 
+08/01/24 05:32:09: LevelUpThree, OfferTrade, PortalOutcome, PurchaseArtifacts, 
+08/01/24 05:32:09: SaveGameNow, SetLevelFive, SpaceAdventureStart, SpawnBoss0, 
+08/01/24 05:32:09: SpawnBoss1, SpawnBoss10, SpawnBoss11, SpawnBoss12, SpawnBoss13, 
+08/01/24 05:32:09: SpawnBoss3, SpawnBoss4, SpawnBoss5, SpawnBoss6, SpawnBoss7, 
+08/01/24 05:32:09: SpawnBoss8, SpawnBoss9, StartBattle, StartExploration, 
+08/01/24 05:32:09: StartPeaceMission, TreatyOutcome, VisitMarket
+08/01/24 05:32:15: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 05:32:15: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 05:32:15: Executing action/group/condition: SpaceAdventureStart
+08/01/24 05:32:15: Decoded Data: {"type":"single_action","command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 05:32:15: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/01/24 05:32:15: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your
+path:'. Number of choices: 3
+08/01/24 05:32:24: Raw command: execute_action(StartExploration)
+08/01/24 05:32:24: Cleaned command: execute_action(StartExploration)
+08/01/24 05:32:24: Executing action/group/condition: StartExploration
+08/01/24 05:32:24: Decoded Data: {"type":"single_action","command":"execute_action","parameters":["SpaceExploration"],"targetObject":"Target"}
+08/01/24 05:32:24: Raw command: Target.execute_action(["SpaceExploration"])
+08/01/24 05:32:24: Cleaned command: Target.execute_action(["SpaceExploration"])
+08/01/24 05:32:24: Action/group/condition '[SpaceExploration]' not found.
+08/01/24 05:32:29: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 05:32:29: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 05:32:29: Executing action/group/condition: SpaceAdventureStart
+08/01/24 05:32:29: Decoded Data: {"type":"single_action","command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 05:32:29: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/01/24 05:32:29: Owner object not found, using yeancat
+08/01/24 05:32:29: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/01/24 05:32:31: Raw command: execute_action(StartPeaceMission)
+08/01/24 05:32:31: Cleaned command: execute_action(StartPeaceMission)
+08/01/24 05:32:31: Executing action/group/condition: StartPeaceMission
+08/01/24 05:32:31: Decoded Data: {"type":"single_action","command":"execute_action","parameters":["PeacefulMission"],"targetObject":"Target"}
+08/01/24 05:32:31: Raw command: Target.execute_action(["PeacefulMission"])
+08/01/24 05:32:31: Cleaned command: Target.execute_action(["PeacefulMission"])
+08/01/24 05:32:31: Action/group/condition '[PeacefulMission]' not found.
+08/01/24 05:32:33: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 05:32:33: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 05:32:33: Executing action/group/condition: SpaceAdventureStart
+08/01/24 05:32:33: Decoded Data: {"type":"single_action","command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 05:32:33: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/01/24 05:32:33: Owner object not found, using yeancat
+08/01/24 05:32:33: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/01/24 05:32:35: Raw command: execute_action(StartBattle)
+08/01/24 05:32:35: Cleaned command: execute_action(StartBattle)
+08/01/24 05:32:35: Executing action/group/condition: StartBattle
+08/01/24 05:32:35: Decoded Data: {"type":"single_action","command":"execute_action","parameters":["BattleSequence"],"targetObject":"Target"}
+08/01/24 05:32:35: Raw command: Target.execute_action(["BattleSequence"])
+08/01/24 05:32:35: Cleaned command: Target.execute_action(["BattleSequence"])
+08/01/24 05:32:35: Action/group/condition '[BattleSequence]' not found.
+08/01/24 05:32:53: [Jay Arnold] its not crashing but the bubble choices are not leading to their action/group/conditions
+08/01/24 05:32:53: Creating chat bubble: " its not crashing but the bubble choices are not leading to their action\/group\/conditions", Owner: yeancat, Choices: []
+08/01/24 05:32:53: Chat Bubble Created. Following 'yeancat' with text: 'its not crashing but the bubble choices are not leading to
+their action/group/conditions'. Number of choices: 0
+08/01/24 05:33:00: Raw command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 05:33:00: Cleaned command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 05:33:00: Action/group/condition 'IsLevelHighAndHealthFull' not found.
+08/01/24 05:33:10: Raw command: level_up(20)
+08/01/24 05:33:10: Cleaned command: level_up(20)
+08/01/24 05:33:10: Parsing arguments: 20
+08/01/24 05:33:10: Parsed arguments: ["20"]
+08/01/24 05:33:10: Command Name: level_up
+08/01/24 05:33:10: Target Object: yeancat
+08/01/24 05:33:10: Parameters: ["20"]
+08/01/24 05:33:10: Level up initiated with goal: 20
+08/01/24 05:33:19: Raw command: show_variable(Health)
+08/01/24 05:33:19: Cleaned command: show_variable(Health)
+08/01/24 05:33:19: Parsing arguments: Health
+08/01/24 05:33:19: Parsed arguments: ["Health"]
+08/01/24 05:33:19: Command Name: show_variable
+08/01/24 05:33:19: Target Object: yeancat
+08/01/24 05:33:19: Parameters: ["Health"]
+08/01/24 05:33:20: Health: 82
+08/01/24 05:33:25: Raw command: show_variable(Level)
+08/01/24 05:33:25: Cleaned command: show_variable(Level)
+08/01/24 05:33:25: Parsing arguments: Level
+08/01/24 05:33:25: Parsed arguments: ["Level"]
+08/01/24 05:33:25: Command Name: show_variable
+08/01/24 05:33:25: Target Object: yeancat
+08/01/24 05:33:25: Parameters: ["Level"]
+08/01/24 05:33:25: Level: 21
+08/01/24 05:33:28: Raw command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 05:33:28: Cleaned command: execute_action(IsLevelHighAndHealthFull)
+08/01/24 05:33:28: Action/group/condition 'IsLevelHighAndHealthFull' not found.
+08/01/24 05:33:44: [Jay Arnold] now that isnt working properly anymore. i have added all of your changes lets get this functioning
+08/01/24 05:33:44: Creating chat bubble: " now that isnt working properly anymore. i have added all of your changes lets get this functioning", Owner: yeancat, Choices: []
+08/01/24 05:33:44: Chat Bubble Created. Following 'yeancat' with text: 'now that isnt working properly anymore. i have added all of
+your changes lets get this functioning'. Number of choices: 0
+08/01/24 05:37:59: Loaded action/group: SaveGameNow
+08/01/24 05:37:59: Loaded action/group: GotoKingsKingdom
+08/01/24 05:37:59: Loaded action/group: EnterPortal
+08/01/24 05:37:59: Loaded action/group: PurchaseArtifacts
+08/01/24 05:37:59: Loaded action/group: BattleOutcome
+08/01/24 05:37:59: Loaded action/group: VisitMarket
+08/01/24 05:37:59: Loaded action/group: GotoDivineDomain
+08/01/24 05:37:59: Loaded action/group: GotoTheEndonda
+08/01/24 05:37:59: Loaded action/group: GotoUniverseCity
+08/01/24 05:37:59: Loaded action/group: GotoLandOfLucy
+08/01/24 05:37:59: Loaded action/group: GotoPlaceOfPablo
+08/01/24 05:37:59: Loaded action/group: InvestigateSignals
+08/01/24 05:37:59: Loaded action/group: OfferTrade
+08/01/24 05:37:59: Loaded action/group: DisableEnemySpawns
+08/01/24 05:37:59: Loaded action/group: StartBattle
+08/01/24 05:37:59: Loaded action/group: SpawnBoss4
+08/01/24 05:37:59: Loaded action/group: GotoTheIcyHeart
+08/01/24 05:37:59: Loaded action/group: EngageCombat
+08/01/24 05:37:59: Loaded action/group: GotoGhostTown
+08/01/24 05:37:59: Loaded action/group: SpawnBoss0
+08/01/24 05:37:59: Loaded action/group: SpawnBoss13
+08/01/24 05:38:00: Loaded action/group: StartExploration
+08/01/24 05:38:00: Loaded action/group: SpawnBoss8
+08/01/24 05:38:00: Loaded action/group: SpawnBoss6
+08/01/24 05:38:00: Loaded action/group: SetLevelFive
+08/01/24 05:38:00: Loaded action/group: LevelUpThree
+08/01/24 05:38:00: Loaded action/group: LevelUpOnce
+08/01/24 05:38:00: Loaded action/group: GotoTheGoldMines
+08/01/24 05:38:00: Loaded action/group: SpawnBoss11
+08/01/24 05:38:00: Loaded action/group: StartPeaceMission
+08/01/24 05:38:00: Loaded action/group: DiplomaticChoice
+08/01/24 05:38:00: Loaded action/group: TreatyOutcome
+08/01/24 05:38:00: Loaded action/group: ExplorationChoice
+08/01/24 05:38:00: Loaded action/group: BattleChoice
+08/01/24 05:38:00: Loaded action/group: PortalOutcome
+08/01/24 05:38:00: Loaded action/group: SpaceAdventureStart
+08/01/24 05:38:00: Loaded action/group: EnableEnemySpawns
+08/01/24 05:38:00: Loaded action/group: GotoVulturesValley
+08/01/24 05:38:00: Loaded action/group: GotoEarth
+08/01/24 05:38:00: Loaded action/group: SpawnBoss1
+08/01/24 05:38:00: Loaded action/group: GotoStormySands
+08/01/24 05:38:00: Loaded action/group: SpawnBoss12
+08/01/24 05:38:00: Loaded action/group: GotoFantasia
+08/01/24 05:38:00: Loaded action/group: SpawnBoss5
+08/01/24 05:38:00: Loaded action/group: SpawnBoss10
+08/01/24 05:38:00: Loaded action/group: GotoYetopia
+08/01/24 05:38:00: Loaded action/group: SpawnBoss3
+08/01/24 05:38:00: Loaded action/group: ArtifactOutcome
+08/01/24 05:38:00: Loaded action/group: SpawnBoss7
+08/01/24 05:38:00: Loaded action/group: SpawnBoss9
+08/01/24 05:38:00: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 05:38:00: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 05:38:00: Loaded condition: IsHealthFull
+08/01/24 05:38:00: Loaded condition: IsLevelHigh
+08/01/24 05:38:00: Conditions loaded successfully from Conditions.txt.
+08/01/24 05:38:00: [Client] Failed to reconnect to server. Will try again...
+08/01/24 05:38:23: Raw command: list_conditions
+08/01/24 05:38:23: Cleaned command: list_conditions
+08/01/24 05:38:23: Command Name: list_conditions
+08/01/24 05:38:23: Target Object: yeancat
+08/01/24 05:38:23: Parameters: []
+08/01/24 05:38:23: Conditions: IsLevelHighAndHealthFull, IsHealthFull, IsLevelHigh
+08/01/24 05:38:31: Raw command: add_action(LevelUpOnce,level_up,[1])
+08/01/24 05:38:31: Cleaned command: add_action(LevelUpOnce,level_up,[1])
+08/01/24 05:38:31: Detected add_action command
+08/01/24 05:38:31: Arguments string: LevelUpOnce,level_up,[1]
+08/01/24 05:38:31: Parsing arguments: LevelUpOnce,level_up,[1]
+08/01/24 05:38:31: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+08/01/24 05:38:31: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+08/01/24 05:38:31: Action Name: LevelUpOnce
+08/01/24 05:38:31: Full Action Command: level_up
+08/01/24 05:38:31: Action Params: [1]
+08/01/24 05:38:31: Target Object: yeancat
+08/01/24 05:38:31: Action Command: level_up
+08/01/24 05:38:31: Action 'LevelUpOnce' added/updated successfully.
+08/01/24 05:38:31: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:31: Raw command: add_action(LevelUpThree, level_up, [3])
+08/01/24 05:38:31: Cleaned command: add_action(LevelUpThree, level_up, [3])
+08/01/24 05:38:32: Detected add_action command
+08/01/24 05:38:32: Arguments string: LevelUpThree, level_up, [3]
+08/01/24 05:38:32: Parsing arguments: LevelUpThree, level_up, [3]
+08/01/24 05:38:32: Parsed arguments: ["LevelUpThree","level_up","[3]"]
+08/01/24 05:38:32: Parsed arguments: ["LevelUpThree","level_up","[3]"]
+08/01/24 05:38:32: Action Name: LevelUpThree
+08/01/24 05:38:32: Full Action Command: level_up
+08/01/24 05:38:32: Action Params: [3]
+08/01/24 05:38:32: Target Object: yeancat
+08/01/24 05:38:32: Action Command: level_up
+08/01/24 05:38:32: Action 'LevelUpThree' added/updated successfully.
+08/01/24 05:38:32: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:32: Raw command: add_action(SaveGameNow,save_game,[])
+08/01/24 05:38:32: Cleaned command: add_action(SaveGameNow,save_game,[])
+08/01/24 05:38:32: Detected add_action command
+08/01/24 05:38:32: Arguments string: SaveGameNow,save_game,[]
+08/01/24 05:38:32: Parsing arguments: SaveGameNow,save_game,[]
+08/01/24 05:38:32: Parsed arguments: ["SaveGameNow","save_game","[]"]
+08/01/24 05:38:32: Parsed arguments: ["SaveGameNow","save_game","[]"]
+08/01/24 05:38:32: Action Name: SaveGameNow
+08/01/24 05:38:32: Full Action Command: save_game
+08/01/24 05:38:32: Action Params: []
+08/01/24 05:38:32: Target Object: yeancat
+08/01/24 05:38:32: Action Command: save_game
+08/01/24 05:38:32: Action 'SaveGameNow' added/updated successfully.
+08/01/24 05:38:32: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:32: Raw command: add_action(GotoEarth,goto_planet,["Earth"])
+08/01/24 05:38:32: Cleaned command: add_action(GotoEarth,goto_planet,["Earth"])
+08/01/24 05:38:32: Detected add_action command
+08/01/24 05:38:32: Arguments string: GotoEarth,goto_planet,["Earth"]
+08/01/24 05:38:32: Parsing arguments: GotoEarth,goto_planet,["Earth"]
+08/01/24 05:38:32: Parsed arguments: ["GotoEarth","goto_planet","[\"Earth\"]"]
+08/01/24 05:38:32: Parsed arguments: ["GotoEarth","goto_planet","[\"Earth\"]"]
+08/01/24 05:38:32: Action Name: GotoEarth
+08/01/24 05:38:32: Full Action Command: goto_planet
+08/01/24 05:38:32: Action Params: ["Earth"]
+08/01/24 05:38:32: Target Object: yeancat
+08/01/24 05:38:32: Action Command: goto_planet
+08/01/24 05:38:32: Action 'GotoEarth' added/updated successfully.
+08/01/24 05:38:32: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:32: Raw command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+08/01/24 05:38:32: Cleaned command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+08/01/24 05:38:32: Detected add_action command
+08/01/24 05:38:32: Arguments string: GotoUniverseCity,goto_planet,["Universe City"]
+08/01/24 05:38:32: Parsing arguments: GotoUniverseCity,goto_planet,["Universe City"]
+08/01/24 05:38:32: Parsed arguments: ["GotoUniverseCity","goto_planet","[\"Universe City\"]"]
+08/01/24 05:38:32: Parsed arguments: ["GotoUniverseCity","goto_planet","[\"Universe City\"]"]
+08/01/24 05:38:32: Action Name: GotoUniverseCity
+08/01/24 05:38:32: Full Action Command: goto_planet
+08/01/24 05:38:32: Action Params: ["Universe City"]
+08/01/24 05:38:32: Target Object: yeancat
+08/01/24 05:38:32: Action Command: goto_planet
+08/01/24 05:38:32: Action 'GotoUniverseCity' added/updated successfully.
+08/01/24 05:38:32: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:32: Raw command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+08/01/24 05:38:32: Cleaned command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+08/01/24 05:38:32: Detected add_action command
+08/01/24 05:38:32: Arguments string: GotoFantasia,goto_planet,["Fantasia"]
+08/01/24 05:38:32: Parsing arguments: GotoFantasia,goto_planet,["Fantasia"]
+08/01/24 05:38:32: Parsed arguments: ["GotoFantasia","goto_planet","[\"Fantasia\"]"]
+08/01/24 05:38:32: Parsed arguments: ["GotoFantasia","goto_planet","[\"Fantasia\"]"]
+08/01/24 05:38:32: Action Name: GotoFantasia
+08/01/24 05:38:32: Full Action Command: goto_planet
+08/01/24 05:38:32: Action Params: ["Fantasia"]
+08/01/24 05:38:32: Target Object: yeancat
+08/01/24 05:38:32: Action Command: goto_planet
+08/01/24 05:38:32: Action 'GotoFantasia' added/updated successfully.
+08/01/24 05:38:32: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:32: Raw command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+08/01/24 05:38:32: Cleaned command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+08/01/24 05:38:32: Detected add_action command
+08/01/24 05:38:32: Arguments string: GotoLandOfLucy,goto_planet,["Land of Lucy"]
+08/01/24 05:38:32: Parsing arguments: GotoLandOfLucy,goto_planet,["Land of Lucy"]
+08/01/24 05:38:32: Parsed arguments: ["GotoLandOfLucy","goto_planet","[\"Land of Lucy\"]"]
+08/01/24 05:38:32: Parsed arguments: ["GotoLandOfLucy","goto_planet","[\"Land of Lucy\"]"]
+08/01/24 05:38:32: Action Name: GotoLandOfLucy
+08/01/24 05:38:32: Full Action Command: goto_planet
+08/01/24 05:38:32: Action Params: ["Land of Lucy"]
+08/01/24 05:38:33: Target Object: yeancat
+08/01/24 05:38:33: Action Command: goto_planet
+08/01/24 05:38:33: Action 'GotoLandOfLucy' added/updated successfully.
+08/01/24 05:38:33: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:33: Raw command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+08/01/24 05:38:33: Cleaned command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+08/01/24 05:38:33: Detected add_action command
+08/01/24 05:38:33: Arguments string: GotoPlaceOfPablo,goto_planet,["Place of Pablo"]
+08/01/24 05:38:33: Parsing arguments: GotoPlaceOfPablo,goto_planet,["Place of Pablo"]
+08/01/24 05:38:33: Parsed arguments: ["GotoPlaceOfPablo","goto_planet","[\"Place of Pablo\"]"]
+08/01/24 05:38:33: Parsed arguments: ["GotoPlaceOfPablo","goto_planet","[\"Place of Pablo\"]"]
+08/01/24 05:38:33: Action Name: GotoPlaceOfPablo
+08/01/24 05:38:33: Full Action Command: goto_planet
+08/01/24 05:38:33: Action Params: ["Place of Pablo"]
+08/01/24 05:38:33: Target Object: yeancat
+08/01/24 05:38:33: Action Command: goto_planet
+08/01/24 05:38:33: Action 'GotoPlaceOfPablo' added/updated successfully.
+08/01/24 05:38:33: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:33: Raw command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+08/01/24 05:38:33: Cleaned command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+08/01/24 05:38:33: Detected add_action command
+08/01/24 05:38:33: Arguments string: GotoGhostTown,goto_planet,["Ghost Town"]
+08/01/24 05:38:33: Parsing arguments: GotoGhostTown,goto_planet,["Ghost Town"]
+08/01/24 05:38:33: Parsed arguments: ["GotoGhostTown","goto_planet","[\"Ghost Town\"]"]
+08/01/24 05:38:33: Parsed arguments: ["GotoGhostTown","goto_planet","[\"Ghost Town\"]"]
+08/01/24 05:38:33: Action Name: GotoGhostTown
+08/01/24 05:38:33: Full Action Command: goto_planet
+08/01/24 05:38:33: Action Params: ["Ghost Town"]
+08/01/24 05:38:33: Target Object: yeancat
+08/01/24 05:38:33: Action Command: goto_planet
+08/01/24 05:38:33: Action 'GotoGhostTown' added/updated successfully.
+08/01/24 05:38:33: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:33: Raw command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+08/01/24 05:38:33: Cleaned command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+08/01/24 05:38:33: Detected add_action command
+08/01/24 05:38:33: Arguments string: GotoVulturesValley,goto_planet,["Vultures Valley"]
+08/01/24 05:38:33: Parsing arguments: GotoVulturesValley,goto_planet,["Vultures Valley"]
+08/01/24 05:38:33: Parsed arguments: ["GotoVulturesValley","goto_planet","[\"Vultures Valley\"]"]
+08/01/24 05:38:33: Parsed arguments: ["GotoVulturesValley","goto_planet","[\"Vultures Valley\"]"]
+08/01/24 05:38:33: Action Name: GotoVulturesValley
+08/01/24 05:38:33: Full Action Command: goto_planet
+08/01/24 05:38:33: Action Params: ["Vultures Valley"]
+08/01/24 05:38:33: Target Object: yeancat
+08/01/24 05:38:33: Action Command: goto_planet
+08/01/24 05:38:33: Action 'GotoVulturesValley' added/updated successfully.
+08/01/24 05:38:33: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:33: Raw command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+08/01/24 05:38:33: Cleaned command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+08/01/24 05:38:33: Detected add_action command
+08/01/24 05:38:33: Arguments string: GotoTheEndonda,goto_planet,["The Endonda"]
+08/01/24 05:38:33: Parsing arguments: GotoTheEndonda,goto_planet,["The Endonda"]
+08/01/24 05:38:33: Parsed arguments: ["GotoTheEndonda","goto_planet","[\"The Endonda\"]"]
+08/01/24 05:38:33: Parsed arguments: ["GotoTheEndonda","goto_planet","[\"The Endonda\"]"]
+08/01/24 05:38:33: Action Name: GotoTheEndonda
+08/01/24 05:38:33: Full Action Command: goto_planet
+08/01/24 05:38:33: Action Params: ["The Endonda"]
+08/01/24 05:38:33: Target Object: yeancat
+08/01/24 05:38:33: Action Command: goto_planet
+08/01/24 05:38:33: Action 'GotoTheEndonda' added/updated successfully.
+08/01/24 05:38:33: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:33: Raw command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+08/01/24 05:38:33: Cleaned command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+08/01/24 05:38:33: Detected add_action command
+08/01/24 05:38:33: Arguments string: GotoStormySands,goto_planet,["Stormy Sands"]
+08/01/24 05:38:33: Parsing arguments: GotoStormySands,goto_planet,["Stormy Sands"]
+08/01/24 05:38:33: Parsed arguments: ["GotoStormySands","goto_planet","[\"Stormy Sands\"]"]
+08/01/24 05:38:33: Parsed arguments: ["GotoStormySands","goto_planet","[\"Stormy Sands\"]"]
+08/01/24 05:38:33: Action Name: GotoStormySands
+08/01/24 05:38:33: Full Action Command: goto_planet
+08/01/24 05:38:33: Action Params: ["Stormy Sands"]
+08/01/24 05:38:33: Target Object: yeancat
+08/01/24 05:38:33: Action Command: goto_planet
+08/01/24 05:38:33: Action 'GotoStormySands' added/updated successfully.
+08/01/24 05:38:33: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:33: Raw command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+08/01/24 05:38:33: Cleaned command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+08/01/24 05:38:33: Detected add_action command
+08/01/24 05:38:33: Arguments string: GotoDivineDomain,goto_planet,["Divine Domain"]
+08/01/24 05:38:33: Parsing arguments: GotoDivineDomain,goto_planet,["Divine Domain"]
+08/01/24 05:38:33: Parsed arguments: ["GotoDivineDomain","goto_planet","[\"Divine Domain\"]"]
+08/01/24 05:38:33: Parsed arguments: ["GotoDivineDomain","goto_planet","[\"Divine Domain\"]"]
+08/01/24 05:38:33: Action Name: GotoDivineDomain
+08/01/24 05:38:33: Full Action Command: goto_planet
+08/01/24 05:38:33: Action Params: ["Divine Domain"]
+08/01/24 05:38:33: Target Object: yeancat
+08/01/24 05:38:33: Action Command: goto_planet
+08/01/24 05:38:34: Action 'GotoDivineDomain' added/updated successfully.
+08/01/24 05:38:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:34: Raw command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+08/01/24 05:38:34: Cleaned command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+08/01/24 05:38:34: Detected add_action command
+08/01/24 05:38:34: Arguments string: GotoYetopia,goto_planet,["Yetopia"]
+08/01/24 05:38:34: Parsing arguments: GotoYetopia,goto_planet,["Yetopia"]
+08/01/24 05:38:34: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+08/01/24 05:38:34: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+08/01/24 05:38:34: Action Name: GotoYetopia
+08/01/24 05:38:34: Full Action Command: goto_planet
+08/01/24 05:38:34: Action Params: ["Yetopia"]
+08/01/24 05:38:34: Target Object: yeancat
+08/01/24 05:38:34: Action Command: goto_planet
+08/01/24 05:38:34: Action 'GotoYetopia' added/updated successfully.
+08/01/24 05:38:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:34: Raw command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+08/01/24 05:38:34: Cleaned command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+08/01/24 05:38:34: Detected add_action command
+08/01/24 05:38:34: Arguments string: GotoKingsKingdom,goto_planet,["Kings Kingdom"]
+08/01/24 05:38:34: Parsing arguments: GotoKingsKingdom,goto_planet,["Kings Kingdom"]
+08/01/24 05:38:34: Parsed arguments: ["GotoKingsKingdom","goto_planet","[\"Kings Kingdom\"]"]
+08/01/24 05:38:34: Parsed arguments: ["GotoKingsKingdom","goto_planet","[\"Kings Kingdom\"]"]
+08/01/24 05:38:34: Action Name: GotoKingsKingdom
+08/01/24 05:38:34: Full Action Command: goto_planet
+08/01/24 05:38:34: Action Params: ["Kings Kingdom"]
+08/01/24 05:38:34: Target Object: yeancat
+08/01/24 05:38:34: Action Command: goto_planet
+08/01/24 05:38:34: Action 'GotoKingsKingdom' added/updated successfully.
+08/01/24 05:38:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:34: Raw command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+08/01/24 05:38:34: Cleaned command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+08/01/24 05:38:34: Detected add_action command
+08/01/24 05:38:34: Arguments string: GotoTheIcyHeart,goto_planet,["The Icy Heart"]
+08/01/24 05:38:34: Parsing arguments: GotoTheIcyHeart,goto_planet,["The Icy Heart"]
+08/01/24 05:38:34: Parsed arguments: ["GotoTheIcyHeart","goto_planet","[\"The Icy Heart\"]"]
+08/01/24 05:38:34: Parsed arguments: ["GotoTheIcyHeart","goto_planet","[\"The Icy Heart\"]"]
+08/01/24 05:38:34: Action Name: GotoTheIcyHeart
+08/01/24 05:38:34: Full Action Command: goto_planet
+08/01/24 05:38:34: Action Params: ["The Icy Heart"]
+08/01/24 05:38:34: Target Object: yeancat
+08/01/24 05:38:34: Action Command: goto_planet
+08/01/24 05:38:34: Action 'GotoTheIcyHeart' added/updated successfully.
+08/01/24 05:38:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:34: Raw command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+08/01/24 05:38:34: Cleaned command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+08/01/24 05:38:34: Detected add_action command
+08/01/24 05:38:34: Arguments string: GotoTheGoldMines,goto_planet,["The Gold Mines"]
+08/01/24 05:38:34: Parsing arguments: GotoTheGoldMines,goto_planet,["The Gold Mines"]
+08/01/24 05:38:34: Parsed arguments: ["GotoTheGoldMines","goto_planet","[\"The Gold Mines\"]"]
+08/01/24 05:38:34: Parsed arguments: ["GotoTheGoldMines","goto_planet","[\"The Gold Mines\"]"]
+08/01/24 05:38:34: Action Name: GotoTheGoldMines
+08/01/24 05:38:34: Full Action Command: goto_planet
+08/01/24 05:38:34: Action Params: ["The Gold Mines"]
+08/01/24 05:38:34: Target Object: yeancat
+08/01/24 05:38:34: Action Command: goto_planet
+08/01/24 05:38:34: Action 'GotoTheGoldMines' added/updated successfully.
+08/01/24 05:38:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:34: Raw command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+08/01/24 05:38:34: Cleaned command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+08/01/24 05:38:34: Detected add_action command
+08/01/24 05:38:34: Arguments string: EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"]
+08/01/24 05:38:34: Parsing arguments: EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"]
+08/01/24 05:38:34: Parsed arguments: ["EnableEnemySpawns","set_variable","[\"SpawnEnemies\", \"true\"]"]
+08/01/24 05:38:34: Parsed arguments: ["EnableEnemySpawns","set_variable","[\"SpawnEnemies\", \"true\"]"]
+08/01/24 05:38:34: Action Name: EnableEnemySpawns
+08/01/24 05:38:34: Full Action Command: set_variable
+08/01/24 05:38:34: Action Params: ["SpawnEnemies", "true"]
+08/01/24 05:38:34: Target Object: yeancat
+08/01/24 05:38:34: Action Command: set_variable
+08/01/24 05:38:34: Action 'EnableEnemySpawns' added/updated successfully.
+08/01/24 05:38:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:34: Raw command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+08/01/24 05:38:34: Cleaned command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+08/01/24 05:38:34: Detected add_action command
+08/01/24 05:38:34: Arguments string: DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"]
+08/01/24 05:38:34: Parsing arguments: DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"]
+08/01/24 05:38:34: Parsed arguments: ["DisableEnemySpawns","set_variable","[\"SpawnEnemies\", \"false\"]"]
+08/01/24 05:38:34: Parsed arguments: ["DisableEnemySpawns","set_variable","[\"SpawnEnemies\", \"false\"]"]
+08/01/24 05:38:34: Action Name: DisableEnemySpawns
+08/01/24 05:38:34: Full Action Command: set_variable
+08/01/24 05:38:34: Action Params: ["SpawnEnemies", "false"]
+08/01/24 05:38:34: Target Object: yeancat
+08/01/24 05:38:34: Action Command: set_variable
+08/01/24 05:38:34: Action 'DisableEnemySpawns' added/updated successfully.
+08/01/24 05:38:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:34: Raw command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+08/01/24 05:38:35: Cleaned command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+08/01/24 05:38:35: Detected add_action command
+08/01/24 05:38:35: Arguments string: SetLevelFive, set_variable, ["Level", "5"]
+08/01/24 05:38:35: Parsing arguments: SetLevelFive, set_variable, ["Level", "5"]
+08/01/24 05:38:35: Parsed arguments: ["SetLevelFive","set_variable","[\"Level\", \"5\"]"]
+08/01/24 05:38:35: Parsed arguments: ["SetLevelFive","set_variable","[\"Level\", \"5\"]"]
+08/01/24 05:38:35: Action Name: SetLevelFive
+08/01/24 05:38:35: Full Action Command: set_variable
+08/01/24 05:38:35: Action Params: ["Level", "5"]
+08/01/24 05:38:35: Target Object: yeancat
+08/01/24 05:38:35: Action Command: set_variable
+08/01/24 05:38:35: Action 'SetLevelFive' added/updated successfully.
+08/01/24 05:38:35: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:35: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 05:38:35: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 05:38:35: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 05:38:35: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 05:38:35: Command Name: add_action_group
+08/01/24 05:38:35: Target Object: yeancat
+08/01/24 05:38:35: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 05:38:35: Raw command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley",
+"BattleChoice"])
+08/01/24 05:38:35: Cleaned command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+08/01/24 05:38:35: Parsing arguments: BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"]
+08/01/24 05:38:35: Parsed arguments: ["BattleSequence","[\"EnableEnemySpawns\", \"GotoVulturesValley\", \"BattleChoice\"]"]
+08/01/24 05:38:35: Command Name: add_action_group
+08/01/24 05:38:35: Target Object: yeancat
+08/01/24 05:38:35: Parameters: ["BattleSequence","[\"EnableEnemySpawns\", \"GotoVulturesValley\", \"BattleChoice\"]"]
+08/01/24 05:38:43: Raw command: add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+08/01/24 05:38:43: Cleaned command: add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+08/01/24 05:38:43: Parsing arguments: PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"]
+08/01/24 05:38:43: Parsed arguments: ["PeacefulMission","[\"GotoDivineDomain\", \"DiplomaticChoice\"]"]
+08/01/24 05:38:43: Command Name: add_action_group
+08/01/24 05:38:43: Target Object: yeancat
+08/01/24 05:38:43: Parameters: ["PeacefulMission","[\"GotoDivineDomain\", \"DiplomaticChoice\"]"]
+08/01/24 05:38:43: Raw command: add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe
+City. What's your next move?", [["Investigate strange signals",
+"InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base",
+"ReturnToBase"]]])
+08/01/24 05:38:43: Cleaned command: add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+08/01/24 05:38:43: Detected add_action command
+08/01/24 05:38:43: Arguments string: ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 05:38:43: Parsing arguments: ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 05:38:43: Parsed arguments: ["ExplorationChoice","Target.chat_bubble","[\"You've arrived at Universe City. What's your next move?\", [[\"Investigate strange signals\", \"InvestigateSignals\"], [\"Visit the local market\", \"VisitMarket\"], [\"Return to base\", \"ReturnToBase\"]]]"]
+08/01/24 05:38:43: Parsed arguments: ["ExplorationChoice","Target.chat_bubble","[\"You've arrived at Universe City. What's your next move?\", [[\"Investigate strange signals\", \"InvestigateSignals\"], [\"Visit the local market\", \"VisitMarket\"], [\"Return to base\", \"ReturnToBase\"]]]"]
+08/01/24 05:38:43: Action Name: ExplorationChoice
+08/01/24 05:38:43: Full Action Command: Target.chat_bubble
+08/01/24 05:38:43: Action Params: ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 05:38:43: Target Object: Target
+08/01/24 05:38:43: Action Command: chat_bubble
+08/01/24 05:38:43: Action 'ExplorationChoice' added/updated successfully.
+08/01/24 05:38:43: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:43: Raw command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a
+hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report
+back to HQ", "ReportToHQ"]]])
+08/01/24 05:38:43: Cleaned command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+08/01/24 05:38:43: Detected add_action command
+08/01/24 05:38:43: Arguments string: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 05:38:43: Parsing arguments: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 05:38:43: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+08/01/24 05:38:43: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+08/01/24 05:38:43: Action Name: InvestigateSignals
+08/01/24 05:38:43: Full Action Command: Target.chat_bubble
+08/01/24 05:38:43: Action Params: ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 05:38:43: Target Object: Target
+08/01/24 05:38:43: Action Command: chat_bubble
+08/01/24 05:38:43: Action 'InvestigateSignals' added/updated successfully.
+08/01/24 05:38:43: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:43: Raw command: add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the
+market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"],
+["Investigate seller", "InvestigateSeller"]]])
+08/01/24 05:38:43: Cleaned command: add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+08/01/24 05:38:43: Detected add_action command
+08/01/24 05:38:43: Arguments string: VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 05:38:43: Parsing arguments: VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 05:38:43: Parsed arguments: ["VisitMarket","Target.chat_bubble","[\"You find rare artifacts in the market. What do you do?\", [[\"Purchase artifacts\", \"PurchaseArtifacts\"], [\"Investigate seller\", \"InvestigateSeller\"]]]"]
+08/01/24 05:38:43: Parsed arguments: ["VisitMarket","Target.chat_bubble","[\"You find rare artifacts in the market. What do you do?\", [[\"Purchase artifacts\", \"PurchaseArtifacts\"], [\"Investigate seller\", \"InvestigateSeller\"]]]"]
+08/01/24 05:38:43: Action Name: VisitMarket
+08/01/24 05:38:43: Full Action Command: Target.chat_bubble
+08/01/24 05:38:43: Action Params: ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 05:38:43: Target Object: Target
+08/01/24 05:38:43: Action Command: chat_bubble
+08/01/24 05:38:43: Action 'VisitMarket' added/updated successfully.
+08/01/24 05:38:43: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:43: Raw command: add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's
+your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy",
+"AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+08/01/24 05:38:43: Cleaned command: add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+08/01/24 05:38:43: Detected add_action command
+08/01/24 05:38:43: Arguments string: BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 05:38:43: Parsing arguments: BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 05:38:43: Parsed arguments: ["BattleChoice","Target.chat_bubble","[\"Enemies approaching! What's your strategy?\", [[\"Engage in combat\", \"EngageCombat\"], [\"Attempt diplomacy\", \"AttemptDiplomacy\"], [\"Retreat\", \"StrategicRetreat\"]]]"]
+08/01/24 05:38:43: Parsed arguments: ["BattleChoice","Target.chat_bubble","[\"Enemies approaching! What's your strategy?\", [[\"Engage in combat\", \"EngageCombat\"], [\"Attempt diplomacy\", \"AttemptDiplomacy\"], [\"Retreat\", \"StrategicRetreat\"]]]"]
+08/01/24 05:38:43: Action Name: BattleChoice
+08/01/24 05:38:43: Full Action Command: Target.chat_bubble
+08/01/24 05:38:43: Action Params: ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 05:38:43: Target Object: Target
+08/01/24 05:38:43: Action Command: chat_bubble
+08/01/24 05:38:43: Action 'BattleChoice' added/updated successfully.
+08/01/24 05:38:43: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:43: Raw command: add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a
+peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"],
+["Share technology", "ShareTechnology"], ["Request alliance",
+"RequestAlliance"]]])
+08/01/24 05:38:43: Cleaned command: add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+08/01/24 05:38:43: Detected add_action command
+08/01/24 05:38:43: Arguments string: DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 05:38:43: Parsing arguments: DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 05:38:43: Parsed arguments: ["DiplomaticChoice","Target.chat_bubble","[\"You're in Divine Domain for a peace mission. How do you proceed?\", [[\"Offer trade deal\", \"OfferTrade\"], [\"Share technology\", \"ShareTechnology\"], [\"Request alliance\", \"RequestAlliance\"]]]"]
+08/01/24 05:38:43: Parsed arguments: ["DiplomaticChoice","Target.chat_bubble","[\"You're in Divine Domain for a peace mission. How do you proceed?\", [[\"Offer trade deal\", \"OfferTrade\"], [\"Share technology\", \"ShareTechnology\"], [\"Request alliance\", \"RequestAlliance\"]]]"]
+08/01/24 05:38:43: Action Name: DiplomaticChoice
+08/01/24 05:38:44: Full Action Command: Target.chat_bubble
+08/01/24 05:38:44: Action Params: ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 05:38:44: Target Object: Target
+08/01/24 05:38:44: Action Command: chat_bubble
+08/01/24 05:38:44: Action 'DiplomaticChoice' added/updated successfully.
+08/01/24 05:38:44: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:38:44: Raw command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive",
+"PortalOutcome"])
+08/01/24 05:38:44: Cleaned command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+08/01/24 05:38:44: Parsing arguments: PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"]
+08/01/24 05:38:44: Parsed arguments: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+08/01/24 05:38:44: Command Name: add_action_group
+08/01/24 05:38:44: Target Object: yeancat
+08/01/24 05:38:44: Parameters: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+08/01/24 05:38:44: Raw command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown",
+"ArtifactOutcome"])
+08/01/24 05:38:44: Cleaned command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+08/01/24 05:38:44: Parsing arguments: ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"]
+08/01/24 05:38:44: Parsed arguments: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+08/01/24 05:38:44: Command Name: add_action_group
+08/01/24 05:38:44: Target Object: yeancat
+08/01/24 05:38:44: Parameters: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+08/01/24 05:40:08: Loaded action/group: SaveGameNow
+08/01/24 05:40:08: Loaded action/group: GotoKingsKingdom
+08/01/24 05:40:08: Loaded action/group: EnterPortal
+08/01/24 05:40:08: Loaded action/group: PurchaseArtifacts
+08/01/24 05:40:08: Loaded action/group: BattleOutcome
+08/01/24 05:40:08: Loaded action/group: VisitMarket
+08/01/24 05:40:08: Loaded action/group: GotoDivineDomain
+08/01/24 05:40:08: Loaded action/group: GotoTheEndonda
+08/01/24 05:40:08: Loaded action/group: GotoUniverseCity
+08/01/24 05:40:08: Loaded action/group: GotoLandOfLucy
+08/01/24 05:40:09: Loaded action/group: GotoPlaceOfPablo
+08/01/24 05:40:09: Loaded action/group: InvestigateSignals
+08/01/24 05:40:09: Loaded action/group: OfferTrade
+08/01/24 05:40:09: Loaded action/group: DisableEnemySpawns
+08/01/24 05:40:09: Loaded action/group: StartBattle
+08/01/24 05:40:09: Loaded action/group: SpawnBoss4
+08/01/24 05:40:09: Loaded action/group: GotoTheIcyHeart
+08/01/24 05:40:09: Loaded action/group: EngageCombat
+08/01/24 05:40:09: Loaded action/group: GotoGhostTown
+08/01/24 05:40:09: Loaded action/group: SpawnBoss0
+08/01/24 05:40:09: Loaded action/group: SpawnBoss13
+08/01/24 05:40:09: Loaded action/group: StartExploration
+08/01/24 05:40:09: Loaded action/group: SpawnBoss8
+08/01/24 05:40:09: Loaded action/group: SpawnBoss6
+08/01/24 05:40:09: Loaded action/group: SetLevelFive
+08/01/24 05:40:09: Loaded action/group: LevelUpThree
+08/01/24 05:40:09: Loaded action/group: LevelUpOnce
+08/01/24 05:40:09: Loaded action/group: GotoTheGoldMines
+08/01/24 05:40:09: Loaded action/group: SpawnBoss11
+08/01/24 05:40:09: Loaded action/group: StartPeaceMission
+08/01/24 05:40:09: Loaded action/group: DiplomaticChoice
+08/01/24 05:40:09: Loaded action/group: TreatyOutcome
+08/01/24 05:40:09: Loaded action/group: ExplorationChoice
+08/01/24 05:40:09: Loaded action/group: BattleChoice
+08/01/24 05:40:09: Loaded action/group: PortalOutcome
+08/01/24 05:40:09: Loaded action/group: SpaceAdventureStart
+08/01/24 05:40:09: Loaded action/group: EnableEnemySpawns
+08/01/24 05:40:09: Loaded action/group: GotoVulturesValley
+08/01/24 05:40:09: Loaded action/group: GotoEarth
+08/01/24 05:40:09: Loaded action/group: SpawnBoss1
+08/01/24 05:40:09: Loaded action/group: GotoStormySands
+08/01/24 05:40:09: Loaded action/group: SpawnBoss12
+08/01/24 05:40:09: Loaded action/group: GotoFantasia
+08/01/24 05:40:09: Loaded action/group: SpawnBoss5
+08/01/24 05:40:09: Loaded action/group: SpawnBoss10
+08/01/24 05:40:09: Loaded action/group: GotoYetopia
+08/01/24 05:40:09: Loaded action/group: SpawnBoss3
+08/01/24 05:40:09: Loaded action/group: ArtifactOutcome
+08/01/24 05:40:10: Loaded action/group: SpawnBoss7
+08/01/24 05:40:10: Loaded action/group: SpawnBoss9
+08/01/24 05:40:10: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 05:40:10: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 05:40:10: Loaded condition: IsHealthFull
+08/01/24 05:40:10: Loaded condition: IsLevelHigh
+08/01/24 05:40:10: Conditions loaded successfully from Conditions.txt.
+08/01/24 05:40:10: [Client] Failed to reconnect to server. Will try again...
+08/01/24 05:40:30: Raw command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+08/01/24 05:40:30: Cleaned command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+08/01/24 05:40:30: Parsing arguments: EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"]
+08/01/24 05:40:30: Parsed arguments: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+08/01/24 05:40:30: Command Name: add_action_group
+08/01/24 05:40:30: Target Object: yeancat
+08/01/24 05:40:30: Parameters: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+08/01/24 05:40:30: Raw command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+08/01/24 05:40:30: Cleaned command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+08/01/24 05:40:30: Parsing arguments: PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"]
+08/01/24 05:40:30: Parsed arguments: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+08/01/24 05:40:30: Command Name: add_action_group
+08/01/24 05:40:30: Target Object: yeancat
+08/01/24 05:40:30: Parameters: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+08/01/24 05:40:30: Raw command: add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their
+technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+08/01/24 05:40:30: Cleaned command: add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+08/01/24 05:40:30: Detected add_action command
+08/01/24 05:40:30: Arguments string: PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 05:40:30: Parsing arguments: PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 05:40:30: Parsed arguments: ["PortalOutcome","Target.chat_bubble","[\"You've discovered an ancient civilization! What's your approach?\", [[\"Study their technology\", \"StudyTech\"], [\"Establish communication\", \"Communicate\"], [\"Return home with findings\", \"ReturnWithFindings\"]]]"]
+08/01/24 05:40:30: Parsed arguments: ["PortalOutcome","Target.chat_bubble","[\"You've discovered an ancient civilization! What's your approach?\", [[\"Study their technology\", \"StudyTech\"], [\"Establish communication\", \"Communicate\"], [\"Return home with findings\", \"ReturnWithFindings\"]]]"]
+08/01/24 05:40:30: Action Name: PortalOutcome
+08/01/24 05:40:30: Full Action Command: Target.chat_bubble
+08/01/24 05:40:30: Action Params: ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 05:40:30: Target Object: Target
+08/01/24 05:40:30: Action Command: chat_bubble
+08/01/24 05:40:30: Action 'PortalOutcome' added/updated successfully.
+08/01/24 05:40:31: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:31: Raw command: add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians",
+"FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+08/01/24 05:40:31: Cleaned command: add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+08/01/24 05:40:31: Detected add_action command
+08/01/24 05:40:31: Arguments string: ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 05:40:31: Parsing arguments: ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 05:40:31: Parsed arguments: ["ArtifactOutcome","Target.chat_bubble","[\"The artifacts have awakened ancient guardians! Your move?\", [[\"Fight the guardians\", \"FightGuardians\"], [\"Try to deactivate artifacts\", \"DeactivateArtifacts\"], [\"Escape with artifacts\", \"EscapeWithArtifacts\"]]]"]
+08/01/24 05:40:31: Parsed arguments: ["ArtifactOutcome","Target.chat_bubble","[\"The artifacts have awakened ancient guardians! Your move?\", [[\"Fight the guardians\", \"FightGuardians\"], [\"Try to deactivate artifacts\", \"DeactivateArtifacts\"], [\"Escape with artifacts\", \"EscapeWithArtifacts\"]]]"]
+08/01/24 05:40:31: Action Name: ArtifactOutcome
+08/01/24 05:40:31: Full Action Command: Target.chat_bubble
+08/01/24 05:40:31: Action Params: ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 05:40:31: Target Object: Target
+08/01/24 05:40:31: Action Command: chat_bubble
+08/01/24 05:40:31: Action 'ArtifactOutcome' added/updated successfully.
+08/01/24 05:40:31: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:40: Raw command: add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture",
+"PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+08/01/24 05:40:40: Cleaned command: add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+08/01/24 05:40:40: Detected add_action command
+08/01/24 05:40:40: Arguments string: BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 05:40:40: Parsing arguments: BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 05:40:40: Parsed arguments: ["BattleOutcome","Target.chat_bubble","[\"Victory! The enemy forces are retreating. Next steps?\", [[\"Pursue and capture\", \"PursueEnemy\"], [\"Secure the area\", \"SecureArea\"], [\"Call for reinforcements\", \"CallReinforcements\"]]]"]
+08/01/24 05:40:40: Parsed arguments: ["BattleOutcome","Target.chat_bubble","[\"Victory! The enemy forces are retreating. Next steps?\", [[\"Pursue and capture\", \"PursueEnemy\"], [\"Secure the area\", \"SecureArea\"], [\"Call for reinforcements\", \"CallReinforcements\"]]]"]
+08/01/24 05:40:40: Action Name: BattleOutcome
+08/01/24 05:40:40: Full Action Command: Target.chat_bubble
+08/01/24 05:40:40: Action Params: ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 05:40:40: Target Object: Target
+08/01/24 05:40:40: Action Command: chat_bubble
+08/01/24 05:40:40: Action 'BattleOutcome' added/updated successfully.
+08/01/24 05:40:40: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:40: Raw command: add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose
+amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+08/01/24 05:40:40: Cleaned command: add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+08/01/24 05:40:40: Detected add_action command
+08/01/24 05:40:40: Arguments string: TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 05:40:40: Parsing arguments: TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 05:40:40: Parsed arguments: ["TreatyOutcome","Target.chat_bubble","[\"The peace treaty is ready. Final decisions:\", [[\"Sign the treaty\", \"SignTreaty\"], [\"Propose amendments\", \"ProposeAmendments\"], [\"Reject and return to negotiations\", \"RenegotiateTreaty\"]]]"]
+08/01/24 05:40:40: Parsed arguments: ["TreatyOutcome","Target.chat_bubble","[\"The peace treaty is ready. Final decisions:\", [[\"Sign the treaty\", \"SignTreaty\"], [\"Propose amendments\", \"ProposeAmendments\"], [\"Reject and return to negotiations\", \"RenegotiateTreaty\"]]]"]
+08/01/24 05:40:40: Action Name: TreatyOutcome
+08/01/24 05:40:40: Full Action Command: Target.chat_bubble
+08/01/24 05:40:40: Action Params: ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 05:40:40: Target Object: Target
+08/01/24 05:40:40: Action Command: chat_bubble
+08/01/24 05:40:40: Action 'TreatyOutcome' added/updated successfully.
+08/01/24 05:40:40: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:40: Raw command: add_action(EnterPortal, execute_action, ["PortalAdventure"])
+08/01/24 05:40:40: Cleaned command: add_action(EnterPortal, execute_action, ["PortalAdventure"])
+08/01/24 05:40:40: Detected add_action command
+08/01/24 05:40:40: Arguments string: EnterPortal, execute_action, ["PortalAdventure"]
+08/01/24 05:40:40: Parsing arguments: EnterPortal, execute_action, ["PortalAdventure"]
+08/01/24 05:40:40: Parsed arguments: ["EnterPortal","execute_action","[\"PortalAdventure\"]"]
+08/01/24 05:40:40: Parsed arguments: ["EnterPortal","execute_action","[\"PortalAdventure\"]"]
+08/01/24 05:40:40: Action Name: EnterPortal
+08/01/24 05:40:40: Full Action Command: execute_action
+08/01/24 05:40:40: Action Params: ["PortalAdventure"]
+08/01/24 05:40:40: Target Object: yeancat
+08/01/24 05:40:40: Action Command: execute_action
+08/01/24 05:40:40: Action 'EnterPortal' added/updated successfully.
+08/01/24 05:40:40: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:40: Raw command: add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+08/01/24 05:40:40: Cleaned command: add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+08/01/24 05:40:40: Detected add_action command
+08/01/24 05:40:40: Arguments string: PurchaseArtifacts, execute_action, ["ArtifactMystery"]
+08/01/24 05:40:40: Parsing arguments: PurchaseArtifacts, execute_action, ["ArtifactMystery"]
+08/01/24 05:40:40: Parsed arguments: ["PurchaseArtifacts","execute_action","[\"ArtifactMystery\"]"]
+08/01/24 05:40:40: Parsed arguments: ["PurchaseArtifacts","execute_action","[\"ArtifactMystery\"]"]
+08/01/24 05:40:40: Action Name: PurchaseArtifacts
+08/01/24 05:40:40: Full Action Command: execute_action
+08/01/24 05:40:40: Action Params: ["ArtifactMystery"]
+08/01/24 05:40:40: Target Object: yeancat
+08/01/24 05:40:40: Action Command: execute_action
+08/01/24 05:40:40: Action 'PurchaseArtifacts' added/updated successfully.
+08/01/24 05:40:40: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:40: Raw command: add_action(EngageCombat, execute_action, ["EpicBattle"])
+08/01/24 05:40:40: Cleaned command: add_action(EngageCombat, execute_action, ["EpicBattle"])
+08/01/24 05:40:40: Detected add_action command
+08/01/24 05:40:40: Arguments string: EngageCombat, execute_action, ["EpicBattle"]
+08/01/24 05:40:40: Parsing arguments: EngageCombat, execute_action, ["EpicBattle"]
+08/01/24 05:40:40: Parsed arguments: ["EngageCombat","execute_action","[\"EpicBattle\"]"]
+08/01/24 05:40:40: Parsed arguments: ["EngageCombat","execute_action","[\"EpicBattle\"]"]
+08/01/24 05:40:40: Action Name: EngageCombat
+08/01/24 05:40:40: Full Action Command: execute_action
+08/01/24 05:40:40: Action Params: ["EpicBattle"]
+08/01/24 05:40:40: Target Object: yeancat
+08/01/24 05:40:40: Action Command: execute_action
+08/01/24 05:40:40: Action 'EngageCombat' added/updated successfully.
+08/01/24 05:40:40: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:40: Raw command: add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+08/01/24 05:40:40: Cleaned command: add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+08/01/24 05:40:40: Detected add_action command
+08/01/24 05:40:40: Arguments string: OfferTrade, execute_action, ["PeaceTreaty"]
+08/01/24 05:40:40: Parsing arguments: OfferTrade, execute_action, ["PeaceTreaty"]
+08/01/24 05:40:40: Parsed arguments: ["OfferTrade","execute_action","[\"PeaceTreaty\"]"]
+08/01/24 05:40:40: Parsed arguments: ["OfferTrade","execute_action","[\"PeaceTreaty\"]"]
+08/01/24 05:40:40: Action Name: OfferTrade
+08/01/24 05:40:40: Full Action Command: execute_action
+08/01/24 05:40:40: Action Params: ["PeaceTreaty"]
+08/01/24 05:40:41: Target Object: yeancat
+08/01/24 05:40:41: Action Command: execute_action
+08/01/24 05:40:41: Action 'OfferTrade' added/updated successfully.
+08/01/24 05:40:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:41: Raw command: add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe",
+"StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+08/01/24 05:40:41: Cleaned command: add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+08/01/24 05:40:41: Detected add_action command
+08/01/24 05:40:41: Arguments string: SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 05:40:41: Parsing arguments: SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 05:40:41: Parsed arguments: ["SpaceAdventureStart","Target.chat_bubble","[\"Welcome to the Space Adventure! Choose your path:\", [[\"Explore the universe\", \"StartExploration\"], [\"Engage in battle\", \"StartBattle\"], [\"Embark on a peace mission\", \"StartPeaceMission\"]]]"]
+08/01/24 05:40:41: Parsed arguments: ["SpaceAdventureStart","Target.chat_bubble","[\"Welcome to the Space Adventure! Choose your path:\", [[\"Explore the universe\", \"StartExploration\"], [\"Engage in battle\", \"StartBattle\"], [\"Embark on a peace mission\", \"StartPeaceMission\"]]]"]
+08/01/24 05:40:41: Action Name: SpaceAdventureStart
+08/01/24 05:40:41: Full Action Command: Target.chat_bubble
+08/01/24 05:40:41: Action Params: ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 05:40:41: Target Object: Target
+08/01/24 05:40:41: Action Command: chat_bubble
+08/01/24 05:40:41: Action 'SpaceAdventureStart' added/updated successfully.
+08/01/24 05:40:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:41: Raw command: add_action(StartExploration, execute_action, ["SpaceExploration"])
+08/01/24 05:40:41: Cleaned command: add_action(StartExploration, execute_action, ["SpaceExploration"])
+08/01/24 05:40:41: Detected add_action command
+08/01/24 05:40:41: Arguments string: StartExploration, execute_action, ["SpaceExploration"]
+08/01/24 05:40:41: Parsing arguments: StartExploration, execute_action, ["SpaceExploration"]
+08/01/24 05:40:41: Parsed arguments: ["StartExploration","execute_action","[\"SpaceExploration\"]"]
+08/01/24 05:40:41: Parsed arguments: ["StartExploration","execute_action","[\"SpaceExploration\"]"]
+08/01/24 05:40:41: Action Name: StartExploration
+08/01/24 05:40:41: Full Action Command: execute_action
+08/01/24 05:40:41: Action Params: ["SpaceExploration"]
+08/01/24 05:40:41: Target Object: yeancat
+08/01/24 05:40:41: Action Command: execute_action
+08/01/24 05:40:41: Action 'StartExploration' added/updated successfully.
+08/01/24 05:40:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:41: Raw command: add_action(StartBattle, execute_action, ["BattleSequence"])
+08/01/24 05:40:41: Cleaned command: add_action(StartBattle, execute_action, ["BattleSequence"])
+08/01/24 05:40:41: Detected add_action command
+08/01/24 05:40:41: Arguments string: StartBattle, execute_action, ["BattleSequence"]
+08/01/24 05:40:41: Parsing arguments: StartBattle, execute_action, ["BattleSequence"]
+08/01/24 05:40:41: Parsed arguments: ["StartBattle","execute_action","[\"BattleSequence\"]"]
+08/01/24 05:40:41: Parsed arguments: ["StartBattle","execute_action","[\"BattleSequence\"]"]
+08/01/24 05:40:41: Action Name: StartBattle
+08/01/24 05:40:41: Full Action Command: execute_action
+08/01/24 05:40:41: Action Params: ["BattleSequence"]
+08/01/24 05:40:41: Target Object: yeancat
+08/01/24 05:40:41: Action Command: execute_action
+08/01/24 05:40:41: Action 'StartBattle' added/updated successfully.
+08/01/24 05:40:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:41: Raw command: add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+08/01/24 05:40:41: Cleaned command: add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+08/01/24 05:40:41: Detected add_action command
+08/01/24 05:40:41: Arguments string: StartPeaceMission, execute_action, ["PeacefulMission"]
+08/01/24 05:40:41: Parsing arguments: StartPeaceMission, execute_action, ["PeacefulMission"]
+08/01/24 05:40:41: Parsed arguments: ["StartPeaceMission","execute_action","[\"PeacefulMission\"]"]
+08/01/24 05:40:41: Parsed arguments: ["StartPeaceMission","execute_action","[\"PeacefulMission\"]"]
+08/01/24 05:40:41: Action Name: StartPeaceMission
+08/01/24 05:40:41: Full Action Command: execute_action
+08/01/24 05:40:41: Action Params: ["PeacefulMission"]
+08/01/24 05:40:41: Target Object: yeancat
+08/01/24 05:40:41: Action Command: execute_action
+08/01/24 05:40:41: Action 'StartPeaceMission' added/updated successfully.
+08/01/24 05:40:41: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:46: Raw command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+08/01/24 05:40:46: Cleaned command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+08/01/24 05:40:46: Detected add_action command
+08/01/24 05:40:46: Arguments string: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+08/01/24 05:40:46: Parsing arguments: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+08/01/24 05:40:46: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+08/01/24 05:40:46: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+08/01/24 05:40:46: Action Name: SpawnBoss0
+08/01/24 05:40:46: Full Action Command: Target.spawn_boss
+08/01/24 05:40:46: Action Params: [0, 0, -500]
+08/01/24 05:40:46: Target Object: Target
+08/01/24 05:40:46: Action Command: spawn_boss
+08/01/24 05:40:46: Action 'SpawnBoss0' added/updated successfully.
+08/01/24 05:40:46: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:46: Raw command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+08/01/24 05:40:46: Cleaned command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+08/01/24 05:40:46: Detected add_action command
+08/01/24 05:40:46: Arguments string: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+08/01/24 05:40:46: Parsing arguments: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+08/01/24 05:40:46: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+08/01/24 05:40:46: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+08/01/24 05:40:46: Action Name: SpawnBoss1
+08/01/24 05:40:46: Full Action Command: Target.spawn_boss
+08/01/24 05:40:46: Action Params: [1, 353, -353]
+08/01/24 05:40:46: Target Object: Target
+08/01/24 05:40:46: Action Command: spawn_boss
+08/01/24 05:40:46: Action 'SpawnBoss1' added/updated successfully.
+08/01/24 05:40:46: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:46: Raw command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+08/01/24 05:40:46: Cleaned command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+08/01/24 05:40:46: Detected add_action command
+08/01/24 05:40:46: Arguments string: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+08/01/24 05:40:46: Parsing arguments: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+08/01/24 05:40:46: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+08/01/24 05:40:46: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+08/01/24 05:40:46: Action Name: SpawnBoss3
+08/01/24 05:40:46: Full Action Command: Target.spawn_boss
+08/01/24 05:40:46: Action Params: [3, 353, 353]
+08/01/24 05:40:46: Target Object: Target
+08/01/24 05:40:46: Action Command: spawn_boss
+08/01/24 05:40:46: Action 'SpawnBoss3' added/updated successfully.
+08/01/24 05:40:46: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:46: Raw command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+08/01/24 05:40:46: Cleaned command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+08/01/24 05:40:46: Detected add_action command
+08/01/24 05:40:46: Arguments string: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+08/01/24 05:40:46: Parsing arguments: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+08/01/24 05:40:46: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+08/01/24 05:40:46: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+08/01/24 05:40:46: Action Name: SpawnBoss4
+08/01/24 05:40:46: Full Action Command: Target.spawn_boss
+08/01/24 05:40:46: Action Params: [4, 0, 500]
+08/01/24 05:40:46: Target Object: Target
+08/01/24 05:40:46: Action Command: spawn_boss
+08/01/24 05:40:46: Action 'SpawnBoss4' added/updated successfully.
+08/01/24 05:40:46: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:47: Raw command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+08/01/24 05:40:47: Cleaned command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+08/01/24 05:40:47: Detected add_action command
+08/01/24 05:40:47: Arguments string: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+08/01/24 05:40:47: Parsing arguments: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+08/01/24 05:40:47: Action Name: SpawnBoss5
+08/01/24 05:40:47: Full Action Command: Target.spawn_boss
+08/01/24 05:40:47: Action Params: [5, -353, 353]
+08/01/24 05:40:47: Target Object: Target
+08/01/24 05:40:47: Action Command: spawn_boss
+08/01/24 05:40:47: Action 'SpawnBoss5' added/updated successfully.
+08/01/24 05:40:47: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:47: Raw command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+08/01/24 05:40:47: Cleaned command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+08/01/24 05:40:47: Detected add_action command
+08/01/24 05:40:47: Arguments string: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+08/01/24 05:40:47: Parsing arguments: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+08/01/24 05:40:47: Action Name: SpawnBoss6
+08/01/24 05:40:47: Full Action Command: Target.spawn_boss
+08/01/24 05:40:47: Action Params: [6, -500, 0]
+08/01/24 05:40:47: Target Object: Target
+08/01/24 05:40:47: Action Command: spawn_boss
+08/01/24 05:40:47: Action 'SpawnBoss6' added/updated successfully.
+08/01/24 05:40:47: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:47: Raw command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+08/01/24 05:40:47: Cleaned command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+08/01/24 05:40:47: Detected add_action command
+08/01/24 05:40:47: Arguments string: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+08/01/24 05:40:47: Parsing arguments: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+08/01/24 05:40:47: Action Name: SpawnBoss7
+08/01/24 05:40:47: Full Action Command: Target.spawn_boss
+08/01/24 05:40:47: Action Params: [7, -353, -353]
+08/01/24 05:40:47: Target Object: Target
+08/01/24 05:40:47: Action Command: spawn_boss
+08/01/24 05:40:47: Action 'SpawnBoss7' added/updated successfully.
+08/01/24 05:40:47: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:47: Raw command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+08/01/24 05:40:47: Cleaned command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+08/01/24 05:40:47: Detected add_action command
+08/01/24 05:40:47: Arguments string: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+08/01/24 05:40:47: Parsing arguments: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+08/01/24 05:40:47: Action Name: SpawnBoss8
+08/01/24 05:40:47: Full Action Command: Target.spawn_boss
+08/01/24 05:40:47: Action Params: [8, 0, -400]
+08/01/24 05:40:47: Target Object: Target
+08/01/24 05:40:47: Action Command: spawn_boss
+08/01/24 05:40:47: Action 'SpawnBoss8' added/updated successfully.
+08/01/24 05:40:47: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:47: Raw command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+08/01/24 05:40:47: Cleaned command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+08/01/24 05:40:47: Detected add_action command
+08/01/24 05:40:47: Arguments string: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+08/01/24 05:40:47: Parsing arguments: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+08/01/24 05:40:47: Action Name: SpawnBoss9
+08/01/24 05:40:47: Full Action Command: Target.spawn_boss
+08/01/24 05:40:47: Action Params: [9, 283, -283]
+08/01/24 05:40:47: Target Object: Target
+08/01/24 05:40:47: Action Command: spawn_boss
+08/01/24 05:40:47: Action 'SpawnBoss9' added/updated successfully.
+08/01/24 05:40:47: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:47: Raw command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+08/01/24 05:40:47: Cleaned command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+08/01/24 05:40:47: Detected add_action command
+08/01/24 05:40:47: Arguments string: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+08/01/24 05:40:47: Parsing arguments: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+08/01/24 05:40:47: Action Name: SpawnBoss10
+08/01/24 05:40:47: Full Action Command: Target.spawn_boss
+08/01/24 05:40:47: Action Params: [10, 400, 0]
+08/01/24 05:40:47: Target Object: Target
+08/01/24 05:40:47: Action Command: spawn_boss
+08/01/24 05:40:47: Action 'SpawnBoss10' added/updated successfully.
+08/01/24 05:40:47: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:47: Raw command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+08/01/24 05:40:47: Cleaned command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+08/01/24 05:40:47: Detected add_action command
+08/01/24 05:40:47: Arguments string: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+08/01/24 05:40:47: Parsing arguments: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+08/01/24 05:40:47: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+08/01/24 05:40:48: Action Name: SpawnBoss11
+08/01/24 05:40:48: Full Action Command: Target.spawn_boss
+08/01/24 05:40:48: Action Params: [11, 283, 283]
+08/01/24 05:40:48: Target Object: Target
+08/01/24 05:40:48: Action Command: spawn_boss
+08/01/24 05:40:48: Action 'SpawnBoss11' added/updated successfully.
+08/01/24 05:40:48: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:48: Raw command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+08/01/24 05:40:48: Cleaned command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+08/01/24 05:40:48: Detected add_action command
+08/01/24 05:40:48: Arguments string: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+08/01/24 05:40:48: Parsing arguments: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+08/01/24 05:40:48: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+08/01/24 05:40:48: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+08/01/24 05:40:48: Action Name: SpawnBoss12
+08/01/24 05:40:48: Full Action Command: Target.spawn_boss
+08/01/24 05:40:48: Action Params: [12, 0, 400]
+08/01/24 05:40:48: Target Object: Target
+08/01/24 05:40:48: Action Command: spawn_boss
+08/01/24 05:40:48: Action 'SpawnBoss12' added/updated successfully.
+08/01/24 05:40:48: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:48: Raw command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+08/01/24 05:40:48: Cleaned command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+08/01/24 05:40:48: Detected add_action command
+08/01/24 05:40:48: Arguments string: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+08/01/24 05:40:48: Parsing arguments: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+08/01/24 05:40:48: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+08/01/24 05:40:48: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+08/01/24 05:40:48: Action Name: SpawnBoss13
+08/01/24 05:40:48: Full Action Command: Target.spawn_boss
+08/01/24 05:40:48: Action Params: [13, -283, 283]
+08/01/24 05:40:48: Target Object: Target
+08/01/24 05:40:48: Action Command: spawn_boss
+08/01/24 05:40:48: Action 'SpawnBoss13' added/updated successfully.
+08/01/24 05:40:48: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:48: Raw command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5",
+"SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+08/01/24 05:40:48: Cleaned command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+08/01/24 05:40:48: Parsing arguments: SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"]
+08/01/24 05:40:48: Parsed arguments: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+08/01/24 05:40:48: Command Name: add_action_group
+08/01/24 05:40:48: Target Object: yeancat
+08/01/24 05:40:48: Parameters: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+08/01/24 05:40:52: Raw command: add_condition(IsLevelHigh, Level, >=, 10);
+08/01/24 05:40:52: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10);
+08/01/24 05:40:52: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 05:40:52: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 05:40:52: Command Name: add_condition
+08/01/24 05:40:52: Target Object: yeancat
+08/01/24 05:40:52: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 05:40:52: Condition 'IsLevelHigh' added successfully.
+08/01/24 05:40:52: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:52: Raw command: add_condition("IsHealthFull", "Health", "=", 50);
+08/01/24 05:40:52: Cleaned command: add_condition("IsHealthFull", "Health", "=", 50);
+08/01/24 05:40:52: Parsing arguments: "IsHealthFull", "Health", "=", 50
+08/01/24 05:40:52: Parsed arguments: ["\"IsHealthFull\"","\"Health\"","\"=\"","50"]
+08/01/24 05:40:52: Command Name: add_condition
+08/01/24 05:40:52: Target Object: yeancat
+08/01/24 05:40:52: Parameters: ["\"IsHealthFull\"","\"Health\"","\"=\"","50"]
+08/01/24 05:40:52: Condition '"IsHealthFull"' added successfully.
+08/01/24 05:40:52: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:52: Raw command: add_condition("IsLevelHighAndHealthFull", "IsLevelHigh", "and", "IsHealthFull");
+08/01/24 05:40:52: Cleaned command: add_condition("IsLevelHighAndHealthFull", "IsLevelHigh", "and", "IsHealthFull");
+08/01/24 05:40:52: Parsing arguments: "IsLevelHighAndHealthFull", "IsLevelHigh", "and", "IsHealthFull"
+08/01/24 05:40:52: Parsed arguments: ["\"IsLevelHighAndHealthFull\"","\"IsLevelHigh\"","\"and\"","\"IsHealthFull\""]
+08/01/24 05:40:52: Command Name: add_condition
+08/01/24 05:40:52: Target Object: yeancat
+08/01/24 05:40:52: Parameters: ["\"IsLevelHighAndHealthFull\"","\"IsLevelHigh\"","\"and\"","\"IsHealthFull\""]
+08/01/24 05:40:52: Condition '"IsLevelHighAndHealthFull"' added successfully.
+08/01/24 05:40:52: Actions and action groups saved successfully to Actions.txt.
+08/01/24 05:40:52: Raw command: add_action_condition("CheckLevel10", "IsLevelHigh", "Level10OrAbove", "BelowLevel10");
+08/01/24 05:40:52: Cleaned command: add_action_condition("CheckLevel10", "IsLevelHigh", "Level10OrAbove", "BelowLevel10");
+08/01/24 05:40:52: Parsing arguments: "CheckLevel10", "IsLevelHigh", "Level10OrAbove", "BelowLevel10"
+08/01/24 05:40:52: Parsed arguments: ["\"CheckLevel10\"","\"IsLevelHigh\"","\"Level10OrAbove\"","\"BelowLevel10\""]
+08/01/24 05:40:52: Command Name: add_action_condition
+08/01/24 05:40:52: Target Object: yeancat
+08/01/24 05:40:52: Parameters: ["\"CheckLevel10\"","\"IsLevelHigh\"","\"Level10OrAbove\"","\"BelowLevel10\""]
+08/01/24 05:40:52: Action condition '"CheckLevel10"' added successfully.
+08/01/24 05:40:52: Raw command: add_action_condition("CheckHonestyYes", "IsLevelHigh", "HonestAbove10", "LyingBelow10");
+08/01/24 05:40:52: Cleaned command: add_action_condition("CheckHonestyYes", "IsLevelHigh", "HonestAbove10", "LyingBelow10");
+08/01/24 05:40:52: Parsing arguments: "CheckHonestyYes", "IsLevelHigh", "HonestAbove10", "LyingBelow10"
+08/01/24 05:40:52: Parsed arguments: ["\"CheckHonestyYes\"","\"IsLevelHigh\"","\"HonestAbove10\"","\"LyingBelow10\""]
+08/01/24 05:40:52: Command Name: add_action_condition
+08/01/24 05:40:52: Target Object: yeancat
+08/01/24 05:40:52: Parameters: ["\"CheckHonestyYes\"","\"IsLevelHigh\"","\"HonestAbove10\"","\"LyingBelow10\""]
+08/01/24 05:40:52: Action condition '"CheckHonestyYes"' added successfully.
+08/01/24 05:40:52: Raw command: add_action_condition("CheckHonestyNo", "IsLevelHigh", "LyingAbove10", "HonestBelow10");
+08/01/24 05:40:53: Cleaned command: add_action_condition("CheckHonestyNo", "IsLevelHigh", "LyingAbove10", "HonestBelow10");
+08/01/24 05:40:53: Parsing arguments: "CheckHonestyNo", "IsLevelHigh", "LyingAbove10", "HonestBelow10"
+08/01/24 05:40:53: Parsed arguments: ["\"CheckHonestyNo\"","\"IsLevelHigh\"","\"LyingAbove10\"","\"HonestBelow10\""]
+08/01/24 05:40:53: Command Name: add_action_condition
+08/01/24 05:40:53: Target Object: yeancat
+08/01/24 05:40:53: Parameters: ["\"CheckHonestyNo\"","\"IsLevelHigh\"","\"LyingAbove10\"","\"HonestBelow10\""]
+08/01/24 05:40:53: Action condition '"CheckHonestyNo"' added successfully.
+08/01/24 05:40:53: Raw command: add_action_condition("CheckLevelAndHealth", "IsLevelHighAndHealthFull", "HighLevelFullHealth","NotHighLevelOrNotFullHealth");
+08/01/24 05:40:53: Cleaned command: add_action_condition("CheckLevelAndHealth", "IsLevelHighAndHealthFull", "HighLevelFullHealth","NotHighLevelOrNotFullHealth");
+08/01/24 05:40:53: Parsing arguments: "CheckLevelAndHealth", "IsLevelHighAndHealthFull", "HighLevelFullHealth","NotHighLevelOrNotFullHealth"
+08/01/24 05:40:53: Parsed arguments: ["\"CheckLevelAndHealth\"","\"IsLevelHighAndHealthFull\"","\"HighLevelFullHealth\"","\"NotHighLevelOrNotFullHealth\""]
+08/01/24 05:40:53: Command Name: add_action_condition
+08/01/24 05:40:53: Target Object: yeancat
+08/01/24 05:40:53: Parameters: ["\"CheckLevelAndHealth\"","\"IsLevelHighAndHealthFull\"","\"HighLevelFullHealth\"","\"NotHighLevelOrNotFullHealth\""]
+08/01/24 05:40:53: Action condition '"CheckLevelAndHealth"' added successfully.
+08/01/24 05:40:58: Raw command: list_action_conditions
+08/01/24 05:40:58: Cleaned command: list_action_conditions
+08/01/24 05:40:58: Command Name: list_action_conditions
+08/01/24 05:40:58: Target Object: yeancat
+08/01/24 05:40:58: Parameters: []
+08/01/24 05:40:58: Action Conditions: "CheckHonestyNo", "CheckHonestyYes", 
+08/01/24 05:40:58: "CheckLevel10", "CheckLevelAndHealth"

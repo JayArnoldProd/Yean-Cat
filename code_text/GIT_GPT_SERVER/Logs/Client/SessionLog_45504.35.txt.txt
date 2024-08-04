@@ -1,0 +1,273 @@
+07/31/24 03:28:43: Loaded action/group: SaveGameNow
+07/31/24 03:28:43: Loaded action/group: GotoKingsKingdom
+07/31/24 03:28:43: Loaded action/group: EnterPortal
+07/31/24 03:28:43: Loaded action/group: PurchaseArtifacts
+07/31/24 03:28:43: Loaded action/group: BattleOutcome
+07/31/24 03:28:43: Loaded action/group: VisitMarket
+07/31/24 03:28:43: Loaded action/group: GotoDivineDomain
+07/31/24 03:28:43: Loaded action/group: GotoTheEndonda
+07/31/24 03:28:43: Loaded action/group: GotoUniverseCity
+07/31/24 03:28:43: Loaded action/group: SpawnNPC1
+07/31/24 03:28:43: Loaded action/group: GotoLandOfLucy
+07/31/24 03:28:43: Loaded action/group: GotoPlaceOfPablo
+07/31/24 03:28:43: Loaded action/group: InvestigateSignals
+07/31/24 03:28:43: Loaded action/group: OfferTrade
+07/31/24 03:28:43: Loaded action/group: DisableEnemySpawns
+07/31/24 03:28:43: Loaded action/group: BattleSequence
+07/31/24 03:28:43: Loaded action/group: StartBattle
+07/31/24 03:28:43: Loaded action/group: SpawnBoss4
+07/31/24 03:28:43: Loaded action/group: SpawnBossCircle
+07/31/24 03:28:43: Loaded action/group: GotoTheIcyHeart
+07/31/24 03:28:43: Loaded action/group: EngageCombat
+07/31/24 03:28:44: Loaded action/group: GotoGhostTown
+07/31/24 03:28:44: Loaded action/group: SpawnBoss0
+07/31/24 03:28:44: Loaded action/group: SpawnBoss13
+07/31/24 03:28:44: Loaded action/group: StartExploration
+07/31/24 03:28:44: Loaded action/group: SpawnBoss8
+07/31/24 03:28:44: Loaded action/group: SpawnBoss6
+07/31/24 03:28:44: Loaded action/group: SetLevelFive
+07/31/24 03:28:44: Loaded action/group: LevelUpThree
+07/31/24 03:28:44: Loaded action/group: LevelUpOnce
+07/31/24 03:28:44: Loaded action/group: GotoTheGoldMines
+07/31/24 03:28:44: Loaded action/group: SpawnBoss11
+07/31/24 03:28:44: Loaded action/group: StartPeaceMission
+07/31/24 03:28:44: Loaded action/group: SpawnBoss2
+07/31/24 03:28:44: Loaded action/group: DiplomaticChoice
+07/31/24 03:28:44: Loaded action/group: TreatyOutcome
+07/31/24 03:28:44: Loaded action/group: ExplorationChoice
+07/31/24 03:28:44: Loaded action/group: BattleChoice
+07/31/24 03:28:44: Loaded action/group: ArtifactMystery
+07/31/24 03:28:44: Loaded action/group: PortalOutcome
+07/31/24 03:28:44: Loaded action/group: PeacefulMission
+07/31/24 03:28:44: Loaded action/group: SpaceAdventureStart
+07/31/24 03:28:44: Loaded action/group: PortalAdventure
+07/31/24 03:28:44: Loaded action/group: EnableEnemySpawns
+07/31/24 03:28:44: Loaded action/group: GotoVulturesValley
+07/31/24 03:28:44: Loaded action/group: GotoEarth
+07/31/24 03:28:44: Loaded action/group: SpawnBoss1
+07/31/24 03:28:44: Loaded action/group: GotoStormySands
+07/31/24 03:28:44: Loaded action/group: SpawnBoss12
+07/31/24 03:28:44: Loaded action/group: SpaceExploration
+07/31/24 03:28:44: Loaded action/group: GotoFantasia
+07/31/24 03:28:44: Loaded action/group: SpawnBoss5
+07/31/24 03:28:44: Loaded action/group: AG1
+07/31/24 03:28:44: Loaded action/group: SpawnBoss10
+07/31/24 03:28:44: Loaded action/group: GotoYetopia
+07/31/24 03:28:44: Loaded action/group: SpawnBoss3
+07/31/24 03:28:44: Loaded action/group: ArtifactOutcome
+07/31/24 03:28:44: Loaded action/group: EpicBattle
+07/31/24 03:28:44: Loaded action/group: SpawnBoss7
+07/31/24 03:28:44: Loaded action/group: SpawnBoss9
+07/31/24 03:28:44: Loaded action/group: PeaceTreaty
+07/31/24 03:28:44: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 03:28:44: [Client] Failed to reconnect to server. Will try again...
+07/31/24 03:29:16: Raw command: show_variable(Macro3)
+07/31/24 03:29:16: Cleaned command: show_variable(Macro3)
+07/31/24 03:29:16: Parsing arguments: Macro3
+07/31/24 03:29:16: Parsed arguments: ["Macro3"]
+07/31/24 03:29:16: Command Name: show_variable
+07/31/24 03:29:16: Target Object: yeancat
+07/31/24 03:29:16: Parameters: ["Macro3"]
+07/31/24 03:29:16: Macro3: 0
+07/31/24 03:29:24: Raw command: level_up(300)
+07/31/24 03:29:24: Cleaned command: level_up(300)
+07/31/24 03:29:24: Parsing arguments: 300
+07/31/24 03:29:24: Parsed arguments: ["300"]
+07/31/24 03:29:24: Command Name: level_up
+07/31/24 03:29:24: Target Object: yeancat
+07/31/24 03:29:24: Parameters: ["300"]
+07/31/24 03:29:24: Level up initiated with goal: 300
+07/31/24 03:30:31: [Jay Arnold] when i jump and gain altitude the camera flips
+07/31/24 03:30:31: Creating chat bubble: " when i jump and gain altitude the camera flips", Owner: yeancat, Choices: []
+07/31/24 03:30:31: Chat Bubble Created. Following 'yeancat' with text: 'when i jump and gain altitude the camera flips'. Number of choices: 0
+07/31/24 03:30:33: Raw command: level_up(300)
+07/31/24 03:30:33: Cleaned command: level_up(300)
+07/31/24 03:30:33: Parsing arguments: 300
+07/31/24 03:30:33: Parsed arguments: ["300"]
+07/31/24 03:30:33: Command Name: level_up
+07/31/24 03:30:33: Target Object: yeancat
+07/31/24 03:30:33: Parameters: ["300"]
+07/31/24 03:30:33: Level up initiated with goal: 300
+07/31/24 03:30:40: Raw command: show_variable(Macro3)
+07/31/24 03:30:40: Cleaned command: show_variable(Macro3)
+07/31/24 03:30:40: Parsing arguments: Macro3
+07/31/24 03:30:40: Parsed arguments: ["Macro3"]
+07/31/24 03:30:40: Command Name: show_variable
+07/31/24 03:30:40: Target Object: yeancat
+07/31/24 03:30:40: Parameters: ["Macro3"]
+07/31/24 03:30:40: Macro3: 0.07
+07/31/24 03:30:59: [Jay Arnold] that is an issue
+07/31/24 03:30:59: Creating chat bubble: " that is an issue", Owner: yeancat, Choices: []
+07/31/24 03:30:59: Chat Bubble Created. Following 'yeancat' with text: 'that is an issue'. Number of choices: 0
+07/31/24 03:31:22: [Jay Arnold] but the effect does slide with altitude
+07/31/24 03:31:22: Creating chat bubble: " but the effect does slide with altitude", Owner: yeancat, Choices: []
+07/31/24 03:31:22: Chat Bubble Created. Following 'yeancat' with text: 'but the effect does slide with altitude'. Number of choices: 0
+07/31/24 03:31:26: Raw command: show_variable(Macro3)
+07/31/24 03:31:26: Cleaned command: show_variable(Macro3)
+07/31/24 03:31:26: Parsing arguments: Macro3
+07/31/24 03:31:26: Parsed arguments: ["Macro3"]
+07/31/24 03:31:26: Command Name: show_variable
+07/31/24 03:31:26: Target Object: yeancat
+07/31/24 03:31:26: Parameters: ["Macro3"]
+07/31/24 03:31:26: Macro3: 1
+07/31/24 03:31:47: [Jay Arnold] now everything im typing is upside down so im gonna stop
+07/31/24 03:31:47: Creating chat bubble: " now everything im typing is upside down so im gonna stop", Owner: yeancat, Choices: []
+07/31/24 03:31:47: Chat Bubble Created. Following 'yeancat' with text: 'now everything im typing is upside down so im gonna stop'. Number of choices: 0
+07/31/24 03:31:54: [Jay Arnold] but i will try and aplly an offset
+07/31/24 03:31:54: Creating chat bubble: " but i will try and aplly an offset", Owner: yeancat, Choices: []
+07/31/24 03:31:54: Chat Bubble Created. Following 'yeancat' with text: 'but i will try and aplly an offset'. Number of choices: 0
+07/31/24 03:32:15: Raw command: set_variable(Macro5,1000)
+07/31/24 03:32:15: Cleaned command: set_variable(Macro5,1000)
+07/31/24 03:32:15: Parsing arguments: Macro5,1000
+07/31/24 03:32:15: Parsed arguments: ["Macro5","1000"]
+07/31/24 03:32:15: Command Name: set_variable
+07/31/24 03:32:15: Target Object: yeancat
+07/31/24 03:32:15: Parameters: ["Macro5","1000"]
+07/31/24 03:32:15: Macro5 set to 1000
+07/31/24 03:32:21: Raw command: set_variable(Macro5,-1080)
+07/31/24 03:32:21: Cleaned command: set_variable(Macro5,-1080)
+07/31/24 03:32:21: Parsing arguments: Macro5,-1080
+07/31/24 03:32:21: Parsed arguments: ["Macro5","-1080"]
+07/31/24 03:32:21: Command Name: set_variable
+07/31/24 03:32:21: Target Object: yeancat
+07/31/24 03:32:21: Parameters: ["Macro5","-1080"]
+07/31/24 03:32:21: Macro5 set to -1080
+07/31/24 03:32:39: Raw command: set_variable(Macro5,0)
+07/31/24 03:32:39: Cleaned command: set_variable(Macro5,0)
+07/31/24 03:32:39: Parsing arguments: Macro5,0
+07/31/24 03:32:39: Parsed arguments: ["Macro5","0"]
+07/31/24 03:32:39: Command Name: set_variable
+07/31/24 03:32:39: Target Object: yeancat
+07/31/24 03:32:39: Parameters: ["Macro5","0"]
+07/31/24 03:32:39: Macro5 set to 0
+07/31/24 03:32:43: Raw command: set_variable(Macro5,-100)
+07/31/24 03:32:43: Cleaned command: set_variable(Macro5,-100)
+07/31/24 03:32:43: Parsing arguments: Macro5,-100
+07/31/24 03:32:43: Parsed arguments: ["Macro5","-100"]
+07/31/24 03:32:43: Command Name: set_variable
+07/31/24 03:32:43: Target Object: yeancat
+07/31/24 03:32:43: Parameters: ["Macro5","-100"]
+07/31/24 03:32:44: Macro5 set to -100
+07/31/24 03:32:46: Raw command: set_variable(Macro5,-1000)
+07/31/24 03:32:46: Cleaned command: set_variable(Macro5,-1000)
+07/31/24 03:32:46: Parsing arguments: Macro5,-1000
+07/31/24 03:32:46: Parsed arguments: ["Macro5","-1000"]
+07/31/24 03:32:46: Command Name: set_variable
+07/31/24 03:32:46: Target Object: yeancat
+07/31/24 03:32:46: Parameters: ["Macro5","-1000"]
+07/31/24 03:32:46: Macro5 set to -1000
+07/31/24 03:32:56: Raw command: set_variable(Macro5,1000)
+07/31/24 03:32:56: Cleaned command: set_variable(Macro5,1000)
+07/31/24 03:32:56: Parsing arguments: Macro5,1000
+07/31/24 03:32:56: Parsed arguments: ["Macro5","1000"]
+07/31/24 03:32:56: Command Name: set_variable
+07/31/24 03:32:56: Target Object: yeancat
+07/31/24 03:32:56: Parameters: ["Macro5","1000"]
+07/31/24 03:32:56: Macro5 set to 1000
+07/31/24 03:33:01: Raw command: set_variable(Macro5,1080)
+07/31/24 03:33:01: Cleaned command: set_variable(Macro5,1080)
+07/31/24 03:33:01: Parsing arguments: Macro5,1080
+07/31/24 03:33:01: Parsed arguments: ["Macro5","1080"]
+07/31/24 03:33:02: Command Name: set_variable
+07/31/24 03:33:02: Target Object: yeancat
+07/31/24 03:33:02: Parameters: ["Macro5","1080"]
+07/31/24 03:33:02: Macro5 set to 1080
+07/31/24 03:33:07: Raw command: set_variable(Macro5,1200)
+07/31/24 03:33:07: Cleaned command: set_variable(Macro5,1200)
+07/31/24 03:33:07: Parsing arguments: Macro5,1200
+07/31/24 03:33:07: Parsed arguments: ["Macro5","1200"]
+07/31/24 03:33:07: Command Name: set_variable
+07/31/24 03:33:07: Target Object: yeancat
+07/31/24 03:33:07: Parameters: ["Macro5","1200"]
+07/31/24 03:33:07: Macro5 set to 1200
+07/31/24 03:33:12: Raw command: set_variable(Macro5,1300)
+07/31/24 03:33:12: Cleaned command: set_variable(Macro5,1300)
+07/31/24 03:33:12: Parsing arguments: Macro5,1300
+07/31/24 03:33:12: Parsed arguments: ["Macro5","1300"]
+07/31/24 03:33:12: Command Name: set_variable
+07/31/24 03:33:12: Target Object: yeancat
+07/31/24 03:33:12: Parameters: ["Macro5","1300"]
+07/31/24 03:33:12: Macro5 set to 1300
+07/31/24 03:33:19: Raw command: set_variable(Macro5,1200)
+07/31/24 03:33:19: Cleaned command: set_variable(Macro5,1200)
+07/31/24 03:33:19: Parsing arguments: Macro5,1200
+07/31/24 03:33:19: Parsed arguments: ["Macro5","1200"]
+07/31/24 03:33:19: Command Name: set_variable
+07/31/24 03:33:19: Target Object: yeancat
+07/31/24 03:33:19: Parameters: ["Macro5","1200"]
+07/31/24 03:33:19: Macro5 set to 1200
+07/31/24 03:33:24: Raw command: set_variable(Macro5,1150)
+07/31/24 03:33:24: Cleaned command: set_variable(Macro5,1150)
+07/31/24 03:33:24: Parsing arguments: Macro5,1150
+07/31/24 03:33:24: Parsed arguments: ["Macro5","1150"]
+07/31/24 03:33:25: Command Name: set_variable
+07/31/24 03:33:25: Target Object: yeancat
+07/31/24 03:33:25: Parameters: ["Macro5","1150"]
+07/31/24 03:33:25: Macro5 set to 1150
+07/31/24 03:33:31: [Jay Arnold] that looks center
+07/31/24 03:33:31: Creating chat bubble: " that looks center", Owner: yeancat, Choices: []
+07/31/24 03:33:31: Chat Bubble Created. Following 'yeancat' with text: 'that looks center'. Number of choices: 0
+07/31/24 03:33:43: Raw command: goto_planet(Earth)
+07/31/24 03:33:43: Cleaned command: goto_planet(Earth)
+07/31/24 03:33:43: Parsing arguments: Earth
+07/31/24 03:33:43: Parsed arguments: ["Earth"]
+07/31/24 03:33:43: Command Name: goto_planet
+07/31/24 03:33:43: Target Object: yeancat
+07/31/24 03:33:43: Parameters: ["Earth"]
+07/31/24 03:33:43: Teleported to Earth.
+07/31/24 03:34:23: [Jay Arnold] because my camera is flipped i cant click on the menu to go back to a planet to flip it back
+07/31/24 03:34:23: Creating chat bubble: " because my camera is flipped i cant click on the menu to go back to a planet to flip it back", Owner: yeancat, Choices: []
+07/31/24 03:34:23: Chat Bubble Created. Following 'yeancat' with text: 'because my camera is flipped i cant click on the menu to go
+back to a planet to flip it back'. Number of choices: 0
+07/31/24 03:34:58: [Jay Arnold] there was one point wher the negative macro3 would make the effece just fine and it wasnt flipped,
+07/31/24 03:34:58: Creating chat bubble: " there was one point wher the negative macro3 would make the effece just fine and it wasnt flipped,", Owner: yeancat, Choices: []
+07/31/24 03:34:58: Chat Bubble Created. Following 'yeancat' with text: 'there was one point wher the negative macro3 would make
+the effece just fine and it wasnt flipped,'. Number of choices: 0
+07/31/24 03:35:26: [Jay Arnold] i had no problem with the fact that it was a negative number, just the amera movement became inverted
+07/31/24 03:35:26: Creating chat bubble: " i had no problem with the fact that it was a negative number, just the amera movement became inverted", Owner: yeancat, Choices: []
+07/31/24 03:35:26: Chat Bubble Created. Following 'yeancat' with text: 'i had no problem with the fact that it was a negative
+number, just the amera movement became inverted'. Number of choices: 0
+07/31/24 03:35:55: [Jay Arnold] lets see if this can be the last time we need to fix this to get it looking normal and functioning correctly
+07/31/24 03:35:55: Creating chat bubble: " lets see if this can be the last time we need to fix this to get it looking normal and functioning correctly", Owner: yeancat, Choices: []
+07/31/24 03:35:55: Chat Bubble Created. Following 'yeancat' with text: 'lets see if this can be the last time we need to fix this to get
+it looking normal and functioning correctly'. Number of choices: 0
+07/31/24 03:36:27: Raw command: set_variable(Macto2,0)
+07/31/24 03:36:27: Cleaned command: set_variable(Macto2,0)
+07/31/24 03:36:27: Parsing arguments: Macto2,0
+07/31/24 03:36:27: Parsed arguments: ["Macto2","0"]
+07/31/24 03:36:27: Command Name: set_variable
+07/31/24 03:36:27: Target Object: yeancat
+07/31/24 03:36:27: Parameters: ["Macto2","0"]
+07/31/24 03:36:27: Error: Variable 'Macto2' not found in details map.
+07/31/24 03:36:33: Raw command: set_variable(Macto2,1)
+07/31/24 03:36:33: Cleaned command: set_variable(Macto2,1)
+07/31/24 03:36:33: Parsing arguments: Macto2,1
+07/31/24 03:36:33: Parsed arguments: ["Macto2","1"]
+07/31/24 03:36:33: Command Name: set_variable
+07/31/24 03:36:33: Target Object: yeancat
+07/31/24 03:36:33: Parameters: ["Macto2","1"]
+07/31/24 03:36:33: Error: Variable 'Macto2' not found in details map.
+07/31/24 03:36:37: Raw command: set_variable(Macto2,2)
+07/31/24 03:36:37: Cleaned command: set_variable(Macto2,2)
+07/31/24 03:36:37: Parsing arguments: Macto2,2
+07/31/24 03:36:37: Parsed arguments: ["Macto2","2"]
+07/31/24 03:36:37: Command Name: set_variable
+07/31/24 03:36:37: Target Object: yeancat
+07/31/24 03:36:37: Parameters: ["Macto2","2"]
+07/31/24 03:36:37: Error: Variable 'Macto2' not found in details map.
+07/31/24 03:36:50: Raw command: set_variable(Macro2,2)
+07/31/24 03:36:50: Cleaned command: set_variable(Macro2,2)
+07/31/24 03:36:51: Parsing arguments: Macro2,2
+07/31/24 03:36:51: Parsed arguments: ["Macro2","2"]
+07/31/24 03:36:51: Command Name: set_variable
+07/31/24 03:36:51: Target Object: yeancat
+07/31/24 03:36:51: Parameters: ["Macro2","2"]
+07/31/24 03:36:51: Macro2 set to 2
+07/31/24 03:36:55: Raw command: set_variable(Macro2,4)
+07/31/24 03:36:55: Cleaned command: set_variable(Macro2,4)
+07/31/24 03:36:55: Parsing arguments: Macro2,4
+07/31/24 03:36:55: Parsed arguments: ["Macro2","4"]
+07/31/24 03:36:55: Command Name: set_variable
+07/31/24 03:36:55: Target Object: yeancat
+07/31/24 03:36:55: Parameters: ["Macro2","4"]
+07/31/24 03:36:55: Macro2 set to 4

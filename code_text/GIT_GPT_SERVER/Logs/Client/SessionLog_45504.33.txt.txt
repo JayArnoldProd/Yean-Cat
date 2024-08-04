@@ -1,0 +1,337 @@
+07/31/24 02:53:30: Loaded action/group: SaveGameNow
+07/31/24 02:53:30: Loaded action/group: GotoKingsKingdom
+07/31/24 02:53:30: Loaded action/group: EnterPortal
+07/31/24 02:53:30: Loaded action/group: PurchaseArtifacts
+07/31/24 02:53:30: Loaded action/group: BattleOutcome
+07/31/24 02:53:30: Loaded action/group: VisitMarket
+07/31/24 02:53:31: Loaded action/group: GotoDivineDomain
+07/31/24 02:53:31: Loaded action/group: GotoTheEndonda
+07/31/24 02:53:31: Loaded action/group: GotoUniverseCity
+07/31/24 02:53:31: Loaded action/group: SpawnNPC1
+07/31/24 02:53:31: Loaded action/group: GotoLandOfLucy
+07/31/24 02:53:31: Loaded action/group: GotoPlaceOfPablo
+07/31/24 02:53:31: Loaded action/group: InvestigateSignals
+07/31/24 02:53:31: Loaded action/group: OfferTrade
+07/31/24 02:53:31: Loaded action/group: DisableEnemySpawns
+07/31/24 02:53:31: Loaded action/group: BattleSequence
+07/31/24 02:53:31: Loaded action/group: StartBattle
+07/31/24 02:53:31: Loaded action/group: SpawnBoss4
+07/31/24 02:53:31: Loaded action/group: SpawnBossCircle
+07/31/24 02:53:31: Loaded action/group: GotoTheIcyHeart
+07/31/24 02:53:31: Loaded action/group: EngageCombat
+07/31/24 02:53:31: Loaded action/group: GotoGhostTown
+07/31/24 02:53:31: Loaded action/group: SpawnBoss0
+07/31/24 02:53:31: Loaded action/group: SpawnBoss13
+07/31/24 02:53:31: Loaded action/group: StartExploration
+07/31/24 02:53:31: Loaded action/group: SpawnBoss8
+07/31/24 02:53:31: Loaded action/group: SpawnBoss6
+07/31/24 02:53:31: Loaded action/group: SetLevelFive
+07/31/24 02:53:31: Loaded action/group: LevelUpThree
+07/31/24 02:53:31: Loaded action/group: LevelUpOnce
+07/31/24 02:53:31: Loaded action/group: GotoTheGoldMines
+07/31/24 02:53:31: Loaded action/group: SpawnBoss11
+07/31/24 02:53:31: Loaded action/group: StartPeaceMission
+07/31/24 02:53:31: Loaded action/group: SpawnBoss2
+07/31/24 02:53:31: Loaded action/group: DiplomaticChoice
+07/31/24 02:53:31: Loaded action/group: TreatyOutcome
+07/31/24 02:53:31: Loaded action/group: ExplorationChoice
+07/31/24 02:53:31: Loaded action/group: BattleChoice
+07/31/24 02:53:31: Loaded action/group: ArtifactMystery
+07/31/24 02:53:31: Loaded action/group: PortalOutcome
+07/31/24 02:53:31: Loaded action/group: PeacefulMission
+07/31/24 02:53:31: Loaded action/group: SpaceAdventureStart
+07/31/24 02:53:31: Loaded action/group: PortalAdventure
+07/31/24 02:53:31: Loaded action/group: EnableEnemySpawns
+07/31/24 02:53:31: Loaded action/group: GotoVulturesValley
+07/31/24 02:53:31: Loaded action/group: GotoEarth
+07/31/24 02:53:31: Loaded action/group: SpawnBoss1
+07/31/24 02:53:32: Loaded action/group: GotoStormySands
+07/31/24 02:53:32: Loaded action/group: SpawnBoss12
+07/31/24 02:53:32: Loaded action/group: SpaceExploration
+07/31/24 02:53:32: Loaded action/group: GotoFantasia
+07/31/24 02:53:32: Loaded action/group: SpawnBoss5
+07/31/24 02:53:32: Loaded action/group: AG1
+07/31/24 02:53:32: Loaded action/group: SpawnBoss10
+07/31/24 02:53:32: Loaded action/group: GotoYetopia
+07/31/24 02:53:32: Loaded action/group: SpawnBoss3
+07/31/24 02:53:32: Loaded action/group: ArtifactOutcome
+07/31/24 02:53:32: Loaded action/group: EpicBattle
+07/31/24 02:53:32: Loaded action/group: SpawnBoss7
+07/31/24 02:53:32: Loaded action/group: SpawnBoss9
+07/31/24 02:53:32: Loaded action/group: PeaceTreaty
+07/31/24 02:53:32: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 02:53:32: [Client] Failed to reconnect to server. Will try again...
+07/31/24 02:54:04: Raw command: show_variable(Macro3)
+07/31/24 02:54:04: Cleaned command: show_variable(Macro3)
+07/31/24 02:54:04: Parsing arguments: Macro3
+07/31/24 02:54:04: Parsed arguments: ["Macro3"]
+07/31/24 02:54:04: Command Name: show_variable
+07/31/24 02:54:04: Target Object: yeancat
+07/31/24 02:54:04: Parameters: ["Macro3"]
+07/31/24 02:54:04: Macro3: -1
+07/31/24 02:55:06: [Jay Arnold] i kept our new macros but reverted to old code for the obj camera step
+// Calculate camera offset based on yeancat's position
+var cat_offset_x = 0;
+var cat_offset_y = 0;
+if (instance_exists(yeancat)) {
+cat_offset_x = (yeancat.x - room_width/2) * global.macro3 * 0.1;
+cat_offset_y = (yeancat.y - room_height/2) * global.macro3 * 0.1;
+}
+
+target_x = room_width / 2 + cat_offset_x;
+target_y = room_height / 2 + cat_offset_y;
+
+// Update view matrix
+var viewmat = matrix_build_lookat(
+target_x, target_y, -1,
+target_x, target_y, 0,
+0, -1, 0  // Keep this as 0, -1, 0
+);
+camera_set_view_mat(camera, viewmat);
+
+// Update camera view size
+cam_width = base_width * abs(global.macro2);  // Use absolute value to prevent negative zoom
+cam_height = base_height * abs(global.macro2);
+
+// Update projection matrix
+var fov = lerp(0.1, 60, global.macro3); // Smooth transition from ortho to perspective
+var aspect = cam_width / cam_height;
+var znear = 1;
+var zfar = 32000;
+
+var projmat;
+if (global.macro3 < 0.01) {  // Use ortho projection when very close to 2D
+projmat = matrix_build_projection_ortho(cam_width, -cam_height, znear, zfar);  // Keep the negative
+cam_height
+} else {
+projmat = matrix_build_projection_perspective_fov(fov, aspect, znear, zfar);
+}
+
+camera_set_proj_mat(camera, projmat);
+
+// Set the camera position
+camera_set_view_pos(cam, target_x - cam_width/2, target_y - cam_height/2);
+camera_set_view_size(cam, cam_width, cam_height);
+07/31/24 02:55:06: Creating chat bubble: " i kept our new macros but reverted to old code for the obj camera step\n\/\/ Calculate camera offset based on yeancat's position\nvar cat_offset_x = 0;\nvar cat_offset_y = 0;\nif (instance_exists(yeancat)) {\ncat_offset_x = (yeancat.x - room_width\/2) * global.macro3 * 0.1;\ncat_offset_y = (yeancat.y - room_height\/2) * global.macro3 * 0.1;\n}\n\ntarget_x = room_width \/ 2 + cat_offset_x;\ntarget_y = room_height \/ 2 + cat_offset_y;\n\n\/\/ Update view matrix\nvar viewmat = matrix_build_lookat(\ntarget_x, target_y, -1,\ntarget_x, target_y, 0,\n0, -1, 0  \/\/ Keep this as 0, -1, 0\n);\ncamera_set_view_mat(camera, viewmat);\n\n\/\/ Update camera view size\ncam_width = base_width * abs(global.macro2);  \/\/ Use absolute value to prevent negative zoom\ncam_height = base_height * abs(global.macro2);\n\n\/\/ Update projection matrix\nvar fov = lerp(0.1, 60, global.macro3); \/\/ Smooth transition from ortho to perspective\nvar aspect = cam_width \/ cam_height;\nvar znear = 1;\nvar zfar = 32000;\n\nvar projmat;\nif (global.macro3 < 0.01) {  \/\/ Use ortho projection when very close to 2D\nprojmat = matrix_build_projection_ortho(cam_width, -cam_height, znear, zfar);  \/\/ Keep the negative\ncam_height\n} else {\nprojmat = matrix_build_projection_perspective_fov(fov, aspect, znear, zfar);\n}\n\ncamera_set_proj_mat(camera, projmat);\n\n\/\/ Set the camera position\ncamera_set_view_pos(cam, target_x - cam_width\/2, target_y - cam_height\/2);\ncamera_set_view_size(cam, cam_width, cam_height);", Owner: yeancat, Choices: []
+07/31/24 02:55:06: Chat Bubble Created. Following 'yeancat' with text: 'i kept our new macros but reverted to old code for the obj
+camera step
+// Calculate camera offset based on yeancat's position
+var cat_offset_x = 0;
+var cat_offset_y = 0;
+if (instance_exists(yeancat)) {
+cat_offset_x = (yeancat.x - room_width/2) * global.macro3
+* 0.1;
+cat_offset_y = (yeancat.y - room_height/2) * global.macro3
+* 0.1;
+}
+
+target_x = room_width / 2 + cat_offset_x;
+target_y = room_height / 2 + cat_offset_y;
+
+// Update view matrix
+var viewmat = matrix_build_lookat(
+target_x, target_y, -1,
+target_x, target_y, 0,
+0, -1, 0  // Keep this as 0, -1, 0
+);
+camera_set_view_mat(camera, viewmat);
+
+// Update camera view size
+cam_width = base_width * abs(global.macro2);  // Use
+absolute value to prevent negative zoom
+cam_height = base_height * abs(global.macro2);
+
+// Update projection matrix
+var fov = lerp(0.1, 60, global.macro3); // Smooth transition
+from ortho to perspective
+var aspect = cam_width / cam_height;
+var znear = 1;
+var zfar = 32000;
+
+var projmat;
+if (global.macro3 < 0.01) {  // Use ortho projection when very
+close to 2D
+projmat = matrix_build_projection_ortho(cam_width,
+-cam_height, znear, zfar);  // Keep the negative
+cam_height
+} else {
+projmat = matrix_build_projection_perspective_fov(fov,
+aspect, znear, zfar);
+}
+
+camera_set_proj_mat(camera, projmat);
+
+// Set the camera position
+camera_set_view_pos(cam, target_x - cam_width/2,
+target_y - cam_height/2);
+camera_set_view_size(cam, cam_width, cam_height);'. Number of choices: 0
+07/31/24 02:55:17: Raw command: show_lines(13)
+07/31/24 02:55:17: Cleaned command: show_lines(13)
+07/31/24 02:55:17: Parsing arguments: 13
+07/31/24 02:55:17: Parsed arguments: ["13"]
+07/31/24 02:55:17: Command Name: show_lines
+07/31/24 02:55:17: Target Object: yeancat
+07/31/24 02:55:17: Parameters: ["13"]
+07/31/24 02:55:17: Display set to show 13 lines.
+07/31/24 02:55:47: Raw command: set_variable(Macro3,0)
+07/31/24 02:55:47: Cleaned command: set_variable(Macro3,0)
+07/31/24 02:55:47: Parsing arguments: Macro3,0
+07/31/24 02:55:47: Parsed arguments: ["Macro3","0"]
+07/31/24 02:55:47: Command Name: set_variable
+07/31/24 02:55:47: Target Object: yeancat
+07/31/24 02:55:47: Parameters: ["Macro3","0"]
+07/31/24 02:55:47: Macro3 set to 0
+07/31/24 02:55:59: [Jay Arnold] that looks perfect just like it used to!
+07/31/24 02:55:59: Creating chat bubble: " that looks perfect just like it used to!", Owner: yeancat, Choices: []
+07/31/24 02:55:59: Chat Bubble Created. Following 'yeancat' with text: 'that looks perfect just like it used to!'. Number of choices: 0
+07/31/24 02:56:25: [Jay Arnold] i made the terrain and the player 2d objects, the background like clouds and stars are now the only
+things with 3d code in their draw
+07/31/24 02:56:25: Creating chat bubble: " i made the terrain and the player 2d objects, the background like clouds and stars are now the only\nthings with 3d code in their draw", Owner: yeancat, Choices: []
+07/31/24 02:56:25: Chat Bubble Created. Following 'yeancat' with text: 'i made the terrain and the player 2d objects, the
+background like clouds and stars are now the only
+things with 3d code in their draw'. Number of choices: 0
+07/31/24 02:56:37: [Jay Arnold] i see the clouds at ground level so im going to tweak the offset
+07/31/24 02:56:37: Creating chat bubble: " i see the clouds at ground level so im going to tweak the offset", Owner: yeancat, Choices: []
+07/31/24 02:56:37: Chat Bubble Created. Following 'yeancat' with text: 'i see the clouds at ground level so im going to tweak the
+offset'. Number of choices: 0
+07/31/24 02:56:48: Raw command: set_variable(Macro5,0)
+07/31/24 02:56:48: Cleaned command: set_variable(Macro5,0)
+07/31/24 02:56:48: Parsing arguments: Macro5,0
+07/31/24 02:56:48: Parsed arguments: ["Macro5","0"]
+07/31/24 02:56:48: Command Name: set_variable
+07/31/24 02:56:48: Target Object: yeancat
+07/31/24 02:56:48: Parameters: ["Macro5","0"]
+07/31/24 02:56:48: Macro5 set to 0
+07/31/24 02:56:56: Raw command: set_variable(Macro6,0)
+07/31/24 02:56:56: Cleaned command: set_variable(Macro6,0)
+07/31/24 02:56:56: Parsing arguments: Macro6,0
+07/31/24 02:56:56: Parsed arguments: ["Macro6","0"]
+07/31/24 02:56:56: Command Name: set_variable
+07/31/24 02:56:56: Target Object: yeancat
+07/31/24 02:56:56: Parameters: ["Macro6","0"]
+07/31/24 02:56:56: Macro6 set to 0
+07/31/24 02:57:25: Raw command: set_variable(Macro6,100)
+07/31/24 02:57:25: Cleaned command: set_variable(Macro6,100)
+07/31/24 02:57:25: Parsing arguments: Macro6,100
+07/31/24 02:57:25: Parsed arguments: ["Macro6","100"]
+07/31/24 02:57:26: Command Name: set_variable
+07/31/24 02:57:26: Target Object: yeancat
+07/31/24 02:57:26: Parameters: ["Macro6","100"]
+07/31/24 02:57:26: Macro6 set to 100
+07/31/24 02:57:40: [Jay Arnold] the clouds are way too low and the macro is not doing anything
+07/31/24 02:57:40: Creating chat bubble: " the clouds are way too low and the macro is not doing anything", Owner: yeancat, Choices: []
+07/31/24 02:57:40: Chat Bubble Created. Following 'yeancat' with text: 'the clouds are way too low and the macro is not doing
+anything'. Number of choices: 0
+07/31/24 02:57:46: Raw command: set_variable(Macro3,-1)
+07/31/24 02:57:46: Cleaned command: set_variable(Macro3,-1)
+07/31/24 02:57:46: Parsing arguments: Macro3,-1
+07/31/24 02:57:46: Parsed arguments: ["Macro3","-1"]
+07/31/24 02:57:46: Command Name: set_variable
+07/31/24 02:57:46: Target Object: yeancat
+07/31/24 02:57:46: Parameters: ["Macro3","-1"]
+07/31/24 02:57:46: Macro3 set to -1
+07/31/24 02:57:53: Raw command: set_variable(Macro3,1)
+07/31/24 02:57:53: Cleaned command: set_variable(Macro3,1)
+07/31/24 02:57:53: Parsing arguments: Macro3,1
+07/31/24 02:57:53: Parsed arguments: ["Macro3","1"]
+07/31/24 02:57:53: Command Name: set_variable
+07/31/24 02:57:53: Target Object: yeancat
+07/31/24 02:57:53: Parameters: ["Macro3","1"]
+07/31/24 02:57:53: Macro3 set to 1
+07/31/24 02:57:59: Raw command: set_variable(Macro3,-1)
+07/31/24 02:57:59: Cleaned command: set_variable(Macro3,-1)
+07/31/24 02:57:59: Parsing arguments: Macro3,-1
+07/31/24 02:57:59: Parsed arguments: ["Macro3","-1"]
+07/31/24 02:57:59: Command Name: set_variable
+07/31/24 02:57:59: Target Object: yeancat
+07/31/24 02:57:59: Parameters: ["Macro3","-1"]
+07/31/24 02:57:59: Macro3 set to -1
+07/31/24 02:58:10: [Jay Arnold] -5
+07/31/24 02:58:10: Creating chat bubble: " -5", Owner: yeancat, Choices: []
+07/31/24 02:58:10: Chat Bubble Created. Following 'yeancat' with text: '-5'. Number of choices: 0
+07/31/24 02:58:13: Raw command: set_variable(Macro3,-5)
+07/31/24 02:58:13: Cleaned command: set_variable(Macro3,-5)
+07/31/24 02:58:13: Parsing arguments: Macro3,-5
+07/31/24 02:58:13: Parsed arguments: ["Macro3","-5"]
+07/31/24 02:58:13: Command Name: set_variable
+07/31/24 02:58:13: Target Object: yeancat
+07/31/24 02:58:13: Parameters: ["Macro3","-5"]
+07/31/24 02:58:13: Macro3 set to -5
+07/31/24 02:58:53: [Jay Arnold] the 3d is giving a cool camera movement effect
+07/31/24 02:58:53: Creating chat bubble: " the 3d is giving a cool camera movement effect", Owner: yeancat, Choices: []
+07/31/24 02:58:53: Chat Bubble Created. Following 'yeancat' with text: 'the 3d is giving a cool camera movement effect'. Number of choices: 0
+07/31/24 02:59:16: [Jay Arnold] but the camera is moving the wrong way (probably because we are using -1 for macro 3)
+07/31/24 02:59:16: Creating chat bubble: " but the camera is moving the wrong way (probably because we are using -1 for macro 3)", Owner: yeancat, Choices: []
+07/31/24 02:59:16: Chat Bubble Created. Following 'yeancat' with text: 'but the camera is moving the wrong way (probably because
+we are using -1 for macro 3)'. Number of choices: 0
+07/31/24 02:59:54: [Jay Arnold] when i jump the camera look like its doing what it should but left and right is inverted
+07/31/24 02:59:54: Creating chat bubble: " when i jump the camera look like its doing what it should but left and right is inverted", Owner: yeancat, Choices: []
+07/31/24 02:59:54: Chat Bubble Created. Following 'yeancat' with text: 'when i jump the camera look like its doing what it should
+but left and right is inverted'. Number of choices: 0
+07/31/24 03:00:00: Raw command: set_variable(Macro3,-10)
+07/31/24 03:00:00: Cleaned command: set_variable(Macro3,-10)
+07/31/24 03:00:00: Parsing arguments: Macro3,-10
+07/31/24 03:00:00: Parsed arguments: ["Macro3","-10"]
+07/31/24 03:00:00: Command Name: set_variable
+07/31/24 03:00:00: Target Object: yeancat
+07/31/24 03:00:00: Parameters: ["Macro3","-10"]
+07/31/24 03:00:00: Macro3 set to -10
+07/31/24 03:00:10: Raw command: set_variable(Macro3,-1)
+07/31/24 03:00:10: Cleaned command: set_variable(Macro3,-1)
+07/31/24 03:00:10: Parsing arguments: Macro3,-1
+07/31/24 03:00:10: Parsed arguments: ["Macro3","-1"]
+07/31/24 03:00:10: Command Name: set_variable
+07/31/24 03:00:10: Target Object: yeancat
+07/31/24 03:00:10: Parameters: ["Macro3","-1"]
+07/31/24 03:00:10: Macro3 set to -1
+07/31/24 03:02:55: [Jay Arnold] so making the terrain and player and anything that needs to position it self relative to the terrain a 2d
+treated object is key. i had to revert my code and set the macro to -1 which s fine! but there are some
+side effects. the camera movement is inverted (i think in both directions actually)
+07/31/24 03:02:55: Creating chat bubble: " so making the terrain and player and anything that needs to position it self relative to the terrain a 2d\ntreated object is key. i had to revert my code and set the macro to -1 which s fine! but there are some\nside effects. the camera movement is inverted (i think in both directions actually)", Owner: yeancat, Choices: []
+07/31/24 03:02:55: Chat Bubble Created. Following 'yeancat' with text: 'so making the terrain and player and anything that needs to
+position it self relative to the terrain a 2d
+treated object is key. i had to revert my code and set the
+macro to -1 which s fine! but there are some
+side effects. the camera movement is inverted (i think in
+both directions actually)'. Number of choices: 0
+07/31/24 03:04:19: [Jay Arnold] remember i want the game to begin with everything looking good and we can tweak and adjust value
+later with macros. when the system looks good and our macros are making sensible changes. then we
+can replace the use of macros with hard coded variables we can define in our obj_client 
+
+07/31/24 03:04:19: Creating chat bubble: " remember i want the game to begin with everything looking good and we can tweak and adjust value\nlater with macros. when the system looks good and our macros are making sensible changes. then we\ncan replace the use of macros with hard coded variables we can define in our obj_client \n", Owner: yeancat, Choices: []
+07/31/24 03:04:19: Chat Bubble Created. Following 'yeancat' with text: 'remember i want the game to begin with everything looking
+good and we can tweak and adjust value
+later with macros. when the system looks good and our
+macros are making sensible changes. then we
+can replace the use of macros with hard coded variables we
+can define in our obj_client 
+'. Number of choices: 0
+07/31/24 03:04:39: [Jay Arnold] this will allow us to do camera sequences and zoom in on particular objects .
+07/31/24 03:04:39: Creating chat bubble: " this will allow us to do camera sequences and zoom in on particular objects .", Owner: yeancat, Choices: []
+07/31/24 03:04:39: Chat Bubble Created. Following 'yeancat' with text: 'this will allow us to do camera sequences and zoom in on
+particular objects .'. Number of choices: 0
+07/31/24 03:05:50: [Jay Arnold] the 3d effect will be set to 0 and as the obj_terrain.playeraltitude approaches 40000, the macro3 would
+approach -1 in this case from 0 at 0 playeraltitude. (we could implement that easily)
+07/31/24 03:05:50: Creating chat bubble: " the 3d effect will be set to 0 and as the obj_terrain.playeraltitude approaches 40000, the macro3 would\napproach -1 in this case from 0 at 0 playeraltitude. (we could implement that easily)", Owner: yeancat, Choices: []
+07/31/24 03:05:50: Chat Bubble Created. Following 'yeancat' with text: 'the 3d effect will be set to 0 and as the
+obj_terrain.playeraltitude approaches 40000, the macro3
+would
+approach -1 in this case from 0 at 0 playeraltitude. (we
+could implement that easily)'. Number of choices: 0
+07/31/24 03:06:54: [Jay Arnold] i want to have the zoom be 1.2 instead of 1.3 for the default. make any other changes yo u think are
+needed from your observation but dont break anything. it should not be flipped when i test again. try to
+stay on track
+07/31/24 03:06:55: Creating chat bubble: " i want to have the zoom be 1.2 instead of 1.3 for the default. make any other changes yo u think are\nneeded from your observation but dont break anything. it should not be flipped when i test again. try to\nstay on track", Owner: yeancat, Choices: []
+07/31/24 03:06:55: Chat Bubble Created. Following 'yeancat' with text: 'i want to have the zoom be 1.2 instead of 1.3 for the default.
+make any other changes yo u think are
+needed from your observation but dont break anything. it
+should not be flipped when i test again. try to
+stay on track'. Number of choices: 0
+07/31/24 03:08:00: Raw command: set_variable(Macro3,0)
+07/31/24 03:08:00: Cleaned command: set_variable(Macro3,0)
+07/31/24 03:08:00: Parsing arguments: Macro3,0
+07/31/24 03:08:00: Parsed arguments: ["Macro3","0"]
+07/31/24 03:08:00: Command Name: set_variable
+07/31/24 03:08:00: Target Object: yeancat
+07/31/24 03:08:00: Parameters: ["Macro3","0"]
+07/31/24 03:08:00: Macro3 set to 0

@@ -1,0 +1,136 @@
+07/30/24 22:06:47: Loaded action/group: SaveGameNow
+07/30/24 22:06:47: Loaded action/group: GotoKingsKingdom
+07/30/24 22:06:47: Loaded action/group: EnterPortal
+07/30/24 22:06:47: Loaded action/group: PurchaseArtifacts
+07/30/24 22:06:47: Loaded action/group: BattleOutcome
+07/30/24 22:06:47: Loaded action/group: VisitMarket
+07/30/24 22:06:47: Loaded action/group: GotoDivineDomain
+07/30/24 22:06:47: Loaded action/group: GotoTheEndonda
+07/30/24 22:06:47: Loaded action/group: GotoUniverseCity
+07/30/24 22:06:47: Loaded action/group: SpawnNPC1
+07/30/24 22:06:47: Loaded action/group: GotoLandOfLucy
+07/30/24 22:06:47: Loaded action/group: GotoPlaceOfPablo
+07/30/24 22:06:47: Loaded action/group: InvestigateSignals
+07/30/24 22:06:47: Loaded action/group: OfferTrade
+07/30/24 22:06:47: Loaded action/group: DisableEnemySpawns
+07/30/24 22:06:47: Loaded action/group: BattleSequence
+07/30/24 22:06:47: Loaded action/group: StartBattle
+07/30/24 22:06:47: Loaded action/group: SpawnBoss4
+07/30/24 22:06:47: Loaded action/group: SpawnBossCircle
+07/30/24 22:06:47: Loaded action/group: GotoTheIcyHeart
+07/30/24 22:06:47: Loaded action/group: EngageCombat
+07/30/24 22:06:47: Loaded action/group: GotoGhostTown
+07/30/24 22:06:47: Loaded action/group: SpawnBoss0
+07/30/24 22:06:47: Loaded action/group: SpawnBoss13
+07/30/24 22:06:47: Loaded action/group: StartExploration
+07/30/24 22:06:47: Loaded action/group: SpawnBoss8
+07/30/24 22:06:47: Loaded action/group: SpawnBoss6
+07/30/24 22:06:47: Loaded action/group: SetLevelFive
+07/30/24 22:06:48: Loaded action/group: LevelUpThree
+07/30/24 22:06:48: Loaded action/group: LevelUpOnce
+07/30/24 22:06:48: Loaded action/group: GotoTheGoldMines
+07/30/24 22:06:48: Loaded action/group: SpawnBoss11
+07/30/24 22:06:48: Loaded action/group: StartPeaceMission
+07/30/24 22:06:48: Loaded action/group: SpawnBoss2
+07/30/24 22:06:48: Loaded action/group: DiplomaticChoice
+07/30/24 22:06:48: Loaded action/group: TreatyOutcome
+07/30/24 22:06:48: Loaded action/group: ExplorationChoice
+07/30/24 22:06:48: Loaded action/group: BattleChoice
+07/30/24 22:06:48: Loaded action/group: ArtifactMystery
+07/30/24 22:06:48: Loaded action/group: PortalOutcome
+07/30/24 22:06:48: Loaded action/group: PeacefulMission
+07/30/24 22:06:48: Loaded action/group: SpaceAdventureStart
+07/30/24 22:06:48: Loaded action/group: PortalAdventure
+07/30/24 22:06:48: Loaded action/group: EnableEnemySpawns
+07/30/24 22:06:48: Loaded action/group: GotoVulturesValley
+07/30/24 22:06:48: Loaded action/group: GotoEarth
+07/30/24 22:06:48: Loaded action/group: SpawnBoss1
+07/30/24 22:06:48: Loaded action/group: GotoStormySands
+07/30/24 22:06:48: Loaded action/group: SpawnBoss12
+07/30/24 22:06:48: Loaded action/group: SpaceExploration
+07/30/24 22:06:48: Loaded action/group: GotoFantasia
+07/30/24 22:06:48: Loaded action/group: SpawnBoss5
+07/30/24 22:06:48: Loaded action/group: AG1
+07/30/24 22:06:48: Loaded action/group: SpawnBoss10
+07/30/24 22:06:48: Loaded action/group: GotoYetopia
+07/30/24 22:06:48: Loaded action/group: SpawnBoss3
+07/30/24 22:06:48: Loaded action/group: ArtifactOutcome
+07/30/24 22:06:48: Loaded action/group: EpicBattle
+07/30/24 22:06:48: Loaded action/group: SpawnBoss7
+07/30/24 22:06:48: Loaded action/group: SpawnBoss9
+07/30/24 22:06:48: Loaded action/group: PeaceTreaty
+07/30/24 22:06:48: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 22:06:48: [Client] Failed to reconnect to server. Will try again...
+07/30/24 22:07:13: Raw command: Player.spawn_npc("Friendly NPC 1", 1, 100, -100, "GreetPlayer")
+07/30/24 22:07:13: Cleaned command: Player.spawn_npc("Friendly NPC 1", 1, 100, -100, "GreetPlayer")
+07/30/24 22:07:13: Parsing arguments: "Friendly NPC 1", 1, 100, -100, "GreetPlayer"
+07/30/24 22:07:13: Parsed arguments: ["\"Friendly NPC 1\"","1","100","-100","\"GreetPlayer\""]
+07/30/24 22:07:13: Command Name: spawn_npc
+07/30/24 22:07:13: Target Object: Player
+07/30/24 22:07:13: Parameters: ["\"Friendly NPC 1\"","1","100","-100","\"GreetPlayer\""]
+07/30/24 22:07:13: Added NPC reference: NPC_"Friendly NPC 1" -> obj_npc
+07/30/24 22:07:13: NPC '"Friendly NPC 1"' spawned successfully: 1 at position (100, -100)
+07/30/24 22:07:13: Raw command: Player.spawn_npc("Friendly NPC 2", 1, -100, -100, "GreetPlayer")
+07/30/24 22:07:13: Cleaned command: Player.spawn_npc("Friendly NPC 2", 1, -100, -100, "GreetPlayer")
+07/30/24 22:07:13: Parsing arguments: "Friendly NPC 2", 1, -100, -100, "GreetPlayer"
+07/30/24 22:07:13: Parsed arguments: ["\"Friendly NPC 2\"","1","-100","-100","\"GreetPlayer\""]
+07/30/24 22:07:13: Command Name: spawn_npc
+07/30/24 22:07:13: Target Object: Player
+07/30/24 22:07:13: Parameters: ["\"Friendly NPC 2\"","1","-100","-100","\"GreetPlayer\""]
+07/30/24 22:07:13: Added NPC reference: NPC_"Friendly NPC 2" -> obj_npc
+07/30/24 22:07:13: NPC '"Friendly NPC 2"' spawned successfully: 1 at position (-100, -100)
+07/30/24 22:07:22: Raw command: Player.spawn_npc("Friendly NPC 1", 1, 100, -100, "GreetPlayer")
+07/30/24 22:07:22: Cleaned command: Player.spawn_npc("Friendly NPC 1", 1, 100, -100, "GreetPlayer")
+07/30/24 22:07:22: Parsing arguments: "Friendly NPC 1", 1, 100, -100, "GreetPlayer"
+07/30/24 22:07:23: Parsed arguments: ["\"Friendly NPC 1\"","1","100","-100","\"GreetPlayer\""]
+07/30/24 22:07:23: Command Name: spawn_npc
+07/30/24 22:07:23: Target Object: Player
+07/30/24 22:07:23: Parameters: ["\"Friendly NPC 1\"","1","100","-100","\"GreetPlayer\""]
+07/30/24 22:07:23: Added NPC reference: NPC_"Friendly NPC 1" -> obj_npc
+07/30/24 22:07:23: NPC '"Friendly NPC 1"' spawned successfully: 1 at position (100, -100)
+07/30/24 22:07:23: Raw command: Player.spawn_npc("Friendly NPC 2", 1, -100, -100, "GreetPlayer")
+07/30/24 22:07:23: Cleaned command: Player.spawn_npc("Friendly NPC 2", 1, -100, -100, "GreetPlayer")
+07/30/24 22:07:23: Parsing arguments: "Friendly NPC 2", 1, -100, -100, "GreetPlayer"
+07/30/24 22:07:23: Parsed arguments: ["\"Friendly NPC 2\"","1","-100","-100","\"GreetPlayer\""]
+07/30/24 22:07:23: Command Name: spawn_npc
+07/30/24 22:07:23: Target Object: Player
+07/30/24 22:07:23: Parameters: ["\"Friendly NPC 2\"","1","-100","-100","\"GreetPlayer\""]
+07/30/24 22:07:23: Added NPC reference: NPC_"Friendly NPC 2" -> obj_npc
+07/30/24 22:07:23: NPC '"Friendly NPC 2"' spawned successfully: 1 at position (-100, -100)
+07/30/24 22:07:40: [Jay Arnold] i do not see the npc or the name of the npc on screen
+07/30/24 22:07:40: Creating chat bubble: " i do not see the npc or the name of the npc on screen", Owner: yeancat, Choices: []
+07/30/24 22:07:40: Chat Bubble Created. Following 'yeancat' with text: 'i do not see the npc or the name of the npc on screen'. Number of choices: 0
+07/30/24 22:07:51: [Jay Arnold] lets make sure it is spawning the npc relative to Player
+07/30/24 22:07:51: Creating chat bubble: " lets make sure it is spawning the npc relative to Player", Owner: yeancat, Choices: []
+07/30/24 22:07:51: Chat Bubble Created. Following 'yeancat' with text: 'lets make sure it is spawning the npc relative to Player'. Number of choices: 0
+07/30/24 22:07:57: Raw command: set_target(Player)
+07/30/24 22:07:57: Cleaned command: set_target(Player)
+07/30/24 22:07:57: Parsing arguments: Player
+07/30/24 22:07:57: Parsed arguments: ["Player"]
+07/30/24 22:07:57: Command Name: set_target
+07/30/24 22:07:57: Target Object: yeancat
+07/30/24 22:07:57: Parameters: ["Player"]
+07/30/24 22:07:57: Target set to Player (yeancat)
+07/30/24 22:08:14: Raw command: Target.chat_bubble("Hello World")
+07/30/24 22:08:14: Cleaned command: Target.chat_bubble("Hello World")
+07/30/24 22:08:14: Parsing arguments: "Hello World"
+07/30/24 22:08:14: Parsed arguments: ["\"Hello World\""]
+07/30/24 22:08:14: Command Name: chat_bubble
+07/30/24 22:08:14: Target Object: Target
+07/30/24 22:08:14: Parameters: ["\"Hello World\""]
+07/30/24 22:08:14: Creating chat bubble: "Hello World", Owner: Target, Choices: []
+07/30/24 22:08:14: Chat Bubble Created. Following 'yeancat' with text: 'Hello World'. Number of choices: 0
+07/30/24 22:10:11: Raw command: Target.spawn_boss(3, 50, 50)
+07/30/24 22:10:11: Cleaned command: Target.spawn_boss(3, 50, 50)
+07/30/24 22:10:11: Parsing arguments: 3, 50, 50
+07/30/24 22:10:11: Parsed arguments: ["3","50","50"]
+07/30/24 22:10:11: Command Name: spawn_boss
+07/30/24 22:10:11: Target Object: Target
+07/30/24 22:10:11: Parameters: ["3","50","50"]
+07/30/24 22:10:11: Invalid parameters for spawn_boss command. Expected an array.
+07/30/24 22:10:11: Added boss reference: Rehino1 -> obj_boss
+07/30/24 22:10:11: Boss spawned successfully: 3 at position (2095.16, 1258.57) relative to Target
+07/30/24 22:10:23: [Jay Arnold] see how that works well
+07/30/24 22:10:23: Creating chat bubble: " see how that works well", Owner: yeancat, Choices: []
+07/30/24 22:10:23: Chat Bubble Created. Following 'yeancat' with text: 'see how that works well'. Number of choices: 0
+07/30/24 22:10:29: Saved Game

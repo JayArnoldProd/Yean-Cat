@@ -1,0 +1,2593 @@
+Bug Name: Action_Execution_System_Breakdown
+Description: While implementing conditions and action conditions, a critical error was introduced that prevents actions, groups, and conditions from executing properly. The system has regressed from its previous functional state to a non-operational state. Key issues:
+1. Basic functionalities like chat bubble choice action group branches are no longer working.
+2. The problem affects the core action execution system, impacting a wide range of game features.
+3. The issue emerged after recent changes to the condition and action condition systems.
+4. The malfunction is severe enough to prevent basic game interactions that were previously functional.
+
+== Related Objects ==
+
+Object: obj_Client
+
+File: Step_0.gml
+Code:
+/// Step Event of obj_Client
+
+//create mouse if it doesnt exist and using keyboard and mouse
+if !instance_exists(obj_Cursor) and (global.control_type!=1) { 
+	instance_create_depth(mouse_x,mouse_y,-1000000,obj_Cursor);
+}
+
+// Set current font and heartbeat rate
+global.heartbeatBPM = global.current_bpm;
+fnt_chat = master.font_array[fnt_chat_id, 1];
+global.wrapWidth = 1700; // Adjusted wrap width
+
+//check for gamepad input
+check_gamepad_input()
+
+//randomly and probability skewed to bring shake_angle back to 0
+if abs(shake_angle)>.1 {
+	var invert = choose(-1,1)*(random(8)+92)/100
+	shake_angle=round(invert*shake_angle*100)/100
+} else {
+	if shake_angle!=0 {
+	shake_angle=0
+	keyboard_lastkey=vk_nokey
+	}
+}
+
+// Handle reconnection logic
+if (!global.isConnected && global.reconnectTimer <= 0) {
+    var result = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+    if (result >= 0) {
+        global.isConnected = true;
+        isServerRunning = true;
+        handleDebugMessage("[Client] Successfully reconnected to server.", true);
+        global.reconnectTimer = global.reconnectInterval;
+    } else {
+        global.reconnectTimer = global.reconnectInterval;
+        isServerRunning = false;
+        handleDebugMessage("[Client] Failed to reconnect to server. Will try again...", true);
+    }
+} else if (global.isConnected && global.reconnectTimer > 0) {
+    global.reconnectTimer--;
+}
+
+// Handle incoming network events safely
+if (ds_exists(async_load, ds_type_map)) {
+    var type = ds_map_find_value(async_load, "type");
+    var n_id = ds_map_find_value(async_load, "id");
+
+    if (n_id == global.client_socket) {
+        switch (type) {
+            case network_type_data:
+                var buffer = ds_map_find_value(async_load, "buffer");
+                buffer_seek(buffer, buffer_seek_start, 0);
+                var identifier = buffer_read(buffer, buffer_u8);
+
+                switch (identifier) {
+                    case global.IDENTIFIER_HEARTBEAT:
+                        handleDebugMessage("[Client] Heartbeat received from server.", true);
+                        break;
+                    
+                    case global.IDENTIFIER_TEST_MESSAGE:
+                        var msg = buffer_read(buffer, buffer_string);
+                        handleDebugMessage("[Client] Message from server: " + msg, true);
+                        break;
+                }
+                buffer_delete(buffer);
+                break;
+
+            case network_type_connect:
+                handleDebugMessage("[Client] Connected to server.", true);
+                break;
+                
+            case network_type_disconnect:
+                global.isConnected = false;
+                handleDebugMessage("[Client] Disconnected from server. Attempting to identify cause...", true);
+                break;
+        }
+    }
+} else {
+    //show_debug_message("ERROR: Invalid ds_map reference in async event.");
+}
+
+
+// Command input and execution logic
+if (input_check_pressed("chat") && !isActive) {
+    isActive = true;
+    global.commandBuffer = "";
+    keyboard_string = "";
+    show_debug_message("[Client] Chat input activated.");
+}
+
+// Toggle chat box with a specific key, e.g., Tab
+if (keyboard_check_pressed(vk_tab)) {
+    show_chatbox = !show_chatbox;
+    global.commandBuffer = "";  // Clear previous commands or texts
+    keyboard_string = "";
+    show_debug_message("[Client] Toggled chat box visibility: " + string(show_chatbox));
+}
+
+// Handle backspace and text input
+if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var total_lines = array_length(lines);
+    global.input_scroll_offset = max(0, total_lines - global.max_visible_lines);
+    
+    // Adjust scroll offset based on total lines
+    if (total_lines > global.max_visible_lines) {
+        global.input_scroll_offset = total_lines - global.max_visible_lines;
+    } else {
+        global.input_scroll_offset = 0;
+    }
+
+// Handle backspace input
+    if (input_check("cancel") && string_length(global.commandBuffer) > 0) {
+        if (global.backspaceTimer == 0 || global.backspaceTimer >= global.backspaceDelay) {
+            var lastCharPosition = string_length(global.commandBuffer);
+
+            // Check if the last character is a newline
+            if (string_char_at(global.commandBuffer, lastCharPosition) == "\n") {
+                // Adjust the global.lastSpaceIndex if necessary
+                if (global.lastSpaceIndex >= lastCharPosition) {
+                    global.lastSpaceIndex = string_last_index_of(string_copy(global.commandBuffer, 1, lastCharPosition - 1), " ");
+                }
+            }
+
+            // Perform the character deletion
+            global.commandBuffer = string_delete(global.commandBuffer, lastCharPosition, 1);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Updated command buffer after backspace: " + global.commandBuffer);
+
+            // Clear the keyboard buffer to avoid unwanted characters
+            keyboard_string = "";
+
+            // Increase deletion speed
+            if (global.backspaceTimer == 0) {
+                global.backspaceTimer = 1;
+            } else {
+                global.backspaceTimer = global.backspaceSpeed;
+				if global.backspaceSpeed<14 {
+					global.backspaceSpeed+=1
+				}
+            }
+        } else {
+            global.backspaceTimer += 1;
+        }
+    } else {
+        global.backspaceTimer = 0; // Reset timer when backspace is released
+		global.backspaceSpeed=1
+    }
+	
+	// Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+    var pasting = false;
+    if (os_type == os_windows) {
+        if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    } else if (os_type == os_macosx) {
+        if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    }
+	
+	if string_length(global.commandBuffer) < global.character_limit {
+    var char = keyboard_string;
+        var space_pressed = keyboard_check_pressed(vk_space);
+        
+        if (char != "" || space_pressed) {
+            if (!pasting) {
+                if (space_pressed) {
+                    global.commandBuffer += " ";
+                    show_debug_message("[Client] Space added to command buffer");
+                } else {
+                    global.commandBuffer += char;
+                }
+                keyboard_string = ""; // Clear the keyboard buffer after reading
+                update_chat_input_visuals();
+                show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
+            }
+        }
+	} else {
+    var char = "";
+    if keyboard_check_pressed(vk_anykey) {
+        if last_key_is_valid_character(keyboard_lastkey) {
+            //play sound to indicate char limit. 
+            var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
+            shake_angle = choose(-1,1) * random_range(.95,1.00)
+        }
+    }
+}
+
+// Debug: Check for space key press
+    if (keyboard_check_pressed(vk_space)) {
+        show_debug_message("[Client] Space key pressed");
+    }
+
+    // Debug: Check keyboard_string content
+    if (keyboard_string != "") {
+        show_debug_message("[Client] keyboard_string content: " + keyboard_string);
+    }
+
+// Handle pasting
+// In the Step event of obj_Client
+if (pasting) {
+    if (clipboard_has_text()) {
+        var clip_string = clipboard_get_text();
+        if (string_length(clip_string) > 0 && string_length(clip_string) < global.character_limit) {
+            // Replace regular line breaks with intentional line breaks
+            clip_string = string_replace_all(clip_string, "\n", global.intentionalLineBreak);
+            clip_string = string_replace_all(clip_string, "\r", "");
+            
+            global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
+        } else {
+            handleDebugMessage("Clipboard content is too long to paste!", false);
+        }
+    }
+    pasting = false;
+}
+
+// Check if Enter is pressed to process the command or chat message
+if (input_check_pressed("confirm")) {
+	if (keyboard_check(vk_shift)) {
+            // Shift+Enter: Add a new line
+            global.commandBuffer += global.intentionalLineBreak;
+            update_chat_input_visuals();
+        } else {
+        if (string_char_at(global.commandBuffer, 1) == "/") {
+            execute_multiple_commands(global.commandBuffer);
+            global.textColor = global.defaultTextColor;
+            isActive = false;
+        } else {
+            var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
+            global.message_is_bubble = 1;
+            handleDebugMessage(chatMessage, -1);
+            global.message_is_bubble = 0;
+        }
+
+        // Add the command/message to the recall list
+        if (string_length(global.commandBuffer) > 0) {
+            ds_list_add(global.recall_list, global.commandBuffer);
+            if (ds_list_size(global.recall_list) > global.recall_max) {
+                ds_list_delete(global.recall_list, 0);  // Remove the oldest entry if exceeding the limit
+            }
+        }
+        global.recall_index = -1;
+        global.textColor = global.defaultTextColor;
+        global.commandBuffer = "";
+        isActive = false;
+        show_debug_message("[Client] Processed command/chat and cleared buffer.");
+}
+}
+    // Navigate through the recall list using up and down arrows
+    if (keyboard_check_pressed(vk_up)) {
+        if (global.recall_index == -1) {
+            global.recall_index = ds_list_size(global.recall_list) - 1;
+        } else {
+            global.recall_index = max(0, global.recall_index - 1);
+        }
+
+        if (global.recall_index >= 0 && global.recall_index < ds_list_size(global.recall_list)) {
+            global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled previous command/chat: " + global.commandBuffer);
+        }
+    } else if (keyboard_check_pressed(vk_down)) {
+        if (global.recall_index != -1) {
+            global.recall_index = min(ds_list_size(global.recall_list) - 1, global.recall_index + 1);
+
+            if (global.recall_index < ds_list_size(global.recall_list)) {
+                global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            } else {
+                global.commandBuffer = "";
+            }
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled next command/chat: " + global.commandBuffer);
+        }
+    }
+}
+
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+	global.longestmessage = updateLongestMessage(global.debugMessages);
+    var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    // Check if a new message was added
+    if (ds_list_size(global.debugMessages) > 0 && 
+        ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {
+        // Scroll to the bottom when a new message is added
+        scrollIndex = max(0, totalLines - global.max_visible_lines);
+        global.lastAddedMessage = ""; // Reset the last added message
+    } else {
+        // Ensure scrollIndex is within valid range
+        scrollIndex = clamp(scrollIndex, 0, max(0, totalLines - global.max_visible_lines));
+    }
+    
+    // Draw the chat messages
+    drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+// Only process incoming data and send heartbeats if the server is running
+if (isServerRunning && sendHeartbeat && (current_time - global.lastHeartbeatTime >= broadcastInterval)) {
+    handleDebugMessage("Heartbeat sent to Server", true);
+    global.lastHeartbeatTime = current_time;
+}
+
+
+
+
+
+File: Other_68.gml
+Code:
+// Async Networking Event Handling for Client
+
+/// Revised Async Networking Event
+var type = ds_map_find_value(async_load, "type");
+var n_id = ds_map_find_value(async_load, "id");
+
+if (n_id == global.client_socket) {
+    switch (type) {
+        case network_type_connect:
+            show_debug_message("[Client] Connected to server.");
+            global.isConnected = true;
+            break;
+        case network_type_disconnect:
+            show_debug_message("[Client] Disconnected from server.");
+            global.isConnected = false;
+            break;
+        case network_type_data:
+            if (ds_map_exists(async_load, "buffer")) {
+                var buffer = ds_map_find_value(async_load, "buffer");
+                if (buffer != undefined) {
+                    buffer_seek(buffer, buffer_seek_start, 0);
+                    var identifier = buffer_read(buffer, buffer_u8);
+                    handleNetworkData(identifier, buffer);
+                } else {
+                    show_debug_message("ERROR: Buffer not found in data event.");
+                }
+            } else {
+                show_debug_message("ERROR: 'buffer' key does not exist in the async_load map.");
+            }
+            break;
+    }
+} else {
+    show_debug_message("ERROR: Invalid socket ID reference in async event.");
+}
+
+
+//// Async Networking Event of obj_Client
+
+//var type = ds_map_find_value(async_load, "type");
+//var n_id = ds_map_find_value(async_load, "id");
+
+//if (n_id == global.client_socket) {
+//    switch (type) {
+//        case network_type_data:
+//            var buffer = ds_map_find_value(async_load, "buffer");
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            var identifier = buffer_read(buffer, buffer_u8);
+
+//            switch (identifier) {
+//                case global.IDENTIFIER_HEARTBEAT:
+//                    // Handle heartbeat received from the server
+//                    show_debug_message("[Client] Heartbeat received from server.");
+//                    // Optionally, send back a confirmation or keep alive message
+//                    break;
+                
+//                case global.IDENTIFIER_UNIQUE_ID:
+//                    // This would be where the server confirms receipt of your unique ID
+//                    // Or any other custom logic for unique ID handling
+//                    var confirmationMessage = buffer_read(buffer, buffer_string);
+//                    show_debug_message("[Client] Server confirmed Unique ID: " + confirmationMessage);
+//                    break;
+                
+//                // Add more case handlers for different data types as needed
+//            }
+//            buffer_delete(buffer);
+//            break;
+
+//        case network_type_connect:
+//            // Immediately upon connection, send the unique ID to the server
+//            // This ensures server is aware of who just connected
+//            var buffer = buffer_create(256, buffer_grow, 1);
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+//            buffer_write(buffer, buffer_string, global.clientUniqueID);
+//            network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+//            show_debug_message("[Client] Sent unique ID to server: " + global.clientUniqueID);
+//            buffer_delete(buffer);
+//            break;
+            
+//        case network_type_disconnect:
+//            // Handle disconnection logic here, if needed
+//            global.isConnected = false; // Update the connection status
+//            show_debug_message("[Client] Disconnected from server.");
+//            break;
+//    }
+//}
+
+
+File: Destroy_0.gml
+Code:
+///Destroy Event for obj_Client
+if (global.isConnected) {
+    network_destroy(global.client_socket);
+}
+
+
+//// Clean up dynamic resources
+//if (ds_exists(clien, ds_type_map)) {
+//    ds_map_destroy(myDataStructure);
+//}
+
+// Optionally, inform the master object or handle game state changes
+// For example, transition to a different room or update the UI
+//event_perform_object(obj_Master, ev_Other, ev_user0); // Custom user event for cleanup in obj_Master
+
+
+File: Draw_0.gml
+Code:
+
+draw_set_font(fnt_chat);
+if show_chatbox=true {
+    var xx = 990;
+    var yy = 686; // Starting y position
+    var lm_cal=clamp(xx+(clamp(110-global.longestmessage,0,110))+1.7*(global.longestmessage-51)/3,xx+215,(display_get_gui_width()-10)/2+room_width/2)+10
+    var x1 = 980
+    var y1 = 686-20
+    var x2 = max(lm_cal, clamp(xx + (clamp(110 - global.longestmessage, 0, 110)) + 1.7 * (string_width(global.commandBuffer) - 1) / 3, xx + 230, (display_get_gui_width() - 10) / 2 + room_width / 2 + 50));
+    var y2 = _yy+100
+    
+    // Draw transparent background box for chatbox
+    draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);
+    draw_set_alpha(1);
+    var sca=.7
+    global.chat_line_height = 70 * sca + 5;
+    
+    // Set drawing properties
+    draw_set_colour(c_ltgray);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_font(fnt_chat); 
+    
+    // Display server status
+    var serverStatus = "Server Unable to Connect"; // Default message
+    if (isServerRunning) {
+        serverStatus = "Server Online";
+        draw_set_colour(c_lime);
+    } else {
+        serverStatus = "Server Stopped";
+        draw_set_colour(c_red);
+    }
+
+    if show_server_status=true {
+        draw_text_transformed(xx, yy, serverStatus, sca, sca, 0);
+        yy += 40; // Increment y position for next line
+    }
+
+    if connectedClients>0 {
+        draw_set_colour(c_aqua);
+    } else {
+        draw_set_colour(c_ltgrey);
+    }
+    if show_server_status=true {
+        draw_text_transformed(xx+3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx-3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx+3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx-3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_set_color(global.c_chat1);
+        draw_text_transformed(xx, yy-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        yy += 50; // Increment y position for next 
+    } else {
+        draw_set_color(global.c_chat1);
+        draw_text_transformed(xx+3, yy+3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx-3, yy+3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx+3, yy-3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx-3, yy-3-10, "Chat Box", sca, sca, 0);
+        draw_set_color(global.c_chat2);
+        draw_text_transformed(xx, yy-10, "Chat Box", sca, sca, 0);
+        yy += 60; // Increment y position for next line
+    }
+
+    sca=.5
+
+    if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    global.longestmessage = updateLongestMessage(global.debugMessages);
+    var totalLines = drawChatMessages(global.debugMessages, 990, yy, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    var maxScrollIndex = max(0, totalLines - global.max_visible_lines);
+
+    var wheel = mouse_wheel_down() - mouse_wheel_up();
+    if (wheel != 0) {
+        global.isScrolling = true;
+        scrollIndex = clamp(scrollIndex - wheel, 0, maxScrollIndex);
+        global.scrollResetTimer = 60; // Reset timer when scrolling
+    }
+
+    if (global.scrollResetTimer > 0) {
+        global.scrollResetTimer--;
+        if (global.scrollResetTimer == 0) {
+            global.isScrolling = false;
+        }
+    }
+
+    // Auto-scroll to bottom if not manually scrolling
+    //if (!global.isScrolling) {
+    //    scrollIndex = maxScrollIndex;
+    //}
+
+    drawChatMessages(global.debugMessages, 990, yy, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+    yy=yy+clamp(totalLines-scrollIndex,0,global.max_visible_lines)*(global.chat_line_height*1.00)+5
+    sca=.6
+    _yy=yy-15
+    
+    if global.commandBuffer != "" {
+        displayText = string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n");
+    } else {
+        displayText = ""
+    }
+    
+if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var totalLines = array_length(lines);
+    var maxInputLines = 25; // Maximum number of lines in the input box
+    var visibleLines = min(totalLines, maxInputLines);
+    
+    // Calculate the new height based on the number of visible lines
+    var boxHeight = global.chat_line_height * visibleLines + 2;
+    
+    // Calculate the scroll offset for the input box
+    var inputScrollOffset = max(0, totalLines - maxInputLines);
+    
+    // Count actual lines in the chat history
+    var actualChatLines = 0;
+    for (var i = 0; i < ds_list_size(global.debugMessages); i++) {
+        var message = ds_list_find_value(global.debugMessages, i);
+        actualChatLines += string_count("\n", message) + 1;
+    }
+    
+    // Calculate when to start expanding upward
+    var expandUpwardThreshold = max(15 - clamp(actualChatLines, 0, global.max_visible_lines), 2);
+    
+    // Adjust the y position of the input box
+    var inputBoxY = yy;
+    if (totalLines > expandUpwardThreshold) {
+        inputBoxY -= global.chat_line_height * (totalLines - expandUpwardThreshold);
+    }
+    inputBoxY = max(inputBoxY, global.chat_line_height); // Ensure it doesn't go above the top of the screen
+    
+    // Draw chat input box
+    draw_set_color(c_black);
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_white);
+    }
+    draw_rectangle(xx + 5, inputBoxY - 11, clamp(xx - 90 + 1.88 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150 + 10, inputBoxY + boxHeight + 10, false);
+
+    draw_set_color(c_white);
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_black);
+        slash_typed = true;
+    } else {
+        slash_typed = false;
+    }
+    draw_rectangle(xx + 10, inputBoxY - 6, clamp(xx - 90 + 1.88 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150, inputBoxY + boxHeight, false);
+
+    // Draw visible lines of text
+    draw_set_color(merge_color(global.textColor, c_red, clamp(abs(shake_angle), 0, 1)));
+    for (var i = 0; i < visibleLines; i++) {
+        var lineIndex = i + inputScrollOffset;
+        if (lineIndex < totalLines) {
+            var lineText = lines[lineIndex];
+            draw_text_transformed(xx + 20 + shake_angle * 7, inputBoxY - shake_angle * 7 + i * global.chat_line_height, lineText, sca, sca, shake_angle * .25);
+        }
+    }
+    
+    // Draw cursor
+    var cursorY = inputBoxY - shake_angle * 7 + (visibleLines - 1) * global.chat_line_height;
+    draw_text_transformed(xx + 20 + shake_angle * 7 + string_width(lines[totalLines - 1]) * sca, cursorY, "_", sca, sca, shake_angle * .25);
+} else {
+        // Draw "Press 'T' to Type" prompt
+        draw_set_color(c_white);
+        draw_set_alpha(0.7);
+        draw_text_transformed(xx + 20, yy, "Press 'T' to Type", sca*.7, sca*.7, shake_angle*.25);
+        draw_set_alpha(1);
+    }
+} else {
+    exit
+}
+
+
+File: Alarm_0.gml
+Code:
+// Alarm[0] Event
+var t_buffer = buffer_create(256, buffer_grow, 1);
+buffer_seek(t_buffer, buffer_seek_start, 0);
+buffer_write(t_buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+buffer_write(t_buffer, buffer_string, global.clientUniqueID);
+network_send_packet(global.client_socket, t_buffer, buffer_tell(t_buffer));
+buffer_delete(t_buffer);
+global.uniqueIDSent = true; // Ensure we don't resend the unique ID
+show_debug_message("[Client] Unique ID sent after delay: " + global.clientUniqueID);
+
+
+File: obj_Client.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_Client",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":68,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":5,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_Client",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "parentObjectId":null,
+  "persistent":true,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":null,
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+File: Other_5.gml
+Code:
+/// @description Insert description here
+//room end of obj_client
+show_chatbox=false
+
+File: Create_0.gml
+Code:
+
+// obj_Client Create Event
+global.currentTarget = yeancat; // Default to the player
+global.intentionalLineBreak = "|";
+global.lastAddedMessage = "";
+global.sessionLogFileName = "SessionLog_" + string_replace_all(string(date_current_datetime()), ":", "-") + ".txt";
+global.masterLogFileName = "MasterLog.txt";
+global.logDebugMessagesToFile = false; // By default, log debug messages to the file
+global.serverAddress = "127.0.0.1"; // Example server address
+// Initialize the data structure globally if not already initialized
+global.chatLogs=-1
+global.bubble_send_to_log=1
+global.message_is_bubble=0
+if (!ds_exists(global.chatLogs, ds_type_list)) {
+    global.chatLogs = ds_list_create();
+}
+time=0
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+global.lastWPMUpdateTime = 0; // Timestamp of the last WPM update
+global.WPMUpdateInterval = 5000; // Minimum time between updates in milliseconds (e.g., 5000ms = 5 seconds)
+lastUpdateTime = -1;
+updateInterval = 60; // Run every 60 seconds
+//input
+input_cursor_coord_space_set(INPUT_COORD_SPACE.ROOM, 0);
+//input_mouse_capture_set(true, 1);
+window_set_cursor(cr_none)
+instance_create_depth(room_width/2,room_height/2,-1000000,obj_Cursor);
+// Global time offset initialized
+global.timeOffset = 0;
+global.inputDisplayEnabled = false;  // Initialize the variable at an appropriate place in your game startup code
+global.actions = ds_map_create();
+global.conditions = ds_map_create();
+// Adding command details
+// Global initialization script or create event
+global.commandDetails = ds_map_create();
+add_command("goto_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("jump_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("toggle_server", 3, [[]], false);  // Does not require '(' visually
+add_command("toggle_debug", 1, [[]], false);  // Does not require '(' visually
+add_command("list_clients", 1, [[]], false);  // Does not require '(' visually
+add_command("enable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("disable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("toggle_log_debug", 2, [[]], false);  // Does not require '(' visually
+add_command("set_my_permission(", 0, [["string", "real"]], true);
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+add_command("game_end(", 0, [["string", "real"]], true); 
+add_command("list_commands", 0, [[]], false); // No arguments, accessible at all permission levels
+add_command("show_lines(", 0, [["real"]], true);
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("level_up(", 1, [["real"]], true);  // Command requires '(' visually and a real number argument
+add_command("show_wpm", 0, [[]], false);  // Does not require '(' visually, level 0 permission
+add_command("chat_bubble(", 1, [["string"], ["array"]], true);
+add_command("save_macros", 1, [[]], false);  // Add the command to save macros
+add_command("list_variables", 2, [[]], false);
+add_command("add_action(", 2, [["string"],["string"],["array"]],true);
+add_command("save_actions", 2, [], false);
+add_command("list_actions", 2, [], false);
+add_command("list_action_conditions", 2, [[]], false);
+add_command("list_conditions", 2, [[]], false);
+add_command("execute_action(", 2, [["string"]], true);
+add_command("show_variable(", 2, [["string"]], true);
+add_command("return_controller", 1, [[]], false);
+add_command("toggle_input_display", 1, [[]], false);
+add_command("show_gamepad_mapping", 1, [[]], false);
+add_command("add_action_group(", 2, [["string"], ["array"]], true);
+add_command("list_action_groups", 2, [[]], false);
+add_command("delete_action(", 2, [["string"]], true);
+add_command("delete_actions(", 2, [["array"]], true);
+add_command("list_objects", 0, [[]], false);
+add_command("set_target(", 2, [["string", "real"]], true);
+add_command("set_spawn_npc(", 2, [["string"], ["real"], ["real"], ["string"], ["string"]], true);
+add_command("spawn_npc(", 2, [["string"], ["real"], ["real"], ["real"], ["string"]], true);
+add_command("spawn_boss(", 2, [["real"], ["real"], ["real"], ["string"]], true);
+add_command("camera_target(", 2, [["real"], ["real"]], true);
+add_command("add_action_condition(", 2, [["string"],["string"],["string"],["string"]], true);
+add_command("add_condition", 2, [["string"],["string"],["string"],["string"]], true);
+// Initialize global action details
+global.actionDetails = ds_map_create();
+
+global.object_references = ds_map_create();
+//add_object_reference("NewBoss", specific object unique id or general object name);
+
+//add_command("spawn_boss(", 2, [["string"]], true);
+
+//0name //1health //2resistance0-1invincible /3/rate //4attackset //5damage //6moveset //7image //8appearance [0=character,1=boss] //9appearanceid
+//add_boss("Drake",6666666,.666,1,1,1,4,spr_boss1,1,0]
+
+// You can add new commands or modify existing ones easily with the `add_command` function.
+global.variableDetails = ds_map_create();
+add_variable("Zoom", "camera_zoom", 1,global, "real", 1, 3, [], [], "Player");
+add_variable("SpawnEnemies", "spawnenemies", 1, master, "bool", 0, 1, [], [], "Player");
+add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("Health", "healthh", 1, yeancat, "real", 0, 100000, [], [], "Player");
+add_variable("Password", "password", 1, master, "string", 1, 100000, [], [], "Player");
+add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
+add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
+add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 2000, [], [], "Social");
+add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro4", "macro4", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro5", "macro5", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro6", "macro6", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro7", "macro7", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro8", "macro8", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro9", "macro9", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro10", "macro10", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 99999999, [], [], "Global");
+global.debugCommand = "";
+//global.character_limit
+// Ensure commandBuffer is initialized
+global.commandBuffer = "";
+slash_typed=false //whether or not a command is being typed
+// Initialize a global variable for text color
+c_pink = make_color_hsv(0,58,255);
+global.defaultTextColor = c_black;
+global.textColor = global.defaultTextColor;
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+ // This will store the input from the user
+isActive = true;  // To check if command input is active
+sendHeartbeat = false; // Control sending of heartbeat messages
+_yy=0
+pasting=0;
+global.longestmessage=0;
+global.c_chat2=c_black
+global.c_chat1=c_white
+fnt_chat=Font4
+global.borderwidth=8 //bg width
+global.bg_alpha=.4 //bg alpha
+global.bg_color=c_black //background color
+global.o_color=c_white //outline color
+global.wrapWidth = 1700; // Adjust this value based on your chat box
+global.character_limit=2000;//character limit for chat//this will be shorter for players
+global.lastSpaceIndex = -1;
+displayText=""
+//Other Variables
+global.showDebugMessages = true; // Enable debug messages by default
+global.maximumMessages=2000;
+maxDisplayMessages = 6; // Number of debug messages to display at once
+// Initialize max visible lines for the chat box
+global.max_visible_lines = maxDisplayMessages;  // You can adjust this number based on your needs
+// Add these to the Create event of obj_Client
+global.input_scroll_offset = 0;  // Offset for scrolling the input box
+global.debugMessages = ds_list_create();
+fnt_chat_id=0
+// Global settings for text wrapping
+global.chat_threshold = 1600;  // Threshold to start considering wrapping
+global.chat_text_limit = 1750; // Maximum pixel width of text before wrapping
+global.chat_line_height = 50; // Height of each line of text in pixels
+global.min_width = 110;  // Minimum width of the chat box
+global.max_width = 1000;  // Maximum width of the chat box, adjust according to your UI design
+// Adjust these values to tweak where the text wraps
+global.chat_threshold = global.chat_threshold * 1.3;  // Increase the threshold
+global.chat_text_limit = global.chat_text_limit * 1.3;  // Increase the width limit
+
+//Scrolling Variables
+scrollIndex = 0; // Initialize scroll position
+baseScrollSensitivity = 0.1; // Base sensitivity, how much the index changes initially per mouse wheel movement
+maxScrollSensitivity = 1.0; // Maximum sensitivity after continuous scrolling
+sensitivityIncrement = 0.05; // How much the sensitivity increases with continuous scrolling
+sensitivityDecrement = 0.01; // How much the sensitivity decreases when not scrolling
+global.scrollSensitivity = baseScrollSensitivity; // Current sensitivity, starts at base sensitivity
+global.isScrolling = false; // Tracks if the user is currently scrolling
+global.scrollResetTimer = 0;
+// Server Configuration
+show_server_status=false
+global.serverPort = "5555";
+global.maxClients = 4;
+global.heartbeatBPM = 115; // Beats per minute for the heartbeat
+global.lastHeartbeatTime = current_time; // Store the current time
+broadcastInterval = 60000 / global.heartbeatBPM; // Time between heartbeats in milliseconds
+
+global.clientUniqueID = ""; // Initialize to an empty string
+global.reconnectTimer = 0; // Time to attempt a reconnect
+global.reconnectInterval = 2000; // Interval between reconnect attempts
+global.isConnected = false; // Connection status
+global.IDENTIFIER_UNIQUE_ID = 2; // Ensure this matches server expectation
+global.uniqueIDSent = false; // Prevent re-sending
+
+// Initialize server state and structures
+isServerRunning = false;
+connectedClients = 0;
+
+// Generate or load the unique ID
+if (!file_exists(working_directory + "client_id.txt")) {
+    // For a new ID
+    global.clientUniqueID = string(irandom_range(100000, 999999));
+    var file = file_text_open_write(working_directory + "client_id.txt");
+    file_text_write_string(file, global.clientUniqueID);
+    file_text_close(file);
+} else {
+    // For an existing ID
+    var file = file_text_open_read(working_directory + "client_id.txt");
+    global.clientUniqueID = file_text_read_string(file);
+    file_text_close(file);
+}
+
+// Client Initialization and Connection
+global.client_socket = network_create_socket(network_socket_tcp);
+var status = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+if (status >= 0) {
+    // Successful connection
+    show_debug_message("[Client] Successfully connected and ID sent.");
+	isServerRunning = true;
+    var buffer = buffer_create(256, buffer_grow, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+    buffer_write(buffer, buffer_string, global.clientUniqueID);
+    network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+    buffer_delete(buffer);
+} else {
+    // Handle connection failure
+    show_debug_message("[Client] Connection failed.");
+}
+
+show_chatbox=false
+depth-=10; //ensure at top or front of view
+
+global.backspaceTimer = 0;
+global.backspaceDelay = 15; // Initial delay before rapid deletion
+global.backspaceSpeed = 1;  // Delay between rapid deletions
+
+global.recall_list = ds_list_create();  // List to store past messages and commands
+global.recall_max = 20;  // Maximum number of entries to remember
+global.recall_index = -1;  // Index for navigating through the recall list
+
+shake_angle=0 //angle to shake text when character limit reached.
+
+load_actions()
+load_conditions()
+
+
+Object: obj_chat_bubble
+
+File: Step_0.gml
+Code:
+// obj_chat_bubble Step Event
+
+if (!instance_exists(owner)) {
+    instance_destroy();  // Destroy the chat bubble if its owner no longer exists
+    exit;
+}
+
+x = owner.x;
+y = owner.y - 60;
+
+
+if (wrapped == 0) {
+	if string_contains(text, "|") {
+	text = string_replace_all(text, "|", "\n");
+	}
+    draw_set_font(text_font);
+    var text_length = string_length(text);
+    var longestWordWidth = get_longest_word_width(text, text_font, 1);
+    
+    // Calculate initial text scale
+    text_scale = min(clamp(1 - text_length / 600, 0.4, 1), clamp(1.5 - longestWordWidth / 1200, 0.4, 1));
+    
+    // Wrap text
+    wrapped_text = wrap_chat_text(text, max_width - 2 * padding);
+    
+    // Count lines and adjust scale if needed
+    line_count = string_count("\n", wrapped_text) + 1;
+    if (line_count > 5) {
+        text_scale *= (5 / line_count);
+        wrapped_text = wrap_chat_text(text, (max_width - 2 * padding) / text_scale);
+        line_count = string_count("\n", wrapped_text) + 1;
+    }
+    
+    // Calculate bubble dimensions
+    scale_x = clamp(string_width_ext(wrapped_text, -1, max_width - 2 * padding) * text_scale + 6 * padding, min_width, max_width);
+    real_scale_y = clamp(string_height_ext(wrapped_text, -1, max_width - 2 * padding) * text_scale + 4 * padding, min_height - 120, max_height - 120);
+    
+    scale_y = real_scale_y + 120;
+    wrapped = 1;
+}
+
+// Calculate top_middle_x and top_middle_y
+top_middle_x = x - (sprite_get_xoffset(sprite_index) - 250) * scale_x / 500;
+top_middle_y = y - sprite_get_yoffset(sprite_index) - real_scale_y - 60;
+
+// obj_chat_bubble Step Event
+if (timer_enabled) {
+    lifetime++;
+    if (lifetime >= duration) {
+        instance_destroy();
+    }
+}
+
+
+File: Destroy_0.gml
+Code:
+// obj_chat_bubble Destroy Event
+if (ds_exists(hover_progress, ds_type_map)) {
+    ds_map_destroy(hover_progress);
+}
+if (ds_exists(hover_scale, ds_type_map)) {
+    ds_map_destroy(hover_scale);
+}
+
+File: Draw_0.gml
+Code:
+// obj_chat_bubble Draw Event
+// At the beginning of the Draw Event, add these variables if they're not already defined:
+if (!variable_instance_exists(id, "text_color")) {
+    _text_color = c_black;  // Default text color
+}
+if (!variable_instance_exists(id, "text_color_outline")) {
+    text_color_outline = c_white;  // Default outline color
+}
+if (!variable_instance_exists(id, "text_scale")) {
+    text_scale = 1;  // Default text scale
+}
+if (!variable_instance_exists(id, "outline_size")) {
+    outline_size = 1;  // Default outline size
+}
+if (!variable_instance_exists(id, "padding")) {
+    padding = 10;  // Default padding
+}
+if (!variable_instance_exists(id, "max_width")) {
+    max_width = 500;  // Default max width
+}
+
+// Define sprite variables (you can set these in the Create event)
+if (!variable_instance_exists(id, "main_bubble_sprite")) {
+    main_bubble_sprite = spr_chatbubble1;
+}
+if (!variable_instance_exists(id, "choice_bubble_sprite")) {
+    choice_bubble_sprite = main_bubble_sprite; // Use the same sprite for choices
+}
+var tail_sprite_index = 0;
+var middle_sprite_index = 1;
+var top_sprite_index = 2;
+
+var bottom_y = y - 100;
+var top_y = y - real_scale_y - 100;
+var middle_height = clamp(scale_y - 240, 0, max_height - 120);
+var middle_y = y - 100 - sprite_get_yoffset(main_bubble_sprite) - (120 - sprite_get_yoffset(main_bubble_sprite)) * middle_height / 120;
+
+// Draw main chat bubble
+draw_sprite_ext(main_bubble_sprite, tail_sprite_index, x, bottom_y, scale_x / 500, 1, 0, c_white, 1);
+draw_sprite_ext(main_bubble_sprite, middle_sprite_index, x, middle_y, scale_x / 500, middle_height / 120, 0, c_white, 1);
+draw_sprite_ext(main_bubble_sprite, top_sprite_index, x, top_y, scale_x / 500, 1, 0, c_white, 1);
+
+// Draw message text
+draw_set_font(text_font);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+drawTextWithOutline(top_middle_x, top_middle_y - 100 + padding + 130, wrapped_text, text_scale, outline_size, text_color_outline, _text_color, max_width - 2 * padding);
+
+// Calculate choice layout variables
+// Calculate choice layout variables
+if (array_length(choices) > 0) {
+    var choice_padding = 10;
+    var choice_width = 1100;
+    var choice_height = 100;
+    choices_per_row = min(2, array_length(choices));
+    var rows = ceil(array_length(choices) / choices_per_row);
+    
+    var total_width = (choice_width + choice_padding) * choices_per_row - choice_padding;
+    var start_x = x - total_width / 2;
+    var start_y = bottom_y + 40;  // Position choices below the main bubble
+
+    // Draw choices
+    for (var i = 0; i < array_length(choices); i++) {
+        var row = i div choices_per_row;
+        var col = i mod choices_per_row;
+        var choice_x = start_x + choice_width/3 + col * (choice_width/1.3 + choice_padding);
+        var choice_y = start_y + row * (choice_height + choice_padding);
+
+        var choice_middle_height = 0; //this should be set above 0 if there is more than 1 line in a choice.
+        var choice_top_y = choice_y-60;
+        var choice_bottom_y = choice_y + choice_middle_height+60;
+        var choice_middle_y = choice_y+0;
+
+        var is_hovering = point_in_rectangle(mouse_x, mouse_y, choice_x, choice_y, choice_x + choice_width, choice_bottom_y);
+        
+        var alpha = 0.5;
+        var color = c_white;
+        var scale = 1;
+
+        // Smooth hover animation
+        if (ds_exists(hover_progress, ds_type_map) && ds_exists(hover_scale, ds_type_map)) {
+            if (!ds_map_exists(hover_progress, i)) ds_map_add(hover_progress, i, 0);
+            if (!ds_map_exists(hover_scale, i)) ds_map_add(hover_scale, i, 1);
+
+            if (is_hovering) {
+                hover_progress[? i] = min(hover_progress[? i] + 1/30, 1);
+                hover_scale[? i] = min(hover_scale[? i] + 0.05/30, 1.05);
+            } else {
+                hover_progress[? i] = max(hover_progress[? i] - 1/30, 0);
+                hover_scale[? i] = max(hover_scale[? i] - 0.05/30, 1);
+            }
+            
+            alpha = lerp(0.5, 1, hover_progress[? i]);
+            color = merge_color(c_white, c_ltgray, hover_progress[? i]);
+            scale = hover_scale[? i];
+        }
+			
+        // Check for mouse click
+        if (is_hovering && mouse_check_button_pressed(mb_left)) {
+            if (choices[i][1] != "null") {
+                handle_choice_selection(choices[i][1]);  // Pass the action name to the new function
+            } else {
+                // Handle "null" action (e.g., close the chat bubble)
+                instance_destroy();
+            }
+        }
+
+        // Draw choice bubble
+        var choice_scale_x = choice_width / 880 * scale;
+        var choice_scale_y = scale;
+        draw_sprite_ext(choice_bubble_sprite, tail_sprite_index, choice_x + choice_width/3, choice_bottom_y, choice_scale_x, choice_scale_y, 0, color, alpha);
+        draw_sprite_ext(choice_bubble_sprite, middle_sprite_index, choice_x + choice_width/3, choice_middle_y, choice_scale_x, choice_middle_height / 120 * choice_scale_y, 0, color, alpha);
+        draw_sprite_ext(choice_bubble_sprite, top_sprite_index, choice_x + choice_width/3, choice_top_y, choice_scale_x, choice_scale_y, 0, color, alpha);
+
+// Inside the for loop that draws choices
+var choice_text = choices[i][0];
+var wrapped_choice_text = wrap_chat_text(choice_text, choice_width - 40);  // Adjust padding
+
+// Calculate the number of lines in the wrapped choice text
+var choice_lines = string_count("\n", wrapped_choice_text) + 1;
+
+// Adjust choice height based on number of lines
+var adjusted_choice_height = max(choice_height, choice_lines * choice_line_height * choice_text_scale);
+
+// Calculate the total height of the text
+var total_text_height = choice_lines * choice_line_height * choice_text_scale;
+
+// Calculate the starting Y position to center the text vertically
+var text_start_y = choice_y + (adjusted_choice_height - total_text_height) / 2 - 45;
+
+// Draw choice text
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);  // Change to top alignment
+
+var text_color = is_hovering ? c_white : c_black;
+var outline_color = is_hovering ? c_black : c_white;
+
+drawTextWithOutline(
+    choice_x + choice_width / 3, 
+    text_start_y, 
+    wrapped_choice_text, 
+    choice_text_scale * scale, 
+    1, 
+    outline_color, 
+    text_color, 
+    choice_width - 40
+);
+
+}
+}
+
+// Debug: draw bounding box
+if (show_bounds) {
+    draw_set_color(c_red);
+    draw_rectangle(top_middle_x - scale_x/2, top_middle_y + 130, top_middle_x + scale_x/2, bottom_y, true);
+}
+
+File: Create_0.gml
+Code:
+// obj_chat_bubble Create Event
+
+hover_progress = ds_map_create();
+hover_scale = ds_map_create();
+_text_color = c_black;
+choices_per_row = 2;
+text_color_outline = c_white;
+text_scale = 1;
+outline_size = 2;
+padding = 10;
+wrapped_text = "";
+line_count = 1;
+choice_text_scale = 0.6;
+choice_line_height = 20
+max_width = 1000;
+max_height = 800;
+min_width = 200;
+min_height = 240;
+top_middle_x = 0;
+top_middle_y = 0;
+line_spacing = 0;
+scale_y = min_height;
+scale_x = min_width;
+real_scale_y = min_height - 120;
+duration = 1000;
+lifetime = 0;
+main_bubble_sprite = spr_chatbubble1;
+choice_bubble_sprite = spr_chatchoice1;
+text_font = Font_Default;
+wrapped = 0;
+show_bounds = false;
+
+// These properties will be set by the constructor
+text = text ?? "";
+owner = owner ?? noone;
+choices = choices ?? [];
+
+// Set up timer
+if (array_length(choices) > 0) {
+    has_choices = true;
+    timer_enabled = false;
+} else {
+    has_choices = false;
+    timer_enabled = true;
+}
+
+text = wrap_chat_text(text, max_width - 2 * padding);
+
+File: obj_chat_bubble.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_chat_bubble",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_chat_bubble",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"ui",
+    "path":"folders/Objects/ui.yy",
+  },
+  "parentObjectId":null,
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_chatbubble1",
+    "path":"sprites/spr_chatbubble1/spr_chatbubble1.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+== Related Scripts ==
+
+Script: scr_add_action
+File: scr_add_action.gml
+Code:
+function scr_add_action(actionName, fullActionCommand, actionParams) {
+    var parts = string_split(fullActionCommand, ".");
+    var targetObject, actionCommand;
+    
+    if (array_length(parts) == 2) {
+        targetObject = parts[0];
+        actionCommand = parts[1];
+    } else {
+        targetObject = "Target";  // Default to Target if no object specified
+        actionCommand = fullActionCommand;
+    }
+
+    var actionData = {
+        type: "single_action",
+        targetObject: targetObject,
+        command: actionCommand,
+        parameters: json_parse(actionParams)
+    };
+
+    var encodedCommand = base64_encode(json_stringify(actionData));
+
+    ds_map_set(global.actionDetails, actionName, encodedCommand);
+
+    handleDebugMessage("Action '" + actionName + "' added/updated successfully.", false);
+    
+    save_actions();
+}
+
+Script: scr_execute_action
+File: scr_execute_action.gml
+Code:
+function scr_execute_action(actionName) {
+    actionName = string_trim(actionName);
+    
+    if (ds_map_exists(global.actionDetails, actionName)) {
+        var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
+        var decodedData = json_parse(base64_decode(encodedCommand));
+        
+        handleDebugMessage("Executing action/group/condition: " + actionName, true);
+        handleDebugMessage("Decoded Data: " + json_stringify(decodedData), true);
+        
+        if (is_struct(decodedData)) {
+            switch(decodedData.type) {
+                case "action_condition":
+                    execute_action_condition(decodedData);
+                    break;
+                case "action_group":
+                    execute_action_group(decodedData.actions);
+                    break;
+                default:
+                    execute_single_action(decodedData);
+                    break;
+            }
+        } else {
+            handleDebugMessage("Invalid action data format for: " + actionName, true);
+        }
+    } else {
+        handleDebugMessage("Action/group/condition '" + actionName + "' not found.", true);
+    }
+}
+
+Script: scr_add_action_condition
+File: scr_add_action_condition.gml
+Code:
+function add_action_condition(actionConditionName, condition, trueAction, falseAction) {
+    var actionConditionData = {
+        type: "action_condition",
+        condition: condition,
+        trueAction: trueAction,
+        falseAction: falseAction
+    };
+    
+    var encodedData = base64_encode(json_stringify(actionConditionData));
+    ds_map_set(global.actionDetails, actionConditionName, encodedData);
+    
+    handleDebugMessage("Action condition '" + actionConditionName + "' added successfully.", false);
+    save_actions();
+}
+
+Script: execute_action_condition
+File: execute_action_condition.gml
+Code:
+function execute_action_condition(actionConditionData) {
+    var conditionResult = evaluate_condition(actionConditionData.condition);
+    if (conditionResult) {
+        scr_execute_action(actionConditionData.trueAction);
+    } else {
+        scr_execute_action(actionConditionData.falseAction);
+    }
+}
+
+Script: evaluate_condition
+File: evaluate_condition.gml
+Code:
+function evaluate_condition(conditionName) {
+    if (ds_map_exists(global.conditions, conditionName)) {
+        var encodedCondition = ds_map_find_value(global.conditions, conditionName);
+        var conditionData = json_parse(base64_decode(encodedCondition));
+        
+        var leftValue = get_operand_value(conditionData.leftOperand);
+        var rightValue = get_operand_value(conditionData.rightOperand);
+        var operator = conditionData.operator;
+
+        handleDebugMessage("Evaluating condition: " + string(leftValue) + " " + operator + " " + string(rightValue), true);
+
+        return compare_values(leftValue, operator, rightValue);
+    } else {
+        handleDebugMessage("Condition '" + conditionName + "' not found.", true);
+        return false;
+    }
+}
+
+Script: compare_values
+File: compare_values.gml
+Code:
+function compare_values(left, operator, right) {
+    switch(operator) {
+        case ">=": return left >= right;
+        case "<=": return left <= right;
+        case ">": return left > right;
+        case "<": return left < right;
+        case "=": return left == right;
+        case "!=": return left != right;
+        case "and": return left && right;
+        case "or": return left || right;
+        default:
+            handleDebugMessage("Unknown operator: " + operator, true);
+            return false;
+    }
+}
+
+Script: get_variable_value
+File: get_variable_value.gml
+Code:
+function get_variable_value(operand) {
+    if (ds_map_exists(global.variableDetails, operand)) {
+        var variableDetails = global.variableDetails[? operand];
+        var targetObject = variableDetails[? "objectType"];
+        var variableName = variableDetails[? "variableName"];
+        return variable_instance_get(targetObject, variableName);
+    }
+    // If it's not a variable name, return the operand as-is (it might be a literal value)
+    return operand;
+}
+
+Script: execute_single_action
+File: execute_single_action.gml
+Code:
+function execute_single_action(actionData) {
+    var cmdName = actionData.command;
+    var params = actionData.parameters;
+    var targetObj = actionData.targetObject;
+    
+    if (cmdName == "chat_bubble") {
+        // Special handling for chat_bubble
+        var text = is_array(params) ? params[0] : params;
+        var choices = is_array(params) && array_length(params) > 1 ? params[1] : [];
+        
+        // Remove any extra quotes from the text
+        if (is_string(text)) {
+            text = string_replace_all(text, "\"", "");
+        }
+        
+        scr_chat_bubble(text, targetObj, choices);
+    } else if (cmdName == "execute_action") {
+        // Directly execute the action without wrapping it
+        scr_execute_action(params[0]);
+    } else {
+        var fullCmd = (targetObj != "yeancat" ? targetObj + "." : "") + cmdName + "(" + json_stringify(params) + ")";
+        execute_command(fullCmd);
+    }
+}
+
+Script: handle_choice_selection
+File: handle_choice_selection.gml
+Code:
+function handle_choice_selection(action_name) {
+    // Clean up data structures
+    if (ds_exists(hover_progress, ds_type_map)) {
+        ds_map_destroy(hover_progress);
+    }
+    if (ds_exists(hover_scale, ds_type_map)) {
+        ds_map_destroy(hover_scale);
+    }
+    
+    // Execute the action, action group, or condition
+    scr_execute_action(action_name);
+    
+    // Destroy the chat bubble after selection
+    instance_destroy();
+}
+
+Script: execute_action_group
+File: execute_action_group.gml
+Code:
+function execute_action_group(actions) {
+    for (var i = 0; i < array_length(actions); i++) {
+        scr_execute_action(actions[i]);
+    }
+}
+
+Script: save_conditions
+File: save_conditions.gml
+Code:
+function save_conditions() {
+    var file = file_text_open_write("Conditions.txt");
+    var key = ds_map_find_first(global.conditions);
+    
+    while (!is_undefined(key)) {
+        var encodedData = ds_map_find_value(global.conditions, key);
+        var line = key + "|||" + encodedData;
+        file_text_write_string(file, line);
+        file_text_writeln(file);
+        key = ds_map_find_next(global.conditions, key);
+    }
+    
+    file_text_close(file);
+    handleDebugMessage("Conditions saved successfully to Conditions.txt.", true);
+}
+
+
+Script: load_conditions
+File: load_conditions.gml
+Code:
+function load_conditions() {
+    if (!variable_global_exists("conditions")) {
+        global.conditions = ds_map_create();
+    }
+
+    if (file_exists("Conditions.txt")) {
+        var file = file_text_open_read("Conditions.txt");
+        while (!file_text_eof(file)) {
+            var line = file_text_read_string(file);
+            var split = string_split(line, "|||");
+            if (array_length(split) == 2) {
+                var conditionName = split[0];
+                var encodedData = split[1];
+                ds_map_set(global.conditions, conditionName, encodedData);
+                handleDebugMessage("Loaded condition: " + conditionName, true);
+            }
+            file_text_readln(file);
+        }
+        file_text_close(file);
+        handleDebugMessage("Conditions loaded successfully from Conditions.txt.", true);
+    } else {
+        handleDebugMessage("Conditions.txt not found. No conditions loaded.", true);
+    }
+}
+
+== Related Logs ==
+
+Log: SessionLog_45505.49
+Content:
+
+08/01/24 06:51:31: Loaded action/group: SaveGameNow
+08/01/24 06:51:31: Loaded action/group: GotoKingsKingdom
+08/01/24 06:51:31: Loaded action/group: EnterPortal
+08/01/24 06:51:31: Loaded action/group: PurchaseArtifacts
+08/01/24 06:51:31: Loaded action/group: BattleOutcome
+08/01/24 06:51:31: Loaded action/group: VisitMarket
+08/01/24 06:51:31: Loaded action/group: GotoDivineDomain
+08/01/24 06:51:31: Loaded action/group: GotoTheEndonda
+08/01/24 06:51:31: Loaded action/group: GotoUniverseCity
+08/01/24 06:51:32: Loaded action/group: GotoLandOfLucy
+08/01/24 06:51:32: Loaded action/group: GotoPlaceOfPablo
+08/01/24 06:51:32: Loaded action/group: InvestigateSignals
+08/01/24 06:51:32: Loaded action/group: OfferTrade
+08/01/24 06:51:32: Loaded action/group: DisableEnemySpawns
+08/01/24 06:51:32: Loaded action/group: StartBattle
+08/01/24 06:51:32: Loaded action/group: SpawnBoss4
+08/01/24 06:51:32: Loaded action/group: GotoTheIcyHeart
+08/01/24 06:51:32: Loaded action/group: EngageCombat
+08/01/24 06:51:32: Loaded action/group: GotoGhostTown
+08/01/24 06:51:32: Loaded action/group: SpawnBoss0
+08/01/24 06:51:32: Loaded action/group: IsLevelHighAndHealthFull
+08/01/24 06:51:32: Loaded action/group: SpawnBoss13
+08/01/24 06:51:32: Loaded action/group: StartExploration
+08/01/24 06:51:32: Loaded action/group: SpawnBoss8
+08/01/24 06:51:32: Loaded action/group: SpawnBoss6
+08/01/24 06:51:32: Loaded action/group: SetLevelFive
+08/01/24 06:51:32: Loaded action/group: LevelUpThree
+08/01/24 06:51:32: Loaded action/group: LevelUpOnce
+08/01/24 06:51:32: Loaded action/group: "IsLevelHighAndHealthFull"
+08/01/24 06:51:32: Loaded action/group: GotoTheGoldMines
+08/01/24 06:51:32: Loaded action/group: SpawnBoss11
+08/01/24 06:51:32: Loaded action/group: StartPeaceMission
+08/01/24 06:51:32: Loaded action/group: DiplomaticChoice
+08/01/24 06:51:32: Loaded action/group: TreatyOutcome
+08/01/24 06:51:32: Loaded action/group: ExplorationChoice
+08/01/24 06:51:32: Loaded action/group: BattleChoice
+08/01/24 06:51:32: Loaded action/group: PortalOutcome
+08/01/24 06:51:32: Loaded action/group: SpaceAdventureStart
+08/01/24 06:51:32: Loaded action/group: EnableEnemySpawns
+08/01/24 06:51:32: Loaded action/group: GotoVulturesValley
+08/01/24 06:51:32: Loaded action/group: "IsHealthFull"
+08/01/24 06:51:32: Loaded action/group: GotoEarth
+08/01/24 06:51:33: Loaded action/group: SpawnBoss1
+08/01/24 06:51:33: Loaded action/group: GotoStormySands
+08/01/24 06:51:33: Loaded action/group: SpawnBoss12
+08/01/24 06:51:33: Loaded action/group: IsHealthFull
+08/01/24 06:51:33: Loaded action/group: GotoFantasia
+08/01/24 06:51:33: Loaded action/group: SpawnBoss5
+08/01/24 06:51:33: Loaded action/group: SpawnBoss10
+08/01/24 06:51:33: Loaded action/group: GotoYetopia
+08/01/24 06:51:33: Loaded action/group: SpawnBoss3
+08/01/24 06:51:33: Loaded action/group: IsLevelHigh
+08/01/24 06:51:33: Loaded action/group: ArtifactOutcome
+08/01/24 06:51:33: Loaded action/group: SpawnBoss7
+08/01/24 06:51:33: Loaded action/group: SpawnBoss9
+08/01/24 06:51:33: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 06:51:33: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 06:51:33: Loaded condition: IsHealthFull
+08/01/24 06:51:33: Loaded condition: IsLevelHigh
+08/01/24 06:51:33: Conditions loaded successfully from Conditions.txt.
+08/01/24 06:51:33: [Client] Failed to reconnect to server. Will try again...
+08/01/24 06:51:57: Raw command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:51:57: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:51:57: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 06:51:57: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:51:57: Command Name: add_condition
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:51:57: Raw command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:51:57: Cleaned command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:51:57: Parsing arguments: IsHealthFull, Health, =, 50
+08/01/24 06:51:57: Parsed arguments: ["IsHealthFull","Health","=","50"]
+08/01/24 06:51:57: Command Name: add_condition
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["IsHealthFull","Health","=","50"]
+08/01/24 06:51:57: Raw command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:51:57: Cleaned command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:51:57: Parsing arguments: IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull
+08/01/24 06:51:57: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:51:57: Command Name: add_condition
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:51:57: Raw command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull,
+HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:51:57: Cleaned command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:51:57: Parsing arguments: CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth
+08/01/24 06:51:57: Parsed arguments: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:51:57: Command Name: add_action_condition
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:51:57: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:51:57: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:51:57: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 06:51:57: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:51:57: Command Name: add_action_group
+08/01/24 06:51:57: Target Object: yeancat
+08/01/24 06:51:57: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:52:50: Raw command: list_actions
+08/01/24 06:52:50: Cleaned command: list_actions
+08/01/24 06:52:50: Command Name: list_actions
+08/01/24 06:52:50: Target Object: yeancat
+08/01/24 06:52:50: Parameters: []
+08/01/24 06:52:50: Actions: "IsHealthFull", "IsLevelHighAndHealthFull", ArtifactOutcome, 
+08/01/24 06:52:50: BattleChoice, BattleOutcome, DiplomaticChoice, DisableEnemySpawns, 
+08/01/24 06:52:50: EnableEnemySpawns, EngageCombat, EnterPortal, ExplorationChoice, 
+08/01/24 06:52:50: GotoDivineDomain, GotoEarth, GotoFantasia, GotoGhostTown, 
+08/01/24 06:52:50: GotoKingsKingdom, GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, 
+08/01/24 06:52:50: GotoTheEndonda, GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+08/01/24 06:52:50: GotoVulturesValley, GotoYetopia, InvestigateSignals, IsHealthFull, 
+08/01/24 06:52:50: IsLevelHigh, IsLevelHighAndHealthFull, LevelUpOnce, LevelUpThree, 
+08/01/24 06:52:50: OfferTrade, PortalOutcome, PurchaseArtifacts, SaveGameNow, 
+08/01/24 06:52:50: SetLevelFive, SpaceAdventureStart, SpawnBoss0, SpawnBoss1, 
+08/01/24 06:52:50: SpawnBoss10, SpawnBoss11, SpawnBoss12, SpawnBoss13, SpawnBoss3, 
+08/01/24 06:52:50: SpawnBoss4, SpawnBoss5, SpawnBoss6, SpawnBoss7, SpawnBoss8, 
+08/01/24 06:52:50: SpawnBoss9, StartBattle, StartExploration, StartPeaceMission, 
+08/01/24 06:52:50: TreatyOutcome, VisitMarket
+08/01/24 06:52:54: Raw command: list_action_groups
+08/01/24 06:52:54: Cleaned command: list_action_groups
+08/01/24 06:52:54: Command Name: list_action_groups
+08/01/24 06:52:54: Target Object: yeancat
+08/01/24 06:52:54: Parameters: []
+08/01/24 06:52:54: No action groups found.
+08/01/24 06:52:58: Raw command: list_conditions
+08/01/24 06:52:58: Cleaned command: list_conditions
+08/01/24 06:52:58: Command Name: list_conditions
+08/01/24 06:52:58: Target Object: yeancat
+08/01/24 06:52:58: Parameters: []
+08/01/24 06:52:58: Conditions: IsLevelHighAndHealthFull, IsHealthFull, IsLevelHigh
+08/01/24 06:53:09: Raw command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:53:09: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 06:53:09: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 06:53:09: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:53:09: Command Name: add_condition
+08/01/24 06:53:09: Target Object: yeancat
+08/01/24 06:53:09: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 06:53:09: Raw command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:53:10: Cleaned command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 06:53:10: Parsing arguments: IsHealthFull, Health, =, 50
+08/01/24 06:53:10: Parsed arguments: ["IsHealthFull","Health","=","50"]
+08/01/24 06:53:10: Command Name: add_condition
+08/01/24 06:53:10: Target Object: yeancat
+08/01/24 06:53:10: Parameters: ["IsHealthFull","Health","=","50"]
+08/01/24 06:53:10: Raw command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:53:10: Cleaned command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 06:53:10: Parsing arguments: IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull
+08/01/24 06:53:10: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:53:10: Command Name: add_condition
+08/01/24 06:53:10: Target Object: yeancat
+08/01/24 06:53:10: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 06:53:10: Raw command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull,
+HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:53:10: Cleaned command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 06:53:10: Parsing arguments: CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth
+08/01/24 06:53:10: Parsed arguments: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:53:10: Command Name: add_action_condition
+08/01/24 06:53:10: Target Object: yeancat
+08/01/24 06:53:10: Parameters: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 06:53:10: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:53:10: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:53:10: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 06:53:10: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:53:10: Command Name: add_action_group
+08/01/24 06:53:10: Target Object: yeancat
+08/01/24 06:53:10: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:53:15: [Jay Arnold] nothing is happening
+08/01/24 06:53:15: Creating chat bubble: " nothing is happening", Owner: yeancat, Choices: []
+08/01/24 06:53:15: Chat Bubble Created. Following 'yeancat' with text: 'nothing is happening'. Number of choices: 0
+08/01/24 06:53:23: Raw command: list_conditions
+08/01/24 06:53:23: Cleaned command: list_conditions
+08/01/24 06:53:23: Command Name: list_conditions
+08/01/24 06:53:23: Target Object: yeancat
+08/01/24 06:53:23: Parameters: []
+08/01/24 06:53:23: Conditions: IsLevelHighAndHealthFull, IsHealthFull, IsLevelHigh
+08/01/24 06:53:23: Raw command: list_action_conditions
+08/01/24 06:53:23: Cleaned command: list_action_conditions
+08/01/24 06:53:23: Command Name: list_action_conditions
+08/01/24 06:53:23: Target Object: yeancat
+08/01/24 06:53:23: Parameters: []
+08/01/24 06:53:23: No action conditions found.
+08/01/24 06:53:23: Raw command: list_action_groups
+08/01/24 06:53:23: Cleaned command: list_action_groups
+08/01/24 06:53:23: Command Name: list_action_groups
+08/01/24 06:53:23: Target Object: yeancat
+08/01/24 06:53:23: Parameters: []
+08/01/24 06:53:23: No action groups found.
+08/01/24 06:53:23: Raw command: list_actions
+08/01/24 06:53:23: Cleaned command: list_actions
+08/01/24 06:53:23: Command Name: list_actions
+08/01/24 06:53:23: Target Object: yeancat
+08/01/24 06:53:23: Parameters: []
+08/01/24 06:53:23: Actions: "IsHealthFull", "IsLevelHighAndHealthFull", ArtifactOutcome, 
+08/01/24 06:53:23: BattleChoice, BattleOutcome, DiplomaticChoice, DisableEnemySpawns, 
+08/01/24 06:53:23: EnableEnemySpawns, EngageCombat, EnterPortal, ExplorationChoice, 
+08/01/24 06:53:23: GotoDivineDomain, GotoEarth, GotoFantasia, GotoGhostTown, 
+08/01/24 06:53:23: GotoKingsKingdom, GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, 
+08/01/24 06:53:23: GotoTheEndonda, GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+08/01/24 06:53:23: GotoVulturesValley, GotoYetopia, InvestigateSignals, IsHealthFull, 
+08/01/24 06:53:23: IsLevelHigh, IsLevelHighAndHealthFull, LevelUpOnce, LevelUpThree, 
+08/01/24 06:53:23: OfferTrade, PortalOutcome, PurchaseArtifacts, SaveGameNow, 
+08/01/24 06:53:23: SetLevelFive, SpaceAdventureStart, SpawnBoss0, SpawnBoss1, 
+08/01/24 06:53:23: SpawnBoss10, SpawnBoss11, SpawnBoss12, SpawnBoss13, SpawnBoss3, 
+08/01/24 06:53:23: SpawnBoss4, SpawnBoss5, SpawnBoss6, SpawnBoss7, SpawnBoss8, 
+08/01/24 06:53:23: SpawnBoss9, StartBattle, StartExploration, StartPeaceMission, 
+08/01/24 06:53:23: TreatyOutcome, VisitMarket
+08/01/24 06:53:48: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:53:48: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 06:53:48: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 06:53:48: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 06:53:48: Command Name: add_action_group
+08/01/24 06:53:48: Target Object: yeancat
+08/01/24 06:53:48: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+
+I will delete my actions.txt and I also didnt notice any conditions.txt which is wierd because there should be one.
+
+I will begin with the test sequence:
+
+
+/add_action(LevelUpOnce,level_up,[1])
+/add_action(LevelUpThree, level_up, [3])
+/add_action(SaveGameNow,save_game,[])
+/add_action(GotoEarth,goto_planet,["Earth"])
+/add_action(GotoUniverseCity,goto_planet,["Universe City"])
+/add_action(GotoFantasia,goto_planet,["Fantasia"])
+/add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+/add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+/add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+/add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+/add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+/add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+/add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+/add_action(GotoYetopia,goto_planet,["Yetopia"])
+/add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+/add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+/add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+/add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+/add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+/add_action(SetLevelFive, set_variable, ["Level", "5"])
+/add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+/add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+
+/add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+/add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+/add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+/add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+/add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+/add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+/add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+/add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+
+/add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+/add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+/add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+/add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+
+/add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+/add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+/add_action(EnterPortal, execute_action, ["PortalAdventure"])
+/add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+/add_action(EngageCombat, execute_action, ["EpicBattle"])
+/add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+/add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+/add_action(StartExploration, execute_action, ["SpaceExploration"])
+/add_action(StartBattle, execute_action, ["BattleSequence"])
+/add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+
+/add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+/add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+/add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+/add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+/add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+/add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+/add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+/add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+/add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+/add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+/add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+/add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+/add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+/add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+
+/add_condition(IsLevelHigh, Level, >=, 10); 
+/add_condition(IsHealthFull, Health, =, 50);
+/add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull);
+/add_action_condition(CheckLevel10, IsLevelHigh, Level10OrAbove, BelowLevel10);
+/add_action_condition(CheckHonestyYes, IsLevelHigh, HonestAbove10, LyingBelow10);
+/add_action_condition(CheckHonestyNo, IsLevelHigh, LyingAbove10, HonestBelow10);
+/add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth,NotHighLevelOrNotFullHealth);
+
+/list_action_conditions
+/list_conditions
+/list_action_groups
+/list_actions
+
+/execute_action(SpaceAdventureStart)
+/execute_action(IsLevelHighAndHealthFull)
+/execute_action(SpawnBossCircle)
+
+/Center.camera_target(0,0)
+/Target.camera_target(0,0)
+/Player.camera_target(0,0)
+
+That is the language that until recently was mostly working, now most of it isnt able to produce the results we once had, due to some ai adjustments breaking the system.
+
+
+Log: SessionLog_45505.30
+Content:
+08/01/24 02:15:52: Actions.txt not found. No actions or action groups loaded.
+08/01/24 02:15:52: Conditions.txt not found. No conditions loaded.
+08/01/24 02:15:52: [Client] Failed to reconnect to server. Will try again...
+08/01/24 02:16:07: [Jay Arnold] im starting with an empty actions and conditions .txt
+08/01/24 02:16:07: Creating chat bubble: " im starting with an empty actions and conditions .txt", Owner: yeancat, Choices: []
+08/01/24 02:16:07: Chat Bubble Created. Following 'yeancat' with text: 'im starting with an empty actions and conditions
+.txt'. Number of choices: 0
+08/01/24 02:16:15: Raw command: add_action(LevelUpOnce,level_up,[1])
+08/01/24 02:16:15: Cleaned command: add_action(LevelUpOnce,level_up,[1])
+08/01/24 02:16:15: Detected add_action command
+08/01/24 02:16:15: Arguments string: LevelUpOnce,level_up,[1]
+08/01/24 02:16:15: Parsing arguments: LevelUpOnce,level_up,[1]
+08/01/24 02:16:15: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+08/01/24 02:16:15: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+08/01/24 02:16:15: Action Name: LevelUpOnce
+08/01/24 02:16:15: Full Action Command: level_up
+08/01/24 02:16:15: Action Params: [1]
+08/01/24 02:16:15: Target Object: yeancat
+08/01/24 02:16:15: Action Command: level_up
+08/01/24 02:16:15: Action 'LevelUpOnce' added/updated successfully.
+08/01/24 02:16:15: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:15: Raw command: add_action(LevelUpThree, level_up, [3])
+08/01/24 02:16:15: Cleaned command: add_action(LevelUpThree, level_up, [3])
+08/01/24 02:16:15: Detected add_action command
+08/01/24 02:16:15: Arguments string: LevelUpThree, level_up, [3]
+08/01/24 02:16:16: Parsing arguments: LevelUpThree, level_up, [3]
+08/01/24 02:16:16: Parsed arguments: ["LevelUpThree","level_up","[3]"]
+08/01/24 02:16:16: Parsed arguments: ["LevelUpThree","level_up","[3]"]
+08/01/24 02:16:16: Action Name: LevelUpThree
+08/01/24 02:16:16: Full Action Command: level_up
+08/01/24 02:16:16: Action Params: [3]
+08/01/24 02:16:16: Target Object: yeancat
+08/01/24 02:16:16: Action Command: level_up
+08/01/24 02:16:16: Action 'LevelUpThree' added/updated successfully.
+08/01/24 02:16:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:16: Raw command: add_action(SaveGameNow,save_game,[])
+08/01/24 02:16:16: Cleaned command: add_action(SaveGameNow,save_game,[])
+08/01/24 02:16:16: Detected add_action command
+08/01/24 02:16:16: Arguments string: SaveGameNow,save_game,[]
+08/01/24 02:16:16: Parsing arguments: SaveGameNow,save_game,[]
+08/01/24 02:16:16: Parsed arguments: ["SaveGameNow","save_game","[]"]
+08/01/24 02:16:16: Parsed arguments: ["SaveGameNow","save_game","[]"]
+08/01/24 02:16:16: Action Name: SaveGameNow
+08/01/24 02:16:16: Full Action Command: save_game
+08/01/24 02:16:16: Action Params: []
+08/01/24 02:16:16: Target Object: yeancat
+08/01/24 02:16:16: Action Command: save_game
+08/01/24 02:16:16: Action 'SaveGameNow' added/updated successfully.
+08/01/24 02:16:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:16: Raw command: add_action(GotoEarth,goto_planet,["Earth"])
+08/01/24 02:16:16: Cleaned command: add_action(GotoEarth,goto_planet,["Earth"])
+08/01/24 02:16:16: Detected add_action command
+08/01/24 02:16:16: Arguments string: GotoEarth,goto_planet,["Earth"]
+08/01/24 02:16:16: Parsing arguments: GotoEarth,goto_planet,["Earth"]
+08/01/24 02:16:16: Parsed arguments: ["GotoEarth","goto_planet","[\"Earth\"]"]
+08/01/24 02:16:16: Parsed arguments: ["GotoEarth","goto_planet","[\"Earth\"]"]
+08/01/24 02:16:16: Action Name: GotoEarth
+08/01/24 02:16:16: Full Action Command: goto_planet
+08/01/24 02:16:16: Action Params: ["Earth"]
+08/01/24 02:16:16: Target Object: yeancat
+08/01/24 02:16:16: Action Command: goto_planet
+08/01/24 02:16:16: Action 'GotoEarth' added/updated successfully.
+08/01/24 02:16:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:16: Raw command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+08/01/24 02:16:16: Cleaned command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+08/01/24 02:16:16: Detected add_action command
+08/01/24 02:16:16: Arguments string: GotoUniverseCity,goto_planet,["Universe City"]
+08/01/24 02:16:16: Parsing arguments: GotoUniverseCity,goto_planet,["Universe City"]
+08/01/24 02:16:16: Parsed arguments: ["GotoUniverseCity","goto_planet","[\"Universe City\"]"]
+08/01/24 02:16:16: Parsed arguments: ["GotoUniverseCity","goto_planet","[\"Universe City\"]"]
+08/01/24 02:16:16: Action Name: GotoUniverseCity
+08/01/24 02:16:16: Full Action Command: goto_planet
+08/01/24 02:16:16: Action Params: ["Universe City"]
+08/01/24 02:16:16: Target Object: yeancat
+08/01/24 02:16:16: Action Command: goto_planet
+08/01/24 02:16:16: Action 'GotoUniverseCity' added/updated successfully.
+08/01/24 02:16:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:16: Raw command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+08/01/24 02:16:16: Cleaned command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+08/01/24 02:16:16: Detected add_action command
+08/01/24 02:16:16: Arguments string: GotoFantasia,goto_planet,["Fantasia"]
+08/01/24 02:16:16: Parsing arguments: GotoFantasia,goto_planet,["Fantasia"]
+08/01/24 02:16:16: Parsed arguments: ["GotoFantasia","goto_planet","[\"Fantasia\"]"]
+08/01/24 02:16:16: Parsed arguments: ["GotoFantasia","goto_planet","[\"Fantasia\"]"]
+08/01/24 02:16:16: Action Name: GotoFantasia
+08/01/24 02:16:16: Full Action Command: goto_planet
+08/01/24 02:16:16: Action Params: ["Fantasia"]
+08/01/24 02:16:16: Target Object: yeancat
+08/01/24 02:16:16: Action Command: goto_planet
+08/01/24 02:16:16: Action 'GotoFantasia' added/updated successfully.
+08/01/24 02:16:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:16: Raw command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+08/01/24 02:16:16: Cleaned command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+08/01/24 02:16:16: Detected add_action command
+08/01/24 02:16:16: Arguments string: GotoLandOfLucy,goto_planet,["Land of Lucy"]
+08/01/24 02:16:16: Parsing arguments: GotoLandOfLucy,goto_planet,["Land of Lucy"]
+08/01/24 02:16:16: Parsed arguments: ["GotoLandOfLucy","goto_planet","[\"Land of Lucy\"]"]
+08/01/24 02:16:16: Parsed arguments: ["GotoLandOfLucy","goto_planet","[\"Land of Lucy\"]"]
+08/01/24 02:16:16: Action Name: GotoLandOfLucy
+08/01/24 02:16:16: Full Action Command: goto_planet
+08/01/24 02:16:16: Action Params: ["Land of Lucy"]
+08/01/24 02:16:16: Target Object: yeancat
+08/01/24 02:16:16: Action Command: goto_planet
+08/01/24 02:16:16: Action 'GotoLandOfLucy' added/updated successfully.
+08/01/24 02:16:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:16: Raw command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+08/01/24 02:16:16: Cleaned command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+08/01/24 02:16:16: Detected add_action command
+08/01/24 02:16:16: Arguments string: GotoPlaceOfPablo,goto_planet,["Place of Pablo"]
+08/01/24 02:16:16: Parsing arguments: GotoPlaceOfPablo,goto_planet,["Place of Pablo"]
+08/01/24 02:16:16: Parsed arguments: ["GotoPlaceOfPablo","goto_planet","[\"Place of Pablo\"]"]
+08/01/24 02:16:16: Parsed arguments: ["GotoPlaceOfPablo","goto_planet","[\"Place of Pablo\"]"]
+08/01/24 02:16:16: Action Name: GotoPlaceOfPablo
+08/01/24 02:16:16: Full Action Command: goto_planet
+08/01/24 02:16:16: Action Params: ["Place of Pablo"]
+08/01/24 02:16:16: Target Object: yeancat
+08/01/24 02:16:16: Action Command: goto_planet
+08/01/24 02:16:16: Action 'GotoPlaceOfPablo' added/updated successfully.
+08/01/24 02:16:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:16: Raw command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+08/01/24 02:16:16: Cleaned command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+08/01/24 02:16:16: Detected add_action command
+08/01/24 02:16:16: Arguments string: GotoGhostTown,goto_planet,["Ghost Town"]
+08/01/24 02:16:16: Parsing arguments: GotoGhostTown,goto_planet,["Ghost Town"]
+08/01/24 02:16:16: Parsed arguments: ["GotoGhostTown","goto_planet","[\"Ghost Town\"]"]
+08/01/24 02:16:16: Parsed arguments: ["GotoGhostTown","goto_planet","[\"Ghost Town\"]"]
+08/01/24 02:16:16: Action Name: GotoGhostTown
+08/01/24 02:16:16: Full Action Command: goto_planet
+08/01/24 02:16:16: Action Params: ["Ghost Town"]
+08/01/24 02:16:16: Target Object: yeancat
+08/01/24 02:16:16: Action Command: goto_planet
+08/01/24 02:16:16: Action 'GotoGhostTown' added/updated successfully.
+08/01/24 02:16:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:16: Raw command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+08/01/24 02:16:16: Cleaned command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+08/01/24 02:16:16: Detected add_action command
+08/01/24 02:16:16: Arguments string: GotoVulturesValley,goto_planet,["Vultures Valley"]
+08/01/24 02:16:16: Parsing arguments: GotoVulturesValley,goto_planet,["Vultures Valley"]
+08/01/24 02:16:16: Parsed arguments: ["GotoVulturesValley","goto_planet","[\"Vultures Valley\"]"]
+08/01/24 02:16:16: Parsed arguments: ["GotoVulturesValley","goto_planet","[\"Vultures Valley\"]"]
+08/01/24 02:16:16: Action Name: GotoVulturesValley
+08/01/24 02:16:17: Full Action Command: goto_planet
+08/01/24 02:16:17: Action Params: ["Vultures Valley"]
+08/01/24 02:16:17: Target Object: yeancat
+08/01/24 02:16:17: Action Command: goto_planet
+08/01/24 02:16:17: Action 'GotoVulturesValley' added/updated successfully.
+08/01/24 02:16:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:17: Raw command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+08/01/24 02:16:17: Cleaned command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+08/01/24 02:16:17: Detected add_action command
+08/01/24 02:16:17: Arguments string: GotoTheEndonda,goto_planet,["The Endonda"]
+08/01/24 02:16:17: Parsing arguments: GotoTheEndonda,goto_planet,["The Endonda"]
+08/01/24 02:16:17: Parsed arguments: ["GotoTheEndonda","goto_planet","[\"The Endonda\"]"]
+08/01/24 02:16:17: Parsed arguments: ["GotoTheEndonda","goto_planet","[\"The Endonda\"]"]
+08/01/24 02:16:17: Action Name: GotoTheEndonda
+08/01/24 02:16:17: Full Action Command: goto_planet
+08/01/24 02:16:17: Action Params: ["The Endonda"]
+08/01/24 02:16:17: Target Object: yeancat
+08/01/24 02:16:17: Action Command: goto_planet
+08/01/24 02:16:17: Action 'GotoTheEndonda' added/updated successfully.
+08/01/24 02:16:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:17: Raw command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+08/01/24 02:16:17: Cleaned command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+08/01/24 02:16:17: Detected add_action command
+08/01/24 02:16:17: Arguments string: GotoStormySands,goto_planet,["Stormy Sands"]
+08/01/24 02:16:17: Parsing arguments: GotoStormySands,goto_planet,["Stormy Sands"]
+08/01/24 02:16:17: Parsed arguments: ["GotoStormySands","goto_planet","[\"Stormy Sands\"]"]
+08/01/24 02:16:17: Parsed arguments: ["GotoStormySands","goto_planet","[\"Stormy Sands\"]"]
+08/01/24 02:16:17: Action Name: GotoStormySands
+08/01/24 02:16:17: Full Action Command: goto_planet
+08/01/24 02:16:17: Action Params: ["Stormy Sands"]
+08/01/24 02:16:17: Target Object: yeancat
+08/01/24 02:16:17: Action Command: goto_planet
+08/01/24 02:16:17: Action 'GotoStormySands' added/updated successfully.
+08/01/24 02:16:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:17: Raw command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+08/01/24 02:16:17: Cleaned command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+08/01/24 02:16:17: Detected add_action command
+08/01/24 02:16:17: Arguments string: GotoDivineDomain,goto_planet,["Divine Domain"]
+08/01/24 02:16:17: Parsing arguments: GotoDivineDomain,goto_planet,["Divine Domain"]
+08/01/24 02:16:17: Parsed arguments: ["GotoDivineDomain","goto_planet","[\"Divine Domain\"]"]
+08/01/24 02:16:17: Parsed arguments: ["GotoDivineDomain","goto_planet","[\"Divine Domain\"]"]
+08/01/24 02:16:17: Action Name: GotoDivineDomain
+08/01/24 02:16:17: Full Action Command: goto_planet
+08/01/24 02:16:17: Action Params: ["Divine Domain"]
+08/01/24 02:16:17: Target Object: yeancat
+08/01/24 02:16:17: Action Command: goto_planet
+08/01/24 02:16:17: Action 'GotoDivineDomain' added/updated successfully.
+08/01/24 02:16:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:17: Raw command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+08/01/24 02:16:17: Cleaned command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+08/01/24 02:16:17: Detected add_action command
+08/01/24 02:16:17: Arguments string: GotoYetopia,goto_planet,["Yetopia"]
+08/01/24 02:16:17: Parsing arguments: GotoYetopia,goto_planet,["Yetopia"]
+08/01/24 02:16:17: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+08/01/24 02:16:17: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+08/01/24 02:16:17: Action Name: GotoYetopia
+08/01/24 02:16:17: Full Action Command: goto_planet
+08/01/24 02:16:17: Action Params: ["Yetopia"]
+08/01/24 02:16:17: Target Object: yeancat
+08/01/24 02:16:17: Action Command: goto_planet
+08/01/24 02:16:17: Action 'GotoYetopia' added/updated successfully.
+08/01/24 02:16:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:17: Raw command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+08/01/24 02:16:17: Cleaned command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+08/01/24 02:16:17: Detected add_action command
+08/01/24 02:16:17: Arguments string: GotoKingsKingdom,goto_planet,["Kings Kingdom"]
+08/01/24 02:16:17: Parsing arguments: GotoKingsKingdom,goto_planet,["Kings Kingdom"]
+08/01/24 02:16:17: Parsed arguments: ["GotoKingsKingdom","goto_planet","[\"Kings Kingdom\"]"]
+08/01/24 02:16:17: Parsed arguments: ["GotoKingsKingdom","goto_planet","[\"Kings Kingdom\"]"]
+08/01/24 02:16:17: Action Name: GotoKingsKingdom
+08/01/24 02:16:17: Full Action Command: goto_planet
+08/01/24 02:16:17: Action Params: ["Kings Kingdom"]
+08/01/24 02:16:17: Target Object: yeancat
+08/01/24 02:16:17: Action Command: goto_planet
+08/01/24 02:16:17: Action 'GotoKingsKingdom' added/updated successfully.
+08/01/24 02:16:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:17: Raw command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+08/01/24 02:16:17: Cleaned command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+08/01/24 02:16:17: Detected add_action command
+08/01/24 02:16:17: Arguments string: GotoTheIcyHeart,goto_planet,["The Icy Heart"]
+08/01/24 02:16:17: Parsing arguments: GotoTheIcyHeart,goto_planet,["The Icy Heart"]
+08/01/24 02:16:17: Parsed arguments: ["GotoTheIcyHeart","goto_planet","[\"The Icy Heart\"]"]
+08/01/24 02:16:17: Parsed arguments: ["GotoTheIcyHeart","goto_planet","[\"The Icy Heart\"]"]
+08/01/24 02:16:17: Action Name: GotoTheIcyHeart
+08/01/24 02:16:17: Full Action Command: goto_planet
+08/01/24 02:16:17: Action Params: ["The Icy Heart"]
+08/01/24 02:16:17: Target Object: yeancat
+08/01/24 02:16:17: Action Command: goto_planet
+08/01/24 02:16:17: Action 'GotoTheIcyHeart' added/updated successfully.
+08/01/24 02:16:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:17: Raw command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+08/01/24 02:16:17: Cleaned command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+08/01/24 02:16:17: Detected add_action command
+08/01/24 02:16:17: Arguments string: GotoTheGoldMines,goto_planet,["The Gold Mines"]
+08/01/24 02:16:17: Parsing arguments: GotoTheGoldMines,goto_planet,["The Gold Mines"]
+08/01/24 02:16:17: Parsed arguments: ["GotoTheGoldMines","goto_planet","[\"The Gold Mines\"]"]
+08/01/24 02:16:17: Parsed arguments: ["GotoTheGoldMines","goto_planet","[\"The Gold Mines\"]"]
+08/01/24 02:16:17: Action Name: GotoTheGoldMines
+08/01/24 02:16:17: Full Action Command: goto_planet
+08/01/24 02:16:17: Action Params: ["The Gold Mines"]
+08/01/24 02:16:17: Target Object: yeancat
+08/01/24 02:16:17: Action Command: goto_planet
+08/01/24 02:16:17: Action 'GotoTheGoldMines' added/updated successfully.
+08/01/24 02:16:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:22: Raw command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+08/01/24 02:16:22: Cleaned command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+08/01/24 02:16:22: Detected add_action command
+08/01/24 02:16:22: Arguments string: EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"]
+08/01/24 02:16:22: Parsing arguments: EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"]
+08/01/24 02:16:22: Parsed arguments: ["EnableEnemySpawns","set_variable","[\"SpawnEnemies\", \"true\"]"]
+08/01/24 02:16:22: Parsed arguments: ["EnableEnemySpawns","set_variable","[\"SpawnEnemies\", \"true\"]"]
+08/01/24 02:16:22: Action Name: EnableEnemySpawns
+08/01/24 02:16:22: Full Action Command: set_variable
+08/01/24 02:16:22: Action Params: ["SpawnEnemies", "true"]
+08/01/24 02:16:22: Target Object: yeancat
+08/01/24 02:16:22: Action Command: set_variable
+08/01/24 02:16:23: Action 'EnableEnemySpawns' added/updated successfully.
+08/01/24 02:16:23: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:23: Raw command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+08/01/24 02:16:23: Cleaned command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+08/01/24 02:16:23: Detected add_action command
+08/01/24 02:16:23: Arguments string: DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"]
+08/01/24 02:16:23: Parsing arguments: DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"]
+08/01/24 02:16:23: Parsed arguments: ["DisableEnemySpawns","set_variable","[\"SpawnEnemies\", \"false\"]"]
+08/01/24 02:16:23: Parsed arguments: ["DisableEnemySpawns","set_variable","[\"SpawnEnemies\", \"false\"]"]
+08/01/24 02:16:23: Action Name: DisableEnemySpawns
+08/01/24 02:16:23: Full Action Command: set_variable
+08/01/24 02:16:23: Action Params: ["SpawnEnemies", "false"]
+08/01/24 02:16:23: Target Object: yeancat
+08/01/24 02:16:23: Action Command: set_variable
+08/01/24 02:16:23: Action 'DisableEnemySpawns' added/updated successfully.
+08/01/24 02:16:23: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:23: Raw command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+08/01/24 02:16:23: Cleaned command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+08/01/24 02:16:23: Detected add_action command
+08/01/24 02:16:23: Arguments string: SetLevelFive, set_variable, ["Level", "5"]
+08/01/24 02:16:23: Parsing arguments: SetLevelFive, set_variable, ["Level", "5"]
+08/01/24 02:16:23: Parsed arguments: ["SetLevelFive","set_variable","[\"Level\", \"5\"]"]
+08/01/24 02:16:23: Parsed arguments: ["SetLevelFive","set_variable","[\"Level\", \"5\"]"]
+08/01/24 02:16:23: Action Name: SetLevelFive
+08/01/24 02:16:23: Full Action Command: set_variable
+08/01/24 02:16:23: Action Params: ["Level", "5"]
+08/01/24 02:16:23: Target Object: yeancat
+08/01/24 02:16:23: Action Command: set_variable
+08/01/24 02:16:23: Action 'SetLevelFive' added/updated successfully.
+08/01/24 02:16:23: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:27: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 02:16:27: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 02:16:27: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 02:16:27: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 02:16:27: Command Name: add_action_group
+08/01/24 02:16:27: Target Object: yeancat
+08/01/24 02:16:27: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 02:16:27: Action group 'SpaceExploration' added successfully.
+08/01/24 02:16:27: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:27: Raw command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley",
+"BattleChoice"])
+08/01/24 02:16:27: Cleaned command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+08/01/24 02:16:27: Parsing arguments: BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"]
+08/01/24 02:16:27: Parsed arguments: ["BattleSequence","[\"EnableEnemySpawns\", \"GotoVulturesValley\", \"BattleChoice\"]"]
+08/01/24 02:16:27: Command Name: add_action_group
+08/01/24 02:16:27: Target Object: yeancat
+08/01/24 02:16:28: Parameters: ["BattleSequence","[\"EnableEnemySpawns\", \"GotoVulturesValley\", \"BattleChoice\"]"]
+08/01/24 02:16:28: Action group 'BattleSequence' added successfully.
+08/01/24 02:16:28: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:28: Raw command: add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+08/01/24 02:16:28: Cleaned command: add_action_group(PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"])
+08/01/24 02:16:28: Parsing arguments: PeacefulMission, ["GotoDivineDomain", "DiplomaticChoice"]
+08/01/24 02:16:28: Parsed arguments: ["PeacefulMission","[\"GotoDivineDomain\", \"DiplomaticChoice\"]"]
+08/01/24 02:16:28: Command Name: add_action_group
+08/01/24 02:16:28: Target Object: yeancat
+08/01/24 02:16:28: Parameters: ["PeacefulMission","[\"GotoDivineDomain\", \"DiplomaticChoice\"]"]
+08/01/24 02:16:28: Action group 'PeacefulMission' added successfully.
+08/01/24 02:16:28: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:33: Raw command: add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe
+City. What's your next move?", [["Investigate strange signals",
+"InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base",
+"ReturnToBase"]]])
+08/01/24 02:16:33: Cleaned command: add_action(ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]])
+08/01/24 02:16:33: Detected add_action command
+08/01/24 02:16:33: Arguments string: ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 02:16:33: Parsing arguments: ExplorationChoice, Target.chat_bubble, ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 02:16:33: Parsed arguments: ["ExplorationChoice","Target.chat_bubble","[\"You've arrived at Universe City. What's your next move?\", [[\"Investigate strange signals\", \"InvestigateSignals\"], [\"Visit the local market\", \"VisitMarket\"], [\"Return to base\", \"ReturnToBase\"]]]"]
+08/01/24 02:16:33: Parsed arguments: ["ExplorationChoice","Target.chat_bubble","[\"You've arrived at Universe City. What's your next move?\", [[\"Investigate strange signals\", \"InvestigateSignals\"], [\"Visit the local market\", \"VisitMarket\"], [\"Return to base\", \"ReturnToBase\"]]]"]
+08/01/24 02:16:33: Action Name: ExplorationChoice
+08/01/24 02:16:33: Full Action Command: Target.chat_bubble
+08/01/24 02:16:33: Action Params: ["You've arrived at Universe City. What's your next move?", [["Investigate strange signals", "InvestigateSignals"], ["Visit the local market", "VisitMarket"], ["Return to base", "ReturnToBase"]]]
+08/01/24 02:16:33: Target Object: Target
+08/01/24 02:16:33: Action Command: chat_bubble
+08/01/24 02:16:33: Action 'ExplorationChoice' added/updated successfully.
+08/01/24 02:16:33: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:33: Raw command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a
+hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report
+back to HQ", "ReportToHQ"]]])
+08/01/24 02:16:33: Cleaned command: add_action(InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]])
+08/01/24 02:16:33: Detected add_action command
+08/01/24 02:16:33: Arguments string: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 02:16:33: Parsing arguments: InvestigateSignals, Target.chat_bubble, ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 02:16:33: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+08/01/24 02:16:33: Parsed arguments: ["InvestigateSignals","Target.chat_bubble","[\"The signals lead you to a hidden portal. Do you enter?\", [[\"Enter the portal\", \"EnterPortal\"], [\"Report back to HQ\", \"ReportToHQ\"]]]"]
+08/01/24 02:16:33: Action Name: InvestigateSignals
+08/01/24 02:16:33: Full Action Command: Target.chat_bubble
+08/01/24 02:16:33: Action Params: ["The signals lead you to a hidden portal. Do you enter?", [["Enter the portal", "EnterPortal"], ["Report back to HQ", "ReportToHQ"]]]
+08/01/24 02:16:33: Target Object: Target
+08/01/24 02:16:33: Action Command: chat_bubble
+08/01/24 02:16:33: Action 'InvestigateSignals' added/updated successfully.
+08/01/24 02:16:33: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:33: Raw command: add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the
+market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"],
+["Investigate seller", "InvestigateSeller"]]])
+08/01/24 02:16:34: Cleaned command: add_action(VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]])
+08/01/24 02:16:34: Detected add_action command
+08/01/24 02:16:34: Arguments string: VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 02:16:34: Parsing arguments: VisitMarket, Target.chat_bubble, ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 02:16:34: Parsed arguments: ["VisitMarket","Target.chat_bubble","[\"You find rare artifacts in the market. What do you do?\", [[\"Purchase artifacts\", \"PurchaseArtifacts\"], [\"Investigate seller\", \"InvestigateSeller\"]]]"]
+08/01/24 02:16:34: Parsed arguments: ["VisitMarket","Target.chat_bubble","[\"You find rare artifacts in the market. What do you do?\", [[\"Purchase artifacts\", \"PurchaseArtifacts\"], [\"Investigate seller\", \"InvestigateSeller\"]]]"]
+08/01/24 02:16:34: Action Name: VisitMarket
+08/01/24 02:16:34: Full Action Command: Target.chat_bubble
+08/01/24 02:16:34: Action Params: ["You find rare artifacts in the market. What do you do?", [["Purchase artifacts", "PurchaseArtifacts"], ["Investigate seller", "InvestigateSeller"]]]
+08/01/24 02:16:34: Target Object: Target
+08/01/24 02:16:34: Action Command: chat_bubble
+08/01/24 02:16:34: Action 'VisitMarket' added/updated successfully.
+08/01/24 02:16:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:34: Raw command: add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's
+your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy",
+"AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+08/01/24 02:16:34: Cleaned command: add_action(BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]])
+08/01/24 02:16:34: Detected add_action command
+08/01/24 02:16:34: Arguments string: BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 02:16:34: Parsing arguments: BattleChoice, Target.chat_bubble, ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 02:16:34: Parsed arguments: ["BattleChoice","Target.chat_bubble","[\"Enemies approaching! What's your strategy?\", [[\"Engage in combat\", \"EngageCombat\"], [\"Attempt diplomacy\", \"AttemptDiplomacy\"], [\"Retreat\", \"StrategicRetreat\"]]]"]
+08/01/24 02:16:34: Parsed arguments: ["BattleChoice","Target.chat_bubble","[\"Enemies approaching! What's your strategy?\", [[\"Engage in combat\", \"EngageCombat\"], [\"Attempt diplomacy\", \"AttemptDiplomacy\"], [\"Retreat\", \"StrategicRetreat\"]]]"]
+08/01/24 02:16:34: Action Name: BattleChoice
+08/01/24 02:16:34: Full Action Command: Target.chat_bubble
+08/01/24 02:16:34: Action Params: ["Enemies approaching! What's your strategy?", [["Engage in combat", "EngageCombat"], ["Attempt diplomacy", "AttemptDiplomacy"], ["Retreat", "StrategicRetreat"]]]
+08/01/24 02:16:34: Target Object: Target
+08/01/24 02:16:34: Action Command: chat_bubble
+08/01/24 02:16:34: Action 'BattleChoice' added/updated successfully.
+08/01/24 02:16:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:34: Raw command: add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a
+peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"],
+["Share technology", "ShareTechnology"], ["Request alliance",
+"RequestAlliance"]]])
+08/01/24 02:16:34: Cleaned command: add_action(DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]])
+08/01/24 02:16:34: Detected add_action command
+08/01/24 02:16:34: Arguments string: DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 02:16:34: Parsing arguments: DiplomaticChoice, Target.chat_bubble, ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 02:16:34: Parsed arguments: ["DiplomaticChoice","Target.chat_bubble","[\"You're in Divine Domain for a peace mission. How do you proceed?\", [[\"Offer trade deal\", \"OfferTrade\"], [\"Share technology\", \"ShareTechnology\"], [\"Request alliance\", \"RequestAlliance\"]]]"]
+08/01/24 02:16:34: Parsed arguments: ["DiplomaticChoice","Target.chat_bubble","[\"You're in Divine Domain for a peace mission. How do you proceed?\", [[\"Offer trade deal\", \"OfferTrade\"], [\"Share technology\", \"ShareTechnology\"], [\"Request alliance\", \"RequestAlliance\"]]]"]
+08/01/24 02:16:34: Action Name: DiplomaticChoice
+08/01/24 02:16:34: Full Action Command: Target.chat_bubble
+08/01/24 02:16:34: Action Params: ["You're in Divine Domain for a peace mission. How do you proceed?", [["Offer trade deal", "OfferTrade"], ["Share technology", "ShareTechnology"], ["Request alliance", "RequestAlliance"]]]
+08/01/24 02:16:34: Target Object: Target
+08/01/24 02:16:34: Action Command: chat_bubble
+08/01/24 02:16:34: Action 'DiplomaticChoice' added/updated successfully.
+08/01/24 02:16:34: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:38: Raw command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive",
+"PortalOutcome"])
+08/01/24 02:16:38: Cleaned command: add_action_group(PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"])
+08/01/24 02:16:38: Parsing arguments: PortalAdventure, ["GotoTheEndonda", "SetLevelFive", "PortalOutcome"]
+08/01/24 02:16:38: Parsed arguments: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+08/01/24 02:16:38: Command Name: add_action_group
+08/01/24 02:16:38: Target Object: yeancat
+08/01/24 02:16:38: Parameters: ["PortalAdventure","[\"GotoTheEndonda\", \"SetLevelFive\", \"PortalOutcome\"]"]
+08/01/24 02:16:38: Action group 'PortalAdventure' added successfully.
+08/01/24 02:16:38: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:38: Raw command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown",
+"ArtifactOutcome"])
+08/01/24 02:16:38: Cleaned command: add_action_group(ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"])
+08/01/24 02:16:38: Parsing arguments: ArtifactMystery, ["EnableEnemySpawns", "GotoGhostTown", "ArtifactOutcome"]
+08/01/24 02:16:38: Parsed arguments: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+08/01/24 02:16:38: Command Name: add_action_group
+08/01/24 02:16:38: Target Object: yeancat
+08/01/24 02:16:38: Parameters: ["ArtifactMystery","[\"EnableEnemySpawns\", \"GotoGhostTown\", \"ArtifactOutcome\"]"]
+08/01/24 02:16:38: Action group 'ArtifactMystery' added successfully.
+08/01/24 02:16:38: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:38: Raw command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns",
+"BattleOutcome"])
+08/01/24 02:16:38: Cleaned command: add_action_group(EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"])
+08/01/24 02:16:38: Parsing arguments: EpicBattle, ["LevelUpThree", "DisableEnemySpawns", "BattleOutcome"]
+08/01/24 02:16:38: Parsed arguments: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+08/01/24 02:16:38: Command Name: add_action_group
+08/01/24 02:16:38: Target Object: yeancat
+08/01/24 02:16:38: Parameters: ["EpicBattle","[\"LevelUpThree\", \"DisableEnemySpawns\", \"BattleOutcome\"]"]
+08/01/24 02:16:38: Action group 'EpicBattle' added successfully.
+08/01/24 02:16:38: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:38: Raw command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+08/01/24 02:16:38: Cleaned command: add_action_group(PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"])
+08/01/24 02:16:38: Parsing arguments: PeaceTreaty, ["GotoKingsKingdom", "TreatyOutcome"]
+08/01/24 02:16:38: Parsed arguments: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+08/01/24 02:16:38: Command Name: add_action_group
+08/01/24 02:16:38: Target Object: yeancat
+08/01/24 02:16:38: Parameters: ["PeaceTreaty","[\"GotoKingsKingdom\", \"TreatyOutcome\"]"]
+08/01/24 02:16:38: Action group 'PeaceTreaty' added successfully.
+08/01/24 02:16:38: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:44: Raw command: add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient
+civilization! What's your approach?", [["Study their technology", "StudyTech"],
+["Establish communication", "Communicate"], ["Return home with findings",
+"ReturnWithFindings"]]])
+08/01/24 02:16:44: Cleaned command: add_action(PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]])
+08/01/24 02:16:44: Detected add_action command
+08/01/24 02:16:44: Arguments string: PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 02:16:44: Parsing arguments: PortalOutcome, Target.chat_bubble, ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 02:16:44: Parsed arguments: ["PortalOutcome","Target.chat_bubble","[\"You've discovered an ancient civilization! What's your approach?\", [[\"Study their technology\", \"StudyTech\"], [\"Establish communication\", \"Communicate\"], [\"Return home with findings\", \"ReturnWithFindings\"]]]"]
+08/01/24 02:16:44: Parsed arguments: ["PortalOutcome","Target.chat_bubble","[\"You've discovered an ancient civilization! What's your approach?\", [[\"Study their technology\", \"StudyTech\"], [\"Establish communication\", \"Communicate\"], [\"Return home with findings\", \"ReturnWithFindings\"]]]"]
+08/01/24 02:16:44: Action Name: PortalOutcome
+08/01/24 02:16:44: Full Action Command: Target.chat_bubble
+08/01/24 02:16:44: Action Params: ["You've discovered an ancient civilization! What's your approach?", [["Study their technology", "StudyTech"], ["Establish communication", "Communicate"], ["Return home with findings", "ReturnWithFindings"]]]
+08/01/24 02:16:44: Target Object: Target
+08/01/24 02:16:44: Action Command: chat_bubble
+08/01/24 02:16:44: Action 'PortalOutcome' added/updated successfully.
+08/01/24 02:16:44: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:44: Raw command: add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened
+ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try
+to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts",
+"EscapeWithArtifacts"]]])
+08/01/24 02:16:44: Cleaned command: add_action(ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]])
+08/01/24 02:16:44: Detected add_action command
+08/01/24 02:16:44: Arguments string: ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 02:16:44: Parsing arguments: ArtifactOutcome, Target.chat_bubble, ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 02:16:44: Parsed arguments: ["ArtifactOutcome","Target.chat_bubble","[\"The artifacts have awakened ancient guardians! Your move?\", [[\"Fight the guardians\", \"FightGuardians\"], [\"Try to deactivate artifacts\", \"DeactivateArtifacts\"], [\"Escape with artifacts\", \"EscapeWithArtifacts\"]]]"]
+08/01/24 02:16:44: Parsed arguments: ["ArtifactOutcome","Target.chat_bubble","[\"The artifacts have awakened ancient guardians! Your move?\", [[\"Fight the guardians\", \"FightGuardians\"], [\"Try to deactivate artifacts\", \"DeactivateArtifacts\"], [\"Escape with artifacts\", \"EscapeWithArtifacts\"]]]"]
+08/01/24 02:16:44: Action Name: ArtifactOutcome
+08/01/24 02:16:44: Full Action Command: Target.chat_bubble
+08/01/24 02:16:44: Action Params: ["The artifacts have awakened ancient guardians! Your move?", [["Fight the guardians", "FightGuardians"], ["Try to deactivate artifacts", "DeactivateArtifacts"], ["Escape with artifacts", "EscapeWithArtifacts"]]]
+08/01/24 02:16:44: Target Object: Target
+08/01/24 02:16:44: Action Command: chat_bubble
+08/01/24 02:16:44: Action 'ArtifactOutcome' added/updated successfully.
+08/01/24 02:16:44: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:44: Raw command: add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are
+retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the
+area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+08/01/24 02:16:44: Cleaned command: add_action(BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]])
+08/01/24 02:16:44: Detected add_action command
+08/01/24 02:16:44: Arguments string: BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 02:16:44: Parsing arguments: BattleOutcome, Target.chat_bubble, ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 02:16:44: Parsed arguments: ["BattleOutcome","Target.chat_bubble","[\"Victory! The enemy forces are retreating. Next steps?\", [[\"Pursue and capture\", \"PursueEnemy\"], [\"Secure the area\", \"SecureArea\"], [\"Call for reinforcements\", \"CallReinforcements\"]]]"]
+08/01/24 02:16:44: Parsed arguments: ["BattleOutcome","Target.chat_bubble","[\"Victory! The enemy forces are retreating. Next steps?\", [[\"Pursue and capture\", \"PursueEnemy\"], [\"Secure the area\", \"SecureArea\"], [\"Call for reinforcements\", \"CallReinforcements\"]]]"]
+08/01/24 02:16:44: Action Name: BattleOutcome
+08/01/24 02:16:44: Full Action Command: Target.chat_bubble
+08/01/24 02:16:44: Action Params: ["Victory! The enemy forces are retreating. Next steps?", [["Pursue and capture", "PursueEnemy"], ["Secure the area", "SecureArea"], ["Call for reinforcements", "CallReinforcements"]]]
+08/01/24 02:16:44: Target Object: Target
+08/01/24 02:16:44: Action Command: chat_bubble
+08/01/24 02:16:44: Action 'BattleOutcome' added/updated successfully.
+08/01/24 02:16:44: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:44: Raw command: add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready.
+Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments",
+"ProposeAmendments"], ["Reject and return to negotiations",
+"RenegotiateTreaty"]]])
+08/01/24 02:16:44: Cleaned command: add_action(TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]])
+08/01/24 02:16:44: Detected add_action command
+08/01/24 02:16:44: Arguments string: TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 02:16:44: Parsing arguments: TreatyOutcome, Target.chat_bubble, ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 02:16:44: Parsed arguments: ["TreatyOutcome","Target.chat_bubble","[\"The peace treaty is ready. Final decisions:\", [[\"Sign the treaty\", \"SignTreaty\"], [\"Propose amendments\", \"ProposeAmendments\"], [\"Reject and return to negotiations\", \"RenegotiateTreaty\"]]]"]
+08/01/24 02:16:44: Parsed arguments: ["TreatyOutcome","Target.chat_bubble","[\"The peace treaty is ready. Final decisions:\", [[\"Sign the treaty\", \"SignTreaty\"], [\"Propose amendments\", \"ProposeAmendments\"], [\"Reject and return to negotiations\", \"RenegotiateTreaty\"]]]"]
+08/01/24 02:16:44: Action Name: TreatyOutcome
+08/01/24 02:16:44: Full Action Command: Target.chat_bubble
+08/01/24 02:16:44: Action Params: ["The peace treaty is ready. Final decisions:", [["Sign the treaty", "SignTreaty"], ["Propose amendments", "ProposeAmendments"], ["Reject and return to negotiations", "RenegotiateTreaty"]]]
+08/01/24 02:16:44: Target Object: Target
+08/01/24 02:16:44: Action Command: chat_bubble
+08/01/24 02:16:44: Action 'TreatyOutcome' added/updated successfully.
+08/01/24 02:16:44: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:51: Raw command: add_action(EnterPortal, execute_action, ["PortalAdventure"])
+08/01/24 02:16:51: Cleaned command: add_action(EnterPortal, execute_action, ["PortalAdventure"])
+08/01/24 02:16:51: Detected add_action command
+08/01/24 02:16:51: Arguments string: EnterPortal, execute_action, ["PortalAdventure"]
+08/01/24 02:16:51: Parsing arguments: EnterPortal, execute_action, ["PortalAdventure"]
+08/01/24 02:16:51: Parsed arguments: ["EnterPortal","execute_action","[\"PortalAdventure\"]"]
+08/01/24 02:16:51: Parsed arguments: ["EnterPortal","execute_action","[\"PortalAdventure\"]"]
+08/01/24 02:16:51: Action Name: EnterPortal
+08/01/24 02:16:51: Full Action Command: execute_action
+08/01/24 02:16:51: Action Params: ["PortalAdventure"]
+08/01/24 02:16:51: Target Object: yeancat
+08/01/24 02:16:51: Action Command: execute_action
+08/01/24 02:16:51: Action 'EnterPortal' added/updated successfully.
+08/01/24 02:16:51: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:51: Raw command: add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+08/01/24 02:16:51: Cleaned command: add_action(PurchaseArtifacts, execute_action, ["ArtifactMystery"])
+08/01/24 02:16:51: Detected add_action command
+08/01/24 02:16:51: Arguments string: PurchaseArtifacts, execute_action, ["ArtifactMystery"]
+08/01/24 02:16:51: Parsing arguments: PurchaseArtifacts, execute_action, ["ArtifactMystery"]
+08/01/24 02:16:52: Parsed arguments: ["PurchaseArtifacts","execute_action","[\"ArtifactMystery\"]"]
+08/01/24 02:16:52: Parsed arguments: ["PurchaseArtifacts","execute_action","[\"ArtifactMystery\"]"]
+08/01/24 02:16:52: Action Name: PurchaseArtifacts
+08/01/24 02:16:52: Full Action Command: execute_action
+08/01/24 02:16:52: Action Params: ["ArtifactMystery"]
+08/01/24 02:16:52: Target Object: yeancat
+08/01/24 02:16:52: Action Command: execute_action
+08/01/24 02:16:52: Action 'PurchaseArtifacts' added/updated successfully.
+08/01/24 02:16:52: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:52: Raw command: add_action(EngageCombat, execute_action, ["EpicBattle"])
+08/01/24 02:16:52: Cleaned command: add_action(EngageCombat, execute_action, ["EpicBattle"])
+08/01/24 02:16:52: Detected add_action command
+08/01/24 02:16:52: Arguments string: EngageCombat, execute_action, ["EpicBattle"]
+08/01/24 02:16:52: Parsing arguments: EngageCombat, execute_action, ["EpicBattle"]
+08/01/24 02:16:52: Parsed arguments: ["EngageCombat","execute_action","[\"EpicBattle\"]"]
+08/01/24 02:16:52: Parsed arguments: ["EngageCombat","execute_action","[\"EpicBattle\"]"]
+08/01/24 02:16:52: Action Name: EngageCombat
+08/01/24 02:16:52: Full Action Command: execute_action
+08/01/24 02:16:52: Action Params: ["EpicBattle"]
+08/01/24 02:16:52: Target Object: yeancat
+08/01/24 02:16:52: Action Command: execute_action
+08/01/24 02:16:52: Action 'EngageCombat' added/updated successfully.
+08/01/24 02:16:52: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:52: Raw command: add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+08/01/24 02:16:52: Cleaned command: add_action(OfferTrade, execute_action, ["PeaceTreaty"])
+08/01/24 02:16:52: Detected add_action command
+08/01/24 02:16:52: Arguments string: OfferTrade, execute_action, ["PeaceTreaty"]
+08/01/24 02:16:52: Parsing arguments: OfferTrade, execute_action, ["PeaceTreaty"]
+08/01/24 02:16:52: Parsed arguments: ["OfferTrade","execute_action","[\"PeaceTreaty\"]"]
+08/01/24 02:16:52: Parsed arguments: ["OfferTrade","execute_action","[\"PeaceTreaty\"]"]
+08/01/24 02:16:52: Action Name: OfferTrade
+08/01/24 02:16:52: Full Action Command: execute_action
+08/01/24 02:16:52: Action Params: ["PeaceTreaty"]
+08/01/24 02:16:52: Target Object: yeancat
+08/01/24 02:16:52: Action Command: execute_action
+08/01/24 02:16:52: Action 'OfferTrade' added/updated successfully.
+08/01/24 02:16:52: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:16:57: Raw command: add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space
+Adventure! Choose your path:", [["Explore the universe", "StartExploration"],
+["Engage in battle", "StartBattle"], ["Embark on a peace mission",
+"StartPeaceMission"]]])
+08/01/24 02:16:57: Cleaned command: add_action(SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]])
+08/01/24 02:16:57: Detected add_action command
+08/01/24 02:16:57: Arguments string: SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 02:16:57: Parsing arguments: SpaceAdventureStart, Target.chat_bubble, ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 02:16:57: Parsed arguments: ["SpaceAdventureStart","Target.chat_bubble","[\"Welcome to the Space Adventure! Choose your path:\", [[\"Explore the universe\", \"StartExploration\"], [\"Engage in battle\", \"StartBattle\"], [\"Embark on a peace mission\", \"StartPeaceMission\"]]]"]
+08/01/24 02:16:57: Parsed arguments: ["SpaceAdventureStart","Target.chat_bubble","[\"Welcome to the Space Adventure! Choose your path:\", [[\"Explore the universe\", \"StartExploration\"], [\"Engage in battle\", \"StartBattle\"], [\"Embark on a peace mission\", \"StartPeaceMission\"]]]"]
+08/01/24 02:16:57: Action Name: SpaceAdventureStart
+08/01/24 02:16:57: Full Action Command: Target.chat_bubble
+08/01/24 02:16:57: Action Params: ["Welcome to the Space Adventure! Choose your path:", [["Explore the universe", "StartExploration"], ["Engage in battle", "StartBattle"], ["Embark on a peace mission", "StartPeaceMission"]]]
+08/01/24 02:16:57: Target Object: Target
+08/01/24 02:16:57: Action Command: chat_bubble
+08/01/24 02:16:57: Action 'SpaceAdventureStart' added/updated successfully.
+08/01/24 02:16:57: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:02: Raw command: add_action(StartExploration, execute_action, ["SpaceExploration"])
+08/01/24 02:17:02: Cleaned command: add_action(StartExploration, execute_action, ["SpaceExploration"])
+08/01/24 02:17:02: Detected add_action command
+08/01/24 02:17:02: Arguments string: StartExploration, execute_action, ["SpaceExploration"]
+08/01/24 02:17:02: Parsing arguments: StartExploration, execute_action, ["SpaceExploration"]
+08/01/24 02:17:02: Parsed arguments: ["StartExploration","execute_action","[\"SpaceExploration\"]"]
+08/01/24 02:17:02: Parsed arguments: ["StartExploration","execute_action","[\"SpaceExploration\"]"]
+08/01/24 02:17:02: Action Name: StartExploration
+08/01/24 02:17:02: Full Action Command: execute_action
+08/01/24 02:17:02: Action Params: ["SpaceExploration"]
+08/01/24 02:17:02: Target Object: yeancat
+08/01/24 02:17:02: Action Command: execute_action
+08/01/24 02:17:02: Action 'StartExploration' added/updated successfully.
+08/01/24 02:17:02: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:02: Raw command: add_action(StartBattle, execute_action, ["BattleSequence"])
+08/01/24 02:17:02: Cleaned command: add_action(StartBattle, execute_action, ["BattleSequence"])
+08/01/24 02:17:02: Detected add_action command
+08/01/24 02:17:02: Arguments string: StartBattle, execute_action, ["BattleSequence"]
+08/01/24 02:17:02: Parsing arguments: StartBattle, execute_action, ["BattleSequence"]
+08/01/24 02:17:02: Parsed arguments: ["StartBattle","execute_action","[\"BattleSequence\"]"]
+08/01/24 02:17:02: Parsed arguments: ["StartBattle","execute_action","[\"BattleSequence\"]"]
+08/01/24 02:17:02: Action Name: StartBattle
+08/01/24 02:17:02: Full Action Command: execute_action
+08/01/24 02:17:02: Action Params: ["BattleSequence"]
+08/01/24 02:17:02: Target Object: yeancat
+08/01/24 02:17:02: Action Command: execute_action
+08/01/24 02:17:02: Action 'StartBattle' added/updated successfully.
+08/01/24 02:17:02: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:02: Raw command: add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+08/01/24 02:17:02: Cleaned command: add_action(StartPeaceMission, execute_action, ["PeacefulMission"])
+08/01/24 02:17:02: Detected add_action command
+08/01/24 02:17:02: Arguments string: StartPeaceMission, execute_action, ["PeacefulMission"]
+08/01/24 02:17:02: Parsing arguments: StartPeaceMission, execute_action, ["PeacefulMission"]
+08/01/24 02:17:02: Parsed arguments: ["StartPeaceMission","execute_action","[\"PeacefulMission\"]"]
+08/01/24 02:17:02: Parsed arguments: ["StartPeaceMission","execute_action","[\"PeacefulMission\"]"]
+08/01/24 02:17:02: Action Name: StartPeaceMission
+08/01/24 02:17:02: Full Action Command: execute_action
+08/01/24 02:17:02: Action Params: ["PeacefulMission"]
+08/01/24 02:17:02: Target Object: yeancat
+08/01/24 02:17:02: Action Command: execute_action
+08/01/24 02:17:02: Action 'StartPeaceMission' added/updated successfully.
+08/01/24 02:17:02: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:15: Raw command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+08/01/24 02:17:15: Cleaned command: add_action(SpawnBoss0, Target.spawn_boss, [0, 0, -500])
+08/01/24 02:17:15: Detected add_action command
+08/01/24 02:17:15: Arguments string: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+08/01/24 02:17:15: Parsing arguments: SpawnBoss0, Target.spawn_boss, [0, 0, -500]
+08/01/24 02:17:15: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+08/01/24 02:17:15: Parsed arguments: ["SpawnBoss0","Target.spawn_boss","[0, 0, -500]"]
+08/01/24 02:17:15: Action Name: SpawnBoss0
+08/01/24 02:17:15: Full Action Command: Target.spawn_boss
+08/01/24 02:17:15: Action Params: [0, 0, -500]
+08/01/24 02:17:16: Target Object: Target
+08/01/24 02:17:16: Action Command: spawn_boss
+08/01/24 02:17:16: Action 'SpawnBoss0' added/updated successfully.
+08/01/24 02:17:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:16: Raw command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+08/01/24 02:17:16: Cleaned command: add_action(SpawnBoss1, Target.spawn_boss, [1, 353, -353])
+08/01/24 02:17:16: Detected add_action command
+08/01/24 02:17:16: Arguments string: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+08/01/24 02:17:16: Parsing arguments: SpawnBoss1, Target.spawn_boss, [1, 353, -353]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss1","Target.spawn_boss","[1, 353, -353]"]
+08/01/24 02:17:16: Action Name: SpawnBoss1
+08/01/24 02:17:16: Full Action Command: Target.spawn_boss
+08/01/24 02:17:16: Action Params: [1, 353, -353]
+08/01/24 02:17:16: Target Object: Target
+08/01/24 02:17:16: Action Command: spawn_boss
+08/01/24 02:17:16: Action 'SpawnBoss1' added/updated successfully.
+08/01/24 02:17:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:16: Raw command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+08/01/24 02:17:16: Cleaned command: add_action(SpawnBoss3, Target.spawn_boss, [3, 353, 353])
+08/01/24 02:17:16: Detected add_action command
+08/01/24 02:17:16: Arguments string: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+08/01/24 02:17:16: Parsing arguments: SpawnBoss3, Target.spawn_boss, [3, 353, 353]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss3","Target.spawn_boss","[3, 353, 353]"]
+08/01/24 02:17:16: Action Name: SpawnBoss3
+08/01/24 02:17:16: Full Action Command: Target.spawn_boss
+08/01/24 02:17:16: Action Params: [3, 353, 353]
+08/01/24 02:17:16: Target Object: Target
+08/01/24 02:17:16: Action Command: spawn_boss
+08/01/24 02:17:16: Action 'SpawnBoss3' added/updated successfully.
+08/01/24 02:17:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:16: Raw command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+08/01/24 02:17:16: Cleaned command: add_action(SpawnBoss4, Target.spawn_boss, [4, 0, 500])
+08/01/24 02:17:16: Detected add_action command
+08/01/24 02:17:16: Arguments string: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+08/01/24 02:17:16: Parsing arguments: SpawnBoss4, Target.spawn_boss, [4, 0, 500]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss4","Target.spawn_boss","[4, 0, 500]"]
+08/01/24 02:17:16: Action Name: SpawnBoss4
+08/01/24 02:17:16: Full Action Command: Target.spawn_boss
+08/01/24 02:17:16: Action Params: [4, 0, 500]
+08/01/24 02:17:16: Target Object: Target
+08/01/24 02:17:16: Action Command: spawn_boss
+08/01/24 02:17:16: Action 'SpawnBoss4' added/updated successfully.
+08/01/24 02:17:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:16: Raw command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+08/01/24 02:17:16: Cleaned command: add_action(SpawnBoss5, Target.spawn_boss, [5, -353, 353])
+08/01/24 02:17:16: Detected add_action command
+08/01/24 02:17:16: Arguments string: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+08/01/24 02:17:16: Parsing arguments: SpawnBoss5, Target.spawn_boss, [5, -353, 353]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss5","Target.spawn_boss","[5, -353, 353]"]
+08/01/24 02:17:16: Action Name: SpawnBoss5
+08/01/24 02:17:16: Full Action Command: Target.spawn_boss
+08/01/24 02:17:16: Action Params: [5, -353, 353]
+08/01/24 02:17:16: Target Object: Target
+08/01/24 02:17:16: Action Command: spawn_boss
+08/01/24 02:17:16: Action 'SpawnBoss5' added/updated successfully.
+08/01/24 02:17:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:16: Raw command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+08/01/24 02:17:16: Cleaned command: add_action(SpawnBoss6, Target.spawn_boss, [6, -500, 0])
+08/01/24 02:17:16: Detected add_action command
+08/01/24 02:17:16: Arguments string: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+08/01/24 02:17:16: Parsing arguments: SpawnBoss6, Target.spawn_boss, [6, -500, 0]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss6","Target.spawn_boss","[6, -500, 0]"]
+08/01/24 02:17:16: Action Name: SpawnBoss6
+08/01/24 02:17:16: Full Action Command: Target.spawn_boss
+08/01/24 02:17:16: Action Params: [6, -500, 0]
+08/01/24 02:17:16: Target Object: Target
+08/01/24 02:17:16: Action Command: spawn_boss
+08/01/24 02:17:16: Action 'SpawnBoss6' added/updated successfully.
+08/01/24 02:17:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:16: Raw command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+08/01/24 02:17:16: Cleaned command: add_action(SpawnBoss7, Target.spawn_boss, [7, -353, -353])
+08/01/24 02:17:16: Detected add_action command
+08/01/24 02:17:16: Arguments string: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+08/01/24 02:17:16: Parsing arguments: SpawnBoss7, Target.spawn_boss, [7, -353, -353]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss7","Target.spawn_boss","[7, -353, -353]"]
+08/01/24 02:17:16: Action Name: SpawnBoss7
+08/01/24 02:17:16: Full Action Command: Target.spawn_boss
+08/01/24 02:17:16: Action Params: [7, -353, -353]
+08/01/24 02:17:16: Target Object: Target
+08/01/24 02:17:16: Action Command: spawn_boss
+08/01/24 02:17:16: Action 'SpawnBoss7' added/updated successfully.
+08/01/24 02:17:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:16: Raw command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+08/01/24 02:17:16: Cleaned command: add_action(SpawnBoss8, Target.spawn_boss, [8, 0, -400])
+08/01/24 02:17:16: Detected add_action command
+08/01/24 02:17:16: Arguments string: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+08/01/24 02:17:16: Parsing arguments: SpawnBoss8, Target.spawn_boss, [8, 0, -400]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss8","Target.spawn_boss","[8, 0, -400]"]
+08/01/24 02:17:16: Action Name: SpawnBoss8
+08/01/24 02:17:16: Full Action Command: Target.spawn_boss
+08/01/24 02:17:16: Action Params: [8, 0, -400]
+08/01/24 02:17:16: Target Object: Target
+08/01/24 02:17:16: Action Command: spawn_boss
+08/01/24 02:17:16: Action 'SpawnBoss8' added/updated successfully.
+08/01/24 02:17:16: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:16: Raw command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+08/01/24 02:17:16: Cleaned command: add_action(SpawnBoss9, Target.spawn_boss, [9, 283, -283])
+08/01/24 02:17:16: Detected add_action command
+08/01/24 02:17:16: Arguments string: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+08/01/24 02:17:16: Parsing arguments: SpawnBoss9, Target.spawn_boss, [9, 283, -283]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+08/01/24 02:17:16: Parsed arguments: ["SpawnBoss9","Target.spawn_boss","[9, 283, -283]"]
+08/01/24 02:17:16: Action Name: SpawnBoss9
+08/01/24 02:17:17: Full Action Command: Target.spawn_boss
+08/01/24 02:17:17: Action Params: [9, 283, -283]
+08/01/24 02:17:17: Target Object: Target
+08/01/24 02:17:17: Action Command: spawn_boss
+08/01/24 02:17:17: Action 'SpawnBoss9' added/updated successfully.
+08/01/24 02:17:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:17: Raw command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+08/01/24 02:17:17: Cleaned command: add_action(SpawnBoss10, Target.spawn_boss, [10, 400, 0])
+08/01/24 02:17:17: Detected add_action command
+08/01/24 02:17:17: Arguments string: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+08/01/24 02:17:17: Parsing arguments: SpawnBoss10, Target.spawn_boss, [10, 400, 0]
+08/01/24 02:17:17: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+08/01/24 02:17:17: Parsed arguments: ["SpawnBoss10","Target.spawn_boss","[10, 400, 0]"]
+08/01/24 02:17:17: Action Name: SpawnBoss10
+08/01/24 02:17:17: Full Action Command: Target.spawn_boss
+08/01/24 02:17:17: Action Params: [10, 400, 0]
+08/01/24 02:17:17: Target Object: Target
+08/01/24 02:17:17: Action Command: spawn_boss
+08/01/24 02:17:17: Action 'SpawnBoss10' added/updated successfully.
+08/01/24 02:17:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:17: Raw command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+08/01/24 02:17:17: Cleaned command: add_action(SpawnBoss11, Target.spawn_boss, [11, 283, 283])
+08/01/24 02:17:17: Detected add_action command
+08/01/24 02:17:17: Arguments string: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+08/01/24 02:17:17: Parsing arguments: SpawnBoss11, Target.spawn_boss, [11, 283, 283]
+08/01/24 02:17:17: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+08/01/24 02:17:17: Parsed arguments: ["SpawnBoss11","Target.spawn_boss","[11, 283, 283]"]
+08/01/24 02:17:17: Action Name: SpawnBoss11
+08/01/24 02:17:17: Full Action Command: Target.spawn_boss
+08/01/24 02:17:17: Action Params: [11, 283, 283]
+08/01/24 02:17:17: Target Object: Target
+08/01/24 02:17:17: Action Command: spawn_boss
+08/01/24 02:17:17: Action 'SpawnBoss11' added/updated successfully.
+08/01/24 02:17:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:17: Raw command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+08/01/24 02:17:17: Cleaned command: add_action(SpawnBoss12, Target.spawn_boss, [12, 0, 400])
+08/01/24 02:17:17: Detected add_action command
+08/01/24 02:17:17: Arguments string: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+08/01/24 02:17:17: Parsing arguments: SpawnBoss12, Target.spawn_boss, [12, 0, 400]
+08/01/24 02:17:17: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+08/01/24 02:17:17: Parsed arguments: ["SpawnBoss12","Target.spawn_boss","[12, 0, 400]"]
+08/01/24 02:17:17: Action Name: SpawnBoss12
+08/01/24 02:17:17: Full Action Command: Target.spawn_boss
+08/01/24 02:17:17: Action Params: [12, 0, 400]
+08/01/24 02:17:17: Target Object: Target
+08/01/24 02:17:17: Action Command: spawn_boss
+08/01/24 02:17:17: Action 'SpawnBoss12' added/updated successfully.
+08/01/24 02:17:17: Actions and action groups saved successfully to Actions.txt.
+08/01/24 02:17:17: Raw command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+08/01/24 02:17:17: Cleaned command: add_action(SpawnBoss13, Target.spawn_boss, [13, -283, 283])
+08/01/24 02:17:17: Detected add_action command
+08/01/24 02:17:17: Arguments string: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+08/01/24 02:17:17: Parsing arguments: SpawnBoss13, Target.spawn_boss, [13, -283, 283]
+08/01/24 02:17:17: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+08/01/24 02:17:17: Parsed arguments: ["SpawnBoss13","Target.spawn_boss","[13, -283, 283]"]
+08/01/24 02:17:17: Action Name: SpawnBoss13
+08/01/24 02:17:17: Full Action Command: Target.spawn_boss
+08/01/24 02:17:17: Action Params: [13, -283, 283]
+08/01/24 02:17:17: Target Object: Target
+08/01/24 02:17:17: Action Command: spawn_boss
+

@@ -1,0 +1,93 @@
+07/31/24 05:22:17: Loaded action/group: SaveGameNow
+07/31/24 05:22:17: Loaded action/group: GotoKingsKingdom
+07/31/24 05:22:17: Loaded action/group: EnterPortal
+07/31/24 05:22:17: Loaded action/group: PurchaseArtifacts
+07/31/24 05:22:17: Loaded action/group: BattleOutcome
+07/31/24 05:22:17: Loaded action/group: VisitMarket
+07/31/24 05:22:17: Loaded action/group: GotoDivineDomain
+07/31/24 05:22:17: Loaded action/group: GotoTheEndonda
+07/31/24 05:22:17: Loaded action/group: GotoUniverseCity
+07/31/24 05:22:17: Loaded action/group: SpawnNPC1
+07/31/24 05:22:17: Loaded action/group: GotoLandOfLucy
+07/31/24 05:22:17: Loaded action/group: GotoPlaceOfPablo
+07/31/24 05:22:17: Loaded action/group: InvestigateSignals
+07/31/24 05:22:17: Loaded action/group: OfferTrade
+07/31/24 05:22:17: Loaded action/group: DisableEnemySpawns
+07/31/24 05:22:17: Loaded action/group: BattleSequence
+07/31/24 05:22:17: Loaded action/group: StartBattle
+07/31/24 05:22:17: Loaded action/group: SpawnBoss4
+07/31/24 05:22:17: Loaded action/group: SpawnBossCircle
+07/31/24 05:22:17: Loaded action/group: GotoTheIcyHeart
+07/31/24 05:22:17: Loaded action/group: EngageCombat
+07/31/24 05:22:17: Loaded action/group: GotoGhostTown
+07/31/24 05:22:17: Loaded action/group: SpawnBoss0
+07/31/24 05:22:17: Loaded action/group: SpawnBoss13
+07/31/24 05:22:17: Loaded action/group: StartExploration
+07/31/24 05:22:17: Loaded action/group: SpawnBoss8
+07/31/24 05:22:18: Loaded action/group: SpawnBoss6
+07/31/24 05:22:18: Loaded action/group: SetLevelFive
+07/31/24 05:22:18: Loaded action/group: LevelUpThree
+07/31/24 05:22:18: Loaded action/group: LevelUpOnce
+07/31/24 05:22:18: Loaded action/group: GotoTheGoldMines
+07/31/24 05:22:18: Loaded action/group: SpawnBoss11
+07/31/24 05:22:18: Loaded action/group: StartPeaceMission
+07/31/24 05:22:18: Loaded action/group: SpawnBoss2
+07/31/24 05:22:18: Loaded action/group: DiplomaticChoice
+07/31/24 05:22:18: Loaded action/group: TreatyOutcome
+07/31/24 05:22:18: Loaded action/group: ExplorationChoice
+07/31/24 05:22:18: Loaded action/group: BattleChoice
+07/31/24 05:22:18: Loaded action/group: ArtifactMystery
+07/31/24 05:22:18: Loaded action/group: PortalOutcome
+07/31/24 05:22:18: Loaded action/group: PeacefulMission
+07/31/24 05:22:18: Loaded action/group: SpaceAdventureStart
+07/31/24 05:22:18: Loaded action/group: PortalAdventure
+07/31/24 05:22:18: Loaded action/group: EnableEnemySpawns
+07/31/24 05:22:18: Loaded action/group: GotoVulturesValley
+07/31/24 05:22:18: Loaded action/group: GotoEarth
+07/31/24 05:22:18: Loaded action/group: SpawnBoss1
+07/31/24 05:22:18: Loaded action/group: GotoStormySands
+07/31/24 05:22:18: Loaded action/group: SpawnBoss12
+07/31/24 05:22:18: Loaded action/group: SpaceExploration
+07/31/24 05:22:18: Loaded action/group: GotoFantasia
+07/31/24 05:22:18: Loaded action/group: SpawnBoss5
+07/31/24 05:22:18: Loaded action/group: AG1
+07/31/24 05:22:18: Loaded action/group: SpawnBoss10
+07/31/24 05:22:18: Loaded action/group: GotoYetopia
+07/31/24 05:22:18: Loaded action/group: SpawnBoss3
+07/31/24 05:22:18: Loaded action/group: ArtifactOutcome
+07/31/24 05:22:18: Loaded action/group: EpicBattle
+07/31/24 05:22:18: Loaded action/group: SpawnBoss7
+07/31/24 05:22:18: Loaded action/group: SpawnBoss9
+07/31/24 05:22:18: Loaded action/group: PeaceTreaty
+07/31/24 05:22:18: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 05:22:18: [Client] Failed to reconnect to server. Will try again...
+07/31/24 05:22:46: Raw command: set_variable(Macro2,2)
+07/31/24 05:22:46: Cleaned command: set_variable(Macro2,2)
+07/31/24 05:22:46: Parsing arguments: Macro2,2
+07/31/24 05:22:46: Parsed arguments: ["Macro2","2"]
+07/31/24 05:22:47: Command Name: set_variable
+07/31/24 05:22:47: Target Object: yeancat
+07/31/24 05:22:47: Parameters: ["Macro2","2"]
+07/31/24 05:22:47: Macro2 set to 2
+07/31/24 05:23:05: Raw command: level_up(200)
+07/31/24 05:23:05: Cleaned command: level_up(200)
+07/31/24 05:23:05: Parsing arguments: 200
+07/31/24 05:23:05: Parsed arguments: ["200"]
+07/31/24 05:23:05: Command Name: level_up
+07/31/24 05:23:05: Target Object: yeancat
+07/31/24 05:23:05: Parameters: ["200"]
+07/31/24 05:23:05: Level up initiated with goal: 200
+07/31/24 05:23:41: Raw command: set_variable(Macro2,1.9_
+07/31/24 05:23:41: Cleaned command: set_variable(Macro2,1.9_
+07/31/24 05:23:41: Command Name: set_variable(Macro2,1.9_
+07/31/24 05:23:41: Target Object: yeancat
+07/31/24 05:23:41: Parameters: []
+07/31/24 05:23:41: Script not found for command: set_variable(Macro2,1.9_
+07/31/24 05:23:43: Raw command: set_variable(Macro2,1.9)
+07/31/24 05:23:43: Cleaned command: set_variable(Macro2,1.9)
+07/31/24 05:23:43: Parsing arguments: Macro2,1.9
+07/31/24 05:23:43: Parsed arguments: ["Macro2","1.9"]
+07/31/24 05:23:44: Command Name: set_variable
+07/31/24 05:23:44: Target Object: yeancat
+07/31/24 05:23:44: Parameters: ["Macro2","1.9"]
+07/31/24 05:23:44: Macro2 set to 1.90

@@ -1,0 +1,182 @@
+08/01/24 01:28:00: Loaded action/group: SaveGameNow
+08/01/24 01:28:00: Loaded action/group: GotoKingsKingdom
+08/01/24 01:28:00: Loaded action/group: BattleOutcome
+08/01/24 01:28:00: Loaded action/group: GotoDivineDomain
+08/01/24 01:28:00: Loaded action/group: GotoTheEndonda
+08/01/24 01:28:00: Loaded action/group: GotoUniverseCity
+08/01/24 01:28:00: Loaded action/group: SpawnNPC1
+08/01/24 01:28:00: Loaded action/group: GotoPlaceOfPablo
+08/01/24 01:28:00: Loaded action/group: InvestigateSignals
+08/01/24 01:28:00: Loaded action/group: OfferTrade
+08/01/24 01:28:00: Loaded action/group: DisableEnemySpawns
+08/01/24 01:28:00: Loaded action/group: BattleSequence
+08/01/24 01:28:00: Loaded action/group: StartBattle
+08/01/24 01:28:00: Loaded action/group: SpawnBoss4
+08/01/24 01:28:00: Loaded action/group: SpawnBossCircle
+08/01/24 01:28:00: Loaded action/group: GotoTheIcyHeart
+08/01/24 01:28:00: Loaded action/group: EngageCombat
+08/01/24 01:28:01: Loaded action/group: LevelUpReward
+08/01/24 01:28:01: Loaded action/group: GotoGhostTown
+08/01/24 01:28:01: Loaded action/group: StartExploration
+08/01/24 01:28:01: Loaded action/group: LevelTooLow
+08/01/24 01:28:01: Loaded action/group: GotoTheGoldMines
+08/01/24 01:28:01: Loaded action/group: SpawnBoss11
+08/01/24 01:28:01: Loaded action/group: SpawnBoss2
+08/01/24 01:28:01: Loaded action/group: ExplorationChoice
+08/01/24 01:28:01: Loaded action/group: BattleChoice
+08/01/24 01:28:01: Loaded action/group: ArtifactMystery
+08/01/24 01:28:01: Loaded action/group: PortalOutcome
+08/01/24 01:28:01: Loaded action/group: CheckLevel
+08/01/24 01:28:01: Loaded action/group: PeacefulMission
+08/01/24 01:28:01: Loaded action/group: SpaceAdventureStart
+08/01/24 01:28:01: Loaded action/group: PortalAdventure
+08/01/24 01:28:01: Loaded action/group: EnableEnemySpawns
+08/01/24 01:28:01: Loaded action/group: GotoEarth
+08/01/24 01:28:01: Loaded action/group: SpawnBoss1
+08/01/24 01:28:01: Loaded action/group: SpaceExploration
+08/01/24 01:28:01: Loaded action/group: GotoFantasia
+08/01/24 01:28:01: Loaded action/group: SpawnBoss5
+08/01/24 01:28:01: Loaded action/group: AG1
+08/01/24 01:28:01: Loaded action/group: GotoYetopia
+08/01/24 01:28:01: Loaded action/group: SpawnBoss3
+08/01/24 01:28:01: Loaded action/group: ArtifactOutcome
+08/01/24 01:28:01: Loaded action/group: SpawnBoss9
+08/01/24 01:28:01: Loaded action/group: PeaceTreaty
+08/01/24 01:28:01: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 01:28:01: [Client] Failed to reconnect to server. Will try again...
+08/01/24 01:28:36: Raw command: add_action(LevelUpReward,Target.chat_bubble,["Congratulations! You've
+reached level 5 or higher!"])
+08/01/24 01:28:36: Cleaned command: add_action(LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"])
+08/01/24 01:28:36: Detected add_action command
+08/01/24 01:28:36: Arguments string: LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:28:36: Parsing arguments: LevelUpReward,Target.chat_bubble,["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:28:36: Parsed arguments: ["LevelUpReward","Target.chat_bubble","[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 01:28:36: Parsed arguments: ["LevelUpReward","Target.chat_bubble","[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 01:28:36: Action Name: LevelUpReward
+08/01/24 01:28:36: Full Action Command: Target.chat_bubble
+08/01/24 01:28:36: Action Params: ["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:28:36: Target Object: Target
+08/01/24 01:28:36: Action Command: chat_bubble
+08/01/24 01:28:36: Action 'LevelUpReward' added/updated successfully.
+08/01/24 01:28:36: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:28:36: Raw command: add_action(LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing
+to level up!"])
+08/01/24 01:28:36: Cleaned command: add_action(LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"])
+08/01/24 01:28:36: Detected add_action command
+08/01/24 01:28:36: Arguments string: LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"]
+08/01/24 01:28:36: Parsing arguments: LevelTooLow,Target.chat_bubble,["Your level is too low. Keep playing to level up!"]
+08/01/24 01:28:36: Parsed arguments: ["LevelTooLow","Target.chat_bubble","[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 01:28:36: Parsed arguments: ["LevelTooLow","Target.chat_bubble","[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 01:28:36: Action Name: LevelTooLow
+08/01/24 01:28:36: Full Action Command: Target.chat_bubble
+08/01/24 01:28:36: Action Params: ["Your level is too low. Keep playing to level up!"]
+08/01/24 01:28:36: Target Object: Target
+08/01/24 01:28:36: Action Command: chat_bubble
+08/01/24 01:28:36: Action 'LevelTooLow' added/updated successfully.
+08/01/24 01:28:36: Actions and action groups saved successfully to Actions.txt.
+08/01/24 01:28:36: Raw command: add_action_condition(CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow)
+08/01/24 01:28:36: Cleaned command: add_action_condition(CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow)
+08/01/24 01:28:36: Parsing arguments: CheckLevel,Level,>=,5,LevelUpReward,LevelTooLow
+08/01/24 01:28:36: Parsed arguments: ["CheckLevel","Level",">=","5","LevelUpReward","LevelTooLow"]
+08/01/24 01:28:36: Command Name: add_action_condition
+08/01/24 01:28:36: Target Object: yeancat
+08/01/24 01:28:36: Parameters: ["CheckLevel","Level",">=","5","LevelUpReward","LevelTooLow"]
+08/01/24 01:28:36: Action condition 'CheckLevel' added successfully.
+08/01/24 01:28:36: Raw command: list_action_conditions
+08/01/24 01:28:36: Cleaned command: list_action_conditions
+08/01/24 01:28:36: Command Name: list_action_conditions
+08/01/24 01:28:36: Target Object: yeancat
+08/01/24 01:28:36: Parameters: []
+08/01/24 01:28:36: Action Conditions: CheckLevel
+08/01/24 01:29:00: Raw command: set_variable(Level,1)
+08/01/24 01:29:00: Cleaned command: set_variable(Level,1)
+08/01/24 01:29:00: Parsing arguments: Level,1
+08/01/24 01:29:00: Parsed arguments: ["Level","1"]
+08/01/24 01:29:00: Command Name: set_variable
+08/01/24 01:29:00: Target Object: yeancat
+08/01/24 01:29:00: Parameters: ["Level","1"]
+08/01/24 01:29:00: Level set to 1
+08/01/24 01:29:00: Raw command: execute_action(CheckLevel)
+08/01/24 01:29:00: Cleaned command: execute_action(CheckLevel)
+08/01/24 01:29:00: Executing action/group/condition: CheckLevel
+08/01/24 01:29:00: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"5","operator":">=","trueAction":"LevelUpReward","falseAction":"LevelTooLow"}
+08/01/24 01:29:00: Condition result: 0 (1 >= 5)
+08/01/24 01:29:00: Raw command: execute_action(LevelTooLow)
+08/01/24 01:29:00: Cleaned command: execute_action(LevelTooLow)
+08/01/24 01:29:00: Executing action/group/condition: LevelTooLow
+08/01/24 01:29:00: Decoded Data: {"command":"chat_bubble","parameters":["Your level is too low. Keep playing to level up!"],"targetObject":"Target"}
+08/01/24 01:29:00: Raw command: Target.chat_bubble(["Your level is too low. Keep playing to level up!"])
+08/01/24 01:29:00: Cleaned command: Target.chat_bubble(["Your level is too low. Keep playing to level up!"])
+08/01/24 01:29:00: Parsing arguments: ["Your level is too low. Keep playing to level up!"]
+08/01/24 01:29:00: Parsed arguments: ["[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 01:29:00: Command Name: chat_bubble
+08/01/24 01:29:00: Target Object: Target
+08/01/24 01:29:00: Parameters: ["[\"Your level is too low. Keep playing to level up!\"]"]
+08/01/24 01:29:00: Creating chat bubble: ["Your level is too low. Keep playing to level up!"], Owner: Target, Choices: []
+08/01/24 01:29:00: Owner object not found, using yeancat
+08/01/24 01:29:00: Chat Bubble Created. Following 'yeancat' with text: '[ "Your level is too low. Keep playing to level up!" ]'. Number of choices: 0
+08/01/24 01:29:09: Raw command: set_variable(Level,6)
+08/01/24 01:29:09: Cleaned command: set_variable(Level,6)
+08/01/24 01:29:09: Parsing arguments: Level,6
+08/01/24 01:29:09: Parsed arguments: ["Level","6"]
+08/01/24 01:29:09: Command Name: set_variable
+08/01/24 01:29:09: Target Object: yeancat
+08/01/24 01:29:09: Parameters: ["Level","6"]
+08/01/24 01:29:09: Level set to 6
+08/01/24 01:29:09: Raw command: execute_action(CheckLevel)
+08/01/24 01:29:09: Cleaned command: execute_action(CheckLevel)
+08/01/24 01:29:09: Executing action/group/condition: CheckLevel
+08/01/24 01:29:09: Decoded Data: {"type":"action_condition","leftOperand":"Level","rightOperand":"5","operator":">=","trueAction":"LevelUpReward","falseAction":"LevelTooLow"}
+08/01/24 01:29:09: Condition result: 1 (6 >= 5)
+08/01/24 01:29:09: Raw command: execute_action(LevelUpReward)
+08/01/24 01:29:09: Cleaned command: execute_action(LevelUpReward)
+08/01/24 01:29:09: Executing action/group/condition: LevelUpReward
+08/01/24 01:29:09: Decoded Data: {"command":"chat_bubble","parameters":["Congratulations! You've reached level 5 or higher!"],"targetObject":"Target"}
+08/01/24 01:29:09: Raw command: Target.chat_bubble(["Congratulations! You've reached level 5 or higher!"])
+08/01/24 01:29:09: Cleaned command: Target.chat_bubble(["Congratulations! You've reached level 5 or higher!"])
+08/01/24 01:29:09: Parsing arguments: ["Congratulations! You've reached level 5 or higher!"]
+08/01/24 01:29:09: Parsed arguments: ["[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 01:29:09: Command Name: chat_bubble
+08/01/24 01:29:09: Target Object: Target
+08/01/24 01:29:09: Parameters: ["[\"Congratulations! You've reached level 5 or higher!\"]"]
+08/01/24 01:29:09: Creating chat bubble: ["Congratulations! You've reached level 5 or higher!"], Owner: Target, Choices: []
+08/01/24 01:29:09: Owner object not found, using yeancat
+08/01/24 01:29:09: Chat Bubble Created. Following 'yeancat' with text: '[ "Congratulations! You've reached level 5 or higher!" ]'. Number of choices: 0
+08/01/24 01:29:44: [Jay Arnold] nice job! the only thing is that the text generated in the chat bubble contains [ " and " ] which doesnt
+happen normally when creating chat bubbles
+08/01/24 01:29:44: Creating chat bubble: " nice job! the only thing is that the text generated in the chat bubble contains  which doesnt\nhappen normally when creating chat bubbles", Owner: yeancat, Choices: []
+08/01/24 01:29:44: Chat Bubble Created. Following 'yeancat' with text: 'nice job! the only thing is that the text generated in the
+chat bubble contains  which doesnt
+happen normally when creating chat bubbles'. Number of choices: 0
+08/01/24 01:29:52: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 01:29:52: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 01:29:52: Executing action/group/condition: SpaceAdventureStart
+08/01/24 01:29:52: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 01:29:52: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+08/01/24 01:29:52: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+08/01/24 01:29:52: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+08/01/24 01:29:52: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+08/01/24 01:29:52: Command Name: chat_bubble
+08/01/24 01:29:52: Target Object: Target
+08/01/24 01:29:52: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+08/01/24 01:29:52: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+08/01/24 01:29:52: Owner object not found, using yeancat
+08/01/24 01:29:52: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/01/24 01:29:54: Raw command: execute_action(StartPeaceMission)
+08/01/24 01:29:54: Cleaned command: execute_action(StartPeaceMission)
+08/01/24 01:29:54: Action/group/condition 'StartPeaceMission' not found.
+08/01/24 01:32:19: [Jay Arnold] lets fix that and then we can make sure that chat bubble choices can handle action conditions when you
+click on them as well. (for example a chat bubble that says "Are you level 10?" and if you click yes then it
+will tell you if you are lieing or not. you can also say no when you are above and it will say yes you are
+silly or something. and of course if you are honest then we can have different outcomes as well
+depending on below or above 10
+08/01/24 01:32:19: Creating chat bubble: " lets fix that and then we can make sure that chat bubble choices can handle action conditions when you\nclick on them as well. (for example a chat bubble that says \"Are you level 10?\" and if you click yes then it\nwill tell you if you are lieing or not. you can also say no when you are above and it will say yes you are\nsilly or something. and of course if you are honest then we can have different outcomes as well\ndepending on below or above 10", Owner: yeancat, Choices: []
+08/01/24 01:32:19: Chat Bubble Created. Following 'yeancat' with text: 'lets fix that and then we can make sure that chat bubble
+choices can handle action conditions when you
+click on them as well. (for example a chat bubble that says
+"Are you level 10?" and if you click yes then it
+will tell you if you are lieing or not. you can also say no when
+you are above and it will say yes you are
+silly or something. and of course if you are honest then we
+can have different outcomes as well
+depending on below or above 10'. Number of choices: 0

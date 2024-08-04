@@ -1,5 +1,3 @@
-/// @function handle_choice_selection(action_name)
-/// @param {string} action_name The name of the action, action group, or command to execute
 function handle_choice_selection(action_name) {
     // Clean up data structures before executing the action
     if (ds_exists(hover_progress, ds_type_map)) {
@@ -10,7 +8,9 @@ function handle_choice_selection(action_name) {
     }
     
     // Execute the action, action group, or command
-    execute_command("execute_action(" + action_name + ")");
+    with (obj_Client) {  // Assuming obj_Client is where execute_action is defined
+        scr_execute_action(action_name);
+    }
     
     // Destroy the chat bubble after selection
     instance_destroy();

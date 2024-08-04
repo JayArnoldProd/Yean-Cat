@@ -2598,6 +2598,9 @@ YEAN_CAT
 │   ├── command_requires_arguments
 │   │   ├── command_requires_arguments.gml
 │   │   └── command_requires_arguments.yy
+│   ├── compare_values
+│   │   ├── compare_values.gml
+│   │   └── compare_values.yy
 │   ├── concat
 │   │   ├── concat.gml
 │   │   └── concat.yy
@@ -2643,6 +2646,15 @@ YEAN_CAT
 │   ├── draw_text_kern
 │   │   ├── draw_text_kern.gml
 │   │   └── draw_text_kern.yy
+│   ├── evaluate_condition
+│   │   ├── evaluate_condition.gml
+│   │   └── evaluate_condition.yy
+│   ├── execute_action_condition
+│   │   ├── execute_action_condition.gml
+│   │   └── execute_action_condition.yy
+│   ├── execute_action_group
+│   │   ├── execute_action_group.gml
+│   │   └── execute_action_group.yy
 │   ├── execute_command
 │   │   ├── execute_command.gml
 │   │   └── execute_command.yy
@@ -2652,6 +2664,9 @@ YEAN_CAT
 │   ├── execute_multiple_commands
 │   │   ├── execute_multiple_commands.gml
 │   │   └── execute_multiple_commands.yy
+│   ├── execute_single_action
+│   │   ├── execute_single_action.gml
+│   │   └── execute_single_action.yy
 │   ├── extract_action_name
 │   │   ├── extract_action_name.gml
 │   │   └── extract_action_name.yy
@@ -2679,6 +2694,12 @@ YEAN_CAT
 │   ├── get_object_reference
 │   │   ├── get_object_reference.gml
 │   │   └── get_object_reference.yy
+│   ├── get_operand_value
+│   │   ├── get_operand_value.gml
+│   │   └── get_operand_value.yy
+│   ├── get_variable_value
+│   │   ├── get_variable_value.gml
+│   │   └── get_variable_value.yy
 │   ├── handleCommandWithArgs
 │   │   ├── handleCommandWithArgs.gml
 │   │   └── handleCommandWithArgs.yy
@@ -3450,9 +3471,18 @@ YEAN_CAT
 │   ├── level_up
 │   │   ├── level_up.gml
 │   │   └── level_up.yy
+│   ├── load_action_conditions
+│   │   ├── load_action_conditions.gml
+│   │   └── load_action_conditions.yy
+│   ├── load_action_groups
+│   │   ├── load_action_groups.gml
+│   │   └── load_action_groups.yy
 │   ├── load_actions
 │   │   ├── load_actions.gml
 │   │   └── load_actions.yy
+│   ├── load_conditions
+│   │   ├── load_conditions.gml
+│   │   └── load_conditions.yy
 │   ├── load_responses
 │   │   ├── load_responses.gml
 │   │   └── load_responses.yy
@@ -3483,18 +3513,33 @@ YEAN_CAT
 │   ├── player_data_needs_update
 │   │   ├── player_data_needs_update.gml
 │   │   └── player_data_needs_update.yy
+│   ├── save_action_conditions
+│   │   ├── save_action_conditions.gml
+│   │   └── save_action_conditions.yy
+│   ├── save_action_groups
+│   │   ├── save_action_groups.gml
+│   │   └── save_action_groups.yy
 │   ├── save_actions
 │   │   ├── save_actions.gml
 │   │   └── save_actions.yy
+│   ├── save_conditions
+│   │   ├── save_conditions.gml
+│   │   └── save_conditions.yy
 │   ├── scr_add_action
 │   │   ├── scr_add_action.gml
 │   │   └── scr_add_action.yy
+│   ├── scr_add_action_condition
+│   │   ├── scr_add_action_condition.gml
+│   │   └── scr_add_action_condition.yy
 │   ├── scr_add_action_group
 │   │   ├── scr_add_action_group.gml
 │   │   └── scr_add_action_group.yy
 │   ├── scr_add_color
 │   │   ├── scr_add_color.gml
 │   │   └── scr_add_color.yy
+│   ├── scr_add_condition
+│   │   ├── scr_add_condition.gml
+│   │   └── scr_add_condition.yy
 │   ├── scr_betterdirection
 │   │   ├── scr_betterdirection.gml
 │   │   └── scr_betterdirection.yy
@@ -3507,6 +3552,9 @@ YEAN_CAT
 │   ├── scr_chat_bubble
 │   │   ├── scr_chat_bubble.gml
 │   │   └── scr_chat_bubble.yy
+│   ├── scr_debug_print_all_data
+│   │   ├── scr_debug_print_all_data.gml
+│   │   └── scr_debug_print_all_data.yy
 │   ├── scr_delete_action
 │   │   ├── scr_delete_action.gml
 │   │   └── scr_delete_action.yy
@@ -3534,6 +3582,9 @@ YEAN_CAT
 │   ├── scr_level_up
 │   │   ├── scr_level_up.gml
 │   │   └── scr_level_up.yy
+│   ├── scr_list_action_conditions
+│   │   ├── scr_list_action_conditions.gml
+│   │   └── scr_list_action_conditions.yy
 │   ├── scr_list_action_groups
 │   │   ├── scr_list_action_groups.gml
 │   │   └── scr_list_action_groups.yy
@@ -3549,6 +3600,9 @@ YEAN_CAT
 │   ├── scr_list_commands
 │   │   ├── scr_list_commands.gml
 │   │   └── scr_list_commands.yy
+│   ├── scr_list_conditions
+│   │   ├── scr_list_conditions.gml
+│   │   └── scr_list_conditions.yy
 │   ├── scr_list_objects
 │   │   ├── scr_list_objects.gml
 │   │   └── scr_list_objects.yy
@@ -7263,4 +7317,4 @@ YEAN_CAT
         │       └── 5fa31159-5939-4264-8a79-eb18bc428818.png
         └── sprlongchain.yy
 
-2343 directories, 4921 files
+2361 directories, 4957 files

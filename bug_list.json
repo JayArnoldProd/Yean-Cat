@@ -478,5 +478,195 @@
       "parse_arguments",
       "save_actions"
     ]
+  },
+  {
+    "name": "Action_Condition_True_Action_Naming_Issue",
+    "description": "In the new conditions system, there's an issue with naming actions in action_conditions. The true action is not being correctly saved or executed, potentially due to line breaking issues. The false action is working properly. Specific symptoms:\n1. When executing an action condition, the true action is not found or executed.\n2. The false action is correctly named and executes as expected.\n3. This issue occurs when using commands like add_action_condition with multi-word action names.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-08-01",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "SessionLog_45505.35"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Add conditions using /add_condition command.",
+      "Step 2: Add actions using /add_action command.",
+      "Step 3: Create an action condition with /add_action_condition.",
+      "Step 4: Execute the action condition with /execute_action.",
+      "Step 5: Observe that the false action works correctly.",
+      "Step 6: Change conditions to make the true action execute.",
+      "Step 7: Observe that the true action is not found or executed."
+    ],
+    "resolution": [
+      "Expected fix: Ensure that multi-word action names are correctly saved and retrieved in the action_condition system. This may involve adjusting how action names are parsed",
+      " stored",
+      " or retrieved",
+      " particularly when dealing with spaces or line breaks in the command input."
+    ],
+    "related_features": [
+      "Action_System",
+      "Condition_System",
+      "Bug_Fixing"
+    ],
+    "related_objects": [
+      "obj_Client"
+    ],
+    "related_scripts": [
+      "scr_add_action",
+      "scr_execute_action",
+      "scr_add_action_condition",
+      "execute_action_condition",
+      "evaluate_condition"
+    ]
+  },
+  {
+    "name": "Condition_System_Execution_Breakdown",
+    "description": "The recently implemented conditions system has broken the previously working action execution system. Actions are being interpreted incorrectly inside square brackets '[ ]', causing the entire system to malfunction. This affects condition checking for operands, which was intended to add more depth to branching logic. Key issues:\n1. All previously working commands related to conditions and actions are now non-functional.\n2. Action parameters within square brackets are not being processed correctly.\n3. The system fails to properly execute conditions and their associated actions.\n4. The bug impacts the entire chain of condition and action execution, from adding conditions to executing action conditions.",
+    "source": "SYSTEM",
+    "priority": "critical",
+    "status": "open",
+    "date_reported": "2024-08-01",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "SessionLog_45505.40"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Add conditions using /add_condition commands.",
+      "Step 2: Add actions using /add_action commands.",
+      "Step 3: Create an action condition with /add_action_condition.",
+      "Step 4: Attempt to execute the action condition with /execute_action.",
+      "Step 5: Observe that the action is not executed correctly.",
+      "Step 6: Check the system's interpretation of parameters within square brackets.",
+      "Step 7: Attempt to use /level_up command and re-execute the action condition.",
+      "Step 8: Confirm that the entire sequence fails to produce the expected results."
+    ],
+    "resolution": [
+      "Expected fix: Thoroughly review and debug the condition system implementation",
+      " focusing on:1. Correct parsing and handling of parameters within square brackets.2. Proper integration of the new condition system with the existing action execution system.3. Accurate evaluation of conditions and execution of corresponding actions.4. Ensuring compatibility with previously working commands and functionalities."
+    ],
+    "related_features": [
+      "Condition_System",
+      "Action_System",
+      "Bug_Fixing",
+      "Game_Logic"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "scr_add_action",
+      "scr_execute_action",
+      "scr_add_action_condition",
+      "execute_action_condition",
+      "evaluate_condition",
+      "compare_values",
+      "get_variable_value",
+      "execute_single_action",
+      "handle_choice_selection"
+    ]
+  },
+  {
+    "name": "Action_Execution_System_Breakdown",
+    "description": "While implementing conditions and action conditions, a critical error was introduced that prevents actions, groups, and conditions from executing properly. The system has regressed from its previous functional state to a non-operational state. Key issues:\n1. Basic functionalities like chat bubble choice action group branches are no longer working.\n2. The problem affects the core action execution system, impacting a wide range of game features.\n3. The issue emerged after recent changes to the condition and action condition systems.\n4. The malfunction is severe enough to prevent basic game interactions that were previously functional.",
+    "source": "SYSTEM",
+    "priority": "critical",
+    "status": "open",
+    "date_reported": "2024-08-01",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "SessionLog_45505.49",
+      "SessionLog_45505.30"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Attempt to execute a basic chat bubble choice action group.",
+      "Step 2: Observe that the action group fails to execute properly.",
+      "Step 3: Try to add and execute simple conditions and actions.",
+      "Step 4: Note any error messages or unexpected behaviors.",
+      "Step 5: Compare behavior with the functionality documented in SessionLog_45505.30.",
+      "Step 6: Attempt to execute previously working commands and observe their failure.",
+      "Step 7: Review recent changes made to the condition and action condition systems."
+    ],
+    "resolution": [
+      "Expected fix: 1. Rollback to the last known good state (refer to SessionLog_45505.30).2. Carefully review and debug changes made to the action execution system",
+      " particularly those related to conditions and action conditions.3. Implement proper error handling and logging to identify the exact point of failure.4. Ensure that new additions (conditions and action conditions) integrate seamlessly with the existing action execution system.5. Implement comprehensive unit tests for each component of the action execution system to prevent future regressions."
+    ],
+    "related_features": [
+      "Action_System",
+      "Condition_System",
+      "Bug_Fixing",
+      "Game_Logic",
+      "Regression_Testing"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "scr_add_action",
+      "scr_execute_action",
+      "scr_add_action_condition",
+      "execute_action_condition",
+      "evaluate_condition",
+      "compare_values",
+      "get_variable_value",
+      "execute_single_action",
+      "handle_choice_selection",
+      "execute_action_group",
+      "save_conditions",
+      "load_conditions"
+    ]
+  },
+  {
+    "name": "Action_Condition_Execution_Failure",
+    "description": "The scr_execute_action script is failing to recognize saved action conditions, resulting in a breakdown of the condition-based action execution system. Key issues:\n1. execute_action is not detecting the action_condition.\n2. Condition checks are not being performed for true/false action execution.\n3. The system fails to execute the appropriate action based on condition results.\n4. This bug affects the core functionality of the conditional action system.",
+    "source": "SYSTEM",
+    "priority": "high",
+    "status": "open",
+    "date_reported": "2024-08-01",
+    "reported_by": "Jay_Arnold",
+    "assigned_to": "Dev_Team",
+    "generation": "1",
+    "related_logs": [
+      "SessionLog_45506.06"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Add an action condition using scr_add_action_condition.",
+      "Step 2: Attempt to execute the action condition using scr_execute_action.",
+      "Step 3: Observe that the action condition is not recognized.",
+      "Step 4: Check if the condition evaluation is being triggered.",
+      "Step 5: Verify that neither the true nor false action is executed.",
+      "Step 6: Review the saved action condition data to ensure it's stored correctly.",
+      "Step 7: Examine the scr_execute_action script for proper handling of action conditions."
+    ],
+    "resolution": [
+      "Expected fix: 1. Debug scr_execute_action to ensure it correctly identifies action conditions.2. Implement proper parsing of action condition data within scr_execute_action.3. Ensure that the condition evaluation is triggered when an action condition is detected.4. Verify the correct execution of true/false actions based on the condition result.5. Add error logging to track the flow of execution and pinpoint where the recognition fails.6. Review the save_action_condition and load_action_condition functions for potential data inconsistencies."
+    ],
+    "related_features": [
+      "Action_System",
+      "Condition_System",
+      "Bug_Fixing",
+      "Game_Logic"
+    ],
+    "related_objects": [
+      "obj_Client",
+      "obj_chat_bubble"
+    ],
+    "related_scripts": [
+      "scr_execute_action",
+      "execute_action_condition",
+      "scr_add_action_condition",
+      "evaluate_condition",
+      "save_action_condition",
+      "load_action_condition"
+    ]
   }
 ]

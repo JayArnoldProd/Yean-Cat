@@ -1,0 +1,369 @@
+07/31/24 08:11:23: Loaded action/group: SaveGameNow
+07/31/24 08:11:23: Loaded action/group: GotoKingsKingdom
+07/31/24 08:11:23: Loaded action/group: EnterPortal
+07/31/24 08:11:23: Loaded action/group: PurchaseArtifacts
+07/31/24 08:11:23: Loaded action/group: BattleOutcome
+07/31/24 08:11:23: Loaded action/group: VisitMarket
+07/31/24 08:11:23: Loaded action/group: GotoDivineDomain
+07/31/24 08:11:23: Loaded action/group: GotoTheEndonda
+07/31/24 08:11:23: Loaded action/group: GotoUniverseCity
+07/31/24 08:11:23: Loaded action/group: SpawnNPC1
+07/31/24 08:11:23: Loaded action/group: GotoLandOfLucy
+07/31/24 08:11:23: Loaded action/group: GotoPlaceOfPablo
+07/31/24 08:11:23: Loaded action/group: InvestigateSignals
+07/31/24 08:11:23: Loaded action/group: OfferTrade
+07/31/24 08:11:23: Loaded action/group: DisableEnemySpawns
+07/31/24 08:11:23: Loaded action/group: BattleSequence
+07/31/24 08:11:23: Loaded action/group: StartBattle
+07/31/24 08:11:23: Loaded action/group: SpawnBoss4
+07/31/24 08:11:23: Loaded action/group: SpawnBossCircle
+07/31/24 08:11:23: Loaded action/group: GotoTheIcyHeart
+07/31/24 08:11:23: Loaded action/group: EngageCombat
+07/31/24 08:11:23: Loaded action/group: GotoGhostTown
+07/31/24 08:11:23: Loaded action/group: SpawnBoss0
+07/31/24 08:11:23: Loaded action/group: SpawnBoss13
+07/31/24 08:11:23: Loaded action/group: StartExploration
+07/31/24 08:11:23: Loaded action/group: SpawnBoss8
+07/31/24 08:11:23: Loaded action/group: SpawnBoss6
+07/31/24 08:11:23: Loaded action/group: SetLevelFive
+07/31/24 08:11:23: Loaded action/group: LevelUpThree
+07/31/24 08:11:23: Loaded action/group: LevelUpOnce
+07/31/24 08:11:23: Loaded action/group: GotoTheGoldMines
+07/31/24 08:11:23: Loaded action/group: SpawnBoss11
+07/31/24 08:11:23: Loaded action/group: StartPeaceMission
+07/31/24 08:11:23: Loaded action/group: SpawnBoss2
+07/31/24 08:11:23: Loaded action/group: DiplomaticChoice
+07/31/24 08:11:23: Loaded action/group: TreatyOutcome
+07/31/24 08:11:23: Loaded action/group: ExplorationChoice
+07/31/24 08:11:23: Loaded action/group: BattleChoice
+07/31/24 08:11:23: Loaded action/group: ArtifactMystery
+07/31/24 08:11:23: Loaded action/group: PortalOutcome
+07/31/24 08:11:23: Loaded action/group: PeacefulMission
+07/31/24 08:11:23: Loaded action/group: SpaceAdventureStart
+07/31/24 08:11:23: Loaded action/group: PortalAdventure
+07/31/24 08:11:23: Loaded action/group: EnableEnemySpawns
+07/31/24 08:11:23: Loaded action/group: GotoVulturesValley
+07/31/24 08:11:23: Loaded action/group: GotoEarth
+07/31/24 08:11:23: Loaded action/group: SpawnBoss1
+07/31/24 08:11:23: Loaded action/group: GotoStormySands
+07/31/24 08:11:23: Loaded action/group: SpawnBoss12
+07/31/24 08:11:23: Loaded action/group: SpaceExploration
+07/31/24 08:11:23: Loaded action/group: GotoFantasia
+07/31/24 08:11:24: Loaded action/group: SpawnBoss5
+07/31/24 08:11:24: Loaded action/group: AG1
+07/31/24 08:11:24: Loaded action/group: SpawnBoss10
+07/31/24 08:11:24: Loaded action/group: GotoYetopia
+07/31/24 08:11:24: Loaded action/group: SpawnBoss3
+07/31/24 08:11:24: Loaded action/group: ArtifactOutcome
+07/31/24 08:11:24: Loaded action/group: EpicBattle
+07/31/24 08:11:24: Loaded action/group: SpawnBoss7
+07/31/24 08:11:24: Loaded action/group: SpawnBoss9
+07/31/24 08:11:24: Loaded action/group: PeaceTreaty
+07/31/24 08:11:24: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 08:11:24: [Client] Failed to reconnect to server. Will try again...
+07/31/24 08:11:42: Raw command: Player.camera_target(100, -50)
+07/31/24 08:11:42: Cleaned command: Player.camera_target(100, -50)
+07/31/24 08:11:42: Parsing arguments: 100, -50
+07/31/24 08:11:42: Parsed arguments: ["100","-50"]
+07/31/24 08:11:42: Command Name: camera_target
+07/31/24 08:11:42: Target Object: Player
+07/31/24 08:11:42: Parameters: ["100","-50"]
+
+
+___________________________________________
+############################################################################################
+ERROR in
+action number 1
+of  Step Event0
+for object obj_Client:
+
+Variable <unknown_object>.ds_map_find_key(102327, -2147483648) not set before reading it.
+ at gml_Script_scr_camera_target (line 18) -         var target_name = ds_map_find_key(global.object_references, global.currentTarget);
+############################################################################################
+gml_Script_scr_camera_target (line 18)
+gml_Script_execute_command (line 166)
+gml_Script_execute_multiple_commands (line 7) -             execute_command(command);
+gml_Object_obj_Client_Step_0 (line 233) -             execute_multiple_commands(global.commandBuffer);
+
+07/31/24 08:15:29: Loaded action/group: SaveGameNow
+07/31/24 08:15:29: Loaded action/group: GotoKingsKingdom
+07/31/24 08:15:29: Loaded action/group: EnterPortal
+07/31/24 08:15:29: Loaded action/group: PurchaseArtifacts
+07/31/24 08:15:29: Loaded action/group: BattleOutcome
+07/31/24 08:15:29: Loaded action/group: VisitMarket
+07/31/24 08:15:29: Loaded action/group: GotoDivineDomain
+07/31/24 08:15:29: Loaded action/group: GotoTheEndonda
+07/31/24 08:15:29: Loaded action/group: GotoUniverseCity
+07/31/24 08:15:29: Loaded action/group: SpawnNPC1
+07/31/24 08:15:29: Loaded action/group: GotoLandOfLucy
+07/31/24 08:15:29: Loaded action/group: GotoPlaceOfPablo
+07/31/24 08:15:29: Loaded action/group: InvestigateSignals
+07/31/24 08:15:29: Loaded action/group: OfferTrade
+07/31/24 08:15:29: Loaded action/group: DisableEnemySpawns
+07/31/24 08:15:29: Loaded action/group: BattleSequence
+07/31/24 08:15:29: Loaded action/group: StartBattle
+07/31/24 08:15:29: Loaded action/group: SpawnBoss4
+07/31/24 08:15:29: Loaded action/group: SpawnBossCircle
+07/31/24 08:15:29: Loaded action/group: GotoTheIcyHeart
+07/31/24 08:15:29: Loaded action/group: EngageCombat
+07/31/24 08:15:29: Loaded action/group: GotoGhostTown
+07/31/24 08:15:29: Loaded action/group: SpawnBoss0
+07/31/24 08:15:29: Loaded action/group: SpawnBoss13
+07/31/24 08:15:29: Loaded action/group: StartExploration
+07/31/24 08:15:29: Loaded action/group: SpawnBoss8
+07/31/24 08:15:29: Loaded action/group: SpawnBoss6
+07/31/24 08:15:29: Loaded action/group: SetLevelFive
+07/31/24 08:15:29: Loaded action/group: LevelUpThree
+07/31/24 08:15:29: Loaded action/group: LevelUpOnce
+07/31/24 08:15:29: Loaded action/group: GotoTheGoldMines
+07/31/24 08:15:30: Loaded action/group: SpawnBoss11
+07/31/24 08:15:30: Loaded action/group: StartPeaceMission
+07/31/24 08:15:30: Loaded action/group: SpawnBoss2
+07/31/24 08:15:30: Loaded action/group: DiplomaticChoice
+07/31/24 08:15:30: Loaded action/group: TreatyOutcome
+07/31/24 08:15:30: Loaded action/group: ExplorationChoice
+07/31/24 08:15:30: Loaded action/group: BattleChoice
+07/31/24 08:15:30: Loaded action/group: ArtifactMystery
+07/31/24 08:15:30: Loaded action/group: PortalOutcome
+07/31/24 08:15:30: Loaded action/group: PeacefulMission
+07/31/24 08:15:30: Loaded action/group: SpaceAdventureStart
+07/31/24 08:15:30: Loaded action/group: PortalAdventure
+07/31/24 08:15:30: Loaded action/group: EnableEnemySpawns
+07/31/24 08:15:30: Loaded action/group: GotoVulturesValley
+07/31/24 08:15:30: Loaded action/group: GotoEarth
+07/31/24 08:15:30: Loaded action/group: SpawnBoss1
+07/31/24 08:15:30: Loaded action/group: GotoStormySands
+07/31/24 08:15:30: Loaded action/group: SpawnBoss12
+07/31/24 08:15:30: Loaded action/group: SpaceExploration
+07/31/24 08:15:30: Loaded action/group: GotoFantasia
+07/31/24 08:15:30: Loaded action/group: SpawnBoss5
+07/31/24 08:15:30: Loaded action/group: AG1
+07/31/24 08:15:30: Loaded action/group: SpawnBoss10
+07/31/24 08:15:30: Loaded action/group: GotoYetopia
+07/31/24 08:15:30: Loaded action/group: SpawnBoss3
+07/31/24 08:15:30: Loaded action/group: ArtifactOutcome
+07/31/24 08:15:30: Loaded action/group: EpicBattle
+07/31/24 08:15:30: Loaded action/group: SpawnBoss7
+07/31/24 08:15:30: Loaded action/group: SpawnBoss9
+07/31/24 08:15:30: Loaded action/group: PeaceTreaty
+07/31/24 08:15:30: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 08:15:30: [Client] Failed to reconnect to server. Will try again...
+07/31/24 08:15:50: Raw command: Player.camera_target(100, -50)
+07/31/24 08:15:50: Cleaned command: Player.camera_target(100, -50)
+07/31/24 08:15:51: Parsing arguments: 100, -50
+07/31/24 08:15:51: Parsed arguments: ["100","-50"]
+07/31/24 08:15:51: Command Name: camera_target
+07/31/24 08:15:51: Target Object: Player
+07/31/24 08:15:51: Parameters: ["100","-50"]
+07/31/24 08:15:51: Camera target set to yeancat with offset (100, -50)
+07/31/24 08:16:08: Raw command: Center.camera_target(0,0)
+07/31/24 08:16:09: Cleaned command: Center.camera_target(0,0)
+07/31/24 08:16:09: Invalid target object: Center
+07/31/24 08:16:11: Raw command: Center.camera_target(0,0)
+07/31/24 08:16:11: Cleaned command: Center.camera_target(0,0)
+07/31/24 08:16:11: Invalid target object: Center
+07/31/24 08:16:19: [Jay Arnold] the center targer isnt working now
+07/31/24 08:16:19: Creating chat bubble: " the center targer isnt working now", Owner: yeancat, Choices: []
+07/31/24 08:16:19: Chat Bubble Created. Following 'yeancat' with text: 'the center targer isnt working now'. Number of choices: 0
+07/31/24 08:16:28: Raw command: camera_target(0,0)
+07/31/24 08:16:28: Cleaned command: camera_target(0,0)
+07/31/24 08:16:28: Parsing arguments: 0,0
+07/31/24 08:16:28: Parsed arguments: ["0","0"]
+07/31/24 08:16:28: Command Name: camera_target
+07/31/24 08:16:28: Target Object: yeancat
+07/31/24 08:16:28: Parameters: ["0","0"]
+07/31/24 08:16:28: Camera target set to room center with offset (0, 0)
+07/31/24 08:16:36: [Jay Arnold] oh! it works if i just type: /camera_target(0,0)
+07/31/24 08:16:37: Creating chat bubble: " oh! it works if i just type: \/camera_target(0,0)", Owner: yeancat, Choices: []
+07/31/24 08:16:37: Chat Bubble Created. Following 'yeancat' with text: 'oh! it works if i just type: /camera_target(0,0)'. Number of choices: 0
+07/31/24 08:16:40: Raw command: Center.camera_target(0,0)
+07/31/24 08:16:40: Cleaned command: Center.camera_target(0,0)
+07/31/24 08:16:40: Invalid target object: Center
+07/31/24 08:16:44: Raw command: Player.camera_target(100, -50)
+07/31/24 08:16:45: Cleaned command: Player.camera_target(100, -50)
+07/31/24 08:16:45: Parsing arguments: 100, -50
+07/31/24 08:16:45: Parsed arguments: ["100","-50"]
+07/31/24 08:16:45: Command Name: camera_target
+07/31/24 08:16:45: Target Object: Player
+07/31/24 08:16:45: Parameters: ["100","-50"]
+07/31/24 08:16:45: Camera target set to yeancat with offset (100, -50)
+07/31/24 08:16:59: Raw command: camera_target(0,0)
+07/31/24 08:16:59: Cleaned command: camera_target(0,0)
+07/31/24 08:16:59: Parsing arguments: 0,0
+07/31/24 08:16:59: Parsed arguments: ["0","0"]
+07/31/24 08:16:59: Command Name: camera_target
+07/31/24 08:16:59: Target Object: yeancat
+07/31/24 08:16:59: Parameters: ["0","0"]
+07/31/24 08:16:59: Camera target set to yeancat with offset (0, 0)
+07/31/24 08:17:03: Raw command: camera_target(0,0)
+07/31/24 08:17:03: Cleaned command: camera_target(0,0)
+07/31/24 08:17:03: Parsing arguments: 0,0
+07/31/24 08:17:03: Parsed arguments: ["0","0"]
+07/31/24 08:17:03: Command Name: camera_target
+07/31/24 08:17:03: Target Object: yeancat
+07/31/24 08:17:03: Parameters: ["0","0"]
+07/31/24 08:17:03: Camera target set to yeancat with offset (0, 0)
+07/31/24 08:17:08: Raw command: Player.camera_target(100, -50)
+07/31/24 08:17:08: Cleaned command: Player.camera_target(100, -50)
+07/31/24 08:17:08: Parsing arguments: 100, -50
+07/31/24 08:17:08: Parsed arguments: ["100","-50"]
+07/31/24 08:17:08: Command Name: camera_target
+07/31/24 08:17:08: Target Object: Player
+07/31/24 08:17:08: Parameters: ["100","-50"]
+07/31/24 08:17:08: Camera target set to yeancat with offset (100, -50)
+07/31/24 08:17:10: Raw command: camera_target(0,0)
+07/31/24 08:17:10: Cleaned command: camera_target(0,0)
+07/31/24 08:17:10: Parsing arguments: 0,0
+07/31/24 08:17:10: Parsed arguments: ["0","0"]
+07/31/24 08:17:10: Command Name: camera_target
+07/31/24 08:17:10: Target Object: yeancat
+07/31/24 08:17:10: Parameters: ["0","0"]
+07/31/24 08:17:10: Camera target set to yeancat with offset (0, 0)
+07/31/24 08:17:16: Raw command: Center.camera_target(0,0)
+07/31/24 08:17:16: Cleaned command: Center.camera_target(0,0)
+07/31/24 08:17:16: Invalid target object: Center
+07/31/24 08:17:18: Raw command: camera_target(0,0)
+07/31/24 08:17:18: Cleaned command: camera_target(0,0)
+07/31/24 08:17:18: Parsing arguments: 0,0
+07/31/24 08:17:18: Parsed arguments: ["0","0"]
+07/31/24 08:17:19: Command Name: camera_target
+07/31/24 08:17:19: Target Object: yeancat
+07/31/24 08:17:19: Parameters: ["0","0"]
+07/31/24 08:17:19: Camera target set to room center with offset (0, 0)
+07/31/24 08:17:49: [Jay Arnold] oh it only works if i use /Center.camera_target and then /camera_target
+interesting. i can sense that we are very close
+07/31/24 08:17:49: Creating chat bubble: " oh it only works if i use \/Center.camera_target and then \/camera_target\ninteresting. i can sense that we are very close", Owner: yeancat, Choices: []
+07/31/24 08:17:49: Chat Bubble Created. Following 'yeancat' with text: 'oh it only works if i use /Center.camera_target and then
+/camera_target
+interesting. i can sense that we are very close'. Number of choices: 0
+07/31/24 08:18:08: [Jay Arnold] it is still returning to the center instantly in a snap instead of gradually.
+07/31/24 08:18:08: Creating chat bubble: " it is still returning to the center instantly in a snap instead of gradually.", Owner: yeancat, Choices: []
+07/31/24 08:18:08: Chat Bubble Created. Following 'yeancat' with text: 'it is still returning to the center instantly in a snap instead
+of gradually.'. Number of choices: 0
+07/31/24 08:18:43: Raw command: execute_action(SpaceAdventureStart)
+07/31/24 08:18:44: Cleaned command: execute_action(SpaceAdventureStart)
+07/31/24 08:18:44: Executing action/group: SpaceAdventureStart
+07/31/24 08:18:44: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/31/24 08:18:44: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/31/24 08:18:44: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/31/24 08:18:44: Invalid target object: Target
+07/31/24 08:18:46: Raw command: execute_action(SpaceAdventureStart)
+07/31/24 08:18:46: Cleaned command: execute_action(SpaceAdventureStart)
+07/31/24 08:18:46: Executing action/group: SpaceAdventureStart
+07/31/24 08:18:46: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/31/24 08:18:46: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/31/24 08:18:46: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/31/24 08:18:46: Invalid target object: Target
+07/31/24 08:19:01: Raw command: execute_action(SpawnBossCircle)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBossCircle)
+07/31/24 08:19:01: Executing action/group: SpawnBossCircle
+07/31/24 08:19:01: Decoded Data: {"type":"action_group","actions":["SpawnBoss0","SpawnBoss1","SpawnBoss2","SpawnBoss3","SpawnBoss4","SpawnBoss5","SpawnBoss6","SpawnBoss7","SpawnBoss8","SpawnBoss9","SpawnBoss10","SpawnBoss11","SpawnBoss12","SpawnBoss13"]}
+07/31/24 08:19:01: Raw command: execute_action(SpawnBoss0)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBoss0)
+07/31/24 08:19:01: Executing action/group: SpawnBoss0
+07/31/24 08:19:01: Decoded Data: {"command":"spawn_boss","parameters":[0.0,0.0,-500.0],"targetObject":"Target"}
+07/31/24 08:19:01: Raw command: Target.spawn_boss([0.0,0.0,-500.0])
+07/31/24 08:19:01: Cleaned command: Target.spawn_boss([0.0,0.0,-500.0])
+07/31/24 08:19:01: Invalid target object: Target
+07/31/24 08:19:01: Raw command: execute_action(SpawnBoss1)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBoss1)
+07/31/24 08:19:01: Executing action/group: SpawnBoss1
+07/31/24 08:19:01: Decoded Data: {"command":"spawn_boss","parameters":[1.0,353.0,-353.0],"targetObject":"Target"}
+07/31/24 08:19:01: Raw command: Target.spawn_boss([1.0,353.0,-353.0])
+07/31/24 08:19:01: Cleaned command: Target.spawn_boss([1.0,353.0,-353.0])
+07/31/24 08:19:01: Invalid target object: Target
+07/31/24 08:19:01: Raw command: execute_action(SpawnBoss2)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBoss2)
+07/31/24 08:19:01: Executing action/group: SpawnBoss2
+07/31/24 08:19:01: Decoded Data: {"command":"spawn_boss","parameters":[[2.0,500.0,0.0,"Target"]],"targetObject":"yeancat"}
+07/31/24 08:19:01: Raw command: spawn_boss([[2.0,500.0,0.0,"Target"]])
+07/31/24 08:19:01: Cleaned command: spawn_boss([[2.0,500.0,0.0,"Target"]])
+07/31/24 08:19:01: Parsing arguments: [[2.0,500.0,0.0,"Target"]]
+07/31/24 08:19:01: Parsed arguments: ["[[2.0,500.0,0.0,\"Target\"]]"]
+07/31/24 08:19:01: Command Name: spawn_boss
+07/31/24 08:19:01: Target Object: yeancat
+07/31/24 08:19:01: Parameters: ["[[2.0,500.0,0.0,\"Target\"]]"]
+07/31/24 08:19:01: Invalid parameters for spawn_boss command. Expected an array.
+07/31/24 08:19:01: Added boss reference: Peacocky691 -> obj_boss
+07/31/24 08:19:01: Boss spawned successfully: 2 at position (1954.07, 1311.04) relative to Target
+07/31/24 08:19:01: Raw command: execute_action(SpawnBoss3)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBoss3)
+07/31/24 08:19:01: Executing action/group: SpawnBoss3
+07/31/24 08:19:01: Decoded Data: {"command":"spawn_boss","parameters":[3.0,353.0,353.0],"targetObject":"Target"}
+07/31/24 08:19:01: Raw command: Target.spawn_boss([3.0,353.0,353.0])
+07/31/24 08:19:01: Cleaned command: Target.spawn_boss([3.0,353.0,353.0])
+07/31/24 08:19:01: Invalid target object: Target
+07/31/24 08:19:01: Raw command: execute_action(SpawnBoss4)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBoss4)
+07/31/24 08:19:01: Executing action/group: SpawnBoss4
+07/31/24 08:19:01: Decoded Data: {"command":"spawn_boss","parameters":[4.0,0.0,500.0],"targetObject":"Target"}
+07/31/24 08:19:01: Raw command: Target.spawn_boss([4.0,0.0,500.0])
+07/31/24 08:19:01: Cleaned command: Target.spawn_boss([4.0,0.0,500.0])
+07/31/24 08:19:01: Invalid target object: Target
+07/31/24 08:19:01: Raw command: execute_action(SpawnBoss5)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBoss5)
+07/31/24 08:19:01: Executing action/group: SpawnBoss5
+07/31/24 08:19:01: Decoded Data: {"command":"spawn_boss","parameters":[5.0,-353.0,353.0],"targetObject":"Target"}
+07/31/24 08:19:01: Raw command: Target.spawn_boss([5.0,-353.0,353.0])
+07/31/24 08:19:01: Cleaned command: Target.spawn_boss([5.0,-353.0,353.0])
+07/31/24 08:19:01: Invalid target object: Target
+07/31/24 08:19:01: Raw command: execute_action(SpawnBoss6)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBoss6)
+07/31/24 08:19:01: Executing action/group: SpawnBoss6
+07/31/24 08:19:01: Decoded Data: {"command":"spawn_boss","parameters":[6.0,-500.0,0.0],"targetObject":"Target"}
+07/31/24 08:19:01: Raw command: Target.spawn_boss([6.0,-500.0,0.0])
+07/31/24 08:19:01: Cleaned command: Target.spawn_boss([6.0,-500.0,0.0])
+07/31/24 08:19:01: Invalid target object: Target
+07/31/24 08:19:01: Raw command: execute_action(SpawnBoss7)
+07/31/24 08:19:01: Cleaned command: execute_action(SpawnBoss7)
+07/31/24 08:19:01: Executing action/group: SpawnBoss7
+07/31/24 08:19:01: Decoded Data: {"command":"spawn_boss","parameters":[7.0,-353.0,-353.0],"targetObject":"Target"}
+07/31/24 08:19:01: Raw command: Target.spawn_boss([7.0,-353.0,-353.0])
+07/31/24 08:19:01: Cleaned command: Target.spawn_boss([7.0,-353.0,-353.0])
+07/31/24 08:19:02: Invalid target object: Target
+07/31/24 08:19:02: Raw command: execute_action(SpawnBoss8)
+07/31/24 08:19:02: Cleaned command: execute_action(SpawnBoss8)
+07/31/24 08:19:02: Executing action/group: SpawnBoss8
+07/31/24 08:19:02: Decoded Data: {"command":"spawn_boss","parameters":[8.0,0.0,-400.0],"targetObject":"Target"}
+07/31/24 08:19:02: Raw command: Target.spawn_boss([8.0,0.0,-400.0])
+07/31/24 08:19:02: Cleaned command: Target.spawn_boss([8.0,0.0,-400.0])
+07/31/24 08:19:02: Invalid target object: Target
+07/31/24 08:19:02: Raw command: execute_action(SpawnBoss9)
+07/31/24 08:19:02: Cleaned command: execute_action(SpawnBoss9)
+07/31/24 08:19:02: Executing action/group: SpawnBoss9
+07/31/24 08:19:02: Decoded Data: {"command":"spawn_boss","parameters":[9.0,283.0,-283.0],"targetObject":"Target"}
+07/31/24 08:19:02: Raw command: Target.spawn_boss([9.0,283.0,-283.0])
+07/31/24 08:19:02: Cleaned command: Target.spawn_boss([9.0,283.0,-283.0])
+07/31/24 08:19:02: Invalid target object: Target
+07/31/24 08:19:02: Raw command: execute_action(SpawnBoss10)
+07/31/24 08:19:02: Cleaned command: execute_action(SpawnBoss10)
+07/31/24 08:19:02: Executing action/group: SpawnBoss10
+07/31/24 08:19:02: Decoded Data: {"command":"spawn_boss","parameters":[10.0,400.0,0.0],"targetObject":"Target"}
+07/31/24 08:19:02: Raw command: Target.spawn_boss([10.0,400.0,0.0])
+07/31/24 08:19:02: Cleaned command: Target.spawn_boss([10.0,400.0,0.0])
+07/31/24 08:19:02: Invalid target object: Target
+07/31/24 08:19:02: Raw command: execute_action(SpawnBoss11)
+07/31/24 08:19:02: Cleaned command: execute_action(SpawnBoss11)
+07/31/24 08:19:02: Executing action/group: SpawnBoss11
+07/31/24 08:19:02: Decoded Data: {"command":"spawn_boss","parameters":[11.0,283.0,283.0],"targetObject":"Target"}
+07/31/24 08:19:02: Raw command: Target.spawn_boss([11.0,283.0,283.0])
+07/31/24 08:19:02: Cleaned command: Target.spawn_boss([11.0,283.0,283.0])
+07/31/24 08:19:02: Invalid target object: Target
+07/31/24 08:19:02: Raw command: execute_action(SpawnBoss12)
+07/31/24 08:19:02: Cleaned command: execute_action(SpawnBoss12)
+07/31/24 08:19:02: Executing action/group: SpawnBoss12
+07/31/24 08:19:02: Decoded Data: {"command":"spawn_boss","parameters":[12.0,0.0,400.0],"targetObject":"Target"}
+07/31/24 08:19:02: Raw command: Target.spawn_boss([12.0,0.0,400.0])
+07/31/24 08:19:02: Cleaned command: Target.spawn_boss([12.0,0.0,400.0])
+07/31/24 08:19:02: Invalid target object: Target
+07/31/24 08:19:02: Raw command: execute_action(SpawnBoss13)
+07/31/24 08:19:02: Cleaned command: execute_action(SpawnBoss13)
+07/31/24 08:19:02: Executing action/group: SpawnBoss13
+07/31/24 08:19:02: Decoded Data: {"command":"spawn_boss","parameters":[13.0,-283.0,283.0],"targetObject":"Target"}
+07/31/24 08:19:02: Raw command: Target.spawn_boss([13.0,-283.0,283.0])
+07/31/24 08:19:02: Cleaned command: Target.spawn_boss([13.0,-283.0,283.0])
+07/31/24 08:19:02: Invalid target object: Target
+07/31/24 08:19:26: [Jay Arnold] my previous actions arent executing the same as they used to either!
+07/31/24 08:19:26: Creating chat bubble: " my previous actions arent executing the same as they used to either!", Owner: yeancat, Choices: []
+07/31/24 08:19:26: Chat Bubble Created. Following 'yeancat' with text: 'my previous actions arent executing the same as they used
+to either!'. Number of choices: 0

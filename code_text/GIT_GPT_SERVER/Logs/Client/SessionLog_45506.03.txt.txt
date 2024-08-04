@@ -1,0 +1,106 @@
+08/01/24 19:45:07: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 19:45:07: Loaded action group: BattleSequence
+08/01/24 19:45:07: Loaded action group: SpawnBossCircle
+08/01/24 19:45:07: Loaded action group: ArtifactMystery
+08/01/24 19:45:07: Loaded action group: PeacefulMission
+08/01/24 19:45:08: Loaded action group: PortalAdventure
+08/01/24 19:45:08: Loaded action group: SpaceExploration
+08/01/24 19:45:08: Loaded action group: EpicBattle
+08/01/24 19:45:08: Loaded action group: PeaceTreaty
+08/01/24 19:45:08: Action groups loaded successfully from ActionGroups.txt.
+08/01/24 19:45:08: [Client] Failed to reconnect to server. Will try again...
+08/01/24 19:45:22: Raw command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 19:45:22: Cleaned command: add_condition(IsLevelHigh, Level, >=, 10)
+08/01/24 19:45:22: Parsing arguments: IsLevelHigh, Level, >=, 10
+08/01/24 19:45:22: Parsed arguments: ["IsLevelHigh","Level",">=","10"]
+08/01/24 19:45:22: Command Name: add_condition
+08/01/24 19:45:22: Target Object: yeancat
+08/01/24 19:45:22: Parameters: ["IsLevelHigh","Level",">=","10"]
+08/01/24 19:45:22: Condition 'IsLevelHigh' added successfully.
+08/01/24 19:45:22: Conditions saved successfully to Conditions.txt.
+08/01/24 19:45:22: Raw command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 19:45:22: Cleaned command: add_condition(IsHealthFull, Health, =, 50)
+08/01/24 19:45:22: Parsing arguments: IsHealthFull, Health, =, 50
+08/01/24 19:45:22: Parsed arguments: ["IsHealthFull","Health","=","50"]
+08/01/24 19:45:22: Command Name: add_condition
+08/01/24 19:45:22: Target Object: yeancat
+08/01/24 19:45:22: Parameters: ["IsHealthFull","Health","=","50"]
+08/01/24 19:45:22: Condition 'IsHealthFull' added successfully.
+08/01/24 19:45:22: Conditions saved successfully to Conditions.txt.
+08/01/24 19:45:22: Raw command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 19:45:22: Cleaned command: add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+08/01/24 19:45:22: Parsing arguments: IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull
+08/01/24 19:45:22: Parsed arguments: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 19:45:22: Command Name: add_condition
+08/01/24 19:45:22: Target Object: yeancat
+08/01/24 19:45:22: Parameters: ["IsLevelHighAndHealthFull","IsLevelHigh","and","IsHealthFull"]
+08/01/24 19:45:22: Condition 'IsLevelHighAndHealthFull' added successfully.
+08/01/24 19:45:22: Conditions saved successfully to Conditions.txt.
+08/01/24 19:45:22: Raw command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull,
+HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 19:45:22: Cleaned command: add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+08/01/24 19:45:22: Parsing arguments: CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth
+08/01/24 19:45:22: Parsed arguments: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 19:45:22: Command Name: add_action_condition
+08/01/24 19:45:22: Target Object: yeancat
+08/01/24 19:45:23: Parameters: ["CheckLevelAndHealth","IsLevelHighAndHealthFull","HighLevelFullHealth","NotHighLevelOrNotFullHealth"]
+08/01/24 19:45:23: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 19:45:23: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/01/24 19:45:23: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/01/24 19:45:23: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 19:45:23: Command Name: add_action_group
+08/01/24 19:45:23: Target Object: yeancat
+08/01/24 19:45:23: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/01/24 19:45:23: Action group 'SpaceExploration' added successfully.
+08/01/24 19:45:23: Action groups saved successfully to ActionGroups.txt.
+08/01/24 19:45:23: Raw command: list_conditions
+08/01/24 19:45:23: Cleaned command: list_conditions
+08/01/24 19:45:23: Command Name: list_conditions
+08/01/24 19:45:23: Target Object: yeancat
+08/01/24 19:45:23: Parameters: []
+08/01/24 19:45:23: No conditions defined.
+08/01/24 19:45:23: Raw command: list_action_conditions
+08/01/24 19:45:23: Cleaned command: list_action_conditions
+08/01/24 19:45:23: Command Name: list_action_conditions
+08/01/24 19:45:23: Target Object: yeancat
+08/01/24 19:45:23: Parameters: []
+08/01/24 19:45:23: No action conditions found.
+08/01/24 19:45:23: Raw command: list_action_groups
+08/01/24 19:45:23: Cleaned command: list_action_groups
+08/01/24 19:45:23: Command Name: list_action_groups
+08/01/24 19:45:23: Target Object: yeancat
+08/01/24 19:45:23: Parameters: []
+08/01/24 19:45:23: Action Groups: ArtifactMystery, BattleSequence, EpicBattle, 
+08/01/24 19:45:23: PeaceTreaty, PeacefulMission, PortalAdventure, SpaceExploration, 
+08/01/24 19:45:23: SpawnBossCircle
+08/01/24 19:45:27: Raw command: list_conditions
+08/01/24 19:45:27: Cleaned command: list_conditions
+08/01/24 19:45:27: Command Name: list_conditions
+08/01/24 19:45:27: Target Object: yeancat
+08/01/24 19:45:27: Parameters: []
+08/01/24 19:45:27: No conditions defined.
+08/01/24 19:45:32: Raw command: list_actions
+08/01/24 19:45:32: Cleaned command: list_actions
+08/01/24 19:45:32: Command Name: list_actions
+08/01/24 19:45:32: Target Object: yeancat
+08/01/24 19:45:32: Parameters: []
+08/01/24 19:45:32: Actions: IsHealthFull, IsLevelHigh, IsLevelHighAndHealthFull
+08/01/24 19:45:41: Raw command: list_action_conditions
+08/01/24 19:45:41: Cleaned command: list_action_conditions
+08/01/24 19:45:41: Command Name: list_action_conditions
+08/01/24 19:45:41: Target Object: yeancat
+08/01/24 19:45:41: Parameters: []
+08/01/24 19:45:41: No action conditions found.
+08/01/24 19:46:07: Raw command: list_actions
+08/01/24 19:46:07: Cleaned command: list_actions
+08/01/24 19:46:07: Command Name: list_actions
+08/01/24 19:46:07: Target Object: yeancat
+08/01/24 19:46:07: Parameters: []
+08/01/24 19:46:07: Actions: IsHealthFull, IsLevelHigh, IsLevelHighAndHealthFull
+08/01/24 19:46:47: [Jay Arnold] the conditions and action conditions are not saving/loading or creating correctly
+08/01/24 19:46:47: Creating chat bubble: " the conditions and action conditions are not saving\/loading or creating correctly", Owner: yeancat, Choices: []
+08/01/24 19:46:47: Chat Bubble Created. Following 'yeancat' with text: 'the conditions and action conditions are not
+saving/loading or creating correctly'. Number of choices: 0
+08/01/24 19:46:48: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 19:46:48: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 19:46:48: Action/group/condition 'SpaceAdventureStart' not found.

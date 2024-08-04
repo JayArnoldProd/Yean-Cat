@@ -1,0 +1,209 @@
+08/01/24 00:08:15: Loaded action/group: SaveGameNow
+08/01/24 00:08:15: Loaded action/group: GotoKingsKingdom
+08/01/24 00:08:15: Loaded action/group: EnterPortal
+08/01/24 00:08:15: Loaded action/group: PurchaseArtifacts
+08/01/24 00:08:15: Loaded action/group: BattleOutcome
+08/01/24 00:08:15: Loaded action/group: VisitMarket
+08/01/24 00:08:15: Loaded action/group: GotoDivineDomain
+08/01/24 00:08:15: Loaded action/group: GotoTheEndonda
+08/01/24 00:08:15: Loaded action/group: GotoUniverseCity
+08/01/24 00:08:15: Loaded action/group: SpawnNPC1
+08/01/24 00:08:15: Loaded action/group: GotoLandOfLucy
+08/01/24 00:08:15: Loaded action/group: GotoPlaceOfPablo
+08/01/24 00:08:15: Loaded action/group: InvestigateSignals
+08/01/24 00:08:15: Loaded action/group: OfferTrade
+08/01/24 00:08:15: Loaded action/group: DisableEnemySpawns
+08/01/24 00:08:15: Loaded action/group: BattleSequence
+08/01/24 00:08:15: Loaded action/group: StartBattle
+08/01/24 00:08:15: Loaded action/group: SpawnBoss4
+08/01/24 00:08:15: Loaded action/group: SpawnBossCircle
+08/01/24 00:08:15: Loaded action/group: GotoTheIcyHeart
+08/01/24 00:08:15: Loaded action/group: EngageCombat
+08/01/24 00:08:15: Loaded action/group: GotoGhostTown
+08/01/24 00:08:15: Loaded action/group: SpawnBoss0
+08/01/24 00:08:15: Loaded action/group: SpawnBoss13
+08/01/24 00:08:15: Loaded action/group: StartExploration
+08/01/24 00:08:15: Loaded action/group: SpawnBoss8
+08/01/24 00:08:15: Loaded action/group: SpawnBoss6
+08/01/24 00:08:15: Loaded action/group: SetLevelFive
+08/01/24 00:08:15: Loaded action/group: LevelUpThree
+08/01/24 00:08:15: Loaded action/group: LevelUpOnce
+08/01/24 00:08:15: Loaded action/group: GotoTheGoldMines
+08/01/24 00:08:15: Loaded action/group: SpawnBoss11
+08/01/24 00:08:15: Loaded action/group: StartPeaceMission
+08/01/24 00:08:15: Loaded action/group: SpawnBoss2
+08/01/24 00:08:15: Loaded action/group: DiplomaticChoice
+08/01/24 00:08:15: Loaded action/group: TreatyOutcome
+08/01/24 00:08:15: Loaded action/group: ExplorationChoice
+08/01/24 00:08:15: Loaded action/group: BattleChoice
+08/01/24 00:08:15: Loaded action/group: ArtifactMystery
+08/01/24 00:08:15: Loaded action/group: PortalOutcome
+08/01/24 00:08:15: Loaded action/group: PeacefulMission
+08/01/24 00:08:15: Loaded action/group: SpaceAdventureStart
+08/01/24 00:08:15: Loaded action/group: PortalAdventure
+08/01/24 00:08:15: Loaded action/group: EnableEnemySpawns
+08/01/24 00:08:15: Loaded action/group: GotoVulturesValley
+08/01/24 00:08:15: Loaded action/group: GotoEarth
+08/01/24 00:08:15: Loaded action/group: SpawnBoss1
+08/01/24 00:08:15: Loaded action/group: GotoStormySands
+08/01/24 00:08:15: Loaded action/group: SpawnBoss12
+08/01/24 00:08:15: Loaded action/group: SpaceExploration
+08/01/24 00:08:15: Loaded action/group: GotoFantasia
+08/01/24 00:08:15: Loaded action/group: SpawnBoss5
+08/01/24 00:08:15: Loaded action/group: AG1
+08/01/24 00:08:15: Loaded action/group: SpawnBoss10
+08/01/24 00:08:15: Loaded action/group: GotoYetopia
+08/01/24 00:08:15: Loaded action/group: SpawnBoss3
+08/01/24 00:08:15: Loaded action/group: ArtifactOutcome
+08/01/24 00:08:15: Loaded action/group: EpicBattle
+08/01/24 00:08:15: Loaded action/group: SpawnBoss7
+08/01/24 00:08:15: Loaded action/group: SpawnBoss9
+08/01/24 00:08:15: Loaded action/group: PeaceTreaty
+08/01/24 00:08:15: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 00:08:15: [Client] Failed to reconnect to server. Will try again...
+08/01/24 00:08:28: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 00:08:28: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 00:08:28: Executing action/group: SpaceAdventureStart
+08/01/24 00:08:29: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 00:08:29: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+08/01/24 00:08:29: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+08/01/24 00:08:29: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+08/01/24 00:08:29: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+08/01/24 00:08:29: Command Name: chat_bubble
+08/01/24 00:08:29: Target Object: Target
+08/01/24 00:08:29: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+08/01/24 00:08:29: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+08/01/24 00:08:29: Owner object not found, using yeancat
+08/01/24 00:08:29: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your
+path:'. Number of choices: 3
+08/01/24 00:08:31: Raw command: execute_action(StartExploration)
+08/01/24 00:08:31: Cleaned command: execute_action(StartExploration)
+08/01/24 00:08:31: Executing action/group: StartExploration
+08/01/24 00:08:31: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+08/01/24 00:08:31: Raw command: execute_action("SpaceExploration")
+08/01/24 00:08:31: Cleaned command: execute_action("SpaceExploration")
+08/01/24 00:08:31: Executing action/group: SpaceExploration
+08/01/24 00:08:31: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+08/01/24 00:08:31: Raw command: execute_action(GotoUniverseCity)
+08/01/24 00:08:31: Cleaned command: execute_action(GotoUniverseCity)
+08/01/24 00:08:31: Executing action/group: GotoUniverseCity
+08/01/24 00:08:31: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+08/01/24 00:08:31: Raw command: goto_planet("Universe City")
+08/01/24 00:08:31: Cleaned command: goto_planet("Universe City")
+08/01/24 00:08:31: Parsing arguments: "Universe City"
+08/01/24 00:08:31: Parsed arguments: ["\"Universe City\""]
+08/01/24 00:08:31: Command Name: goto_planet
+08/01/24 00:08:31: Target Object: yeancat
+08/01/24 00:08:31: Parameters: ["\"Universe City\""]
+08/01/24 00:08:31: Teleported to Universe City.
+08/01/24 00:08:31: Raw command: execute_action(ExplorationChoice)
+08/01/24 00:08:31: Cleaned command: execute_action(ExplorationChoice)
+08/01/24 00:08:31: Executing action/group: ExplorationChoice
+08/01/24 00:08:31: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"yeancat"}
+08/01/24 00:08:31: Raw command: chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+08/01/24 00:08:31: Cleaned command: chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+08/01/24 00:08:31: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+08/01/24 00:08:31: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+08/01/24 00:08:31: Command Name: chat_bubble
+08/01/24 00:08:31: Target Object: yeancat
+08/01/24 00:08:31: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+08/01/24 00:08:31: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: yeancat, Choices: []
+08/01/24 00:08:31: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+08/01/24 00:08:33: Raw command: execute_action(InvestigateSignals)
+08/01/24 00:08:33: Cleaned command: execute_action(InvestigateSignals)
+08/01/24 00:08:33: Executing action/group: InvestigateSignals
+08/01/24 00:08:33: Decoded Data: {"command":"chat_bubble","parameters":["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]],"targetObject":"yeancat"}
+08/01/24 00:08:33: Raw command: chat_bubble(["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]])
+08/01/24 00:08:33: Cleaned command: chat_bubble(["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]])
+08/01/24 00:08:33: Parsing arguments: ["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]]
+08/01/24 00:08:33: Parsed arguments: ["[\"The signals lead you to a hidden portal. Do you enter?\",[[\"Enter the portal\",\"EnterPortal\"],[\"Report back to HQ\",\"ReportToHQ\"]]]"]
+08/01/24 00:08:33: Command Name: chat_bubble
+08/01/24 00:08:33: Target Object: yeancat
+08/01/24 00:08:33: Parameters: ["[\"The signals lead you to a hidden portal. Do you enter?\",[[\"Enter the portal\",\"EnterPortal\"],[\"Report back to HQ\",\"ReportToHQ\"]]]"]
+08/01/24 00:08:33: Creating chat bubble: ["The signals lead you to a hidden portal. Do you enter?",[["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]], Owner: yeancat, Choices: []
+08/01/24 00:08:33: Chat Bubble Created. Following 'yeancat' with text: 'The signals lead you to a hidden portal. Do you
+enter?'. Number of choices: 2
+08/01/24 00:08:34: Raw command: execute_action(EnterPortal)
+08/01/24 00:08:34: Cleaned command: execute_action(EnterPortal)
+08/01/24 00:08:34: Executing action/group: EnterPortal
+08/01/24 00:08:34: Decoded Data: {"command":"execute_action","parameters":"PortalAdventure","targetObject":"yeancat"}
+08/01/24 00:08:34: Raw command: execute_action("PortalAdventure")
+08/01/24 00:08:34: Cleaned command: execute_action("PortalAdventure")
+08/01/24 00:08:34: Executing action/group: PortalAdventure
+08/01/24 00:08:34: Decoded Data: {"type":"action_group","actions":["GotoTheEndonda","SetLevelFive","PortalOutcome"]}
+08/01/24 00:08:34: Raw command: execute_action(GotoTheEndonda)
+08/01/24 00:08:34: Cleaned command: execute_action(GotoTheEndonda)
+08/01/24 00:08:34: Executing action/group: GotoTheEndonda
+08/01/24 00:08:34: Decoded Data: {"command":"goto_planet","parameters":"The Endonda","targetObject":"yeancat"}
+08/01/24 00:08:34: Raw command: goto_planet("The Endonda")
+08/01/24 00:08:34: Cleaned command: goto_planet("The Endonda")
+08/01/24 00:08:34: Parsing arguments: "The Endonda"
+08/01/24 00:08:34: Parsed arguments: ["\"The Endonda\""]
+08/01/24 00:08:34: Command Name: goto_planet
+08/01/24 00:08:34: Target Object: yeancat
+08/01/24 00:08:34: Parameters: ["\"The Endonda\""]
+08/01/24 00:08:34: Teleported to The Endonda.
+08/01/24 00:08:34: Raw command: execute_action(SetLevelFive)
+08/01/24 00:08:34: Cleaned command: execute_action(SetLevelFive)
+08/01/24 00:08:34: Executing action/group: SetLevelFive
+08/01/24 00:08:34: Decoded Data: {"command":"set_variable","parameters":["Level","5"],"targetObject":"yeancat"}
+08/01/24 00:08:34: Raw command: set_variable(["Level","5"])
+08/01/24 00:08:34: Cleaned command: set_variable(["Level","5"])
+08/01/24 00:08:34: Parsing arguments: ["Level","5"]
+08/01/24 00:08:34: Parsed arguments: ["[\"Level\",\"5\"]"]
+08/01/24 00:08:34: Command Name: set_variable
+08/01/24 00:08:34: Target Object: yeancat
+08/01/24 00:08:34: Parameters: ["[\"Level\",\"5\"]"]
+08/01/24 00:08:34: Level set to 5
+08/01/24 00:08:34: Raw command: execute_action(PortalOutcome)
+08/01/24 00:08:34: Cleaned command: execute_action(PortalOutcome)
+08/01/24 00:08:34: Executing action/group: PortalOutcome
+08/01/24 00:08:34: Decoded Data: {"command":"chat_bubble","parameters":["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]],"targetObject":"Target"}
+08/01/24 00:08:34: Raw command: Target.chat_bubble(["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]])
+08/01/24 00:08:35: Cleaned command: Target.chat_bubble(["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]])
+08/01/24 00:08:35: Parsing arguments: ["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]]
+08/01/24 00:08:35: Parsed arguments: ["[\"You've discovered an ancient civilization! What's your approach?\",[[\"Study their technology\",\"StudyTech\"],[\"Establish communication\",\"Communicate\"],[\"Return home with findings\",\"ReturnWithFindings\"]]]"]
+08/01/24 00:08:35: Command Name: chat_bubble
+08/01/24 00:08:35: Target Object: Target
+08/01/24 00:08:35: Parameters: ["[\"You've discovered an ancient civilization! What's your approach?\",[[\"Study their technology\",\"StudyTech\"],[\"Establish communication\",\"Communicate\"],[\"Return home with findings\",\"ReturnWithFindings\"]]]"]
+08/01/24 00:08:35: Creating chat bubble: ["You've discovered an ancient civilization! What's your approach?",[["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]], Owner: Target, Choices: []
+08/01/24 00:08:35: Owner object not found, using yeancat
+08/01/24 00:08:35: Chat Bubble Created. Following 'yeancat' with text: 'You've discovered an ancient civilization! What's
+your approach?'. Number of choices: 3
+08/01/24 00:08:41: Raw command: list_action_groups
+08/01/24 00:08:41: Cleaned command: list_action_groups
+08/01/24 00:08:41: Command Name: list_action_groups
+08/01/24 00:08:41: Target Object: yeancat
+08/01/24 00:08:41: Parameters: []
+08/01/24 00:08:41: Action Groups: AG1, ArtifactMystery, BattleSequence, EpicBattle, 
+08/01/24 00:08:41: PeaceTreaty, PeacefulMission, PortalAdventure, SpaceExploration, 
+08/01/24 00:08:41: SpawnBossCircle
+08/01/24 00:08:47: Raw command: execute_action(AG1)
+08/01/24 00:08:47: Cleaned command: execute_action(AG1)
+08/01/24 00:08:47: Executing action/group: AG1
+08/01/24 00:08:47: Decoded Data: {"type":"action_group","actions":["LevelUpThree","SaveGameNow"]}
+08/01/24 00:08:47: Raw command: execute_action(LevelUpThree)
+08/01/24 00:08:47: Cleaned command: execute_action(LevelUpThree)
+08/01/24 00:08:47: Executing action/group: LevelUpThree
+08/01/24 00:08:47: Decoded Data: {"command":"level_up","parameters":[3.0],"targetObject":"yeancat"}
+08/01/24 00:08:47: Raw command: level_up([3.0])
+08/01/24 00:08:47: Cleaned command: level_up([3.0])
+08/01/24 00:08:47: Parsing arguments: [3.0]
+08/01/24 00:08:47: Parsed arguments: ["[3.0]"]
+08/01/24 00:08:47: Command Name: level_up
+08/01/24 00:08:47: Target Object: yeancat
+08/01/24 00:08:47: Parameters: ["[3.0]"]
+08/01/24 00:08:47: Level up initiated with goal: 3
+08/01/24 00:08:47: Raw command: execute_action(SaveGameNow)
+08/01/24 00:08:47: Cleaned command: execute_action(SaveGameNow)
+08/01/24 00:08:47: Executing action/group: SaveGameNow
+08/01/24 00:08:47: Decoded Data: {"command":"save_game","parameters":[],"targetObject":"yeancat"}
+08/01/24 00:08:47: Raw command: save_game([])
+08/01/24 00:08:47: Cleaned command: save_game([])
+08/01/24 00:08:47: Parsing arguments: []
+08/01/24 00:08:47: Parsed arguments: ["[]"]
+08/01/24 00:08:47: Command Name: save_game
+08/01/24 00:08:47: Target Object: yeancat
+08/01/24 00:08:47: Parameters: ["[]"]
+08/01/24 00:08:47: Saved Game

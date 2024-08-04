@@ -1,0 +1,340 @@
+07/31/24 22:57:37: Loaded action/group: SaveGameNow
+07/31/24 22:57:37: Loaded action/group: GotoKingsKingdom
+07/31/24 22:57:37: Loaded action/group: EnterPortal
+07/31/24 22:57:37: Loaded action/group: PurchaseArtifacts
+07/31/24 22:57:37: Loaded action/group: BattleOutcome
+07/31/24 22:57:37: Loaded action/group: VisitMarket
+07/31/24 22:57:37: Loaded action/group: GotoDivineDomain
+07/31/24 22:57:37: Loaded action/group: GotoTheEndonda
+07/31/24 22:57:37: Loaded action/group: GotoUniverseCity
+07/31/24 22:57:37: Loaded action/group: SpawnNPC1
+07/31/24 22:57:37: Loaded action/group: GotoLandOfLucy
+07/31/24 22:57:37: Loaded action/group: GotoPlaceOfPablo
+07/31/24 22:57:37: Loaded action/group: InvestigateSignals
+07/31/24 22:57:37: Loaded action/group: OfferTrade
+07/31/24 22:57:37: Loaded action/group: DisableEnemySpawns
+07/31/24 22:57:37: Loaded action/group: BattleSequence
+07/31/24 22:57:37: Loaded action/group: StartBattle
+07/31/24 22:57:37: Loaded action/group: SpawnBoss4
+07/31/24 22:57:37: Loaded action/group: SpawnBossCircle
+07/31/24 22:57:37: Loaded action/group: GotoTheIcyHeart
+07/31/24 22:57:37: Loaded action/group: EngageCombat
+07/31/24 22:57:38: Loaded action/group: GotoGhostTown
+07/31/24 22:57:38: Loaded action/group: SpawnBoss0
+07/31/24 22:57:38: Loaded action/group: SpawnBoss13
+07/31/24 22:57:38: Loaded action/group: StartExploration
+07/31/24 22:57:38: Loaded action/group: SpawnBoss8
+07/31/24 22:57:38: Loaded action/group: SpawnBoss6
+07/31/24 22:57:38: Loaded action/group: SetLevelFive
+07/31/24 22:57:38: Loaded action/group: LevelUpThree
+07/31/24 22:57:38: Loaded action/group: LevelUpOnce
+07/31/24 22:57:38: Loaded action/group: GotoTheGoldMines
+07/31/24 22:57:38: Loaded action/group: SpawnBoss11
+07/31/24 22:57:38: Loaded action/group: StartPeaceMission
+07/31/24 22:57:38: Loaded action/group: SpawnBoss2
+07/31/24 22:57:38: Loaded action/group: DiplomaticChoice
+07/31/24 22:57:38: Loaded action/group: TreatyOutcome
+07/31/24 22:57:38: Loaded action/group: ExplorationChoice
+07/31/24 22:57:38: Loaded action/group: BattleChoice
+07/31/24 22:57:38: Loaded action/group: ArtifactMystery
+07/31/24 22:57:38: Loaded action/group: PortalOutcome
+07/31/24 22:57:38: Loaded action/group: PeacefulMission
+07/31/24 22:57:38: Loaded action/group: SpaceAdventureStart
+07/31/24 22:57:38: Loaded action/group: PortalAdventure
+07/31/24 22:57:38: Loaded action/group: EnableEnemySpawns
+07/31/24 22:57:38: Loaded action/group: GotoVulturesValley
+07/31/24 22:57:38: Loaded action/group: GotoEarth
+07/31/24 22:57:38: Loaded action/group: SpawnBoss1
+07/31/24 22:57:38: Loaded action/group: GotoStormySands
+07/31/24 22:57:38: Loaded action/group: SpawnBoss12
+07/31/24 22:57:38: Loaded action/group: SpaceExploration
+07/31/24 22:57:38: Loaded action/group: GotoFantasia
+07/31/24 22:57:38: Loaded action/group: SpawnBoss5
+07/31/24 22:57:38: Loaded action/group: AG1
+07/31/24 22:57:38: Loaded action/group: SpawnBoss10
+07/31/24 22:57:38: Loaded action/group: GotoYetopia
+07/31/24 22:57:38: Loaded action/group: SpawnBoss3
+07/31/24 22:57:38: Loaded action/group: ArtifactOutcome
+07/31/24 22:57:38: Loaded action/group: EpicBattle
+07/31/24 22:57:38: Loaded action/group: SpawnBoss7
+07/31/24 22:57:38: Loaded action/group: SpawnBoss9
+07/31/24 22:57:38: Loaded action/group: PeaceTreaty
+07/31/24 22:57:38: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 22:57:38: [Client] Failed to reconnect to server. Will try again...
+07/31/24 23:07:26: [Jay Arnold] We have so far created a very robust in game scripting language
+07/31/24 23:07:26: Creating chat bubble: " We have so far created a very robust in game scripting language", Owner: yeancat, Choices: []
+07/31/24 23:07:26: Chat Bubble Created. Following 'yeancat' with text: 'We have so far created a very robust in game scripting
+language'. Number of choices: 0
+07/31/24 23:08:06: [Jay Arnold] we have a range of commands that can be turned into actions and those actions paired into action
+groups
+07/31/24 23:08:06: Creating chat bubble: " we have a range of commands that can be turned into actions and those actions paired into action\ngroups", Owner: yeancat, Choices: []
+07/31/24 23:08:06: Chat Bubble Created. Following 'yeancat' with text: 'we have a range of commands that can be turned into
+actions and those actions paired into action
+groups'. Number of choices: 0
+07/31/24 23:09:39: Raw command: list_commands
+07/31/24 23:09:39: Cleaned command: list_commands
+07/31/24 23:09:39: Command Name: list_commands
+07/31/24 23:09:39: Target Object: yeancat
+07/31/24 23:09:39: Parameters: []
+07/31/24 23:09:39: Commands: add_action(, add_action_group(, camera_target(, 
+07/31/24 23:09:39: chat_bubble(, delete_action(, delete_actions(, disable_heartbeat, 
+07/31/24 23:09:39: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+07/31/24 23:09:39: jump_planet(, level_up(, list_action_groups, list_actions, 
+07/31/24 23:09:39: list_clients, list_commands, list_objects, list_variables, 
+07/31/24 23:09:39: return_controller, save_actions, save_game, save_macros, 
+07/31/24 23:09:39: set_my_permission(, set_spawn_npc(, set_target(, set_variable(, 
+07/31/24 23:09:39: show_gamepad_mapping, show_lines(, show_variable(, show_wpm, 
+07/31/24 23:09:39: spawn_boss(, spawn_npc(, toggle_debug, toggle_input_display, 
+07/31/24 23:09:39: toggle_log_debug, toggle_server
+07/31/24 23:09:46: Raw command: show_lines(13)
+07/31/24 23:09:46: Cleaned command: show_lines(13)
+07/31/24 23:09:46: Parsing arguments: 13
+07/31/24 23:09:46: Parsed arguments: ["13"]
+07/31/24 23:09:46: Command Name: show_lines
+07/31/24 23:09:46: Target Object: yeancat
+07/31/24 23:09:46: Parameters: ["13"]
+07/31/24 23:09:46: Display set to show 13 lines.
+07/31/24 23:10:37: [Jay Arnold] we also have a language format that allows us to decide an object that the action or command  is
+performed in reference to using a "."
+07/31/24 23:10:37: Creating chat bubble: " we also have a language format that allows us to decide an object that the action or command  is\nperformed in reference to using a \".\"", Owner: yeancat, Choices: []
+07/31/24 23:10:37: Chat Bubble Created. Following 'yeancat' with text: 'we also have a language format that allows us to decide an
+object that the action or command  is
+performed in reference to using a "."'. Number of choices: 0
+07/31/24 23:10:57: [Jay Arnold] i can type /Player.camera_target(0,0) and the camera will target the player with no offset
+07/31/24 23:10:57: Creating chat bubble: " i can type \/Player.camera_target(0,0) and the camera will target the player with no offset", Owner: yeancat, Choices: []
+07/31/24 23:10:57: Chat Bubble Created. Following 'yeancat' with text: 'i can type /Player.camera_target(0,0) and the camera will
+target the player with no offset'. Number of choices: 0
+07/31/24 23:12:08: [Jay Arnold] I could also spawn a chat bubble on any object like a boss by /Futurtle1.chat_bubble("Hello World!")
+and the chat bubbles can even have up to 4 choice options with action or action group triggers
+07/31/24 23:12:08: Creating chat bubble: " I could also spawn a chat bubble on any object like a boss by \/Futurtle1.chat_bubble(\"Hello World!\")\nand the chat bubbles can even have up to 4 choice options with action or action group triggers", Owner: yeancat, Choices: []
+07/31/24 23:12:08: Chat Bubble Created. Following 'yeancat' with text: 'I could also spawn a chat bubble on any object like a boss by
+/Futurtle1.chat_bubble("Hello World!")
+and the chat bubbles can even have up to 4 choice options
+with action or action group triggers'. Number of choices: 0
+07/31/24 23:12:51: [Jay Arnold] as a result, we can already see many emerging mechanics and possibilities that can be made with
+already our simple system
+07/31/24 23:12:51: Creating chat bubble: " as a result, we can already see many emerging mechanics and possibilities that can be made with\nalready our simple system", Owner: yeancat, Choices: []
+07/31/24 23:12:51: Chat Bubble Created. Following 'yeancat' with text: 'as a result, we can already see many emerging mechanics
+and possibilities that can be made with
+already our simple system'. Number of choices: 0
+07/31/24 23:13:13: [Jay Arnold] for example i will execute an action that showcases the branching paths and action groups
+07/31/24 23:13:13: Creating chat bubble: " for example i will execute an action that showcases the branching paths and action groups", Owner: yeancat, Choices: []
+07/31/24 23:13:13: Chat Bubble Created. Following 'yeancat' with text: 'for example i will execute an action that showcases the
+branching paths and action groups'. Number of choices: 0
+07/31/24 23:13:28: Raw command: execute_action(SpaceAdventureStart)
+07/31/24 23:13:28: Cleaned command: execute_action(SpaceAdventureStart)
+07/31/24 23:13:28: Executing action/group: SpaceAdventureStart
+07/31/24 23:13:28: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/31/24 23:13:28: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/31/24 23:13:28: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/31/24 23:13:28: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/31/24 23:13:28: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/31/24 23:13:28: Command Name: chat_bubble
+07/31/24 23:13:28: Target Object: Target
+07/31/24 23:13:28: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/31/24 23:13:28: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/31/24 23:13:28: Owner object not found, using yeancat
+07/31/24 23:13:28: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/31/24 23:13:31: Raw command: execute_action(StartExploration)
+07/31/24 23:13:31: Cleaned command: execute_action(StartExploration)
+07/31/24 23:13:31: Executing action/group: StartExploration
+07/31/24 23:13:32: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/31/24 23:13:32: Raw command: execute_action("SpaceExploration")
+07/31/24 23:13:32: Cleaned command: execute_action("SpaceExploration")
+07/31/24 23:13:32: Executing action/group: SpaceExploration
+07/31/24 23:13:32: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/31/24 23:13:32: Raw command: execute_action(GotoUniverseCity)
+07/31/24 23:13:32: Cleaned command: execute_action(GotoUniverseCity)
+07/31/24 23:13:32: Executing action/group: GotoUniverseCity
+07/31/24 23:13:32: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+07/31/24 23:13:32: Raw command: goto_planet("Universe City")
+07/31/24 23:13:32: Cleaned command: goto_planet("Universe City")
+07/31/24 23:13:32: Parsing arguments: "Universe City"
+07/31/24 23:13:32: Parsed arguments: ["\"Universe City\""]
+07/31/24 23:13:32: Command Name: goto_planet
+07/31/24 23:13:32: Target Object: yeancat
+07/31/24 23:13:32: Parameters: ["\"Universe City\""]
+07/31/24 23:13:32: Teleported to Universe City.
+07/31/24 23:13:32: Raw command: execute_action(ExplorationChoice)
+07/31/24 23:13:32: Cleaned command: execute_action(ExplorationChoice)
+07/31/24 23:13:32: Executing action/group: ExplorationChoice
+07/31/24 23:13:32: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"yeancat"}
+07/31/24 23:13:32: Raw command: chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/31/24 23:13:32: Cleaned command: chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/31/24 23:13:32: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/31/24 23:13:32: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/31/24 23:13:32: Command Name: chat_bubble
+07/31/24 23:13:32: Target Object: yeancat
+07/31/24 23:13:32: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/31/24 23:13:32: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: yeancat, Choices: []
+07/31/24 23:13:32: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+07/31/24 23:13:34: Raw command: execute_action(VisitMarket)
+07/31/24 23:13:34: Cleaned command: execute_action(VisitMarket)
+07/31/24 23:13:34: Executing action/group: VisitMarket
+07/31/24 23:13:34: Decoded Data: {"command":"chat_bubble","parameters":["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]],"targetObject":"yeancat"}
+07/31/24 23:13:34: Raw command: chat_bubble(["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]])
+07/31/24 23:13:34: Cleaned command: chat_bubble(["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]])
+07/31/24 23:13:34: Parsing arguments: ["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]]
+07/31/24 23:13:34: Parsed arguments: ["[\"You find rare artifacts in the market. What do you do?\",[[\"Purchase artifacts\",\"PurchaseArtifacts\"],[\"Investigate seller\",\"InvestigateSeller\"]]]"]
+07/31/24 23:13:34: Command Name: chat_bubble
+07/31/24 23:13:34: Target Object: yeancat
+07/31/24 23:13:34: Parameters: ["[\"You find rare artifacts in the market. What do you do?\",[[\"Purchase artifacts\",\"PurchaseArtifacts\"],[\"Investigate seller\",\"InvestigateSeller\"]]]"]
+07/31/24 23:13:34: Creating chat bubble: ["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]], Owner: yeancat, Choices: []
+07/31/24 23:13:34: Chat Bubble Created. Following 'yeancat' with text: 'You find rare artifacts in the market. What do you
+do?'. Number of choices: 2
+07/31/24 23:13:36: Raw command: execute_action(PurchaseArtifacts)
+07/31/24 23:13:36: Cleaned command: execute_action(PurchaseArtifacts)
+07/31/24 23:13:36: Executing action/group: PurchaseArtifacts
+07/31/24 23:13:36: Decoded Data: {"command":"execute_action","parameters":"ArtifactMystery","targetObject":"yeancat"}
+07/31/24 23:13:36: Raw command: execute_action("ArtifactMystery")
+07/31/24 23:13:36: Cleaned command: execute_action("ArtifactMystery")
+07/31/24 23:13:36: Executing action/group: ArtifactMystery
+07/31/24 23:13:36: Decoded Data: {"type":"action_group","actions":["EnableEnemySpawns","GotoGhostTown","ArtifactOutcome"]}
+07/31/24 23:13:36: Raw command: execute_action(EnableEnemySpawns)
+07/31/24 23:13:36: Cleaned command: execute_action(EnableEnemySpawns)
+07/31/24 23:13:36: Executing action/group: EnableEnemySpawns
+07/31/24 23:13:36: Decoded Data: {"command":"set_variable","parameters":["SpawnEnemies","true"],"targetObject":"yeancat"}
+07/31/24 23:13:36: Raw command: set_variable(["SpawnEnemies","true"])
+07/31/24 23:13:36: Cleaned command: set_variable(["SpawnEnemies","true"])
+07/31/24 23:13:36: Parsing arguments: ["SpawnEnemies","true"]
+07/31/24 23:13:36: Parsed arguments: ["[\"SpawnEnemies\",\"true\"]"]
+07/31/24 23:13:36: Command Name: set_variable
+07/31/24 23:13:36: Target Object: yeancat
+07/31/24 23:13:37: Parameters: ["[\"SpawnEnemies\",\"true\"]"]
+07/31/24 23:13:37: SpawnEnemies set to 1
+07/31/24 23:13:37: Raw command: execute_action(GotoGhostTown)
+07/31/24 23:13:37: Cleaned command: execute_action(GotoGhostTown)
+07/31/24 23:13:37: Executing action/group: GotoGhostTown
+07/31/24 23:13:37: Decoded Data: {"command":"goto_planet","parameters":"Ghost Town","targetObject":"yeancat"}
+07/31/24 23:13:37: Raw command: goto_planet("Ghost Town")
+07/31/24 23:13:37: Cleaned command: goto_planet("Ghost Town")
+07/31/24 23:13:37: Parsing arguments: "Ghost Town"
+07/31/24 23:13:37: Parsed arguments: ["\"Ghost Town\""]
+07/31/24 23:13:37: Command Name: goto_planet
+07/31/24 23:13:37: Target Object: yeancat
+07/31/24 23:13:37: Parameters: ["\"Ghost Town\""]
+07/31/24 23:13:37: Teleported to Ghost Town.
+07/31/24 23:13:37: Raw command: execute_action(ArtifactOutcome)
+07/31/24 23:13:37: Cleaned command: execute_action(ArtifactOutcome)
+07/31/24 23:13:37: Executing action/group: ArtifactOutcome
+07/31/24 23:13:37: Decoded Data: {"command":"chat_bubble","parameters":["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]],"targetObject":"Target"}
+07/31/24 23:13:37: Raw command: Target.chat_bubble(["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]])
+07/31/24 23:13:37: Cleaned command: Target.chat_bubble(["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]])
+07/31/24 23:13:37: Parsing arguments: ["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]]
+07/31/24 23:13:37: Parsed arguments: ["[\"The artifacts have awakened ancient guardians! Your move?\",[[\"Fight the guardians\",\"FightGuardians\"],[\"Try to deactivate artifacts\",\"DeactivateArtifacts\"],[\"Escape with artifacts\",\"EscapeWithArtifacts\"]]]"]
+07/31/24 23:13:37: Command Name: chat_bubble
+07/31/24 23:13:37: Target Object: Target
+07/31/24 23:13:37: Parameters: ["[\"The artifacts have awakened ancient guardians! Your move?\",[[\"Fight the guardians\",\"FightGuardians\"],[\"Try to deactivate artifacts\",\"DeactivateArtifacts\"],[\"Escape with artifacts\",\"EscapeWithArtifacts\"]]]"]
+07/31/24 23:13:37: Creating chat bubble: ["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]], Owner: Target, Choices: []
+07/31/24 23:13:37: Owner object not found, using yeancat
+07/31/24 23:13:37: Chat Bubble Created. Following 'yeancat' with text: 'The artifacts have awakened ancient guardians!
+Your move?'. Number of choices: 3
+07/31/24 23:13:40: Raw command: execute_action(FightGuardians)
+07/31/24 23:13:40: Cleaned command: execute_action(FightGuardians)
+07/31/24 23:13:40: Action/group 'FightGuardians' not found.
+07/31/24 23:14:24: [Jay Arnold] i can turn any command into an action and therefore the more we add, we see exponentially more
+possible things we can create in our console
+07/31/24 23:14:24: Creating chat bubble: " i can turn any command into an action and therefore the more we add, we see exponentially more\npossible things we can create in our console", Owner: yeancat, Choices: []
+07/31/24 23:14:24: Chat Bubble Created. Following 'yeancat' with text: 'i can turn any command into an action and therefore the
+more we add, we see exponentially more
+possible things we can create in our console'. Number of choices: 0
+07/31/24 23:15:19: [Jay Arnold] i am emphasizing on developing a strong and robust language that gives us lots of capabilities before i
+actually begin building the story in the world. we are very close
+07/31/24 23:15:19: Creating chat bubble: " i am emphasizing on developing a strong and robust language that gives us lots of capabilities before i\nactually begin building the story in the world. we are very close", Owner: yeancat, Choices: []
+07/31/24 23:15:19: Chat Bubble Created. Following 'yeancat' with text: 'i am emphasizing on developing a strong and robust
+language that gives us lots of capabilities before i
+actually begin building the story in the world. we are very
+close'. Number of choices: 0
+07/31/24 23:16:26: [Jay Arnold] as we add new commands and capabilities we must create example tests that demonstrate the ways we
+can use our systems and over time becomes a documentation for our scripting language. i will include all
+of the examples we have created over time so that you can know how our language works.
+07/31/24 23:16:26: Creating chat bubble: " as we add new commands and capabilities we must create example tests that demonstrate the ways we\ncan use our systems and over time becomes a documentation for our scripting language. i will include all\nof the examples we have created over time so that you can know how our language works.", Owner: yeancat, Choices: []
+07/31/24 23:16:26: Chat Bubble Created. Following 'yeancat' with text: 'as we add new commands and capabilities we must create
+example tests that demonstrate the ways we
+can use our systems and over time becomes a
+documentation for our scripting language. i will include all
+of the examples we have created over time so that you can
+know how our language works.'. Number of choices: 0
+07/31/24 23:23:22: [Jay Arnold] the most recent thing we added was the target object reference and camera positioning.
+with this we are now able to use Target before a dot and then we can reuse the action for any object we
+set to target using /set_target( and then running the action. the camera system is smooth
+and works similarly to chat_bubble and spawn_boss and spawn_npc in the way that it looks for an
+object or point reference before the dot. in the future many more commands will take advantage of this
+format and I want to ensure that it is easy to add more and more scripts that handle this way, without
+creating more and more cases in the execute_command for each new one. the goal is to have an easily
+expandible system that only requires creating a new script and a definition of the script in the client
+create event. I understand that for building the system itself and creating new language functions will
+involve modifying parts of my code until it is right. but the end goal is a neat system. without breaking
+any past functionality along the way.
+07/31/24 23:23:22: Creating chat bubble: " the most recent thing we added was the target object reference and camera positioning.\nwith this we are now able to use Target before a dot and then we can reuse the action for any object we\nset to target using \/set_target( and then running the action. the camera system is smooth\nand works similarly to chat_bubble and spawn_boss and spawn_npc in the way that it looks for an\nobject or point reference before the dot. in the future many more commands will take advantage of this\nformat and I want to ensure that it is easy to add more and more scripts that handle this way, without\ncreating more and more cases in the execute_command for each new one. the goal is to have an easily\nexpandible system that only requires creating a new script and a definition of the script in the client\ncreate event. I understand that for building the system itself and creating new language functions will\ninvolve modifying parts of my code until it is right. but the end goal is a neat system. without breaking\nany past functionality along the way.", Owner: yeancat, Choices: []
+07/31/24 23:23:22: Chat Bubble Created. Following 'yeancat' with text: 'the most recent thing we added was the target object
+reference and camera positioning.
+with this we are now able to use Target before a dot and
+then we can reuse the action for any object we
+set to target using /set_target( and then running the action.
+the camera system is smooth
+and works similarly to chat_bubble and spawn_boss and
+spawn_npc in the way that it looks for an
+object or point reference before the dot. in the future many
+more commands will take advantage of this
+format and I want to ensure that it is easy to add more and
+more scripts that handle this way, without
+creating more and more cases in the execute_command for
+each new one. the goal is to have an easily
+expandible system that only requires creating a new script
+and a definition of the script in the client
+create event. I understand that for building the system
+itself and creating new language functions will
+involve modifying parts of my code until it is right. but the
+end goal is a neat system. without breaking
+any past functionality along the way.'. Number of choices: 0
+07/31/24 23:24:03: [Jay Arnold] that leads me to the next feature i want to implement
+07/31/24 23:24:03: Creating chat bubble: " that leads me to the next feature i want to implement", Owner: yeancat, Choices: []
+07/31/24 23:24:03: Chat Bubble Created. Following 'yeancat' with text: 'that leads me to the next feature i want to implement'. Number of choices: 0
+07/31/24 23:24:07: [Jay Arnold] conditional actions
+07/31/24 23:24:07: Creating chat bubble: " conditional actions", Owner: yeancat, Choices: []
+07/31/24 23:24:07: Chat Bubble Created. Following 'yeancat' with text: 'conditional actions'. Number of choices: 0
+07/31/24 23:24:24: [Jay Arnold] Dialog conditions or action
+conditions.
+/add_action_condition("Name","VariableName">/</=/!=/>=/etc"VariableName2orValue",["Action1/Acti
+onGroup","Action2/ActionGroup"]) that
+will create an action_condition that can be executed using /execute_action if the statement is true it
+will perform action1 if false then Action2 (a clever way to have if/else)
+With this implemented we would be able to have npcs that only give you certain branches if you have
+reached a certain level or killed a number of enemies. We could test if the player has enough money to
+buy something and create an action group that deducts the money and rewards the item if they have
+enough, but tells them sorry if they cant. This is also useful for overall progression conditions. These
+should execute just like actions and should work as chat bubble choice actions as well.
+/list_action_conditions
+07/31/24 23:24:24: Creating chat bubble: " Dialog conditions or action\nconditions.\n\/add_action_condition(\"Name\",\"VariableName\">\/<\/=\/!=\/>=\/etc\"VariableName2orValue\",) that\nwill create an action_condition that can be executed using \/execute_action if the statement is true it\nwill perform action1 if false then Action2 (a clever way to have if\/else)\nWith this implemented we would be able to have npcs that only give you certain branches if you have\nreached a certain level or killed a number of enemies. We could test if the player has enough money to\nbuy something and create an action group that deducts the money and rewards the item if they have\nenough, but tells them sorry if they cant. This is also useful for overall progression conditions. These\nshould execute just like actions and should work as chat bubble choice actions as well.\n\/list_action_conditions", Owner: yeancat, Choices: []
+07/31/24 23:24:24: Chat Bubble Created. Following 'yeancat' with text: 'Dialog conditions or
+action
+conditions.
+/add_action_condition("Name","VariableName">/</=/!=/>=
+/etc"VariableName2orValue",) that
+will create an action_condition that can be executed using
+/execute_action if the statement is true it
+will perform action1 if false then Action2 (a clever way to
+have if/else)
+With this implemented we would be able to have npcs that
+only give you certain branches if you have
+reached a certain level or killed a number of enemies. We
+could test if the player has enough money to
+buy something and create an action group that deducts the
+money and rewards the item if they have
+enough, but tells them sorry if they cant. This is also useful
+for overall progression conditions. These
+should execute just like actions and should work as chat
+bubble choice actions as well.
+/list_action_conditions'. Number of choices: 0
+07/31/24 23:26:17: [Jay Arnold] we could even make this accept other action conditions and in place of < or = it could accept 
+and or or and compare if one or both of two action conditions return true! (in place of variable)
+07/31/24 23:26:17: Creating chat bubble: " we could even make this accept other action conditions and in place of < or = it could accept \nand or or and compare if one or both of two action conditions return true! (in place of variable)", Owner: yeancat, Choices: []
+07/31/24 23:26:17: Chat Bubble Created. Following 'yeancat' with text: 'we could even make this accept other action conditions and
+in place of < or = it could accept 
+and or or and compare if one or both of two action
+conditions return true! (in place of variable)'. Number of choices: 0
+07/31/24 23:26:27: [Jay Arnold] that is all i have to say so far!
+07/31/24 23:26:27: Creating chat bubble: " that is all i have to say so far!", Owner: yeancat, Choices: []
+07/31/24 23:26:28: Chat Bubble Created. Following 'yeancat' with text: 'that is all i have to say so far!'. Number of choices: 0

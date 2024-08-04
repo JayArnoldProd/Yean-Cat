@@ -131,5 +131,20 @@ Here is a series of example commands that have emergent functionality using the 
 /set_target(Player)
 /execute_action(SpawnBossCircle)
 
+/Player.spawn_npc("Friendly NPC 1", 1, 100, -100, "GreetPlayer")
+/Player.spawn_npc("Friendly NPC 2", 1, -100, -100, "GreetPlayer")
+
+/add_condition(IsLevelHigh, Level, >=, 10)
+/add_condition(IsHealthFull, Health, =, 50)
+/add_condition(IsLevelHighAndHealthFull, IsLevelHigh, and, IsHealthFull)
+/add_action_condition(CheckLevelAndHealth, IsLevelHighAndHealthFull, HighLevelFullHealth, NotHighLevelOrNotFullHealth)
+
+/list_action_conditions
+/list_conditions
+/list_action_groups
+/list_actions
+
+/execute_action(SpaceAdventureStart)
+/execute_action(CheckLevelAndHealth)
 
 I have the ability to paste many multiple lines at once and execute them in order! So dont be afraid to group any command test sequences you come up with in a large block.

@@ -1,0 +1,103 @@
+08/01/24 03:39:22: Loaded action/group: SaveGameNow
+08/01/24 03:39:22: Loaded action/group: GotoKingsKingdom
+08/01/24 03:39:22: Loaded action/group: NotHighLevelOrNotFullHealth
+08/01/24 03:39:22: Loaded action/group: CheckLevelAndHealth
+08/01/24 03:39:22: Loaded action/group: EnterPortal
+08/01/24 03:39:22: Loaded action/group: PurchaseArtifacts
+08/01/24 03:39:22: Loaded action/group: BattleOutcome
+08/01/24 03:39:22: Loaded action/group: VisitMarket
+08/01/24 03:39:22: Loaded action/group: GotoDivineDomain
+08/01/24 03:39:22: Loaded action/group: GotoTheEndonda
+08/01/24 03:39:22: Loaded action/group: GotoUniverseCity
+08/01/24 03:39:22: Loaded action/group: GotoLandOfLucy
+08/01/24 03:39:22: Loaded action/group: GotoPlaceOfPablo
+08/01/24 03:39:22: Loaded action/group: InvestigateSignals
+08/01/24 03:39:22: Loaded action/group: OfferTrade
+08/01/24 03:39:22: Loaded action/group: DisableEnemySpawns
+08/01/24 03:39:22: Loaded action/group: BattleSequence
+08/01/24 03:39:22: Loaded action/group: StartBattle
+08/01/24 03:39:22: Loaded action/group: SpawnBoss4
+08/01/24 03:39:22: Loaded action/group: SpawnBossCircle
+08/01/24 03:39:22: Loaded action/group: GotoTheIcyHeart
+08/01/24 03:39:22: Loaded action/group: EngageCombat
+08/01/24 03:39:22: Loaded action/group: GotoGhostTown
+08/01/24 03:39:22: Loaded action/group: SpawnBoss0
+08/01/24 03:39:22: Loaded action/group: SpawnBoss13
+08/01/24 03:39:22: Loaded action/group: StartExploration
+08/01/24 03:39:22: Loaded action/group: SpawnBoss8
+08/01/24 03:39:22: Loaded action/group: SpawnBoss6
+08/01/24 03:39:22: Loaded action/group: SetLevelFive
+08/01/24 03:39:22: Loaded action/group: LevelUpThree
+08/01/24 03:39:22: Loaded action/group: LevelUpOnce
+08/01/24 03:39:22: Loaded action/group: GotoTheGoldMines
+08/01/24 03:39:22: Loaded action/group: SpawnBoss11
+08/01/24 03:39:22: Loaded action/group: StartPeaceMission
+08/01/24 03:39:22: Loaded action/group: DiplomaticChoice
+08/01/24 03:39:22: Loaded action/group: TreatyOutcome
+08/01/24 03:39:22: Loaded action/group: ExplorationChoice
+08/01/24 03:39:22: Loaded action/group: BattleChoice
+08/01/24 03:39:22: Loaded action/group: ArtifactMystery
+08/01/24 03:39:22: Loaded action/group: PortalOutcome
+08/01/24 03:39:22: Loaded action/group: PeacefulMission
+08/01/24 03:39:22: Loaded action/group: SpaceAdventureStart
+08/01/24 03:39:22: Loaded action/group: PortalAdventure
+08/01/24 03:39:22: Loaded action/group: EnableEnemySpawns
+08/01/24 03:39:22: Loaded action/group: GotoVulturesValley
+08/01/24 03:39:22: Loaded action/group: GotoEarth
+08/01/24 03:39:22: Loaded action/group: SpawnBoss1
+08/01/24 03:39:22: Loaded action/group: GotoStormySands
+08/01/24 03:39:22: Loaded action/group: SpawnBoss12
+08/01/24 03:39:22: Loaded action/group: SpaceExploration
+08/01/24 03:39:22: Loaded action/group: GotoFantasia
+08/01/24 03:39:22: Loaded action/group: SpawnBoss5
+08/01/24 03:39:22: Loaded action/group: SpawnBoss10
+08/01/24 03:39:22: Loaded action/group: GotoYetopia
+08/01/24 03:39:22: Loaded action/group: SpawnBoss3
+08/01/24 03:39:22: Loaded action/group: ArtifactOutcome
+08/01/24 03:39:22: Loaded action/group: HighLevelFullHealth
+08/01/24 03:39:22: Loaded action/group: EpicBattle
+08/01/24 03:39:22: Loaded action/group: SpawnBoss7
+08/01/24 03:39:22: Loaded action/group: SpawnBoss9
+08/01/24 03:39:22: Loaded action/group: PeaceTreaty
+08/01/24 03:39:22: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 03:39:22: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 03:39:22: Loaded condition: IsHealthFull
+08/01/24 03:39:22: Loaded condition: IsLevelHigh
+08/01/24 03:39:22: Conditions loaded successfully from Conditions.txt.
+08/01/24 03:39:22: [Client] Failed to reconnect to server. Will try again...
+08/01/24 03:39:41: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 03:39:41: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 03:39:41: Executing action/group/condition: SpaceAdventureStart
+08/01/24 03:39:41: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 03:39:41: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/01/24 03:39:41: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your
+path:'. Number of choices: 3
+08/01/24 03:39:43: Executing action/group/condition: StartExploration
+08/01/24 03:39:43: Decoded Data: {"command":"execute_action","parameters":["SpaceExploration"],"targetObject":"Target"}
+08/01/24 03:39:43: Raw command: Target.execute_action(["SpaceExploration"])
+08/01/24 03:39:43: Cleaned command: Target.execute_action(["SpaceExploration"])
+08/01/24 03:39:43: Action/group/condition '[SpaceExploration]' not found.
+08/01/24 03:39:46: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 03:39:46: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 03:39:46: Executing action/group/condition: SpaceAdventureStart
+08/01/24 03:39:46: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 03:39:46: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/01/24 03:39:46: Owner object not found, using yeancat
+08/01/24 03:39:46: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/01/24 03:39:49: Executing action/group/condition: StartExploration
+08/01/24 03:39:49: Decoded Data: {"command":"execute_action","parameters":["SpaceExploration"],"targetObject":"Target"}
+08/01/24 03:39:49: Raw command: Target.execute_action(["SpaceExploration"])
+08/01/24 03:39:49: Cleaned command: Target.execute_action(["SpaceExploration"])
+08/01/24 03:39:49: Action/group/condition '[SpaceExploration]' not found.
+08/01/24 03:39:54: Raw command: execute_action(SpaceAdventureStart)
+08/01/24 03:39:54: Cleaned command: execute_action(SpaceAdventureStart)
+08/01/24 03:39:54: Executing action/group/condition: SpaceAdventureStart
+08/01/24 03:39:54: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+08/01/24 03:39:54: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/01/24 03:39:54: Owner object not found, using yeancat
+08/01/24 03:39:54: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/01/24 03:39:56: Executing action/group/condition: StartBattle
+08/01/24 03:39:56: Decoded Data: {"command":"execute_action","parameters":["BattleSequence"],"targetObject":"Target"}
+08/01/24 03:39:56: Raw command: Target.execute_action(["BattleSequence"])
+08/01/24 03:39:56: Cleaned command: Target.execute_action(["BattleSequence"])
+08/01/24 03:39:56: Action/group/condition '[BattleSequence]' not found.

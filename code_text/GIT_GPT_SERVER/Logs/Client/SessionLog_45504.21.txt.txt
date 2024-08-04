@@ -1,0 +1,216 @@
+07/30/24 23:56:21: Loaded action/group: SaveGameNow
+07/30/24 23:56:21: Loaded action/group: GotoKingsKingdom
+07/30/24 23:56:21: Loaded action/group: EnterPortal
+07/30/24 23:56:21: Loaded action/group: PurchaseArtifacts
+07/30/24 23:56:21: Loaded action/group: BattleOutcome
+07/30/24 23:56:21: Loaded action/group: VisitMarket
+07/30/24 23:56:21: Loaded action/group: GotoDivineDomain
+07/30/24 23:56:21: Loaded action/group: GotoTheEndonda
+07/30/24 23:56:21: Loaded action/group: GotoUniverseCity
+07/30/24 23:56:22: Loaded action/group: SpawnNPC1
+07/30/24 23:56:22: Loaded action/group: GotoLandOfLucy
+07/30/24 23:56:22: Loaded action/group: GotoPlaceOfPablo
+07/30/24 23:56:22: Loaded action/group: InvestigateSignals
+07/30/24 23:56:22: Loaded action/group: OfferTrade
+07/30/24 23:56:22: Loaded action/group: DisableEnemySpawns
+07/30/24 23:56:22: Loaded action/group: BattleSequence
+07/30/24 23:56:22: Loaded action/group: StartBattle
+07/30/24 23:56:22: Loaded action/group: SpawnBoss4
+07/30/24 23:56:22: Loaded action/group: SpawnBossCircle
+07/30/24 23:56:22: Loaded action/group: GotoTheIcyHeart
+07/30/24 23:56:22: Loaded action/group: EngageCombat
+07/30/24 23:56:22: Loaded action/group: GotoGhostTown
+07/30/24 23:56:22: Loaded action/group: SpawnBoss0
+07/30/24 23:56:22: Loaded action/group: SpawnBoss13
+07/30/24 23:56:22: Loaded action/group: StartExploration
+07/30/24 23:56:22: Loaded action/group: SpawnBoss8
+07/30/24 23:56:22: Loaded action/group: SpawnBoss6
+07/30/24 23:56:22: Loaded action/group: SetLevelFive
+07/30/24 23:56:22: Loaded action/group: LevelUpThree
+07/30/24 23:56:22: Loaded action/group: LevelUpOnce
+07/30/24 23:56:22: Loaded action/group: GotoTheGoldMines
+07/30/24 23:56:22: Loaded action/group: SpawnBoss11
+07/30/24 23:56:22: Loaded action/group: StartPeaceMission
+07/30/24 23:56:22: Loaded action/group: SpawnBoss2
+07/30/24 23:56:22: Loaded action/group: DiplomaticChoice
+07/30/24 23:56:22: Loaded action/group: TreatyOutcome
+07/30/24 23:56:22: Loaded action/group: ExplorationChoice
+07/30/24 23:56:22: Loaded action/group: BattleChoice
+07/30/24 23:56:22: Loaded action/group: ArtifactMystery
+07/30/24 23:56:22: Loaded action/group: PortalOutcome
+07/30/24 23:56:22: Loaded action/group: PeacefulMission
+07/30/24 23:56:22: Loaded action/group: SpaceAdventureStart
+07/30/24 23:56:22: Loaded action/group: PortalAdventure
+07/30/24 23:56:22: Loaded action/group: EnableEnemySpawns
+07/30/24 23:56:22: Loaded action/group: GotoVulturesValley
+07/30/24 23:56:22: Loaded action/group: GotoEarth
+07/30/24 23:56:22: Loaded action/group: SpawnBoss1
+07/30/24 23:56:22: Loaded action/group: GotoStormySands
+07/30/24 23:56:22: Loaded action/group: SpawnBoss12
+07/30/24 23:56:22: Loaded action/group: SpaceExploration
+07/30/24 23:56:22: Loaded action/group: GotoFantasia
+07/30/24 23:56:22: Loaded action/group: SpawnBoss5
+07/30/24 23:56:22: Loaded action/group: AG1
+07/30/24 23:56:22: Loaded action/group: SpawnBoss10
+07/30/24 23:56:22: Loaded action/group: GotoYetopia
+07/30/24 23:56:22: Loaded action/group: SpawnBoss3
+07/30/24 23:56:22: Loaded action/group: ArtifactOutcome
+07/30/24 23:56:22: Loaded action/group: EpicBattle
+07/30/24 23:56:22: Loaded action/group: SpawnBoss7
+07/30/24 23:56:23: Loaded action/group: SpawnBoss9
+07/30/24 23:56:23: Loaded action/group: PeaceTreaty
+07/30/24 23:56:23: Actions and action groups loaded successfully from Actions.txt.
+07/30/24 23:56:23: [Client] Failed to reconnect to server. Will try again...
+07/30/24 23:57:06: Raw command: set_variable(Macro1,.5)
+07/30/24 23:57:06: Cleaned command: set_variable(Macro1,.5)
+07/30/24 23:57:06: Parsing arguments: Macro1,.5
+07/30/24 23:57:07: Parsed arguments: ["Macro1",".5"]
+07/30/24 23:57:07: Command Name: set_variable
+07/30/24 23:57:07: Target Object: yeancat
+07/30/24 23:57:07: Parameters: ["Macro1",".5"]
+07/30/24 23:57:07: Macro1 set to 0.50
+07/30/24 23:57:12: Raw command: set_variable(Macro1,1)
+07/30/24 23:57:12: Cleaned command: set_variable(Macro1,1)
+07/30/24 23:57:12: Parsing arguments: Macro1,1
+07/30/24 23:57:12: Parsed arguments: ["Macro1","1"]
+07/30/24 23:57:12: Command Name: set_variable
+07/30/24 23:57:12: Target Object: yeancat
+07/30/24 23:57:12: Parameters: ["Macro1","1"]
+07/30/24 23:57:12: Macro1 set to 1
+07/30/24 23:57:16: Raw command: set_variable(Macro1,2)
+07/30/24 23:57:16: Cleaned command: set_variable(Macro1,2)
+07/30/24 23:57:16: Parsing arguments: Macro1,2
+07/30/24 23:57:16: Parsed arguments: ["Macro1","2"]
+07/30/24 23:57:16: Command Name: set_variable
+07/30/24 23:57:16: Target Object: yeancat
+07/30/24 23:57:16: Parameters: ["Macro1","2"]
+07/30/24 23:57:16: Macro1 set to 2
+07/30/24 23:57:20: Raw command: set_variable(Macro1,1)
+07/30/24 23:57:20: Cleaned command: set_variable(Macro1,1)
+07/30/24 23:57:20: Parsing arguments: Macro1,1
+07/30/24 23:57:20: Parsed arguments: ["Macro1","1"]
+07/30/24 23:57:20: Command Name: set_variable
+07/30/24 23:57:20: Target Object: yeancat
+07/30/24 23:57:20: Parameters: ["Macro1","1"]
+07/30/24 23:57:20: Macro1 set to 1
+07/30/24 23:57:31: [Jay Arnold] okay 1 is good. everything is mirrored though
+07/30/24 23:57:31: Creating chat bubble: " okay 1 is good. everything is mirrored though", Owner: yeancat, Choices: []
+07/30/24 23:57:31: Chat Bubble Created. Following 'yeancat' with text: 'okay 1 is good. everything is mirrored though'. Number of choices: 0
+07/30/24 23:57:37: Raw command: set_variable(Macro1,-1)
+07/30/24 23:57:37: Cleaned command: set_variable(Macro1,-1)
+07/30/24 23:57:37: Parsing arguments: Macro1,-1
+07/30/24 23:57:37: Parsed arguments: ["Macro1","-1"]
+07/30/24 23:57:37: Command Name: set_variable
+07/30/24 23:57:37: Target Object: yeancat
+07/30/24 23:57:37: Parameters: ["Macro1","-1"]
+07/30/24 23:57:37: Macro1 set to -1
+07/30/24 23:57:46: Raw command: set_variable(Macro1,1)
+07/30/24 23:57:46: Cleaned command: set_variable(Macro1,1)
+07/30/24 23:57:46: Parsing arguments: Macro1,1
+07/30/24 23:57:46: Parsed arguments: ["Macro1","1"]
+07/30/24 23:57:46: Command Name: set_variable
+07/30/24 23:57:46: Target Object: yeancat
+07/30/24 23:57:46: Parameters: ["Macro1","1"]
+07/30/24 23:57:46: Macro1 set to 1
+07/30/24 23:57:57: Raw command: set_variable(Macro2,2)
+07/30/24 23:57:58: Cleaned command: set_variable(Macro2,2)
+07/30/24 23:57:58: Parsing arguments: Macro2,2
+07/30/24 23:57:58: Parsed arguments: ["Macro2","2"]
+07/30/24 23:57:58: Command Name: set_variable
+07/30/24 23:57:58: Target Object: yeancat
+07/30/24 23:57:58: Parameters: ["Macro2","2"]
+07/30/24 23:57:58: Macro2 set to 2
+07/30/24 23:58:01: Raw command: set_variable(Macro2,5)
+07/30/24 23:58:01: Cleaned command: set_variable(Macro2,5)
+07/30/24 23:58:01: Parsing arguments: Macro2,5
+07/30/24 23:58:01: Parsed arguments: ["Macro2","5"]
+07/30/24 23:58:01: Command Name: set_variable
+07/30/24 23:58:01: Target Object: yeancat
+07/30/24 23:58:01: Parameters: ["Macro2","5"]
+07/30/24 23:58:01: Macro2 set to 5
+07/30/24 23:58:07: Raw command: set_variable(Macro2,0)
+07/30/24 23:58:07: Cleaned command: set_variable(Macro2,0)
+07/30/24 23:58:07: Parsing arguments: Macro2,0
+07/30/24 23:58:07: Parsed arguments: ["Macro2","0"]
+07/30/24 23:58:07: Command Name: set_variable
+07/30/24 23:58:07: Target Object: yeancat
+07/30/24 23:58:07: Parameters: ["Macro2","0"]
+07/30/24 23:58:07: Macro2 set to 0
+07/30/24 23:58:14: [Jay Arnold] okay that doesnt seem to do anything
+07/30/24 23:58:14: Creating chat bubble: " okay that doesnt seem to do anything", Owner: yeancat, Choices: []
+07/30/24 23:58:14: Chat Bubble Created. Following 'yeancat' with text: 'okay that doesnt seem to do anything'. Number of choices: 0
+07/30/24 23:58:32: [Jay Arnold] the only thing im trying to do right now is flip the view vertically and
+horizontally
+07/30/24 23:58:32: Creating chat bubble: " the only thing im trying to do right now is flip the view vertically and\nhorizontally", Owner: yeancat, Choices: []
+07/30/24 23:58:32: Chat Bubble Created. Following 'yeancat' with text: 'the only thing im trying to do right now is flip
+the view vertically and
+horizontally'. Number of choices: 0
+07/31/24 00:08:08: Loaded action/group: SaveGameNow
+07/31/24 00:08:08: Loaded action/group: GotoKingsKingdom
+07/31/24 00:08:09: Loaded action/group: EnterPortal
+07/31/24 00:08:09: Loaded action/group: PurchaseArtifacts
+07/31/24 00:08:09: Loaded action/group: BattleOutcome
+07/31/24 00:08:09: Loaded action/group: VisitMarket
+07/31/24 00:08:09: Loaded action/group: GotoDivineDomain
+07/31/24 00:08:09: Loaded action/group: GotoTheEndonda
+07/31/24 00:08:09: Loaded action/group: GotoUniverseCity
+07/31/24 00:08:09: Loaded action/group: SpawnNPC1
+07/31/24 00:08:09: Loaded action/group: GotoLandOfLucy
+07/31/24 00:08:09: Loaded action/group: GotoPlaceOfPablo
+07/31/24 00:08:09: Loaded action/group: InvestigateSignals
+07/31/24 00:08:09: Loaded action/group: OfferTrade
+07/31/24 00:08:09: Loaded action/group: DisableEnemySpawns
+07/31/24 00:08:09: Loaded action/group: BattleSequence
+07/31/24 00:08:09: Loaded action/group: StartBattle
+07/31/24 00:08:09: Loaded action/group: SpawnBoss4
+07/31/24 00:08:09: Loaded action/group: SpawnBossCircle
+07/31/24 00:08:09: Loaded action/group: GotoTheIcyHeart
+07/31/24 00:08:09: Loaded action/group: EngageCombat
+07/31/24 00:08:09: Loaded action/group: GotoGhostTown
+07/31/24 00:08:09: Loaded action/group: SpawnBoss0
+07/31/24 00:08:09: Loaded action/group: SpawnBoss13
+07/31/24 00:08:09: Loaded action/group: StartExploration
+07/31/24 00:08:09: Loaded action/group: SpawnBoss8
+07/31/24 00:08:09: Loaded action/group: SpawnBoss6
+07/31/24 00:08:09: Loaded action/group: SetLevelFive
+07/31/24 00:08:09: Loaded action/group: LevelUpThree
+07/31/24 00:08:09: Loaded action/group: LevelUpOnce
+07/31/24 00:08:09: Loaded action/group: GotoTheGoldMines
+07/31/24 00:08:09: Loaded action/group: SpawnBoss11
+07/31/24 00:08:09: Loaded action/group: StartPeaceMission
+07/31/24 00:08:09: Loaded action/group: SpawnBoss2
+07/31/24 00:08:09: Loaded action/group: DiplomaticChoice
+07/31/24 00:08:09: Loaded action/group: TreatyOutcome
+07/31/24 00:08:09: Loaded action/group: ExplorationChoice
+07/31/24 00:08:09: Loaded action/group: BattleChoice
+07/31/24 00:08:09: Loaded action/group: ArtifactMystery
+07/31/24 00:08:10: Loaded action/group: PortalOutcome
+07/31/24 00:08:10: Loaded action/group: PeacefulMission
+07/31/24 00:08:10: Loaded action/group: SpaceAdventureStart
+07/31/24 00:08:10: Loaded action/group: PortalAdventure
+07/31/24 00:08:10: Loaded action/group: EnableEnemySpawns
+07/31/24 00:08:10: Loaded action/group: GotoVulturesValley
+07/31/24 00:08:10: Loaded action/group: GotoEarth
+07/31/24 00:08:10: Loaded action/group: SpawnBoss1
+07/31/24 00:08:10: Loaded action/group: GotoStormySands
+07/31/24 00:08:10: Loaded action/group: SpawnBoss12
+07/31/24 00:08:10: Loaded action/group: SpaceExploration
+07/31/24 00:08:10: Loaded action/group: GotoFantasia
+07/31/24 00:08:10: Loaded action/group: SpawnBoss5
+07/31/24 00:08:10: Loaded action/group: AG1
+07/31/24 00:08:10: Loaded action/group: SpawnBoss10
+07/31/24 00:08:10: Loaded action/group: GotoYetopia
+07/31/24 00:08:10: Loaded action/group: SpawnBoss3
+07/31/24 00:08:10: Loaded action/group: ArtifactOutcome
+07/31/24 00:08:10: Loaded action/group: EpicBattle
+07/31/24 00:08:10: Loaded action/group: SpawnBoss7
+07/31/24 00:08:10: Loaded action/group: SpawnBoss9
+07/31/24 00:08:10: Loaded action/group: PeaceTreaty
+07/31/24 00:08:10: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 00:08:10: [Client] Failed to reconnect to server. Will try again...
+07/31/24 00:09:16: [Jay Arnold] everything is still mirrored! the 2d objects which i have left their draw events unaltered are all flipped vertically and horizontally
+
+07/31/24 00:09:16: Creating chat bubble: " everything is still mirrored! the 2d objects which i have left their draw events unaltered are all flipped vertically and horizontally\n", Owner: yeancat, Choices: []
+07/31/24 00:09:16: Chat Bubble Created. Following 'yeancat' with text: 'everything is still mirrored! the 2d objects which i have left their draw events
+unaltered are all flipped vertically and horizontally
+'. Number of choices: 0

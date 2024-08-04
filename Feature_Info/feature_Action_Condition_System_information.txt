@@ -1,0 +1,1677 @@
+Feature Name: Action_Condition_System
+Description: Implement a dynamic action condition system for creating branching logic in game actions and dialogues. Key components include:
+1. New /add_action_condition command for creating conditional actions
+2. Support for various comparison operators (>, <, =, !=, >=, etc.)
+3. Ability to compare variables or values
+4. Integration with existing action and action group system
+5. Compatibility with chat bubble choices
+6. New /list_action_conditions command for reviewing created conditions
+
+== Related Objects ==
+
+Object: obj_Client
+
+File: Step_0.gml
+Code:
+/// Step Event of obj_Client
+
+//create mouse if it doesnt exist and using keyboard and mouse
+if !instance_exists(obj_Cursor) and (global.control_type!=1) { 
+	instance_create_depth(mouse_x,mouse_y,-1000000,obj_Cursor);
+}
+
+// Set current font and heartbeat rate
+global.heartbeatBPM = global.current_bpm;
+fnt_chat = master.font_array[fnt_chat_id, 1];
+global.wrapWidth = 1700; // Adjusted wrap width
+
+//check for gamepad input
+check_gamepad_input()
+
+//randomly and probability skewed to bring shake_angle back to 0
+if abs(shake_angle)>.1 {
+	var invert = choose(-1,1)*(random(8)+92)/100
+	shake_angle=round(invert*shake_angle*100)/100
+} else {
+	if shake_angle!=0 {
+	shake_angle=0
+	keyboard_lastkey=vk_nokey
+	}
+}
+
+// Handle reconnection logic
+if (!global.isConnected && global.reconnectTimer <= 0) {
+    var result = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+    if (result >= 0) {
+        global.isConnected = true;
+        isServerRunning = true;
+        handleDebugMessage("[Client] Successfully reconnected to server.", true);
+        global.reconnectTimer = global.reconnectInterval;
+    } else {
+        global.reconnectTimer = global.reconnectInterval;
+        isServerRunning = false;
+        handleDebugMessage("[Client] Failed to reconnect to server. Will try again...", true);
+    }
+} else if (global.isConnected && global.reconnectTimer > 0) {
+    global.reconnectTimer--;
+}
+
+// Handle incoming network events safely
+if (ds_exists(async_load, ds_type_map)) {
+    var type = ds_map_find_value(async_load, "type");
+    var n_id = ds_map_find_value(async_load, "id");
+
+    if (n_id == global.client_socket) {
+        switch (type) {
+            case network_type_data:
+                var buffer = ds_map_find_value(async_load, "buffer");
+                buffer_seek(buffer, buffer_seek_start, 0);
+                var identifier = buffer_read(buffer, buffer_u8);
+
+                switch (identifier) {
+                    case global.IDENTIFIER_HEARTBEAT:
+                        handleDebugMessage("[Client] Heartbeat received from server.", true);
+                        break;
+                    
+                    case global.IDENTIFIER_TEST_MESSAGE:
+                        var msg = buffer_read(buffer, buffer_string);
+                        handleDebugMessage("[Client] Message from server: " + msg, true);
+                        break;
+                }
+                buffer_delete(buffer);
+                break;
+
+            case network_type_connect:
+                handleDebugMessage("[Client] Connected to server.", true);
+                break;
+                
+            case network_type_disconnect:
+                global.isConnected = false;
+                handleDebugMessage("[Client] Disconnected from server. Attempting to identify cause...", true);
+                break;
+        }
+    }
+} else {
+    //show_debug_message("ERROR: Invalid ds_map reference in async event.");
+}
+
+
+// Command input and execution logic
+if (input_check_pressed("chat") && !isActive) {
+    isActive = true;
+    global.commandBuffer = "";
+    keyboard_string = "";
+    show_debug_message("[Client] Chat input activated.");
+}
+
+// Toggle chat box with a specific key, e.g., Tab
+if (keyboard_check_pressed(vk_tab)) {
+    show_chatbox = !show_chatbox;
+    global.commandBuffer = "";  // Clear previous commands or texts
+    keyboard_string = "";
+    show_debug_message("[Client] Toggled chat box visibility: " + string(show_chatbox));
+}
+
+// Handle backspace and text input
+if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var total_lines = array_length(lines);
+    global.input_scroll_offset = max(0, total_lines - global.max_visible_lines);
+    
+    // Adjust scroll offset based on total lines
+    if (total_lines > global.max_visible_lines) {
+        global.input_scroll_offset = total_lines - global.max_visible_lines;
+    } else {
+        global.input_scroll_offset = 0;
+    }
+
+// Handle backspace input
+    if (input_check("cancel") && string_length(global.commandBuffer) > 0) {
+        if (global.backspaceTimer == 0 || global.backspaceTimer >= global.backspaceDelay) {
+            var lastCharPosition = string_length(global.commandBuffer);
+
+            // Check if the last character is a newline
+            if (string_char_at(global.commandBuffer, lastCharPosition) == "\n") {
+                // Adjust the global.lastSpaceIndex if necessary
+                if (global.lastSpaceIndex >= lastCharPosition) {
+                    global.lastSpaceIndex = string_last_index_of(string_copy(global.commandBuffer, 1, lastCharPosition - 1), " ");
+                }
+            }
+
+            // Perform the character deletion
+            global.commandBuffer = string_delete(global.commandBuffer, lastCharPosition, 1);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Updated command buffer after backspace: " + global.commandBuffer);
+
+            // Clear the keyboard buffer to avoid unwanted characters
+            keyboard_string = "";
+
+            // Increase deletion speed
+            if (global.backspaceTimer == 0) {
+                global.backspaceTimer = 1;
+            } else {
+                global.backspaceTimer = global.backspaceSpeed;
+				if global.backspaceSpeed<14 {
+					global.backspaceSpeed+=1
+				}
+            }
+        } else {
+            global.backspaceTimer += 1;
+        }
+    } else {
+        global.backspaceTimer = 0; // Reset timer when backspace is released
+		global.backspaceSpeed=1
+    }
+	
+	// Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+    var pasting = false;
+    if (os_type == os_windows) {
+        if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    } else if (os_type == os_macosx) {
+        if (keyboard_check(92) && keyboard_check_pressed(ord("V"))) {
+            pasting = true;
+			keyboard_string=""
+			char = ""
+        }
+    }
+	
+	if string_length(global.commandBuffer) < global.character_limit {
+    var char = keyboard_string;
+        var space_pressed = keyboard_check_pressed(vk_space);
+        
+        if (char != "" || space_pressed) {
+            if (!pasting) {
+                if (space_pressed) {
+                    global.commandBuffer += " ";
+                    show_debug_message("[Client] Space added to command buffer");
+                } else {
+                    global.commandBuffer += char;
+                }
+                keyboard_string = ""; // Clear the keyboard buffer after reading
+                update_chat_input_visuals();
+                show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
+            }
+        }
+	} else {
+    var char = "";
+    if keyboard_check_pressed(vk_anykey) {
+        if last_key_is_valid_character(keyboard_lastkey) {
+            //play sound to indicate char limit. 
+            var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
+            shake_angle = choose(-1,1) * random_range(.95,1.00)
+        }
+    }
+}
+
+// Debug: Check for space key press
+    if (keyboard_check_pressed(vk_space)) {
+        show_debug_message("[Client] Space key pressed");
+    }
+
+    // Debug: Check keyboard_string content
+    if (keyboard_string != "") {
+        show_debug_message("[Client] keyboard_string content: " + keyboard_string);
+    }
+
+// Handle pasting
+// In the Step event of obj_Client
+if (pasting) {
+    if (clipboard_has_text()) {
+        var clip_string = clipboard_get_text();
+        if (string_length(clip_string) > 0 && string_length(clip_string) < global.character_limit) {
+            // Replace regular line breaks with intentional line breaks
+            clip_string = string_replace_all(clip_string, "\n", global.intentionalLineBreak);
+            clip_string = string_replace_all(clip_string, "\r", "");
+            
+            global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
+        } else {
+            handleDebugMessage("Clipboard content is too long to paste!", false);
+        }
+    }
+    pasting = false;
+}
+
+// Check if Enter is pressed to process the command or chat message
+if (input_check_pressed("confirm")) {
+	if (keyboard_check(vk_shift)) {
+            // Shift+Enter: Add a new line
+            global.commandBuffer += global.intentionalLineBreak;
+            update_chat_input_visuals();
+        } else {
+        if (string_char_at(global.commandBuffer, 1) == "/") {
+            execute_multiple_commands(global.commandBuffer);
+            global.textColor = global.defaultTextColor;
+            isActive = false;
+        } else {
+            var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
+            global.message_is_bubble = 1;
+            handleDebugMessage(chatMessage, -1);
+            global.message_is_bubble = 0;
+        }
+
+        // Add the command/message to the recall list
+        if (string_length(global.commandBuffer) > 0) {
+            ds_list_add(global.recall_list, global.commandBuffer);
+            if (ds_list_size(global.recall_list) > global.recall_max) {
+                ds_list_delete(global.recall_list, 0);  // Remove the oldest entry if exceeding the limit
+            }
+        }
+        global.recall_index = -1;
+        global.textColor = global.defaultTextColor;
+        global.commandBuffer = "";
+        isActive = false;
+        show_debug_message("[Client] Processed command/chat and cleared buffer.");
+}
+}
+    // Navigate through the recall list using up and down arrows
+    if (keyboard_check_pressed(vk_up)) {
+        if (global.recall_index == -1) {
+            global.recall_index = ds_list_size(global.recall_list) - 1;
+        } else {
+            global.recall_index = max(0, global.recall_index - 1);
+        }
+
+        if (global.recall_index >= 0 && global.recall_index < ds_list_size(global.recall_list)) {
+            global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled previous command/chat: " + global.commandBuffer);
+        }
+    } else if (keyboard_check_pressed(vk_down)) {
+        if (global.recall_index != -1) {
+            global.recall_index = min(ds_list_size(global.recall_list) - 1, global.recall_index + 1);
+
+            if (global.recall_index < ds_list_size(global.recall_list)) {
+                global.commandBuffer = ds_list_find_value(global.recall_list, global.recall_index);
+            } else {
+                global.commandBuffer = "";
+            }
+            update_chat_input_visuals();
+            show_debug_message("[Client] Recalled next command/chat: " + global.commandBuffer);
+        }
+    }
+}
+
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+	global.longestmessage = updateLongestMessage(global.debugMessages);
+    var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    // Check if a new message was added
+    if (ds_list_size(global.debugMessages) > 0 && 
+        ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {
+        // Scroll to the bottom when a new message is added
+        scrollIndex = max(0, totalLines - global.max_visible_lines);
+        global.lastAddedMessage = ""; // Reset the last added message
+    } else {
+        // Ensure scrollIndex is within valid range
+        scrollIndex = clamp(scrollIndex, 0, max(0, totalLines - global.max_visible_lines));
+    }
+    
+    // Draw the chat messages
+    drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+// Only process incoming data and send heartbeats if the server is running
+if (isServerRunning && sendHeartbeat && (current_time - global.lastHeartbeatTime >= broadcastInterval)) {
+    handleDebugMessage("Heartbeat sent to Server", true);
+    global.lastHeartbeatTime = current_time;
+}
+
+
+
+
+
+File: Other_68.gml
+Code:
+// Async Networking Event Handling for Client
+
+/// Revised Async Networking Event
+var type = ds_map_find_value(async_load, "type");
+var n_id = ds_map_find_value(async_load, "id");
+
+if (n_id == global.client_socket) {
+    switch (type) {
+        case network_type_connect:
+            show_debug_message("[Client] Connected to server.");
+            global.isConnected = true;
+            break;
+        case network_type_disconnect:
+            show_debug_message("[Client] Disconnected from server.");
+            global.isConnected = false;
+            break;
+        case network_type_data:
+            if (ds_map_exists(async_load, "buffer")) {
+                var buffer = ds_map_find_value(async_load, "buffer");
+                if (buffer != undefined) {
+                    buffer_seek(buffer, buffer_seek_start, 0);
+                    var identifier = buffer_read(buffer, buffer_u8);
+                    handleNetworkData(identifier, buffer);
+                } else {
+                    show_debug_message("ERROR: Buffer not found in data event.");
+                }
+            } else {
+                show_debug_message("ERROR: 'buffer' key does not exist in the async_load map.");
+            }
+            break;
+    }
+} else {
+    show_debug_message("ERROR: Invalid socket ID reference in async event.");
+}
+
+
+//// Async Networking Event of obj_Client
+
+//var type = ds_map_find_value(async_load, "type");
+//var n_id = ds_map_find_value(async_load, "id");
+
+//if (n_id == global.client_socket) {
+//    switch (type) {
+//        case network_type_data:
+//            var buffer = ds_map_find_value(async_load, "buffer");
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            var identifier = buffer_read(buffer, buffer_u8);
+
+//            switch (identifier) {
+//                case global.IDENTIFIER_HEARTBEAT:
+//                    // Handle heartbeat received from the server
+//                    show_debug_message("[Client] Heartbeat received from server.");
+//                    // Optionally, send back a confirmation or keep alive message
+//                    break;
+                
+//                case global.IDENTIFIER_UNIQUE_ID:
+//                    // This would be where the server confirms receipt of your unique ID
+//                    // Or any other custom logic for unique ID handling
+//                    var confirmationMessage = buffer_read(buffer, buffer_string);
+//                    show_debug_message("[Client] Server confirmed Unique ID: " + confirmationMessage);
+//                    break;
+                
+//                // Add more case handlers for different data types as needed
+//            }
+//            buffer_delete(buffer);
+//            break;
+
+//        case network_type_connect:
+//            // Immediately upon connection, send the unique ID to the server
+//            // This ensures server is aware of who just connected
+//            var buffer = buffer_create(256, buffer_grow, 1);
+//            buffer_seek(buffer, buffer_seek_start, 0);
+//            buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+//            buffer_write(buffer, buffer_string, global.clientUniqueID);
+//            network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+//            show_debug_message("[Client] Sent unique ID to server: " + global.clientUniqueID);
+//            buffer_delete(buffer);
+//            break;
+            
+//        case network_type_disconnect:
+//            // Handle disconnection logic here, if needed
+//            global.isConnected = false; // Update the connection status
+//            show_debug_message("[Client] Disconnected from server.");
+//            break;
+//    }
+//}
+
+
+File: Destroy_0.gml
+Code:
+///Destroy Event for obj_Client
+if (global.isConnected) {
+    network_destroy(global.client_socket);
+}
+
+
+//// Clean up dynamic resources
+//if (ds_exists(clien, ds_type_map)) {
+//    ds_map_destroy(myDataStructure);
+//}
+
+// Optionally, inform the master object or handle game state changes
+// For example, transition to a different room or update the UI
+//event_perform_object(obj_Master, ev_Other, ev_user0); // Custom user event for cleanup in obj_Master
+
+
+File: Draw_0.gml
+Code:
+
+draw_set_font(fnt_chat);
+if show_chatbox=true {
+    var xx = 990;
+    var yy = 686; // Starting y position
+    var lm_cal=clamp(xx+(clamp(110-global.longestmessage,0,110))+1.7*(global.longestmessage-51)/3,xx+215,(display_get_gui_width()-10)/2+room_width/2)+10
+    var x1 = 980
+    var y1 = 686-20
+    var x2 = max(lm_cal, clamp(xx + (clamp(110 - global.longestmessage, 0, 110)) + 1.7 * (string_width(global.commandBuffer) - 1) / 3, xx + 230, (display_get_gui_width() - 10) / 2 + room_width / 2 + 50));
+    var y2 = _yy+100
+    
+    // Draw transparent background box for chatbox
+    draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);
+    draw_set_alpha(1);
+    var sca=.7
+    global.chat_line_height = 70 * sca + 5;
+    
+    // Set drawing properties
+    draw_set_colour(c_ltgray);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_font(fnt_chat); 
+    
+    // Display server status
+    var serverStatus = "Server Unable to Connect"; // Default message
+    if (isServerRunning) {
+        serverStatus = "Server Online";
+        draw_set_colour(c_lime);
+    } else {
+        serverStatus = "Server Stopped";
+        draw_set_colour(c_red);
+    }
+
+    if show_server_status=true {
+        draw_text_transformed(xx, yy, serverStatus, sca, sca, 0);
+        yy += 40; // Increment y position for next line
+    }
+
+    if connectedClients>0 {
+        draw_set_colour(c_aqua);
+    } else {
+        draw_set_colour(c_ltgrey);
+    }
+    if show_server_status=true {
+        draw_text_transformed(xx+3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx-3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx+3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx-3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_set_color(global.c_chat1);
+        draw_text_transformed(xx, yy-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        yy += 50; // Increment y position for next 
+    } else {
+        draw_set_color(global.c_chat1);
+        draw_text_transformed(xx+3, yy+3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx-3, yy+3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx+3, yy-3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx-3, yy-3-10, "Chat Box", sca, sca, 0);
+        draw_set_color(global.c_chat2);
+        draw_text_transformed(xx, yy-10, "Chat Box", sca, sca, 0);
+        yy += 60; // Increment y position for next line
+    }
+
+    sca=.5
+
+    if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    global.longestmessage = updateLongestMessage(global.debugMessages);
+    var totalLines = drawChatMessages(global.debugMessages, 990, yy, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    var maxScrollIndex = max(0, totalLines - global.max_visible_lines);
+
+    var wheel = mouse_wheel_down() - mouse_wheel_up();
+    if (wheel != 0) {
+        global.isScrolling = true;
+        scrollIndex = clamp(scrollIndex - wheel, 0, maxScrollIndex);
+        global.scrollResetTimer = 60; // Reset timer when scrolling
+    }
+
+    if (global.scrollResetTimer > 0) {
+        global.scrollResetTimer--;
+        if (global.scrollResetTimer == 0) {
+            global.isScrolling = false;
+        }
+    }
+
+    // Auto-scroll to bottom if not manually scrolling
+    //if (!global.isScrolling) {
+    //    scrollIndex = maxScrollIndex;
+    //}
+
+    drawChatMessages(global.debugMessages, 990, yy, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
+}
+
+    yy=yy+clamp(totalLines-scrollIndex,0,global.max_visible_lines)*(global.chat_line_height*1.00)+5
+    sca=.6
+    _yy=yy-15
+    
+    if global.commandBuffer != "" {
+        displayText = string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n");
+    } else {
+        displayText = ""
+    }
+    
+if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var totalLines = array_length(lines);
+    var maxInputLines = 25; // Maximum number of lines in the input box
+    var visibleLines = min(totalLines, maxInputLines);
+    
+    // Calculate the new height based on the number of visible lines
+    var boxHeight = global.chat_line_height * visibleLines + 2;
+    
+    // Calculate the scroll offset for the input box
+    var inputScrollOffset = max(0, totalLines - maxInputLines);
+    
+    // Count actual lines in the chat history
+    var actualChatLines = 0;
+    for (var i = 0; i < ds_list_size(global.debugMessages); i++) {
+        var message = ds_list_find_value(global.debugMessages, i);
+        actualChatLines += string_count("\n", message) + 1;
+    }
+    
+    // Calculate when to start expanding upward
+    var expandUpwardThreshold = max(15 - clamp(actualChatLines, 0, global.max_visible_lines), 2);
+    
+    // Adjust the y position of the input box
+    var inputBoxY = yy;
+    if (totalLines > expandUpwardThreshold) {
+        inputBoxY -= global.chat_line_height * (totalLines - expandUpwardThreshold);
+    }
+    inputBoxY = max(inputBoxY, global.chat_line_height); // Ensure it doesn't go above the top of the screen
+    
+    // Draw chat input box
+    draw_set_color(c_black);
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_white);
+    }
+    draw_rectangle(xx + 5, inputBoxY - 11, clamp(xx - 90 + 1.88 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150 + 10, inputBoxY + boxHeight + 10, false);
+
+    draw_set_color(c_white);
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_black);
+        slash_typed = true;
+    } else {
+        slash_typed = false;
+    }
+    draw_rectangle(xx + 10, inputBoxY - 6, clamp(xx - 90 + 1.88 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150, inputBoxY + boxHeight, false);
+
+    // Draw visible lines of text
+    draw_set_color(merge_color(global.textColor, c_red, clamp(abs(shake_angle), 0, 1)));
+    for (var i = 0; i < visibleLines; i++) {
+        var lineIndex = i + inputScrollOffset;
+        if (lineIndex < totalLines) {
+            var lineText = lines[lineIndex];
+            draw_text_transformed(xx + 20 + shake_angle * 7, inputBoxY - shake_angle * 7 + i * global.chat_line_height, lineText, sca, sca, shake_angle * .25);
+        }
+    }
+    
+    // Draw cursor
+    var cursorY = inputBoxY - shake_angle * 7 + (visibleLines - 1) * global.chat_line_height;
+    draw_text_transformed(xx + 20 + shake_angle * 7 + string_width(lines[totalLines - 1]) * sca, cursorY, "_", sca, sca, shake_angle * .25);
+} else {
+        // Draw "Press 'T' to Type" prompt
+        draw_set_color(c_white);
+        draw_set_alpha(0.7);
+        draw_text_transformed(xx + 20, yy, "Press 'T' to Type", sca*.7, sca*.7, shake_angle*.25);
+        draw_set_alpha(1);
+    }
+} else {
+    exit
+}
+
+
+File: Alarm_0.gml
+Code:
+// Alarm[0] Event
+var t_buffer = buffer_create(256, buffer_grow, 1);
+buffer_seek(t_buffer, buffer_seek_start, 0);
+buffer_write(t_buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+buffer_write(t_buffer, buffer_string, global.clientUniqueID);
+network_send_packet(global.client_socket, t_buffer, buffer_tell(t_buffer));
+buffer_delete(t_buffer);
+global.uniqueIDSent = true; // Ensure we don't resend the unique ID
+show_debug_message("[Client] Unique ID sent after delay: " + global.clientUniqueID);
+
+
+File: obj_Client.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_Client",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":68,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":2,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":5,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_Client",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "parentObjectId":null,
+  "persistent":true,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":null,
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+File: Other_5.gml
+Code:
+/// @description Insert description here
+//room end of obj_client
+show_chatbox=false
+
+File: Create_0.gml
+Code:
+
+// obj_Client Create Event
+global.currentTarget = yeancat; // Default to the player
+global.intentionalLineBreak = "|";
+global.lastAddedMessage = "";
+global.sessionLogFileName = "SessionLog_" + string_replace_all(string(date_current_datetime()), ":", "-") + ".txt";
+global.masterLogFileName = "MasterLog.txt";
+global.logDebugMessagesToFile = false; // By default, log debug messages to the file
+global.serverAddress = "127.0.0.1"; // Example server address
+// Initialize the data structure globally if not already initialized
+global.chatLogs=-1
+global.bubble_send_to_log=1
+global.message_is_bubble=0
+if (!ds_exists(global.chatLogs, ds_type_list)) {
+    global.chatLogs = ds_list_create();
+}
+time=0
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+global.lastWPMUpdateTime = 0; // Timestamp of the last WPM update
+global.WPMUpdateInterval = 5000; // Minimum time between updates in milliseconds (e.g., 5000ms = 5 seconds)
+lastUpdateTime = -1;
+updateInterval = 60; // Run every 60 seconds
+//input
+input_cursor_coord_space_set(INPUT_COORD_SPACE.ROOM, 0);
+//input_mouse_capture_set(true, 1);
+window_set_cursor(cr_none)
+instance_create_depth(room_width/2,room_height/2,-1000000,obj_Cursor);
+// Global time offset initialized
+global.timeOffset = 0;
+global.inputDisplayEnabled = false;  // Initialize the variable at an appropriate place in your game startup code
+global.actions = ds_map_create();
+global.conditions = ds_map_create();
+// Adding command details
+// Global initialization script or create event
+global.commandDetails = ds_map_create();
+add_command("goto_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("jump_planet(", 1, [["string", "real"]], true);  // Requires '(' visually
+add_command("toggle_server", 3, [[]], false);  // Does not require '(' visually
+add_command("toggle_debug", 1, [[]], false);  // Does not require '(' visually
+add_command("list_clients", 1, [[]], false);  // Does not require '(' visually
+add_command("enable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("disable_heartbeat", 2, [[]], false);  // Does not require '(' visually
+add_command("toggle_log_debug", 2, [[]], false);  // Does not require '(' visually
+add_command("set_my_permission(", 0, [["string", "real"]], true);
+add_command("save_game", 0, [[]], false);  // Does not require "(" visually
+add_command("game_end(", 0, [["string", "real"]], true); 
+add_command("list_commands", 0, [[]], false); // No arguments, accessible at all permission levels
+add_command("show_lines(", 0, [["real"]], true);
+add_command("set_variable(", 2, [["string"],["string","real"]],true)
+add_command("level_up(", 1, [["real"]], true);  // Command requires '(' visually and a real number argument
+add_command("show_wpm", 0, [[]], false);  // Does not require '(' visually, level 0 permission
+add_command("chat_bubble(", 1, [["string"], ["array"]], true);
+add_command("save_macros", 1, [[]], false);  // Add the command to save macros
+add_command("list_variables", 2, [[]], false);
+add_command("add_action(", 2, [["string"],["string"],["array"]],true);
+add_command("save_actions", 2, [], false);
+add_command("list_actions", 2, [], false);
+add_command("list_action_conditions", 2, [[]], false);
+add_command("list_conditions", 2, [[]], false);
+add_command("execute_action(", 2, [["string"]], true);
+add_command("show_variable(", 2, [["string"]], true);
+add_command("return_controller", 1, [[]], false);
+add_command("toggle_input_display", 1, [[]], false);
+add_command("show_gamepad_mapping", 1, [[]], false);
+add_command("add_action_group(", 2, [["string"], ["array"]], true);
+add_command("list_action_groups", 2, [[]], false);
+add_command("delete_action(", 2, [["string"]], true);
+add_command("delete_actions(", 2, [["array"]], true);
+add_command("list_objects", 0, [[]], false);
+add_command("set_target(", 2, [["string", "real"]], true);
+add_command("set_spawn_npc(", 2, [["string"], ["real"], ["real"], ["string"], ["string"]], true);
+add_command("spawn_npc(", 2, [["string"], ["real"], ["real"], ["real"], ["string"]], true);
+add_command("spawn_boss(", 2, [["real"], ["real"], ["real"], ["string"]], true);
+add_command("camera_target(", 2, [["real"], ["real"]], true);
+add_command("add_action_condition(", 2, [["string"],["string"],["string"],["string"]], true);
+add_command("add_condition", 2, [["string"],["string"],["string"],["string"]], true);
+// Initialize global action details
+global.actionDetails = ds_map_create();
+
+global.object_references = ds_map_create();
+//add_object_reference("NewBoss", specific object unique id or general object name);
+
+//add_command("spawn_boss(", 2, [["string"]], true);
+
+//0name //1health //2resistance0-1invincible /3/rate //4attackset //5damage //6moveset //7image //8appearance [0=character,1=boss] //9appearanceid
+//add_boss("Drake",6666666,.666,1,1,1,4,spr_boss1,1,0]
+
+// You can add new commands or modify existing ones easily with the `add_command` function.
+global.variableDetails = ds_map_create();
+add_variable("Zoom", "camera_zoom", 1,global, "real", 1, 3, [], [], "Player");
+add_variable("SpawnEnemies", "spawnenemies", 1, master, "bool", 0, 1, [], [], "Player");
+add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("Health", "healthh", 1, yeancat, "real", 0, 100000, [], [], "Player");
+add_variable("Password", "password", 1, master, "string", 1, 100000, [], [], "Player");
+add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
+add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
+add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 2000, [], [], "Social");
+add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro4", "macro4", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro5", "macro5", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro6", "macro6", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro7", "macro7", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro8", "macro8", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro9", "macro9", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("Macro10", "macro10", 1, global, "real", -99999999, 99999999, [], [], "Global");
+add_variable("ControllerType", "control_type", 1, global, "real", -99999999, 99999999, [], [], "Global");
+global.debugCommand = "";
+//global.character_limit
+// Ensure commandBuffer is initialized
+global.commandBuffer = "";
+slash_typed=false //whether or not a command is being typed
+// Initialize a global variable for text color
+c_pink = make_color_hsv(0,58,255);
+global.defaultTextColor = c_black;
+global.textColor = global.defaultTextColor;
+// Global Variable Initialization (usually in some global script or create event)
+global.typingSpeedCalcDuration = 60; // Default to 60 seconds
+ // This will store the input from the user
+isActive = true;  // To check if command input is active
+sendHeartbeat = false; // Control sending of heartbeat messages
+_yy=0
+pasting=0;
+global.longestmessage=0;
+global.c_chat2=c_black
+global.c_chat1=c_white
+fnt_chat=Font4
+global.borderwidth=8 //bg width
+global.bg_alpha=.4 //bg alpha
+global.bg_color=c_black //background color
+global.o_color=c_white //outline color
+global.wrapWidth = 1700; // Adjust this value based on your chat box
+global.character_limit=2000;//character limit for chat//this will be shorter for players
+global.lastSpaceIndex = -1;
+displayText=""
+//Other Variables
+global.showDebugMessages = true; // Enable debug messages by default
+global.maximumMessages=2000;
+maxDisplayMessages = 6; // Number of debug messages to display at once
+// Initialize max visible lines for the chat box
+global.max_visible_lines = maxDisplayMessages;  // You can adjust this number based on your needs
+// Add these to the Create event of obj_Client
+global.input_scroll_offset = 0;  // Offset for scrolling the input box
+global.debugMessages = ds_list_create();
+fnt_chat_id=0
+// Global settings for text wrapping
+global.chat_threshold = 1600;  // Threshold to start considering wrapping
+global.chat_text_limit = 1750; // Maximum pixel width of text before wrapping
+global.chat_line_height = 50; // Height of each line of text in pixels
+global.min_width = 110;  // Minimum width of the chat box
+global.max_width = 1000;  // Maximum width of the chat box, adjust according to your UI design
+// Adjust these values to tweak where the text wraps
+global.chat_threshold = global.chat_threshold * 1.3;  // Increase the threshold
+global.chat_text_limit = global.chat_text_limit * 1.3;  // Increase the width limit
+
+//Scrolling Variables
+scrollIndex = 0; // Initialize scroll position
+baseScrollSensitivity = 0.1; // Base sensitivity, how much the index changes initially per mouse wheel movement
+maxScrollSensitivity = 1.0; // Maximum sensitivity after continuous scrolling
+sensitivityIncrement = 0.05; // How much the sensitivity increases with continuous scrolling
+sensitivityDecrement = 0.01; // How much the sensitivity decreases when not scrolling
+global.scrollSensitivity = baseScrollSensitivity; // Current sensitivity, starts at base sensitivity
+global.isScrolling = false; // Tracks if the user is currently scrolling
+global.scrollResetTimer = 0;
+// Server Configuration
+show_server_status=false
+global.serverPort = "5555";
+global.maxClients = 4;
+global.heartbeatBPM = 115; // Beats per minute for the heartbeat
+global.lastHeartbeatTime = current_time; // Store the current time
+broadcastInterval = 60000 / global.heartbeatBPM; // Time between heartbeats in milliseconds
+
+global.clientUniqueID = ""; // Initialize to an empty string
+global.reconnectTimer = 0; // Time to attempt a reconnect
+global.reconnectInterval = 2000; // Interval between reconnect attempts
+global.isConnected = false; // Connection status
+global.IDENTIFIER_UNIQUE_ID = 2; // Ensure this matches server expectation
+global.uniqueIDSent = false; // Prevent re-sending
+
+// Initialize server state and structures
+isServerRunning = false;
+connectedClients = 0;
+
+// Generate or load the unique ID
+if (!file_exists(working_directory + "client_id.txt")) {
+    // For a new ID
+    global.clientUniqueID = string(irandom_range(100000, 999999));
+    var file = file_text_open_write(working_directory + "client_id.txt");
+    file_text_write_string(file, global.clientUniqueID);
+    file_text_close(file);
+} else {
+    // For an existing ID
+    var file = file_text_open_read(working_directory + "client_id.txt");
+    global.clientUniqueID = file_text_read_string(file);
+    file_text_close(file);
+}
+
+// Client Initialization and Connection
+global.client_socket = network_create_socket(network_socket_tcp);
+var status = network_connect(global.client_socket, global.serverAddress, global.serverPort);
+if (status >= 0) {
+    // Successful connection
+    show_debug_message("[Client] Successfully connected and ID sent.");
+	isServerRunning = true;
+    var buffer = buffer_create(256, buffer_grow, 1);
+    buffer_seek(buffer, buffer_seek_start, 0);
+    buffer_write(buffer, buffer_u8, global.IDENTIFIER_UNIQUE_ID);
+    buffer_write(buffer, buffer_string, global.clientUniqueID);
+    network_send_packet(global.client_socket, buffer, buffer_tell(buffer));
+    buffer_delete(buffer);
+} else {
+    // Handle connection failure
+    show_debug_message("[Client] Connection failed.");
+}
+
+show_chatbox=false
+depth-=10; //ensure at top or front of view
+
+global.backspaceTimer = 0;
+global.backspaceDelay = 15; // Initial delay before rapid deletion
+global.backspaceSpeed = 1;  // Delay between rapid deletions
+
+global.recall_list = ds_list_create();  // List to store past messages and commands
+global.recall_max = 20;  // Maximum number of entries to remember
+global.recall_index = -1;  // Index for navigating through the recall list
+
+shake_angle=0 //angle to shake text when character limit reached.
+
+load_actions()
+load_conditions()
+
+
+Object: obj_chat_bubble
+
+File: Step_0.gml
+Code:
+// obj_chat_bubble Step Event
+
+if (!instance_exists(owner)) {
+    instance_destroy();  // Destroy the chat bubble if its owner no longer exists
+    exit;
+}
+
+x = owner.x;
+y = owner.y - 60;
+
+
+if (wrapped == 0) {
+	if string_contains(text, "|") {
+	text = string_replace_all(text, "|", "\n");
+	}
+    draw_set_font(text_font);
+    var text_length = string_length(text);
+    var longestWordWidth = get_longest_word_width(text, text_font, 1);
+    
+    // Calculate initial text scale
+    text_scale = min(clamp(1 - text_length / 600, 0.4, 1), clamp(1.5 - longestWordWidth / 1200, 0.4, 1));
+    
+    // Wrap text
+    wrapped_text = wrap_chat_text(text, max_width - 2 * padding);
+    
+    // Count lines and adjust scale if needed
+    line_count = string_count("\n", wrapped_text) + 1;
+    if (line_count > 5) {
+        text_scale *= (5 / line_count);
+        wrapped_text = wrap_chat_text(text, (max_width - 2 * padding) / text_scale);
+        line_count = string_count("\n", wrapped_text) + 1;
+    }
+    
+    // Calculate bubble dimensions
+    scale_x = clamp(string_width_ext(wrapped_text, -1, max_width - 2 * padding) * text_scale + 6 * padding, min_width, max_width);
+    real_scale_y = clamp(string_height_ext(wrapped_text, -1, max_width - 2 * padding) * text_scale + 4 * padding, min_height - 120, max_height - 120);
+    
+    scale_y = real_scale_y + 120;
+    wrapped = 1;
+}
+
+// Calculate top_middle_x and top_middle_y
+top_middle_x = x - (sprite_get_xoffset(sprite_index) - 250) * scale_x / 500;
+top_middle_y = y - sprite_get_yoffset(sprite_index) - real_scale_y - 60;
+
+// obj_chat_bubble Step Event
+if (timer_enabled) {
+    lifetime++;
+    if (lifetime >= duration) {
+        instance_destroy();
+    }
+}
+
+
+File: Destroy_0.gml
+Code:
+// obj_chat_bubble Destroy Event
+if (ds_exists(hover_progress, ds_type_map)) {
+    ds_map_destroy(hover_progress);
+}
+if (ds_exists(hover_scale, ds_type_map)) {
+    ds_map_destroy(hover_scale);
+}
+
+File: Draw_0.gml
+Code:
+// obj_chat_bubble Draw Event
+// At the beginning of the Draw Event, add these variables if they're not already defined:
+if (!variable_instance_exists(id, "text_color")) {
+    _text_color = c_black;  // Default text color
+}
+if (!variable_instance_exists(id, "text_color_outline")) {
+    text_color_outline = c_white;  // Default outline color
+}
+if (!variable_instance_exists(id, "text_scale")) {
+    text_scale = 1;  // Default text scale
+}
+if (!variable_instance_exists(id, "outline_size")) {
+    outline_size = 1;  // Default outline size
+}
+if (!variable_instance_exists(id, "padding")) {
+    padding = 10;  // Default padding
+}
+if (!variable_instance_exists(id, "max_width")) {
+    max_width = 500;  // Default max width
+}
+
+// Define sprite variables (you can set these in the Create event)
+if (!variable_instance_exists(id, "main_bubble_sprite")) {
+    main_bubble_sprite = spr_chatbubble1;
+}
+if (!variable_instance_exists(id, "choice_bubble_sprite")) {
+    choice_bubble_sprite = main_bubble_sprite; // Use the same sprite for choices
+}
+var tail_sprite_index = 0;
+var middle_sprite_index = 1;
+var top_sprite_index = 2;
+
+var bottom_y = y - 100;
+var top_y = y - real_scale_y - 100;
+var middle_height = clamp(scale_y - 240, 0, max_height - 120);
+var middle_y = y - 100 - sprite_get_yoffset(main_bubble_sprite) - (120 - sprite_get_yoffset(main_bubble_sprite)) * middle_height / 120;
+
+// Draw main chat bubble
+draw_sprite_ext(main_bubble_sprite, tail_sprite_index, x, bottom_y, scale_x / 500, 1, 0, c_white, 1);
+draw_sprite_ext(main_bubble_sprite, middle_sprite_index, x, middle_y, scale_x / 500, middle_height / 120, 0, c_white, 1);
+draw_sprite_ext(main_bubble_sprite, top_sprite_index, x, top_y, scale_x / 500, 1, 0, c_white, 1);
+
+// Draw message text
+draw_set_font(text_font);
+draw_set_halign(fa_center);
+draw_set_valign(fa_top);
+drawTextWithOutline(top_middle_x, top_middle_y - 100 + padding + 130, wrapped_text, text_scale, outline_size, text_color_outline, _text_color, max_width - 2 * padding);
+
+// Calculate choice layout variables
+// Calculate choice layout variables
+if (array_length(choices) > 0) {
+    var choice_padding = 10;
+    var choice_width = 1100;
+    var choice_height = 100;
+    choices_per_row = min(2, array_length(choices));
+    var rows = ceil(array_length(choices) / choices_per_row);
+    
+    var total_width = (choice_width + choice_padding) * choices_per_row - choice_padding;
+    var start_x = x - total_width / 2;
+    var start_y = bottom_y + 40;  // Position choices below the main bubble
+
+    // Draw choices
+    for (var i = 0; i < array_length(choices); i++) {
+        var row = i div choices_per_row;
+        var col = i mod choices_per_row;
+        var choice_x = start_x + choice_width/3 + col * (choice_width/1.3 + choice_padding);
+        var choice_y = start_y + row * (choice_height + choice_padding);
+
+        var choice_middle_height = 0; //this should be set above 0 if there is more than 1 line in a choice.
+        var choice_top_y = choice_y-60;
+        var choice_bottom_y = choice_y + choice_middle_height+60;
+        var choice_middle_y = choice_y+0;
+
+        var is_hovering = point_in_rectangle(mouse_x, mouse_y, choice_x, choice_y, choice_x + choice_width, choice_bottom_y);
+        
+        var alpha = 0.5;
+        var color = c_white;
+        var scale = 1;
+
+        // Smooth hover animation
+        if (ds_exists(hover_progress, ds_type_map) && ds_exists(hover_scale, ds_type_map)) {
+            if (!ds_map_exists(hover_progress, i)) ds_map_add(hover_progress, i, 0);
+            if (!ds_map_exists(hover_scale, i)) ds_map_add(hover_scale, i, 1);
+
+            if (is_hovering) {
+                hover_progress[? i] = min(hover_progress[? i] + 1/30, 1);
+                hover_scale[? i] = min(hover_scale[? i] + 0.05/30, 1.05);
+            } else {
+                hover_progress[? i] = max(hover_progress[? i] - 1/30, 0);
+                hover_scale[? i] = max(hover_scale[? i] - 0.05/30, 1);
+            }
+            
+            alpha = lerp(0.5, 1, hover_progress[? i]);
+            color = merge_color(c_white, c_ltgray, hover_progress[? i]);
+            scale = hover_scale[? i];
+        }
+			
+        // Check for mouse click
+        if (is_hovering && mouse_check_button_pressed(mb_left)) {
+            if (choices[i][1] != "null") {
+                handle_choice_selection(choices[i][1]);  // Pass the action name to the new function
+            } else {
+                // Handle "null" action (e.g., close the chat bubble)
+                instance_destroy();
+            }
+        }
+
+        // Draw choice bubble
+        var choice_scale_x = choice_width / 880 * scale;
+        var choice_scale_y = scale;
+        draw_sprite_ext(choice_bubble_sprite, tail_sprite_index, choice_x + choice_width/3, choice_bottom_y, choice_scale_x, choice_scale_y, 0, color, alpha);
+        draw_sprite_ext(choice_bubble_sprite, middle_sprite_index, choice_x + choice_width/3, choice_middle_y, choice_scale_x, choice_middle_height / 120 * choice_scale_y, 0, color, alpha);
+        draw_sprite_ext(choice_bubble_sprite, top_sprite_index, choice_x + choice_width/3, choice_top_y, choice_scale_x, choice_scale_y, 0, color, alpha);
+
+// Inside the for loop that draws choices
+var choice_text = choices[i][0];
+var wrapped_choice_text = wrap_chat_text(choice_text, choice_width - 40);  // Adjust padding
+
+// Calculate the number of lines in the wrapped choice text
+var choice_lines = string_count("\n", wrapped_choice_text) + 1;
+
+// Adjust choice height based on number of lines
+var adjusted_choice_height = max(choice_height, choice_lines * choice_line_height * choice_text_scale);
+
+// Calculate the total height of the text
+var total_text_height = choice_lines * choice_line_height * choice_text_scale;
+
+// Calculate the starting Y position to center the text vertically
+var text_start_y = choice_y + (adjusted_choice_height - total_text_height) / 2 - 45;
+
+// Draw choice text
+draw_set_halign(fa_center);
+draw_set_valign(fa_middle);  // Change to top alignment
+
+var text_color = is_hovering ? c_white : c_black;
+var outline_color = is_hovering ? c_black : c_white;
+
+drawTextWithOutline(
+    choice_x + choice_width / 3, 
+    text_start_y, 
+    wrapped_choice_text, 
+    choice_text_scale * scale, 
+    1, 
+    outline_color, 
+    text_color, 
+    choice_width - 40
+);
+
+}
+}
+
+// Debug: draw bounding box
+if (show_bounds) {
+    draw_set_color(c_red);
+    draw_rectangle(top_middle_x - scale_x/2, top_middle_y + 130, top_middle_x + scale_x/2, bottom_y, true);
+}
+
+File: Create_0.gml
+Code:
+// obj_chat_bubble Create Event
+
+hover_progress = ds_map_create();
+hover_scale = ds_map_create();
+_text_color = c_black;
+choices_per_row = 2;
+text_color_outline = c_white;
+text_scale = 1;
+outline_size = 2;
+padding = 10;
+wrapped_text = "";
+line_count = 1;
+choice_text_scale = 0.6;
+choice_line_height = 20
+max_width = 1000;
+max_height = 800;
+min_width = 200;
+min_height = 240;
+top_middle_x = 0;
+top_middle_y = 0;
+line_spacing = 0;
+scale_y = min_height;
+scale_x = min_width;
+real_scale_y = min_height - 120;
+duration = 1000;
+lifetime = 0;
+main_bubble_sprite = spr_chatbubble1;
+choice_bubble_sprite = spr_chatchoice1;
+text_font = Font_Default;
+wrapped = 0;
+show_bounds = false;
+
+// These properties will be set by the constructor
+text = text ?? "";
+owner = owner ?? noone;
+choices = choices ?? [];
+
+// Set up timer
+if (array_length(choices) > 0) {
+    has_choices = true;
+    timer_enabled = false;
+} else {
+    has_choices = false;
+    timer_enabled = true;
+}
+
+text = wrap_chat_text(text, max_width - 2 * padding);
+
+File: obj_chat_bubble.yy
+Code:
+{
+  "$GMObject":"",
+  "%Name":"obj_chat_bubble",
+  "eventList":[
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":0,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":3,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":8,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+  ],
+  "managed":true,
+  "name":"obj_chat_bubble",
+  "overriddenProperties":[],
+  "parent":{
+    "name":"ui",
+    "path":"folders/Objects/ui.yy",
+  },
+  "parentObjectId":null,
+  "persistent":false,
+  "physicsAngularDamping":0.1,
+  "physicsDensity":0.5,
+  "physicsFriction":0.2,
+  "physicsGroup":1,
+  "physicsKinematic":false,
+  "physicsLinearDamping":0.1,
+  "physicsObject":false,
+  "physicsRestitution":0.1,
+  "physicsSensor":false,
+  "physicsShape":1,
+  "physicsShapePoints":[],
+  "physicsStartAwake":true,
+  "properties":[],
+  "resourceType":"GMObject",
+  "resourceVersion":"2.0",
+  "solid":false,
+  "spriteId":{
+    "name":"spr_chatbubble1",
+    "path":"sprites/spr_chatbubble1/spr_chatbubble1.yy",
+  },
+  "spriteMaskId":null,
+  "visible":true,
+}
+
+== Related Scripts ==
+
+Script: scr_add_action
+File: scr_add_action.gml
+Code:
+function scr_add_action(actionName, fullActionCommand, actionParams) {
+    var parts = string_split(fullActionCommand, ".");
+    var targetObject, actionCommand;
+    
+    if (array_length(parts) == 2) {
+        targetObject = parts[0];
+        actionCommand = parts[1];
+    } else {
+        targetObject = "Target";  // Default to Target if no object specified
+        actionCommand = fullActionCommand;
+    }
+
+    var actionData = {
+        targetObject: targetObject,
+        command: actionCommand,
+        parameters: json_parse(actionParams)
+    };
+
+    var encodedCommand = base64_encode(json_stringify(actionData));
+
+    ds_map_set(global.actionDetails, actionName, encodedCommand);
+
+    handleDebugMessage("Action '" + actionName + "' added/updated successfully.", false);
+    
+    save_actions();
+}
+
+Script: scr_execute_action
+File: scr_execute_action.gml
+Code:
+function scr_execute_action(actionName) {
+    // Remove any leading or trailing spaces
+    actionName = string_trim(actionName);
+    
+    if (ds_map_exists(global.actionDetails, actionName)) {
+        var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
+        var decodedData = json_parse(base64_decode(encodedCommand));
+        
+        handleDebugMessage("Executing action/group/condition: " + actionName, true);
+        handleDebugMessage("Decoded Data: " + json_stringify(decodedData), true);
+        
+        if (is_struct(decodedData)) {
+            if (variable_struct_exists(decodedData, "type")) {
+                switch(decodedData.type) {
+                    case "action_condition":
+                        execute_action_condition(decodedData);
+                        break;
+                    case "action_group":
+                        execute_action_group(decodedData.actions);
+                        break;
+                    default:
+                        execute_single_action(decodedData);
+                        break;
+                }
+            } else if (variable_struct_exists(decodedData, "command")) {
+                execute_single_action(decodedData);
+            } else {
+                handleDebugMessage("Invalid action data for: " + actionName, true);
+            }
+        } else {
+            handleDebugMessage("Invalid action data format for: " + actionName, true);
+        }
+    } else {
+        handleDebugMessage("Action/group/condition '" + actionName + "' not found.", true);
+    }
+}
+
+
+Script: scr_add_action_group
+File: scr_add_action_group.gml
+Code:
+/// @function scr_add_action_group(groupName, actionList)
+/// @param {string} groupName - The name of the action group
+/// @param {array} actionList - An array of action names to be executed in order
+function scr_add_action_group(groupName, actionList) {
+    if (!is_string(groupName) || !is_array(actionList)) {
+        handleDebugMessage("Invalid parameters for add_action_group", true);
+        return;
+    }
+
+    var groupData = {
+        type: "action_group",
+        actions: actionList
+    };
+    
+    var encodedData = base64_encode(json_stringify(groupData));
+    ds_map_set(global.actionDetails, groupName, encodedData);
+    
+    handleDebugMessage("Action group '" + groupName + "' added successfully.", false);
+    save_actions();
+}
+
+Script: list_actions not found in the expected directories.
+
+Script: list_action_groups not found in the expected directories.
+
+== Related Logs ==
+
+Log: SessionLog_45505.17
+Content:
+07/31/24 22:57:37: Loaded action/group: SaveGameNow
+07/31/24 22:57:37: Loaded action/group: GotoKingsKingdom
+07/31/24 22:57:37: Loaded action/group: EnterPortal
+07/31/24 22:57:37: Loaded action/group: PurchaseArtifacts
+07/31/24 22:57:37: Loaded action/group: BattleOutcome
+07/31/24 22:57:37: Loaded action/group: VisitMarket
+07/31/24 22:57:37: Loaded action/group: GotoDivineDomain
+07/31/24 22:57:37: Loaded action/group: GotoTheEndonda
+07/31/24 22:57:37: Loaded action/group: GotoUniverseCity
+07/31/24 22:57:37: Loaded action/group: SpawnNPC1
+07/31/24 22:57:37: Loaded action/group: GotoLandOfLucy
+07/31/24 22:57:37: Loaded action/group: GotoPlaceOfPablo
+07/31/24 22:57:37: Loaded action/group: InvestigateSignals
+07/31/24 22:57:37: Loaded action/group: OfferTrade
+07/31/24 22:57:37: Loaded action/group: DisableEnemySpawns
+07/31/24 22:57:37: Loaded action/group: BattleSequence
+07/31/24 22:57:37: Loaded action/group: StartBattle
+07/31/24 22:57:37: Loaded action/group: SpawnBoss4
+07/31/24 22:57:37: Loaded action/group: SpawnBossCircle
+07/31/24 22:57:37: Loaded action/group: GotoTheIcyHeart
+07/31/24 22:57:37: Loaded action/group: EngageCombat
+07/31/24 22:57:38: Loaded action/group: GotoGhostTown
+07/31/24 22:57:38: Loaded action/group: SpawnBoss0
+07/31/24 22:57:38: Loaded action/group: SpawnBoss13
+07/31/24 22:57:38: Loaded action/group: StartExploration
+07/31/24 22:57:38: Loaded action/group: SpawnBoss8
+07/31/24 22:57:38: Loaded action/group: SpawnBoss6
+07/31/24 22:57:38: Loaded action/group: SetLevelFive
+07/31/24 22:57:38: Loaded action/group: LevelUpThree
+07/31/24 22:57:38: Loaded action/group: LevelUpOnce
+07/31/24 22:57:38: Loaded action/group: GotoTheGoldMines
+07/31/24 22:57:38: Loaded action/group: SpawnBoss11
+07/31/24 22:57:38: Loaded action/group: StartPeaceMission
+07/31/24 22:57:38: Loaded action/group: SpawnBoss2
+07/31/24 22:57:38: Loaded action/group: DiplomaticChoice
+07/31/24 22:57:38: Loaded action/group: TreatyOutcome
+07/31/24 22:57:38: Loaded action/group: ExplorationChoice
+07/31/24 22:57:38: Loaded action/group: BattleChoice
+07/31/24 22:57:38: Loaded action/group: ArtifactMystery
+07/31/24 22:57:38: Loaded action/group: PortalOutcome
+07/31/24 22:57:38: Loaded action/group: PeacefulMission
+07/31/24 22:57:38: Loaded action/group: SpaceAdventureStart
+07/31/24 22:57:38: Loaded action/group: PortalAdventure
+07/31/24 22:57:38: Loaded action/group: EnableEnemySpawns
+07/31/24 22:57:38: Loaded action/group: GotoVulturesValley
+07/31/24 22:57:38: Loaded action/group: GotoEarth
+07/31/24 22:57:38: Loaded action/group: SpawnBoss1
+07/31/24 22:57:38: Loaded action/group: GotoStormySands
+07/31/24 22:57:38: Loaded action/group: SpawnBoss12
+07/31/24 22:57:38: Loaded action/group: SpaceExploration
+07/31/24 22:57:38: Loaded action/group: GotoFantasia
+07/31/24 22:57:38: Loaded action/group: SpawnBoss5
+07/31/24 22:57:38: Loaded action/group: AG1
+07/31/24 22:57:38: Loaded action/group: SpawnBoss10
+07/31/24 22:57:38: Loaded action/group: GotoYetopia
+07/31/24 22:57:38: Loaded action/group: SpawnBoss3
+07/31/24 22:57:38: Loaded action/group: ArtifactOutcome
+07/31/24 22:57:38: Loaded action/group: EpicBattle
+07/31/24 22:57:38: Loaded action/group: SpawnBoss7
+07/31/24 22:57:38: Loaded action/group: SpawnBoss9
+07/31/24 22:57:38: Loaded action/group: PeaceTreaty
+07/31/24 22:57:38: Actions and action groups loaded successfully from Actions.txt.
+07/31/24 22:57:38: [Client] Failed to reconnect to server. Will try again...
+07/31/24 23:07:26: [Jay Arnold] We have so far created a very robust in game scripting language
+07/31/24 23:07:26: Creating chat bubble: " We have so far created a very robust in game scripting language", Owner: yeancat, Choices: []
+07/31/24 23:07:26: Chat Bubble Created. Following 'yeancat' with text: 'We have so far created a very robust in game scripting
+language'. Number of choices: 0
+07/31/24 23:08:06: [Jay Arnold] we have a range of commands that can be turned into actions and those actions paired into action
+groups
+07/31/24 23:08:06: Creating chat bubble: " we have a range of commands that can be turned into actions and those actions paired into action\ngroups", Owner: yeancat, Choices: []
+07/31/24 23:08:06: Chat Bubble Created. Following 'yeancat' with text: 'we have a range of commands that can be turned into
+actions and those actions paired into action
+groups'. Number of choices: 0
+07/31/24 23:09:39: Raw command: list_commands
+07/31/24 23:09:39: Cleaned command: list_commands
+07/31/24 23:09:39: Command Name: list_commands
+07/31/24 23:09:39: Target Object: yeancat
+07/31/24 23:09:39: Parameters: []
+07/31/24 23:09:39: Commands: add_action(, add_action_group(, camera_target(, 
+07/31/24 23:09:39: chat_bubble(, delete_action(, delete_actions(, disable_heartbeat, 
+07/31/24 23:09:39: enable_heartbeat, execute_action(, game_end(, goto_planet(, 
+07/31/24 23:09:39: jump_planet(, level_up(, list_action_groups, list_actions, 
+07/31/24 23:09:39: list_clients, list_commands, list_objects, list_variables, 
+07/31/24 23:09:39: return_controller, save_actions, save_game, save_macros, 
+07/31/24 23:09:39: set_my_permission(, set_spawn_npc(, set_target(, set_variable(, 
+07/31/24 23:09:39: show_gamepad_mapping, show_lines(, show_variable(, show_wpm, 
+07/31/24 23:09:39: spawn_boss(, spawn_npc(, toggle_debug, toggle_input_display, 
+07/31/24 23:09:39: toggle_log_debug, toggle_server
+07/31/24 23:09:46: Raw command: show_lines(13)
+07/31/24 23:09:46: Cleaned command: show_lines(13)
+07/31/24 23:09:46: Parsing arguments: 13
+07/31/24 23:09:46: Parsed arguments: ["13"]
+07/31/24 23:09:46: Command Name: show_lines
+07/31/24 23:09:46: Target Object: yeancat
+07/31/24 23:09:46: Parameters: ["13"]
+07/31/24 23:09:46: Display set to show 13 lines.
+07/31/24 23:10:37: [Jay Arnold] we also have a language format that allows us to decide an object that the action or command  is
+performed in reference to using a "."
+07/31/24 23:10:37: Creating chat bubble: " we also have a language format that allows us to decide an object that the action or command  is\nperformed in reference to using a \".\"", Owner: yeancat, Choices: []
+07/31/24 23:10:37: Chat Bubble Created. Following 'yeancat' with text: 'we also have a language format that allows us to decide an
+object that the action or command  is
+performed in reference to using a "."'. Number of choices: 0
+07/31/24 23:10:57: [Jay Arnold] i can type /Player.camera_target(0,0) and the camera will target the player with no offset
+07/31/24 23:10:57: Creating chat bubble: " i can type \/Player.camera_target(0,0) and the camera will target the player with no offset", Owner: yeancat, Choices: []
+07/31/24 23:10:57: Chat Bubble Created. Following 'yeancat' with text: 'i can type /Player.camera_target(0,0) and the camera will
+target the player with no offset'. Number of choices: 0
+07/31/24 23:12:08: [Jay Arnold] I could also spawn a chat bubble on any object like a boss by /Futurtle1.chat_bubble("Hello World!")
+and the chat bubbles can even have up to 4 choice options with action or action group triggers
+07/31/24 23:12:08: Creating chat bubble: " I could also spawn a chat bubble on any object like a boss by \/Futurtle1.chat_bubble(\"Hello World!\")\nand the chat bubbles can even have up to 4 choice options with action or action group triggers", Owner: yeancat, Choices: []
+07/31/24 23:12:08: Chat Bubble Created. Following 'yeancat' with text: 'I could also spawn a chat bubble on any object like a boss by
+/Futurtle1.chat_bubble("Hello World!")
+and the chat bubbles can even have up to 4 choice options
+with action or action group triggers'. Number of choices: 0
+07/31/24 23:12:51: [Jay Arnold] as a result, we can already see many emerging mechanics and possibilities that can be made with
+already our simple system
+07/31/24 23:12:51: Creating chat bubble: " as a result, we can already see many emerging mechanics and possibilities that can be made with\nalready our simple system", Owner: yeancat, Choices: []
+07/31/24 23:12:51: Chat Bubble Created. Following 'yeancat' with text: 'as a result, we can already see many emerging mechanics
+and possibilities that can be made with
+already our simple system'. Number of choices: 0
+07/31/24 23:13:13: [Jay Arnold] for example i will execute an action that showcases the branching paths and action groups
+07/31/24 23:13:13: Creating chat bubble: " for example i will execute an action that showcases the branching paths and action groups", Owner: yeancat, Choices: []
+07/31/24 23:13:13: Chat Bubble Created. Following 'yeancat' with text: 'for example i will execute an action that showcases the
+branching paths and action groups'. Number of choices: 0
+07/31/24 23:13:28: Raw command: execute_action(SpaceAdventureStart)
+07/31/24 23:13:28: Cleaned command: execute_action(SpaceAdventureStart)
+07/31/24 23:13:28: Executing action/group: SpaceAdventureStart
+07/31/24 23:13:28: Decoded Data: {"command":"chat_bubble","parameters":["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]],"targetObject":"Target"}
+07/31/24 23:13:28: Raw command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/31/24 23:13:28: Cleaned command: Target.chat_bubble(["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]])
+07/31/24 23:13:28: Parsing arguments: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]]
+07/31/24 23:13:28: Parsed arguments: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/31/24 23:13:28: Command Name: chat_bubble
+07/31/24 23:13:28: Target Object: Target
+07/31/24 23:13:28: Parameters: ["[\"Welcome to the Space Adventure! Choose your path:\",[[\"Explore the universe\",\"StartExploration\"],[\"Engage in battle\",\"StartBattle\"],[\"Embark on a peace mission\",\"StartPeaceMission\"]]]"]
+07/31/24 23:13:28: Creating chat bubble: ["Welcome to the Space Adventure! Choose your path:",[["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]], Owner: Target, Choices: []
+07/31/24 23:13:28: Owner object not found, using yeancat
+07/31/24 23:13:28: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+07/31/24 23:13:31: Raw command: execute_action(StartExploration)
+07/31/24 23:13:31: Cleaned command: execute_action(StartExploration)
+07/31/24 23:13:31: Executing action/group: StartExploration
+07/31/24 23:13:32: Decoded Data: {"command":"execute_action","parameters":"SpaceExploration","targetObject":"yeancat"}
+07/31/24 23:13:32: Raw command: execute_action("SpaceExploration")
+07/31/24 23:13:32: Cleaned command: execute_action("SpaceExploration")
+07/31/24 23:13:32: Executing action/group: SpaceExploration
+07/31/24 23:13:32: Decoded Data: {"type":"action_group","actions":["GotoUniverseCity","ExplorationChoice"]}
+07/31/24 23:13:32: Raw command: execute_action(GotoUniverseCity)
+07/31/24 23:13:32: Cleaned command: execute_action(GotoUniverseCity)
+07/31/24 23:13:32: Executing action/group: GotoUniverseCity
+07/31/24 23:13:32: Decoded Data: {"command":"goto_planet","parameters":"Universe City","targetObject":"yeancat"}
+07/31/24 23:13:32: Raw command: goto_planet("Universe City")
+07/31/24 23:13:32: Cleaned command: goto_planet("Universe City")
+07/31/24 23:13:32: Parsing arguments: "Universe City"
+07/31/24 23:13:32: Parsed arguments: ["\"Universe City\""]
+07/31/24 23:13:32: Command Name: goto_planet
+07/31/24 23:13:32: Target Object: yeancat
+07/31/24 23:13:32: Parameters: ["\"Universe City\""]
+07/31/24 23:13:32: Teleported to Universe City.
+07/31/24 23:13:32: Raw command: execute_action(ExplorationChoice)
+07/31/24 23:13:32: Cleaned command: execute_action(ExplorationChoice)
+07/31/24 23:13:32: Executing action/group: ExplorationChoice
+07/31/24 23:13:32: Decoded Data: {"command":"chat_bubble","parameters":["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]],"targetObject":"yeancat"}
+07/31/24 23:13:32: Raw command: chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/31/24 23:13:32: Cleaned command: chat_bubble(["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]])
+07/31/24 23:13:32: Parsing arguments: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]]
+07/31/24 23:13:32: Parsed arguments: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/31/24 23:13:32: Command Name: chat_bubble
+07/31/24 23:13:32: Target Object: yeancat
+07/31/24 23:13:32: Parameters: ["[\"You've arrived at Universe City. What's your next move?\",[[\"Investigate strange signals\",\"InvestigateSignals\"],[\"Visit the local market\",\"VisitMarket\"],[\"Return to base\",\"ReturnToBase\"]]]"]
+07/31/24 23:13:32: Creating chat bubble: ["You've arrived at Universe City. What's your next move?",[["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]], Owner: yeancat, Choices: []
+07/31/24 23:13:32: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+07/31/24 23:13:34: Raw command: execute_action(VisitMarket)
+07/31/24 23:13:34: Cleaned command: execute_action(VisitMarket)
+07/31/24 23:13:34: Executing action/group: VisitMarket
+07/31/24 23:13:34: Decoded Data: {"command":"chat_bubble","parameters":["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]],"targetObject":"yeancat"}
+07/31/24 23:13:34: Raw command: chat_bubble(["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]])
+07/31/24 23:13:34: Cleaned command: chat_bubble(["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]])
+07/31/24 23:13:34: Parsing arguments: ["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]]
+07/31/24 23:13:34: Parsed arguments: ["[\"You find rare artifacts in the market. What do you do?\",[[\"Purchase artifacts\",\"PurchaseArtifacts\"],[\"Investigate seller\",\"InvestigateSeller\"]]]"]
+07/31/24 23:13:34: Command Name: chat_bubble
+07/31/24 23:13:34: Target Object: yeancat
+07/31/24 23:13:34: Parameters: ["[\"You find rare artifacts in the market. What do you do?\",[[\"Purchase artifacts\",\"PurchaseArtifacts\"],[\"Investigate seller\",\"InvestigateSeller\"]]]"]
+07/31/24 23:13:34: Creating chat bubble: ["You find rare artifacts in the market. What do you do?",[["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]], Owner: yeancat, Choices: []
+07/31/24 23:13:34: Chat Bubble Created. Following 'yeancat' with text: 'You find rare artifacts in the market. What do you
+do?'. Number of choices: 2
+07/31/24 23:13:36: Raw command: execute_action(PurchaseArtifacts)
+07/31/24 23:13:36: Cleaned command: execute_action(PurchaseArtifacts)
+07/31/24 23:13:36: Executing action/group: PurchaseArtifacts
+07/31/24 23:13:36: Decoded Data: {"command":"execute_action","parameters":"ArtifactMystery","targetObject":"yeancat"}
+07/31/24 23:13:36: Raw command: execute_action("ArtifactMystery")
+07/31/24 23:13:36: Cleaned command: execute_action("ArtifactMystery")
+07/31/24 23:13:36: Executing action/group: ArtifactMystery
+07/31/24 23:13:36: Decoded Data: {"type":"action_group","actions":["EnableEnemySpawns","GotoGhostTown","ArtifactOutcome"]}
+07/31/24 23:13:36: Raw command: execute_action(EnableEnemySpawns)
+07/31/24 23:13:36: Cleaned command: execute_action(EnableEnemySpawns)
+07/31/24 23:13:36: Executing action/group: EnableEnemySpawns
+07/31/24 23:13:36: Decoded Data: {"command":"set_variable","parameters":["SpawnEnemies","true"],"targetObject":"yeancat"}
+07/31/24 23:13:36: Raw command: set_variable(["SpawnEnemies","true"])
+07/31/24 23:13:36: Cleaned command: set_variable(["SpawnEnemies","true"])
+07/31/24 23:13:36: Parsing arguments: ["SpawnEnemies","true"]
+07/31/24 23:13:36: Parsed arguments: ["[\"SpawnEnemies\",\"true\"]"]
+07/31/24 23:13:36: Command Name: set_variable
+07/31/24 23:13:36: Target Object: yeancat
+07/31/24 23:13:37: Parameters: ["[\"SpawnEnemies\",\"true\"]"]
+07/31/24 23:13:37: SpawnEnemies set to 1
+07/31/24 23:13:37: Raw command: execute_action(GotoGhostTown)
+07/31/24 23:13:37: Cleaned command: execute_action(GotoGhostTown)
+07/31/24 23:13:37: Executing action/group: GotoGhostTown
+07/31/24 23:13:37: Decoded Data: {"command":"goto_planet","parameters":"Ghost Town","targetObject":"yeancat"}
+07/31/24 23:13:37: Raw command: goto_planet("Ghost Town")
+07/31/24 23:13:37: Cleaned command: goto_planet("Ghost Town")
+07/31/24 23:13:37: Parsing arguments: "Ghost Town"
+07/31/24 23:13:37: Parsed arguments: ["\"Ghost Town\""]
+07/31/24 23:13:37: Command Name: goto_planet
+07/31/24 23:13:37: Target Object: yeancat
+07/31/24 23:13:37: Parameters: ["\"Ghost Town\""]
+07/31/24 23:13:37: Teleported to Ghost Town.
+07/31/24 23:13:37: Raw command: execute_action(ArtifactOutcome)
+07/31/24 23:13:37: Cleaned command: execute_action(ArtifactOutcome)
+07/31/24 23:13:37: Executing action/group: ArtifactOutcome
+07/31/24 23:13:37: Decoded Data: {"command":"chat_bubble","parameters":["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]],"targetObject":"Target"}
+07/31/24 23:13:37: Raw command: Target.chat_bubble(["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]])
+07/31/24 23:13:37: Cleaned command: Target.chat_bubble(["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]])
+07/31/24 23:13:37: Parsing arguments: ["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]]
+07/31/24 23:13:37: Parsed arguments: ["[\"The artifacts have awakened ancient guardians! Your move?\",[[\"Fight the guardians\",\"FightGuardians\"],[\"Try to deactivate artifacts\",\"DeactivateArtifacts\"],[\"Escape with artifacts\",\"EscapeWithArtifacts\"]]]"]
+07/31/24 23:13:37: Command Name: chat_bubble
+07/31/24 23:13:37: Target Object: Target
+07/31/24 23:13:37: Parameters: ["[\"The artifacts have awakened ancient guardians! Your move?\",[[\"Fight the guardians\",\"FightGuardians\"],[\"Try to deactivate artifacts\",\"DeactivateArtifacts\"],[\"Escape with artifacts\",\"EscapeWithArtifacts\"]]]"]
+07/31/24 23:13:37: Creating chat bubble: ["The artifacts have awakened ancient guardians! Your move?",[["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]], Owner: Target, Choices: []
+07/31/24 23:13:37: Owner object not found, using yeancat
+07/31/24 23:13:37: Chat Bubble Created. Following 'yeancat' with text: 'The artifacts have awakened ancient guardians!
+Your move?'. Number of choices: 3
+07/31/24 23:13:40: Raw command: execute_action(FightGuardians)
+07/31/24 23:13:40: Cleaned command: execute_action(FightGuardians)
+07/31/24 23:13:40: Action/group 'FightGuardians' not found.
+07/31/24 23:14:24: [Jay Arnold] i can turn any command into an action and therefore the more we add, we see exponentially more
+possible things we can create in our console
+07/31/24 23:14:24: Creating chat bubble: " i can turn any command into an action and therefore the more we add, we see exponentially more\npossible things we can create in our console", Owner: yeancat, Choices: []
+07/31/24 23:14:24: Chat Bubble Created. Following 'yeancat' with text: 'i can turn any command into an action and therefore the
+more we add, we see exponentially more
+possible things we can create in our console'. Number of choices: 0
+07/31/24 23:15:19: [Jay Arnold] i am emphasizing on developing a strong and robust language that gives us lots of capabilities before i
+actually begin building the story in the world. we are very close
+07/31/24 23:15:19: Creating chat bubble: " i am emphasizing on developing a strong and robust language that gives us lots of capabilities before i\nactually begin building the story in the world. we are very close", Owner: yeancat, Choices: []
+07/31/24 23:15:19: Chat Bubble Created. Following 'yeancat' with text: 'i am emphasizing on developing a strong and robust
+language that gives us lots of capabilities before i
+actually begin building the story in the world. we are very
+close'. Number of choices: 0
+07/31/24 23:16:26: [Jay Arnold] as we add new commands and capabilities we must create example tests that demonstrate the ways we
+can use our systems and over time becomes a documentation for our scripting language. i will include all
+of the examples we have created over time so that you can know how our language works.
+07/31/24 23:16:26: Creating chat bubble: " as we add new commands and capabilities we must create example tests that demonstrate the ways we\ncan use our systems and over time becomes a documentation for our scripting language. i will include all\nof the examples we have created over time so that you can know how our language works.", Owner: yeancat, Choices: []
+07/31/24 23:16:26: Chat Bubble Created. Following 'yeancat' with text: 'as we add new commands and capabilities we must create
+example tests that demonstrate the ways we
+can use our systems and over time becomes a
+documentation for our scripting language. i will include all
+of the examples we have created over time so that you can
+know how our language works.'. Number of choices: 0
+07/31/24 23:23:22: [Jay Arnold] the most recent thing we added was the target object reference and camera positioning.
+with this we are now able to use Target before a dot and then we can reuse the action for any object we
+set to target using /set_target( and then running the action. the camera system is smooth
+and works similarly to chat_bubble and spawn_boss and spawn_npc in the way that it looks for an
+object or point reference before the dot. in the future many more commands will take advantage of this
+format and I want to ensure that it is easy to add more and more scripts that handle this way, without
+creating more and more cases in the execute_command for each new one. the goal is to have an easily
+expandible system that only requires creating a new script and a definition of the script in the client
+create event. I understand that for building the system itself and creating new language functions will
+involve modifying parts of my code until it is right. but the end goal is a neat system. without breaking
+any past functionality along the way.
+07/31/24 23:23:22: Creating chat bubble: " the most recent thing we added was the target object reference and camera positioning.\nwith this we are now able to use Target before a dot and then we can reuse the action for any object we\nset to target using \/set_target( and then running the action. the camera system is smooth\nand works similarly to chat_bubble and spawn_boss and spawn_npc in the way that it looks for an\nobject or point reference before the dot. in the future many more commands will take advantage of this\nformat and I want to ensure that it is easy to add more and more scripts that handle this way, without\ncreating more and more cases in the execute_command for each new one. the goal is to have an easily\nexpandible system that only requires creating a new script and a definition of the script in the client\ncreate event. I understand that for building the system itself and creating new language functions will\ninvolve modifying parts of my code until it is right. but the end goal is a neat system. without breaking\nany past functionality along the way.", Owner: yeancat, Choices: []
+07/31/24 23:23:22: Chat Bubble Created. Following 'yeancat' with text: 'the most recent thing we added was the target object
+reference and camera positioning.
+with this we are now able to use Target before a dot and
+then we can reuse the action for any object we
+set to target using /set_target( and then running the action.
+the camera system is smooth
+and works similarly to chat_bubble and spawn_boss and
+spawn_npc in the way that it looks for an
+object or point reference before the dot. in the future many
+more commands will take advantage of this
+format and I want to ensure that it is easy to add more and
+more scripts that handle this way, without
+creating more and more cases in the execute_command for
+each new one. the goal is to have an easily
+expandible system that only requires creating a new script
+and a definition of the script in the client
+create event. I understand that for building the system
+itself and creating new language functions will
+involve modifying parts of my code until it is right. but the
+end goal is a neat system. without breaking
+any past functionality along the way.'. Number of choices: 0
+07/31/24 23:24:03: [Jay Arnold] that leads me to the next feature i want to implement
+07/31/24 23:24:03: Creating chat bubble: " that leads me to the next feature i want to implement", Owner: yeancat, Choices: []
+07/31/24 23:24:03: Chat Bubble Created. Following 'yeancat' with text: 'that leads me to the next feature i want to implement'. Number of choices: 0
+07/31/24 23:24:07: [Jay Arnold] conditional actions
+07/31/24 23:24:07: Creating chat bubble: " conditional actions", Owner: yeancat, Choices: []
+07/31/24 23:24:07: Chat Bubble Created. Following 'yeancat' with text: 'conditional actions'. Number of choices: 0
+07/31/24 23:24:24: [Jay Arnold] Dialog conditions or action
+conditions.
+/add_action_condition("Name","VariableName">/</=/!=/>=/etc"VariableName2orValue",["Action1/Acti
+onGroup","Action2/ActionGroup"]) that
+will create an action_condition that can be executed using /execute_action if the statement is true it
+will perform action1 if false then Action2 (a clever way to have if/else)
+With this implemented we would be able to have npcs that only give you certain branches if you have
+reached a certain level or killed a number of enemies. We could test if the player has enough money to
+buy something and create an action group that deducts the money and rewards the item if they have
+enough, but tells them sorry if they cant. This is also useful for overall progression conditions. These
+should execute just like actions and should work as chat bubble choice actions as well.
+/list_action_conditions
+07/31/24 23:24:24: Creating chat bubble: " Dialog conditions or action\nconditions.\n\/add_action_condition(\"Name\",\"VariableName\">\/<\/=\/!=\/>=\/etc\"VariableName2orValue\",) that\nwill create an action_condition that can be executed using \/execute_action if the statement is true it\nwill perform action1 if false then Action2 (a clever way to have if\/else)\nWith this implemented we would be able to have npcs that only give you certain branches if you have\nreached a certain level or killed a number of enemies. We could test if the player has enough money to\nbuy something and create an action group that deducts the money and rewards the item if they have\nenough, but tells them sorry if they cant. This is also useful for overall progression conditions. These\nshould execute just like actions and should work as chat bubble choice actions as well.\n\/list_action_conditions", Owner: yeancat, Choices: []
+07/31/24 23:24:24: Chat Bubble Created. Following 'yeancat' with text: 'Dialog conditions or
+action
+conditions.
+/add_action_condition("Name","VariableName">/</=/!=/>=
+/etc"VariableName2orValue",) that
+will create an action_condition that can be executed using
+/execute_action if the statement is true it
+will perform action1 if false then Action2 (a clever way to
+have if/else)
+With this implemented we would be able to have npcs that
+only give you certain branches if you have
+reached a certain level or killed a number of enemies. We
+could test if the player has enough money to
+buy something and create an action group that deducts the
+money and rewards the item if they have
+enough, but tells them sorry if they cant. This is also useful
+for overall progression conditions. These
+should execute just like actions and should work as chat
+bubble choice actions as well.
+/list_action_conditions'. Number of choices: 0
+07/31/24 23:26:17: [Jay Arnold] we could even make this accept other action conditions and in place of < or = it could accept 
+and or or and compare if one or both of two action conditions return true! (in place of variable)
+07/31/24 23:26:17: Creating chat bubble: " we could even make this accept other action conditions and in place of < or = it could accept \nand or or and compare if one or both of two action conditions return true! (in place of variable)", Owner: yeancat, Choices: []
+07/31/24 23:26:17: Chat Bubble Created. Following 'yeancat' with text: 'we could even make this accept other action conditions and
+in place of < or = it could accept 
+and or or and compare if one or both of two action
+conditions return true! (in place of variable)'. Number of choices: 0
+07/31/24 23:26:27: [Jay Arnold] that is all i have to say so far!
+07/31/24 23:26:27: Creating chat bubble: " that is all i have to say so far!", Owner: yeancat, Choices: []
+07/31/24 23:26:28: Chat Bubble Created. Following 'yeancat' with text: 'that is all i have to say so far!'. Number of choices: 0
+
