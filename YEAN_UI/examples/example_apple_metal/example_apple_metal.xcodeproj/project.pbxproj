@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 48;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -33,6 +33,8 @@
 		83BBEA0820EB54E700295997 /* imgui_demo.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BBEA0220EB54E700295997 /* imgui_demo.cpp */; };
 		83BBEA0920EB54E700295997 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BBEA0320EB54E700295997 /* imgui.cpp */; };
 		83BBEA0A20EB54E700295997 /* imgui.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 83BBEA0320EB54E700295997 /* imgui.cpp */; };
+		AB57CF6A2C79A1FC0096C1DE /* ScriptExecutor.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB57CF692C79A1FC0096C1DE /* ScriptExecutor.mm */; };
+		AB57CF6B2C79A1FC0096C1DE /* ScriptExecutor.mm in Sources */ = {isa = PBXBuildFile; fileRef = AB57CF692C79A1FC0096C1DE /* ScriptExecutor.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +68,9 @@
 		83BBEA0220EB54E700295997 /* imgui_demo.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui_demo.cpp; path = ../../imgui_demo.cpp; sourceTree = "<group>"; };
 		83BBEA0320EB54E700295997 /* imgui.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; name = imgui.cpp; path = ../../imgui.cpp; sourceTree = "<group>"; };
 		83BBEA0420EB54E700295997 /* imconfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = imconfig.h; path = ../../imconfig.h; sourceTree = "<group>"; };
+		AB57CF692C79A1FC0096C1DE /* ScriptExecutor.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ScriptExecutor.mm; sourceTree = SOURCE_ROOT; };
+		AB57CF6C2C79A2110096C1DE /* ScriptExecutor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ScriptExecutor.h; sourceTree = "<group>"; };
+		AB57CF712C79A76C0096C1DE /* AppViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppViewController.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,9 +122,12 @@
 		8309BD9E253CCBA70045E2A1 /* example */ = {
 			isa = PBXGroup;
 			children = (
+				AB57CF692C79A1FC0096C1DE /* ScriptExecutor.mm */,
+				AB57CF712C79A76C0096C1DE /* AppViewController.h */,
 				8309BDF6253CDAAE0045E2A1 /* iOS */,
 				8309BDF9253CDAAE0045E2A1 /* macOS */,
 				8309BDA0253CCBC10045E2A1 /* main.mm */,
+				AB57CF6C2C79A2110096C1DE /* ScriptExecutor.h */,
 			);
 			name = example;
 			sourceTree = "<group>";
@@ -222,7 +230,8 @@
 		8307E7B620E9F9C700473790 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1200;
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1540;
 				ORGANIZATIONNAME = "Warren Moore";
 				TargetAttributes = {
 					8307E7C320E9F9C900473790 = {
@@ -283,6 +292,7 @@
 				83BBEA0720EB54E700295997 /* imgui_demo.cpp in Sources */,
 				83BBEA0520EB54E700295997 /* imgui_draw.cpp in Sources */,
 				5079822E257677DB0038A28D /* imgui_tables.cpp in Sources */,
+				AB57CF6A2C79A1FC0096C1DE /* ScriptExecutor.mm in Sources */,
 				07A82ED82139413D0078D120 /* imgui_widgets.cpp in Sources */,
 				8309BDA5253CCC070045E2A1 /* main.mm in Sources */,
 			);
@@ -297,6 +307,7 @@
 				83BBEA0A20EB54E700295997 /* imgui.cpp in Sources */,
 				83BBEA0820EB54E700295997 /* imgui_demo.cpp in Sources */,
 				83BBEA0620EB54E700295997 /* imgui_draw.cpp in Sources */,
+				AB57CF6B2C79A1FC0096C1DE /* ScriptExecutor.mm in Sources */,
 				050450AB2768052600AB6805 /* imgui_tables.cpp in Sources */,
 				07A82ED92139418F0078D120 /* imgui_widgets.cpp in Sources */,
 				8309BDA8253CCC080045E2A1 /* main.mm in Sources */,
@@ -340,9 +351,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -396,9 +409,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
+				DEAD_CODE_STRIPPING = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -418,8 +433,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info-iOS.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.imgui.example.apple-metal-ios";
 				PRODUCT_NAME = example_apple_metal;
 				SDKROOT = iphoneos;
@@ -435,8 +453,11 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/iOS/Info-iOS.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = "org.imgui.example.apple-metal-ios";
 				PRODUCT_NAME = example_apple_metal;
 				SDKROOT = iphoneos;
@@ -452,10 +473,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/macOS/Info-macOS.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.imgui.example.apple-metal-macos";
 				PRODUCT_NAME = example_apple_metal;
 				SDKROOT = macosx;
@@ -469,10 +494,14 @@
 				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
+				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = "$(SRCROOT)/macOS/Info-macOS.plist";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.12;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				MACOSX_DEPLOYMENT_TARGET = "$(RECOMMENDED_MACOSX_DEPLOYMENT_TARGET)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.imgui.example.apple-metal-macos";
 				PRODUCT_NAME = example_apple_metal;
 				SDKROOT = macosx;

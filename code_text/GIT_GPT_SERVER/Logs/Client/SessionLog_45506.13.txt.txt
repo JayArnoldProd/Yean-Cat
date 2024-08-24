@@ -1,0 +1,165 @@
+08/01/24 22:01:56: Loaded action: SaveGameNow
+08/01/24 22:01:56: Loaded action: GotoKingsKingdom
+08/01/24 22:01:56: Loaded action: EnterPortal
+08/01/24 22:01:56: Loaded action: PurchaseArtifacts
+08/01/24 22:01:56: Loaded action: SignTreaty
+08/01/24 22:01:56: Loaded action: BattleOutcome
+08/01/24 22:01:56: Loaded action: VisitMarket
+08/01/24 22:01:56: Loaded action: GotoDivineDomain
+08/01/24 22:01:56: Loaded action: GotoTheEndonda
+08/01/24 22:01:56: Loaded action: GotoUniverseCity
+08/01/24 22:01:56: Loaded action: GotoLandOfLucy
+08/01/24 22:01:56: Loaded action: GotoPlaceOfPablo
+08/01/24 22:01:56: Loaded action: InvestigateSignals
+08/01/24 22:01:56: Loaded action: OfferTrade
+08/01/24 22:01:56: Loaded action: DisableEnemySpawns
+08/01/24 22:01:56: Loaded action: StartBattle
+08/01/24 22:01:57: Loaded action: SpawnBoss4
+08/01/24 22:01:57: Loaded action: GotoTheIcyHeart
+08/01/24 22:01:57: Loaded action: EngageCombat
+08/01/24 22:01:57: Loaded action: GotoGhostTown
+08/01/24 22:01:57: Loaded action: SpawnBoss0
+08/01/24 22:01:57: Loaded action: SpawnBoss13
+08/01/24 22:01:57: Loaded action: StartExploration
+08/01/24 22:01:57: Loaded action: SpawnBoss8
+08/01/24 22:01:57: Loaded action: SpawnBoss6
+08/01/24 22:01:57: Loaded action: SetLevelFive
+08/01/24 22:01:57: Loaded action: LevelUpThree
+08/01/24 22:01:57: Loaded action: LevelUpOnce
+08/01/24 22:01:57: Loaded action: GotoTheGoldMines
+08/01/24 22:01:57: Loaded action: SpawnBoss11
+08/01/24 22:01:57: Loaded action: StartPeaceMission
+08/01/24 22:01:57: Loaded action: DiplomaticChoice
+08/01/24 22:01:57: Loaded action: TreatyOutcome
+08/01/24 22:01:57: Loaded action: ExplorationChoice
+08/01/24 22:01:57: Loaded action: BattleChoice
+08/01/24 22:01:57: Loaded action: PortalOutcome
+08/01/24 22:01:57: Loaded action: SpaceAdventureStart
+08/01/24 22:01:57: Loaded action: EnableEnemySpawns
+08/01/24 22:01:57: Loaded action: GotoVulturesValley
+08/01/24 22:01:57: Loaded action: GotoEarth
+08/01/24 22:01:57: Loaded action: SpawnBoss1
+08/01/24 22:01:57: Loaded action: GotoStormySands
+08/01/24 22:01:57: Loaded action: SpawnBoss12
+08/01/24 22:01:57: Loaded action: GotoFantasia
+08/01/24 22:01:57: Loaded action: SpawnBoss5
+08/01/24 22:01:57: Loaded action: SpawnBoss10
+08/01/24 22:01:57: Loaded action: GotoYetopia
+08/01/24 22:01:57: Loaded action: SpawnBoss3
+08/01/24 22:01:57: Loaded action: ArtifactOutcome
+08/01/24 22:01:57: Loaded action: SpawnBoss7
+08/01/24 22:01:57: Loaded action: SpawnBoss9
+08/01/24 22:01:57: Actions and action groups loaded successfully from Actions.txt.
+08/01/24 22:01:57: Loaded condition: IsLevelHighAndHealthFull
+08/01/24 22:01:57: Loaded condition: IsHealthFull
+08/01/24 22:01:57: Loaded condition: IsLevelHigh
+08/01/24 22:01:57: Conditions loaded successfully from Conditions.txt.
+08/01/24 22:01:57: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/01/24 22:01:57: Action conditions loaded successfully from ActionConditions.txt.
+08/01/24 22:01:57: Loaded action group: BattleSequence
+08/01/24 22:01:57: Loaded action group: SpawnBossCircle
+08/01/24 22:01:57: Loaded action group: ArtifactMystery
+08/01/24 22:01:57: Loaded action group: PeacefulMission
+08/01/24 22:01:57: Loaded action group: PortalAdventure
+08/01/24 22:01:57: Loaded action group: SpaceExploration
+08/01/24 22:01:57: Loaded action group: EpicBattle
+08/01/24 22:01:57: Loaded action group: PeaceTreaty
+08/01/24 22:01:57: Action groups loaded successfully from ActionGroups.txt.
+08/01/24 22:01:58: [Client] Failed to reconnect to server. Will try again...
+08/01/24 22:02:10: Raw command: list_conditions
+08/01/24 22:02:11: Cleaned command: list_conditions
+08/01/24 22:02:11: Command Name: list_conditions
+08/01/24 22:02:11: Target Object: yeancat
+08/01/24 22:02:11: Parameters: []
+08/01/24 22:02:11: Conditions: IsLevelHighAndHealthFull, IsHealthFull, IsLevelHigh
+08/01/24 22:02:14: Raw command: list_action_conditions
+08/01/24 22:02:14: Cleaned command: list_action_conditions
+08/01/24 22:02:14: Command Name: list_action_conditions
+08/01/24 22:02:14: Target Object: yeancat
+08/01/24 22:02:14: Parameters: []
+08/01/24 22:02:14: Action Conditions: CheckLevelAndHealth
+08/01/24 22:02:16: Raw command: execute_action(CheckLevelAndHealth)
+08/01/24 22:02:16: Cleaned command: execute_action(CheckLevelAndHealth)
+08/01/24 22:02:16: Action/group/condition 'CheckLevelAndHealth' not found.
+08/01/24 22:02:28: Raw command: execute_action("CheckLevelAndHealth")
+08/01/24 22:02:28: Cleaned command: execute_action("CheckLevelAndHealth")
+08/01/24 22:02:28: Action/group/condition 'CheckLevelAndHealth' not found.
+08/01/24 22:03:11: [Jay Arnold] its still not working! also scr_ is only for in game executable commands. helper functions do not require
+them such as evaluate_condition and execute_action_condition
+08/01/24 22:03:11: Creating chat bubble: " its still not working! also scr_ is only for in game executable commands. helper functions do not require\nthem such as evaluate_condition and execute_action_condition", Owner: yeancat, Choices: []
+08/01/24 22:03:11: Chat Bubble Created. Following 'yeancat' with text: 'its still not working! also scr_ is only for in game executable
+commands. helper functions do not require
+them such as evaluate_condition and
+execute_action_condition'. Number of choices: 0
+08/01/24 22:03:24: Raw command: debug_print_all_data
+08/01/24 22:03:24: Cleaned command: debug_print_all_data
+08/01/24 22:03:24: Command Name: debug_print_all_data
+08/01/24 22:03:24: Target Object: yeancat
+08/01/24 22:03:24: Parameters: []
+08/01/24 22:03:24: === Action Conditions ===
+08/01/24 22:03:24: CheckLevelAndHealth: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/01/24 22:03:24: === Conditions ===
+08/01/24 22:03:24: IsLevelHighAndHealthFull: {"rightOperand":"IsHealthFull","operator":"and","leftOperand":"IsLevelHigh"}
+08/01/24 22:03:24: IsHealthFull: {"rightOperand":"50","operator":"=","leftOperand":"Health"}
+08/01/24 22:03:24: IsLevelHigh: {"rightOperand":"10","operator":">=","leftOperand":"Level"}
+08/01/24 22:03:24: === Action Details ===
+08/01/24 22:03:24: SaveGameNow: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzYXZlX2dhbWUiLCJwYXJhbWV0ZXJzIjpbXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: GotoKingsKingdom: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiS2luZ3MgS2luZ2RvbSJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: EnterPortal: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJleGVjdXRlX2FjdGlvbiIsInBhcmFtZXRlcnMiOlsiUG9ydGFsQWR2ZW50dXJlIl0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:24: PurchaseArtifacts: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJleGVjdXRlX2FjdGlvbiIsInBhcmFtZXRlcnMiOlsiQXJ0aWZhY3RNeXN0ZXJ5Il0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:24: SignTreaty: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiWW91IGhhdmUgc2lnbmVkIHRoZSBwZWFjZSB0cmVhdHkuIENvbmdyYXR1bGF0aW9ucyBvbiBhIHN1Y2Nlc3NmdWwgZGlwbG9tYXRpYyBtaXNzaW9uISIsW11dLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: BattleOutcome: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiVmljdG9yeSEgVGhlIGVuZW15IGZvcmNlcyBhcmUgcmV0cmVhdGluZy4gTmV4dCBzdGVwcz8iLFtbIlB1cnN1ZSBhbmQgY2FwdHVyZSIsIlB1cnN1ZUVuZW15Il0sWyJTZWN1cmUgdGhlIGFyZWEiLCJTZWN1cmVBcmVhIl0sWyJDYWxsIGZvciByZWluZm9yY2VtZW50cyIsIkNhbGxSZWluZm9yY2VtZW50cyJdXV0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:24: VisitMarket: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiWW91IGZpbmQgcmFyZSBhcnRpZmFjdHMgaW4gdGhlIG1hcmtldC4gV2hhdCBkbyB5b3UgZG8/IixbWyJQdXJjaGFzZSBhcnRpZmFjdHMiLCJQdXJjaGFzZUFydGlmYWN0cyJdLFsiSW52ZXN0aWdhdGUgc2VsbGVyIiwiSW52ZXN0aWdhdGVTZWxsZXIiXV1dLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: GotoDivineDomain: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiRGl2aW5lIERvbWFpbiJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: GotoTheEndonda: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiVGhlIEVuZG9uZGEiXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: GotoUniverseCity: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiVW5pdmVyc2UgQ2l0eSJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: GotoLandOfLucy: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiTGFuZCBvZiBMdWN5Il0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:24: GotoPlaceOfPablo: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiUGxhY2Ugb2YgUGFibG8iXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: InvestigateSignals: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiVGhlIHNpZ25hbHMgbGVhZCB5b3UgdG8gYSBoaWRkZW4gcG9ydGFsLiBEbyB5b3UgZW50ZXI/IixbWyJFbnRlciB0aGUgcG9ydGFsIiwiRW50ZXJQb3J0YWwiXSxbIlJlcG9ydCBiYWNrIHRvIEhRIiwiUmVwb3J0VG9IUSJdXV0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:24: OfferTrade: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJleGVjdXRlX2FjdGlvbiIsInBhcmFtZXRlcnMiOlsiUGVhY2VUcmVhdHkiXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: DisableEnemySpawns: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzZXRfdmFyaWFibGUiLCJwYXJhbWV0ZXJzIjpbIlNwYXduRW5lbWllcyIsImZhbHNlIl0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:24: StartBattle: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJleGVjdXRlX2FjdGlvbiIsInBhcmFtZXRlcnMiOlsiQmF0dGxlU2VxdWVuY2UiXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: SpawnBoss4: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzQuMCwwLjAsNTAwLjBdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: GotoTheIcyHeart: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiVGhlIEljeSBIZWFydCJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: EngageCombat: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJleGVjdXRlX2FjdGlvbiIsInBhcmFtZXRlcnMiOlsiRXBpY0JhdHRsZSJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: GotoGhostTown: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiR2hvc3QgVG93biJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: SpawnBoss0: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzAuMCwwLjAsLTUwMC4wXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: SpawnBoss13: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzEzLjAsLTI4My4wLDI4My4wXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: StartExploration: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJleGVjdXRlX2FjdGlvbiIsInBhcmFtZXRlcnMiOlsiU3BhY2VFeHBsb3JhdGlvbiJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:24: SpawnBoss8: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzguMCwwLjAsLTQwMC4wXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: SpawnBoss6: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzYuMCwtNTAwLjAsMC4wXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:24: SetLevelFive: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzZXRfdmFyaWFibGUiLCJwYXJhbWV0ZXJzIjpbIkxldmVsIiwiNSJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: LevelUpThree: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJsZXZlbF91cCIsInBhcmFtZXRlcnMiOlszLjBdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: LevelUpOnce: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJsZXZlbF91cCIsInBhcmFtZXRlcnMiOlsxLjBdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: GotoTheGoldMines: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiVGhlIEdvbGQgTWluZXMiXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: SpawnBoss11: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzExLjAsMjgzLjAsMjgzLjBdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: StartPeaceMission: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJleGVjdXRlX2FjdGlvbiIsInBhcmFtZXRlcnMiOlsiUGVhY2VmdWxNaXNzaW9uIl0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:25: DiplomaticChoice: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiWW91J3JlIGluIERpdmluZSBEb21haW4gZm9yIGEgcGVhY2UgbWlzc2lvbi4gSG93IGRvIHlvdSBwcm9jZWVkPyIsW1siT2ZmZXIgdHJhZGUgZGVhbCIsIk9mZmVyVHJhZGUiXSxbIlNoYXJlIHRlY2hub2xvZ3kiLCJTaGFyZVRlY2hub2xvZ3kiXSxbIlJlcXVlc3QgYWxsaWFuY2UiLCJSZXF1ZXN0QWxsaWFuY2UiXV1dLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: TreatyOutcome: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiVGhlIHBlYWNlIHRyZWF0eSBpcyByZWFkeS4gRmluYWwgZGVjaXNpb25zOiIsW1siU2lnbiB0aGUgdHJlYXR5IiwiU2lnblRyZWF0eSJdLFsiUHJvcG9zZSBhbWVuZG1lbnRzIiwiUHJvcG9zZUFtZW5kbWVudHMiXSxbIlJlamVjdCBhbmQgcmV0dXJuIHRvIG5lZ290aWF0aW9ucyIsIlJlbmVnb3RpYXRlVHJlYXR5Il1dXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: ExplorationChoice: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiWW91J3ZlIGFycml2ZWQgYXQgVW5pdmVyc2UgQ2l0eS4gV2hhdCdzIHlvdXIgbmV4dCBtb3ZlPyIsW1siSW52ZXN0aWdhdGUgc3RyYW5nZSBzaWduYWxzIiwiSW52ZXN0aWdhdGVTaWduYWxzIl0sWyJWaXNpdCB0aGUgbG9jYWwgbWFya2V0IiwiVmlzaXRNYXJrZXQiXSxbIlJldHVybiB0byBiYXNlIiwiUmV0dXJuVG9CYXNlIl1dXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: BattleChoice: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiRW5lbWllcyBhcHByb2FjaGluZyEgV2hhdCdzIHlvdXIgc3RyYXRlZ3k/IixbWyJFbmdhZ2UgaW4gY29tYmF0IiwiRW5nYWdlQ29tYmF0Il0sWyJBdHRlbXB0IGRpcGxvbWFjeSIsIkF0dGVtcHREaXBsb21hY3kiXSxbIlJldHJlYXQiLCJTdHJhdGVnaWNSZXRyZWF0Il1dXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: PortalOutcome: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiWW91J3ZlIGRpc2NvdmVyZWQgYW4gYW5jaWVudCBjaXZpbGl6YXRpb24hIFdoYXQncyB5b3VyIGFwcHJvYWNoPyIsW1siU3R1ZHkgdGhlaXIgdGVjaG5vbG9neSIsIlN0dWR5VGVjaCJdLFsiRXN0YWJsaXNoIGNvbW11bmljYXRpb24iLCJDb21tdW5pY2F0ZSJdLFsiUmV0dXJuIGhvbWUgd2l0aCBmaW5kaW5ncyIsIlJldHVybldpdGhGaW5kaW5ncyJdXV0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:25: SpaceAdventureStart: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiV2VsY29tZSB0byB0aGUgU3BhY2UgQWR2ZW50dXJlISBDaG9vc2UgeW91ciBwYXRoOiIsW1siRXhwbG9yZSB0aGUgdW5pdmVyc2UiLCJTdGFydEV4cGxvcmF0aW9uIl0sWyJFbmdhZ2UgaW4gYmF0dGxlIiwiU3RhcnRCYXR0bGUiXSxbIkVtYmFyayBvbiBhIHBlYWNlIG1pc3Npb24iLCJTdGFydFBlYWNlTWlzc2lvbiJdXV0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:25: EnableEnemySpawns: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzZXRfdmFyaWFibGUiLCJwYXJhbWV0ZXJzIjpbIlNwYXduRW5lbWllcyIsInRydWUiXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: GotoVulturesValley: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiVnVsdHVyZXMgVmFsbGV5Il0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:25: GotoEarth: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiRWFydGgiXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: SpawnBoss1: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzEuMCwzNTMuMCwtMzUzLjBdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: GotoStormySands: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiU3Rvcm15IFNhbmRzIl0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:25: SpawnBoss12: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzEyLjAsMC4wLDQwMC4wXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: GotoFantasia: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiRmFudGFzaWEiXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: SpawnBoss5: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzUuMCwtMzUzLjAsMzUzLjBdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: SpawnBoss10: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzEwLjAsNDAwLjAsMC4wXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: GotoYetopia: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJnb3RvX3BsYW5ldCIsInBhcmFtZXRlcnMiOlsiWWV0b3BpYSJdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: SpawnBoss3: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzMuMCwzNTMuMCwzNTMuMF0sInRhcmdldE9iamVjdCI6IlRhcmdldCJ9
+08/01/24 22:03:25: ArtifactOutcome: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJjaGF0X2J1YmJsZSIsInBhcmFtZXRlcnMiOlsiVGhlIGFydGlmYWN0cyBoYXZlIGF3YWtlbmVkIGFuY2llbnQgZ3VhcmRpYW5zISBZb3VyIG1vdmU/IixbWyJGaWdodCB0aGUgZ3VhcmRpYW5zIiwiRmlnaHRHdWFyZGlhbnMiXSxbIlRyeSB0byBkZWFjdGl2YXRlIGFydGlmYWN0cyIsIkRlYWN0aXZhdGVBcnRpZmFjdHMiXSxbIkVzY2FwZSB3aXRoIGFydGlmYWN0cyIsIkVzY2FwZVdpdGhBcnRpZmFjdHMiXV1dLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: SpawnBoss7: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzcuMCwtMzUzLjAsLTM1My4wXSwidGFyZ2V0T2JqZWN0IjoiVGFyZ2V0In0=
+08/01/24 22:03:25: SpawnBoss9: eyJ0eXBlIjoic2luZ2xlX2FjdGlvbiIsImNvbW1hbmQiOiJzcGF3bl9ib3NzIiwicGFyYW1ldGVycyI6WzkuMCwyODMuMCwtMjgzLjBdLCJ0YXJnZXRPYmplY3QiOiJUYXJnZXQifQ==
+08/01/24 22:03:25: === Action Groups ===
+08/01/24 22:03:25: BattleSequence: ["EnableEnemySpawns","GotoVulturesValley","BattleChoice"]
+08/01/24 22:03:25: SpawnBossCircle: ["SpawnBoss0","SpawnBoss1","SpawnBoss2","SpawnBoss3","SpawnBoss4","SpawnBoss5","SpawnBoss6","SpawnBoss7","SpawnBoss8","SpawnBoss9","SpawnBoss10","SpawnBoss11","SpawnBoss12","SpawnBoss13"]
+08/01/24 22:03:25: ArtifactMystery: ["EnableEnemySpawns","GotoGhostTown","ArtifactOutcome"]
+08/01/24 22:03:25: PeacefulMission: ["GotoDivineDomain","DiplomaticChoice"]
+08/01/24 22:03:25: PortalAdventure: ["GotoTheEndonda","SetLevelFive","PortalOutcome"]
+08/01/24 22:03:25: SpaceExploration: ["GotoUniverseCity","ExplorationChoice"]
+08/01/24 22:03:25: EpicBattle: ["LevelUpThree","DisableEnemySpawns","BattleOutcome"]
+08/01/24 22:03:25: PeaceTreaty: ["GotoKingsKingdom","TreatyOutcome"]

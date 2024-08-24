@@ -1,0 +1,534 @@
+== Begin: AppViewController.h.txt
+//
+//  AppViewController.h
+//  example_apple_metal
+//
+//  Created by Joshua Arnold on 8/24/24.
+//  Copyright © 2024 Warren Moore. All rights reserved.
+//
+
+#ifndef AppViewController_h
+#define AppViewController_h
+
+#import <Cocoa/Cocoa.h>
+#import <Metal/Metal.h>
+#import <MetalKit/MetalKit.h>
+#import "ScriptExecutor.h"
+
+@interface AppViewController : NSViewController<MTKViewDelegate, NSWindowDelegate, ScriptExecutorDelegate>
+@property (nonatomic, strong) MTKView *mtkView;
+@property (nonatomic, strong) id <MTLDevice> device;
+@property (nonatomic, strong) id <MTLCommandQueue> commandQueue;
+@end
+
+#endif /* AppViewController_h */
+
+== End: AppViewController.h.txt
+
+== Begin: ScriptExecutor.h.txt
+// ScriptExecutor.h
+#import <Foundation/Foundation.h>
+
+@protocol ScriptExecutorDelegate
+- (void)scriptExecutorDidProduceOutput:(NSString *)output;
+@end
+
+@interface ScriptExecutor : NSObject
++ (void)executeScript:(NSString *)scriptName
+        withArguments:(NSArray *)arguments
+             delegate:(id<ScriptExecutorDelegate>)delegate;
+@end
+
+== End: ScriptExecutor.h.txt
+
+== Begin: ScriptExecutor.mm.txt
+// ScriptExecutor.mm
+#import "ScriptExecutor.h"
+
+@implementation ScriptExecutor
+
++ (void)executeScript:(NSString *)scriptName
+        withArguments:(NSArray *)arguments
+             delegate:(NSObject<ScriptExecutorDelegate> *)delegate {
+    
+    NSTask *task = [[NSTask alloc] init];
+    NSString *scriptPath = [NSString stringWithFormat:@"./GIT_GPT_SERVER/scripts/%@.sh", scriptName];
+    
+    [task setCurrentDirectoryPath:@"/Users/joshuaarnold/Documents/GitHub/Yean-Cat"];
+    [task setLaunchPath:@"/bin/bash"];
+    [task setArguments:@[@"-l", @"-c", [NSString stringWithFormat:@"%@ %@", scriptPath, [arguments componentsJoinedByString:@" "]]]];
+    
+    NSPipe *pipe = [NSPipe pipe];
+    [task setStandardOutput:pipe];
+    [task setStandardError:pipe];
+    
+    NSFileHandle *file = [pipe fileHandleForReading];
+    
+    [task launch];
+    
+    NSData *data = [file readDataToEndOfFile];
+    NSString *output = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+    
+    if ([delegate respondsToSelector:@selector(scriptExecutorDidProduceOutput:)]) {
+        [delegate scriptExecutorDidProduceOutput:output];
+    }
+}
+
+@end
+
+== End: ScriptExecutor.mm.txt
+
+== Begin: UIHelpers.mm.txt
+//
+//  UIHelpers.mm
+//  example_apple_metal
+//
+//  Created by Joshua Arnold on 7/21/24.
+//  Copyright © 2024 Warren Moore. All rights reserved.
+//
+
+#import "UIHelpers.h"
+#import "imgui.h"
+
+@implementation UIHelpers
+
++ (void)renderBugManagementWindow {
+    ImGui::Begin("Bug Management");
+    // Implement bug management UI here
+    ImGui::End();
+}
+
++ (void)renderFeatureManagementWindow {
+    ImGui::Begin("Feature Management");
+    // Implement feature management UI here
+    ImGui::End();
+}
+
++ (void)renderConsoleOutput {
+    ImGui::Begin("Console");
+    // Implement console output UI here
+    ImGui::End();
+}
+
++ (void)renderTerminalWindow {
+    ImGui::Begin("Terminal");
+    // Implement terminal window UI here
+    ImGui::End();
+}
+
+@end
+
+== End: UIHelpers.mm.txt
+
+== Begin: main.mm.txt
+//main.mm
+#import <Cocoa/Cocoa.h>
+#import <Metal/Metal.h>
+#import <MetalKit/MetalKit.h>
+#import "imgui.h"
+#import "imgui_impl_metal.h"
+#import "imgui_impl_osx.h"
+#import "ScriptExecutor.h"
+#import "AppViewController.h"
+
+@implementation AppViewController {
+    char outputText[4096];
+}
+
+- (instancetype)initWithNibName:(nullable NSString *)nibNameOrNil bundle:(nullable NSBundle *)nibBundleOrNil {
+    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
+    if (self) {
+        _device = MTLCreateSystemDefaultDevice();
+        if (!_device) {
+            NSLog(@"Metal is not supported on this device");
+            return nil;
+        }
+        _commandQueue = [_device newCommandQueue];
+        if (!_commandQueue) {
+            NSLog(@"Failed to create command queue");
+            return nil;
+        }
+    }
+    return self;
+}
+
+- (void)scriptExecutorDidProduceOutput:(NSString *)output {
+    strncpy(outputText, [output UTF8String], sizeof(outputText) - 1);
+    outputText[sizeof(outputText) - 1] = '\0'; // Ensure null-termination
+}
+
+- (void)loadView {
+    self.mtkView = [[MTKView alloc] initWithFrame:CGRectMake(0, 0, 1200, 720) device:self.device];
+    self.view = self.mtkView;
+}
+
+- (void)viewDidLoad {
+    [super viewDidLoad];
+
+    self.mtkView.device = self.device;
+    self.mtkView.delegate = self;
+    self.mtkView.clearColor = MTLClearColorMake(0.45f, 0.55f, 0.60f, 1.00f);
+    self.mtkView.enableSetNeedsDisplay = NO;
+    self.mtkView.paused = NO;
+
+    // Setup Dear ImGui context
+    IMGUI_CHECKVERSION();
+    ImGui::CreateContext();
+    ImGuiIO& io = ImGui::GetIO(); (void)io;
+    io.ConfigFlags |= ImGuiConfigFlags_NavEnableKeyboard;
+    io.ConfigFlags |= ImGuiConfigFlags_DockingEnable;
+    io.ConfigFlags |= ImGuiConfigFlags_ViewportsEnable;
+
+    ImGui::StyleColorsDark();
+
+    ImGui_ImplMetal_Init(self.device);
+    ImGui_ImplOSX_Init(self.mtkView);
+
+    // This line is important
+    io.ConfigFlags &= ~ImGuiConfigFlags_ViewportsEnable;
+}
+
+
+- (void)drawInMTKView:(MTKView*)view {
+    ImGuiIO& io = ImGui::GetIO();
+    io.DisplaySize.x = view.bounds.size.width;
+    io.DisplaySize.y = view.bounds.size.height;
+
+    CGFloat framebufferScale = view.window.screen.backingScaleFactor ?: NSScreen.mainScreen.backingScaleFactor;
+    io.DisplayFramebufferScale = ImVec2(framebufferScale, framebufferScale);
+
+    id<MTLCommandBuffer> commandBuffer = [self.commandQueue commandBuffer];
+    MTLRenderPassDescriptor* renderPassDescriptor = view.currentRenderPassDescriptor;
+    
+    if (renderPassDescriptor != nil)
+    {
+        id <MTLRenderCommandEncoder> renderEncoder = [commandBuffer renderCommandEncoderWithDescriptor:renderPassDescriptor];
+        [renderEncoder pushDebugGroup:@"Dear ImGui rendering"];
+
+        ImGui_ImplMetal_NewFrame(renderPassDescriptor);
+        ImGui_ImplOSX_NewFrame(view);
+        ImGui::NewFrame();
+
+        // Your ImGui code here
+        ImGui::Begin("YEAN_UI");
+        //ImGui::Text("Hello, world!");
+        if (ImGui::Button("Run code_backup.sh")) {
+            [ScriptExecutor executeScript:@"code_backup" withArguments:@[] delegate:self];
+        }
+        
+        if (ImGui::Button("Generate Hierarchy")) {
+            [ScriptExecutor executeScript:@"generate_hierarchy" withArguments:@[] delegate:self];
+        }
+        
+        ImGui::InputTextMultiline("Output", outputText, IM_ARRAYSIZE(outputText), ImVec2(-1.0f, ImGui::GetTextLineHeight() * 8), ImGuiInputTextFlags_ReadOnly);
+
+        static char command[1024] = "";
+        ImGui::InputTextMultiline("Command Input", command, IM_ARRAYSIZE(command), ImVec2(-1.0f, ImGui::GetTextLineHeight() * 16), ImGuiInputTextFlags_AllowTabInput);
+
+        if (ImGui::Button("Execute Command")) {
+            NSString *cmdString = [NSString stringWithUTF8String:command];
+            NSArray *cmdComponents = [cmdString componentsSeparatedByString:@" "];
+            if (cmdComponents.count > 0) {
+                NSString *scriptName = cmdComponents[0];
+                NSArray *args = [cmdComponents subarrayWithRange:NSMakeRange(1, cmdComponents.count - 1)];
+                [ScriptExecutor executeScript:scriptName withArguments:args delegate:self];
+            }
+        }
+        ImGui::End();
+
+        ImGui::Render();
+        ImGui_ImplMetal_RenderDrawData(ImGui::GetDrawData(), commandBuffer, renderEncoder);
+
+        [renderEncoder popDebugGroup];
+        [renderEncoder endEncoding];
+
+        [commandBuffer presentDrawable:view.currentDrawable];
+    }
+
+    [commandBuffer commit];
+}
+
+- (void)mtkView:(MTKView *)view drawableSizeWillChange:(CGSize)size {
+    NSLog(@"Drawable size will change to: %@", NSStringFromSize(size));
+}
+
+- (void)dealloc {
+    ImGui_ImplMetal_Shutdown();
+    ImGui_ImplOSX_Shutdown();
+    ImGui::DestroyContext();
+}
+
+- (void)viewWillAppear
+{
+    [super viewWillAppear];
+    self.view.window.delegate = self;
+}
+
+- (void)windowWillClose:(NSNotification *)notification
+{
+    ImGui_ImplMetal_Shutdown();
+    ImGui_ImplOSX_Shutdown();
+    ImGui::DestroyContext();
+}
+
+@end
+
+@interface AppDelegate : NSObject <NSApplicationDelegate>
+@property (nonatomic, strong) NSWindow *window;
+@end
+
+@implementation AppDelegate
+
+- (void)applicationDidFinishLaunching:(NSNotification *)aNotification {
+    AppViewController *rootViewController = [[AppViewController alloc] initWithNibName:nil bundle:nil];
+    self.window = [[NSWindow alloc] initWithContentRect:NSMakeRect(100, 100, 1200, 720)
+                                              styleMask:NSWindowStyleMaskTitled | NSWindowStyleMaskClosable | NSWindowStyleMaskMiniaturizable | NSWindowStyleMaskResizable
+                                                backing:NSBackingStoreBuffered
+                                                  defer:NO];
+    self.window.contentViewController = rootViewController;
+    [self.window makeKeyAndOrderFront:nil];
+}
+
+- (BOOL)applicationShouldTerminateAfterLastWindowClosed:(NSApplication *)sender {
+    return YES;
+}
+
+@end
+
+int main(int argc, const char * argv[]) {
+    @autoreleasepool {
+        return NSApplicationMain(argc, argv);
+    }
+}
+
+== End: main.mm.txt
+
+== Begin: README.md.txt
+# iOS / OSX Metal example
+
+## Introduction
+
+This example shows how to integrate Dear ImGui with Metal. It is based on the "cross-platform" game template provided with Xcode as of Xcode 9.
+
+Consider basing your work off the example_glfw_metal/ or example_sdl2_metal/ examples. They are better supported and will be portable unlike this one.
+
+
+
+
+== End: README.md.txt
+
+== Begin: Info-iOS.plist.txt
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>imgui</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSRequiresIPhoneOS</key>
+	<true/>
+	<key>UILaunchStoryboardName</key>
+	<string>LaunchScreen</string>
+	<key>UIRequiredDeviceCapabilities</key>
+	<array>
+		<string>armv7</string>
+		<string>metal</string>
+	</array>
+	<key>UIRequiresFullScreen</key>
+	<true/>
+	<key>UIStatusBarHidden</key>
+	<true/>
+	<key>UISupportedInterfaceOrientations</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+	</array>
+	<key>UISupportedInterfaceOrientations~ipad</key>
+	<array>
+		<string>UIInterfaceOrientationPortrait</string>
+		<string>UIInterfaceOrientationPortraitUpsideDown</string>
+		<string>UIInterfaceOrientationLandscapeLeft</string>
+		<string>UIInterfaceOrientationLandscapeRight</string>
+	</array>
+</dict>
+</plist>
+
+== End: Info-iOS.plist.txt
+
+== Begin: LaunchScreen.storyboard.txt
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="EHf-IW-A2E">
+            <objects>
+                <viewController id="01J-lp-oVM" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="Bcu-3y-fUS"/>
+                        <color key="backgroundColor" red="0.27843137254901962" green="0.36078431372549019" blue="0.50196078431372548" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="53" y="375"/>
+        </scene>
+    </scenes>
+</document>
+
+== End: LaunchScreen.storyboard.txt
+
+== Begin: Info-macOS.plist.txt
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>$(DEVELOPMENT_LANGUAGE)</string>
+	<key>CFBundleExecutable</key>
+	<string>$(EXECUTABLE_NAME)</string>
+	<key>CFBundleIconFile</key>
+	<string></string>
+	<key>CFBundleIdentifier</key>
+	<string>$(PRODUCT_BUNDLE_IDENTIFIER)</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundleName</key>
+	<string>imgui</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleShortVersionString</key>
+	<string>1.0</string>
+	<key>CFBundleVersion</key>
+	<string>1</string>
+	<key>LSMinimumSystemVersion</key>
+	<string>$(MACOSX_DEPLOYMENT_TARGET)</string>
+	<key>NSMainStoryboardFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+</dict>
+</plist>
+
+== End: Info-macOS.plist.txt
+
+== Begin: MainMenu.storyboard.txt
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="17156"/>
+    </dependencies>
+    <scenes>
+        <!--Application-->
+        <scene sceneID="JPo-4y-FX3">
+            <objects>
+                <application id="hnw-xV-0zn" sceneMemberID="viewController">
+                    <menu key="mainMenu" title="Main Menu" systemMenu="main" id="AYu-sK-qS6">
+                        <items>
+                            <menuItem title="ImGui" id="1Xt-HY-uBw">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="ImGui" systemMenu="apple" id="uQy-DD-JDr">
+                                    <items>
+                                        <menuItem title="Services" id="NMo-om-nkz">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <menu key="submenu" title="Services" systemMenu="services" id="hz9-B4-Xy5"/>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="4je-JR-u6R"/>
+                                        <menuItem title="Hide" keyEquivalent="h" id="Olw-nP-bQN">
+                                            <connections>
+                                                <action selector="hide:" target="Ady-hI-5gd" id="PnN-Uc-m68"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Hide Others" keyEquivalent="h" id="Vdr-fp-XzO">
+                                            <modifierMask key="keyEquivalentModifierMask" option="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="hideOtherApplications:" target="Ady-hI-5gd" id="VT4-aY-XCT"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Show All" id="Kd2-mp-pUS">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="unhideAllApplications:" target="Ady-hI-5gd" id="Dhg-Le-xox"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem isSeparatorItem="YES" id="kCx-OE-vgT"/>
+                                        <menuItem title="Quit" keyEquivalent="q" id="4sb-4s-VLi">
+                                            <connections>
+                                                <action selector="terminate:" target="Ady-hI-5gd" id="Te7-pn-YzF"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="View" id="H8h-7b-M4v">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="View" id="HyV-fh-RgO">
+                                    <items>
+                                        <menuItem title="Enter Full Screen" keyEquivalent="f" id="4J7-dP-txa">
+                                            <modifierMask key="keyEquivalentModifierMask" control="YES" command="YES"/>
+                                            <connections>
+                                                <action selector="toggleFullScreen:" target="Ady-hI-5gd" id="dU3-MA-1Rq"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                            <menuItem title="Window" id="aUF-d1-5bR">
+                                <modifierMask key="keyEquivalentModifierMask"/>
+                                <menu key="submenu" title="Window" systemMenu="window" id="Td7-aD-5lo">
+                                    <items>
+                                        <menuItem title="Minimize" keyEquivalent="m" id="OY7-WF-poV">
+                                            <connections>
+                                                <action selector="performMiniaturize:" target="Ady-hI-5gd" id="VwT-WD-YPe"/>
+                                            </connections>
+                                        </menuItem>
+                                        <menuItem title="Zoom" id="R4o-n2-Eq4">
+                                            <modifierMask key="keyEquivalentModifierMask"/>
+                                            <connections>
+                                                <action selector="performZoom:" target="Ady-hI-5gd" id="DIl-cC-cCs"/>
+                                            </connections>
+                                        </menuItem>
+                                    </items>
+                                </menu>
+                            </menuItem>
+                        </items>
+                    </menu>
+                    <connections>
+                        <outlet property="delegate" destination="Voe-Tx-rLC" id="PrD-fu-P6m"/>
+                    </connections>
+                </application>
+                <customObject id="Voe-Tx-rLC" customClass="AppDelegate"/>
+                <customObject id="YLy-65-1bz" customClass="NSFontManager"/>
+                <customObject id="Ady-hI-5gd" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-362" y="-38"/>
+        </scene>
+    </scenes>
+</document>
+
+== End: MainMenu.storyboard.txt
+

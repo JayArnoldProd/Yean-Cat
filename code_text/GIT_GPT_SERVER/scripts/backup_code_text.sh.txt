@@ -2,6 +2,7 @@
 
 # Create the code_text directory in the root
 mkdir -p code_text/GIT_GPT_SERVER/github/workflows
+mkdir -p code_text/YEAN_UI/examples/example_apple_metal
 
 # Function to copy and rename files with .txt extension
 copy_and_rename() {
@@ -15,6 +16,7 @@ copy_and_rename() {
 copy_dir_and_rename() {
     local src_dir=$1
     local dest_dir=$2
+    local max_size=${3:-10000000}  # Default max size: 10MB
 
     mkdir -p "$dest_dir"
     for file in "$src_dir"/*; do
@@ -23,12 +25,20 @@ copy_dir_and_rename() {
             if [[ "$sub_dir" == .* || "$sub_dir" == __pycache__ ]]; then
                 continue
             fi
-            copy_dir_and_rename "$file" "$dest_dir/$sub_dir"
+            copy_dir_and_rename "$file" "$dest_dir/$sub_dir" "$max_size"
         else
             filename=$(basename "$file")
             if [[ "$filename" == "__init__.py" ]]; then
                 continue
             fi
+            
+            # Check file size
+            local size=$(stat -f%z "$file")
+            if (( size > max_size )); then
+                echo "Skipping large file: $file ($(( size / 1024 / 1024 ))MB)"
+                continue
+            fi
+            
             extension="${file##*.}"
             base="${file%.*}"
             copy_and_rename "$file" "$dest_dir/$(basename "$base").$extension"
@@ -57,6 +67,16 @@ copy_and_rename "Documentation/Terminal_Commands_Documentation.txt" "code_text/T
 
 # Copy GIT_GPT_SERVER directory structure to code_text and rename with .txt extension
 copy_dir_and_rename GIT_GPT_SERVER code_text/GIT_GPT_SERVER
+
+# Copy only necessary YEAN_UI files
+copy_dir_and_rename YEAN_UI/examples/example_apple_metal code_text/YEAN_UI/examples/example_apple_metal
+copy_and_rename YEAN_UI/imconfig.h code_text/YEAN_UI/imconfig.h
+copy_and_rename YEAN_UI/imgui.cpp code_text/YEAN_UI/imgui.cpp
+copy_and_rename YEAN_UI/imgui.h code_text/YEAN_UI/imgui.h
+copy_and_rename YEAN_UI/imgui_draw.cpp code_text/YEAN_UI/imgui_draw.cpp
+copy_and_rename YEAN_UI/imgui_internal.h code_text/YEAN_UI/imgui_internal.h
+copy_and_rename YEAN_UI/imgui_tables.cpp code_text/YEAN_UI/imgui_tables.cpp
+copy_and_rename YEAN_UI/imgui_widgets.cpp code_text/YEAN_UI/imgui_widgets.cpp
 
 # Copy .github/workflows/main.yml to code_text/GIT_GPT_SERVER/github/workflows
 if [ -f ".github/workflows/main.yml" ]; then

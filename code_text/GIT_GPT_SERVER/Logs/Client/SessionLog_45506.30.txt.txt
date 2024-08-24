@@ -1,0 +1,364 @@
+08/02/24 02:06:28: Loaded action: SaveGameNow
+08/02/24 02:06:28: Loaded action: GotoKingsKingdom
+08/02/24 02:06:28: Loaded action: NotHighLevelOrNotFullHealth
+08/02/24 02:06:28: Loaded action: EnterPortal
+08/02/24 02:06:28: Loaded action: PurchaseArtifacts
+08/02/24 02:06:28: Loaded action: SignTreaty
+08/02/24 02:06:28: Loaded action: BattleOutcome
+08/02/24 02:06:28: Loaded action: VisitMarket
+08/02/24 02:06:28: Loaded action: GotoDivineDomain
+08/02/24 02:06:28: Loaded action: GotoTheEndonda
+08/02/24 02:06:28: Loaded action: GotoUniverseCity
+08/02/24 02:06:28: Loaded action: GotoLandOfLucy
+08/02/24 02:06:28: Loaded action: GotoPlaceOfPablo
+08/02/24 02:06:28: Loaded action: InvestigateSignals
+08/02/24 02:06:28: Loaded action: OfferTrade
+08/02/24 02:06:28: Loaded action: DisableEnemySpawns
+08/02/24 02:06:28: Loaded action: StartBattle
+08/02/24 02:06:28: Loaded action: SpawnBoss4
+08/02/24 02:06:28: Loaded action: GotoTheIcyHeart
+08/02/24 02:06:28: Loaded action: EngageCombat
+08/02/24 02:06:28: Loaded action: GotoGhostTown
+08/02/24 02:06:28: Loaded action: SpawnBoss0
+08/02/24 02:06:28: Loaded action: SpawnBoss13
+08/02/24 02:06:28: Loaded action: StartExploration
+08/02/24 02:06:28: Loaded action: SpawnBoss8
+08/02/24 02:06:28: Loaded action: SpawnBoss6
+08/02/24 02:06:29: Loaded action: SetLevelFive
+08/02/24 02:06:29: Loaded action: LevelUpThree
+08/02/24 02:06:29: Loaded action: LevelUpOnce
+08/02/24 02:06:29: Loaded action: GotoTheGoldMines
+08/02/24 02:06:29: Loaded action: SpawnBoss11
+08/02/24 02:06:29: Loaded action: StartPeaceMission
+08/02/24 02:06:29: Loaded action: DiplomaticChoice
+08/02/24 02:06:29: Loaded action: TreatyOutcome
+08/02/24 02:06:29: Loaded action: ExplorationChoice
+08/02/24 02:06:29: Loaded action: BattleChoice
+08/02/24 02:06:29: Loaded action: PortalOutcome
+08/02/24 02:06:29: Loaded action: SpaceAdventureStart
+08/02/24 02:06:29: Loaded action: EnableEnemySpawns
+08/02/24 02:06:29: Loaded action: GotoVulturesValley
+08/02/24 02:06:29: Loaded action: GotoEarth
+08/02/24 02:06:29: Loaded action: SpawnBoss1
+08/02/24 02:06:29: Loaded action: GotoStormySands
+08/02/24 02:06:29: Loaded action: SpawnBoss12
+08/02/24 02:06:29: Loaded action: GotoFantasia
+08/02/24 02:06:29: Loaded action: SpawnBoss5
+08/02/24 02:06:29: Loaded action: SpawnBoss10
+08/02/24 02:06:29: Loaded action: GotoYetopia
+08/02/24 02:06:29: Loaded action: SpawnBoss3
+08/02/24 02:06:29: Loaded action: ArtifactOutcome
+08/02/24 02:06:29: Loaded action: HighLevelFullHealth
+08/02/24 02:06:29: Loaded action: SpawnBoss7
+08/02/24 02:06:29: Loaded action: SpawnBoss9
+08/02/24 02:06:29: Actions and action groups loaded successfully from Actions.txt.
+08/02/24 02:06:29: Loaded condition: IsLevelHighAndHealthFull
+08/02/24 02:06:29: Loaded condition: IsHealthFull
+08/02/24 02:06:29: Loaded condition: IsLevelHigh
+08/02/24 02:06:29: Conditions loaded successfully from Conditions.txt.
+08/02/24 02:06:29: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 02:06:29: Action conditions loaded successfully from ActionConditions.txt.
+08/02/24 02:06:29: Loaded action group: BattleSequence
+08/02/24 02:06:29: Loaded action group: SpawnBossCircle
+08/02/24 02:06:29: Loaded action group: ArtifactMystery
+08/02/24 02:06:29: Loaded action group: PeacefulMission
+08/02/24 02:06:29: Loaded action group: PortalAdventure
+08/02/24 02:06:29: Loaded action group: SpaceExploration
+08/02/24 02:06:29: Loaded action group: EpicBattle
+08/02/24 02:06:29: Loaded action group: PeaceTreaty
+08/02/24 02:06:29: Action groups loaded successfully from ActionGroups.txt.
+08/02/24 02:06:29: [Client] Failed to reconnect to server. Will try again...
+08/02/24 02:07:19: Raw command: execute_action(SpaceAdventureStart)
+08/02/24 02:07:19: Cleaned command: execute_action(SpaceAdventureStart)
+08/02/24 02:07:19: Attempting to execute action: SpaceAdventureStart
+08/02/24 02:07:19: Action exists in actionDetails: 1
+08/02/24 02:07:19: Action exists in actionGroups: 0
+08/02/24 02:07:19: Action exists in actionConditions: 0
+08/02/24 02:07:19: Executing action: SpaceAdventureStart
+08/02/24 02:07:19: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/02/24 02:07:19: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/02/24 02:09:03: Loaded action: SaveGameNow
+08/02/24 02:09:03: Loaded action: GotoKingsKingdom
+08/02/24 02:09:03: Loaded action: NotHighLevelOrNotFullHealth
+08/02/24 02:09:03: Loaded action: EnterPortal
+08/02/24 02:09:03: Loaded action: PurchaseArtifacts
+08/02/24 02:09:03: Loaded action: SignTreaty
+08/02/24 02:09:03: Loaded action: BattleOutcome
+08/02/24 02:09:03: Loaded action: VisitMarket
+08/02/24 02:09:03: Loaded action: GotoDivineDomain
+08/02/24 02:09:03: Loaded action: GotoTheEndonda
+08/02/24 02:09:03: Loaded action: GotoUniverseCity
+08/02/24 02:09:03: Loaded action: GotoLandOfLucy
+08/02/24 02:09:04: Loaded action: GotoPlaceOfPablo
+08/02/24 02:09:04: Loaded action: InvestigateSignals
+08/02/24 02:09:04: Loaded action: OfferTrade
+08/02/24 02:09:04: Loaded action: DisableEnemySpawns
+08/02/24 02:09:04: Loaded action: StartBattle
+08/02/24 02:09:04: Loaded action: SpawnBoss4
+08/02/24 02:09:04: Loaded action: GotoTheIcyHeart
+08/02/24 02:09:04: Loaded action: EngageCombat
+08/02/24 02:09:04: Loaded action: GotoGhostTown
+08/02/24 02:09:04: Loaded action: SpawnBoss0
+08/02/24 02:09:04: Loaded action: SpawnBoss13
+08/02/24 02:09:04: Loaded action: StartExploration
+08/02/24 02:09:04: Loaded action: SpawnBoss8
+08/02/24 02:09:04: Loaded action: SpawnBoss6
+08/02/24 02:09:04: Loaded action: SetLevelFive
+08/02/24 02:09:04: Loaded action: LevelUpThree
+08/02/24 02:09:04: Loaded action: LevelUpOnce
+08/02/24 02:09:04: Loaded action: GotoTheGoldMines
+08/02/24 02:09:04: Loaded action: SpawnBoss11
+08/02/24 02:09:04: Loaded action: StartPeaceMission
+08/02/24 02:09:04: Loaded action: DiplomaticChoice
+08/02/24 02:09:04: Loaded action: TreatyOutcome
+08/02/24 02:09:04: Loaded action: ExplorationChoice
+08/02/24 02:09:04: Loaded action: BattleChoice
+08/02/24 02:09:04: Loaded action: PortalOutcome
+08/02/24 02:09:04: Loaded action: SpaceAdventureStart
+08/02/24 02:09:04: Loaded action: EnableEnemySpawns
+08/02/24 02:09:04: Loaded action: GotoVulturesValley
+08/02/24 02:09:04: Loaded action: GotoEarth
+08/02/24 02:09:04: Loaded action: SpawnBoss1
+08/02/24 02:09:04: Loaded action: GotoStormySands
+08/02/24 02:09:04: Loaded action: SpawnBoss12
+08/02/24 02:09:04: Loaded action: GotoFantasia
+08/02/24 02:09:04: Loaded action: SpawnBoss5
+08/02/24 02:09:04: Loaded action: SpawnBoss10
+08/02/24 02:09:04: Loaded action: GotoYetopia
+08/02/24 02:09:04: Loaded action: SpawnBoss3
+08/02/24 02:09:04: Loaded action: ArtifactOutcome
+08/02/24 02:09:04: Loaded action: HighLevelFullHealth
+08/02/24 02:09:04: Loaded action: SpawnBoss7
+08/02/24 02:09:04: Loaded action: SpawnBoss9
+08/02/24 02:09:04: Actions and action groups loaded successfully from Actions.txt.
+08/02/24 02:09:04: Loaded condition: IsLevelHighAndHealthFull
+08/02/24 02:09:04: Loaded condition: IsHealthFull
+08/02/24 02:09:04: Loaded condition: IsLevelHigh
+08/02/24 02:09:04: Conditions loaded successfully from Conditions.txt.
+08/02/24 02:09:04: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 02:09:04: Action conditions loaded successfully from ActionConditions.txt.
+08/02/24 02:09:04: Loaded action group: BattleSequence
+08/02/24 02:09:04: Loaded action group: SpawnBossCircle
+08/02/24 02:09:04: Loaded action group: ArtifactMystery
+08/02/24 02:09:04: Loaded action group: PeacefulMission
+08/02/24 02:09:04: Loaded action group: PortalAdventure
+08/02/24 02:09:04: Loaded action group: SpaceExploration
+08/02/24 02:09:04: Loaded action group: EpicBattle
+08/02/24 02:09:04: Loaded action group: PeaceTreaty
+08/02/24 02:09:04: Action groups loaded successfully from ActionGroups.txt.
+08/02/24 02:09:04: [Client] Failed to reconnect to server. Will try again...
+08/02/24 02:09:42: Raw command: execute_action(SpaceAdventureStart)
+08/02/24 02:09:42: Cleaned command: execute_action(SpaceAdventureStart)
+08/02/24 02:09:42: Attempting to execute action: SpaceAdventureStart
+08/02/24 02:09:42: Action exists in actionDetails: 1
+08/02/24 02:09:42: Action exists in actionGroups: 0
+08/02/24 02:09:42: Action exists in actionConditions: 0
+08/02/24 02:09:42: Executing action: SpaceAdventureStart
+08/02/24 02:09:42: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/02/24 02:09:42: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/02/24 02:09:43: Attempting to execute action: StartExploration
+08/02/24 02:09:43: Action exists in actionDetails: 1
+08/02/24 02:09:43: Action exists in actionGroups: 0
+08/02/24 02:09:43: Action exists in actionConditions: 0
+08/02/24 02:09:43: Executing action: StartExploration
+08/02/24 02:09:43: Attempting to execute action: SpaceExploration
+08/02/24 02:09:43: Action exists in actionDetails: 0
+08/02/24 02:09:43: Action exists in actionGroups: 1
+08/02/24 02:09:43: Action exists in actionConditions: 0
+08/02/24 02:09:43: Executing action group: SpaceExploration
+08/02/24 02:12:17: Loaded action: SaveGameNow
+08/02/24 02:12:17: Loaded action: GotoKingsKingdom
+08/02/24 02:12:17: Loaded action: NotHighLevelOrNotFullHealth
+08/02/24 02:12:17: Loaded action: EnterPortal
+08/02/24 02:12:17: Loaded action: PurchaseArtifacts
+08/02/24 02:12:17: Loaded action: SignTreaty
+08/02/24 02:12:17: Loaded action: BattleOutcome
+08/02/24 02:12:17: Loaded action: VisitMarket
+08/02/24 02:12:17: Loaded action: GotoDivineDomain
+08/02/24 02:12:17: Loaded action: GotoTheEndonda
+08/02/24 02:12:17: Loaded action: GotoUniverseCity
+08/02/24 02:12:17: Loaded action: GotoLandOfLucy
+08/02/24 02:12:17: Loaded action: GotoPlaceOfPablo
+08/02/24 02:12:17: Loaded action: InvestigateSignals
+08/02/24 02:12:17: Loaded action: OfferTrade
+08/02/24 02:12:17: Loaded action: DisableEnemySpawns
+08/02/24 02:12:17: Loaded action: StartBattle
+08/02/24 02:12:17: Loaded action: SpawnBoss4
+08/02/24 02:12:17: Loaded action: GotoTheIcyHeart
+08/02/24 02:12:17: Loaded action: EngageCombat
+08/02/24 02:12:17: Loaded action: GotoGhostTown
+08/02/24 02:12:17: Loaded action: SpawnBoss0
+08/02/24 02:12:17: Loaded action: SpawnBoss13
+08/02/24 02:12:18: Loaded action: StartExploration
+08/02/24 02:12:18: Loaded action: SpawnBoss8
+08/02/24 02:12:18: Loaded action: SpawnBoss6
+08/02/24 02:12:18: Loaded action: SetLevelFive
+08/02/24 02:12:18: Loaded action: LevelUpThree
+08/02/24 02:12:18: Loaded action: LevelUpOnce
+08/02/24 02:12:18: Loaded action: GotoTheGoldMines
+08/02/24 02:12:18: Loaded action: SpawnBoss11
+08/02/24 02:12:18: Loaded action: StartPeaceMission
+08/02/24 02:12:18: Loaded action: DiplomaticChoice
+08/02/24 02:12:18: Loaded action: TreatyOutcome
+08/02/24 02:12:18: Loaded action: ExplorationChoice
+08/02/24 02:12:18: Loaded action: BattleChoice
+08/02/24 02:12:18: Loaded action: PortalOutcome
+08/02/24 02:12:18: Loaded action: SpaceAdventureStart
+08/02/24 02:12:18: Loaded action: EnableEnemySpawns
+08/02/24 02:12:18: Loaded action: GotoVulturesValley
+08/02/24 02:12:18: Loaded action: GotoEarth
+08/02/24 02:12:18: Loaded action: SpawnBoss1
+08/02/24 02:12:18: Loaded action: GotoStormySands
+08/02/24 02:12:18: Loaded action: SpawnBoss12
+08/02/24 02:12:18: Loaded action: GotoFantasia
+08/02/24 02:12:18: Loaded action: SpawnBoss5
+08/02/24 02:12:18: Loaded action: SpawnBoss10
+08/02/24 02:12:18: Loaded action: GotoYetopia
+08/02/24 02:12:18: Loaded action: SpawnBoss3
+08/02/24 02:12:18: Loaded action: ArtifactOutcome
+08/02/24 02:12:18: Loaded action: HighLevelFullHealth
+08/02/24 02:12:18: Loaded action: SpawnBoss7
+08/02/24 02:12:18: Loaded action: SpawnBoss9
+08/02/24 02:12:18: Actions and action groups loaded successfully from Actions.txt.
+08/02/24 02:12:18: Loaded condition: IsLevelHighAndHealthFull
+08/02/24 02:12:18: Loaded condition: IsHealthFull
+08/02/24 02:12:18: Loaded condition: IsLevelHigh
+08/02/24 02:12:18: Conditions loaded successfully from Conditions.txt.
+08/02/24 02:12:18: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 02:12:18: Action conditions loaded successfully from ActionConditions.txt.
+08/02/24 02:12:18: Loaded action group: BattleSequence
+08/02/24 02:12:18: Loaded action group: SpawnBossCircle
+08/02/24 02:12:18: Loaded action group: ArtifactMystery
+08/02/24 02:12:18: Loaded action group: PeacefulMission
+08/02/24 02:12:18: Loaded action group: PortalAdventure
+08/02/24 02:12:18: Loaded action group: SpaceExploration
+08/02/24 02:12:18: Loaded action group: EpicBattle
+08/02/24 02:12:18: Loaded action group: PeaceTreaty
+08/02/24 02:12:18: Action groups loaded successfully from ActionGroups.txt.
+08/02/24 02:12:18: [Client] Failed to reconnect to server. Will try again...
+08/02/24 02:12:30: Raw command: execute_action(SpaceAdventureStart)
+08/02/24 02:12:30: Cleaned command: execute_action(SpaceAdventureStart)
+08/02/24 02:12:30: Attempting to execute action: SpaceAdventureStart
+08/02/24 02:12:30: Action exists in actionDetails: 1
+08/02/24 02:12:30: Action exists in actionGroups: 0
+08/02/24 02:12:30: Action exists in actionConditions: 0
+08/02/24 02:12:30: Executing action: SpaceAdventureStart
+08/02/24 02:12:30: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/02/24 02:12:30: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your
+path:'. Number of choices: 3
+08/02/24 02:12:33: Raw command: scr_execute_action(StartExploration)
+08/02/24 02:12:33: Cleaned command: scr_execute_action(StartExploration)
+08/02/24 02:12:33: Parsing arguments: StartExploration
+08/02/24 02:12:33: Parsed arguments: ["StartExploration"]
+08/02/24 02:12:33: Command Name: scr_execute_action
+08/02/24 02:12:33: Target Object: yeancat
+08/02/24 02:12:33: Parameters: ["StartExploration"]
+08/02/24 02:12:33: Script not found for command: scr_execute_action
+08/02/24 02:12:36: Raw command: execute_action(SpaceAdventureStart)
+08/02/24 02:12:36: Cleaned command: execute_action(SpaceAdventureStart)
+08/02/24 02:12:36: Attempting to execute action: SpaceAdventureStart
+08/02/24 02:12:36: Action exists in actionDetails: 1
+08/02/24 02:12:36: Action exists in actionGroups: 0
+08/02/24 02:12:36: Action exists in actionConditions: 0
+08/02/24 02:12:36: Executing action: SpaceAdventureStart
+08/02/24 02:12:36: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/02/24 02:12:36: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/02/24 02:12:38: Raw command: scr_execute_action(StartExploration)
+08/02/24 02:12:38: Cleaned command: scr_execute_action(StartExploration)
+08/02/24 02:12:38: Parsing arguments: StartExploration
+08/02/24 02:12:38: Parsed arguments: ["StartExploration"]
+08/02/24 02:12:38: Command Name: scr_execute_action
+08/02/24 02:12:38: Target Object: yeancat
+08/02/24 02:12:38: Parameters: ["StartExploration"]
+08/02/24 02:12:38: Script not found for command: scr_execute_action
+08/02/24 02:15:23: Loaded action: SaveGameNow
+08/02/24 02:15:23: Loaded action: GotoKingsKingdom
+08/02/24 02:15:23: Loaded action: NotHighLevelOrNotFullHealth
+08/02/24 02:15:23: Loaded action: EnterPortal
+08/02/24 02:15:23: Loaded action: PurchaseArtifacts
+08/02/24 02:15:23: Loaded action: SignTreaty
+08/02/24 02:15:23: Loaded action: BattleOutcome
+08/02/24 02:15:23: Loaded action: VisitMarket
+08/02/24 02:15:23: Loaded action: GotoDivineDomain
+08/02/24 02:15:23: Loaded action: GotoTheEndonda
+08/02/24 02:15:23: Loaded action: GotoUniverseCity
+08/02/24 02:15:23: Loaded action: GotoLandOfLucy
+08/02/24 02:15:23: Loaded action: GotoPlaceOfPablo
+08/02/24 02:15:23: Loaded action: InvestigateSignals
+08/02/24 02:15:23: Loaded action: OfferTrade
+08/02/24 02:15:23: Loaded action: DisableEnemySpawns
+08/02/24 02:15:23: Loaded action: StartBattle
+08/02/24 02:15:23: Loaded action: SpawnBoss4
+08/02/24 02:15:23: Loaded action: GotoTheIcyHeart
+08/02/24 02:15:23: Loaded action: EngageCombat
+08/02/24 02:15:24: Loaded action: GotoGhostTown
+08/02/24 02:15:24: Loaded action: SpawnBoss0
+08/02/24 02:15:24: Loaded action: SpawnBoss13
+08/02/24 02:15:24: Loaded action: StartExploration
+08/02/24 02:15:24: Loaded action: SpawnBoss8
+08/02/24 02:15:24: Loaded action: SpawnBoss6
+08/02/24 02:15:24: Loaded action: SetLevelFive
+08/02/24 02:15:24: Loaded action: LevelUpThree
+08/02/24 02:15:24: Loaded action: LevelUpOnce
+08/02/24 02:15:24: Loaded action: GotoTheGoldMines
+08/02/24 02:15:24: Loaded action: SpawnBoss11
+08/02/24 02:15:24: Loaded action: StartPeaceMission
+08/02/24 02:15:24: Loaded action: DiplomaticChoice
+08/02/24 02:15:24: Loaded action: TreatyOutcome
+08/02/24 02:15:24: Loaded action: ExplorationChoice
+08/02/24 02:15:24: Loaded action: BattleChoice
+08/02/24 02:15:24: Loaded action: PortalOutcome
+08/02/24 02:15:24: Loaded action: SpaceAdventureStart
+08/02/24 02:15:24: Loaded action: EnableEnemySpawns
+08/02/24 02:15:24: Loaded action: GotoVulturesValley
+08/02/24 02:15:24: Loaded action: GotoEarth
+08/02/24 02:15:24: Loaded action: SpawnBoss1
+08/02/24 02:15:24: Loaded action: GotoStormySands
+08/02/24 02:15:24: Loaded action: SpawnBoss12
+08/02/24 02:15:24: Loaded action: GotoFantasia
+08/02/24 02:15:24: Loaded action: SpawnBoss5
+08/02/24 02:15:24: Loaded action: SpawnBoss10
+08/02/24 02:15:24: Loaded action: GotoYetopia
+08/02/24 02:15:24: Loaded action: SpawnBoss3
+08/02/24 02:15:24: Loaded action: ArtifactOutcome
+08/02/24 02:15:24: Loaded action: HighLevelFullHealth
+08/02/24 02:15:24: Loaded action: SpawnBoss7
+08/02/24 02:15:24: Loaded action: SpawnBoss9
+08/02/24 02:15:24: Actions and action groups loaded successfully from Actions.txt.
+08/02/24 02:15:24: Loaded condition: IsLevelHighAndHealthFull
+08/02/24 02:15:24: Loaded condition: IsHealthFull
+08/02/24 02:15:24: Loaded condition: IsLevelHigh
+08/02/24 02:15:24: Conditions loaded successfully from Conditions.txt.
+08/02/24 02:15:24: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 02:15:24: Action conditions loaded successfully from ActionConditions.txt.
+08/02/24 02:15:24: Loaded action group: BattleSequence
+08/02/24 02:15:24: Loaded action group: SpawnBossCircle
+08/02/24 02:15:24: Loaded action group: ArtifactMystery
+08/02/24 02:15:24: Loaded action group: PeacefulMission
+08/02/24 02:15:24: Loaded action group: PortalAdventure
+08/02/24 02:15:24: Loaded action group: SpaceExploration
+08/02/24 02:15:24: Loaded action group: EpicBattle
+08/02/24 02:15:24: Loaded action group: PeaceTreaty
+08/02/24 02:15:24: Action groups loaded successfully from ActionGroups.txt.
+08/02/24 02:15:24: [Client] Failed to reconnect to server. Will try again...
+08/02/24 02:16:03: Raw command: execute_action(SpaceAdventureStart)
+08/02/24 02:16:03: Cleaned command: execute_action(SpaceAdventureStart)
+08/02/24 02:16:03: Attempting to execute action: SpaceAdventureStart
+08/02/24 02:16:03: Action exists in actionDetails: 1
+08/02/24 02:16:03: Action exists in actionGroups: 0
+08/02/24 02:16:03: Action exists in actionConditions: 0
+08/02/24 02:16:03: Executing action: SpaceAdventureStart
+08/02/24 02:16:03: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/02/24 02:16:03: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/02/24 02:16:05: Raw command: execute_action(StartExploration)
+08/02/24 02:16:05: Cleaned command: execute_action(StartExploration)
+08/02/24 02:16:05: Attempting to execute action: StartExploration
+08/02/24 02:16:05: Action exists in actionDetails: 1
+08/02/24 02:16:05: Action exists in actionGroups: 0
+08/02/24 02:16:05: Action exists in actionConditions: 0
+08/02/24 02:16:05: Executing action: StartExploration
+08/02/24 02:16:05: Attempting to execute action: SpaceExploration
+08/02/24 02:16:05: Action exists in actionDetails: 0
+08/02/24 02:16:05: Action exists in actionGroups: 1
+08/02/24 02:16:05: Action exists in actionConditions: 0
+08/02/24 02:16:05: Executing action group: SpaceExploration

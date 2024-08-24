@@ -1,0 +1,1001 @@
+08/06/24 09:10:28: Loaded action: SaveGameNow
+08/06/24 09:10:28: Loaded action: LevelVeryHigh
+08/06/24 09:10:28: Loaded action: GotoKingsKingdom
+08/06/24 09:10:28: Loaded action: LevelNotVeryHigh
+08/06/24 09:10:29: Loaded action: NotHighLevelOrNotFullHealth
+08/06/24 09:10:29: Loaded action: EnterPortal
+08/06/24 09:10:29: Loaded action: PurchaseArtifacts
+08/06/24 09:10:29: Loaded action: SignTreaty
+08/06/24 09:10:29: Loaded action: BattleOutcome
+08/06/24 09:10:29: Loaded action: VisitMarket
+08/06/24 09:10:29: Loaded action: GotoDivineDomain
+08/06/24 09:10:29: Loaded action: GotoTheEndonda
+08/06/24 09:10:29: Loaded action: GotoUniverseCity
+08/06/24 09:10:29: Loaded action: GotoLandOfLucy
+08/06/24 09:10:29: Loaded action: GotoPlaceOfPablo
+08/06/24 09:10:29: Loaded action: InvestigateSignals
+08/06/24 09:10:29: Loaded action: OfferTrade
+08/06/24 09:10:29: Loaded action: DisableEnemySpawns
+08/06/24 09:10:29: Loaded action: StartBattle
+08/06/24 09:10:29: Loaded action: SpawnBoss4
+08/06/24 09:10:29: Loaded action: GotoTheIcyHeart
+08/06/24 09:10:29: Loaded action: EngageCombat
+08/06/24 09:10:29: Loaded action: GotoGhostTown
+08/06/24 09:10:29: Loaded action: SpawnBoss0
+08/06/24 09:10:29: Loaded action: SpawnBoss13
+08/06/24 09:10:29: Loaded action: StartExploration
+08/06/24 09:10:29: Loaded action: SpawnBoss8
+08/06/24 09:10:30: Loaded action: SpawnBoss6
+08/06/24 09:10:30: Loaded action: SetLevelFive
+08/06/24 09:10:30: Loaded action: LevelUpThree
+08/06/24 09:10:30: Loaded action: LevelUpOnce
+08/06/24 09:10:30: Loaded action: GotoTheGoldMines
+08/06/24 09:10:30: Loaded action: SpawnBoss11
+08/06/24 09:10:30: Loaded action: StartPeaceMission
+08/06/24 09:10:30: Loaded action: DiplomaticChoice
+08/06/24 09:10:30: Loaded action: TreatyOutcome
+08/06/24 09:10:30: Loaded action: ExplorationChoice
+08/06/24 09:10:30: Loaded action: BattleChoice
+08/06/24 09:10:30: Loaded action: PortalOutcome
+08/06/24 09:10:30: Loaded action: SpaceAdventureStart
+08/06/24 09:10:30: Loaded action: EnableEnemySpawns
+08/06/24 09:10:30: Loaded action: GotoVulturesValley
+08/06/24 09:10:30: Loaded action: GotoEarth
+08/06/24 09:10:30: Loaded action: TestLevelChoice
+08/06/24 09:10:30: Loaded action: SpawnBoss1
+08/06/24 09:10:30: Loaded action: GotoStormySands
+08/06/24 09:10:30: Loaded action: SpawnBoss12
+08/06/24 09:10:30: Loaded action: GotoFantasia
+08/06/24 09:10:30: Loaded action: SpawnBoss5
+08/06/24 09:10:30: Loaded action: SpawnBoss10
+08/06/24 09:10:30: Loaded action: GotoYetopia
+08/06/24 09:10:30: Loaded action: SpawnBoss3
+08/06/24 09:10:30: Loaded action: ArtifactOutcome
+08/06/24 09:10:30: Loaded action: HighLevelFullHealth
+08/06/24 09:10:30: Loaded action: SpawnBoss7
+08/06/24 09:10:30: Loaded action: SpawnBoss9
+08/06/24 09:10:30: Actions and action groups loaded successfully from Actions.txt.
+08/06/24 09:10:30: Loaded condition: IsLevelHighAndHealthFull
+08/06/24 09:10:30: Loaded condition: IsHealthFull
+08/06/24 09:10:30: Loaded condition: IsLevelVeryHigh
+08/06/24 09:10:30: Loaded condition: IsLevelHigh
+08/06/24 09:10:30: Conditions loaded successfully from Conditions.txt.
+08/06/24 09:10:30: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/06/24 09:10:30: Loaded action condition: CheckVeryHighLevel with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/06/24 09:10:30: Action conditions loaded successfully from ActionConditions.txt.
+08/06/24 09:10:30: Loaded action group: BattleSequence
+08/06/24 09:10:30: Loaded action group: SpawnBossCircle
+08/06/24 09:10:30: Loaded action group: ArtifactMystery
+08/06/24 09:10:30: Loaded action group: PeacefulMission
+08/06/24 09:10:30: Loaded action group: PortalAdventure
+08/06/24 09:10:30: Loaded action group: SpaceExploration
+08/06/24 09:10:30: Loaded action group: EpicBattle
+08/06/24 09:10:30: Loaded action group: PeaceTreaty
+08/06/24 09:10:30: Action groups loaded successfully from ActionGroups.txt.
+08/06/24 09:10:30: [Client] Failed to reconnect to server. Will try again...
+08/06/24 09:11:17: [Jay Arnold] Hello
+World
+08/06/24 09:11:17: Creating chat bubble: " Hello\nWorld", Owner: yeancat, Choices: []
+08/06/24 09:11:17: Chat Bubble Created. Following 'yeancat' with text: 'Hello
+World'. Number of choices: 0
+08/06/24 09:11:25: Raw command: list_commands
+08/06/24 09:11:25: Cleaned command: list_commands
+08/06/24 09:11:25: Command Name: list_commands
+08/06/24 09:11:25: Target Object: yeancat
+08/06/24 09:11:25: Parameters: []
+08/06/24 09:11:25: Commands: add_action(, add_action_condition(, add_action_group(, 
+08/06/24 09:11:25: add_condition, camera_target(, chat_bubble(, debug_print_all_data, 
+08/06/24 09:11:25: delete_action(, delete_actions(, disable_heartbeat, enable_heartbeat, 
+08/06/24 09:11:25: execute_action(, game_end(, goto_planet(, jump_planet(, level_up(, 
+08/06/24 09:11:25: list_action_conditions, list_action_groups, list_actions, 
+08/06/24 09:11:25: list_clients, list_commands, list_conditions, list_objects, 
+08/06/24 09:11:25: list_variables, return_controller, save_actions, save_game, 
+08/06/24 09:11:25: save_macros, set_my_permission(, set_spawn_npc(, set_target(, 
+08/06/24 09:11:25: set_variable(, show_gamepad_mapping, show_lines(, show_variable(, 
+08/06/24 09:11:25: show_wpm, spawn_boss(, spawn_npc(, toggle_debug, 
+08/06/24 09:11:25: toggle_input_display, toggle_log_debug, toggle_server
+08/06/24 09:11:59: Raw command: chat_bubble("Hello World")
+08/06/24 09:11:59: Cleaned command: chat_bubble("Hello World")
+08/06/24 09:11:59: Parsing arguments: "Hello World"
+08/06/24 09:11:59: Parsed arguments: ["\"Hello World\""]
+08/06/24 09:11:59: Command Name: chat_bubble
+08/06/24 09:11:59: Target Object: yeancat
+08/06/24 09:11:59: Parameters: ["\"Hello World\""]
+08/06/24 09:11:59: Creating chat bubble: "Hello World", Owner: yeancat, Choices: []
+08/06/24 09:11:59: Chat Bubble Created. Following 'yeancat' with text: 'Hello World'. Number of choices: 0
+08/06/24 09:12:14: Raw command: Player.chat_bubble(Hello World)
+08/06/24 09:12:14: Cleaned command: Player.chat_bubble(Hello World)
+08/06/24 09:12:14: Parsing arguments: Hello World
+08/06/24 09:12:14: Parsed arguments: ["Hello World"]
+08/06/24 09:12:14: Command Name: chat_bubble
+08/06/24 09:12:14: Target Object: Player
+08/06/24 09:12:14: Parameters: ["Hello World"]
+08/06/24 09:13:39: Loaded action: SaveGameNow
+08/06/24 09:13:39: Loaded action: LevelVeryHigh
+08/06/24 09:13:39: Loaded action: GotoKingsKingdom
+08/06/24 09:13:40: Loaded action: LevelNotVeryHigh
+08/06/24 09:13:40: Loaded action: NotHighLevelOrNotFullHealth
+08/06/24 09:13:40: Loaded action: EnterPortal
+08/06/24 09:13:40: Loaded action: PurchaseArtifacts
+08/06/24 09:13:40: Loaded action: SignTreaty
+08/06/24 09:13:40: Loaded action: BattleOutcome
+08/06/24 09:13:40: Loaded action: VisitMarket
+08/06/24 09:13:40: Loaded action: GotoDivineDomain
+08/06/24 09:13:40: Loaded action: GotoTheEndonda
+08/06/24 09:13:40: Loaded action: GotoUniverseCity
+08/06/24 09:13:40: Loaded action: GotoLandOfLucy
+08/06/24 09:13:40: Loaded action: GotoPlaceOfPablo
+08/06/24 09:13:40: Loaded action: InvestigateSignals
+08/06/24 09:13:40: Loaded action: OfferTrade
+08/06/24 09:13:40: Loaded action: DisableEnemySpawns
+08/06/24 09:13:40: Loaded action: StartBattle
+08/06/24 09:13:40: Loaded action: SpawnBoss4
+08/06/24 09:13:40: Loaded action: GotoTheIcyHeart
+08/06/24 09:13:40: Loaded action: EngageCombat
+08/06/24 09:13:40: Loaded action: GotoGhostTown
+08/06/24 09:13:40: Loaded action: SpawnBoss0
+08/06/24 09:13:40: Loaded action: SpawnBoss13
+08/06/24 09:13:41: Loaded action: StartExploration
+08/06/24 09:13:41: Loaded action: SpawnBoss8
+08/06/24 09:13:41: Loaded action: SpawnBoss6
+08/06/24 09:13:41: Loaded action: SetLevelFive
+08/06/24 09:13:41: Loaded action: LevelUpThree
+08/06/24 09:13:41: Loaded action: LevelUpOnce
+08/06/24 09:13:41: Loaded action: GotoTheGoldMines
+08/06/24 09:13:41: Loaded action: SpawnBoss11
+08/06/24 09:13:41: Loaded action: StartPeaceMission
+08/06/24 09:13:41: Loaded action: DiplomaticChoice
+08/06/24 09:13:41: Loaded action: TreatyOutcome
+08/06/24 09:13:41: Loaded action: ExplorationChoice
+08/06/24 09:13:41: Loaded action: BattleChoice
+08/06/24 09:13:41: Loaded action: PortalOutcome
+08/06/24 09:13:41: Loaded action: SpaceAdventureStart
+08/06/24 09:13:41: Loaded action: EnableEnemySpawns
+08/06/24 09:13:41: Loaded action: GotoVulturesValley
+08/06/24 09:13:41: Loaded action: GotoEarth
+08/06/24 09:13:41: Loaded action: TestLevelChoice
+08/06/24 09:13:41: Loaded action: SpawnBoss1
+08/06/24 09:13:41: Loaded action: GotoStormySands
+08/06/24 09:13:41: Loaded action: SpawnBoss12
+08/06/24 09:13:41: Loaded action: GotoFantasia
+08/06/24 09:13:41: Loaded action: SpawnBoss5
+08/06/24 09:13:41: Loaded action: SpawnBoss10
+08/06/24 09:13:41: Loaded action: GotoYetopia
+08/06/24 09:13:41: Loaded action: SpawnBoss3
+08/06/24 09:13:41: Loaded action: ArtifactOutcome
+08/06/24 09:13:41: Loaded action: HighLevelFullHealth
+08/06/24 09:13:41: Loaded action: SpawnBoss7
+08/06/24 09:13:41: Loaded action: SpawnBoss9
+08/06/24 09:13:41: Actions and action groups loaded successfully from Actions.txt.
+08/06/24 09:13:41: Loaded condition: IsLevelHighAndHealthFull
+08/06/24 09:13:41: Loaded condition: IsHealthFull
+08/06/24 09:13:41: Loaded condition: IsLevelVeryHigh
+08/06/24 09:13:41: Loaded condition: IsLevelHigh
+08/06/24 09:13:41: Conditions loaded successfully from Conditions.txt.
+08/06/24 09:13:41: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/06/24 09:13:41: Loaded action condition: CheckVeryHighLevel with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/06/24 09:13:41: Action conditions loaded successfully from ActionConditions.txt.
+08/06/24 09:13:41: Loaded action group: BattleSequence
+08/06/24 09:13:41: Loaded action group: SpawnBossCircle
+08/06/24 09:13:41: Loaded action group: ArtifactMystery
+08/06/24 09:13:41: Loaded action group: PeacefulMission
+08/06/24 09:13:41: Loaded action group: PortalAdventure
+08/06/24 09:13:41: Loaded action group: SpaceExploration
+08/06/24 09:13:41: Loaded action group: EpicBattle
+08/06/24 09:13:41: Loaded action group: PeaceTreaty
+08/06/24 09:13:41: Action groups loaded successfully from ActionGroups.txt.
+08/06/24 09:13:41: [Client] Failed to reconnect to server. Will try again...
+08/06/24 09:17:01: Raw command: add_action(LevelUpOnce,level_up,[1])
+08/06/24 09:17:01: Cleaned command: add_action(LevelUpOnce,level_up,[1])
+08/06/24 09:17:01: Detected add_action command
+08/06/24 09:17:01: Arguments string: LevelUpOnce,level_up,[1]
+08/06/24 09:17:01: Parsing arguments: LevelUpOnce,level_up,[1]
+08/06/24 09:17:01: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+08/06/24 09:17:01: Parsed arguments: ["LevelUpOnce","level_up","[1]"]
+08/06/24 09:17:01: Action Name: LevelUpOnce
+08/06/24 09:17:01: Full Action Command: level_up
+08/06/24 09:17:01: Action Params: [1]
+08/06/24 09:17:01: Target Object: yeancat
+08/06/24 09:17:01: Action Command: level_up
+08/06/24 09:17:01: Action 'LevelUpOnce' added/updated successfully.
+08/06/24 09:17:01: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:01: Raw command: add_action(LevelUpThree, level_up, [3])
+08/06/24 09:17:01: Cleaned command: add_action(LevelUpThree, level_up, [3])
+08/06/24 09:17:01: Detected add_action command
+08/06/24 09:17:02: Arguments string: LevelUpThree, level_up, [3]
+08/06/24 09:17:02: Parsing arguments: LevelUpThree, level_up, [3]
+08/06/24 09:17:02: Parsed arguments: ["LevelUpThree","level_up","[3]"]
+08/06/24 09:17:02: Parsed arguments: ["LevelUpThree","level_up","[3]"]
+08/06/24 09:17:02: Action Name: LevelUpThree
+08/06/24 09:17:02: Full Action Command: level_up
+08/06/24 09:17:02: Action Params: [3]
+08/06/24 09:17:02: Target Object: yeancat
+08/06/24 09:17:02: Action Command: level_up
+08/06/24 09:17:02: Action 'LevelUpThree' added/updated successfully.
+08/06/24 09:17:02: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:02: Raw command: add_action(SaveGameNow,save_game,[])
+08/06/24 09:17:02: Cleaned command: add_action(SaveGameNow,save_game,[])
+08/06/24 09:17:02: Detected add_action command
+08/06/24 09:17:02: Arguments string: SaveGameNow,save_game,[]
+08/06/24 09:17:02: Parsing arguments: SaveGameNow,save_game,[]
+08/06/24 09:17:02: Parsed arguments: ["SaveGameNow","save_game","[]"]
+08/06/24 09:17:02: Parsed arguments: ["SaveGameNow","save_game","[]"]
+08/06/24 09:17:02: Action Name: SaveGameNow
+08/06/24 09:17:02: Full Action Command: save_game
+08/06/24 09:17:02: Action Params: []
+08/06/24 09:17:02: Target Object: yeancat
+08/06/24 09:17:02: Action Command: save_game
+08/06/24 09:17:02: Action 'SaveGameNow' added/updated successfully.
+08/06/24 09:17:02: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:02: Raw command: add_action(GotoEarth,goto_planet,["Earth"])
+08/06/24 09:17:02: Cleaned command: add_action(GotoEarth,goto_planet,["Earth"])
+08/06/24 09:17:02: Detected add_action command
+08/06/24 09:17:02: Arguments string: GotoEarth,goto_planet,["Earth"]
+08/06/24 09:17:02: Parsing arguments: GotoEarth,goto_planet,["Earth"]
+08/06/24 09:17:02: Parsed arguments: ["GotoEarth","goto_planet","[\"Earth\"]"]
+08/06/24 09:17:02: Parsed arguments: ["GotoEarth","goto_planet","[\"Earth\"]"]
+08/06/24 09:17:02: Action Name: GotoEarth
+08/06/24 09:17:02: Full Action Command: goto_planet
+08/06/24 09:17:02: Action Params: ["Earth"]
+08/06/24 09:17:02: Target Object: yeancat
+08/06/24 09:17:02: Action Command: goto_planet
+08/06/24 09:17:02: Action 'GotoEarth' added/updated successfully.
+08/06/24 09:17:02: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:02: Raw command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+08/06/24 09:17:02: Cleaned command: add_action(GotoUniverseCity,goto_planet,["Universe City"])
+08/06/24 09:17:03: Detected add_action command
+08/06/24 09:17:03: Arguments string: GotoUniverseCity,goto_planet,["Universe City"]
+08/06/24 09:17:03: Parsing arguments: GotoUniverseCity,goto_planet,["Universe City"]
+08/06/24 09:17:03: Parsed arguments: ["GotoUniverseCity","goto_planet","[\"Universe City\"]"]
+08/06/24 09:17:03: Parsed arguments: ["GotoUniverseCity","goto_planet","[\"Universe City\"]"]
+08/06/24 09:17:03: Action Name: GotoUniverseCity
+08/06/24 09:17:03: Full Action Command: goto_planet
+08/06/24 09:17:03: Action Params: ["Universe City"]
+08/06/24 09:17:03: Target Object: yeancat
+08/06/24 09:17:03: Action Command: goto_planet
+08/06/24 09:17:03: Action 'GotoUniverseCity' added/updated successfully.
+08/06/24 09:17:03: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:03: Raw command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+08/06/24 09:17:03: Cleaned command: add_action(GotoFantasia,goto_planet,["Fantasia"])
+08/06/24 09:17:03: Detected add_action command
+08/06/24 09:17:03: Arguments string: GotoFantasia,goto_planet,["Fantasia"]
+08/06/24 09:17:03: Parsing arguments: GotoFantasia,goto_planet,["Fantasia"]
+08/06/24 09:17:03: Parsed arguments: ["GotoFantasia","goto_planet","[\"Fantasia\"]"]
+08/06/24 09:17:03: Parsed arguments: ["GotoFantasia","goto_planet","[\"Fantasia\"]"]
+08/06/24 09:17:03: Action Name: GotoFantasia
+08/06/24 09:17:03: Full Action Command: goto_planet
+08/06/24 09:17:03: Action Params: ["Fantasia"]
+08/06/24 09:17:03: Target Object: yeancat
+08/06/24 09:17:03: Action Command: goto_planet
+08/06/24 09:17:03: Action 'GotoFantasia' added/updated successfully.
+08/06/24 09:17:03: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:03: Raw command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+08/06/24 09:17:03: Cleaned command: add_action(GotoLandOfLucy,goto_planet,["Land of Lucy"])
+08/06/24 09:17:03: Detected add_action command
+08/06/24 09:17:03: Arguments string: GotoLandOfLucy,goto_planet,["Land of Lucy"]
+08/06/24 09:17:03: Parsing arguments: GotoLandOfLucy,goto_planet,["Land of Lucy"]
+08/06/24 09:17:03: Parsed arguments: ["GotoLandOfLucy","goto_planet","[\"Land of Lucy\"]"]
+08/06/24 09:17:03: Parsed arguments: ["GotoLandOfLucy","goto_planet","[\"Land of Lucy\"]"]
+08/06/24 09:17:03: Action Name: GotoLandOfLucy
+08/06/24 09:17:03: Full Action Command: goto_planet
+08/06/24 09:17:03: Action Params: ["Land of Lucy"]
+08/06/24 09:17:03: Target Object: yeancat
+08/06/24 09:17:03: Action Command: goto_planet
+08/06/24 09:17:03: Action 'GotoLandOfLucy' added/updated successfully.
+08/06/24 09:17:03: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:03: Raw command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+08/06/24 09:17:03: Cleaned command: add_action(GotoPlaceOfPablo,goto_planet,["Place of Pablo"])
+08/06/24 09:17:03: Detected add_action command
+08/06/24 09:17:03: Arguments string: GotoPlaceOfPablo,goto_planet,["Place of Pablo"]
+08/06/24 09:17:03: Parsing arguments: GotoPlaceOfPablo,goto_planet,["Place of Pablo"]
+08/06/24 09:17:03: Parsed arguments: ["GotoPlaceOfPablo","goto_planet","[\"Place of Pablo\"]"]
+08/06/24 09:17:03: Parsed arguments: ["GotoPlaceOfPablo","goto_planet","[\"Place of Pablo\"]"]
+08/06/24 09:17:03: Action Name: GotoPlaceOfPablo
+08/06/24 09:17:03: Full Action Command: goto_planet
+08/06/24 09:17:03: Action Params: ["Place of Pablo"]
+08/06/24 09:17:03: Target Object: yeancat
+08/06/24 09:17:03: Action Command: goto_planet
+08/06/24 09:17:03: Action 'GotoPlaceOfPablo' added/updated successfully.
+08/06/24 09:17:03: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:03: Raw command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+08/06/24 09:17:03: Cleaned command: add_action(GotoGhostTown,goto_planet,["Ghost Town"])
+08/06/24 09:17:03: Detected add_action command
+08/06/24 09:17:03: Arguments string: GotoGhostTown,goto_planet,["Ghost Town"]
+08/06/24 09:17:03: Parsing arguments: GotoGhostTown,goto_planet,["Ghost Town"]
+08/06/24 09:17:03: Parsed arguments: ["GotoGhostTown","goto_planet","[\"Ghost Town\"]"]
+08/06/24 09:17:03: Parsed arguments: ["GotoGhostTown","goto_planet","[\"Ghost Town\"]"]
+08/06/24 09:17:03: Action Name: GotoGhostTown
+08/06/24 09:17:03: Full Action Command: goto_planet
+08/06/24 09:17:03: Action Params: ["Ghost Town"]
+08/06/24 09:17:03: Target Object: yeancat
+08/06/24 09:17:03: Action Command: goto_planet
+08/06/24 09:17:03: Action 'GotoGhostTown' added/updated successfully.
+08/06/24 09:17:03: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:03: Raw command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+08/06/24 09:17:03: Cleaned command: add_action(GotoVulturesValley,goto_planet,["Vultures Valley"])
+08/06/24 09:17:03: Detected add_action command
+08/06/24 09:17:03: Arguments string: GotoVulturesValley,goto_planet,["Vultures Valley"]
+08/06/24 09:17:03: Parsing arguments: GotoVulturesValley,goto_planet,["Vultures Valley"]
+08/06/24 09:17:03: Parsed arguments: ["GotoVulturesValley","goto_planet","[\"Vultures Valley\"]"]
+08/06/24 09:17:04: Parsed arguments: ["GotoVulturesValley","goto_planet","[\"Vultures Valley\"]"]
+08/06/24 09:17:04: Action Name: GotoVulturesValley
+08/06/24 09:17:04: Full Action Command: goto_planet
+08/06/24 09:17:04: Action Params: ["Vultures Valley"]
+08/06/24 09:17:04: Target Object: yeancat
+08/06/24 09:17:04: Action Command: goto_planet
+08/06/24 09:17:04: Action 'GotoVulturesValley' added/updated successfully.
+08/06/24 09:17:04: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:04: Raw command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+08/06/24 09:17:04: Cleaned command: add_action(GotoTheEndonda,goto_planet,["The Endonda"])
+08/06/24 09:17:04: Detected add_action command
+08/06/24 09:17:04: Arguments string: GotoTheEndonda,goto_planet,["The Endonda"]
+08/06/24 09:17:04: Parsing arguments: GotoTheEndonda,goto_planet,["The Endonda"]
+08/06/24 09:17:04: Parsed arguments: ["GotoTheEndonda","goto_planet","[\"The Endonda\"]"]
+08/06/24 09:17:04: Parsed arguments: ["GotoTheEndonda","goto_planet","[\"The Endonda\"]"]
+08/06/24 09:17:04: Action Name: GotoTheEndonda
+08/06/24 09:17:04: Full Action Command: goto_planet
+08/06/24 09:17:04: Action Params: ["The Endonda"]
+08/06/24 09:17:04: Target Object: yeancat
+08/06/24 09:17:04: Action Command: goto_planet
+08/06/24 09:17:04: Action 'GotoTheEndonda' added/updated successfully.
+08/06/24 09:17:04: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:04: Raw command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+08/06/24 09:17:04: Cleaned command: add_action(GotoStormySands,goto_planet,["Stormy Sands"])
+08/06/24 09:17:04: Detected add_action command
+08/06/24 09:17:04: Arguments string: GotoStormySands,goto_planet,["Stormy Sands"]
+08/06/24 09:17:04: Parsing arguments: GotoStormySands,goto_planet,["Stormy Sands"]
+08/06/24 09:17:04: Parsed arguments: ["GotoStormySands","goto_planet","[\"Stormy Sands\"]"]
+08/06/24 09:17:04: Parsed arguments: ["GotoStormySands","goto_planet","[\"Stormy Sands\"]"]
+08/06/24 09:17:04: Action Name: GotoStormySands
+08/06/24 09:17:04: Full Action Command: goto_planet
+08/06/24 09:17:04: Action Params: ["Stormy Sands"]
+08/06/24 09:17:04: Target Object: yeancat
+08/06/24 09:17:04: Action Command: goto_planet
+08/06/24 09:17:04: Action 'GotoStormySands' added/updated successfully.
+08/06/24 09:17:04: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:04: Raw command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+08/06/24 09:17:04: Cleaned command: add_action(GotoDivineDomain,goto_planet,["Divine Domain"])
+08/06/24 09:17:04: Detected add_action command
+08/06/24 09:17:04: Arguments string: GotoDivineDomain,goto_planet,["Divine Domain"]
+08/06/24 09:17:04: Parsing arguments: GotoDivineDomain,goto_planet,["Divine Domain"]
+08/06/24 09:17:04: Parsed arguments: ["GotoDivineDomain","goto_planet","[\"Divine Domain\"]"]
+08/06/24 09:17:04: Parsed arguments: ["GotoDivineDomain","goto_planet","[\"Divine Domain\"]"]
+08/06/24 09:17:04: Action Name: GotoDivineDomain
+08/06/24 09:17:04: Full Action Command: goto_planet
+08/06/24 09:17:04: Action Params: ["Divine Domain"]
+08/06/24 09:17:04: Target Object: yeancat
+08/06/24 09:17:04: Action Command: goto_planet
+08/06/24 09:17:04: Action 'GotoDivineDomain' added/updated successfully.
+08/06/24 09:17:04: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:04: Raw command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+08/06/24 09:17:04: Cleaned command: add_action(GotoYetopia,goto_planet,["Yetopia"])
+08/06/24 09:17:04: Detected add_action command
+08/06/24 09:17:04: Arguments string: GotoYetopia,goto_planet,["Yetopia"]
+08/06/24 09:17:04: Parsing arguments: GotoYetopia,goto_planet,["Yetopia"]
+08/06/24 09:17:04: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+08/06/24 09:17:04: Parsed arguments: ["GotoYetopia","goto_planet","[\"Yetopia\"]"]
+08/06/24 09:17:04: Action Name: GotoYetopia
+08/06/24 09:17:04: Full Action Command: goto_planet
+08/06/24 09:17:04: Action Params: ["Yetopia"]
+08/06/24 09:17:04: Target Object: yeancat
+08/06/24 09:17:04: Action Command: goto_planet
+08/06/24 09:17:04: Action 'GotoYetopia' added/updated successfully.
+08/06/24 09:17:04: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:04: Raw command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+08/06/24 09:17:04: Cleaned command: add_action(GotoKingsKingdom,goto_planet,["Kings Kingdom"])
+08/06/24 09:17:04: Detected add_action command
+08/06/24 09:17:04: Arguments string: GotoKingsKingdom,goto_planet,["Kings Kingdom"]
+08/06/24 09:17:04: Parsing arguments: GotoKingsKingdom,goto_planet,["Kings Kingdom"]
+08/06/24 09:17:04: Parsed arguments: ["GotoKingsKingdom","goto_planet","[\"Kings Kingdom\"]"]
+08/06/24 09:17:04: Parsed arguments: ["GotoKingsKingdom","goto_planet","[\"Kings Kingdom\"]"]
+08/06/24 09:17:04: Action Name: GotoKingsKingdom
+08/06/24 09:17:04: Full Action Command: goto_planet
+08/06/24 09:17:04: Action Params: ["Kings Kingdom"]
+08/06/24 09:17:04: Target Object: yeancat
+08/06/24 09:17:04: Action Command: goto_planet
+08/06/24 09:17:05: Action 'GotoKingsKingdom' added/updated successfully.
+08/06/24 09:17:05: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:05: Raw command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+08/06/24 09:17:05: Cleaned command: add_action(GotoTheIcyHeart,goto_planet,["The Icy Heart"])
+08/06/24 09:17:05: Detected add_action command
+08/06/24 09:17:05: Arguments string: GotoTheIcyHeart,goto_planet,["The Icy Heart"]
+08/06/24 09:17:05: Parsing arguments: GotoTheIcyHeart,goto_planet,["The Icy Heart"]
+08/06/24 09:17:05: Parsed arguments: ["GotoTheIcyHeart","goto_planet","[\"The Icy Heart\"]"]
+08/06/24 09:17:05: Parsed arguments: ["GotoTheIcyHeart","goto_planet","[\"The Icy Heart\"]"]
+08/06/24 09:17:05: Action Name: GotoTheIcyHeart
+08/06/24 09:17:05: Full Action Command: goto_planet
+08/06/24 09:17:05: Action Params: ["The Icy Heart"]
+08/06/24 09:17:05: Target Object: yeancat
+08/06/24 09:17:05: Action Command: goto_planet
+08/06/24 09:17:05: Action 'GotoTheIcyHeart' added/updated successfully.
+08/06/24 09:17:05: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:05: Raw command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+08/06/24 09:17:05: Cleaned command: add_action(GotoTheGoldMines,goto_planet,["The Gold Mines"])
+08/06/24 09:17:05: Detected add_action command
+08/06/24 09:17:05: Arguments string: GotoTheGoldMines,goto_planet,["The Gold Mines"]
+08/06/24 09:17:05: Parsing arguments: GotoTheGoldMines,goto_planet,["The Gold Mines"]
+08/06/24 09:17:05: Parsed arguments: ["GotoTheGoldMines","goto_planet","[\"The Gold Mines\"]"]
+08/06/24 09:17:05: Parsed arguments: ["GotoTheGoldMines","goto_planet","[\"The Gold Mines\"]"]
+08/06/24 09:17:05: Action Name: GotoTheGoldMines
+08/06/24 09:17:05: Full Action Command: goto_planet
+08/06/24 09:17:05: Action Params: ["The Gold Mines"]
+08/06/24 09:17:05: Target Object: yeancat
+08/06/24 09:17:05: Action Command: goto_planet
+08/06/24 09:17:05: Action 'GotoTheGoldMines' added/updated successfully.
+08/06/24 09:17:05: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:05: Raw command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+08/06/24 09:17:05: Cleaned command: add_action(EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"])
+08/06/24 09:17:05: Detected add_action command
+08/06/24 09:17:05: Arguments string: EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"]
+08/06/24 09:17:05: Parsing arguments: EnableEnemySpawns, set_variable, ["SpawnEnemies", "true"]
+08/06/24 09:17:05: Parsed arguments: ["EnableEnemySpawns","set_variable","[\"SpawnEnemies\", \"true\"]"]
+08/06/24 09:17:05: Parsed arguments: ["EnableEnemySpawns","set_variable","[\"SpawnEnemies\", \"true\"]"]
+08/06/24 09:17:05: Action Name: EnableEnemySpawns
+08/06/24 09:17:05: Full Action Command: set_variable
+08/06/24 09:17:05: Action Params: ["SpawnEnemies", "true"]
+08/06/24 09:17:05: Target Object: yeancat
+08/06/24 09:17:05: Action Command: set_variable
+08/06/24 09:17:05: Action 'EnableEnemySpawns' added/updated successfully.
+08/06/24 09:17:05: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:05: Raw command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+08/06/24 09:17:05: Cleaned command: add_action(DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"])
+08/06/24 09:17:05: Detected add_action command
+08/06/24 09:17:05: Arguments string: DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"]
+08/06/24 09:17:05: Parsing arguments: DisableEnemySpawns, set_variable, ["SpawnEnemies", "false"]
+08/06/24 09:17:05: Parsed arguments: ["DisableEnemySpawns","set_variable","[\"SpawnEnemies\", \"false\"]"]
+08/06/24 09:17:05: Parsed arguments: ["DisableEnemySpawns","set_variable","[\"SpawnEnemies\", \"false\"]"]
+08/06/24 09:17:05: Action Name: DisableEnemySpawns
+08/06/24 09:17:05: Full Action Command: set_variable
+08/06/24 09:17:05: Action Params: ["SpawnEnemies", "false"]
+08/06/24 09:17:05: Target Object: yeancat
+08/06/24 09:17:05: Action Command: set_variable
+08/06/24 09:17:05: Action 'DisableEnemySpawns' added/updated successfully.
+08/06/24 09:17:05: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:05: Raw command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+08/06/24 09:17:05: Cleaned command: add_action(SetLevelFive, set_variable, ["Level", "5"])
+08/06/24 09:17:05: Detected add_action command
+08/06/24 09:17:05: Arguments string: SetLevelFive, set_variable, ["Level", "5"]
+08/06/24 09:17:05: Parsing arguments: SetLevelFive, set_variable, ["Level", "5"]
+08/06/24 09:17:05: Parsed arguments: ["SetLevelFive","set_variable","[\"Level\", \"5\"]"]
+08/06/24 09:17:05: Parsed arguments: ["SetLevelFive","set_variable","[\"Level\", \"5\"]"]
+08/06/24 09:17:05: Action Name: SetLevelFive
+08/06/24 09:17:05: Full Action Command: set_variable
+08/06/24 09:17:05: Action Params: ["Level", "5"]
+08/06/24 09:17:05: Target Object: yeancat
+08/06/24 09:17:05: Action Command: set_variable
+08/06/24 09:17:05: Action 'SetLevelFive' added/updated successfully.
+08/06/24 09:17:05: Actions and action groups saved successfully to Actions.txt.
+08/06/24 09:17:05: Raw command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/06/24 09:17:05: Cleaned command: add_action_group(SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"])
+08/06/24 09:17:05: Parsing arguments: SpaceExploration, ["GotoUniverseCity", "ExplorationChoice"]
+08/06/24 09:17:05: Parsed arguments: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/06/24 09:17:05: Command Name: add_action_group
+08/06/24 09:17:06: Target Object: yeancat
+08/06/24 09:17:06: Parameters: ["SpaceExploration","[\"GotoUniverseCity\", \"ExplorationChoice\"]"]
+08/06/24 09:17:06: Action group 'SpaceExploration' added successfully.
+08/06/24 09:17:06: Action groups saved successfully to ActionGroups.txt.
+08/06/24 09:17:06: Raw command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+08/06/24 09:17:06: Cleaned command: add_action_group(BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"])
+08/06/24 09:17:06: Parsing arguments: BattleSequence, ["EnableEnemySpawns", "GotoVulturesValley", "BattleChoice"]
+08/06/24 09:17:06: Parsed arguments: ["BattleSequence","[\"EnableEnemySpawns\", \"GotoVulturesValley\", \"BattleChoice\"]"]
+08/06/24 09:17:06: Command Name: add_action_group
+08/06/24 09:17:06: Target Object: yeancat
+08/06/24 09:17:06: Parameters: ["BattleSequence","[\"EnableEnemySpawns\", \"GotoVulturesValley\", \"BattleChoice\"]"]
+08/06/24 09:17:06: Action group 'BattleSequence' added successfully.
+08/06/24 09:17:06: Action groups saved successfully to ActionGroups.txt.
+08/06/24 09:17:32: Raw command: execute_action(GotoLandOfLucy)
+08/06/24 09:17:32: Cleaned command: execute_action(GotoLandOfLucy)
+08/06/24 09:17:32: Attempting to execute action: GotoLandOfLucy
+08/06/24 09:17:32: Action exists in actionDetails: 1
+08/06/24 09:17:32: Action exists in actionGroups: 0
+08/06/24 09:17:32: Action exists in actionConditions: 0
+08/06/24 09:17:32: Executing action: GotoLandOfLucy
+08/06/24 09:17:32: Raw command: Target.goto_planet(["Land of Lucy"])
+08/06/24 09:17:32: Cleaned command: Target.goto_planet(["Land of Lucy"])
+08/06/24 09:17:32: Parsing arguments: ["Land of Lucy"]
+08/06/24 09:17:32: Parsed arguments: ["[\"Land of Lucy\"]"]
+08/06/24 09:17:32: Command Name: goto_planet
+08/06/24 09:17:32: Target Object: Target
+08/06/24 09:17:32: Parameters: ["[\"Land of Lucy\"]"]
+08/06/24 09:17:32: Teleported to Land of Lucy.
+08/06/24 09:17:44: Raw command: list_variables
+08/06/24 09:17:44: Cleaned command: list_variables
+08/06/24 09:17:44: Command Name: list_variables
+08/06/24 09:17:44: Target Object: yeancat
+08/06/24 09:17:44: Parameters: []
+08/06/24 09:17:44: Variables: Macro4, WPM Window, Macro2, Macro6, Macro8, BPM, Macro10, 
+08/06/24 09:17:44: Password, Time, Macro5, Macro1, SpawnEnemies, Macro9, Macro7, Zoom, 
+08/06/24 09:17:44: Macro3, CharacterLimit, Health, ControllerType, Level
+08/06/24 09:17:59: Raw command: set_variable(Health,20)
+08/06/24 09:18:00: Cleaned command: set_variable(Health,20)
+08/06/24 09:18:00: Parsing arguments: Health,20
+08/06/24 09:18:00: Parsed arguments: ["Health","20"]
+08/06/24 09:18:00: Command Name: set_variable
+08/06/24 09:18:00: Target Object: yeancat
+08/06/24 09:18:00: Parameters: ["Health","20"]
+08/06/24 09:18:00: Health set to 20
+08/06/24 09:18:24: Raw command: list_actions
+08/06/24 09:18:24: Cleaned command: list_actions
+08/06/24 09:18:24: Command Name: list_actions
+08/06/24 09:18:24: Target Object: yeancat
+08/06/24 09:18:24: Parameters: []
+08/06/24 09:18:24: Actions: ArtifactOutcome, BattleChoice, BattleOutcome, 
+08/06/24 09:18:24: DiplomaticChoice, DisableEnemySpawns, EnableEnemySpawns, 
+08/06/24 09:18:24: EngageCombat, EnterPortal, ExplorationChoice, GotoDivineDomain, 
+08/06/24 09:18:25: GotoEarth, GotoFantasia, GotoGhostTown, GotoKingsKingdom, 
+08/06/24 09:18:25: GotoLandOfLucy, GotoPlaceOfPablo, GotoStormySands, GotoTheEndonda, 
+08/06/24 09:18:25: GotoTheGoldMines, GotoTheIcyHeart, GotoUniverseCity, 
+08/06/24 09:18:25: GotoVulturesValley, GotoYetopia, HighLevelFullHealth, 
+08/06/24 09:18:25: InvestigateSignals, LevelNotVeryHigh, LevelUpOnce, LevelUpThree, 
+08/06/24 09:18:25: LevelVeryHigh, NotHighLevelOrNotFullHealth, OfferTrade, 
+08/06/24 09:18:25: PortalOutcome, PurchaseArtifacts, SaveGameNow, SetLevelFive, 
+08/06/24 09:18:25: SignTreaty, SpaceAdventureStart, SpawnBoss0, SpawnBoss1, SpawnBoss10, 
+08/06/24 09:18:25: SpawnBoss11, SpawnBoss12, SpawnBoss13, SpawnBoss3, SpawnBoss4, 
+08/06/24 09:18:25: SpawnBoss5, SpawnBoss6, SpawnBoss7, SpawnBoss8, SpawnBoss9, 
+08/06/24 09:18:25: StartBattle, StartExploration, StartPeaceMission, TestLevelChoice, 
+08/06/24 09:18:25: TreatyOutcome, VisitMarket
+08/06/24 09:18:43: Raw command: execute_action(SpaceAdventureStart)
+08/06/24 09:18:43: Cleaned command: execute_action(SpaceAdventureStart)
+08/06/24 09:18:43: Attempting to execute action: SpaceAdventureStart
+08/06/24 09:18:43: Action exists in actionDetails: 1
+08/06/24 09:18:43: Action exists in actionGroups: 0
+08/06/24 09:18:43: Action exists in actionConditions: 0
+08/06/24 09:18:43: Executing action: SpaceAdventureStart
+08/06/24 09:18:43: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/06/24 09:18:43: Owner object not found, using yeancat
+08/06/24 09:18:43: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/06/24 09:18:55: Attempting to execute action: StartExploration
+08/06/24 09:18:55: Action exists in actionDetails: 1
+08/06/24 09:18:55: Action exists in actionGroups: 0
+08/06/24 09:18:55: Action exists in actionConditions: 0
+08/06/24 09:18:55: Executing action: StartExploration
+08/06/24 09:18:55: Attempting to execute action: SpaceExploration
+08/06/24 09:18:55: Action exists in actionDetails: 0
+08/06/24 09:18:55: Action exists in actionGroups: 1
+08/06/24 09:18:55: Action exists in actionConditions: 0
+08/06/24 09:18:55: Executing action group: SpaceExploration
+08/06/24 09:18:55: Attempting to execute action: GotoUniverseCity
+08/06/24 09:18:55: Action exists in actionDetails: 1
+08/06/24 09:18:55: Action exists in actionGroups: 0
+08/06/24 09:18:55: Action exists in actionConditions: 0
+08/06/24 09:18:55: Executing action: GotoUniverseCity
+08/06/24 09:18:55: Raw command: Target.goto_planet(["Universe City"])
+08/06/24 09:18:55: Cleaned command: Target.goto_planet(["Universe City"])
+08/06/24 09:18:55: Parsing arguments: ["Universe City"]
+08/06/24 09:18:55: Parsed arguments: ["[\"Universe City\"]"]
+08/06/24 09:18:55: Command Name: goto_planet
+08/06/24 09:18:55: Target Object: Target
+08/06/24 09:18:55: Parameters: ["[\"Universe City\"]"]
+08/06/24 09:18:55: Teleported to Universe City.
+08/06/24 09:18:55: Attempting to execute action: ExplorationChoice
+08/06/24 09:18:55: Action exists in actionDetails: 1
+08/06/24 09:18:55: Action exists in actionGroups: 0
+08/06/24 09:18:55: Action exists in actionConditions: 0
+08/06/24 09:18:55: Executing action: ExplorationChoice
+08/06/24 09:18:55: Creating chat bubble: "You've arrived at Universe City. What's your next move?", Owner: Target, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+08/06/24 09:18:55: Owner object not found, using yeancat
+08/06/24 09:18:55: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+08/06/24 09:19:01: Attempting to execute action: VisitMarket
+08/06/24 09:19:01: Action exists in actionDetails: 1
+08/06/24 09:19:01: Action exists in actionGroups: 0
+08/06/24 09:19:01: Action exists in actionConditions: 0
+08/06/24 09:19:02: Executing action: VisitMarket
+08/06/24 09:19:02: Creating chat bubble: "You find rare artifacts in the market. What do you do?", Owner: Target, Choices: [["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]
+08/06/24 09:19:02: Owner object not found, using yeancat
+08/06/24 09:19:02: Chat Bubble Created. Following 'yeancat' with text: 'You find rare artifacts in the market. What do you
+do?'. Number of choices: 2
+08/06/24 09:19:05: Attempting to execute action: PurchaseArtifacts
+08/06/24 09:19:05: Action exists in actionDetails: 1
+08/06/24 09:19:05: Action exists in actionGroups: 0
+08/06/24 09:19:05: Action exists in actionConditions: 0
+08/06/24 09:19:05: Executing action: PurchaseArtifacts
+08/06/24 09:19:05: Attempting to execute action: ArtifactMystery
+08/06/24 09:19:05: Action exists in actionDetails: 0
+08/06/24 09:19:05: Action exists in actionGroups: 1
+08/06/24 09:19:05: Action exists in actionConditions: 0
+08/06/24 09:19:05: Executing action group: ArtifactMystery
+08/06/24 09:19:05: Attempting to execute action: EnableEnemySpawns
+08/06/24 09:19:05: Action exists in actionDetails: 1
+08/06/24 09:19:05: Action exists in actionGroups: 0
+08/06/24 09:19:05: Action exists in actionConditions: 0
+08/06/24 09:19:05: Executing action: EnableEnemySpawns
+08/06/24 09:19:05: Raw command: Target.set_variable(["SpawnEnemies","true"])
+08/06/24 09:19:05: Cleaned command: Target.set_variable(["SpawnEnemies","true"])
+08/06/24 09:19:05: Parsing arguments: ["SpawnEnemies","true"]
+08/06/24 09:19:05: Parsed arguments: ["[\"SpawnEnemies\",\"true\"]"]
+08/06/24 09:19:05: Command Name: set_variable
+08/06/24 09:19:05: Target Object: Target
+08/06/24 09:19:05: Parameters: ["[\"SpawnEnemies\",\"true\"]"]
+08/06/24 09:19:05: SpawnEnemies set to 1
+08/06/24 09:19:05: Attempting to execute action: GotoGhostTown
+08/06/24 09:19:05: Action exists in actionDetails: 1
+08/06/24 09:19:05: Action exists in actionGroups: 0
+08/06/24 09:19:05: Action exists in actionConditions: 0
+08/06/24 09:19:05: Executing action: GotoGhostTown
+08/06/24 09:19:05: Raw command: Target.goto_planet(["Ghost Town"])
+08/06/24 09:19:05: Cleaned command: Target.goto_planet(["Ghost Town"])
+08/06/24 09:19:05: Parsing arguments: ["Ghost Town"]
+08/06/24 09:19:05: Parsed arguments: ["[\"Ghost Town\"]"]
+08/06/24 09:19:05: Command Name: goto_planet
+08/06/24 09:19:05: Target Object: Target
+08/06/24 09:19:05: Parameters: ["[\"Ghost Town\"]"]
+08/06/24 09:19:05: Teleported to Ghost Town.
+08/06/24 09:19:05: Attempting to execute action: ArtifactOutcome
+08/06/24 09:19:06: Action exists in actionDetails: 1
+08/06/24 09:19:06: Action exists in actionGroups: 0
+08/06/24 09:19:06: Action exists in actionConditions: 0
+08/06/24 09:19:06: Executing action: ArtifactOutcome
+08/06/24 09:19:06: Creating chat bubble: "The artifacts have awakened ancient guardians! Your move?", Owner: Target, Choices: [["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]
+08/06/24 09:19:06: Owner object not found, using yeancat
+08/06/24 09:19:06: Chat Bubble Created. Following 'yeancat' with text: 'The artifacts have awakened ancient guardians!
+Your move?'. Number of choices: 3
+08/06/24 09:19:15: Attempting to execute action: FightGuardians
+08/06/24 09:19:15: Action exists in actionDetails: 0
+08/06/24 09:19:15: Action exists in actionGroups: 0
+08/06/24 09:19:16: Action exists in actionConditions: 0
+08/06/24 09:19:16: Action/group/condition 'FightGuardians' not found.
+08/06/24 09:19:36: [Jay Arnold] v
+08/06/24 09:19:36: Creating chat bubble: " v", Owner: yeancat, Choices: []
+08/06/24 09:19:36: Chat Bubble Created. Following 'yeancat' with text: 'v'. Number of choices: 0
+08/06/24 09:19:38: Raw command: execute_action(TestLevelChoice)
+08/06/24 09:19:38: Cleaned command: execute_action(TestLevelChoice)
+08/06/24 09:19:38: Attempting to execute action: TestLevelChoice
+08/06/24 09:19:38: Action exists in actionDetails: 1
+08/06/24 09:19:38: Action exists in actionGroups: 0
+08/06/24 09:19:38: Action exists in actionConditions: 0
+08/06/24 09:19:38: Executing action: TestLevelChoice
+08/06/24 09:19:38: Creating chat bubble: "Test your level:", Owner: Target, Choices: [["Check if level is very high","CheckVeryHighLevel"],["Don't check level","null"]]
+08/06/24 09:19:38: Owner object not found, using yeancat
+08/06/24 09:19:38: Chat Bubble Created. Following 'yeancat' with text: 'Test your level:'. Number of choices: 2
+08/06/24 09:19:41: Attempting to execute action: CheckVeryHighLevel
+08/06/24 09:19:41: Action exists in actionDetails: 0
+08/06/24 09:19:41: Action exists in actionGroups: 0
+08/06/24 09:19:41: Action exists in actionConditions: 1
+08/06/24 09:19:41: Executing action condition: CheckVeryHighLevel with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/06/24 09:19:41: Executing action condition with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/06/24 09:19:41: Evaluating condition: IsLevelVeryHigh
+08/06/24 09:19:41: Condition data: {"rightOperand":"20","operator":">=","leftOperand":"Level"}
+08/06/24 09:19:41: Left value: 17, Right value: 20
+08/06/24 09:19:41: Comparing: 17 >= 20
+08/06/24 09:19:41: Action condition result: 0
+08/06/24 09:19:41: Executing false action: LevelNotVeryHigh
+08/06/24 09:19:41: Raw command: execute_action(LevelNotVeryHigh)
+08/06/24 09:19:41: Cleaned command: execute_action(LevelNotVeryHigh)
+08/06/24 09:19:41: Attempting to execute action: LevelNotVeryHigh
+08/06/24 09:19:41: Action exists in actionDetails: 1
+08/06/24 09:19:41: Action exists in actionGroups: 0
+08/06/24 09:19:41: Action exists in actionConditions: 0
+08/06/24 09:19:41: Executing action: LevelNotVeryHigh
+08/06/24 09:19:41: Creating chat bubble: "Your level is not very high yet.", Owner: Target, Choices: []
+08/06/24 09:19:41: Owner object not found, using yeancat
+08/06/24 09:19:41: Chat Bubble Created. Following 'yeancat' with text: 'Your level is not very high yet.'. Number of choices: 0
+08/06/24 09:19:49: Raw command: execute_action(TestLevelChoice)
+08/06/24 09:19:49: Cleaned command: execute_action(TestLevelChoice)
+08/06/24 09:19:49: Attempting to execute action: TestLevelChoice
+08/06/24 09:19:49: Action exists in actionDetails: 1
+08/06/24 09:19:49: Action exists in actionGroups: 0
+08/06/24 09:19:49: Action exists in actionConditions: 0
+08/06/24 09:19:50: Executing action: TestLevelChoice
+08/06/24 09:19:50: Creating chat bubble: "Test your level:", Owner: Target, Choices: [["Check if level is very high","CheckVeryHighLevel"],["Don't check level","null"]]
+08/06/24 09:19:50: Owner object not found, using yeancat
+08/06/24 09:19:50: Chat Bubble Created. Following 'yeancat' with text: 'Test your level:'. Number of choices: 2
+08/06/24 09:19:52: Attempting to execute action: CheckVeryHighLevel
+08/06/24 09:19:52: Action exists in actionDetails: 0
+08/06/24 09:19:52: Action exists in actionGroups: 0
+08/06/24 09:19:52: Action exists in actionConditions: 1
+08/06/24 09:19:52: Executing action condition: CheckVeryHighLevel with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/06/24 09:19:52: Executing action condition with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/06/24 09:19:52: Evaluating condition: IsLevelVeryHigh
+08/06/24 09:19:52: Condition data: {"rightOperand":"20","operator":">=","leftOperand":"Level"}
+08/06/24 09:19:52: Left value: 21, Right value: 20
+08/06/24 09:19:52: Comparing: 21 >= 20
+08/06/24 09:19:52: Action condition result: 1
+08/06/24 09:19:52: Executing true action: LevelVeryHigh
+08/06/24 09:19:52: Raw command: execute_action(LevelVeryHigh)
+08/06/24 09:19:52: Cleaned command: execute_action(LevelVeryHigh)
+08/06/24 09:19:52: Attempting to execute action: LevelVeryHigh
+08/06/24 09:19:52: Action exists in actionDetails: 1
+08/06/24 09:19:52: Action exists in actionGroups: 0
+08/06/24 09:19:52: Action exists in actionConditions: 0
+08/06/24 09:19:52: Executing action: LevelVeryHigh
+08/06/24 09:19:52: Creating chat bubble: "Your level is very high!", Owner: Target, Choices: []
+08/06/24 09:19:52: Owner object not found, using yeancat
+08/06/24 09:19:52: Chat Bubble Created. Following 'yeancat' with text: 'Your level is very high!'. Number of choices: 0
+08/06/24 09:21:20: Raw command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3",
+"SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9",
+"SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+08/06/24 09:21:20: Cleaned command: add_action_group(SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"])
+08/06/24 09:21:21: Parsing arguments: SpawnBossCircle, ["SpawnBoss0", "SpawnBoss1", "SpawnBoss2", "SpawnBoss3", "SpawnBoss4", "SpawnBoss5", "SpawnBoss6", "SpawnBoss7", "SpawnBoss8", "SpawnBoss9", "SpawnBoss10", "SpawnBoss11", "SpawnBoss12", "SpawnBoss13"]
+08/06/24 09:21:21: Parsed arguments: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+08/06/24 09:21:21: Command Name: add_action_group
+08/06/24 09:21:21: Target Object: yeancat
+08/06/24 09:21:21: Parameters: ["SpawnBossCircle","[\"SpawnBoss0\", \"SpawnBoss1\", \"SpawnBoss2\", \"SpawnBoss3\", \"SpawnBoss4\", \"SpawnBoss5\", \"SpawnBoss6\", \"SpawnBoss7\", \"SpawnBoss8\", \"SpawnBoss9\", \"SpawnBoss10\", \"SpawnBoss11\", \"SpawnBoss12\", \"SpawnBoss13\"]"]
+08/06/24 09:21:21: Action group 'SpawnBossCircle' added successfully.
+08/06/24 09:21:21: Action groups saved successfully to ActionGroups.txt.
+08/06/24 09:21:37: Raw command: execute_action(SpawnBossCircle)
+08/06/24 09:21:37: Cleaned command: execute_action(SpawnBossCircle)
+08/06/24 09:21:37: Attempting to execute action: SpawnBossCircle
+08/06/24 09:21:37: Action exists in actionDetails: 0
+08/06/24 09:21:37: Action exists in actionGroups: 1
+08/06/24 09:21:37: Action exists in actionConditions: 0
+08/06/24 09:21:37: Executing action group: SpawnBossCircle
+08/06/24 09:21:37: Raw command: execute_action(SpawnBoss0)
+08/06/24 09:21:37: Cleaned command: execute_action(SpawnBoss0)
+08/06/24 09:21:37: Attempting to execute action: SpawnBoss0
+08/06/24 09:21:37: Action exists in actionDetails: 1
+08/06/24 09:21:37: Action exists in actionGroups: 0
+08/06/24 09:21:37: Action exists in actionConditions: 0
+08/06/24 09:21:37: Executing action: SpawnBoss0
+08/06/24 09:21:37: Raw command: Target.spawn_boss([0.0,0.0,-500.0])
+08/06/24 09:21:37: Cleaned command: Target.spawn_boss([0.0,0.0,-500.0])
+08/06/24 09:21:37: Parsing arguments: [0.0,0.0,-500.0]
+08/06/24 09:21:37: Parsed arguments: ["[0.0,0.0,-500.0]"]
+08/06/24 09:21:37: Command Name: spawn_boss
+08/06/24 09:21:38: Target Object: Target
+08/06/24 09:21:38: Parameters: ["[0.0,0.0,-500.0]"]
+08/06/24 09:21:38: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:38: Added boss reference: Futurtle1 -> obj_boss
+08/06/24 09:21:38: Boss spawned successfully: 0 at position (1917.32, 760.62) relative to Target
+08/06/24 09:21:38: Raw command: execute_action(SpawnBoss1)
+08/06/24 09:21:38: Cleaned command: execute_action(SpawnBoss1)
+08/06/24 09:21:38: Attempting to execute action: SpawnBoss1
+08/06/24 09:21:38: Action exists in actionDetails: 1
+08/06/24 09:21:38: Action exists in actionGroups: 0
+08/06/24 09:21:38: Action exists in actionConditions: 0
+08/06/24 09:21:38: Executing action: SpawnBoss1
+08/06/24 09:21:38: Raw command: Target.spawn_boss([1.0,353.0,-353.0])
+08/06/24 09:21:38: Cleaned command: Target.spawn_boss([1.0,353.0,-353.0])
+08/06/24 09:21:38: Parsing arguments: [1.0,353.0,-353.0]
+08/06/24 09:21:38: Parsed arguments: ["[1.0,353.0,-353.0]"]
+08/06/24 09:21:38: Command Name: spawn_boss
+08/06/24 09:21:38: Target Object: Target
+08/06/24 09:21:38: Parameters: ["[1.0,353.0,-353.0]"]
+08/06/24 09:21:38: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:38: Added boss reference: TravisSquawk2 -> obj_boss
+08/06/24 09:21:38: Boss spawned successfully: 1 at position (2270.32, 907.62) relative to Target
+08/06/24 09:21:38: Raw command: execute_action(SpawnBoss2)
+08/06/24 09:21:38: Cleaned command: execute_action(SpawnBoss2)
+08/06/24 09:21:38: Attempting to execute action: SpawnBoss2
+08/06/24 09:21:38: Action exists in actionDetails: 0
+08/06/24 09:21:38: Action exists in actionGroups: 0
+08/06/24 09:21:38: Action exists in actionConditions: 0
+08/06/24 09:21:38: Action/group/condition 'SpawnBoss2' not found.
+08/06/24 09:21:38: Contents of global.actionConditions:
+08/06/24 09:21:38: CheckLevelAndHealth: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/06/24 09:21:38: CheckVeryHighLevel: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/06/24 09:21:38: Raw command: execute_action(SpawnBoss3)
+08/06/24 09:21:38: Cleaned command: execute_action(SpawnBoss3)
+08/06/24 09:21:38: Attempting to execute action: SpawnBoss3
+08/06/24 09:21:38: Action exists in actionDetails: 1
+08/06/24 09:21:38: Action exists in actionGroups: 0
+08/06/24 09:21:38: Action exists in actionConditions: 0
+08/06/24 09:21:38: Executing action: SpawnBoss3
+08/06/24 09:21:38: Raw command: Target.spawn_boss([3.0,353.0,353.0])
+08/06/24 09:21:39: Cleaned command: Target.spawn_boss([3.0,353.0,353.0])
+08/06/24 09:21:39: Parsing arguments: [3.0,353.0,353.0]
+08/06/24 09:21:39: Parsed arguments: ["[3.0,353.0,353.0]"]
+08/06/24 09:21:39: Command Name: spawn_boss
+08/06/24 09:21:39: Target Object: Target
+08/06/24 09:21:39: Parameters: ["[3.0,353.0,353.0]"]
+08/06/24 09:21:39: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:39: Added boss reference: Rehino3 -> obj_boss
+08/06/24 09:21:39: Boss spawned successfully: 3 at position (2270.32, 1613.62) relative to Target
+08/06/24 09:21:39: Raw command: execute_action(SpawnBoss4)
+08/06/24 09:21:39: Cleaned command: execute_action(SpawnBoss4)
+08/06/24 09:21:39: Attempting to execute action: SpawnBoss4
+08/06/24 09:21:39: Action exists in actionDetails: 1
+08/06/24 09:21:39: Action exists in actionGroups: 0
+08/06/24 09:21:39: Action exists in actionConditions: 0
+08/06/24 09:21:39: Executing action: SpawnBoss4
+08/06/24 09:21:39: Raw command: Target.spawn_boss([4.0,0.0,500.0])
+08/06/24 09:21:39: Cleaned command: Target.spawn_boss([4.0,0.0,500.0])
+08/06/24 09:21:39: Parsing arguments: [4.0,0.0,500.0]
+08/06/24 09:21:39: Parsed arguments: ["[4.0,0.0,500.0]"]
+08/06/24 09:21:39: Command Name: spawn_boss
+08/06/24 09:21:39: Target Object: Target
+08/06/24 09:21:39: Parameters: ["[4.0,0.0,500.0]"]
+08/06/24 09:21:39: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:39: Added boss reference: 22Salamander4 -> obj_boss
+08/06/24 09:21:39: Boss spawned successfully: 4 at position (1917.32, 1760.62) relative to Target
+08/06/24 09:21:39: Raw command: execute_action(SpawnBoss5)
+08/06/24 09:21:39: Cleaned command: execute_action(SpawnBoss5)
+08/06/24 09:21:39: Attempting to execute action: SpawnBoss5
+08/06/24 09:21:39: Action exists in actionDetails: 1
+08/06/24 09:21:39: Action exists in actionGroups: 0
+08/06/24 09:21:39: Action exists in actionConditions: 0
+08/06/24 09:21:39: Executing action: SpawnBoss5
+08/06/24 09:21:39: Raw command: Target.spawn_boss([5.0,-353.0,353.0])
+08/06/24 09:21:39: Cleaned command: Target.spawn_boss([5.0,-353.0,353.0])
+08/06/24 09:21:39: Parsing arguments: [5.0,-353.0,353.0]
+08/06/24 09:21:39: Parsed arguments: ["[5.0,-353.0,353.0]"]
+08/06/24 09:21:39: Command Name: spawn_boss
+08/06/24 09:21:39: Target Object: Target
+08/06/24 09:21:39: Parameters: ["[5.0,-353.0,353.0]"]
+08/06/24 09:21:39: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:39: Added boss reference: SquidCudi5 -> obj_boss
+08/06/24 09:21:39: Boss spawned successfully: 5 at position (1564.32, 1613.62) relative to Target
+08/06/24 09:21:39: Raw command: execute_action(SpawnBoss6)
+08/06/24 09:21:39: Cleaned command: execute_action(SpawnBoss6)
+08/06/24 09:21:39: Attempting to execute action: SpawnBoss6
+08/06/24 09:21:39: Action exists in actionDetails: 1
+08/06/24 09:21:39: Action exists in actionGroups: 0
+08/06/24 09:21:39: Action exists in actionConditions: 0
+08/06/24 09:21:39: Executing action: SpawnBoss6
+08/06/24 09:21:39: Raw command: Target.spawn_boss([6.0,-500.0,0.0])
+08/06/24 09:21:39: Cleaned command: Target.spawn_boss([6.0,-500.0,0.0])
+08/06/24 09:21:39: Parsing arguments: [6.0,-500.0,0.0]
+08/06/24 09:21:39: Parsed arguments: ["[6.0,-500.0,0.0]"]
+08/06/24 09:21:39: Command Name: spawn_boss
+08/06/24 09:21:39: Target Object: Target
+08/06/24 09:21:39: Parameters: ["[6.0,-500.0,0.0]"]
+08/06/24 09:21:39: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:39: Added boss reference: Dracoon6 -> obj_boss
+08/06/24 09:21:39: Boss spawned successfully: 6 at position (1417.32, 1260.62) relative to Target
+08/06/24 09:21:39: Raw command: execute_action(SpawnBoss7)
+08/06/24 09:21:39: Cleaned command: execute_action(SpawnBoss7)
+08/06/24 09:21:39: Attempting to execute action: SpawnBoss7
+08/06/24 09:21:39: Action exists in actionDetails: 1
+08/06/24 09:21:39: Action exists in actionGroups: 0
+08/06/24 09:21:39: Action exists in actionConditions: 0
+08/06/24 09:21:39: Executing action: SpawnBoss7
+08/06/24 09:21:39: Raw command: Target.spawn_boss([7.0,-353.0,-353.0])
+08/06/24 09:21:39: Cleaned command: Target.spawn_boss([7.0,-353.0,-353.0])
+08/06/24 09:21:39: Parsing arguments: [7.0,-353.0,-353.0]
+08/06/24 09:21:39: Parsed arguments: ["[7.0,-353.0,-353.0]"]
+08/06/24 09:21:39: Command Name: spawn_boss
+08/06/24 09:21:39: Target Object: Target
+08/06/24 09:21:39: Parameters: ["[7.0,-353.0,-353.0]"]
+08/06/24 09:21:40: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:40: Added boss reference: KidBoo7 -> obj_boss
+08/06/24 09:21:40: Boss spawned successfully: 7 at position (1564.32, 907.62) relative to Target
+08/06/24 09:21:40: Raw command: execute_action(SpawnBoss8)
+08/06/24 09:21:40: Cleaned command: execute_action(SpawnBoss8)
+08/06/24 09:21:40: Attempting to execute action: SpawnBoss8
+08/06/24 09:21:40: Action exists in actionDetails: 1
+08/06/24 09:21:40: Action exists in actionGroups: 0
+08/06/24 09:21:40: Action exists in actionConditions: 0
+08/06/24 09:21:40: Executing action: SpawnBoss8
+08/06/24 09:21:40: Raw command: Target.spawn_boss([8.0,0.0,-400.0])
+08/06/24 09:21:40: Cleaned command: Target.spawn_boss([8.0,0.0,-400.0])
+08/06/24 09:21:40: Parsing arguments: [8.0,0.0,-400.0]
+08/06/24 09:21:40: Parsed arguments: ["[8.0,0.0,-400.0]"]
+08/06/24 09:21:40: Command Name: spawn_boss
+08/06/24 09:21:40: Target Object: Target
+08/06/24 09:21:40: Parameters: ["[8.0,0.0,-400.0]"]
+08/06/24 09:21:40: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:40: Added boss reference: LilSheep8 -> obj_boss
+08/06/24 09:21:40: Boss spawned successfully: 8 at position (1780.34, 951.48) relative to Target
+08/06/24 09:21:40: Raw command: execute_action(SpawnBoss9)
+08/06/24 09:21:40: Cleaned command: execute_action(SpawnBoss9)
+08/06/24 09:21:40: Attempting to execute action: SpawnBoss9
+08/06/24 09:21:40: Action exists in actionDetails: 1
+08/06/24 09:21:40: Action exists in actionGroups: 0
+08/06/24 09:21:40: Action exists in actionConditions: 0
+08/06/24 09:21:40: Executing action: SpawnBoss9
+08/06/24 09:21:40: Raw command: Target.spawn_boss([9.0,283.0,-283.0])
+08/06/24 09:21:40: Cleaned command: Target.spawn_boss([9.0,283.0,-283.0])
+08/06/24 09:21:40: Parsing arguments: [9.0,283.0,-283.0]
+08/06/24 09:21:40: Parsed arguments: ["[9.0,283.0,-283.0]"]
+08/06/24 09:21:40: Command Name: spawn_boss
+08/06/24 09:21:40: Target Object: Target
+08/06/24 09:21:40: Parameters: ["[9.0,283.0,-283.0]"]
+08/06/24 09:21:40: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:40: Added boss reference: Emunem9 -> obj_boss
+08/06/24 09:21:40: Boss spawned successfully: 9 at position (2137.82, 977.36) relative to Target
+08/06/24 09:21:40: Raw command: execute_action(SpawnBoss10)
+08/06/24 09:21:40: Cleaned command: execute_action(SpawnBoss10)
+08/06/24 09:21:40: Attempting to execute action: SpawnBoss10
+08/06/24 09:21:40: Action exists in actionDetails: 1
+08/06/24 09:21:40: Action exists in actionGroups: 0
+08/06/24 09:21:40: Action exists in actionConditions: 0
+08/06/24 09:21:40: Executing action: SpawnBoss10
+08/06/24 09:21:40: Raw command: Target.spawn_boss([10.0,400.0,0.0])
+08/06/24 09:21:40: Cleaned command: Target.spawn_boss([10.0,400.0,0.0])
+08/06/24 09:21:40: Parsing arguments: [10.0,400.0,0.0]
+08/06/24 09:21:40: Parsed arguments: ["[10.0,400.0,0.0]"]
+08/06/24 09:21:40: Command Name: spawn_boss
+08/06/24 09:21:40: Target Object: Target
+08/06/24 09:21:40: Parameters: ["[10.0,400.0,0.0]"]
+08/06/24 09:21:40: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:40: Added boss reference: LilHump10 -> obj_boss
+08/06/24 09:21:40: Boss spawned successfully: 10 at position (2317.32, 1260.62) relative to Target
+08/06/24 09:21:40: Raw command: execute_action(SpawnBoss11)
+08/06/24 09:21:40: Cleaned command: execute_action(SpawnBoss11)
+08/06/24 09:21:40: Attempting to execute action: SpawnBoss11
+08/06/24 09:21:40: Action exists in actionDetails: 1
+08/06/24 09:21:40: Action exists in actionGroups: 0
+08/06/24 09:21:40: Action exists in actionConditions: 0
+08/06/24 09:21:40: Executing action: SpawnBoss11
+08/06/24 09:21:40: Raw command: Target.spawn_boss([11.0,283.0,283.0])
+08/06/24 09:21:40: Cleaned command: Target.spawn_boss([11.0,283.0,283.0])
+08/06/24 09:21:40: Parsing arguments: [11.0,283.0,283.0]
+08/06/24 09:21:40: Parsed arguments: ["[11.0,283.0,283.0]"]
+08/06/24 09:21:40: Command Name: spawn_boss
+08/06/24 09:21:40: Target Object: Target
+08/06/24 09:21:40: Parameters: ["[11.0,283.0,283.0]"]
+08/06/24 09:21:40: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:40: Added boss reference: BeeYonce11 -> obj_boss
+08/06/24 09:21:40: Boss spawned successfully: 11 at position (2413.87, 1637.48) relative to Target
+08/06/24 09:21:40: Raw command: execute_action(SpawnBoss12)
+08/06/24 09:21:40: Cleaned command: execute_action(SpawnBoss12)
+08/06/24 09:21:40: Attempting to execute action: SpawnBoss12
+08/06/24 09:21:41: Action exists in actionDetails: 1
+08/06/24 09:21:41: Action exists in actionGroups: 0
+08/06/24 09:21:41: Action exists in actionConditions: 0
+08/06/24 09:21:41: Executing action: SpawnBoss12
+08/06/24 09:21:41: Raw command: Target.spawn_boss([12.0,0.0,400.0])
+08/06/24 09:21:41: Cleaned command: Target.spawn_boss([12.0,0.0,400.0])
+08/06/24 09:21:41: Parsing arguments: [12.0,0.0,400.0]
+08/06/24 09:21:41: Parsed arguments: ["[12.0,0.0,400.0]"]
+08/06/24 09:21:41: Command Name: spawn_boss
+08/06/24 09:21:41: Target Object: Target
+08/06/24 09:21:41: Parameters: ["[12.0,0.0,400.0]"]
+08/06/24 09:21:41: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:41: Added boss reference: KimChameleon12 -> obj_boss
+08/06/24 09:21:41: Boss spawned successfully: 12 at position (1951.89, 1980.82) relative to Target
+08/06/24 09:21:41: Raw command: execute_action(SpawnBoss13)
+08/06/24 09:21:41: Cleaned command: execute_action(SpawnBoss13)
+08/06/24 09:21:41: Attempting to execute action: SpawnBoss13
+08/06/24 09:21:41: Action exists in actionDetails: 1
+08/06/24 09:21:41: Action exists in actionGroups: 0
+08/06/24 09:21:41: Action exists in actionConditions: 0
+08/06/24 09:21:41: Executing action: SpawnBoss13
+08/06/24 09:21:41: Raw command: Target.spawn_boss([13.0,-283.0,283.0])
+08/06/24 09:21:41: Cleaned command: Target.spawn_boss([13.0,-283.0,283.0])
+08/06/24 09:21:41: Parsing arguments: [13.0,-283.0,283.0]
+08/06/24 09:21:41: Parsed arguments: ["[13.0,-283.0,283.0]"]
+08/06/24 09:21:41: Command Name: spawn_boss
+08/06/24 09:21:41: Target Object: Target
+08/06/24 09:21:41: Parameters: ["[13.0,-283.0,283.0]"]
+08/06/24 09:21:41: Invalid parameters for spawn_boss command. Expected an array.
+08/06/24 09:21:41: Added boss reference: TaylorSwan13 -> obj_boss
+08/06/24 09:21:41: Boss spawned successfully: 13 at position (1570.88, 1438.40) relative to Target
+08/06/24 09:22:02: Raw command: level_up(1000)
+08/06/24 09:22:02: Cleaned command: level_up(1000)
+08/06/24 09:22:02: Parsing arguments: 1000
+08/06/24 09:22:02: Parsed arguments: ["1000"]
+08/06/24 09:22:02: Command Name: level_up
+08/06/24 09:22:02: Target Object: yeancat
+08/06/24 09:22:02: Parameters: ["1000"]
+08/06/24 09:22:02: Level up initiated with goal: 1000
+08/06/24 09:22:11: Raw command: list_objects
+08/06/24 09:22:11: Cleaned command: list_objects
+08/06/24 09:22:11: Command Name: list_objects
+08/06/24 09:22:11: Target Object: yeancat
+08/06/24 09:22:11: Parameters: []
+08/06/24 09:22:11: Available object references:
+Player: yeancat
+Target: yeancat
+Center: Instance
+
+Bosses and NPCs:
+LilSheep8: obj_boss (Boss) at (1661.98, 1263.88)
+Dracoon6: obj_boss (Boss) at (1627.88, 1307.63)
+BeeYonce11: obj_boss (Boss) at (1870.97, 1299.80)
+LilHump10: obj_boss (Boss) at (1816.16, 1179.27)
+Emunem9: obj_boss (Boss) at (1689.95, 1193.06)
+KimChameleon12: obj_boss (Boss) at (1768.71, 1374.09)
+Rehino3: obj_boss (Boss) at (1742.19, 1308.07)
+KidBoo7: obj_boss (Boss) at (1633.24, 1239.36)
+22Salamander4: obj_boss (Boss) at (1703.36, 1342.44)
+SquidCudi5: obj_boss (Boss) at (1667.61, 1359.61)
+TravisSquawk2: obj_boss (Boss) at (1750.24, 1164.24)
+
+08/06/24 09:22:22: Raw command: show_lines(13)
+08/06/24 09:22:22: Cleaned command: show_lines(13)
+08/06/24 09:22:22: Parsing arguments: 13
+08/06/24 09:22:22: Parsed arguments: ["13"]
+08/06/24 09:22:22: Command Name: show_lines
+08/06/24 09:22:22: Target Object: yeancat
+08/06/24 09:22:22: Parameters: ["13"]
+08/06/24 09:22:22: Display set to show 13 lines.
+08/06/24 09:23:12: Raw command: LilSheep8.camera_target(0,0)
+08/06/24 09:23:12: Cleaned command: LilSheep8.camera_target(0,0)
+08/06/24 09:23:12: Parsing arguments: 0,0
+08/06/24 09:23:12: Parsed arguments: ["0","0"]
+08/06/24 09:23:12: Command Name: camera_target
+08/06/24 09:23:12: Target Object: LilSheep8
+08/06/24 09:23:12: Parameters: ["0","0"]
+08/06/24 09:23:12: Camera target set to obj_boss with offset (0, 0)
+08/06/24 09:23:18: Saved Game

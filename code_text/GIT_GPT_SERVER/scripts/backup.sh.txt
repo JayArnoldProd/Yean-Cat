@@ -13,13 +13,13 @@ backup_directory() {
     echo "Backing up files from $source_dir to $backup_file..."
     for pattern in "${patterns[@]}"; do
         find "$source_dir" -type f -name "$pattern" | while read -r file; do
-            echo "== Begin: ${file##*/}" >> "$backup_file"
-            # Handle binary files properly to prevent corruption
-            if [[ $file == *.pyc ]]; then
-                xxd "$file" >> "$backup_file"
-            else
-                cat "$file" >> "$backup_file"
+            # Skip files larger than 1MB
+            if [ $(stat -f%z "$file") -gt 1048576 ]; then
+                echo "Skipping large file: $file"
+                continue
             fi
+            echo "== Begin: ${file##*/}" >> "$backup_file"
+            cat "$file" >> "$backup_file"
             echo -e "\n== End: ${file##*/}\n" >> "$backup_file"
         done
     done
@@ -54,6 +54,49 @@ backup_directory "code_text" "code_backups/metadata_backup.txt" "command_list.tx
 # Explicitly include specific files that may be missed
 backup_directory "code_text" "code_backups/documentation_backup.txt" "Game_Command_Format_Documentation.txt.txt" "Terminal_Commands_Documentation.txt.txt"
 
+# Create a focused ui_backup.txt for YEAN_UI files
+ui_backup_file="code_backups/ui_backup.txt"
+: > "$ui_backup_file"
+echo "Creating focused UI backup in $ui_backup_file..."
+ui_files=(
+    "code_text/YEAN_UI/examples/example_apple_metal/AppViewController.h.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/AppViewController.mm.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/ScriptExecutor.h.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/ScriptExecutor.mm.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/UIHelpers.h.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/UIHelpers.mm.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/CommandExecutor.h.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/CommandExecutor.mm.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/CommandInputView.h.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/CommandInputView.mm.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/OutputDisplayView.h.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/OutputDisplayView.mm.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/main.mm.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/README.md.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/iOS/Info-iOS.plist.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/iOS/LaunchScreen.storyboard.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/macOS/Info-macOS.plist.txt"
+    "code_text/YEAN_UI/examples/example_apple_metal/macOS/MainMenu.storyboard.txt"
+)
+
+echo "Debugging: Listing contents of code_text/YEAN_UI/examples/example_apple_metal/"
+ls -l code_text/YEAN_UI/examples/example_apple_metal/
+
+for file in "${ui_files[@]}"; do
+    if [ -f "$file" ]; then
+        echo "Processing file: $file"
+        file_size=$(stat -f%z "$file")
+        echo "File size: $file_size bytes"
+        echo "== Begin: ${file##*/}" >> "$ui_backup_file"
+        cat "$file" >> "$ui_backup_file"
+        echo -e "\n== End: ${file##*/}\n" >> "$ui_backup_file"
+    else
+        echo "File not found: $file"
+    fi
+done
+
+echo "UI backup completed. Final size of $ui_backup_file: $(stat -f%z "$ui_backup_file") bytes"
+
 # Append Last_Words files to the documentation_backup.txt
 LAST_WORDS_DIR="Last_Words"
 documentation_backup="code_backups/documentation_backup.txt"
@@ -83,19 +126,4 @@ else
     echo "README.md does not exist. Skipping."
 fi
 
-# Debugging: Check if the specific files exist in the code_text directory
-echo "Checking for specific files in the code_text directory..."
-if [ -f "code_text/Game_Command_Format_Documentation.txt.txt" ]; then
-    echo "Game_Command_Format_Documentation.txt.txt exists."
-else
-    echo "Game_Command_Format_Documentation.txt.txt does not exist."
-fi
-
-if [ -f "code_text/Terminal_Commands_Documentation.txt.txt" ]; then
-    echo "Terminal_Commands_Documentation.txt.txt exists."
-else
-    echo "Terminal_Commands_Documentation.txt.txt does not exist."
-fi
-
-echo "Ensuring all files in code_text have the correct extensions..."
 echo "Backup script completed successfully!"

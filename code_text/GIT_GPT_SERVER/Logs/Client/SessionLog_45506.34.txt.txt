@@ -1,0 +1,719 @@
+08/02/24 03:07:47: Loaded action: SaveGameNow
+08/02/24 03:07:47: Loaded action: GotoKingsKingdom
+08/02/24 03:07:48: Loaded action: NotHighLevelOrNotFullHealth
+08/02/24 03:07:48: Loaded action: EnterPortal
+08/02/24 03:07:48: Loaded action: PurchaseArtifacts
+08/02/24 03:07:48: Loaded action: SignTreaty
+08/02/24 03:07:48: Loaded action: BattleOutcome
+08/02/24 03:07:48: Loaded action: VisitMarket
+08/02/24 03:07:48: Loaded action: GotoDivineDomain
+08/02/24 03:07:48: Loaded action: GotoTheEndonda
+08/02/24 03:07:48: Loaded action: GotoUniverseCity
+08/02/24 03:07:48: Loaded action: GotoLandOfLucy
+08/02/24 03:07:48: Loaded action: GotoPlaceOfPablo
+08/02/24 03:07:48: Loaded action: InvestigateSignals
+08/02/24 03:07:48: Loaded action: OfferTrade
+08/02/24 03:07:48: Loaded action: DisableEnemySpawns
+08/02/24 03:07:48: Loaded action: StartBattle
+08/02/24 03:07:48: Loaded action: SpawnBoss4
+08/02/24 03:07:48: Loaded action: GotoTheIcyHeart
+08/02/24 03:07:48: Loaded action: EngageCombat
+08/02/24 03:07:48: Loaded action: GotoGhostTown
+08/02/24 03:07:48: Loaded action: SpawnBoss0
+08/02/24 03:07:48: Loaded action: SpawnBoss13
+08/02/24 03:07:48: Loaded action: StartExploration
+08/02/24 03:07:48: Loaded action: SpawnBoss8
+08/02/24 03:07:48: Loaded action: SpawnBoss6
+08/02/24 03:07:48: Loaded action: SetLevelFive
+08/02/24 03:07:48: Loaded action: LevelUpThree
+08/02/24 03:07:48: Loaded action: LevelUpOnce
+08/02/24 03:07:48: Loaded action: GotoTheGoldMines
+08/02/24 03:07:48: Loaded action: SpawnBoss11
+08/02/24 03:07:48: Loaded action: StartPeaceMission
+08/02/24 03:07:48: Loaded action: DiplomaticChoice
+08/02/24 03:07:48: Loaded action: TreatyOutcome
+08/02/24 03:07:48: Loaded action: ExplorationChoice
+08/02/24 03:07:49: Loaded action: BattleChoice
+08/02/24 03:07:49: Loaded action: PortalOutcome
+08/02/24 03:07:49: Loaded action: SpaceAdventureStart
+08/02/24 03:07:49: Loaded action: EnableEnemySpawns
+08/02/24 03:07:49: Loaded action: GotoVulturesValley
+08/02/24 03:07:49: Loaded action: GotoEarth
+08/02/24 03:07:49: Loaded action: SpawnBoss1
+08/02/24 03:07:49: Loaded action: GotoStormySands
+08/02/24 03:07:49: Loaded action: SpawnBoss12
+08/02/24 03:07:49: Loaded action: GotoFantasia
+08/02/24 03:07:49: Loaded action: SpawnBoss5
+08/02/24 03:07:49: Loaded action: SpawnBoss10
+08/02/24 03:07:49: Loaded action: GotoYetopia
+08/02/24 03:07:49: Loaded action: SpawnBoss3
+08/02/24 03:07:49: Loaded action: ArtifactOutcome
+08/02/24 03:07:49: Loaded action: HighLevelFullHealth
+08/02/24 03:07:49: Loaded action: SpawnBoss7
+08/02/24 03:07:49: Loaded action: SpawnBoss9
+08/02/24 03:07:49: Actions and action groups loaded successfully from Actions.txt.
+08/02/24 03:07:49: Loaded condition: IsLevelHighAndHealthFull
+08/02/24 03:07:49: Loaded condition: IsHealthFull
+08/02/24 03:07:49: Loaded condition: IsLevelHigh
+08/02/24 03:07:49: Conditions loaded successfully from Conditions.txt.
+08/02/24 03:07:49: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:07:49: Action conditions loaded successfully from ActionConditions.txt.
+08/02/24 03:07:49: Loaded action group: BattleSequence
+08/02/24 03:07:49: Loaded action group: SpawnBossCircle
+08/02/24 03:07:49: Loaded action group: ArtifactMystery
+08/02/24 03:07:49: Loaded action group: PeacefulMission
+08/02/24 03:07:49: Loaded action group: PortalAdventure
+08/02/24 03:07:49: Loaded action group: SpaceExploration
+08/02/24 03:07:49: Loaded action group: EpicBattle
+08/02/24 03:07:49: Loaded action group: PeaceTreaty
+08/02/24 03:07:49: Action groups loaded successfully from ActionGroups.txt.
+08/02/24 03:07:49: [Client] Failed to reconnect to server. Will try again...
+08/02/24 03:08:06: Raw command: execute_action(CheckLevelAndHealth)
+08/02/24 03:08:06: Cleaned command: execute_action(CheckLevelAndHealth)
+08/02/24 03:08:06: Attempting to execute action: CheckLevelAndHealth
+08/02/24 03:08:06: Action exists in actionDetails: 0
+08/02/24 03:08:06: Action exists in actionGroups: 0
+08/02/24 03:08:06: Action exists in actionConditions: 1
+08/02/24 03:08:06: Executing action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:08:06: Executing action condition with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:08:06: Evaluating condition: IsLevelHighAndHealthFull
+08/02/24 03:08:06: Condition data: {"rightOperand":"IsHealthFull","operator":"and","leftOperand":"IsLevelHigh"}
+08/02/24 03:08:06: Evaluating condition: IsLevelHigh
+08/02/24 03:08:06: Condition data: {"rightOperand":"10","operator":">=","leftOperand":"Level"}
+08/02/24 03:08:06: Left value: 1, Right value: 10
+08/02/24 03:08:06: Comparing: 1 >= 10
+08/02/24 03:08:06: Evaluating condition: IsHealthFull
+08/02/24 03:08:06: Condition data: {"rightOperand":"50","operator":">=","leftOperand":"Health"}
+08/02/24 03:08:06: Left value: 82, Right value: 50
+08/02/24 03:08:06: Comparing: 82 >= 50
+08/02/24 03:08:06: AND condition: 0 AND 1
+08/02/24 03:08:06: Action condition result: 0
+08/02/24 03:08:06: Executing false action: NotHighLevelOrNotFullHealth
+08/02/24 03:08:07: Raw command: execute_action(NotHighLevelOrNotFullHealth)
+08/02/24 03:08:07: Cleaned command: execute_action(NotHighLevelOrNotFullHealth)
+08/02/24 03:08:07: Attempting to execute action: NotHighLevelOrNotFullHealth
+08/02/24 03:08:07: Action exists in actionDetails: 1
+08/02/24 03:08:07: Action exists in actionGroups: 0
+08/02/24 03:08:07: Action exists in actionConditions: 0
+08/02/24 03:08:07: Executing action: NotHighLevelOrNotFullHealth
+08/02/24 03:08:07: Creating chat bubble: "Either your level is not high enough or your health is not full.", Owner: Target, Choices: []
+08/02/24 03:08:07: Chat Bubble Created. Following 'yeancat' with text: 'Either your level is not high enough or your
+health is not full.'. Number of choices: 0
+08/02/24 03:08:14: Raw command: level_up(20)
+08/02/24 03:08:14: Cleaned command: level_up(20)
+08/02/24 03:08:14: Parsing arguments: 20
+08/02/24 03:08:14: Parsed arguments: ["20"]
+08/02/24 03:08:15: Command Name: level_up
+08/02/24 03:08:15: Target Object: yeancat
+08/02/24 03:08:15: Parameters: ["20"]
+08/02/24 03:08:15: Level up initiated with goal: 20
+08/02/24 03:08:22: Raw command: execute_action(CheckLevelAndHealth)
+08/02/24 03:08:22: Cleaned command: execute_action(CheckLevelAndHealth)
+08/02/24 03:08:22: Attempting to execute action: CheckLevelAndHealth
+08/02/24 03:08:22: Action exists in actionDetails: 0
+08/02/24 03:08:22: Action exists in actionGroups: 0
+08/02/24 03:08:22: Action exists in actionConditions: 1
+08/02/24 03:08:22: Executing action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:08:22: Executing action condition with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:08:22: Evaluating condition: IsLevelHighAndHealthFull
+08/02/24 03:08:22: Condition data: {"rightOperand":"IsHealthFull","operator":"and","leftOperand":"IsLevelHigh"}
+08/02/24 03:08:22: Evaluating condition: IsLevelHigh
+08/02/24 03:08:22: Condition data: {"rightOperand":"10","operator":">=","leftOperand":"Level"}
+08/02/24 03:08:22: Left value: 21, Right value: 10
+08/02/24 03:08:22: Comparing: 21 >= 10
+08/02/24 03:08:22: Evaluating condition: IsHealthFull
+08/02/24 03:08:22: Condition data: {"rightOperand":"50","operator":">=","leftOperand":"Health"}
+08/02/24 03:08:22: Left value: 100, Right value: 50
+08/02/24 03:08:22: Comparing: 100 >= 50
+08/02/24 03:08:22: AND condition: 1 AND 1
+08/02/24 03:08:22: Action condition result: 1
+08/02/24 03:08:22: Executing true action: HighLevelFullHealth
+08/02/24 03:08:22: Raw command: execute_action(HighLevelFullHealth)
+08/02/24 03:08:22: Cleaned command: execute_action(HighLevelFullHealth)
+08/02/24 03:08:22: Attempting to execute action: HighLevelFullHealth
+08/02/24 03:08:22: Action exists in actionDetails: 1
+08/02/24 03:08:22: Action exists in actionGroups: 0
+08/02/24 03:08:22: Action exists in actionConditions: 0
+08/02/24 03:08:22: Executing action: HighLevelFullHealth
+08/02/24 03:08:22: Creating chat bubble: "Your level is high and your health is full!", Owner: Target, Choices: []
+08/02/24 03:08:22: Chat Bubble Created. Following 'yeancat' with text: 'Your level is high and your health is full!'. Number of choices: 0
+08/02/24 03:08:26: [Jay Arnold] YAY
+08/02/24 03:08:26: Creating chat bubble: " YAY", Owner: yeancat, Choices: []
+08/02/24 03:08:26: Chat Bubble Created. Following 'yeancat' with text: 'YAY'. Number of choices: 0
+08/02/24 03:08:32: Raw command: execute_action(SpaceAdventureStart)
+08/02/24 03:08:32: Cleaned command: execute_action(SpaceAdventureStart)
+08/02/24 03:08:32: Attempting to execute action: SpaceAdventureStart
+08/02/24 03:08:32: Action exists in actionDetails: 1
+08/02/24 03:08:32: Action exists in actionGroups: 0
+08/02/24 03:08:32: Action exists in actionConditions: 0
+08/02/24 03:08:32: Executing action: SpaceAdventureStart
+08/02/24 03:08:32: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/02/24 03:08:32: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/02/24 03:08:36: Attempting to execute action: StartExploration
+08/02/24 03:08:36: Action exists in actionDetails: 1
+08/02/24 03:08:36: Action exists in actionGroups: 0
+08/02/24 03:08:36: Action exists in actionConditions: 0
+08/02/24 03:08:36: Executing action: StartExploration
+08/02/24 03:08:36: Attempting to execute action: SpaceExploration
+08/02/24 03:08:36: Action exists in actionDetails: 0
+08/02/24 03:08:36: Action exists in actionGroups: 1
+08/02/24 03:08:37: Action exists in actionConditions: 0
+08/02/24 03:08:37: Executing action group: SpaceExploration
+08/02/24 03:08:37: Attempting to execute action: GotoUniverseCity
+08/02/24 03:08:37: Action exists in actionDetails: 1
+08/02/24 03:08:37: Action exists in actionGroups: 0
+08/02/24 03:08:37: Action exists in actionConditions: 0
+08/02/24 03:08:37: Executing action: GotoUniverseCity
+08/02/24 03:08:37: Raw command: Target.goto_planet(["Universe City"])
+08/02/24 03:08:37: Cleaned command: Target.goto_planet(["Universe City"])
+08/02/24 03:08:37: Parsing arguments: ["Universe City"]
+08/02/24 03:08:37: Parsed arguments: ["[\"Universe City\"]"]
+08/02/24 03:08:37: Command Name: goto_planet
+08/02/24 03:08:37: Target Object: Target
+08/02/24 03:08:37: Parameters: ["[\"Universe City\"]"]
+08/02/24 03:08:37: Teleported to Universe City.
+08/02/24 03:08:37: Attempting to execute action: ExplorationChoice
+08/02/24 03:08:37: Action exists in actionDetails: 1
+08/02/24 03:08:37: Action exists in actionGroups: 0
+08/02/24 03:08:37: Action exists in actionConditions: 0
+08/02/24 03:08:37: Executing action: ExplorationChoice
+08/02/24 03:08:37: Creating chat bubble: "You've arrived at Universe City. What's your next move?", Owner: Target, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+08/02/24 03:08:37: Owner object not found, using yeancat
+08/02/24 03:08:37: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+08/02/24 03:08:39: Attempting to execute action: InvestigateSignals
+08/02/24 03:08:39: Action exists in actionDetails: 1
+08/02/24 03:08:39: Action exists in actionGroups: 0
+08/02/24 03:08:39: Action exists in actionConditions: 0
+08/02/24 03:08:39: Executing action: InvestigateSignals
+08/02/24 03:08:39: Creating chat bubble: "The signals lead you to a hidden portal. Do you enter?", Owner: Target, Choices: [["Enter the portal","EnterPortal"],["Report back to HQ","ReportToHQ"]]
+08/02/24 03:08:39: Owner object not found, using yeancat
+08/02/24 03:08:39: Chat Bubble Created. Following 'yeancat' with text: 'The signals lead you to a hidden portal. Do you
+enter?'. Number of choices: 2
+08/02/24 03:08:40: Attempting to execute action: EnterPortal
+08/02/24 03:08:40: Action exists in actionDetails: 1
+08/02/24 03:08:40: Action exists in actionGroups: 0
+08/02/24 03:08:40: Action exists in actionConditions: 0
+08/02/24 03:08:40: Executing action: EnterPortal
+08/02/24 03:08:40: Attempting to execute action: PortalAdventure
+08/02/24 03:08:40: Action exists in actionDetails: 0
+08/02/24 03:08:40: Action exists in actionGroups: 1
+08/02/24 03:08:40: Action exists in actionConditions: 0
+08/02/24 03:08:40: Executing action group: PortalAdventure
+08/02/24 03:08:40: Attempting to execute action: GotoTheEndonda
+08/02/24 03:08:40: Action exists in actionDetails: 1
+08/02/24 03:08:40: Action exists in actionGroups: 0
+08/02/24 03:08:40: Action exists in actionConditions: 0
+08/02/24 03:08:40: Executing action: GotoTheEndonda
+08/02/24 03:08:40: Raw command: Target.goto_planet(["The Endonda"])
+08/02/24 03:08:40: Cleaned command: Target.goto_planet(["The Endonda"])
+08/02/24 03:08:40: Parsing arguments: ["The Endonda"]
+08/02/24 03:08:40: Parsed arguments: ["[\"The Endonda\"]"]
+08/02/24 03:08:40: Command Name: goto_planet
+08/02/24 03:08:40: Target Object: Target
+08/02/24 03:08:40: Parameters: ["[\"The Endonda\"]"]
+08/02/24 03:08:40: Teleported to The Endonda.
+08/02/24 03:08:40: Attempting to execute action: SetLevelFive
+08/02/24 03:08:40: Action exists in actionDetails: 1
+08/02/24 03:08:40: Action exists in actionGroups: 0
+08/02/24 03:08:40: Action exists in actionConditions: 0
+08/02/24 03:08:40: Executing action: SetLevelFive
+08/02/24 03:08:40: Raw command: Target.set_variable(["Level","5"])
+08/02/24 03:08:40: Cleaned command: Target.set_variable(["Level","5"])
+08/02/24 03:08:40: Parsing arguments: ["Level","5"]
+08/02/24 03:08:40: Parsed arguments: ["[\"Level\",\"5\"]"]
+08/02/24 03:08:40: Command Name: set_variable
+08/02/24 03:08:41: Target Object: Target
+08/02/24 03:08:41: Parameters: ["[\"Level\",\"5\"]"]
+08/02/24 03:08:41: Level set to 5
+08/02/24 03:08:41: Attempting to execute action: PortalOutcome
+08/02/24 03:08:41: Action exists in actionDetails: 1
+08/02/24 03:08:41: Action exists in actionGroups: 0
+08/02/24 03:08:41: Action exists in actionConditions: 0
+08/02/24 03:08:41: Executing action: PortalOutcome
+08/02/24 03:08:41: Creating chat bubble: "You've discovered an ancient civilization! What's your approach?", Owner: Target, Choices: [["Study their technology","StudyTech"],["Establish communication","Communicate"],["Return home with findings","ReturnWithFindings"]]
+08/02/24 03:08:41: Owner object not found, using yeancat
+08/02/24 03:08:41: Chat Bubble Created. Following 'yeancat' with text: 'You've discovered an ancient civilization! What's
+your approach?'. Number of choices: 3
+08/02/24 03:08:42: Attempting to execute action: ReturnWithFindings
+08/02/24 03:08:42: Action exists in actionDetails: 0
+08/02/24 03:08:42: Action exists in actionGroups: 0
+08/02/24 03:08:42: Action exists in actionConditions: 0
+08/02/24 03:08:42: Action/group/condition 'ReturnWithFindings' not found. Executing default action.
+08/02/24 03:08:42: Creating chat bubble: "Action 'ReturnWithFindings' not found.", Owner: Target, Choices: []
+08/02/24 03:08:42: Owner object not found, using yeancat
+08/02/24 03:08:42: Chat Bubble Created. Following 'yeancat' with text: 'Action 'ReturnWithFindings' not found.'. Number of choices: 0
+08/02/24 03:11:18: Loaded action: SaveGameNow
+08/02/24 03:11:18: Loaded action: GotoKingsKingdom
+08/02/24 03:11:18: Loaded action: NotHighLevelOrNotFullHealth
+08/02/24 03:11:18: Loaded action: EnterPortal
+08/02/24 03:11:18: Loaded action: PurchaseArtifacts
+08/02/24 03:11:18: Loaded action: SignTreaty
+08/02/24 03:11:18: Loaded action: BattleOutcome
+08/02/24 03:11:18: Loaded action: VisitMarket
+08/02/24 03:11:18: Loaded action: GotoDivineDomain
+08/02/24 03:11:18: Loaded action: GotoTheEndonda
+08/02/24 03:11:18: Loaded action: GotoUniverseCity
+08/02/24 03:11:18: Loaded action: GotoLandOfLucy
+08/02/24 03:11:18: Loaded action: GotoPlaceOfPablo
+08/02/24 03:11:18: Loaded action: InvestigateSignals
+08/02/24 03:11:18: Loaded action: OfferTrade
+08/02/24 03:11:18: Loaded action: DisableEnemySpawns
+08/02/24 03:11:18: Loaded action: StartBattle
+08/02/24 03:11:18: Loaded action: SpawnBoss4
+08/02/24 03:11:18: Loaded action: GotoTheIcyHeart
+08/02/24 03:11:18: Loaded action: EngageCombat
+08/02/24 03:11:18: Loaded action: GotoGhostTown
+08/02/24 03:11:18: Loaded action: SpawnBoss0
+08/02/24 03:11:18: Loaded action: SpawnBoss13
+08/02/24 03:11:18: Loaded action: StartExploration
+08/02/24 03:11:18: Loaded action: SpawnBoss8
+08/02/24 03:11:18: Loaded action: SpawnBoss6
+08/02/24 03:11:18: Loaded action: SetLevelFive
+08/02/24 03:11:19: Loaded action: LevelUpThree
+08/02/24 03:11:19: Loaded action: LevelUpOnce
+08/02/24 03:11:19: Loaded action: GotoTheGoldMines
+08/02/24 03:11:19: Loaded action: SpawnBoss11
+08/02/24 03:11:19: Loaded action: StartPeaceMission
+08/02/24 03:11:19: Loaded action: DiplomaticChoice
+08/02/24 03:11:19: Loaded action: TreatyOutcome
+08/02/24 03:11:19: Loaded action: ExplorationChoice
+08/02/24 03:11:19: Loaded action: BattleChoice
+08/02/24 03:11:19: Loaded action: PortalOutcome
+08/02/24 03:11:19: Loaded action: SpaceAdventureStart
+08/02/24 03:11:19: Loaded action: EnableEnemySpawns
+08/02/24 03:11:19: Loaded action: GotoVulturesValley
+08/02/24 03:11:19: Loaded action: GotoEarth
+08/02/24 03:11:19: Loaded action: SpawnBoss1
+08/02/24 03:11:19: Loaded action: GotoStormySands
+08/02/24 03:11:19: Loaded action: SpawnBoss12
+08/02/24 03:11:19: Loaded action: GotoFantasia
+08/02/24 03:11:19: Loaded action: SpawnBoss5
+08/02/24 03:11:19: Loaded action: SpawnBoss10
+08/02/24 03:11:19: Loaded action: GotoYetopia
+08/02/24 03:11:19: Loaded action: SpawnBoss3
+08/02/24 03:11:19: Loaded action: ArtifactOutcome
+08/02/24 03:11:19: Loaded action: HighLevelFullHealth
+08/02/24 03:11:19: Loaded action: SpawnBoss7
+08/02/24 03:11:19: Loaded action: SpawnBoss9
+08/02/24 03:11:19: Actions and action groups loaded successfully from Actions.txt.
+08/02/24 03:11:19: Loaded condition: IsLevelHighAndHealthFull
+08/02/24 03:11:19: Loaded condition: IsHealthFull
+08/02/24 03:11:19: Loaded condition: IsLevelHigh
+08/02/24 03:11:19: Conditions loaded successfully from Conditions.txt.
+08/02/24 03:11:19: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:11:19: Action conditions loaded successfully from ActionConditions.txt.
+08/02/24 03:11:19: Loaded action group: BattleSequence
+08/02/24 03:11:19: Loaded action group: SpawnBossCircle
+08/02/24 03:11:19: Loaded action group: ArtifactMystery
+08/02/24 03:11:19: Loaded action group: PeacefulMission
+08/02/24 03:11:19: Loaded action group: PortalAdventure
+08/02/24 03:11:19: Loaded action group: SpaceExploration
+08/02/24 03:11:19: Loaded action group: EpicBattle
+08/02/24 03:11:19: Loaded action group: PeaceTreaty
+08/02/24 03:11:19: Action groups loaded successfully from ActionGroups.txt.
+08/02/24 03:11:19: [Client] Failed to reconnect to server. Will try again...
+08/02/24 03:11:39: Raw command: execute_action(CheckLevelAndHealth)
+08/02/24 03:11:39: Cleaned command: execute_action(CheckLevelAndHealth)
+08/02/24 03:11:39: Attempting to execute action: CheckLevelAndHealth
+08/02/24 03:11:39: Action exists in actionDetails: 0
+08/02/24 03:11:39: Action exists in actionGroups: 0
+08/02/24 03:11:40: Action exists in actionConditions: 1
+08/02/24 03:11:40: Executing action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:11:40: Executing action condition with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:11:40: Evaluating condition: IsLevelHighAndHealthFull
+08/02/24 03:11:40: Condition data: {"rightOperand":"IsHealthFull","operator":"and","leftOperand":"IsLevelHigh"}
+08/02/24 03:11:40: Evaluating condition: IsLevelHigh
+08/02/24 03:11:40: Condition data: {"rightOperand":"10","operator":">=","leftOperand":"Level"}
+08/02/24 03:11:40: Left value: 1, Right value: 10
+08/02/24 03:11:40: Comparing: 1 >= 10
+08/02/24 03:11:40: Evaluating condition: IsHealthFull
+08/02/24 03:11:40: Condition data: {"rightOperand":"50","operator":">=","leftOperand":"Health"}
+08/02/24 03:11:40: Left value: 82, Right value: 50
+08/02/24 03:11:40: Comparing: 82 >= 50
+08/02/24 03:11:40: AND condition: 0 AND 1
+08/02/24 03:11:40: Action condition result: 0
+08/02/24 03:11:40: Executing false action: NotHighLevelOrNotFullHealth
+08/02/24 03:11:40: Raw command: execute_action(NotHighLevelOrNotFullHealth)
+08/02/24 03:11:40: Cleaned command: execute_action(NotHighLevelOrNotFullHealth)
+08/02/24 03:11:40: Attempting to execute action: NotHighLevelOrNotFullHealth
+08/02/24 03:11:40: Action exists in actionDetails: 1
+08/02/24 03:11:40: Action exists in actionGroups: 0
+08/02/24 03:11:40: Action exists in actionConditions: 0
+08/02/24 03:11:40: Executing action: NotHighLevelOrNotFullHealth
+08/02/24 03:11:40: Creating chat bubble: "Either your level is not high enough or your health is not full.", Owner: Target, Choices: []
+08/02/24 03:11:40: Chat Bubble Created. Following 'yeancat' with text: 'Either your level is not high enough or your
+health is not full.'. Number of choices: 0
+08/02/24 03:11:50: Raw command: level_up(20)
+08/02/24 03:11:50: Cleaned command: level_up(20)
+08/02/24 03:11:50: Parsing arguments: 20
+08/02/24 03:11:50: Parsed arguments: ["20"]
+08/02/24 03:11:50: Command Name: level_up
+08/02/24 03:11:50: Target Object: yeancat
+08/02/24 03:11:50: Parameters: ["20"]
+08/02/24 03:11:50: Level up initiated with goal: 20
+08/02/24 03:12:18: Raw command: execute_action(SpaceAdventureStart)
+08/02/24 03:12:18: Cleaned command: execute_action(SpaceAdventureStart)
+08/02/24 03:12:18: Attempting to execute action: SpaceAdventureStart
+08/02/24 03:12:18: Action exists in actionDetails: 1
+08/02/24 03:12:18: Action exists in actionGroups: 0
+08/02/24 03:12:18: Action exists in actionConditions: 0
+08/02/24 03:12:18: Executing action: SpaceAdventureStart
+08/02/24 03:12:18: Creating chat bubble: "Welcome to the Space Adventure! Choose your path:", Owner: Target, Choices: [["Explore the universe","StartExploration"],["Engage in battle","StartBattle"],["Embark on a peace mission","StartPeaceMission"]]
+08/02/24 03:12:18: Chat Bubble Created. Following 'yeancat' with text: 'Welcome to the Space Adventure! Choose your path:'. Number of choices: 3
+08/02/24 03:12:19: Attempting to execute action: StartExploration
+08/02/24 03:12:19: Action exists in actionDetails: 1
+08/02/24 03:12:19: Action exists in actionGroups: 0
+08/02/24 03:12:19: Action exists in actionConditions: 0
+08/02/24 03:12:19: Executing action: StartExploration
+08/02/24 03:12:19: Attempting to execute action: SpaceExploration
+08/02/24 03:12:19: Action exists in actionDetails: 0
+08/02/24 03:12:19: Action exists in actionGroups: 1
+08/02/24 03:12:19: Action exists in actionConditions: 0
+08/02/24 03:12:19: Executing action group: SpaceExploration
+08/02/24 03:12:19: Attempting to execute action: GotoUniverseCity
+08/02/24 03:12:19: Action exists in actionDetails: 1
+08/02/24 03:12:19: Action exists in actionGroups: 0
+08/02/24 03:12:19: Action exists in actionConditions: 0
+08/02/24 03:12:19: Executing action: GotoUniverseCity
+08/02/24 03:12:19: Raw command: Target.goto_planet(["Universe City"])
+08/02/24 03:12:19: Cleaned command: Target.goto_planet(["Universe City"])
+08/02/24 03:12:19: Parsing arguments: ["Universe City"]
+08/02/24 03:12:19: Parsed arguments: ["[\"Universe City\"]"]
+08/02/24 03:12:19: Command Name: goto_planet
+08/02/24 03:12:19: Target Object: Target
+08/02/24 03:12:19: Parameters: ["[\"Universe City\"]"]
+08/02/24 03:12:20: Teleported to Universe City.
+08/02/24 03:12:20: Attempting to execute action: ExplorationChoice
+08/02/24 03:12:20: Action exists in actionDetails: 1
+08/02/24 03:12:20: Action exists in actionGroups: 0
+08/02/24 03:12:20: Action exists in actionConditions: 0
+08/02/24 03:12:20: Executing action: ExplorationChoice
+08/02/24 03:12:20: Creating chat bubble: "You've arrived at Universe City. What's your next move?", Owner: Target, Choices: [["Investigate strange signals","InvestigateSignals"],["Visit the local market","VisitMarket"],["Return to base","ReturnToBase"]]
+08/02/24 03:12:20: Owner object not found, using yeancat
+08/02/24 03:12:20: Chat Bubble Created. Following 'yeancat' with text: 'You've arrived at Universe City. What's your next
+move?'. Number of choices: 3
+08/02/24 03:12:22: Attempting to execute action: VisitMarket
+08/02/24 03:12:22: Action exists in actionDetails: 1
+08/02/24 03:12:22: Action exists in actionGroups: 0
+08/02/24 03:12:22: Action exists in actionConditions: 0
+08/02/24 03:12:22: Executing action: VisitMarket
+08/02/24 03:12:22: Creating chat bubble: "You find rare artifacts in the market. What do you do?", Owner: Target, Choices: [["Purchase artifacts","PurchaseArtifacts"],["Investigate seller","InvestigateSeller"]]
+08/02/24 03:12:22: Owner object not found, using yeancat
+08/02/24 03:12:22: Chat Bubble Created. Following 'yeancat' with text: 'You find rare artifacts in the market. What do you
+do?'. Number of choices: 2
+08/02/24 03:12:23: Attempting to execute action: PurchaseArtifacts
+08/02/24 03:12:23: Action exists in actionDetails: 1
+08/02/24 03:12:23: Action exists in actionGroups: 0
+08/02/24 03:12:23: Action exists in actionConditions: 0
+08/02/24 03:12:23: Executing action: PurchaseArtifacts
+08/02/24 03:12:23: Attempting to execute action: ArtifactMystery
+08/02/24 03:12:23: Action exists in actionDetails: 0
+08/02/24 03:12:23: Action exists in actionGroups: 1
+08/02/24 03:12:23: Action exists in actionConditions: 0
+08/02/24 03:12:23: Executing action group: ArtifactMystery
+08/02/24 03:12:23: Attempting to execute action: EnableEnemySpawns
+08/02/24 03:12:23: Action exists in actionDetails: 1
+08/02/24 03:12:23: Action exists in actionGroups: 0
+08/02/24 03:12:23: Action exists in actionConditions: 0
+08/02/24 03:12:23: Executing action: EnableEnemySpawns
+08/02/24 03:12:23: Raw command: Target.set_variable(["SpawnEnemies","true"])
+08/02/24 03:12:23: Cleaned command: Target.set_variable(["SpawnEnemies","true"])
+08/02/24 03:12:23: Parsing arguments: ["SpawnEnemies","true"]
+08/02/24 03:12:23: Parsed arguments: ["[\"SpawnEnemies\",\"true\"]"]
+08/02/24 03:12:23: Command Name: set_variable
+08/02/24 03:12:23: Target Object: Target
+08/02/24 03:12:23: Parameters: ["[\"SpawnEnemies\",\"true\"]"]
+08/02/24 03:12:23: SpawnEnemies set to 1
+08/02/24 03:12:23: Attempting to execute action: GotoGhostTown
+08/02/24 03:12:23: Action exists in actionDetails: 1
+08/02/24 03:12:23: Action exists in actionGroups: 0
+08/02/24 03:12:23: Action exists in actionConditions: 0
+08/02/24 03:12:23: Executing action: GotoGhostTown
+08/02/24 03:12:23: Raw command: Target.goto_planet(["Ghost Town"])
+08/02/24 03:12:23: Cleaned command: Target.goto_planet(["Ghost Town"])
+08/02/24 03:12:23: Parsing arguments: ["Ghost Town"]
+08/02/24 03:12:23: Parsed arguments: ["[\"Ghost Town\"]"]
+08/02/24 03:12:23: Command Name: goto_planet
+08/02/24 03:12:23: Target Object: Target
+08/02/24 03:12:23: Parameters: ["[\"Ghost Town\"]"]
+08/02/24 03:12:23: Teleported to Ghost Town.
+08/02/24 03:12:23: Attempting to execute action: ArtifactOutcome
+08/02/24 03:12:23: Action exists in actionDetails: 1
+08/02/24 03:12:23: Action exists in actionGroups: 0
+08/02/24 03:12:23: Action exists in actionConditions: 0
+08/02/24 03:12:23: Executing action: ArtifactOutcome
+08/02/24 03:12:23: Creating chat bubble: "The artifacts have awakened ancient guardians! Your move?", Owner: Target, Choices: [["Fight the guardians","FightGuardians"],["Try to deactivate artifacts","DeactivateArtifacts"],["Escape with artifacts","EscapeWithArtifacts"]]
+08/02/24 03:12:23: Owner object not found, using yeancat
+08/02/24 03:12:23: Chat Bubble Created. Following 'yeancat' with text: 'The artifacts have awakened ancient guardians!
+Your move?'. Number of choices: 3
+08/02/24 03:12:27: Attempting to execute action: FightGuardians
+08/02/24 03:12:27: Action exists in actionDetails: 0
+08/02/24 03:12:27: Action exists in actionGroups: 0
+08/02/24 03:12:27: Action exists in actionConditions: 0
+08/02/24 03:12:27: Action/group/condition 'FightGuardians' not found.
+08/02/24 03:12:33: Raw command: goto_planet(Earth)
+08/02/24 03:12:33: Cleaned command: goto_planet(Earth)
+08/02/24 03:12:33: Parsing arguments: Earth
+08/02/24 03:12:33: Parsed arguments: ["Earth"]
+08/02/24 03:12:33: Command Name: goto_planet
+08/02/24 03:12:33: Target Object: yeancat
+08/02/24 03:12:33: Parameters: ["Earth"]
+08/02/24 03:12:33: Teleported to Earth.
+08/02/24 03:12:40: Raw command: execute_action(CheckLevelAndHealth)
+08/02/24 03:12:40: Cleaned command: execute_action(CheckLevelAndHealth)
+08/02/24 03:12:40: Attempting to execute action: CheckLevelAndHealth
+08/02/24 03:12:40: Action exists in actionDetails: 0
+08/02/24 03:12:40: Action exists in actionGroups: 0
+08/02/24 03:12:40: Action exists in actionConditions: 1
+08/02/24 03:12:40: Executing action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:12:40: Executing action condition with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:12:40: Evaluating condition: IsLevelHighAndHealthFull
+08/02/24 03:12:40: Condition data: {"rightOperand":"IsHealthFull","operator":"and","leftOperand":"IsLevelHigh"}
+08/02/24 03:12:40: Evaluating condition: IsLevelHigh
+08/02/24 03:12:40: Condition data: {"rightOperand":"10","operator":">=","leftOperand":"Level"}
+08/02/24 03:12:40: Left value: 23, Right value: 10
+08/02/24 03:12:40: Comparing: 23 >= 10
+08/02/24 03:12:40: Evaluating condition: IsHealthFull
+08/02/24 03:12:40: Condition data: {"rightOperand":"50","operator":">=","leftOperand":"Health"}
+08/02/24 03:12:40: Left value: 92, Right value: 50
+08/02/24 03:12:40: Comparing: 92 >= 50
+08/02/24 03:12:40: AND condition: 1 AND 1
+08/02/24 03:12:40: Action condition result: 1
+08/02/24 03:12:40: Executing true action: HighLevelFullHealth
+08/02/24 03:12:40: Raw command: execute_action(HighLevelFullHealth)
+08/02/24 03:12:40: Cleaned command: execute_action(HighLevelFullHealth)
+08/02/24 03:12:40: Attempting to execute action: HighLevelFullHealth
+08/02/24 03:12:40: Action exists in actionDetails: 1
+08/02/24 03:12:40: Action exists in actionGroups: 0
+08/02/24 03:12:40: Action exists in actionConditions: 0
+08/02/24 03:12:40: Executing action: HighLevelFullHealth
+08/02/24 03:12:40: Creating chat bubble: "Your level is high and your health is full!", Owner: Target, Choices: []
+08/02/24 03:12:40: Owner object not found, using yeancat
+08/02/24 03:12:40: Chat Bubble Created. Following 'yeancat' with text: 'Your level is high and your health is full!'. Number of choices: 0
+08/02/24 03:13:10: [Jay Arnold] everything works! the only thing left to make sure works is a chat bubble choice with a action condition
+trigger!
+08/02/24 03:13:10: Creating chat bubble: " everything works! the only thing left to make sure works is a chat bubble choice with a action condition\ntrigger!", Owner: yeancat, Choices: []
+08/02/24 03:13:10: Chat Bubble Created. Following 'yeancat' with text: 'everything works! the only thing left to make sure works is
+a chat bubble choice with a action condition
+trigger!'. Number of choices: 0
+08/02/24 03:13:22: [Jay Arnold] can you create an example sequence of commands to test that?
+08/02/24 03:13:22: Creating chat bubble: " can you create an example sequence of commands to test that?", Owner: yeancat, Choices: []
+08/02/24 03:13:22: Chat Bubble Created. Following 'yeancat' with text: 'can you create an example sequence of commands to test
+that?'. Number of choices: 0
+08/02/24 03:16:04: Loaded action: SaveGameNow
+08/02/24 03:16:04: Loaded action: GotoKingsKingdom
+08/02/24 03:16:04: Loaded action: NotHighLevelOrNotFullHealth
+08/02/24 03:16:04: Loaded action: EnterPortal
+08/02/24 03:16:04: Loaded action: PurchaseArtifacts
+08/02/24 03:16:04: Loaded action: SignTreaty
+08/02/24 03:16:04: Loaded action: BattleOutcome
+08/02/24 03:16:04: Loaded action: VisitMarket
+08/02/24 03:16:04: Loaded action: GotoDivineDomain
+08/02/24 03:16:04: Loaded action: GotoTheEndonda
+08/02/24 03:16:04: Loaded action: GotoUniverseCity
+08/02/24 03:16:04: Loaded action: GotoLandOfLucy
+08/02/24 03:16:04: Loaded action: GotoPlaceOfPablo
+08/02/24 03:16:04: Loaded action: InvestigateSignals
+08/02/24 03:16:04: Loaded action: OfferTrade
+08/02/24 03:16:04: Loaded action: DisableEnemySpawns
+08/02/24 03:16:04: Loaded action: StartBattle
+08/02/24 03:16:04: Loaded action: SpawnBoss4
+08/02/24 03:16:05: Loaded action: GotoTheIcyHeart
+08/02/24 03:16:05: Loaded action: EngageCombat
+08/02/24 03:16:05: Loaded action: GotoGhostTown
+08/02/24 03:16:05: Loaded action: SpawnBoss0
+08/02/24 03:16:05: Loaded action: SpawnBoss13
+08/02/24 03:16:05: Loaded action: StartExploration
+08/02/24 03:16:05: Loaded action: SpawnBoss8
+08/02/24 03:16:05: Loaded action: SpawnBoss6
+08/02/24 03:16:05: Loaded action: SetLevelFive
+08/02/24 03:16:05: Loaded action: LevelUpThree
+08/02/24 03:16:05: Loaded action: LevelUpOnce
+08/02/24 03:16:05: Loaded action: GotoTheGoldMines
+08/02/24 03:16:05: Loaded action: SpawnBoss11
+08/02/24 03:16:05: Loaded action: StartPeaceMission
+08/02/24 03:16:05: Loaded action: DiplomaticChoice
+08/02/24 03:16:05: Loaded action: TreatyOutcome
+08/02/24 03:16:05: Loaded action: ExplorationChoice
+08/02/24 03:16:05: Loaded action: BattleChoice
+08/02/24 03:16:05: Loaded action: PortalOutcome
+08/02/24 03:16:05: Loaded action: SpaceAdventureStart
+08/02/24 03:16:05: Loaded action: EnableEnemySpawns
+08/02/24 03:16:05: Loaded action: GotoVulturesValley
+08/02/24 03:16:05: Loaded action: GotoEarth
+08/02/24 03:16:05: Loaded action: SpawnBoss1
+08/02/24 03:16:05: Loaded action: GotoStormySands
+08/02/24 03:16:05: Loaded action: SpawnBoss12
+08/02/24 03:16:05: Loaded action: GotoFantasia
+08/02/24 03:16:05: Loaded action: SpawnBoss5
+08/02/24 03:16:05: Loaded action: SpawnBoss10
+08/02/24 03:16:05: Loaded action: GotoYetopia
+08/02/24 03:16:05: Loaded action: SpawnBoss3
+08/02/24 03:16:05: Loaded action: ArtifactOutcome
+08/02/24 03:16:05: Loaded action: HighLevelFullHealth
+08/02/24 03:16:05: Loaded action: SpawnBoss7
+08/02/24 03:16:05: Loaded action: SpawnBoss9
+08/02/24 03:16:05: Actions and action groups loaded successfully from Actions.txt.
+08/02/24 03:16:05: Loaded condition: IsLevelHighAndHealthFull
+08/02/24 03:16:05: Loaded condition: IsHealthFull
+08/02/24 03:16:05: Loaded condition: IsLevelHigh
+08/02/24 03:16:05: Conditions loaded successfully from Conditions.txt.
+08/02/24 03:16:05: Loaded action condition: CheckLevelAndHealth with data: {"trueAction":"HighLevelFullHealth","falseAction":"NotHighLevelOrNotFullHealth","condition":"IsLevelHighAndHealthFull"}
+08/02/24 03:16:05: Action conditions loaded successfully from ActionConditions.txt.
+08/02/24 03:16:05: Loaded action group: BattleSequence
+08/02/24 03:16:05: Loaded action group: SpawnBossCircle
+08/02/24 03:16:05: Loaded action group: ArtifactMystery
+08/02/24 03:16:05: Loaded action group: PeacefulMission
+08/02/24 03:16:05: Loaded action group: PortalAdventure
+08/02/24 03:16:05: Loaded action group: SpaceExploration
+08/02/24 03:16:05: Loaded action group: EpicBattle
+08/02/24 03:16:05: Loaded action group: PeaceTreaty
+08/02/24 03:16:05: Action groups loaded successfully from ActionGroups.txt.
+08/02/24 03:16:05: [Client] Failed to reconnect to server. Will try again...
+08/02/24 03:16:46: Raw command: add_condition(IsLevelVeryHigh, Level, >=, 20)
+08/02/24 03:16:46: Cleaned command: add_condition(IsLevelVeryHigh, Level, >=, 20)
+08/02/24 03:16:46: Parsing arguments: IsLevelVeryHigh, Level, >=, 20
+08/02/24 03:16:46: Parsed arguments: ["IsLevelVeryHigh","Level",">=","20"]
+08/02/24 03:16:46: Command Name: add_condition
+08/02/24 03:16:46: Target Object: yeancat
+08/02/24 03:16:46: Parameters: ["IsLevelVeryHigh","Level",">=","20"]
+08/02/24 03:16:46: Condition 'IsLevelVeryHigh' added successfully.
+08/02/24 03:16:46: Conditions saved successfully to Conditions.txt.
+08/02/24 03:16:46: Raw command: add_action_condition(CheckVeryHighLevel, IsLevelVeryHigh, LevelVeryHigh, LevelNotVeryHigh)
+08/02/24 03:16:46: Cleaned command: add_action_condition(CheckVeryHighLevel, IsLevelVeryHigh, LevelVeryHigh, LevelNotVeryHigh)
+08/02/24 03:16:46: Parsing arguments: CheckVeryHighLevel, IsLevelVeryHigh, LevelVeryHigh, LevelNotVeryHigh
+08/02/24 03:16:46: Parsed arguments: ["CheckVeryHighLevel","IsLevelVeryHigh","LevelVeryHigh","LevelNotVeryHigh"]
+08/02/24 03:16:46: Command Name: add_action_condition
+08/02/24 03:16:46: Target Object: yeancat
+08/02/24 03:16:46: Parameters: ["CheckVeryHighLevel","IsLevelVeryHigh","LevelVeryHigh","LevelNotVeryHigh"]
+08/02/24 03:16:46: Action condition 'CheckVeryHighLevel' added with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/02/24 03:16:46: Action conditions saved successfully to ActionConditions.txt.
+08/02/24 03:16:46: Raw command: add_action(LevelVeryHigh, chat_bubble, ["Your level is very high!", []])
+08/02/24 03:16:46: Cleaned command: add_action(LevelVeryHigh, chat_bubble, ["Your level is very high!", []])
+08/02/24 03:16:46: Detected add_action command
+08/02/24 03:16:46: Arguments string: LevelVeryHigh, chat_bubble, ["Your level is very high!", []]
+08/02/24 03:16:46: Parsing arguments: LevelVeryHigh, chat_bubble, ["Your level is very high!", []]
+08/02/24 03:16:46: Parsed arguments: ["LevelVeryHigh","chat_bubble","[\"Your level is very high!\", []]"]
+08/02/24 03:16:46: Parsed arguments: ["LevelVeryHigh","chat_bubble","[\"Your level is very high!\", []]"]
+08/02/24 03:16:46: Action Name: LevelVeryHigh
+08/02/24 03:16:46: Full Action Command: chat_bubble
+08/02/24 03:16:46: Action Params: ["Your level is very high!", []]
+08/02/24 03:16:46: Target Object: yeancat
+08/02/24 03:16:46: Action Command: chat_bubble
+08/02/24 03:16:46: Action 'LevelVeryHigh' added/updated successfully.
+08/02/24 03:16:46: Actions and action groups saved successfully to Actions.txt.
+08/02/24 03:16:46: Raw command: add_action(LevelNotVeryHigh, chat_bubble, ["Your level is not very high yet.", []])
+08/02/24 03:16:46: Cleaned command: add_action(LevelNotVeryHigh, chat_bubble, ["Your level is not very high yet.", []])
+08/02/24 03:16:46: Detected add_action command
+08/02/24 03:16:46: Arguments string: LevelNotVeryHigh, chat_bubble, ["Your level is not very high yet.", []]
+08/02/24 03:16:46: Parsing arguments: LevelNotVeryHigh, chat_bubble, ["Your level is not very high yet.", []]
+08/02/24 03:16:47: Parsed arguments: ["LevelNotVeryHigh","chat_bubble","[\"Your level is not very high yet.\", []]"]
+08/02/24 03:16:47: Parsed arguments: ["LevelNotVeryHigh","chat_bubble","[\"Your level is not very high yet.\", []]"]
+08/02/24 03:16:47: Action Name: LevelNotVeryHigh
+08/02/24 03:16:47: Full Action Command: chat_bubble
+08/02/24 03:16:47: Action Params: ["Your level is not very high yet.", []]
+08/02/24 03:16:47: Target Object: yeancat
+08/02/24 03:16:47: Action Command: chat_bubble
+08/02/24 03:16:47: Action 'LevelNotVeryHigh' added/updated successfully.
+08/02/24 03:16:47: Actions and action groups saved successfully to Actions.txt.
+08/02/24 03:16:53: Raw command: add_action(TestLevelChoice, chat_bubble, ["Test your level:", [["Check if level is very high",
+"CheckVeryHighLevel"], ["Don't check level", "null"]]])
+08/02/24 03:16:53: Cleaned command: add_action(TestLevelChoice, chat_bubble, ["Test your level:", [["Check if level is very high", "CheckVeryHighLevel"], ["Don't check level", "null"]]])
+08/02/24 03:16:53: Detected add_action command
+08/02/24 03:16:53: Arguments string: TestLevelChoice, chat_bubble, ["Test your level:", [["Check if level is very high", "CheckVeryHighLevel"], ["Don't check level", "null"]]]
+08/02/24 03:16:53: Parsing arguments: TestLevelChoice, chat_bubble, ["Test your level:", [["Check if level is very high", "CheckVeryHighLevel"], ["Don't check level", "null"]]]
+08/02/24 03:16:53: Parsed arguments: ["TestLevelChoice","chat_bubble","[\"Test your level:\", [[\"Check if level is very high\", \"CheckVeryHighLevel\"], [\"Don't check level\", \"null\"]]]"]
+08/02/24 03:16:53: Parsed arguments: ["TestLevelChoice","chat_bubble","[\"Test your level:\", [[\"Check if level is very high\", \"CheckVeryHighLevel\"], [\"Don't check level\", \"null\"]]]"]
+08/02/24 03:16:53: Action Name: TestLevelChoice
+08/02/24 03:16:53: Full Action Command: chat_bubble
+08/02/24 03:16:53: Action Params: ["Test your level:", [["Check if level is very high", "CheckVeryHighLevel"], ["Don't check level", "null"]]]
+08/02/24 03:16:53: Target Object: yeancat
+08/02/24 03:16:53: Action Command: chat_bubble
+08/02/24 03:16:53: Action 'TestLevelChoice' added/updated successfully.
+08/02/24 03:16:53: Actions and action groups saved successfully to Actions.txt.
+08/02/24 03:17:05: Raw command: execute_action(TestLevelChoice)
+08/02/24 03:17:05: Cleaned command: execute_action(TestLevelChoice)
+08/02/24 03:17:06: Attempting to execute action: TestLevelChoice
+08/02/24 03:17:06: Action exists in actionDetails: 1
+08/02/24 03:17:06: Action exists in actionGroups: 0
+08/02/24 03:17:06: Action exists in actionConditions: 0
+08/02/24 03:17:06: Executing action: TestLevelChoice
+08/02/24 03:17:06: Creating chat bubble: "Test your level:", Owner: Target, Choices: [["Check if level is very high","CheckVeryHighLevel"],["Don't check level","null"]]
+08/02/24 03:17:06: Chat Bubble Created. Following 'yeancat' with text: 'Test your level:'. Number of choices: 2
+08/02/24 03:17:08: Attempting to execute action: CheckVeryHighLevel
+08/02/24 03:17:08: Action exists in actionDetails: 0
+08/02/24 03:17:08: Action exists in actionGroups: 0
+08/02/24 03:17:08: Action exists in actionConditions: 1
+08/02/24 03:17:08: Executing action condition: CheckVeryHighLevel with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/02/24 03:17:08: Executing action condition with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/02/24 03:17:08: Evaluating condition: IsLevelVeryHigh
+08/02/24 03:17:08: Condition data: {"rightOperand":"20","operator":">=","leftOperand":"Level"}
+08/02/24 03:17:08: Left value: 1, Right value: 20
+08/02/24 03:17:08: Comparing: 1 >= 20
+08/02/24 03:17:08: Action condition result: 0
+08/02/24 03:17:08: Executing false action: LevelNotVeryHigh
+08/02/24 03:17:08: Raw command: execute_action(LevelNotVeryHigh)
+08/02/24 03:17:08: Cleaned command: execute_action(LevelNotVeryHigh)
+08/02/24 03:17:08: Attempting to execute action: LevelNotVeryHigh
+08/02/24 03:17:08: Action exists in actionDetails: 1
+08/02/24 03:17:09: Action exists in actionGroups: 0
+08/02/24 03:17:09: Action exists in actionConditions: 0
+08/02/24 03:17:09: Executing action: LevelNotVeryHigh
+08/02/24 03:17:09: Creating chat bubble: "Your level is not very high yet.", Owner: Target, Choices: []
+08/02/24 03:17:09: Chat Bubble Created. Following 'yeancat' with text: 'Your level is not very high yet.'. Number of choices: 0
+08/02/24 03:17:12: Raw command: execute_action(TestLevelChoice)
+08/02/24 03:17:12: Cleaned command: execute_action(TestLevelChoice)
+08/02/24 03:17:12: Attempting to execute action: TestLevelChoice
+08/02/24 03:17:12: Action exists in actionDetails: 1
+08/02/24 03:17:12: Action exists in actionGroups: 0
+08/02/24 03:17:12: Action exists in actionConditions: 0
+08/02/24 03:17:12: Executing action: TestLevelChoice
+08/02/24 03:17:12: Creating chat bubble: "Test your level:", Owner: Target, Choices: [["Check if level is very high","CheckVeryHighLevel"],["Don't check level","null"]]
+08/02/24 03:17:12: Chat Bubble Created. Following 'yeancat' with text: 'Test your level:'. Number of choices: 2
+08/02/24 03:17:14: Attempting to execute action: null
+08/02/24 03:17:14: Action exists in actionDetails: 0
+08/02/24 03:17:14: Action exists in actionGroups: 0
+08/02/24 03:17:14: Action exists in actionConditions: 0
+08/02/24 03:17:14: Action/group/condition 'null' not found.
+08/02/24 03:17:22: Raw command: level_up(30)
+08/02/24 03:17:22: Cleaned command: level_up(30)
+08/02/24 03:17:22: Parsing arguments: 30
+08/02/24 03:17:22: Parsed arguments: ["30"]
+08/02/24 03:17:22: Command Name: level_up
+08/02/24 03:17:22: Target Object: yeancat
+08/02/24 03:17:22: Parameters: ["30"]
+08/02/24 03:17:22: Level up initiated with goal: 30
+08/02/24 03:17:32: Raw command: execute_action(TestLevelChoice)
+08/02/24 03:17:32: Cleaned command: execute_action(TestLevelChoice)
+08/02/24 03:17:32: Attempting to execute action: TestLevelChoice
+08/02/24 03:17:32: Action exists in actionDetails: 1
+08/02/24 03:17:32: Action exists in actionGroups: 0
+08/02/24 03:17:32: Action exists in actionConditions: 0
+08/02/24 03:17:32: Executing action: TestLevelChoice
+08/02/24 03:17:32: Creating chat bubble: "Test your level:", Owner: Target, Choices: [["Check if level is very high","CheckVeryHighLevel"],["Don't check level","null"]]
+08/02/24 03:17:32: Chat Bubble Created. Following 'yeancat' with text: 'Test your level:'. Number of choices: 2
+08/02/24 03:17:33: Attempting to execute action: CheckVeryHighLevel
+08/02/24 03:17:33: Action exists in actionDetails: 0
+08/02/24 03:17:33: Action exists in actionGroups: 0
+08/02/24 03:17:33: Action exists in actionConditions: 1
+08/02/24 03:17:34: Executing action condition: CheckVeryHighLevel with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/02/24 03:17:34: Executing action condition with data: {"trueAction":"LevelVeryHigh","falseAction":"LevelNotVeryHigh","condition":"IsLevelVeryHigh"}
+08/02/24 03:17:34: Evaluating condition: IsLevelVeryHigh
+08/02/24 03:17:34: Condition data: {"rightOperand":"20","operator":">=","leftOperand":"Level"}
+08/02/24 03:17:34: Left value: 31, Right value: 20
+08/02/24 03:17:34: Comparing: 31 >= 20
+08/02/24 03:17:34: Action condition result: 1
+08/02/24 03:17:34: Executing true action: LevelVeryHigh
+08/02/24 03:17:34: Raw command: execute_action(LevelVeryHigh)
+08/02/24 03:17:34: Cleaned command: execute_action(LevelVeryHigh)
+08/02/24 03:17:34: Attempting to execute action: LevelVeryHigh
+08/02/24 03:17:34: Action exists in actionDetails: 1
+08/02/24 03:17:34: Action exists in actionGroups: 0
+08/02/24 03:17:34: Action exists in actionConditions: 0
+08/02/24 03:17:34: Executing action: LevelVeryHigh
+08/02/24 03:17:34: Creating chat bubble: "Your level is very high!", Owner: Target, Choices: []
+08/02/24 03:17:34: Chat Bubble Created. Following 'yeancat' with text: 'Your level is very high!'. Number of choices: 0
+08/02/24 03:17:41: [Jay Arnold] FANTASTIC
+08/02/24 03:17:41: Creating chat bubble: " FANTASTIC", Owner: yeancat, Choices: []
+08/02/24 03:17:41: Chat Bubble Created. Following 'yeancat' with text: 'FANTASTIC'. Number of choices: 0

@@ -668,5 +668,36 @@
       "save_action_condition",
       "load_action_condition"
     ]
+  },
+  {
+    "name": "Sample Bug",
+    "description": "Implement a sample bug for testing purposes.",
+    "source": "SYSTEM",
+    "priority": "low",
+    "status": "open",
+    "date_reported": "2024-06-20",
+    "reported_by": "Tester",
+    "assigned_to": "Dev Team",
+    "generation": "2",
+    "related_logs": [
+      "No related logs"
+    ],
+    "steps_to_reproduce": [
+      "Step 1: Create the bug.",
+      "Step 2: Implement the fix.",
+      "Step 3: Test the fix."
+    ],
+    "resolution": [
+      "Expected fix: Proper handling of the bug."
+    ],
+    "related_features": [
+      "No related features"
+    ],
+    "related_objects": [
+      "No related objects"
+    ],
+    "related_scripts": [
+      "No related scripts"
+    ]
   }
 ]

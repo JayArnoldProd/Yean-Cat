@@ -750,6 +750,7 @@ add_command("spawn_boss(", 2, [["real"], ["real"], ["real"], ["string"]], true);
 add_command("camera_target(", 2, [["real"], ["real"]], true);
 add_command("add_action_condition(", 2, [["string"],["string"],["string"],["string"]], true);
 add_command("add_condition", 2, [["string"],["string"],["string"],["string"]], true);
+add_command("debug_print_all_data", 0, [[]], false);
 // Initialize global action details
 global.actionDetails = ds_map_create();
 
@@ -970,7 +971,7 @@ if (timer_enabled) {
 
 File: Destroy_0.gml
 Code:
-// obj_chat_bubble Destroy Event
+/// Destroy Event of obj_chat_bubble
 if (ds_exists(hover_progress, ds_type_map)) {
     ds_map_destroy(hover_progress);
 }
@@ -1077,15 +1078,12 @@ if (array_length(choices) > 0) {
             scale = hover_scale[? i];
         }
 			
-        // Check for mouse click
-        if (is_hovering && mouse_check_button_pressed(mb_left)) {
-            if (choices[i][1] != "null") {
-                handle_choice_selection(choices[i][1]);  // Pass the action name to the new function
-            } else {
-                // Handle "null" action (e.g., close the chat bubble)
-                instance_destroy();
-            }
-        }
+// Inside the for loop that draws choices in obj_chat_bubble's Draw event
+if (is_hovering && mouse_check_button_pressed(mb_left)) {
+    var selected_action = choices[i][1];
+    handle_choice_selection(selected_action);
+    break;  // Exit the loop after handling the choice
+}
 
         // Draw choice bubble
         var choice_scale_x = choice_width / 880 * scale;
@@ -1239,7 +1237,16 @@ Code:
 function scr_execute_action(actionName) {
     actionName = string_trim(actionName);
     
-    if (ds_map_exists(global.actionDetails, actionName)) {
+    handleDebugMessage("Attempting to execute action: " + actionName, true);
+    handleDebugMessage("Action exists in actionDetails: " + string(ds_map_exists(global.actionDetails, actionName)), true);
+    handleDebugMessage("Action exists in actionGroups: " + string(ds_map_exists(global.actionGroups, actionName)), true);
+    handleDebugMessage("Action exists in actionConditions: " + string(ds_map_exists(global.actionConditions, actionName)), true);
+    
+    if (ds_map_exists(global.actionConditions, actionName)) {
+        var actionConditionData = ds_map_find_value(global.actionConditions, actionName);
+        handleDebugMessage("Executing action condition: " + actionName + " with data: " + json_stringify(actionConditionData), true);
+        execute_action_condition(actionConditionData);
+    } else if (ds_map_exists(global.actionDetails, actionName)) {
         var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
         var decodedData = json_parse(base64_decode(encodedCommand));
         
@@ -1249,16 +1256,8 @@ function scr_execute_action(actionName) {
         var groupActions = ds_map_find_value(global.actionGroups, actionName);
         handleDebugMessage("Executing action group: " + actionName, true);
         for (var i = 0; i < array_length(groupActions); i++) {
-            scr_execute_action(groupActions[i]);
+            scr_execute_action(groupActions[i]);  // Recursive call to handle nested groups
         }
-    } else if (ds_map_exists(global.actionConditions, actionName)) {
-        var actionConditionData = ds_map_find_value(global.actionConditions, actionName);
-        handleDebugMessage("Evaluating action condition: " + actionName, true);
-        execute_action_condition(actionConditionData);
-    } else if (ds_map_exists(global.conditions, actionName)) {
-        handleDebugMessage("Evaluating condition: " + actionName, true);
-        var result = evaluate_condition(actionName);
-        handleDebugMessage("Condition result: " + string(result), true);
     } else {
         handleDebugMessage("Action/group/condition '" + actionName + "' not found.", true);
     }
@@ -1268,15 +1267,15 @@ Script: execute_action_condition
 File: execute_action_condition.gml
 Code:
 function execute_action_condition(actionConditionData) {
-    handleDebugMessage("Executing action condition: " + json_stringify(actionConditionData), true);
+    handleDebugMessage("Executing action condition with data: " + json_stringify(actionConditionData), true);
     var conditionResult = evaluate_condition(actionConditionData.condition);
     handleDebugMessage("Action condition result: " + string(conditionResult), true);
     if (conditionResult) {
         handleDebugMessage("Executing true action: " + actionConditionData.trueAction, true);
-        scr_execute_action(actionConditionData.trueAction);
+        execute_command("execute_action(" + actionConditionData.trueAction + ")");
     } else {
         handleDebugMessage("Executing false action: " + actionConditionData.falseAction, true);
-        scr_execute_action(actionConditionData.falseAction);
+        execute_command("execute_action(" + actionConditionData.falseAction + ")");
     }
 }
 
@@ -1290,7 +1289,7 @@ function scr_add_action_condition(actionConditionName, condition, trueAction, fa
         falseAction: falseAction
     };
     ds_map_set(global.actionConditions, actionConditionName, actionConditionData);
-    handleDebugMessage("Action condition '" + actionConditionName + "' added successfully.", false);
+    handleDebugMessage("Action condition '" + actionConditionName + "' added with data: " + json_stringify(actionConditionData), false);
     save_action_conditions();
 }
 
@@ -1309,11 +1308,16 @@ function evaluate_condition(conditionName) {
             var rightResult = evaluate_condition(conditionData.rightOperand);
             handleDebugMessage("AND condition: " + string(leftResult) + " AND " + string(rightResult), true);
             return leftResult && rightResult;
+        } else if (conditionData.operator == "or") {
+            var leftResult = evaluate_condition(conditionData.leftOperand);
+            var rightResult = evaluate_condition(conditionData.rightOperand);
+            handleDebugMessage("OR condition: " + string(leftResult) + " OR " + string(rightResult), true);
+            return leftResult || rightResult;
         } else {
-            var leftValue = get_operand_value(conditionData.leftOperand);
-            var rightValue = get_operand_value(conditionData.rightOperand);
+            var leftValue = get_variable_value(conditionData.leftOperand);
+            var rightValue = get_variable_value(conditionData.rightOperand);
             var operator = conditionData.operator;
-            handleDebugMessage("Comparing: " + string(leftValue) + " " + operator + " " + string(rightValue), true);
+            handleDebugMessage("Left value: " + string(leftValue) + ", Right value: " + string(rightValue), true);
             return compare_values(leftValue, operator, rightValue);
         }
     } else {
@@ -1321,7 +1325,6 @@ function evaluate_condition(conditionName) {
         return false;
     }
 }
-
 
 Script: save_action_condition not found in the expected directories.
 

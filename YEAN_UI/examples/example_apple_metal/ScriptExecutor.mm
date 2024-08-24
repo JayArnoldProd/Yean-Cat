@@ -1,22 +1,22 @@
-//
-//  ScriptExecutor.mm
-//  example_apple_metal
-//
-//  Created by Joshua Arnold on 7/21/24.
-//  Copyright © 2024 Warren Moore. All rights reserved.
-//
-
+// ScriptExecutor.mm
 #import "ScriptExecutor.h"
 
 @implementation ScriptExecutor
 
-+ (void)executeScript:(NSString *)scriptPath withArguments:(NSArray *)arguments {
++ (void)executeScript:(NSString *)scriptName
+        withArguments:(NSArray *)arguments
+             delegate:(NSObject<ScriptExecutorDelegate> *)delegate {
+    
     NSTask *task = [[NSTask alloc] init];
-    [task setLaunchPath:scriptPath];
-    [task setArguments:arguments];
+    NSString *scriptPath = [NSString stringWithFormat:@"./GIT_GPT_SERVER/scripts/%@.sh", scriptName];
+    
+    [task setCurrentDirectoryPath:@"/Users/joshuaarnold/Documents/GitHub/Yean-Cat"];
+    [task setLaunchPath:@"/bin/bash"];
+    [task setArguments:@[@"-l", @"-c", [NSString stringWithFormat:@"%@ %@", scriptPath, [arguments componentsJoinedByString:@" "]]]];
     
     NSPipe *pipe = [NSPipe pipe];
     [task setStandardOutput:pipe];
+    [task setStandardError:pipe];
     
     NSFileHandle *file = [pipe fileHandleForReading];
     
@@ -25,8 +25,9 @@
     NSData *data = [file readDataToEndOfFile];
     NSString *output = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     
-    // Handle the output (e.g., display it in the console window)
-    NSLog(@"Script output: %@", output);
+    if ([delegate respondsToSelector:@selector(scriptExecutorDidProduceOutput:)]) {
+        [delegate scriptExecutorDidProduceOutput:output];
+    }
 }
 
 @end
