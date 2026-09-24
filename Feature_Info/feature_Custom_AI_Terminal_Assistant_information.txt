@@ -164,6 +164,7 @@ if camovyy != camovy {
 if focusonbosss != focusonboss {
 	focusonbosss = (focusonbosss*200+focusonboss)/201
 }
+focusonbosss=0
 camera_set_view_pos(cam,960-960*(camscale-1)+camovxx*focusonbosss/2, 540-540*(camscale-1)+camovyy*focusonbosss/2)
 camera_set_view_size(cam,1920*camscale*(1-focusonbosss/4),1080*camscale*(1-focusonbosss/4))
 
@@ -553,32 +554,35 @@ if levelheat>0 {
 
 mobfreqset=(100*(1/(curse+1))*(1/((level-1)/200+1))*sqr(1+(1-abs(obj_terrain.systemposition-180)/180))/(lookingfortrouble+1))/(1+master.ti/2014)
 if spawnthings=1 {
-for (i=0; i<array_length(spaceboss); i ++) {
-if round(obj_terrain.systemposition*10)=spaceboss[i,0]*10 {
-if spaceboss[i,10]=0 {
-	if spaceboss[i,8]=1 {
-	var bosss = instance_create_layer(room_width*3/4,room_height/2,"player",obj_boss)
-	//position //1name //2health //3resistance0-1invincible /4/rate //5attacktype //6damage //7movetype //8image
-	bosss.bossid=spaceboss[i,12]
-	bosss.position= spaceboss[i,0]
-	bosss.namee = spaceboss[i,1]
-	bosss.healthh = spaceboss[i,2]
-	bosss.maxhealth = spaceboss[i,2]
-	bosss.resistance = spaceboss[i,3]
-	bosss.damage = spaceboss[i,6]
-	bosss.attackspeed =spaceboss[i,4]
-	bosss.attacktype =spaceboss[i,5]
-	bosss.movetype =spaceboss[i,7]
-	bosss.sprite_index =spaceboss[i,9]
-	bosss.bosstype=spaceboss[i,11]
-	bosss.lookid=spaceboss[i,12]
-	bosss.flying=1
-	bosss.bossaltitude=40000
-	spaceboss[i,10]=1
-	}
-}
-}
-}
+    for (i=0; i<array_length(spaceboss); i++) {
+        if round(obj_terrain.systemposition*10) == spaceboss[i,0]*10 {
+            if spaceboss[i,10] == 0 {
+                if spaceboss[i,8] == 1 {
+                    var bosss = instance_create_layer(room_width*3/4, room_height/2, "player", obj_boss);
+                    //position //1name //2health //3resistance0-1invincible /4/rate //5attacktype //6damage //7movetype //8image
+                    bosss.bossid = spaceboss[i,12]
+                    bosss.position = spaceboss[i,0]
+                    bosss.namee = spaceboss[i,1]
+                    bosss.healthh = spaceboss[i,2]
+                    bosss.maxhealth = spaceboss[i,2]
+                    bosss.resistance = spaceboss[i,3]
+                    bosss.damage = spaceboss[i,6]
+                    bosss.attackspeed = spaceboss[i,4]
+                    bosss.attacktype = spaceboss[i,5]
+                    bosss.movetype = spaceboss[i,7]
+                    bosss.sprite_index = spaceboss[i,9]
+                    bosss.bosstype = spaceboss[i,11]
+                    bosss.lookid = spaceboss[i,12]
+                    bosss.flying = 1
+                    bosss.bossaltitude = 40000
+                    with (bosss) {
+                        event_perform(ev_other, ev_user0);
+                    }
+                    spaceboss[i,10] = 1;
+                }
+            }
+        }
+    }
 }
 
 if selectedstage=0 {
@@ -1749,13 +1753,13 @@ if flying=0 {
 		}
 	}
 }
-//disable certain anemies
+//disable certain enemies
 for (i=0; i<array_length(mob);i++) {
 	if i>clamp((ti/1007)*10,0,11) {
 		mob[i]=[ghost,0,.75,0,1,1,1,1,1,1,0,0,0,1]
 	}
 }
-if mobfreq<0 {
+if mobfreq<0 and (spawnenemies = true) {
 	repeat (1+clamp(floor((hour*3600+minute*60+second)/1007*100)*(1-clamp((instance_number(enemy)+1)/(1+((hour*3600+minute*60+second)/1007)*100),0,1)),0,1000)) {
 	var enemypool = 0
 	for (i=0; i<array_length(mob);i++) {
@@ -4522,23 +4526,22 @@ responsecount=[
 //[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
 //[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound],
 //[nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound,nothingsound]
-
-//]
-
+global.threedee=0
+global.camera_zoom=1;
 //MACRO Variables
-global.macro1=-85
-global.macro2=30
-global.macro3=.5
-global.macro4=0
-global.macro5=0
-global.macro6=0
-global.macro7=0
-global.macro8=0
-global.macro9=0
-global.macro10=0
+global.macro1 = 1;     // Camera movement speed
+global.macro2 = 1;   // Zoom level
+global.macro3 = 0;     // 3D effect intensity (0 for no effect, negative for normal orientation)
+global.macro4 = 1;     // Not used, can be repurposed
+global.macro5 = -1920;  // Horizontal offset for 3D objects
+global.macro6 = -1080;     // Vertical offset for 3D objects
+global.macro7 = 0;      // Not used, can be repurposed if needed
+global.macro8 = 0;      // Not used, can be repurposed if needed
+global.macro9 = 1;      // Not used, can be repurposed if needed
+global.macro10 = 1;     // Not used, can be repurposed if needed
 
 audio_listener_orientation(0,1,0,0,0,1);
-cam=view_camera[0]
+
 camscale=1
 focusonboss=0
 focustime=0
@@ -4548,6 +4551,12 @@ focusonbosss=0
 camovxx=0
 camovyy=0
 moby=0
+
+if !instance_exists(obj_camera) {
+	var camra=instance_create_depth(room_width/2,room_height/2,0,obj_camera)
+camra.cam =view_camera[0];
+cam=camra.cam;
+}
 
 global.room_speed_set=60
 rspeed=60
@@ -4940,6 +4949,7 @@ xpcount=0
 xpbuff=0;
 
 spawnthings=false;
+spawnenemies=false;
 
 //key for xp
 keypitch=1
@@ -6980,6 +6990,10 @@ Code:
 /// @description Insert description here
 // You can write your code in this editor
 // Early exit if there is no 'type' key defined
+if (!ds_exists(async_load, ds_type_map)) {
+    show_debug_message("async_load is not a valid ds_map");
+    exit;
+}
 if (!ds_map_exists(async_load, "type")) exit;
 
 // All the events triggered by the AdMob extension have a “type” key
@@ -7123,7 +7137,7 @@ if !instance_exists(obj_Cursor) and (global.control_type!=1) {
 // Set current font and heartbeat rate
 global.heartbeatBPM = global.current_bpm;
 fnt_chat = master.font_array[fnt_chat_id, 1];
-global.wrapWidth = 2350; // Adjusted wrap width
+global.wrapWidth = 1700; // Adjusted wrap width
 
 //check for gamepad input
 check_gamepad_input()
@@ -7145,12 +7159,12 @@ if (!global.isConnected && global.reconnectTimer <= 0) {
     if (result >= 0) {
         global.isConnected = true;
         isServerRunning = true;
-        show_debug_message("[Client] Successfully reconnected to server.");
+        handleDebugMessage("[Client] Successfully reconnected to server.", true);
         global.reconnectTimer = global.reconnectInterval;
     } else {
         global.reconnectTimer = global.reconnectInterval;
         isServerRunning = false;
-        show_debug_message("[Client] Failed to reconnect to server. Will try again...");
+        handleDebugMessage("[Client] Failed to reconnect to server. Will try again...", true);
     }
 } else if (global.isConnected && global.reconnectTimer > 0) {
     global.reconnectTimer--;
@@ -7170,30 +7184,31 @@ if (ds_exists(async_load, ds_type_map)) {
 
                 switch (identifier) {
                     case global.IDENTIFIER_HEARTBEAT:
-                        show_debug_message("[Client] Heartbeat received from server.");
+                        handleDebugMessage("[Client] Heartbeat received from server.", true);
                         break;
                     
                     case global.IDENTIFIER_TEST_MESSAGE:
                         var msg = buffer_read(buffer, buffer_string);
-                        show_debug_message("[Client] Message from server: " + msg);
+                        handleDebugMessage("[Client] Message from server: " + msg, true);
                         break;
                 }
                 buffer_delete(buffer);
                 break;
 
             case network_type_connect:
-                show_debug_message("[Client] Connected to server.");
+                handleDebugMessage("[Client] Connected to server.", true);
                 break;
                 
             case network_type_disconnect:
                 global.isConnected = false;
-                show_debug_message("[Client] Disconnected from server. Attempting to identify cause...");
+                handleDebugMessage("[Client] Disconnected from server. Attempting to identify cause...", true);
                 break;
         }
     }
 } else {
-    show_debug_message("ERROR: Invalid ds_map reference in async event.");
+    //show_debug_message("ERROR: Invalid ds_map reference in async event.");
 }
+
 
 // Command input and execution logic
 if (input_check_pressed("chat") && !isActive) {
@@ -7213,6 +7228,17 @@ if (keyboard_check_pressed(vk_tab)) {
 
 // Handle backspace and text input
 if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var total_lines = array_length(lines);
+    global.input_scroll_offset = max(0, total_lines - global.max_visible_lines);
+    
+    // Adjust scroll offset based on total lines
+    if (total_lines > global.max_visible_lines) {
+        global.input_scroll_offset = total_lines - global.max_visible_lines;
+    } else {
+        global.input_scroll_offset = 0;
+    }
+
 // Handle backspace input
     if (input_check("cancel") && string_length(global.commandBuffer) > 0) {
         if (global.backspaceTimer == 0 || global.backspaceTimer >= global.backspaceDelay) {
@@ -7250,19 +7276,8 @@ if (isActive) {
         global.backspaceTimer = 0; // Reset timer when backspace is released
 		global.backspaceSpeed=1
     }
-	if string_length(global.commandBuffer)<global.character_limit {
-    var char = keyboard_string;
-	} else {
-		var char = "";
-		if keyboard_check_pressed(vk_anykey) {
-		if last_key_is_valid_character(keyboard_lastkey) {
-			//play sound to indicate char limit. 
-			var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
-			shake_angle=choose(-1,1)*random_range(.95,1.00)
-		}
-		}
-	}
-    // Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
+	
+	// Detect pasting via Ctrl+V (Windows) or Command+V (Mac)
     var pasting = false;
     if (os_type == os_windows) {
         if (keyboard_check(vk_control) && keyboard_check_pressed(ord("V"))) {
@@ -7277,42 +7292,80 @@ if (isActive) {
 			char = ""
         }
     }
-
-    // Handle pasting
-    if (pasting) {
-        if (clipboard_has_text()) {
-            var clip_string = clipboard_get_text();
-            if (string_length(clip_string) > 0 && string_length(clip_string) < 200) {
-                global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+	
+	if string_length(global.commandBuffer) < global.character_limit {
+    var char = keyboard_string;
+        var space_pressed = keyboard_check_pressed(vk_space);
+        
+        if (char != "" || space_pressed) {
+            if (!pasting) {
+                if (space_pressed) {
+                    global.commandBuffer += " ";
+                    show_debug_message("[Client] Space added to command buffer");
+                } else {
+                    global.commandBuffer += char;
+                }
+                keyboard_string = ""; // Clear the keyboard buffer after reading
                 update_chat_input_visuals();
-                show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
-            } else {
-                handleDebugMessage("Clipboard content is too long to paste!", true);
+                show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
             }
         }
-        pasting = false;
+	} else {
+    var char = "";
+    if keyboard_check_pressed(vk_anykey) {
+        if last_key_is_valid_character(keyboard_lastkey) {
+            //play sound to indicate char limit. 
+            var sound = audio_play_sound(uibuttonsound7,0,0,master.uivol*master.mastervol)
+            shake_angle = choose(-1,1) * random_range(.95,1.00)
+        }
+    }
+}
+
+// Debug: Check for space key press
+    if (keyboard_check_pressed(vk_space)) {
+        show_debug_message("[Client] Space key pressed");
     }
 
-    if (char != "") {
-        // Prevent typing if command is filled
-        if (!((global.textColor == c_lime || global.textColor == c_red) && slash_typed)) {
-            draw_set_font(fnt_chat);
-            global.commandBuffer = appendAndWrap(char, global.commandBuffer, global.wrapWidth);
-        }
-        update_chat_input_visuals();
-        keyboard_string = ""; // Clear the buffer after reading
-        show_debug_message("[Client] Appended character to command buffer: " + global.commandBuffer);
+    // Debug: Check keyboard_string content
+    if (keyboard_string != "") {
+        show_debug_message("[Client] keyboard_string content: " + keyboard_string);
     }
+
+// Handle pasting
+// In the Step event of obj_Client
+if (pasting) {
+    if (clipboard_has_text()) {
+        var clip_string = clipboard_get_text();
+        if (string_length(clip_string) > 0 && string_length(clip_string) < global.character_limit) {
+            // Replace regular line breaks with intentional line breaks
+            clip_string = string_replace_all(clip_string, "\n", global.intentionalLineBreak);
+            clip_string = string_replace_all(clip_string, "\r", "");
+            
+            global.commandBuffer = appendAndWrap(clip_string, global.commandBuffer, global.wrapWidth);
+            update_chat_input_visuals();
+            show_debug_message("[Client] Appended clipboard content to command buffer: " + global.commandBuffer);
+        } else {
+            handleDebugMessage("Clipboard content is too long to paste!", false);
+        }
+    }
+    pasting = false;
+}
 
 // Check if Enter is pressed to process the command or chat message
 if (input_check_pressed("confirm")) {
+	if (keyboard_check(vk_shift)) {
+            // Shift+Enter: Add a new line
+            global.commandBuffer += global.intentionalLineBreak;
+            update_chat_input_visuals();
+        } else {
         if (string_char_at(global.commandBuffer, 1) == "/") {
-            var command = string_delete(global.commandBuffer, 1, 1);
-            execute_command(string_trim(command));
+            execute_multiple_commands(global.commandBuffer);
+            global.textColor = global.defaultTextColor;
+            isActive = false;
         } else {
             var chatMessage = "[" + master.playername + "] " + global.commandBuffer;
             global.message_is_bubble = 1;
-            handleDebugMessage(chatMessage, true);
+            handleDebugMessage(chatMessage, -1);
             global.message_is_bubble = 0;
         }
 
@@ -7328,6 +7381,7 @@ if (input_check_pressed("confirm")) {
         global.commandBuffer = "";
         isActive = false;
         show_debug_message("[Client] Processed command/chat and cleared buffer.");
+}
 }
     // Navigate through the recall list using up and down arrows
     if (keyboard_check_pressed(vk_up)) {
@@ -7357,16 +7411,23 @@ if (input_check_pressed("confirm")) {
     }
 }
 
-// Before calling drawChatMessages, ensure messages is a ds_list
-if (!ds_exists(global.debugMessages, ds_type_list)) {
-    show_debug_message("Error: debugMessages is not a valid ds_list.");
-    return;
-}
-
-if show_chatbox and ds_exists(global.debugMessages, ds_type_list) {
-var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false,global.c_chat2,global.c_chat1);
-// Ensure scrollIndex is within valid range
-scrollIndex = clamp(scrollIndex, 0, clamp(totalLines - global.max_visible_lines,0,999999));
+if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+	global.longestmessage = updateLongestMessage(global.debugMessages);
+    var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    // Check if a new message was added
+    if (ds_list_size(global.debugMessages) > 0 && 
+        ds_list_find_value(global.debugMessages, ds_list_size(global.debugMessages) - 1) == global.lastAddedMessage) {
+        // Scroll to the bottom when a new message is added
+        scrollIndex = max(0, totalLines - global.max_visible_lines);
+        global.lastAddedMessage = ""; // Reset the last added message
+    } else {
+        // Ensure scrollIndex is within valid range
+        scrollIndex = clamp(scrollIndex, 0, max(0, totalLines - global.max_visible_lines));
+    }
+    
+    // Draw the chat messages
+    drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
 }
 
 // Only process incoming data and send heartbeats if the server is running
@@ -7489,169 +7550,177 @@ if (global.isConnected) {
 
 File: Draw_0.gml
 Code:
-///Client Draw Code
+
 draw_set_font(fnt_chat);
 if show_chatbox=true {
-	var xx = 990;
-	var yy = 686; // Starting y position
-	var lm_cal=clamp(xx+(clamp(110-global.longestmessage,0,110))+1.65*(global.longestmessage-50)/3,xx+215,(display_get_gui_width()-10)/2+room_width/2)+10
-	var x1 = 980
-	var y1 = 686-20
-	var x2 = max(lm_cal,clamp(xx+(clamp(110-global.longestmessage,0,110))+1.65*(string_width(global.commandBuffer)-1)/3,xx+215,(display_get_gui_width())/2+room_width/2+50))
-	var y2 = _yy+100
-	//draw transparent background box for chatbox that adjusts to fit the longest message. will be later swapped for a scaled image background
-	draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);
-	draw_set_alpha(1);
-	var sca=.7
-	global.chat_line_height = 70 * sca + 5;
-// Set drawing properties
-draw_set_colour(c_ltgray);
-draw_set_halign(fa_left);
-draw_set_valign(fa_top);
-draw_set_font(fnt_chat); 
-// Display server status
-var serverStatus = "Server Unable to Connect"; // Default message
-if (isServerRunning) {
-    serverStatus = "Server Online";
-	draw_set_colour(c_lime);
-} else {
-    serverStatus = "Server Stopped";
-	draw_set_colour(c_red);
-}
-
-if show_server_status=true {
-draw_text_transformed(xx, yy, serverStatus, sca, sca, 0);
-yy += 40; // Increment y position for next line
-}
-
-if connectedClients>0 {
-	draw_set_colour(c_aqua);
-} else {
-	draw_set_colour(c_ltgrey);
-}
-if show_server_status=true {
-	//we can keep drawing this section this way unless somehow your next response can condense it as well. but its  kind of fine as is, no issues here.
-draw_text_transformed(xx+3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
-draw_text_transformed(xx-3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
-draw_text_transformed(xx+3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
-draw_text_transformed(xx-3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
-draw_set_color(global.c_chat1);
-draw_text_transformed(xx, yy-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
-yy += 50; // Increment y position for next 
-} else {
-	draw_set_color(global.c_chat1);
-	draw_text_transformed(xx+3, yy+3-10, "Chat Box", sca, sca, 0);
-	draw_text_transformed(xx-3, yy+3-10, "Chat Box", sca, sca, 0);
-	draw_text_transformed(xx+3, yy-3-10, "Chat Box", sca, sca, 0);
-	draw_text_transformed(xx-3, yy-3-10, "Chat Box", sca, sca, 0);
-	draw_set_color(global.c_chat2);
-	draw_text_transformed(xx, yy-10, "Chat Box", sca, sca, 0);
-yy += 60; // Increment y position for next line
-}
-
-sca=.5
-
-if show_chatbox and ds_exists(global.debugMessages, ds_type_list) {
-    var startY = yy;
-    var maxLinesToShow = global.max_visible_lines;
-	// Before calling drawChatMessages, ensure messages is a ds_list
-if (!ds_exists(global.debugMessages, ds_type_list)) {
-    show_debug_message("Error: debugMessages is not a valid ds_list.");
-    return;
-}
-
-    var totalLines = drawChatMessages(global.debugMessages, 990, startY, maxLinesToShow, sca, false,global.c_chat2,global.c_chat1);
-
-    // Calculate the max index for scrolling based on the total number of lines
-    var maxScrollIndex = max(0, clamp(totalLines - maxLinesToShow,0,9999999));
-
-    // Scroll messages with keyboard or mouse wheel
-    if (input_check("up") || mouse_wheel_up()) {
-		if !(input_check("up") and isActive = true) { //disable scrolling from "W" when typing
-        scrollIndex = max(0, scrollIndex - 1);
-        show_debug_message("[Client] Scrolled up: Current scroll index is " + string(scrollIndex));
-		}
-    }
-    if (input_check("down") || mouse_wheel_down()) {
-		if !(input_check("down") and isActive = true) {//disable scrolling from "S" when typing
-        scrollIndex = min(maxScrollIndex, scrollIndex + 1);
-        show_debug_message("[Client] Scrolled down: Current scroll index is " + string(scrollIndex));
-		}
-    }
-
-    // Ensuring scrollIndex is always within the valid range
-    scrollIndex = clamp(scrollIndex, 0, maxScrollIndex);
-
-    // Redraw messages considering the scroll index
-	// Before calling drawChatMessages, ensure messages is a ds_list
-if (!ds_exists(global.debugMessages, ds_type_list)) {
-    show_debug_message("Error: debugMessages is not a valid ds_list.");
-    return;
-}
-
-    drawChatMessages(global.debugMessages, 990, yy , maxLinesToShow, sca, true,global.c_chat2,global.c_chat1);
-}
-
-yy=yy+clamp(totalLines-scrollIndex,0,global.max_visible_lines)*(global.chat_line_height*1.00)+5
-sca=.6
-_yy=yy-15
- 
-if (isActive) {
-// Determine the number of line breaks in the command buffer
-var lineCount = array_length(string_split(global.commandBuffer, "\n"));
-
-// Calculate the new height based on the number of lines
-var lines = string_split(global.commandBuffer, "\n");
-var boxHeight = global.chat_line_height*1.05 * array_length(lines) + 2; // Calculate box height based on number of lines
-
-//chat input box drawing code 
-draw_set_color(c_black); // Set initial color to black (border)
- 
-    if (string_char_at(global.commandBuffer, 1) = "/") {
-        draw_set_color(c_white);  // border becomes white if command is being typed
-    }
-// Adjust the bottom y-coordinate of the rectangle to expand with each new line
-draw_rectangle(xx + 5, yy - 11, clamp(xx - 90 + 1.85 * (string_width(global.commandBuffer) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150 + 10, yy + boxHeight + 10, false);
-
-    draw_set_color(c_white);  // Set initial bg color to white when no '/' detected
-    if (string_char_at(global.commandBuffer, 1) = "/") {
-        draw_set_color(c_black);  // Default bg color if command is being typed
-		slash_typed=true
+    var xx = 990;
+    var yy = 686; // Starting y position
+    var lm_cal=clamp(xx+(clamp(110-global.longestmessage,0,110))+1.7*(global.longestmessage-51)/3,xx+215,(display_get_gui_width()-10)/2+room_width/2)+10
+    var x1 = 980
+    var y1 = 686-20
+    var x2 = max(lm_cal, clamp(xx + (clamp(110 - global.longestmessage, 0, 110)) + 1.7 * (string_width(global.commandBuffer) - 1) / 3, xx + 230, (display_get_gui_width() - 10) / 2 + room_width / 2 + 50));
+    var y2 = _yy+100
+    
+    // Draw transparent background box for chatbox
+    draw_rectangle_outlined(x1,y1,x2,y2,false,global.borderwidth,global.o_color,global.bg_color,global.bg_alpha);
+    draw_set_alpha(1);
+    var sca=.7
+    global.chat_line_height = 70 * sca + 5;
+    
+    // Set drawing properties
+    draw_set_colour(c_ltgray);
+    draw_set_halign(fa_left);
+    draw_set_valign(fa_top);
+    draw_set_font(fnt_chat); 
+    
+    // Display server status
+    var serverStatus = "Server Unable to Connect"; // Default message
+    if (isServerRunning) {
+        serverStatus = "Server Online";
+        draw_set_colour(c_lime);
     } else {
-		slash_typed=false
-	}
-draw_rectangle(xx + 10, yy - 6, clamp(xx - 90 + 1.85 * (string_width(global.commandBuffer) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150, yy + boxHeight, false);
-//draw command buffer
-draw_set_color(global.c_chat2);
-	//we stay drawing these like this because theres no need for line handling here.
+        serverStatus = "Server Stopped";
+        draw_set_colour(c_red);
+    }
 
-	draw_set_color(merge_color(global.textColor,c_red,clamp(abs(shake_angle),0,1)));
-    draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, global.commandBuffer + "_", sca, sca, shake_angle*.25);  // Shoblinking cursor
-} else {
-	draw_set_color(merge_color(global.c_chat1,c_red,clamp(abs(shake_angle),0,1)));
-    draw_text_transformed(xx+20+shake_angle*7, yy-shake_angle*7, global.commandBuffer + "_", sca, sca, shake_angle*.25);  // Show blinking cursor
+    if show_server_status=true {
+        draw_text_transformed(xx, yy, serverStatus, sca, sca, 0);
+        yy += 40; // Increment y position for next line
+    }
+
+    if connectedClients>0 {
+        draw_set_colour(c_aqua);
+    } else {
+        draw_set_colour(c_ltgrey);
+    }
+    if show_server_status=true {
+        draw_text_transformed(xx+3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx-3, yy+3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx+3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_text_transformed(xx-3, yy-3-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        draw_set_color(global.c_chat1);
+        draw_text_transformed(xx, yy-10, "Connected Clients: "+string(connectedClients), sca, sca, 0);
+        yy += 50; // Increment y position for next 
+    } else {
+        draw_set_color(global.c_chat1);
+        draw_text_transformed(xx+3, yy+3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx-3, yy+3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx+3, yy-3-10, "Chat Box", sca, sca, 0);
+        draw_text_transformed(xx-3, yy-3-10, "Chat Box", sca, sca, 0);
+        draw_set_color(global.c_chat2);
+        draw_text_transformed(xx, yy-10, "Chat Box", sca, sca, 0);
+        yy += 60; // Increment y position for next line
+    }
+
+    sca=.5
+
+    if (show_chatbox && ds_exists(global.debugMessages, ds_type_list)) {
+    global.longestmessage = updateLongestMessage(global.debugMessages);
+    var totalLines = drawChatMessages(global.debugMessages, 990, yy, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
+ 
+    var maxScrollIndex = max(0, totalLines - global.max_visible_lines);
+
+    var wheel = mouse_wheel_down() - mouse_wheel_up();
+    if (wheel != 0) {
+        global.isScrolling = true;
+        scrollIndex = clamp(scrollIndex - wheel, 0, maxScrollIndex);
+        global.scrollResetTimer = 60; // Reset timer when scrolling
+    }
+
+    if (global.scrollResetTimer > 0) {
+        global.scrollResetTimer--;
+        if (global.scrollResetTimer == 0) {
+            global.isScrolling = false;
+        }
+    }
+
+    // Auto-scroll to bottom if not manually scrolling
+    //if (!global.isScrolling) {
+    //    scrollIndex = maxScrollIndex;
+    //}
+
+    drawChatMessages(global.debugMessages, 990, yy, global.max_visible_lines, .5, true, global.c_chat2, global.c_chat1);
 }
+
+    yy=yy+clamp(totalLines-scrollIndex,0,global.max_visible_lines)*(global.chat_line_height*1.00)+5
+    sca=.6
+    _yy=yy-15
+    
+    if global.commandBuffer != "" {
+        displayText = string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n");
+    } else {
+        displayText = ""
+    }
+    
+if (isActive) {
+    var lines = string_split(string_replace_all(global.commandBuffer, global.intentionalLineBreak, "\n"), "\n");
+    var totalLines = array_length(lines);
+    var maxInputLines = 25; // Maximum number of lines in the input box
+    var visibleLines = min(totalLines, maxInputLines);
+    
+    // Calculate the new height based on the number of visible lines
+    var boxHeight = global.chat_line_height * visibleLines + 2;
+    
+    // Calculate the scroll offset for the input box
+    var inputScrollOffset = max(0, totalLines - maxInputLines);
+    
+    // Count actual lines in the chat history
+    var actualChatLines = 0;
+    for (var i = 0; i < ds_list_size(global.debugMessages); i++) {
+        var message = ds_list_find_value(global.debugMessages, i);
+        actualChatLines += string_count("\n", message) + 1;
+    }
+    
+    // Calculate when to start expanding upward
+    var expandUpwardThreshold = max(15 - clamp(actualChatLines, 0, global.max_visible_lines), 2);
+    
+    // Adjust the y position of the input box
+    var inputBoxY = yy;
+    if (totalLines > expandUpwardThreshold) {
+        inputBoxY -= global.chat_line_height * (totalLines - expandUpwardThreshold);
+    }
+    inputBoxY = max(inputBoxY, global.chat_line_height); // Ensure it doesn't go above the top of the screen
+    
+    // Draw chat input box
+    draw_set_color(c_black);
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_white);
+    }
+    draw_rectangle(xx + 5, inputBoxY - 11, clamp(xx - 90 + 1.88 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150 + 10, inputBoxY + boxHeight + 10, false);
+
+    draw_set_color(c_white);
+    if (string_char_at(global.commandBuffer, 1) = "/") {
+        draw_set_color(c_black);
+        slash_typed = true;
+    } else {
+        slash_typed = false;
+    }
+    draw_rectangle(xx + 10, inputBoxY - 6, clamp(xx - 90 + 1.88 * (string_width(displayText) - 1) / 3, xx - 90, (display_get_gui_width() - 10) / 2 + room_width / 2) + 150, inputBoxY + boxHeight, false);
+
+    // Draw visible lines of text
+    draw_set_color(merge_color(global.textColor, c_red, clamp(abs(shake_angle), 0, 1)));
+    for (var i = 0; i < visibleLines; i++) {
+        var lineIndex = i + inputScrollOffset;
+        if (lineIndex < totalLines) {
+            var lineText = lines[lineIndex];
+            draw_text_transformed(xx + 20 + shake_angle * 7, inputBoxY - shake_angle * 7 + i * global.chat_line_height, lineText, sca, sca, shake_angle * .25);
+        }
+    }
+    
+    // Draw cursor
+    var cursorY = inputBoxY - shake_angle * 7 + (visibleLines - 1) * global.chat_line_height;
+    draw_text_transformed(xx + 20 + shake_angle * 7 + string_width(lines[totalLines - 1]) * sca, cursorY, "_", sca, sca, shake_angle * .25);
 } else {
-	exit
+        // Draw "Press 'T' to Type" prompt
+        draw_set_color(c_white);
+        draw_set_alpha(0.7);
+        draw_text_transformed(xx + 20, yy, "Press 'T' to Type", sca*.7, sca*.7, shake_angle*.25);
+        draw_set_alpha(1);
+    }
+} else {
+    exit
 }
 
-
-// instance_exists(obj_levelup) {
-//if input_value() != undefined {
-//draw_set_color(c_red)
-//var dbug = ""
-//draw_text_transformed(room_width/2,room_height/2,string(global.choiceselect),3,3,0)
-//draw_text_transformed(room_width/2,room_height/2,dbug,3,3,0)
-//}
-
-////debug draw last key id
-//draw_set_color(c_black);
-//draw_text(room_width/2+2,room_height/2+2,keyboard_lastkey)
-//draw_text(room_width/2-2,room_height/2+2,keyboard_lastkey)
-//draw_text(room_width/2+2,room_height/2-2,keyboard_lastkey)
-//draw_text(room_width/2-2,room_height/2-2,keyboard_lastkey)
-//draw_set_color(c_white);
-//draw_text(room_width/2,room_height/2,keyboard_lastkey)
 
 File: Alarm_0.gml
 Code:
@@ -7718,10 +7787,14 @@ show_chatbox=false
 
 File: Create_0.gml
 Code:
-// obj_Client setup Create Event
+
+// obj_Client Create Event
+global.currentTarget = yeancat; // Default to the player
+global.intentionalLineBreak = "|";
+global.lastAddedMessage = "";
 global.sessionLogFileName = "SessionLog_" + string_replace_all(string(date_current_datetime()), ":", "-") + ".txt";
 global.masterLogFileName = "MasterLog.txt";
-global.logDebugMessagesToFile = true; // By default, log debug messages to the file
+global.logDebugMessagesToFile = false; // By default, log debug messages to the file
 global.serverAddress = "127.0.0.1"; // Example server address
 // Initialize the data structure globally if not already initialized
 global.chatLogs=-1
@@ -7745,7 +7818,10 @@ instance_create_depth(room_width/2,room_height/2,-1000000,obj_Cursor);
 // Global time offset initialized
 global.timeOffset = 0;
 global.inputDisplayEnabled = false;  // Initialize the variable at an appropriate place in your game startup code
-
+global.actions = ds_map_create();
+global.conditions = ds_map_create();
+global.actionGroups = ds_map_create();
+global.actionConditions = ds_map_create();
 // Adding command details
 // Global initialization script or create event
 global.commandDetails = ds_map_create();
@@ -7765,23 +7841,37 @@ add_command("show_lines(", 0, [["real"]], true);
 add_command("set_variable(", 2, [["string"],["string","real"]],true)
 add_command("level_up(", 1, [["real"]], true);  // Command requires '(' visually and a real number argument
 add_command("show_wpm", 0, [[]], false);  // Does not require '(' visually, level 0 permission
-add_command("chat_bubble(", 1, [["string"],["string"]],true); // Chat bubble command
+add_command("chat_bubble(", 1, [["string"], ["array"]], true);
 add_command("save_macros", 1, [[]], false);  // Add the command to save macros
 add_command("list_variables", 2, [[]], false);
 add_command("add_action(", 2, [["string"],["string"],["array"]],true);
 add_command("save_actions", 2, [], false);
 add_command("list_actions", 2, [], false);
+add_command("list_action_conditions", 2, [[]], false);
+add_command("list_conditions", 2, [[]], false);
 add_command("execute_action(", 2, [["string"]], true);
 add_command("show_variable(", 2, [["string"]], true);
 add_command("return_controller", 1, [[]], false);
 add_command("toggle_input_display", 1, [[]], false);
 add_command("show_gamepad_mapping", 1, [[]], false);
-add_command("chat_bubble_choices(", 1, [["string"], ["string"], ["string", "string"]], true);
-add_command("add_chat_bubble_action(", 2, [["string"], ["string"], ["string"], ["array"]], true);
+add_command("add_action_group(", 2, [["string"], ["array"]], true);
+add_command("list_action_groups", 2, [[]], false);
+add_command("delete_action(", 2, [["string"]], true);
+add_command("delete_actions(", 2, [["array"]], true);
+add_command("list_objects", 0, [[]], false);
+add_command("set_target(", 2, [["string", "real"]], true);
+add_command("set_spawn_npc(", 2, [["string"], ["real"], ["real"], ["string"], ["string"]], true);
+add_command("spawn_npc(", 2, [["string"], ["real"], ["real"], ["real"], ["string"]], true);
+add_command("spawn_boss(", 2, [["real"], ["real"], ["real"], ["string"]], true);
+add_command("camera_target(", 2, [["real"], ["real"]], true);
+add_command("add_action_condition(", 2, [["string"],["string"],["string"],["string"]], true);
+add_command("add_condition", 2, [["string"],["string"],["string"],["string"]], true);
+add_command("debug_print_all_data", 0, [[]], false);
 // Initialize global action details
 global.actionDetails = ds_map_create();
 
-
+global.object_references = ds_map_create();
+//add_object_reference("NewBoss", specific object unique id or general object name);
 
 //add_command("spawn_boss(", 2, [["string"]], true);
 
@@ -7790,11 +7880,15 @@ global.actionDetails = ds_map_create();
 
 // You can add new commands or modify existing ones easily with the `add_command` function.
 global.variableDetails = ds_map_create();
+add_variable("Zoom", "camera_zoom", 1,global, "real", 1, 3, [], [], "Player");
+add_variable("SpawnEnemies", "spawnenemies", 1, master, "bool", 0, 1, [], [], "Player");
 add_variable("Level", "level", 1, master, "real", 1, 100000, [], [], "Player");
+add_variable("Health", "healthh", 1, yeancat, "real", 0, 100000, [], [], "Player");
+add_variable("Password", "password", 1, master, "string", 1, 100000, [], [], "Player");
 add_variable("BPM", "target_bpm", 115, global, "real", 1, 100000, [], [], "Gameplay");
 add_variable("Time", "ti", 0, master, "real", 0, 99999999, [], [], "Gameplay");
 add_variable("WPM Window", "typingSpeedCalcDuration", 60, global, "real", 1, 600, [], [], "Social");
-add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 1000, [], [], "Social");
+add_variable("CharacterLimit", "character_limit", 1, global, "real", 0, 2000, [], [], "Social");
 add_variable("Macro1", "macro1", 1, global, "real", -99999999, 99999999, [], [], "Global");
 add_variable("Macro2", "macro2", 1, global, "real", -99999999, 99999999, [], [], "Global");
 add_variable("Macro3", "macro3", 1, global, "real", -99999999, 99999999, [], [], "Global");
@@ -7822,7 +7916,7 @@ isActive = true;  // To check if command input is active
 sendHeartbeat = false; // Control sending of heartbeat messages
 _yy=0
 pasting=0;
-global.longestmessage=200;
+global.longestmessage=0;
 global.c_chat2=c_black
 global.c_chat1=c_white
 fnt_chat=Font4
@@ -7830,28 +7924,29 @@ global.borderwidth=8 //bg width
 global.bg_alpha=.4 //bg alpha
 global.bg_color=c_black //background color
 global.o_color=c_white //outline color
-global.wrapWidth = 2350; // Adjust this value based on your chat box
-global.character_limit=300;//character limit for chat
+global.wrapWidth = 1700; // Adjust this value based on your chat box
+global.character_limit=2000;//character limit for chat//this will be shorter for players
 global.lastSpaceIndex = -1;
-
+displayText=""
 //Other Variables
 global.showDebugMessages = true; // Enable debug messages by default
 global.maximumMessages=2000;
-maxDisplayMessages = 5; // Number of debug messages to display at once
+maxDisplayMessages = 6; // Number of debug messages to display at once
 // Initialize max visible lines for the chat box
 global.max_visible_lines = maxDisplayMessages;  // You can adjust this number based on your needs
-
+// Add these to the Create event of obj_Client
+global.input_scroll_offset = 0;  // Offset for scrolling the input box
 global.debugMessages = ds_list_create();
 fnt_chat_id=0
 // Global settings for text wrapping
-global.chat_threshold = 2350;  // Threshold to start considering wrapping
-global.chat_text_limit = 2350; // Maximum pixel width of text before wrapping
+global.chat_threshold = 1600;  // Threshold to start considering wrapping
+global.chat_text_limit = 1750; // Maximum pixel width of text before wrapping
 global.chat_line_height = 50; // Height of each line of text in pixels
 global.min_width = 110;  // Minimum width of the chat box
 global.max_width = 1000;  // Maximum width of the chat box, adjust according to your UI design
 // Adjust these values to tweak where the text wraps
-global.chat_threshold = global.chat_threshold * 1.66;  // Increase the threshold
-global.chat_text_limit = global.chat_text_limit * 1.66;  // Increase the width limit
+global.chat_threshold = global.chat_threshold * 1.3;  // Increase the threshold
+global.chat_text_limit = global.chat_text_limit * 1.3;  // Increase the width limit
 
 //Scrolling Variables
 scrollIndex = 0; // Initialize scroll position
@@ -7861,7 +7956,7 @@ sensitivityIncrement = 0.05; // How much the sensitivity increases with continuo
 sensitivityDecrement = 0.01; // How much the sensitivity decreases when not scrolling
 global.scrollSensitivity = baseScrollSensitivity; // Current sensitivity, starts at base sensitivity
 global.isScrolling = false; // Tracks if the user is currently scrolling
-
+global.scrollResetTimer = 0;
 // Server Configuration
 show_server_status=false
 global.serverPort = "5555";
@@ -7927,6 +8022,9 @@ global.recall_index = -1;  // Index for navigating through the recall list
 shake_angle=0 //angle to shake text when character limit reached.
 
 load_actions()
+load_conditions()
+load_action_conditions()
+load_action_groups()
 
 
 Object: yeancat
@@ -9252,7 +9350,7 @@ with (oweapon) {
 
 File: Draw_0.gml
 Code:
-///Draw Event of yeancat
+
 if instance_exists(obj_achievments) {
 	if obj_achievments.page=1 {
 		exit
@@ -10836,8 +10934,8 @@ if y!=yy {
 
 File: Draw_0.gml
 Code:
-/// DRAW of obj_terrain
-//
+
+
 if master.devmode=1 {
 	if keyboard_check(vk_space) {
 		exit
@@ -10928,7 +11026,7 @@ for (var iii=0; iii<array_length(terrain); iii++) {
 		cslide=0
 	}
 
-	for (var tt=0; tt<ceil(terrainheight*(-terrain[clamp(iii,0,array_length(terrain)-1)]+maxfun)/(1000*gscale))+1; tt+=1) {
+	for (var tt=0; tt<ceil(terrainheight*(-terrain[clamp(iii,0,array_length(terrain)-1)]+maxfun)/(1000*gscale))*(.25+power(global.camera_zoom,1.5))+1; tt+=1) {
 	if (iii+xoffset) % 2=0 {
 	draw_sprite_ext(spr_dirt,(cslide+4+tt*2) mod 4,_xx,_yy+225*gscale+yoff*500+1000*tt*gscale,flip*2.1*gscale,2.1*gscale,0,c_white,1)
 	} else {
@@ -10944,7 +11042,7 @@ for (var iii=0; iii<array_length(terrain); iii++) {
 //draw_text(spacing*sign(-playerpos)*(abs(playerpos/spacing)-floor(abs(playerpos/spacing)))-spacing+x-room_width/2+room_width*(i/partcount),y+terrain[i]*terrainheight+100,"h: "+string(sign(-playerpos)*(abs(playerpos/spacing)-floor(abs(playerpos/spacing)))));
 }
 if instance_exists(yeancat) {
-	draw_sprite_ext(spr_darkgradient,0,x,yyy+350,3.85*master.camscale,master.camscale*(2-clamp(yeancat.y+100-room_height/2,0,900)/600),0,c_white,(1-1/(1+clamp(yeancat.y-room_height/4-500,0,2000)/200)))
+	draw_sprite_ext(spr_darkgradient,0,obj_camera.target_x,yyy+350*power(global.camera_zoom,2)+(obj_camera.target_y-room_height/2),3.85*power(global.camera_zoom,2),power(global.camera_zoom,2)*(2-clamp(yeancat.y+100-room_height/2,0,900)/600),0,c_white,(1-1/(1+clamp(yeancat.y-room_height/4-500,0,2000)/200)))
 
 	//draw_text(yeancat.x,yeancat.y-500,"onground: "+string(yeancat.onground));
 	//draw_text(yeancat.x,yeancat.y-400,"jumpheight: "+string(yeancat.jumpheight));
@@ -10953,7 +11051,6 @@ if instance_exists(yeancat) {
 	//draw_text(yeancat.x,yeancat.y-600,"canjump: "+string(yeancat.canjump));
 
 }
-
 
 
 File: Create_0.gml
@@ -10995,12 +11092,12 @@ planet_names=[
 ["Land of Lucy",-1,"",""],
 ["Place of Pablo",-1,"",""],
 ["Ghost Town",-1,"",""],
-["Vultures' Valley",-1,"",""],
+["Vultures Valley",-1,"",""],
 ["The Endonda",-1,"",""],
 ["Stormy Sands",-1,"",""],
 ["Divine Domain",-1,"",""],
 ["Yetopia",-1,"",""],
-["King's Kingdom",-1,"",""],
+["Kings Kingdom",-1,"",""],
 ["The Icy Heart",-1,"",""],
 ["The Gold Mines",-1,"",""]
 ]
@@ -11100,7 +11197,7 @@ Object: obj_boss
 
 File: Step_0.gml
 Code:
-/// @description Insert description here
+/// obj_boss step
 // You can write your code in this 
 if instance_exists(restar) {
 direction=point_direction(room_width/2,room_height/2,x,y)
@@ -11146,6 +11243,22 @@ laserobj=laserset[setlection]
 
 var xxx = x
 var yyy =y
+
+// Repel other bosses
+var repel_distance = 150; // Distance at which bosses start to repel each other
+var repel_strength = 0.5; // Strength of the repulsion
+
+with (obj_boss) {
+    if (id != other.id) { // Don't repel self
+        var dist = point_distance(x, y, other.x, other.y);
+        if (dist < repel_distance) {
+            var angle = point_direction(other.x, other.y, x, y);
+            var force = (repel_distance - dist) / repel_distance * repel_strength;
+            x += lengthdir_x(force, angle);
+            y += lengthdir_y(force, angle);
+        }
+    }
+}
 
 if dead=0 {
 	intensity=1+(1-abs(obj_terrain.systemposition-180)/180)*2
@@ -11829,10 +11942,6 @@ File: Destroy_0.gml
 Code:
 /// @description Insert description here
 // You can write your code in this editor
-
-
-
-
 audio_emitter_free(music_emitter);
 
 File: obj_boss.yy
@@ -11848,6 +11957,7 @@ Code:
     {"$GMEvent":"v1","%Name":"","collisionObjectId":{"name":"yeancat","path":"objects/yeancat/yeancat.yy",},"eventNum":0,"eventType":4,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
     {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":0,"eventType":1,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
+    {"$GMEvent":"v1","%Name":"","collisionObjectId":null,"eventNum":10,"eventType":7,"isDnD":false,"name":"","resourceType":"GMEvent","resourceVersion":"2.0",},
   ],
   "managed":true,
   "name":"obj_boss",
@@ -11884,12 +11994,12 @@ Code:
 
 File: Draw_0.gml
 Code:
-/// @description Insert description here
+///obj_boss draw
 // You can write your code in this editor
 //draw_sprite_ext(sprite_index,image_index,x,y,image_xscale,image_yscale,bodyangle,col,1)
 draw_sprite_ext(spr_shadow,0,x-6*facing,y,.58*facing,.72,rotatebody,c_white,.85);
 draw_set_alpha(1)
-for (i=0 ; i<round(((abs(facing-1)*room_width/2)+(facing*x))/110); i+=1) {
+for (i=0 ; i<round(((abs(facing-1)*room_width/2)+(facing*x))/110)*global.camera_zoom; i+=1) {
 	if redcount[clamp(i,0,999999999)]=1 {
 		if (oxy)>0 {
 		draw_sprite_ext(master.characters[lookid,12],round(anicount)+1,x+(lengthdir_x(18*(i)*6*scale,rotatebody+180))*facing,-facing*lengthdir_y(18*(i)*6*scale,rotatebody+180)+y-(0.5 * sin(2 * pi * (time) / 15) + 0.5)*13*((oxy+7))/7*((i+27)/25),6*scale*facing,5.9*scale*(0.2 * sin(2 * pi * (time) / (60/(oxy+1))) + 0.9)*((8+(oxy+1))/9),rotatebody,c_maroon,(0.7 * sin(2 * pi * (time) / (40/(oxy*2+1))) + 0.0)*(clamp(power(oxy/5,.3),0,(1-alphafade)))*trailalph);
@@ -12106,13 +12216,13 @@ audio_sound_gain(hurtsnd2,1*master.sfxvol*master.mastervol,0);
 
 File: Create_0.gml
 Code:
-/// @description Insert description here
+/// obj_boss Create
 // You can write your code in this 
 music=audio_play_sound(nothingsound,0,0);
 moose=0
 music_emitter = audio_emitter_create();
 fadeinmusic=0
-
+repel_distance = random_range(100, 200);
 dead=0
 bossid=0
 grav=0
@@ -12157,10 +12267,11 @@ laserset=[-1,-1,-1,0,-1,-1,0,-1,-1,0]
 areaset=[-1,-1,-1,-1,-1,-1,0,-1,-1,-1]
 damageset=[2,1,1,2,3,1,4,2,1,3]
 attackspeedset=[4,2,6,3,4,4,2,8,4,3]
-
+projectile=0
 projectileset=[0,-1,1,-1,-1,2,-1,3,-1,-1]
 attackset=[2,1,2,5,3,2,6,2,3,5]
-
+jumptotal=1
+jumpcount=jumptotal
 //attack type 
 //0= none
 //1=  damage while touching
@@ -12367,6 +12478,13 @@ other.move_bounce_all(0);
 }
 }
 
+
+File: Other_10.gml
+Code:
+/// @description Insert description here
+// You can write your code in this editor
+// Add object references
+add_object_reference(namee, id);
 
 Object: obj_controlhs
 
@@ -13496,7 +13614,13 @@ if rainbowv2>=sprite_get_height(back2)*master.camscale*back2scale {
 
 File: Draw_0.gml
 Code:
-//DRAW of obj_backg
+var depth_effect = depth * global.threedee * 0.01;
+var x_offset = global.macro5;
+var y_offset = global.macro6;
+
+var matrix = matrix_build(x + x_offset, y + y_offset, depth_effect, 0, 0, 0, 1, 1, 1);
+matrix_set(matrix_world, matrix);
+
 if master.devmode=1 {
 	if keyboard_check(vk_space) {
 		draw_set_color(c_green)
@@ -13505,15 +13629,15 @@ draw_rectangle(0,0,room_width,room_height,0)
 	}
 } else {
 	draw_set_color(backgroundcolor)
-draw_rectangle(0,0,room_width,room_height,0)
+draw_rectangle(0+(obj_camera.target_x-room_width/2),0+(obj_camera.target_y-room_height/2),room_width+(obj_camera.target_x-room_width/2),room_height+(obj_camera.target_y-room_height/2),0)
 }
 
 if !is_nan(lalph) and !is_nan(alph) {
-draw_sprite_ext(spr_skygrade,0,room_width/2,5*room_height/8+(room_height/8)*master.camscale+playeraltitude/50,4*master.camscale,4*planets[planet,11],0,planets[planet,10],planets[planet,12]*(1-playeraltitude/40000));
- draw_sprite_tiled_ext(back, 1, _sw/2-rainbowh, _sh/2-rainbowv,master.camscale*back1scale,master.camscale*back1scale,c_white,sqrt(lalph))
- draw_sprite_tiled_ext(back2, 1, _sw2/2-rainbowh2, _sh2/2-rainbowv2,master.camscale*back2scale,master.camscale*back2scale,c_white,sqr(lalph))
-draw_sprite_tiled_ext(back2, 0, _sw2/2-rainbowh2, _sh2/2-rainbowv2,master.camscale*back2scale,master.camscale*back2scale,c_white,alph)
- draw_sprite_tiled_ext(back, 0, _sw/2-rainbowh, _sh/2-rainbowv,master.camscale*back1scale,master.camscale*back1scale,c_white,sqrt(alph))
+draw_sprite_ext(spr_skygrade,0,obj_camera.target_x,5*obj_camera.target_y+(room_height/8)*global.camera_zoom+playeraltitude/50,4*global.camera_zoom,4*planets[planet,11],0,planets[planet,10],planets[planet,12]*(1-playeraltitude/40000));
+ draw_sprite_tiled_ext(back, 1, _sw/2-rainbowh, _sh/2-rainbowv,global.camera_zoom*back1scale,global.camera_zoom*back1scale,c_white,sqrt(lalph))
+ draw_sprite_tiled_ext(back2, 1, _sw2/2-rainbowh2, _sh2/2-rainbowv2,global.camera_zoom*back2scale,global.camera_zoom*back2scale,c_white,sqr(lalph))
+draw_sprite_tiled_ext(back2, 0, _sw2/2-rainbowh2, _sh2/2-rainbowv2,global.camera_zoom*back2scale,global.camera_zoom*back2scale,c_white,alph)
+ draw_sprite_tiled_ext(back, 0, _sw/2-rainbowh, _sh/2-rainbowv,global.camera_zoom*back1scale,global.camera_zoom*back1scale,c_white,sqrt(alph))
 }
 
 //planets 0location, 1size, 2gravity, 3background, 4clouds, 5skycolor1, 6skycolor2, 7tileid,8distance,9planetimage
@@ -13521,16 +13645,17 @@ draw_sprite_tiled_ext(back2, 0, _sw2/2-rainbowh2, _sh2/2-rainbowv2,master.camsca
 if is_undefined(planrot) {
 	planrot=0
 }
-	var planxx=room_width/2+master.camscale*(room_width/3)*d2plan/7
-	var planyy=room_height*3/4-150-sqr((playeraltitude+8000)/12000)*28+clamp((1 - abs(playeraltitude - 18500) / 24500),0,.9)*500-clamp((playeraltitude-40000)/3500,0,10000)
+	var planxx=obj_camera.target_x+global.camera_zoom*(room_width/3)*d2plan/7
+	var planyy=obj_camera.target_y*1.5-150-sqr((playeraltitude+8000)/12000)*28+clamp((1 - abs(playeraltitude - 18500) / 24500),0,.9)*500-clamp((playeraltitude-40000)/3500,0,10000)
 	//var ranx= ()*(abs(lengthdir_x(1,planrot))) + ()*(abs(lengthdir_y(1,planrot)))
 	//var rany= ()*(abs(lengthdir_y(1,planrot))) + ()*(abs(lengthdir_x(1,planrot)))
 	var ranx=(planets[planet,1]/10)*clamp(1*(1*((8.2/((1.5*sqr(slideplanet/800)+.5)*power(1+clamp(((playeraltitude*.7))/40000,0,1)*((((playeraltitude*.7)+1000)/10000)/(((playeraltitude*.7)+1000)/10000+.01)),3))-(4.1-4/(sqr(1+(playeraltitude*.7)/10000))))*(abs(lengthdir_x(1,planrot))))+((4.1-(4-4/(sqr(1+(playeraltitude*.7)/10000))))*(abs(lengthdir_y(1,clamp(planrot,0,360)))))*(clamp(1-1/(sqr(1+(playeraltitude*.7)/10000))+slideplanet/800,0,1))*1),(8/(sqr(1+(playeraltitude*.7)/40000)))*clamp((playeraltitude*.7)/20000,0,1),99)
 	var rany=(planets[planet,1]/10)*clamp(1*(1*((8.2/((1.5*sqr(slideplanet/800)+.5)*power(1+clamp(((playeraltitude*.7))/40000,0,1)*((((playeraltitude*.7)+1000)/10000)/(((playeraltitude*.7)+1000)/10000+.01)),3))-(4.1-4/(sqr(1+(playeraltitude*.7)/10000))))*(abs(lengthdir_y(1,planrot))))+((4.1-(4-4/(sqr(1+(playeraltitude*.7)/10000))))*(abs(lengthdir_x(1,clamp(planrot,0,360)))))*(clamp(1-1/(sqr(1+(playeraltitude*.7)/10000))+slideplanet/800,0,1))*1),(8/(sqr(1+(playeraltitude*.7)/40000)))*clamp((playeraltitude*.7)/20000,0,1),99)
-	draw_sprite_ext(planets[planet,9],0,planxx,planyy*1-slideplanet*.55,ranx*.4*(7.5-abs(d2plan))/7.5,rany*.4*(7.5-abs(d2plan))/7.5,planrot,c_white,clamp(slideplanet/200+(1-1/(1+clamp(playeraltitude-500,0,9999999)/10000)),0,1));
+	draw_sprite_ext(planets[planet,9],0,planxx,planyy*1-slideplanet*.55,ranx*global.camera_zoom*.4*(7.5-abs(d2plan))/7.5,rany*global.camera_zoom*.4*(7.5-abs(d2plan))/7.5,planrot,c_white,clamp(slideplanet/200+(1-1/(1+clamp(playeraltitude-500,0,9999999)/10000)),0,1));
 
 //draw_sprite_ext(back,1,x,y,2*master.camscale,2*master.camscale,0,c_white,lalph)
 //draw_sprite_ext(back,0,x,y,2*master.camscale,2*master.camscale,0,c_white,alph)
+matrix_set(matrix_world, matrix_build_identity());
 
 File: obj_backg.yy
 Code:
@@ -13632,314 +13757,85 @@ boost=0
 == Related Scripts ==
 
 Script: scr_add_action
-File: scr_add_action.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"scr_add_action",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"scr_add_action",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
-}
-
-Script: scr_add_action
 File: scr_add_action.gml
 Code:
-function scr_add_action(argument0, argument1, argument2) {
-    var name = string(argument0);
-    var commandName = string(argument1);
-    var parameters = argument2;
+function scr_add_action(actionName, fullActionCommand, actionParams) {
+    var parts = string_split(fullActionCommand, ".");
+    var targetObject, actionCommand;
     
-    handleDebugMessage("Adding action: " + name + ", Command: " + commandName + ", Parameters: " + string(parameters), true);
+    if (array_length(parts) == 2) {
+        targetObject = parts[0];
+        actionCommand = parts[1];
+    } else {
+        targetObject = "Target";  // Default to Target if no object specified
+        actionCommand = fullActionCommand;
+    }
 
-    if (ds_map_exists(global.actionDetails, name)) {
-        handleDebugMessage("Action '" + name + "' already exists.", true);
-        return;
-    }
-    
-    var commandDetailName = commandName + "(";
-    handleDebugMessage("Checking for command: " + commandDetailName, true);
-    if (!ds_map_exists(global.commandDetails, commandDetailName)) {
-        handleDebugMessage("Command '" + commandName + "' does not exist.", true);
-        return;
-    }
-    
-    if (!is_array(parameters)) {
-        parameters = [parameters];
-    } else if (array_length(parameters) == 1 && is_string(parameters[0])) {
-        var paramString = string_replace_all(parameters[0], "[", "");
-        paramString = string_replace_all(paramString, "]", "");
-        parameters = string_split(paramString, ",");
-    }
-    
-    // Special handling for chat_bubble command
-    if (commandName == "chat_bubble" && array_length(parameters) >= 3) {
-        var choices = [];
-        for (var i = 2; i < array_length(parameters); i += 2) {
-            array_push(choices, [parameters[i], parameters[i+1]]);
-        }
-        parameters = [parameters[0], parameters[1], choices];
-    }
-    
-    handleDebugMessage("Parameters after processing: " + string(parameters), true);
-    
-    var actionEntry = ds_map_create();
-    ds_map_add(actionEntry, "command", commandName);
-    ds_map_add(actionEntry, "parameters", parameters);
-    
-    ds_map_add(global.actionDetails, name, actionEntry);
-    
-    handleDebugMessage("Action '" + name + "' added successfully.", true);
+    var actionData = {
+        type: "single_action",
+        targetObject: targetObject,
+        command: actionCommand,
+        parameters: json_parse(actionParams)
+    };
+
+    var encodedCommand = base64_encode(json_stringify(actionData));
+
+    ds_map_set(global.actionDetails, actionName, encodedCommand);
+
+    handleDebugMessage("Action '" + actionName + "' added/updated successfully.", false);
     
     save_actions();
 }
-
-//function scr_add_action(argument0, argument1, argument2) {
-//    var name = string(argument0);
-//    var commandName = string(argument1);
-//    var parameters = argument2; // This should be an array
-    
-//    handleDebugMessage("Adding action: " + name + ", Command: " + commandName + ", Parameters: " + string(parameters), true);
-
-//    // Ensure the action doesn't already exist
-//    if (ds_map_exists(global.actionDetails, name)) {
-//        handleDebugMessage("Action '" + name + "' already exists.", true);
-//        return;
-//    }
-    
-//    // Ensure the command is valid and exists
-//    var commandDetailName = commandName + "(";
-//    handleDebugMessage("Checking for command: " + commandDetailName, true);
-//    if (!ds_map_exists(global.commandDetails, commandDetailName)) {
-//        handleDebugMessage("Command '" + commandName + "' does not exist.", true);
-//        return;
-//    }
-    
-//    // Ensure parameters is an array
-//    if (!is_array(parameters)) {
-//        parameters = [parameters];
-//    } else if (array_length(parameters) == 1 && is_string(parameters[0])) {
-//        // If it's a single string that looks like an array, split it
-//        var paramString = string_replace_all(parameters[0], "[", "");
-//        paramString = string_replace_all(paramString, "]", "");
-//        parameters = string_split(paramString, ",");
-//    }
-    
-//    // Process each parameter
-//    for (var i = 0; i < array_length(parameters); i++) {
-//        var param = parameters[i];
-//        // Remove quotes if present
-//        if (is_string(param)) {
-//            param = string_replace_all(param, "\"", "");
-//            param = string_trim(param);
-//            // Convert to number if it's a valid number
-//            if (string_digits(param) == param) {
-//                param = real(param);
-//            }
-//        }
-//        parameters[i] = param;
-//    }
-    
-//    handleDebugMessage("Parameters after processing: " + string(parameters), true);
-    
-//    // Create the action entry
-//    var actionEntry = ds_map_create();
-//    ds_map_add(actionEntry, "command", commandName);
-//    ds_map_add(actionEntry, "parameters", parameters);
-    
-//    // Add the action entry to the global action details
-//    ds_map_add(global.actionDetails, name, actionEntry);
-    
-//    handleDebugMessage("Action '" + name + "' added successfully.", true);
-    
-//    // Save the action to the file
-//    save_actions();
-//}
-
 
 Script: save_actions
 File: save_actions.gml
 Code:
 function save_actions() {
-    if (ds_map_size(global.actionDetails) == 0) {
-        handleDebugMessage("No actions to save.", true);
-        return;
-    }
-    
     var file = file_text_open_write("Actions.txt");
-    var actionKey = ds_map_find_first(global.actionDetails);
+    var key = ds_map_find_first(global.actionDetails);
     
-    while (!is_undefined(actionKey)) {
-        var actionData = ds_map_find_value(global.actionDetails, actionKey);
-        var command = actionData[? "command"];
-        var parameters = actionData[? "parameters"];
-        
-        var paramString = "";
-        for (var i = 0; i < array_length(parameters); i++) {
-            var param = parameters[i];
-            if (is_string(param)) {
-                paramString += "\"" + string_replace_all(param, "\"", "\\\"") + "\"";
-            } else {
-                paramString += string(param);
-            }
-            if (i < array_length(parameters) - 1) {
-                paramString += ",";
-            }
-        }
-        
-        file_text_write_string(file, actionKey + "," + command + "," + paramString);
+    while (!is_undefined(key)) {
+        var encodedData = ds_map_find_value(global.actionDetails, key);
+        var line = key + "|||" + encodedData;
+        file_text_write_string(file, line);
         file_text_writeln(file);
-        actionKey = ds_map_find_next(global.actionDetails, actionKey);
+        key = ds_map_find_next(global.actionDetails, key);
     }
     
     file_text_close(file);
-    handleDebugMessage("Actions saved successfully to Actions.txt.", true);
-}
-
-//old code
-
-///// @function save_actions()
-///// @description Saves the global.actionDetails to Actions.txt
-//function save_actions() {
-//    if (ds_map_size(global.actionDetails) == 0) {
-//        handleDebugMessage("No actions to save.", true);
-//        return;
-//    }
-
-//    var file = file_text_open_write("Actions.txt");
-//    var actionKey = ds_map_find_first(global.actionDetails);
-
-//    // Iterate over each action entry and save it in the desired format
-//    while (actionKey != undefined) {
-//        var actionData = ds_map_find_value(global.actionDetails, actionKey);
-//        var command = actionData[? "command"];
-//        var parameters = actionData[? "parameters"];
-
-//        // Format the parameters correctly
-//        var paramsString = "[ ";
-//        for (var i = 0; i < array_length(parameters); i++) {
-//            var param = parameters[i];
-
-//            // Convert param to the appropriate data type string
-//            if (is_real(param) || string_is_real(param)) {
-//                paramsString += string(real(param));
-//            } else if (is_string(param)) {
-//                paramsString += "\"" + string_trim(param) + "\"";
-//            }
-
-//            if (i < array_length(parameters) - 1) {
-//                paramsString += ", ";
-//            }
-//        }
-//        paramsString += " ]";
-
-//        file_text_write_string(file, actionKey + "," + command + "," + paramsString);
-//        file_text_writeln(file);
-
-//        actionKey = ds_map_find_next(global.actionDetails, actionKey);
-//    }
-
-//    file_text_close(file);
-//    handleDebugMessage("Actions saved successfully to Actions.txt.", true);
-//}
-
-
-
-
-
-
-
-Script: save_actions
-File: save_actions.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"save_actions",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"save_actions",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
+    handleDebugMessage("Actions and action groups saved successfully to Actions.txt.", true);
 }
 
 Script: scr_execute_action
 File: scr_execute_action.gml
 Code:
-function scr_execute_action() {
-    if (argument_count == 0) {
-        handleDebugMessage("Error: No action name provided for execute_action", true);
-        return;
-    }
-
-    var actionName = argument[0];
-    if (ds_map_exists(global.actionDetails, actionName)) {
-        var actionData = ds_map_find_value(global.actionDetails, actionName);
-        if (!ds_map_exists(actionData, "command") || !ds_map_exists(actionData, "parameters")) {
-            handleDebugMessage("Error: Invalid action format for '" + actionName + "'.", true);
-            return;
+function scr_execute_action(actionName) {
+    actionName = string_trim(actionName);
+    
+    handleDebugMessage("Attempting to execute action: " + actionName, true);
+    handleDebugMessage("Action exists in actionDetails: " + string(ds_map_exists(global.actionDetails, actionName)), true);
+    handleDebugMessage("Action exists in actionGroups: " + string(ds_map_exists(global.actionGroups, actionName)), true);
+    handleDebugMessage("Action exists in actionConditions: " + string(ds_map_exists(global.actionConditions, actionName)), true);
+    
+    if (ds_map_exists(global.actionConditions, actionName)) {
+        var actionConditionData = ds_map_find_value(global.actionConditions, actionName);
+        handleDebugMessage("Executing action condition: " + actionName + " with data: " + json_stringify(actionConditionData), true);
+        execute_action_condition(actionConditionData);
+    } else if (ds_map_exists(global.actionDetails, actionName)) {
+        var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
+        var decodedData = json_parse(base64_decode(encodedCommand));
+        
+        handleDebugMessage("Executing action: " + actionName, true);
+        execute_single_action(decodedData);
+    } else if (ds_map_exists(global.actionGroups, actionName)) {
+        var groupActions = ds_map_find_value(global.actionGroups, actionName);
+        handleDebugMessage("Executing action group: " + actionName, true);
+        for (var i = 0; i < array_length(groupActions); i++) {
+            scr_execute_action(groupActions[i]);  // Recursive call to handle nested groups
         }
-        
-        var command = ds_map_find_value(actionData, "command");
-        var params = ds_map_find_value(actionData, "parameters");
-        
-        // Construct the command string and execute it
-        var commandString = command + "(";
-        for (var i = 0; i < array_length(params); i++) {
-            if (is_string(params[i])) {
-                commandString += "\"" + string_replace_all(params[i], "\"", "\\\"") + "\"";
-            } else {
-                commandString += string(params[i]);
-            }
-            if (i < array_length(params) - 1) {
-                commandString += ", ";
-            }
-        }
-        commandString += ")";
-        
-        handleDebugMessage("Executing action: " + commandString, true);
-        execute_command(commandString);
     } else {
-        handleDebugMessage("Action '" + actionName + "' not found.", true);
+        handleDebugMessage("Action/group/condition '" + actionName + "' not found.", true);
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-Script: scr_execute_action
-File: scr_execute_action.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"scr_execute_action",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"scr_execute_action",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
 }
 
 Script: handleDebugMessage
@@ -13951,522 +13847,314 @@ Code:
 /// @param {bool} isDebug - True if this is a debug message, false for essential messages
 function handleDebugMessage(msg, isDebug) {
     var safeMsg = is_string(msg) ? msg : "Undefined message content";
+    // Convert vertical lines to new lines
+    safeMsg = string_replace_all(safeMsg, "|", "\n");
+    // Remove only carriage returns, keep new lines
+    safeMsg = string_replace_all(safeMsg, "\r", "");
+    
     var currentDate = date_current_datetime();
     var formattedDate = date_date_string(currentDate);
     var formattedTime = date_time_string(currentDate);
     var logMsg = formattedDate + " " + formattedTime + ": " + safeMsg + "\n";
-
     show_debug_message("Date: " + formattedDate + " Time: " + formattedTime + " Msg: " + safeMsg);
-
-    // Function to handle file logging
-    function logToFile(filePath, message) {
-        var file;
-        if (file_exists(filePath)) {
-            file = file_text_open_append(filePath);
-        } else {
-            file = file_text_open_write(filePath);
-        }
-        file_text_write_string(file, message);
-        file_text_close(file);
-    }
-
+    
+    // Log to file
     logToFile(working_directory + global.sessionLogFileName, logMsg);
     logToFile(working_directory + global.masterLogFileName, logMsg);
-
-    // Update the chat system and possibly calculate WPM
-    if (isDebug && global.showDebugMessages) {
+    
+    // Always add messages to the debug messages list
+	if (isDebug=true && global.logDebugMessagesToFile) || (isDebug<=0) {
+    if (ds_exists(global.debugMessages, ds_type_list)) {
         if (ds_list_size(global.debugMessages) >= global.maximumMessages) {
-            ds_list_delete(global.debugMessages, 0); // Keep the latest messages
+            ds_list_delete(global.debugMessages, 0);
         }
         ds_list_add(global.debugMessages, safeMsg);
-
-        // Before drawing chat messages, ensure messages is a valid ds_list
-        if (!ds_exists(global.debugMessages, ds_type_list)) {
-            show_debug_message("Error: debugMessages is not a valid ds_list.");
-            return;
-        }
-
-        var totalLines = drawChatMessages(global.debugMessages, 990, 0, global.max_visible_lines, .5, false, global.c_chat2, global.c_chat1);
-        if (totalLines - obj_Client.scrollIndex > global.max_visible_lines) {
-            var totalLines_inRecentMessage = is_string(msg) ? countLinesInString(msg) : 1;
-            obj_Client.scrollIndex = totalLines; // Scroll to bottom when new message
-            obj_Client.scrollIndex -= (clamp(totalLines_inRecentMessage - 1, 0, 999999)); // Scroll back up number of lines in newest message (-1)
-        }
-        if (obj_Client.scrollIndex > totalLines) {
-            // Clamp scroll
-            obj_Client.scrollIndex = clamp(totalLines, 0, 99999);
-        }
-        draw_set_font(obj_Client.fnt_chat);
-        global.longestmessage = updateLongestMessage(global.debugMessages);
+        global.lastAddedMessage = safeMsg;
+    } else {
+        show_debug_message("ERROR: global.debugMessages is not a valid ds_list");
     }
-
-    // Create a chat bubble when no command is entered
-    if (isDebug = 1) and !(string_char_at(safeMsg,0) = "/") {
-        global.bubble_send_to_log = 0; // Don't send message to chat log
+	}
+    // Create a chat bubble for non-debug messages that don't start with "/"
+    if (isDebug = -1 && string_char_at(safeMsg, 1) != "/"){
         var cleanMsg = string_remove_between(safeMsg, "[", "]");
-        cleanMsg = string_replace_all(cleanMsg, "\n", " ");  // Remove existing line breaks
-		if global.message_is_bubble=1 {
-        scr_chat_bubble(cleanMsg, "yeancat");
-		}
-        global.bubble_send_to_log = 1; // Reset the variable
+        // Don't replace spaces here
+        scr_chat_bubble(cleanMsg, "yeancat", []); // Pass an empty array for choices
     }
-
+    
     // WPM Calculation Logic Integration
-    if (isDebug) {  // Assuming non-debug messages are chat messages
+    if (!isDebug) {
         var wordCount = string_word_count(safeMsg);
         var messageDetails = [currentDate, wordCount];
-        ds_list_add(global.chatLogs, messageDetails);
-        updateWPM();  // This would be a new function to handle WPM updates based on chatLogs
+        if (ds_exists(global.chatLogs, ds_type_list)) {
+            ds_list_add(global.chatLogs, messageDetails);
+            updateWPM();
+        } else {
+            show_debug_message("ERROR: global.chatLogs is not a valid ds_list");
+        }
     }
-}
-
-
-
-
-
-
-///// @function handleDebugMessage(msg, isDebug)
-///// @param {string} msg - The message to log
-///// @param {bool} isDebug - True if this is a debug message, false for essential messages
-//function handleDebugMessage(msg, isDebug) {
-//    var safeMsg = is_string(msg) ? msg : "Undefined message content";
-//    var currentDate = date_current_datetime();
-//    var formattedDate = date_date_string(currentDate);
-//    var formattedTime = date_time_string(currentDate);
-//    var logMsg = formattedDate + " " + formattedTime + ": " + safeMsg + "\n";
-
-//    show_debug_message("Date: " + formattedDate + " Time: " + formattedTime + " Msg: " + safeMsg);
-
-//    // Function to handle file logging
-//    function logToFile(filePath, message) {
-//        var file;
-//        if (file_exists(filePath)) {
-//            file = file_text_open_append(filePath);
-//        } else {
-//            file = file_text_open_write(filePath);
-//        }
-//        file_text_write_string(file, message);
-//        file_text_close(file);
-//    }
-
-//    logToFile(working_directory + global.sessionLogFileName, logMsg);
-//    logToFile(working_directory + global.masterLogFileName, logMsg);
-
-//    if (isDebug && global.showDebugMessages) {
-//        if (ds_list_size(obj_Client.debugMessages) >= global.maximumMessages) {
-//            ds_list_delete(obj_Client.debugMessages, 0); // Keep the latest messages
-//        }
-//        ds_list_add(debugMessages, safeMsg);
-//		if show_chatbox and ds_exists(debugMessages, ds_type_list) {
-//			// Before calling drawChatMessages, ensure messages is a ds_list
-//if (!ds_exists(debugMessages, ds_type_list)) {
-//    show_debug_message("Error: debugMessages is not a valid ds_list.");
-//    return;
-//}
-
-//var totalLines = drawChatMessages(debugMessages, 990, 0, global.max_visible_lines, .5, false,global.c_chat2,global.c_chat1);
-//		if (totalLines-obj_Client.scrollIndex>global.max_visible_lines) {
-//			var totalLines_inRecentMessage = 1
-//			if is_string(msg) {
-//			totalLines_inRecentMessage = countLinesInString(msg)
-//			}
-//			obj_Client.scrollIndex = totalLines //scroll to bottom when new message
-//            obj_Client.scrollIndex -= (clamp(totalLines_inRecentMessage-1,0,999999)); //scroll back up number of lines in newest message (-1)
-//        }
-//        if (obj_Client.scrollIndex>totalLines ) {
-//			//clamp scroll
-//            obj_Client.scrollIndex = clamp(totalLines,0,99999);
-//        }
-//        draw_set_font(obj_Client.fnt_chat);
-//        global.longestmessage = updateLongestMessage(debugMessages);	
-//		}
-//    }
-//}
-
-
-
-Script: handleDebugMessage
-File: handleDebugMessage.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"handleDebugMessage",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"handleDebugMessage",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
 }
 
 Script: execute_command
 File: execute_command.gml
 Code:
 function execute_command(command) {
-    handleDebugMessage("Executing command: " + command, true);
+    handleDebugMessage("Raw command: " + command, true);
+    
+    command = string_replace_all(command, "\r", "");
+    command = string_trim(string_replace_all(command, "\n", " "));
+    command = string_replace_all(command, global.intentionalLineBreak, "");
+    
+    handleDebugMessage("Cleaned command: " + command, true);
 
-    command = string_trim(command);
     if (command == "") {
         handleDebugMessage("Error: Empty command", true);
         return;
     }
-
-    if (string_char_at(command, 1) == "/") {
-        command = string_delete(command, 1, 1);
-    }
-    handleDebugMessage("Processed command: " + command, true);
-
+    
+    var dotIndex = string_pos(".", command);
+    var targetObject = "yeancat";  // Default to "yeancat"
+    var openParenIndex = string_pos("(", command);
+    var closeParenIndex = string_last_pos(")", command);
     var commandName = "";
     var parameters = [];
-
-    if (string_pos("add_action(", command) == 1) {
-        var startParen = string_pos("(", command);
-        var endParen = string_last_pos(")", command);
-        if (startParen > 0 && endParen > startParen) {
-            var argsString = string_copy(command, startParen + 1, endParen - startParen - 1);
-            var args = string_split(argsString, ",");
-            if (array_length(args) >= 3) {
-                var actionName = string_trim(args[0]);
-                var actionCommand = string_trim(args[1]);
-                var actionParams = string_join_ext(",", args, 2);
-                actionParams = string_replace_all(actionParams, "[", "");
-                actionParams = string_replace_all(actionParams, "]", "");
-                var paramArray = string_split(actionParams, ",");
-                for (var i = 0; i < array_length(paramArray); i++) {
-                    paramArray[i] = string_trim(paramArray[i]);
-                }
-                scr_add_action(actionName, actionCommand, paramArray);
-                return;
-            }
-        }
-    } else if (string_pos("execute_action(", command) == 1) {
-        var actionName = string_replace(command, "execute_action(", "");
-        actionName = string_replace(actionName, ")", "");
-        actionName = string_trim(actionName);
-        
-        if (ds_map_exists(global.actionDetails, actionName)) {
-            var actionEntry = ds_map_find_value(global.actionDetails, actionName);
-            commandName = ds_map_find_value(actionEntry, "command");
-            parameters = ds_map_find_value(actionEntry, "parameters");
-        } else {
-            handleDebugMessage("Action '" + actionName + "' not found.", true);
-            return;
-        }
+    
+    if (dotIndex > 0 && (openParenIndex == 0 || dotIndex < openParenIndex)) {
+    targetObject = string_copy(command, 1, dotIndex - 1);
+    command = string_delete(command, 1, dotIndex);
+    openParenIndex = string_pos("(", command);
+    closeParenIndex = string_last_pos(")", command);
+    
+    if (targetObject == "Player") {
+        global.currentTarget = yeancat;
+    } else if (targetObject == "Center") {
+        global.currentTarget = noone;
+    } else if (ds_map_exists(global.object_references, targetObject)) {
+        global.currentTarget = global.object_references[? targetObject];
     } else {
-        var startParenthesis = string_pos("(", command);
-        var endParenthesis = string_pos(")", command);
-        
-        if (startParenthesis > 0 && endParenthesis > startParenthesis) {
-            commandName = string_trim(string_copy(command, 1, startParenthesis - 1));
-            var paramString = string_copy(command, startParenthesis + 1, endParenthesis - startParenthesis - 1);
-            parameters = string_split(paramString, ",");
-            
-            for (var i = 0; i < array_length(parameters); i++) {
-                var param = string_trim(parameters[i]);
-                if (string_char_at(param, 1) == "\"" && string_char_at(param, string_length(param)) == "\"") {
-                    param = string_copy(param, 2, string_length(param) - 2);
-                } else if (string_digits(param) == param) {
-                    param = real(param);
-                }
-                parameters[i] = param;
-            }
-
-            if (commandName == "chat_bubble") {
-                var text = parameters[0];
-                var owner = parameters[1];
-                var choices = [];
-                
-                if (array_length(parameters) > 2 && is_array(parameters[2])) {
-                    var choicesArray = parameters[2];
-                    for (var i = 0; i < array_length(choicesArray); i++) {
-                        if (is_array(choicesArray[i]) && array_length(choicesArray[i]) == 2) {
-                            array_push(choices, choicesArray[i]);
-                        }
-                    }
-                }
-                
-                scr_chat_bubble(text, owner, choices);
-                return;
-            }
+        // If still not found, try to get by asset index as before
+        var asset = asset_get_index(targetObject);
+        if (asset != -1) {
+            global.currentTarget = instance_find(asset, 0);
         } else {
-            commandName = command;
+            global.currentTarget = noone;
         }
     }
-
-    var scriptName = "scr_" + commandName;
+} else {
+    // If no dot notation is used, default to Center for camera_target command
+    if (string_pos("camera_target", command) == 1) {
+        global.currentTarget = noone;
+    }
+}
     
-    if (script_exists(asset_get_index(scriptName))) {
-        script_execute_ext(asset_get_index(scriptName), parameters);
+    if (string_pos("add_action(", command) == 1) {
+        handleDebugMessage("Detected add_action command", true);
+        
+        if (openParenIndex > 0 && closeParenIndex > openParenIndex) {
+            var argsString = string_copy(command, openParenIndex + 1, closeParenIndex - openParenIndex - 1);
+            handleDebugMessage("Arguments string: " + argsString, true);
+            
+            var args = parse_arguments(argsString);
+            handleDebugMessage("Parsed arguments: " + json_stringify(args), true);
+            
+            if (array_length(args) >= 3) {
+                var actionName = string_trim_lr(args[0]);
+                var fullActionCommand = string_trim_lr(args[1]);
+                var actionParams = string_trim_lr(args[2]);
+                
+                handleDebugMessage("Action Name: " + actionName, true);
+                handleDebugMessage("Full Action Command: " + fullActionCommand, true);
+                handleDebugMessage("Action Params: " + actionParams, true);
+                
+                var actionDotIndex = string_pos(".", fullActionCommand);
+                var actionTargetObject = "yeancat";
+                var actionCommand = fullActionCommand;
+                if (actionDotIndex > 0) {
+                    actionTargetObject = string_copy(fullActionCommand, 1, actionDotIndex - 1);
+                    actionCommand = string_delete(fullActionCommand, 1, actionDotIndex);
+                }
+                
+                handleDebugMessage("Target Object: " + actionTargetObject, true);
+                handleDebugMessage("Action Command: " + actionCommand, true);
+                
+                scr_add_action(actionName, actionCommand, actionParams, actionTargetObject);
+            } else {
+                handleDebugMessage("Invalid number of arguments for add_action", true);
+            }
+        } else {
+            handleDebugMessage("Invalid add_action command format", true);
+        }
+        return;
+    } else if (string_pos("execute_action(", command) == 1) {
+    var actionName = string_replace(command, "execute_action(", "");
+    actionName = string_replace(actionName, ")", "");
+    actionName = string_trim(actionName);
+    actionName = string_replace_all(actionName, "\"", ""); // Remove quotes
+    
+    handleDebugMessage("Attempting to execute action: " + actionName, true);
+    handleDebugMessage("Action exists in actionDetails: " + string(ds_map_exists(global.actionDetails, actionName)), true);
+    handleDebugMessage("Action exists in actionGroups: " + string(ds_map_exists(global.actionGroups, actionName)), true);
+    handleDebugMessage("Action exists in actionConditions: " + string(ds_map_exists(global.actionConditions, actionName)), true);
+    
+    if (ds_map_exists(global.actionConditions, actionName)) {
+        var actionConditionData = ds_map_find_value(global.actionConditions, actionName);
+        handleDebugMessage("Executing action condition: " + actionName + " with data: " + json_stringify(actionConditionData), true);
+        execute_action_condition(actionConditionData);
+    } else if (ds_map_exists(global.actionDetails, actionName)) {
+        var encodedCommand = ds_map_find_value(global.actionDetails, actionName);
+        var decodedData = json_parse(base64_decode(encodedCommand));
+        
+        handleDebugMessage("Executing action: " + actionName, true);
+        execute_single_action(decodedData);
+    } else if (ds_map_exists(global.actionGroups, actionName)) {
+        var groupActions = ds_map_find_value(global.actionGroups, actionName);
+        handleDebugMessage("Executing action group: " + actionName, true);
+        for (var i = 0; i < array_length(groupActions); i++) {
+            execute_command("execute_action(" + groupActions[i] + ")");
+        }
     } else {
-        handleDebugMessage("Script not found for command: " + commandName, true);
+        handleDebugMessage("Action/group/condition '" + actionName + "' not found.", true);
+        handleDebugMessage("Contents of global.actionConditions:", true);
+        var key = ds_map_find_first(global.actionConditions);
+        while (!is_undefined(key)) {
+            handleDebugMessage(key + ": " + json_stringify(ds_map_find_value(global.actionConditions, key)), true);
+            key = ds_map_find_next(global.actionConditions, key);
+        }
+    }
+    return;
+} else if (openParenIndex > 0 && closeParenIndex > openParenIndex) {
+        commandName = string_trim_lr(string_copy(command, 1, openParenIndex - 1));
+        var paramString = string_copy(command, openParenIndex + 1, closeParenIndex - openParenIndex - 1);
+        parameters = parse_arguments(paramString);
+    } else {
+        commandName = command;
+    }
+    
+    handleDebugMessage("Command Name: " + commandName, true);
+    handleDebugMessage("Target Object: " + targetObject, true);
+    handleDebugMessage("Parameters: " + json_stringify(parameters), true);
+    
+	if (commandName == "add_action_group") {
+        if (array_length(parameters) == 2) {
+            var groupName = string_trim_lr(parameters[0]);
+            var actionList = json_parse(parameters[1]);
+            scr_add_action_group(groupName, actionList);
+        } else {
+            handleDebugMessage("Invalid number of arguments for add_action_group", true);
+        }
+        return;
+    }
+	
+if (commandName == "spawn_boss") {
+    if (array_length(parameters) == 1 && is_array(parameters[0])) {
+        scr_spawn_boss(parameters[0]);
+    } else {
+        handleDebugMessage("Invalid parameters for spawn_boss command. Expected an array.", true);
     }
 }
 
-Script: execute_command
-File: execute_command.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"execute_command",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"execute_command",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
+    if (commandName == "chat_bubble") {
+    if (array_length(parameters) >= 1) {
+        var text = is_string(parameters[0]) ? json_parse(parameters[0]) : parameters[0];
+        var choices = (array_length(parameters) > 1) ? (is_string(parameters[1]) ? json_parse(parameters[1]) : parameters[1]) : [];
+        scr_chat_bubble(text, targetObject, choices);
+    } else {
+        handleDebugMessage("Invalid number of arguments for chat_bubble", true);
+    }
+    return;
+}
+    
+    var scriptName = "scr_" + commandName;
+    if (script_exists(asset_get_index(scriptName))) {
+        if (is_array(parameters) && array_length(parameters) > 0) {
+            // If there's only one parameter and it's a string representation of an array, parse it
+            if (array_length(parameters) == 1 && string_char_at(parameters[0], 1) == "[") {
+                parameters = json_parse(parameters[0]);
+            }
+            script_execute_ext(asset_get_index(scriptName), parameters);
+        } else {
+            script_execute(asset_get_index(scriptName));
+        }
+    } else {
+        handleDebugMessage("Script not found for command: " + commandName, true);
+    }
 }
 
 Script: update_chat_input_visuals
 File: update_chat_input_visuals.gml
 Code:
 function update_chat_input_visuals() {
-    var inputText = string_trim(global.commandBuffer);
-    var firstChar = string_char_at(inputText, 1);
+    var inputLines = string_split(global.commandBuffer, global.intentionalLineBreak);
+    var finalColor = global.defaultTextColor;
+    var hasError = false;
+    var wrappedText = "";
     
-    if (inputText == "") {
-        global.textColor = global.defaultTextColor;
-        return;
-    }
-    
-    if (firstChar != "/") {
-        global.textColor = global.defaultTextColor;
-        return;
-    }
-    
-    if (string_length(inputText) == 1) {
-        global.textColor = c_white;
-        return;
-    }
-    
-    var command = string_delete(inputText, 1, 1);
-    var hasPermission = check_permission_command(command);
-    var isZeroArgCommand = ds_map_exists(global.commandDetails, command) && !ds_map_exists(global.commandDetails, command + "(");
-    
-    if (isZeroArgCommand) {
-        global.textColor = hasPermission ? c_lime : c_red;
-    } else if (ds_map_exists(global.commandDetails, command + "(")) {
-        var openParenPos = string_pos("(", inputText);
-        if (openParenPos == 0) {
-            global.textColor = c_aqua;
-        } else {
-            var closeParenPos = string_pos(")", inputText);
-            if (closeParenPos > openParenPos) {
-                global.textColor = hasPermission ? c_lime : c_red;
+    for (var i = 0; i < array_length(inputLines); i++) {
+        var inputText = inputLines[i];
+        var lineColor = global.defaultTextColor;
+        
+        var wrappedLine = wrap_chat_text(inputText, global.wrapWidth);
+        wrappedText += wrappedLine;
+        if (i < array_length(inputLines) - 1) {
+            wrappedText += global.intentionalLineBreak;
+        }
+       
+        if (string_starts_with(inputText, "/")) {
+            var dotIndex = string_pos(".", inputText);
+            var openParenIndex = string_pos("(", inputText);
+            var commandStart, commandEnd;
+            
+            if (dotIndex > 0 && (openParenIndex == 0 || dotIndex < openParenIndex)) {
+                commandStart = dotIndex + 1;
             } else {
-                global.textColor = c_aqua;
+                commandStart = 2;
+            }
+            
+            commandEnd = openParenIndex > 0 ? openParenIndex : string_length(inputText) + 1;
+            var command = string_copy(inputText, commandStart, commandEnd - commandStart);
+            
+            var hasPermission = check_permission_command(command);
+            var commandExists = ds_map_exists(global.commandDetails, command + "(") || ds_map_exists(global.commandDetails, command);
+            var requiresParentheses = ds_map_exists(global.commandDetails, command + "(");
+            
+            if (!commandExists) {
+                lineColor = c_pink;
+            } else if (!hasPermission) {
+                lineColor = c_red;
+                hasError = true;
+            } else {
+                var openParenPos = string_pos("(", inputText);
+                var closeParenPos = string_last_pos(")", inputText);
+                
+                if (requiresParentheses) {
+                    if (openParenPos == 0) {
+                        lineColor = c_aqua;
+                    } else if (closeParenPos == 0 || !are_brackets_balanced(inputText)) {
+                        lineColor = c_yellow;
+                    } else {
+                        var params = string_copy(inputText, openParenPos + 1, closeParenPos - openParenPos - 1);
+                        var isValid = are_params_valid(params);
+                        lineColor = isValid ? c_lime : c_yellow;
+                    }
+                } else {
+                    lineColor = c_lime;
+                }
             }
         }
-    } else {
-        global.textColor = c_pink;
+        
+        if (lineColor != global.defaultTextColor) {
+            finalColor = lineColor;
+        }
+        
+        if (lineColor == c_red) {
+            hasError = true;
+            break;
+        }
     }
-}
-//// Function to update the color of the chatbox text based on command input
-//function update_chat_input_visuals() {
-//    var inputText = string_trim(global.commandBuffer);
-//    var firstChar = string_char_at(inputText, 1);
-
-//    if (inputText == "") {
-//        global.textColor = global.defaultTextColor;
-//    } else if (firstChar == "/") {
-//        if (string_length(inputText) == 1) {
-//            global.textColor = c_white; // Initial '/' is white
-//        } else {
-//            var commandEnd = string_pos(" ", inputText);
-//            if (commandEnd == 0) commandEnd = string_length(inputText);
-//            var argsStart = string_pos("(", inputText);
-//            var argsEnd = string_pos(")", inputText);
-
-//            // Adjust the commandEnd if "(" is part of the command
-//            if (argsStart > 0 && argsStart < commandEnd) {
-//                commandEnd = argsStart;
-//            }
-//            var command = string_copy(inputText, 2, commandEnd - 1);
-//            var hasPermission = check_permission_command(command);
-
-//            // Ensure the command is valid before changing the color based on arguments
-//            if (ds_map_exists(global.commandDetails, command)) {
-//                // Call handleCommandWithArgs to manage the text color based on command validation
-//                global.textColor = handleCommandWithArgs(argsStart, argsEnd, command, hasPermission);
-//            } else {
-//                // If the command is not valid, do not turn it aqua just for typing '('
-//                global.textColor = c_pink;  // Set to pink as the command is not recognized
-//            }
-//        }
-//    } else {
-//        global.textColor = global.defaultTextColor;
-//    }
-//}
-
-
-
-//// Function to update the color of the chatbox text based on command input
-//function update_chat_input_visuals() {
-//    var inputText = string_trim(global.commandBuffer);
-//    var firstChar = string_char_at(inputText, 1);
-
-//    if (inputText == "") {
-//        global.textColor = global.defaultTextColor;
-//    } else if (firstChar == "/") {
-//        if (string_length(inputText) == 1) {
-//            global.textColor = c_white; // Initial '/' is white
-//        } else {
-//            var commandEnd = string_pos(" ", inputText);
-//            if (commandEnd == 0) commandEnd = string_length(inputText);
-//            var argsStart = string_pos("(", inputText);
-//            var argsEnd = string_pos(")", inputText);
-
-//            // Adjust the commandEnd if "(" is part of the command
-//            if (argsStart > 0 && argsStart < commandEnd) {
-//                commandEnd = argsStart;
-//            }
-//            var command = string_copy(inputText, 2, commandEnd - 1);
-//            var hasPermission = check_permission_command(command);
-
-//            // Ensure the command is valid before changing the color based on arguments
-//            if (ds_map_exists(global.commandDetails, command)) {
-//                // Extract and validate array arguments
-//                var argsString = string_copy(inputText, argsStart + 1, argsEnd - argsStart - 1);
-//                var isValidArray = true;
-
-//                if (string_pos("[", argsString) > 0 && string_pos("]", argsString) > 0) {
-//                    var arrayStart = string_pos("[", argsString);
-//                    var arrayEnd = string_pos("]", argsString);
-//                    var arrayString = string_copy(argsString, arrayStart + 1, arrayEnd - arrayStart - 1);
-//                    var arrayParams = string_split(arrayString, ",");
-
-//                    // Check if each element is a valid parameter
-//                    for (var i = 0; i < array_length(arrayParams); i++) {
-//                        if (string_trim(arrayParams[i]) == "") {
-//                            isValidArray = false;
-//                            break;
-//                        }
-//                    }
-//                }
-
-//                // Check if command parameters are valid
-//                if (isValidArray) {
-//                    global.textColor = handleCommandWithArgs(argsStart, argsEnd, command, hasPermission);
-//                } else {
-//                    global.textColor = c_pink; // Set to pink if the array is invalid
-//                }
-//            } else {
-//                global.textColor = c_pink;  // Set to pink if the command is not recognized
-//            }
-//        }
-//    } else {
-//        global.textColor = global.defaultTextColor;
-//    }
-//}
-
-
-
-//// Function to update the color of the chatbox text based on command input
-//function update_chat_input_visuals() {
-//    var inputText = string_trim(global.commandBuffer);
-//    var firstChar = string_char_at(inputText, 1);
-
-//    if (inputText == "") {
-//        global.textColor = global.defaultTextColor;
-//    } else if (firstChar == "/") {
-//        if (string_length(inputText) == 1) {
-//            global.textColor = c_white; // Initial '/' is white
-//        } else {
-//            var commandEnd = string_pos(" ", inputText);
-//            if (commandEnd == 0) commandEnd = string_length(inputText);
-//            var argsStart = string_pos("(", inputText);
-//            var argsEnd = string_pos(")", inputText);
-
-//            // Adjust the commandEnd if "(" is part of the command
-//            if (argsStart > 0 && argsStart < commandEnd) {
-//                commandEnd = argsStart;
-//            }
-//            var command = string_copy(inputText, 2, commandEnd - 1);
-//            var hasPermission = check_permission_command(command);
-
-//            // Ensure the command is valid before changing the color based on arguments
-//            if (ds_map_exists(global.commandDetails, command)) {
-//                // Extract and validate array arguments
-//                var argsString = string_copy(inputText, argsStart + 1, argsEnd - argsStart - 1);
-//                var isValidArray = true;
-
-//                if (string_pos("[", argsString) > 0 && string_pos("]", argsString) > 0) {
-//                    var arrayStart = string_pos("[", argsString);
-//                    var arrayEnd = string_pos("]", argsString);
-//                    var arrayString = string_copy(argsString, arrayStart + 1, arrayEnd - arrayStart - 1);
-//                    var arrayParams = string_split(arrayString, ",");
-
-//                    // Check if each element is a valid parameter
-//                    for (var i = 0; i < array_length(arrayParams); i++) {
-//                        if (string_trim(arrayParams[i]) == "") {
-//                            isValidArray = false;
-//                            break;
-//                        }
-//                    }
-//                }
-
-//                // Call `handleCommandWithArgs` to manage the text color based on command validation
-//                if (isValidArray) {
-//                    global.textColor = handleCommandWithArgs(argsStart, argsEnd, command, hasPermission);
-//                } else {
-//                    global.textColor = c_pink; // Set to pink if the array is invalid
-//                }
-//            } else {
-//                // If the command is not valid, do not turn it aqua just for typing '('
-//                global.textColor = c_pink;  // Set to pink as the command is not recognized
-//            }
-//        }
-//    } else {
-//        global.textColor = global.defaultTextColor;
-//    }
-//}
-
-
-
-
-
-
-
-
-
-
-Script: update_chat_input_visuals
-File: update_chat_input_visuals.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"update_chat_input_visuals",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"update_chat_input_visuals",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
-}
-
-Script: parse_data_types
-File: parse_data_types.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"parse_data_types",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"parse_data_types",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
+    
+    global.commandBuffer = wrappedText;
+    global.textColor = hasError ? c_red : finalColor;
+    
+    show_debug_message("[Client] Command buffer after update_chat_input_visuals: " + global.commandBuffer);
 }
 
 Script: parse_data_types
@@ -14526,82 +14214,44 @@ function parse_data_types(argumentsArray) {
 
 
 Script: parse_arguments
-File: parse_arguments.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"parse_arguments",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"parse_arguments",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
-}
-
-Script: parse_arguments
 File: parse_arguments.gml
 Code:
-/// @function parse_arguments(argsString)
-/// @description Parses a string containing command arguments into an array
 function parse_arguments(argsString) {
-    var params = [];
-    var inString = false;
-    var inArray = false;
-    var currentParam = "";
-    var currentChar;
-
+    handleDebugMessage("Parsing arguments: " + argsString, true);
+    var args = [];
+    var currentArg = "";
+    var inQuotes = false;
+    var bracketDepth = 0;
+    var arrayDepth = 0;
+    
     for (var i = 1; i <= string_length(argsString); i++) {
-        currentChar = string_char_at(argsString, i);
-
-        if (currentChar == "\"" && !inArray) {
-            inString = !inString; // Toggle string mode
-            currentParam += currentChar;
-        } else if (currentChar == "[" && !inString) {
-            inArray = true;
-            currentParam += currentChar;
-        } else if (currentChar == "]" && !inString) {
-            inArray = false;
-            currentParam += currentChar;
-        } else if (currentChar == "," && !inString && !inArray) {
-            params[array_length(params)] = string_trim(currentParam);
-            currentParam = "";
+        var char = string_char_at(argsString, i);
+        
+        if (char == "\"" && string_char_at(argsString, i - 1) != "\\") {
+            inQuotes = !inQuotes;
+        }
+        
+        if (!inQuotes) {
+            if (char == "[") arrayDepth++;
+            if (char == "]") arrayDepth--;
+            if (char == "(") bracketDepth++;
+            if (char == ")") bracketDepth--;
+        }
+        
+        if (char == "," && bracketDepth == 0 && arrayDepth == 0 && !inQuotes) {
+            array_push(args, string_trim(currentArg));
+            currentArg = "";
         } else {
-            currentParam += currentChar;
+            currentArg += char;
         }
     }
-
-    if (string_length(currentParam) > 0) {
-        // Remove surrounding quotes if the entire parameter is a quoted string
-        if (string_length(currentParam) >= 2 && string_char_at(currentParam, 1) == "\"" && string_char_at(currentParam, string_length(currentParam)) == "\"") {
-            currentParam = string_delete(currentParam, string_length(currentParam), 1);
-            currentParam = string_delete(currentParam, 1, 1);
-        }
-
-        params[array_length(params)] = string_trim(currentParam);
+    
+    if (currentArg != "") {
+        array_push(args, string_trim(currentArg));
     }
-
-    return params;
-}
-
-Script: scr_save_game
-File: scr_save_game.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"scr_save_game",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"scr_save_game",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
+    
+    handleDebugMessage("Parsed arguments: " + json_stringify(args), true);
+    return args;
 }
 
 Script: scr_save_game
@@ -14868,7 +14518,7 @@ for (var i=0; i<array_length(master.clan_info); i ++) {
 
 	}
 
-handleDebugMessage("Saved Game", true);
+handleDebugMessage("Saved Game", false);
 
 var save_string = json_encode(save_data);
 	ds_map_destroy(save_data);
@@ -15306,22 +14956,5 @@ if playername = "" {
 }
 
 
-
-Script: scr_load_game
-File: scr_load_game.yy
-Code:
-{
-  "$GMScript":"v1",
-  "%Name":"scr_load_game",
-  "isCompatibility":false,
-  "isDnD":false,
-  "name":"scr_load_game",
-  "parent":{
-    "name":"Scripts",
-    "path":"folders/Scripts.yy",
-  },
-  "resourceType":"GMScript",
-  "resourceVersion":"2.0",
-}
 
 == Related Logs ==
