@@ -890,8 +890,8 @@ xpto=2
 xpcount=0
 xpbuff=0;
 
-spawnthings=false;
-spawnenemies=false;
+spawnthings=true;
+spawnenemies=true;
 
 //key for xp
 keypitch=1
